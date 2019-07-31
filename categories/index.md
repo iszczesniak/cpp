@@ -1,5 +1,9 @@
 <!-- -*- coding: utf-8 -*- -->
 
+---
+title: Expression categories
+---
+
 # Introduction
 
 ## The value of an expression
