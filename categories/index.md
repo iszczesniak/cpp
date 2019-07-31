@@ -26,7 +26,9 @@ The value of an expression has:
 
 * category (e.g., lvalue, rvalue) - known at compile time.
 
+{% highlight C++ %}
 {% include_relative tmp-fun.cc %}
+{% endhighlight %}
 
 %************************************************************************
 
