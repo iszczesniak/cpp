@@ -6,24 +6,18 @@
 
 An expression is:
 
-* a literal: ```C++ 3.14```
-* a variable ```C++ x```
-* an operator with operands: ```C++ x + y```
-* a function call: ``C++ foo(x)```
+* a literal: ```3.14```
+* a variable ```x```
+* an operator with operands: ```x + y```
+* a function call: ```foo(x)```
 
-  \red{Wartość wyrażenia} jest wynikiem opracowania wyrażenia.
+*The value of an expression* is the result of evaluating the expression.
 
-  \vspace{0.5cm}
-  
-  Wartość wyrażenia ma:
+The value of an expression has:
 
-  \begin{itemize}
-  \item typ (np.~int, bool, klasa A) - znany w czasie kompilacji,
-  \item wartość typu (np.~5, false, A()) - znana w czasie uruchomienia,
-  \item kategorię (l-wartość lub r-wartość) - znana w czasie kompilacji.
-  \end{itemize}
-
-\end{frame}
+* type (e.g., ```int```, ```bool```, ```class A```) - known at compile time,
+* type value (e.g., ```5```, ```false```, ```A()```) - known at run time,
+* category (e.g., lvalue, rvalue) - known at compile time.
 
 %************************************************************************
 
