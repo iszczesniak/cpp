@@ -28,6 +28,8 @@ The value of an expression has:
 
 * category (e.g., lvalue, rvalue) - known at compile time.
 
+{% include incomplete.cc %}
+
 %************************************************************************
 
 \subsection{Historia: CPL, C, C++98}
