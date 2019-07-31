@@ -11,7 +11,8 @@ An expression is:
 * an operator with operands: ```x + y```
 * a function call: ```foo(x)```
 
-*The value of an expression* is the result of evaluating the expression.
+**The value of an expression** is the result of evaluating the
+  expression.
 
 The value of an expression has:
 
