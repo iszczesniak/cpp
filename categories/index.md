@@ -1,24 +1,15 @@
 <!-- -*- coding: utf-8 -*- -->
 
-Author: Ireneusz Szcześniak, PhD
-
-Title: Expression categories
-
-Date: Summer 2019
-
 # Introduction
 
 ## The value of an expression
 
-  Wyrażeniem jest:
-  \begin{itemize}
-  \item literał: \code{3.14}
-  \item zmienna: \code{x}
-  \item operator z operandami: \code{x + y}
-  \item wywołanie funkcji: \code{foo(x)}
-  \end{itemize}
+An expression is:
 
-  \vspace{0.5cm}
+* a literal: ```C++ 3.14```
+* a variable ```C++ x```
+* an operator with operands: ```C++ x + y```
+* a function call: ``C++ foo(x)```
 
   \red{Wartość wyrażenia} jest wynikiem opracowania wyrażenia.
 
@@ -750,46 +741,6 @@ Date: Summer 2019
 
   \item Każde wyrażenie jest l-wartością albo r-wartością.
 
-  \end{itemize}
-
-\end{frame}
-
-%************************************************************************
-
-\subsection{Dziękuję}
-
-\begin{frame}[plain]
-
-  \begin{center}
-    \huge Dziękuję za uwagę.
-  \end{center}
-
-\end{frame}
-
-\end{document}
-
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-
-\section{}
-
-\begin{frame}
-
-  \frametitle{}
-
-  \begin{itemize}
-  \item
   \end{itemize}
 
 \end{frame}
