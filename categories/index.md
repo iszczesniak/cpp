@@ -8,23 +8,23 @@ title: Expression categories
 
 An expression is:
 
-* a literal: ```3.14```
+* a literal: `3.14`
 * a variable ```x```
 * an operator with operands: ```x + y```
 * a function call: ```foo(x)```
 
-**The value of an expression** is the result of evaluating the
+**The value of an expression** is the result of evaluating an
   expression.
 
 The value of an expression has:
 
-* a type (e.g., ```int```, ```bool```, ```class A```) - known at
-  compile time,
+* a type (e.g., ```int```, ```bool```, ```class A```) known at compile
+  time,
 
-* a value of the type (e.g., ```5```, ```false```, ```A()```) - known
-  at run time,
+* a value of the type (e.g., ```5```, ```false```, ```A()```) known at
+  run time,
 
-* category (e.g., lvalue, rvalue) - known at compile time.
+* a category (e.g., lvalue, rvalue) known at compile time.
 
 {% highlight C++ %}
 {% include_relative tmp-fun.cc %}
