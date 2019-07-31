@@ -26,7 +26,7 @@ The value of an expression has:
 
 * category (e.g., lvalue, rvalue) - known at compile time.
 
-{% include incomplete.cc %}
+{% include_relative tmp-fun.cc %}
 
 %************************************************************************
 
