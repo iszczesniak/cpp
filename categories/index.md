@@ -1,37 +1,14 @@
-% -*- coding: utf-8 -*-
+<!-- -*- coding: utf-8 -*- -->
 
-\documentclass[compress]{beamer}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{color}
-\usepackage{listings}
+Author: Ireneusz Szcześniak, PhD
 
-\input{beamer.tex}
-\input{listings.tex}
+Title: Expression categories
 
-\begin{document}
+Date: Summer 2019
 
-%************************************************************************
+# Introduction
 
-\title{Kategorie wartości wyrażeń}
-
-\author{dr inż.~Ireneusz Szcześniak}
-
-\date{jesień 2018 roku}
-
-\begin{frame}[plain]
-  \titlepage
-\end{frame}
-
-%************************************************************************
-
-\section{Wprowadzenie}
-
-\subsection{Wartość wyrażenia}
-
-\begin{frame}
-
-  \frametitle{Wartość wyrażenia}
+## The value of an expression
 
   Wyrażeniem jest:
   \begin{itemize}
