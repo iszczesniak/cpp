@@ -1,6 +1,5 @@
 ---
 title: C++ notes
-layout: post
 ---
 
 # Introduction
