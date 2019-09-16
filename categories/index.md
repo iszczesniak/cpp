@@ -24,7 +24,7 @@ The value of an expression has:
 
 * a category (e.g., lvalue, rvalue) known at compile time.
 
-{% cpp tmp-fun.cc %}
+{% cpp conversion.cc %}
 
 %************************************************************************
 
