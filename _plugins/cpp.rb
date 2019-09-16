@@ -1,15 +1,18 @@
 module Jekyll
-  class CppTag < Liquid::Tag
+  module Tags
+    class CppTag < Liquid::Tag
 
-    def initialize(tag_name, markup, token)
-      super
-      @fn = token
-    end
+      def initialize(tag_name, markup, token)
+        super
+        @fn = markup
+      end
 
-    def render(context)
-      "#{HighlightCode::highlight(#{IncludeRelative, @fn}, C++)}"
+      def render(context)
+        str = "{% highlight C++ linenos %}{% include_relative " + @fn + " %}{% endhighlight %}"
+        Liquid::Template.parse(str).render(context)
+      end
     end
   end
 end
 
-Liquid::Template.register_tag('cpp', Jekyll::CppTag)
+Liquid::Template.register_tag('cpp', Jekyll::Tags::CppTag)
