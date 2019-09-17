@@ -6,14 +6,14 @@ title: Expression categories
 
 ## The value of an expression
 
-An expression is:
+An expression can be:
 
 * a literal: `3.14`,
 * a variable: `x`,
 * an operator with operands: `x + y`,
 * a function call: `foo(x)`.
 
-**The value of an expression** is the result of evaluating an
+*The value of an expression* is the result of evaluating an
   expression.
 
 The value of an expression has:
