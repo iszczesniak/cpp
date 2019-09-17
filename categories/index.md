@@ -13,7 +13,7 @@ An expression can be:
 * an operator with operands: `x + y`,
 * a function call: `foo(x)`.
 
-*The value of an expression* is the result of evaluating an
+**The value of an expression** is the result of evaluating an
   expression.
 
 The value of an expression has:
@@ -28,36 +28,20 @@ The value of an expression has:
 {% include_relative conversion.cc %}
 {% endhighlight %}
 
-%************************************************************************
+## History: CPL, C, C++98
 
-\subsection{Historia: CPL, C, C++98}
+Two expression categories introduced in the CPL language:
 
-\begin{frame}
+* **lvalue** (``left of assignment'' value),
+* **rvalue** (``right of assignment'' value).
 
-  \frametitle{Historia: CPL, C, C++98}
+W języku C wartości są ``lvalue'' (locator value), albo
+``non-lvalue''.  Wartości ``lvalue'' posiadają miejsce w pamięci,
+np.~zmienne.
 
-  Dwie kategorie wartości wyrażenia po raz pierwszy wprowadzono w
-  języku CPL:
-  \begin{itemize}
-  \item lvalue (``left of assignment'' value),
-  \item rvalue (``right of assignment'' value).
-  \end{itemize}
+C++98 przyjęło definicję z C, ale nazwało ``non-lvalue'' jako
+``rvalue''.
 
-  \vspace{0.25cm}
-
-  W języku C wartości są ``lvalue'' (locator value), albo
-  ``non-lvalue''.  Wartości ``lvalue'' posiadają miejsce w pamięci,
-  np.~zmienne.
-
-  \vspace{0.25cm}
-
-  C++98 przyjęło definicję z C, ale nazwało ``non-lvalue'' jako
-  ``rvalue''.
-
-  \vspace{0.25cm}
-
-  Po polsku mówimy \red{l-wartość} i \red{r-wartość}.
-  
 \end{frame}
 
 %************************************************************************
