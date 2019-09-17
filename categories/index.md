@@ -24,7 +24,7 @@ The value of an expression has:
 
 * a category (e.g., lvalue, rvalue) known at compile time.
 
-{% highlight C++ linenos %}
+{% highlight C++ %}
 {% include_relative conversion.cc %}
 {% endhighlight %}
 
