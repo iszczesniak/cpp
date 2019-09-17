@@ -1,5 +1,0 @@
-encoding: UTF-8
-kramdown:
-        input: GFM
-        syntax_highlighter: rouge
-theme: jekyll-theme-minimal
