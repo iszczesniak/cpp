@@ -46,35 +46,25 @@ an lvalue as an **rvalue**.
 
 # Details
 
-\subsection{Kategoria wartości wyrażenia}
+## Category of an expression
 
-\begin{frame}
+In C++, the two most important categories of an expression are: the
+lvalue category and the rvalue category.  In short, an lvalue is an
+expression of the lvalue category, and an rvalue is an expression of
+the rvalue category.
 
-  \frametitle{Kategoria wartości wyrażenia}
+The expression category determines what we can do with the expression.
+Some operations we can do only with an lvalue (e.g., `&x`, i.e.,
+taking the address of variable `x`), other operations only with an
+rvalue.
 
-  Dwie podstawowe kategorie to: l-wartość i r-wartość.  Wyrażenie
-  kategorii l-wartość nazywamy l-wartością, a wyrażenie kategorii
-  r-wartość nazywamy r-wartością.
+Example operations for expression `<expr>`:
 
-  \vspace{0.25 cm}
-
-  Kategoria wartości wyrażenia określa, jakie operacje możemy dalej
-  wykonać na opracowanym wyrażeniu.  Niektóre operacje możemy wykonać
-  wyłącznie na l-wartości (np.~\code{&}), inne wyłącznie na r-wartości
-  (np.~\code{+} dla typu \code{int}).
-  
-  \vspace{0.25 cm}
-
-  Przykładowe operacje na wyrażeniu \code{x}:
-  \begin{itemize}
-  \item przypisanie: \code{x = 1}
-  \item inicjalizacja referencji: \code{<typ referencyjny> y = x}
-  \item pobranie adresu: \code{\&x}
-  \item wyłuskanie: \code{*x}
-  \item inkrementacja: \code{++x, x++}
-  \end{itemize}
-
-\end{frame}
+* assignment: `<expr> = 1`
+* reference initialization: `<reference type> y = <expr>`
+* taking the address: `&<expr>`
+* dereference: `*<expr>`
+* incrementation: `++<expr>`, `<expr>++`
 
 %************************************************************************
 
