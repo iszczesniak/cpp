@@ -30,23 +30,21 @@ The value of an expression has:
 
 ## History: CPL, C, C++98
 
-Two expression categories introduced in the CPL language:
+Two expression categories introduced in the CPL language (about half a
+century ago) were:
 
 * **lvalue** (``left of assignment'' value),
 * **rvalue** (``right of assignment'' value).
 
-W języku C wartości są ``lvalue'' (locator value), albo
-``non-lvalue''.  Wartości ``lvalue'' posiadają miejsce w pamięci,
-np.~zmienne.
+In C, expressions are either lvalues (for **locator** value; a locator
+is something that locates (points to) the value, e.g., the name of a
+variable).  In C, a **non-lvalue** is an expression that is not an
+lvalue.  There are no rvalues in C!
 
-C++98 przyjęło definicję z C, ale nazwało ``non-lvalue'' jako
-``rvalue''.
+C++98 adopted lvalues from C, and named the expressions that are not
+an lvalue as an **rvalue**.
 
-\end{frame}
-
-%************************************************************************
-
-\section{Szczegóły}
+# Details
 
 \subsection{Kategoria wartości wyrażenia}
 
