@@ -24,10 +24,6 @@ The value of an expression has:
 
 * a category (e.g., lvalue, rvalue) known at compile time.
 
-{% highlight C++ %}
-{% include_relative conversion.cc %}
-{% endhighlight %}
-
 ## History: CPL, C, C++98
 
 Two expression categories introduced in the CPL language (about half a
@@ -60,37 +56,27 @@ rvalue.
 
 Example operations for expression `<expr>`:
 
-* assignment: `<expr> = 1`
-* reference initialization: `<reference type> y = <expr>`
-* taking the address: `&<expr>`
+* assign: `<expr> = 1`
+* initialize reference: `<reference type> y = <expr>`
+* take the address: `&<expr>`
 * dereference: `*<expr>`
-* incrementation: `++<expr>`, `<expr>++`
+* increment: `++<expr>`, `<expr>++`
 
 %************************************************************************
 
-\subsection{Nowoczesny C++: zmiany, zmiany, zmiany}
+## Modern C++: changes
 
-\begin{frame}
+In C++17 new expression categories were introduced: prvalue, glvalue,
+and xvalue.  However, the most important categories are still lvalue,
+and rvalue.
 
-  \frametitle{Nowoczesny C++: zmiany, zmiany, zmiany}
+We need to learn the details of the lvalue and rvalue categories to
+understand and efficiently use the modern C++.  For instance, the
+following is a statement from [cppreference.org], which is hard to
+understand without knowing the lvalue and rvalue details:
 
-  W nowoczesnym C++ wprowadzono nowe kategorie wartości wyrażeń
-  (pr-wartość, gl-wartość, x-wartość), jednak podstawą ciągle są
-  l-wartości i r-wartości.
-
-  \vspace{0.25cm}
-
-  Aby precyzyjnie posługiwać się nowoczesnym C++ należy opanować
-  podstawy kategorii wartości wyrażeń.  Na przykład, poniższe
-  kryptyczne zdanie jest częścią definicji l-wartości w C++11!
-
-  \vspace{0.25cm}
-
-  \red{``Even if the variable's type is \emph{rvalue reference}, the
-    expression consisting of its name is an \emph{lvalue
-      expression}.''}
-
-\end{frame}
+> Even if the variable's type is *rvalue reference*, the expression
+> consisting of its name is an *lvalue expression*.
 
 %************************************************************************
 
