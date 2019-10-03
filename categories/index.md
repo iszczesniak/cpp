@@ -108,7 +108,7 @@ The examples of rvalues are:
 # From lvalue to rvalue
 
 The C++ standard defines this *standard conversion*: an lvalue can be
-implicityly (i.e., without a programmer explicityly writing it)
+implicitly (i.e., without a programmer explicitly requesting it)
 converted to an rvalue if needed.
 
 For instance, the `+` operator for an integer type (e.g., `int`)
@@ -117,11 +117,19 @@ operator expects rvalues, and so the lvalues `x` and `y` are converted
 to rvalues.
 
 {% highlight c++ %}
-{% include_relative conversion.cc %}
+{% include_relative conversion1.cc %}
+{% endhighlight %}
+
+For instance, the unary `*` operator (i.e., the dereference operator)
+requires a value of a memory address, which is an rvalue.  However, we
+can use the dereference operator with an lvalue too, because that
+lvalue will be converted to an rvalue.
+
+{% highlight c++ %}
+{% include_relative conversion2.cc %}
 {% endhighlight %}
 
 There is no standard or implicit conversion from an rvalue to an
-lvalue, but a programmer can still explicitly convert an rvalue to an
 lvalue.
 
 %************************************************************************

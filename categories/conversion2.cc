@@ -1,8 +1,6 @@
 int main()
 {
-  int x = 1, y = 2;
-  x + y;
-
+  int x = 1;
   int *p = &x;
   *p;
 }
