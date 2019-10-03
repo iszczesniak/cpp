@@ -140,26 +140,35 @@ The rvalue that you try to pass will not be converted to an lvalue.
 
 %************************************************************************
 
-\subsection{Prizedład: operator ++}
+# Example of the increment operator
 
-\begin{frame}
+The increment operator (i.e., the `++` operator) requires an lvalue as
+its operand.  This requirement applies to both the prefix and the
+suffix versions of the operator.
 
-  \frametitle{Przykład: operator \code{++}}
+{% highlight c++ %}
+{% include_relative increment1.cc %}
+{% endhighlight %}
 
-  Operator inkrementacji (\code{++}) jako argumentu wymaga
-  \red{l-wartości}.  Wyrażenie z operatorem \code{++} jest:
+The expression of the increment operator is:
 
-  \begin{itemize}
-  \item \red{l-wartością} dla operatora prefixowego, np.~\code{++i},
-    bo operator wykonuje działanie na obiekcie \code{i}, a potem
-    zwraca l-referencję na ten obiekt,
-  \item \red{r-wartością} dla operatora sufixowego, np.~\code{i++}, bo
+* an **lvalue** for the **prefix** version of the operator, i.e., the
+  `++<expr>` is an lvalue, because the prefix increment operator
+  returns a reference to the just-incremented object it got as an
+  operand,
+  
+* an **rvalue** for the **suffix** version of the operator, i.e., the
+  `<expr>++` is an rvalue, because the suffix increment operator
+
+\item \red{r-wartością} dla operatora sufixowego, np.~\code{i++}, bo
     operator tworzy kopię obiektu \code{i}, wykonuje działanie na
     obiekcie \code{i}, a potem zwraca stworzoną kopię obiektu.
   \end{itemize}
 
   Dlatego \code{++++i} kompiluje się, a \code{i++++} już nie.
-  
+
+The same apply to the decrement operator.
+
 \end{frame}
 
 %************************************************************************
