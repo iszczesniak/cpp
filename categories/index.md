@@ -105,34 +105,24 @@ The examples of rvalues are:
 * the result of the postfix incrementation: `i++`
 * a function call: `foo()`, if `int foo();`
 
-%************************************************************************
+# From lvalue to rvalue
 
-\subsection{Konwersja z l-wartości na r-wartość}
+The C++ standard defines this *standard conversion*: an lvalue can be
+implicityly (i.e., without a programmer explicityly writing it)
+converted to an rvalue if needed.
 
-\begin{frame}
+For instance, the `+` operator for an integer type (e.g., `int`)
+requires rvalues as its operands.  In the following example the `+`
+operator expects rvalues, and so the lvalues `x` and `y` are converted
+to rvalues.
 
-  \frametitle{Konwersja z l-wartości na r-wartość}
+{% highlight c++ %}
+{% include_relative conversion.cc %}
+{% highlight %}
 
-  L-wartość może być poddana standardowej konwersji do r-wartości.
-
-  \vspace{0.5cm}
-
-  Na przykład, operator \code{+} dla typu \code{int} wymaga r-wartości
-  jako swoich operandów, dlatego poniższy przykład jest poprawny, bo
-  l-wartości, którymi są wyrażenia \code{x} i \code{y}, zostaną
-  poddane konwersji do r-wartości.
-
-  \vspace{0.5cm}
-
-  \code{int x, y;}
-
-  \code{x + y;}
-
-  \vspace{0.5cm}
-
-  Nie ma niejawnej konwersji z r-wartości do l-wartości.
-
-\end{frame}
+There is no standard or implicit conversion from an rvalue to an
+lvalue, but a programmer can still explicitly convert an rvalue to an
+lvalue.
 
 %************************************************************************
 
@@ -251,15 +241,7 @@ The examples of rvalues are:
 
 %************************************************************************
 
-\section{Koniec}
-
-\subsection{Podsumowanie}
-
-\begin{frame}
-
-  \frametitle{Podsumowanie}
-
-  \begin{itemize}
+# Conclusion
 
   \item Kategoria wartości odnosi się do wyrażenia, a nie wartości
     pewnego typu (np.~klasy A albo typu \code{int}).
@@ -271,7 +253,5 @@ The examples of rvalues are:
     dalej wykonać na wyrażeniu.
 
   \item Każde wyrażenie jest l-wartością albo r-wartością.
-
-  \end{itemize}
 
 \end{frame}
