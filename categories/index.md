@@ -76,7 +76,7 @@ understand without knowing the lvalue and rvalue details:
 > Even if the variable's type is *rvalue reference*, the expression
 > consisting of its name is an *lvalue expression*.
 
-# The lvalue category
+## The lvalue category
 
 It's hard to find a short and succinct definition in the C++ standard,
 because the meaning of the lvalue category is spread all over the
@@ -93,7 +93,7 @@ The examples of lvalues are:
 * a string literal: `"Hello World!"`
 * the results of the prefix incrementation: `++i`
 
-# The rvalue category
+## The rvalue category
 
 An expression is an rvalue, if it's not an lvalue.  We can't take the
 address of an rvalue.
@@ -105,7 +105,7 @@ The examples of rvalues are:
 * the result of the sufffix incrementation: `i++`
 * a function call: `foo()`, if `int foo();`
 
-# From lvalue to rvalue
+## From lvalue to rvalue
 
 The C++ standard defines this *standard conversion*: an lvalue can be
 implicitly (i.e., without a programmer explicitly requesting it)
@@ -138,7 +138,7 @@ The rvalue that you try to pass will not be converted to an lvalue.
 {% include_relative conversion3.cc %}
 {% endhighlight %}
 
-# Example of the increment operator
+## Example of the increment operator
 
 The increment operator (i.e., the `++` operator) requires an lvalue as
 its operand.  This requirement applies to both the prefix and the
@@ -168,7 +168,7 @@ Therefore `++++i` compiles, and `i++++` doesn't.
 
 The same applies to the decrement operator.
 
-\subsection{Obiekty tymczasowe}
+# Temporary objects
 
 \begin{frame}
 
