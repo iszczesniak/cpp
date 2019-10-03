@@ -138,8 +138,6 @@ The rvalue that you try to pass will not be converted to an lvalue.
 {% include_relative conversion3.cc %}
 {% endhighlight %}
 
-%************************************************************************
-
 # Example of the increment operator
 
 The increment operator (i.e., the `++` operator) requires an lvalue as
@@ -156,22 +154,19 @@ The expression of the increment operator is:
   `++<expr>` is an lvalue, because the prefix increment operator
   returns a reference to the just-incremented object it got as an
   operand,
-  
+
 * an **rvalue** for the **suffix** version of the operator, i.e., the
   `<expr>++` is an rvalue, because the suffix increment operator
+  returns a copy (which is an rvalue) of the object is got as an
+  operand.
 
-\item \red{r-wartością} dla operatora sufixowego, np.~\code{i++}, bo
-    operator tworzy kopię obiektu \code{i}, wykonuje działanie na
-    obiekcie \code{i}, a potem zwraca stworzoną kopię obiektu.
-  \end{itemize}
+Therefore `++++i` compiles, and `i++++` doesn't.
 
-  Dlatego \code{++++i} kompiluje się, a \code{i++++} już nie.
+{% highlight c++ %}
+{% include_relative increment2.cc %}
+{% endhighlight %}
 
-The same apply to the decrement operator.
-
-\end{frame}
-
-%************************************************************************
+The same applies to the decrement operator.
 
 \subsection{Obiekty tymczasowe}
 
