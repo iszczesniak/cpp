@@ -157,8 +157,8 @@ The expression of the increment operator is:
 
 * an **rvalue** for the **suffix** version of the operator, i.e., the
   `<expr>++` is an rvalue, because the suffix increment operator
-  returns a copy (which is an rvalue) of the object is got as an
-  operand.
+  returns a temporary copy (which is an rvalue) of the object is got
+  as an operand.
 
 Therefore `++++i` compiles, and `i++++` doesn't.
 
