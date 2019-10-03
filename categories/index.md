@@ -91,31 +91,19 @@ The examples of lvalues are:
 * the name of a variable: `x`
 * the name of a function: `foo`
 * a string literal: `"Hello World!"`
-* the results of the prefix incrementation: `++x`
+* the results of the prefix incrementation: `++i`
 
-%************************************************************************
+# The rvalue category
 
-\subsection{Kategoria r-wartość w C++}
+An expression is an rvalue, if it's not an lvalue.  We can't take the
+address of an rvalue.
 
-\begin{frame}
+The examples of rvalues are:
 
-  \frametitle{Kategoria r-wartość w C++}
-
-  Jeżeli wyrażenie nie jest l-wartością, to jest r-wartością.  Nie
-  można pobrać adresu r-wartości.
-
-  \vspace{0.5cm}
-
-  Przykłady r-wartości:
-
-  \begin{itemize}
-  \item literał: \code{1}
-  \item \code{std::string("Hello World!");}
-  \item \code{i++}
-  \item wywołanie funkcji: \code{foo()}, jeżeli \code{int foo();}
-  \end{itemize}
-
-\end{frame}
+* a numeric literal: `1`
+* a temporary object: `std::string("Hello World!")`
+* the result of the postfix incrementation: `i++`
+* a function call: `foo()`, if `int foo();`
 
 %************************************************************************
 
