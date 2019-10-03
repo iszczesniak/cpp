@@ -35,7 +35,7 @@ century ago) were:
 In C, expressions are either lvalues (for **locator** value; a locator
 is something that locates (points to) the value, e.g., the name of a
 variable).  In C, a **non-lvalue** is an expression that is not an
-lvalue.  There are no rvalues in C!
+lvalue.  There is no rvalue in C!
 
 C++98 adopted lvalues from C, and named the expressions that are not
 an lvalue as an **rvalue**.
@@ -102,7 +102,7 @@ The examples of rvalues are:
 
 * a numeric literal: `1`
 * a temporary object: `std::string("Hello World!")`
-* the result of the postfix incrementation: `i++`
+* the result of the sufffix incrementation: `i++`
 * a function call: `foo()`, if `int foo();`
 
 # From lvalue to rvalue
@@ -134,7 +134,7 @@ lvalue.
 
 %************************************************************************
 
-\subsection{Przykład: operator ++}
+\subsection{Prizedład: operator ++}
 
 \begin{frame}
 
@@ -263,3 +263,8 @@ lvalue.
   \item Każde wyrażenie jest l-wartością albo r-wartością.
 
 \end{frame}
+
+<!-- LocalWords: lvalue lvalues rvalue rvalues -->
+<!-- LocalWords: decrementation incrementation -->
+<!-- LocalWords: dereference expr unary -->
+<!-- LocalWords: glvalue prvalue xvalue -->
