@@ -76,29 +76,22 @@ understand without knowing the lvalue and rvalue details:
 > Even if the variable's type is *rvalue reference*, the expression
 > consisting of its name is an *lvalue expression*.
 
-%************************************************************************
+# The lvalue category
 
-\subsection{Kategoria l-wartość w C++}
+It's hard to find a short and succinct definition in the C++ standard,
+because the meaning of the lvalue category is spread all over the
+standard.  But the following is a good description of the lvalue
+category.
 
-\begin{frame}
+If `&<expr>` compiles, then `<expr>` is an lvalue.  That is, if we can
+take the address of an expression, then this expression is an lvalue.
 
-  \frametitle{Kategoria l-wartość w C++}
+The examples of lvalues are:
 
-  Jeżeli kategoria wartości wyrażenia to l-wartość, to można pobrać
-  adres, czyli można wykonać: \code{\&(wyrażenie)}.
-
-  \vspace{0.5cm}
-
-  Przykłady l-wartości:
-
-  \begin{itemize}
-  \item nazwa zmiennej: \code{x}
-  \item nazwa funkcji: \code{foo}
-  \item literał ciągu znaków: \code{"Hello World!";}
-  \item \code{++i}
-  \end{itemize}
-
-\end{frame}
+* the name of a variable: `x`
+* the name of a function: `foo`
+* a string literal: `"Hello World!"`
+* the results of the prefix incrementation: `++x`
 
 %************************************************************************
 
