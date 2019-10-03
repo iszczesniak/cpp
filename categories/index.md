@@ -116,9 +116,9 @@ requires rvalues as its operands.  In the following example the `+`
 operator expects rvalues, and so the lvalues `x` and `y` are converted
 to rvalues.
 
-{% highlight C++ %}
+{% highlight c++ %}
 {% include_relative conversion.cc %}
-{% highlight %}
+{% endhighlight %}
 
 There is no standard or implicit conversion from an rvalue to an
 lvalue, but a programmer can still explicitly convert an rvalue to an
