@@ -160,7 +160,7 @@ The expression of the increment operator is:
   returns a temporary copy (which is an rvalue) of the object is got
   as an operand.
 
-Therefore `++++i` compiles, and `i++++` doesn't.
+Therefore `++++x` compiles, and `x++++` doesn't.
 
 {% highlight c++ %}
 {% include_relative increment2.cc %}
@@ -168,32 +168,32 @@ Therefore `++++i` compiles, and `i++++` doesn't.
 
 The same applies to the decrement operator.
 
-# Temporary objects
+## Temporary objects
 
-\begin{frame}
+A temporary object (or just a temporary) is an object that is created
+when an expression is evaluated.  A temporary is automatically
+destroyed when it is not needed anymore.
 
-  \frametitle{Obiekty tymczasowe}
+A temporary is needed when:
 
-  Obiekt tymczasowy (ang.~temporary) jest tworzony przy:
+* evaluating an operation: `1 + 2`, `string("T") + "4"`
 
-  \begin{itemize}
-    \item opracowywaniu wyrażenia: \code{1 + 2, string("T") + "4";}
-    \item przekazywaniu argumentu wywołania funkcji:\\
-      \code{void foo(const A \&);}\\
-      \code{foo(A());}
-    \item zwracaniu wartości funkcji: \code{string x = foo();}
-    \item rzucaniu wyjątku: \code{throw A();}
-  \end{itemize}
+* when passing an argument to a function: `foo(A())`
 
-  \vspace{0.25cm}
+* when returning an object from a function: `string x = foo();`
 
-  Obiekty tymczasowe w C++98 były zawsze kopiowane.
+* throwing an exception: `throw A();`
 
-  \vspace{0.25cm}
+In C++98 (the first C++ standard) temporaries were always copied.
+However, the return value optimization (RVO) prevented the creation
+and copying of objects retured by value from functions.
 
-  Obiekty tymczasowe w C++11 mogą być \emph{przenoszone}, bo
-  wyrażenia, w których są tworzone (np.~jako argument wywołania
-  funkcji) są r-wartością, którą można wskazać r-referencją.
+Starting with C++11, temporaries can be *moved*, and the creation of
+temporaries can be *elided* (i.e., avoided).
+
+A temporary is an object.  It can be used in an expression that is
+either of the lvalue or rvalue category.  Usually a temporary is
+created in rvalue expressions.
 
 \end{frame}
 
