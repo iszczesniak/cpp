@@ -116,7 +116,7 @@ requires rvalues as its operands.  In the following example the `+`
 operator expects rvalues, and so the lvalues `x` and `y` are converted
 to rvalues.
 
-{% highlight c++ %}
+{% highlight C++ %}
 {% include_relative conversion.cc %}
 {% highlight %}
 
