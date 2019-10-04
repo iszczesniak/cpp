@@ -228,19 +228,17 @@ expression in two ways:
 
 ## Incomplete types and categories of expressions
 
-  Jeżeli typ nie został w pełni zdefiniowany, bo został jedynie
-  zadeklarowany, albo częściowo zdefiniowany jako klasa abstrakcyjna,
-  to typ taki nazywamy \red{typem niepełnym} (ang.~incomplete type).
+An incomplete type is the type that was either:
 
-  \vspace{0.25 cm}
+* declared, but not defined,
 
-  Wyrażenia typu niepełnego mogą mieć tylko kategorię l-wartość.
+* or defined as an abstract class.
 
-  \vspace{0.25 cm}
+Expressions of the incomplete type can only be lvalues.
 
-  {\scriptsize
-  \lstinputlisting[]{incomplete.cc}
-  }
+{% highlight c++ %}
+{% include_relative incomplete.cc %}
+{% endhighlight %}
 
 # Conclusion
 
