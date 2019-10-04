@@ -185,15 +185,18 @@ A temporary is needed when:
 * throwing an exception: `throw A();`
 
 In C++98 (the first C++ standard) temporaries were always copied.
-However, the return value optimization (RVO) prevented the creation
-and copying of objects retured by value from functions.
+However, the return value optimization (RVO) prevented the copying of
+objects retured by value from functions.
 
 Starting with C++11, temporaries can be *moved*, and the creation of
-temporaries can be *elided* (i.e., avoided).
+temporaries can be *elided* (i.e., avoided) by creating object in the
+place where they are supposed to finally be.
 
-A temporary is an object.  It can be used in an expression that is
-either of the lvalue or rvalue category.  Usually a temporary is
-created in rvalue expressions.
+A temporary is an object, not an expression, and so a temporary is
+neither an lvalue nor an rvalue, because an object has no categoty of
+expression.  An object is used in an expression that is either of the
+lvalue or rvalue category.  Usually a temporary is created in rvalue
+expressions.
 
 \end{frame}
 
