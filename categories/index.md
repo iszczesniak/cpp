@@ -200,10 +200,6 @@ expression.  An object is used in an expression that is either of the
 lvalue or rvalue category.  Usually a temporary is created in rvalue
 expressions.
 
-\end{frame}
-
-%************************************************************************
-
 ## Functions and categories of expressions
 
 Function `foo`, (e.g., `void foo(<params>)`) can be used in an
@@ -215,14 +211,14 @@ expression in two ways:
 
   * that expression is an lvalue, 
 
-  * we can take the address of that expression: `$foo`,
+  * we can take the address of that expression: `&foo`,
 
 * by a function call:
 
   * the expression: `foo(<args>)`,
 
   * the category of that expression expression depends on the return
-    type:
+    type of the function called:
 
     * if the return type is a reference type, then that expression is
       an lvalue: e.g., if `int &foo();`, then `foo()` is an lvalue,
