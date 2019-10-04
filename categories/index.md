@@ -86,6 +86,8 @@ category.
 If `&<expr>` compiles, then `<expr>` is an lvalue.  That is, if we can
 take the address of an expression, then this expression is an lvalue.
 
+An expression with a variable name (e.g., `x`) is always an lvalue.
+
 The examples of lvalues are:
 
 * the name of a variable: `x`
@@ -202,39 +204,31 @@ expressions.
 
 %************************************************************************
 
-\subsection{Funkcje a kategorie wartości wyrażeń}
+## Functions and categories of expressions
 
-\begin{frame}
+Function `foo`, (e.g., `void foo(<params>)`) can be used in an
+expression in two ways:
 
-  \frametitle{Funkcje a kategorie wartości wyrażeń}
+* by name only:
 
-  Funkcja o nazwie \code{foo} może być użyta w wyrażeniu na dwa
-  sposoby:
+  * the expression: `foo`,
 
-  \begin{itemize}
-  \item użycie tylko nazwy:
-    \begin{itemize}
-    \item przykładowe wyrażenie: \code{foo},
-    \item w tym przypadku \code{foo} jest l-wartością, bo na nazwę,
-    \item możemy pobrać adres l-wartości, więc \code{&foo} jest OK,
-    \end{itemize}
-  \item wywołanie funkcji:
-    \begin{itemize}
-    \item przykładowe wyrażenie: \code{foo(argumenty)},
-    \item kategoria wartości wyrażenia wywołania funkcji zależy od
-      typu wartości zwracanej przez funkcję:
-      \begin{itemize}
-      \item jeżeli typem jest l-referencja, to wyrażenie jest
-        l-wartością, np.: jeżeli \code{int &foo();}, to \code{foo()}
-        jest l-wartością,
-      \item jeżeli typ nie jest referencyjny, to wyrażenie jest
-        r-wartością: np.: jeżeli \code{int foo();}, to \code{foo()}
-        jest r-wartością.
-      \end{itemize}
-    \end{itemize}
-  \end{itemize}
+  * that expression is an lvalue, 
 
-\end{frame}
+  * we can take the address of that expression: `$foo`,
+
+* by a function call:
+
+  * the expression: `foo(<args>)`,
+
+  * the category of that expression expression depends on the return
+    type:
+
+    * if the return type is a reference type, then that expression is
+      an lvalue: e.g., if `int &foo();`, then `foo()` is an lvalue,
+
+    * if the return type is not a reference type, then that expression
+      is an rvalue: e.g., if `int foo();`, then `foo()` is an rvalue.
 
 %************************************************************************
 
