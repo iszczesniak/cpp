@@ -226,13 +226,7 @@ expression in two ways:
     * if the return type is not a reference type, then that expression
       is an rvalue: e.g., if `int foo();`, then `foo()` is an rvalue.
 
-%************************************************************************
-
-\subsection{Typy niepełne a kategorie wartości wyrażeń}
-
-\begin{frame}[fragile]
-
-  \frametitle{Typy niepełne a kategorie wartości wyrażeń}
+## Incomplete types and categories of expressions
 
   Jeżeli typ nie został w pełni zdefiniowany, bo został jedynie
   zadeklarowany, albo częściowo zdefiniowany jako klasa abstrakcyjna,
@@ -248,24 +242,16 @@ expression in two ways:
   \lstinputlisting[]{incomplete.cc}
   }
 
-\end{frame}
-
-%************************************************************************
-
 # Conclusion
 
-  \item Kategoria wartości odnosi się do wyrażenia, a nie wartości
-    pewnego typu (np.~klasy A albo typu \code{int}).
+An expression has a category.  An value of some type (e.g., of class
+`A` or type `int`) has no category.
 
-  \item Wartość pewnego typu (np.~klasy A albo typu \code{int}) nie ma
-    kategorii wartości.
+What we can do with an expression depends on its category.
 
-  \item Kategoria wartości wyrażenia określa, jakie operacje można
-    dalej wykonać na wyrażeniu.
+Every expression is either an lvalue or an rvalue.
 
-  \item Każde wyrażenie jest l-wartością albo r-wartością.
-
-\end{frame}
+We covered only the basics, there is more: glvalue, prvalue, xvalue.
 
 <!-- LocalWords: lvalue lvalues rvalue rvalues -->
 <!-- LocalWords: decrementation incrementation -->
