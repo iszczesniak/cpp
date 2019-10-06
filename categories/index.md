@@ -32,6 +32,10 @@ century ago) were:
 * **lvalue** (``left of assignment'' value),
 * **rvalue** (``right of assignment'' value).
 
+CPL defined the lvalue and rvalue categories in relation to the
+assignment operator.  These definitions are only of historical
+importance, and do not apply to C++.
+
 In C, expressions are either lvalues (for **locator** value; a locator
 is something that locates (points to) the value, e.g., the name of a
 variable).  In C, a **non-lvalue** is an expression that is not an
@@ -62,11 +66,15 @@ Example operations for expression `<expr>`:
 * dereference: `*<expr>`
 * increment: `++<expr>`, `<expr>++`
 
-## Modern C++: changes
+## The definitions of lvalues and rvalues
 
-In modern C++ new expression categories were introduced: prvalue,
-glvalue, and xvalue.  However, the most important categories are still
-lvalue, and rvalue.
+It is difficult to find a concise and correct definition of lvalues
+and rvalues in C++.  The C++ standard, which has about 1500 pages,
+defines them is various places, as needed, all over the document.
+
+Furthermore, in modern C++ new expression categories were introduced:
+prvalue, glvalue, and xvalue.  However, the most important categories
+are still lvalue, and rvalue.
 
 We need to learn the details of the lvalue and rvalue categories to
 understand and efficiently use the modern C++.  For instance, the
