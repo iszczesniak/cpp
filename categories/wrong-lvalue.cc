@@ -1,6 +1,9 @@
 int main()
 {
   const int i = 1;
-  &i; // jest to l-wartość, bo możemy pobrać adres
-  // i = 2; // błąd!
+
+  &i; // Expression "i" is an lvalue.
+  // &2; // Expression "2" is an rvalue.
+
+  // i = 2; // Error!
 }
