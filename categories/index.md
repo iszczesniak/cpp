@@ -89,15 +89,16 @@ understand without knowing the lvalue and rvalue details:
 
 ## The lvalue category
 
-It's hard to find a short and succinct definition in the C++ standard,
-because the meaning of the lvalue category is spread all over the
-standard.  But the following is a good description of the lvalue
-category.
+It's hard to find a succinct definition in the C++ standard of the
+lvalue category, because the meaning of the lvalue category is spread
+all over the standard.  But the following is a good description of the
+lvalue category.
 
 If `&<expr>` compiles, then `<expr>` is an lvalue.  That is, if we can
 take the address of an expression, then this expression is an lvalue.
 
-An expression with a variable name (e.g., `x`) is always an lvalue.
+**An expression with a variable name (e.g., `x`) is always an
+  lvalue.**
 
 The examples of lvalues are:
 
