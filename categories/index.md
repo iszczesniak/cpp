@@ -128,6 +128,17 @@ The examples of rvalues are:
 * the result of the sufffix incrementation: `i++`
 * a function call: `foo()`, if `int foo();`
 
+The definition of the rvalue as something that should be on the right
+of the assignment operator does not apply to C++.  You can have an
+rvalue on the left of the assignment operator, and the code will
+compile.  For instance, `A()` is an rvalue (that creates a temporary
+object), and we can assign to it, because we defined the assignment
+operator in class `A`:
+
+{% highlight c++ %}
+{% include_relative left-rvalue.cc %}
+{% endhighlight %}
+
 ## From lvalue to rvalue
 
 The C++ standard defines this *standard conversion*: an lvalue can be
