@@ -9,4 +9,5 @@ int main()
   };
 
   A() = 1;
+  A().operator=(1);
 }
