@@ -8,5 +8,5 @@ boo()
 int main()
 {
   B &br = boo();
-  // B(); - błąd, bo r-wartość
+  // B(); // Error: expression "B()" is an rvalue.
 }

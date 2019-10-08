@@ -5,6 +5,6 @@ roo()
 
 int main()
 {
-   // &roo(); - błąd, bo r-wartość.
-   // int &r = roo(); - błąd, bo r-wartość.
+   // &roo(); // Error: "roo()" is an rvalue.
+   // int &r = roo(); // Error: "roo()" is an rvalue.
 }
