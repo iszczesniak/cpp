@@ -29,8 +29,15 @@ The value of an expression has:
 Two expression categories introduced in the CPL language (about half a
 century ago) were:
 
-* **lvalue** (``left of assignment'' value),
-* **rvalue** (``right of assignment'' value).
+* **lvalue**: ``left of assignment'' value, i.e., any expression that
+    can go on the left of the assignment operator is an lvalue,
+
+* **rvalue**: ``right of assignment'' value, i.e., any expression that
+    can go on the right of the assignment operator is an rvalue.
+
+CPL defined the lvalue and rvalue categories in relation to the
+assignment operator.  These definitions are only of historical
+importance, and do not apply to C++.
 
 In C, expressions are either lvalues (for **locator** value; a locator
 is something that locates (points to) the value, e.g., the name of a
@@ -62,11 +69,15 @@ Example operations for expression `<expr>`:
 * dereference: `*<expr>`
 * increment: `++<expr>`, `<expr>++`
 
-## Modern C++: changes
+## The definitions of lvalues and rvalues
 
-In modern C++ new expression categories were introduced: prvalue,
-glvalue, and xvalue.  However, the most important categories are still
-lvalue, and rvalue.
+It is difficult to find a concise and correct definition of lvalues
+and rvalues in C++.  The C++ standard, which has about 1500 pages,
+defines them is various places, as needed, all over the document.
+
+Furthermore, in modern C++ new expression categories were introduced:
+prvalue, glvalue, and xvalue.  However, the most important categories
+are still lvalue, and rvalue.
 
 We need to learn the details of the lvalue and rvalue categories to
 understand and efficiently use the modern C++.  For instance, the
@@ -78,15 +89,16 @@ understand without knowing the lvalue and rvalue details:
 
 ## The lvalue category
 
-It's hard to find a short and succinct definition in the C++ standard,
-because the meaning of the lvalue category is spread all over the
-standard.  But the following is a good description of the lvalue
-category.
+It's hard to find a succinct definition in the C++ standard of the
+lvalue category, because the meaning of the lvalue category is spread
+all over the standard.  But the following is a good description of the
+lvalue category.
 
 If `&<expr>` compiles, then `<expr>` is an lvalue.  That is, if we can
 take the address of an expression, then this expression is an lvalue.
 
-An expression with a variable name (e.g., `x`) is always an lvalue.
+**An expression with a variable name (e.g., `x`) is always an
+  lvalue.**
 
 The examples of lvalues are:
 
@@ -94,6 +106,15 @@ The examples of lvalues are:
 * the name of a function: `foo`
 * a string literal: `"Hello World!"`
 * the results of the prefix incrementation: `++i`
+
+The definition of the lvalue that anything that can go on the left of
+the assignment operator is an lvalue does not apply to C++.  You can
+have an lvalue on the left of the assignment operator, and the code
+will not compile:
+
+{% highlight c++ %}
+{% include_relative wrong-lvalue.cc %}
+{% endhighlight %}
 
 ## The rvalue category
 
@@ -242,7 +263,7 @@ Expressions of the incomplete type can only be lvalues.
 
 # Conclusion
 
-An expression has a category.  An value of some type (e.g., of class
+An expression has a category.  A value of some type (e.g., of class
 `A` or type `int`) has no category.
 
 What we can do with an expression depends on its category.
