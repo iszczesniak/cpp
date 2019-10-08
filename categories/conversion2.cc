@@ -1,7 +1,7 @@
 int main()
 {
   // The dereference operator requires an rvalue.
-  *((int *)0); // OK: "(int *)0" is a null pointer of type "int *".
+  *((int *)0); // OK: "(int *)0" is a null pointer and an rvalue.
   *nullptr; // OK: nullptr is an rvalue.
 
   int x = 1;
