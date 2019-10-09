@@ -141,9 +141,11 @@ operator in class `A`:
 
 ## From lvalue to rvalue
 
-The C++ standard defines this *standard conversion*: an lvalue can be
-implicitly (i.e., without a programmer explicitly requesting it)
-converted to an rvalue if needed.
+The C++ standard defines this *standard conversion*, which is applied
+without the programmer explicitly requesting it:
+
+> An lvalue of a non-function, non-array type T can be converted to an
+> rvalue.
 
 For instance, the `+` operator for an integer type (e.g., `int`)
 requires rvalues as its operands.  In the following example the `+`
