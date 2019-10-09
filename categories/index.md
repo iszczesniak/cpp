@@ -293,19 +293,23 @@ expression in two ways:
   * the category of that expression expression depends on the return
     type of the function called:
 
-    * if the return type is a reference type, then that expression is
-      an lvalue, e.g.:
+    * if the return type is *a reference* type, then that expression
+      is an *lvalue*,
 
-      {% highlight c++ %}
-      {% include_relative lvalue-call.cc %}
-      {% endhighlight %}
+    * if the return type is *not a reference* type, then that
+      expression is *an rvalue*.
 
-    * if the return type is not a reference type, then that expression
-      is an rvalue, e.g:
+This is an example of a function call that is an lvalue:
 
-      {% highlight c++ %}
-      {% include_relative rvalue-call.cc %}
-      {% endhighlight %}
+{% highlight c++ %}
+{% include_relative lvalue-call.cc %}
+{% endhighlight %}
+
+This is an example of a function call that is an rvalue:
+
+{% highlight c++ %}
+{% include_relative rvalue-call.cc %}
+{% endhighlight %}
 
 ## Incomplete types and categories of expressions
 
