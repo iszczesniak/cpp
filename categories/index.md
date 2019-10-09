@@ -294,10 +294,18 @@ expression in two ways:
     type of the function called:
 
     * if the return type is a reference type, then that expression is
-      an lvalue: e.g., if `int &foo();`, then `foo()` is an lvalue,
+      an lvalue, e.g.:
+
+      {% highlight c++ %}
+      {% include_relative lvalue-call.cc %}
+      {% endhighlight %}
 
     * if the return type is not a reference type, then that expression
-      is an rvalue: e.g., if `int foo();`, then `foo()` is an rvalue.
+      is an rvalue, e.g:
+
+      {% highlight c++ %}
+      {% include_relative rvalue-call.cc %}
+      {% endhighlight %}
 
 ## Incomplete types and categories of expressions
 
