@@ -81,8 +81,8 @@ are still lvalue, and rvalue.
 
 We need to learn the details of the lvalue and rvalue categories to
 understand and efficiently use the modern C++.  For instance, the
-following is a statement from <cppreference.org>, which is hard to
-understand without knowing the lvalue and rvalue details:
+following is a statement from <http://cppreference.org>, which is hard
+to understand without knowing the lvalue and rvalue details:
 
 > Even if the variable's type is *rvalue reference*, the expression
 > consisting of its name is an *lvalue expression*.
