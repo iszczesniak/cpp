@@ -228,7 +228,7 @@ expressions.
 ### A temporary as a function argument
 
 An expression with a temporary can be an argument of a function call,
-in which case that argument is an rvalue.  If a function takes an
+in which case that expression is an rvalue.  If a function takes an
 argument by reference (i.e., the parameter of the function is of a
 const reference type), the expression with that parameter name is an
 lvalue even though the reference is bound to an rvalue.
@@ -240,7 +240,7 @@ object, so that we can make sure it's the same object in function
 ### A temporary as an exception
 
 An expression with a temporary can be an argument of the `throw`
-instruction, in which case that argument is an rvalue.  If a catch
+instruction, in which case that expression is an rvalue.  If a catch
 block catches the exception by a reference, the expression with that
 reference name is an lvalue even though the reference is bound to an
 rvalue.
