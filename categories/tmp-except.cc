@@ -12,10 +12,13 @@ int main()
 
   try
     {
+      // "A()" is an rvalue.
       throw A();
     }
+  // Catch the exception by reference.  It's a non-const reference!
   catch (A &a)
     {
+      // "a" is an lvalue.
       std::cout << "catch: " << &a << std::endl;
     }
 }

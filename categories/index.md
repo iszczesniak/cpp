@@ -245,9 +245,31 @@ block catches the exception by a reference, the expression with that
 reference name is an lvalue even though the reference is bound to an
 rvalue.
 
+That example follows.  The constructor outputs the address of the
+object, so that we can make sure it's the same object in function
+`foo`.
+
 {% highlight c++ %}
 {% include_relative tmp-except.cc %}
 {% endhighlight %}
+
+We should catch an exception by reference: if we catch it by value,
+we're going to copy that exception.  Change the example so that an
+exception is caught by value, and you'll see that we get a copy
+(you'll see different addresses).
+
+Interestingly, and as a side note: in the example above, that
+non-const reference is bound to an rvalue.  C++98 states that only a
+const reference can bind to an rvalue, which does not hold in the case
+of catching an exception.  In the example above, I would expect
+`catch(A &a)` to fail to compile, as it should be `catch(const A &a)`.
+Wierd.
+
+Interestingly, and as a side note, a statement block (i.e.,
+`{<statements>}`), can be replaced with a single statement, e.g.,
+`{++i;}` can be replaced with `++i;`.  However, the try and catch
+blocks always have to be blocks, and you cannot remote `{}` even if it
+has a single statement.  Wierd.
 
 ## Functions and categories of expressions
 
