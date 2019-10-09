@@ -8,13 +8,16 @@ struct A
   }
 };
 
+// "a" is a paremeter of a const reference type.
 void
 foo(const A &a)
 {
+  // "a" is an lvalue.
   std::cout << "foo: " << &a << std::endl;
 }
 
 int main()
 {
+  // "A()" is an rvalue.
   foo(A());
 }
