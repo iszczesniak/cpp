@@ -7,6 +7,6 @@ boo()
 
 int main()
 {
-  B &br = boo();
+  &boo(); // OK: "boo()" is an lvalue.
   // B(); // Error: expression "B()" is an rvalue.
 }

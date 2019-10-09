@@ -307,7 +307,8 @@ An incomplete type is the type that was either:
 
 * or defined as an abstract class.
 
-Expressions of the incomplete type can only be lvalues.
+Expressions of the incomplete type can be only lvalues (and so rvalues
+can be only of complete types).
 
 {% highlight c++ %}
 {% include_relative incomplete.cc %}
