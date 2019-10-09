@@ -206,7 +206,8 @@ The same applies to the decrement operator.
 
 A temporary object (or just a temporary) is an object that is created
 when an expression is evaluated.  A temporary is automatically
-destroyed when it is not needed anymore.
+destroyed (i.e., you don't need to explicitly destroy it) when it is
+not needed anymore.
 
 A temporary is needed when:
 
@@ -218,19 +219,27 @@ A temporary is needed when:
 
 * throwing an exception: `throw A();`
 
-In C++98 (the first C++ standard) temporaries were always copied.
-However, the return value optimization (RVO) prevented the copying of
-objects retured by value from functions.
-
-Starting with C++11, temporaries can be *moved*, and the creation of
-temporaries can be *elided* (i.e., avoided) by creating object in the
-place where they are supposed to finally be.
-
 A temporary is an object, not an expression, and so a temporary is
-neither an lvalue nor an rvalue, because an object has no categoty of
-expression.  An object is used in an expression that is either of the
-lvalue or rvalue category.  Usually a temporary is created in rvalue
+neither an lvalue nor an rvalue, because an object has no category of
+expression.  An object is used in an expression that is either an
+lvalue or an rvalue.  Usually a temporary is created in rvalue
 expressions.
+
+### A temporary as a function argument
+
+An expression with a temporary can be an argument of a function call.
+That argument is an rvalue.  If a function takes an argument by
+reference (i.e., the parameter of the function is of a const reference
+type), the expression with that parameter name is an lvalue even
+though the reference is bound to an rvalue.
+
+That example follows.  The constructor outputs the address of the
+object, so that we can make sure it's the same object in function
+`foo`.
+
+{% highlight c++ %}
+{% include_relative tmp-fun.cc %}
+{% endhighlight %}
 
 ## Functions and categories of expressions
 
