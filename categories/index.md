@@ -243,6 +243,10 @@ That example follows.  The constructor outputs the address of the
 object, so that we can make sure it's the same object in function
 `foo`.
 
+{% highlight c++ %}
+{% include_relative tmp-fun.cc %}
+{% endhighlight %}
+
 ### A temporary as an exception
 
 An expression with a temporary can be an argument of the `throw`
