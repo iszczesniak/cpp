@@ -202,6 +202,10 @@ Therefore `++++x` compiles, and `x++++` doesn't.
 {% include_relative increment2.cc %}
 {% endhighlight %}
 
+As a side note, the prefix increment operator has the right-to-left
+associativity, while the suffix increment operator has the
+left-to-right associativity.
+
 The same applies to the decrement operator.
 
 ## Temporary objects
