@@ -9,7 +9,7 @@ The memory model of C++ describes:
 * when data is created and destroyed,
 
 * where (i.e., what part of memory, what data structure) data is
-  allocated,
+  located,
 
 * how data is passed to and returned from a function.
 
