@@ -80,7 +80,7 @@ collection).
 
 The read-write memory stores:
 
-* global and static data in a location of fixed-size,
+* global and static data in a location of fixed size,
 
 * local data at a stack (more specifically, a stack per thread of the
   process); a stack can grow (i.e., the operating system can allocate
