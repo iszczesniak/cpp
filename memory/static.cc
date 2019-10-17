@@ -10,15 +10,17 @@ struct A
   }
 };
 
-void foo()
+void foo(bool flag)
 {
   cout << "foo" << endl;
-  static A a;
+  if (flag)
+    static A a;
 }
 
 int main()
 {
   cout << "Main" << endl;
-  foo();
-  foo();
+  foo(false);
+  foo(true);
+  foo(true);
 }
