@@ -30,6 +30,30 @@ code compiles, but is killed by the operating system with the SIGSEGV
 {% include_relative sigsegv.cc %}
 {% endhighlight %}
 
+All other data is located in the read-write memory, because it can be
+changed by a process.  Every process has its own read-write memory.
+The read-write memory stores:
+
+* global and static data,
+* the heap (a.k.a a free-store), and
+* a stack (more specifically, a stack per thread of the process).
+
+This is an example of global data, which is initialized before
+entering the main function:
+
+{% highlight c++ %}
+{% include_relative global.cc %}
+{% endhighlight %}
+
+This is an example of static stata, which is initialized before its
+first use:
+
+{% highlight c++ %}
+{% include_relative static.cc %}
+{% endhighlight %}
+
+## Deterministic memory model.
+
 <!-- LocalWords: lvalue lvalues rvalue rvalues -->
 <!-- LocalWords: decrementation incrementation -->
 <!-- LocalWords: dereference expr unary -->

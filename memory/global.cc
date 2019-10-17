@@ -3,9 +3,8 @@
 using namespace std;
 
 // This is not a string literal, but a table of characters initialized
-// with a string literal.  It's global and initialized before entering
-// the main function.
-char t[7] = "Hello!";
+// with a string literal.
+char t[] = "Hello!";
 
 int main()
 {
