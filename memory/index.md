@@ -50,10 +50,28 @@ even when there are many processes of the same program.
 
 # What is up to C++
 
-C++ describes how data is managed in the read-write memory.  C++
-strives for time and memory performance, i.e., the performance is of
-the highest importance, as the cost of C++ being more complex, and
-nuanced.
+C++ describes how data are managed in the read-write memory.  C++
+strives for time and memory performance: the performance is of the
+highest importance, but at the cost of C++ being more complex,
+nuanced, and harder to use.
+
+The memory model of C++ is deterministic: we can point out exactly
+where and when data are *destroyed*.  This model leads to efficient
+and carefull programming, as the objects which are not needed anymore
+are immediatelly destroyed.
+
+This comes in stark contrast with other languages, such as Java or C#,
+where a programmer not only cannot exactly say where and when data are
+destroyed, but simply do not care, because their built-in garbage
+collectors take care of that.  The problem is that the garbage
+collectors are nondeterministic, i.e., a programmer does not exactlly
+know where and when data are destroyed.
+
+In the past, the C++ Standard Committee considered a garbage
+collection support, but dropped it for performance reasons.  Nowadays,
+C++ requires no garbage collection since it offers advanced container
+support and the smart pointers, which automatically destroy data when
+needed (which could be considered a form of garbage collection).
 
 The read-write memory stores:
 
