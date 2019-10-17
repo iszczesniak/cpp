@@ -48,7 +48,7 @@ All other data is located in the read-write memory, because it can be
 changed by a process.  Every process has its own read-write memory,
 even when there are many processes of the same program.
 
-# What is up to C++
+## What is up to C++
 
 C++ describes how data are managed in the read-write memory.  C++
 strives for time and memory performance: the performance is of the
@@ -73,28 +73,42 @@ C++ requires no garbage collection since it offers advanced container
 support and the smart pointers, which automatically destroy data when
 needed (which could be considered a form of garbage collection).
 
+# Types of data
+
 The read-write memory stores:
 
 * global and static data,
 
-* dynamic data at the heap (a.k.a a free-store), and
-
 * local data at a stack (more specifically, a stack per thread of the
-  process).
+  process),
 
-This is an example of global data, which is initialized before
-entering the main function:
+* dynamic data at the heap (a.k.a a free-store).
+
+## The global and static data
+
+Global data are initialized before entering the main function:
 
 {% highlight c++ %}
 {% include_relative global.cc %}
 {% endhighlight %}
 
-This is an example of static stata, which is initialized before its
-first use:
+Static data are initialized before its first use:
 
 {% highlight c++ %}
 {% include_relative static.cc %}
 {% endhighlight %}
+
+## The local data
+
+## The dynamic data
+
+# Function calls
+
+## Passing arguments
+
+## Returning values
+
+# Conclusion
 
 <!-- LocalWords: lvalue lvalues rvalue rvalues -->
 <!-- LocalWords: decrementation incrementation -->
