@@ -51,15 +51,14 @@ even when there are many processes of the same program.
 ## What is up to C++
 
 The C++ standard describes how data are managed in the read-write
-memory.  C++ strives for time and memory performance: the performance
-is of the highest importance, but at the cost of C++ being more
-complex, nuanced, and harder to use.  The C++ memory model also
-facilitates a flexible control over data management.  C++ tries to
-keep close to hardware by, e.g., allocating objects on the stack.
-Finally, the memory model of C++ is also deterministic: we can point
-out exactly where and when data are *destroyed*.  This model leads to
-efficient and carefull programming, as the data which are not needed
-anymore are immediatelly destroyed.
+memory.  C++ strives for time and memory performance, and that is
+reflected in the memory model by, e.g., using pointers (keeping close
+to hardware).  Furhermore, C++ also strives for a flexible control
+over data management by, e.g., allowing a programmer to allocate an
+object statically, globally, locally or dynamically.  Finally, the
+memory model of C++ is also *deterministic*: we know exactly when and
+where the data are *destroyed* (so that they are immediatelly
+destroyed when necessary).
 
 C++ is in stark contrast with other languages, such as Java or C#,
 where object management is simplified at the cost of performance, and
@@ -73,8 +72,9 @@ are destroyed.
 In the past, the C++ Standard Committee considered the garbage
 collection support, but dropped it for performance reasons.  Nowadays,
 C++ requires no garbage collection since it offers advanced container
-support and the smart pointers, which automatically destroy data when
-needed (which could be considered a form of garbage collection).
+and smart pointer support, so that data are automatically destroyed
+when necessary (which could be considered a form of garbage
+collection).
 
 # Data and their location
 
@@ -84,7 +84,7 @@ The read-write memory stores:
 
 * local data at a stack (more specifically, a stack per thread of the
   process); a stack can grow (i.e., the operating system can allocate
-  more more memory for it),
+  more memory for it),
 
 * dynamic data at the heap (a.k.a a free-store); a heap can grow.
 
