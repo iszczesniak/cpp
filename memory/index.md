@@ -4,6 +4,20 @@ title: Memory model
 
 # Introduction
 
+The memory model of C++ describes:
+
+* when data is created and destroyed,
+
+* where (i.e., what part of memory, what data structure) data is
+  allocated,
+
+* how data is passed to and returned from a function.
+
+C++ has to respect the basic requirements of an operating system, but
+the rest is up to C++.
+
+## The basic requirements of an operating system
+
 When we run a *program*, it becomes a *process* in an operating
 system, and a *task* a processor is executing.  A process manages its
 memory within the limits imposed by the operating system.  An
@@ -31,12 +45,24 @@ code compiles, but is killed by the operating system with the SIGSEGV
 {% endhighlight %}
 
 All other data is located in the read-write memory, because it can be
-changed by a process.  Every process has its own read-write memory.
+changed by a process.  Every process has its own read-write memory,
+even when there are many processes of the same program.
+
+# What is up to C++
+
+C++ describes how data is managed in the read-write memory.  C++
+strives for time and memory performance, i.e., the performance is of
+the highest importance, as the cost of C++ being more complex, and
+nuanced.
+
 The read-write memory stores:
 
 * global and static data,
-* the heap (a.k.a a free-store), and
-* a stack (more specifically, a stack per thread of the process).
+
+* dynamic data at the heap (a.k.a a free-store), and
+
+* local data at a stack (more specifically, a stack per thread of the
+  process).
 
 This is an example of global data, which is initialized before
 entering the main function:
@@ -51,8 +77,6 @@ first use:
 {% highlight c++ %}
 {% include_relative static.cc %}
 {% endhighlight %}
-
-## Deterministic memory model.
 
 <!-- LocalWords: lvalue lvalues rvalue rvalues -->
 <!-- LocalWords: decrementation incrementation -->
