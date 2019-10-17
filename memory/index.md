@@ -50,39 +50,43 @@ even when there are many processes of the same program.
 
 ## What is up to C++
 
-C++ describes how data are managed in the read-write memory.  C++
-strives for time and memory performance: the performance is of the
-highest importance, but at the cost of C++ being more complex,
-nuanced, and harder to use.
+The C++ standard describes how data are managed in the read-write
+memory.  C++ strives for time and memory performance: the performance
+is of the highest importance, but at the cost of C++ being more
+complex, nuanced, and harder to use.  The C++ memory model also
+facilitates a flexible control over data management.  C++ tries to
+keep close to hardware by, e.g., allocating objects on the stack.
+Finally, the memory model of C++ is also deterministic: we can point
+out exactly where and when data are *destroyed*.  This model leads to
+efficient and carefull programming, as the data which are not needed
+anymore are immediatelly destroyed.
 
-The memory model of C++ is deterministic: we can point out exactly
-where and when data are *destroyed*.  This model leads to efficient
-and carefull programming, as the objects which are not needed anymore
-are immediatelly destroyed.
+C++ is in stark contrast with other languages, such as Java or C#,
+where object management is simplified at the cost of performance, and
+the lack of flexible control.  For instance, such languages allow
+allocation of objects on the heap only, which deteriorates performance
+and flexibility, but enables easy implementation of garbage
+collection.  Some garbage collectors are even further inefficient,
+because they are *nondeterministic*, i.e., it is undefined when data
+are destroyed.
 
-This comes in stark contrast with other languages, such as Java or C#,
-where a programmer not only cannot exactly say where and when data are
-destroyed, but simply do not care, because their built-in garbage
-collectors take care of that.  The problem is that the garbage
-collectors are nondeterministic, i.e., a programmer does not exactlly
-know where and when data are destroyed.
-
-In the past, the C++ Standard Committee considered a garbage
+In the past, the C++ Standard Committee considered the garbage
 collection support, but dropped it for performance reasons.  Nowadays,
 C++ requires no garbage collection since it offers advanced container
 support and the smart pointers, which automatically destroy data when
 needed (which could be considered a form of garbage collection).
 
-# Types of data
+# Data and their location
 
 The read-write memory stores:
 
-* global and static data,
+* global and static data in a location of fixed-size,
 
 * local data at a stack (more specifically, a stack per thread of the
-  process),
+  process); a stack can grow (i.e., the operating system can allocate
+  more more memory for it),
 
-* dynamic data at the heap (a.k.a a free-store).
+* dynamic data at the heap (a.k.a a free-store); a heap can grow.
 
 ## The global and static data
 
