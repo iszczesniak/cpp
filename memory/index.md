@@ -113,11 +113,13 @@ All data local to a function or a scope is allocated on the heap.
 Allocation on the stack is fast: it's only necessary to increase (or
 decrease, depending on the processor type) the stack pointer register
 by the size of the data needed.  No memory allocation is faster than
-this.  If an operating system supports is, the stack can grow
-automatically, i.e., without the process requesting is explicitly.
+this.  If an operating system supports is, the stack can have more
+memory allocated automatically, i.e., without the process requesting
+is explicitly.
 
-The following code tests how big a stack can grow.  A function calls
-itself and prints the number of how many times the function was
+The following code tests how big a stack is, and whether an operating
+system automaticall allocates more memor for the stack.  A function
+calls itself and prints the number of how many times the function was
 recursivelly called.  If we see small numbers (below a million) when
 the process is terminated, the operating system does not automatically
 allocate more memory for the stack.  If we see large numbers (above a
