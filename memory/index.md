@@ -83,8 +83,8 @@ The read-write memory stores:
 * global and static data in a location of fixed size,
 
 * local data at a stack (more specifically, a stack per thread of the
-  process); a stack can grow (i.e., the operating system can allocate
-  more memory for it),
+  process); a stack can be of fixed size or can grow (i.e., the
+  operating system can allocate more memory for it),
 
 * dynamic data at the heap (a.k.a a free-store); a heap can grow.
 
@@ -104,7 +104,37 @@ Static data are initialized before its first use:
 
 ## The local data
 
+All data local to a function or a scope is allocated on the heap.
+
 ## The dynamic data
+
+## Local vs dynamic data
+
+Allocation on the stack is fast: it's only necessary to increase or
+decrease the stack pointer register by the size of the data needed.
+No memory allocation is faster than this.  If an operating system
+supports is, the stack can grow automatically, i.e., without the
+process requesting is explicitly.
+
+The following code tests how big a stack is or can grow.  A function
+calls itself untill printing the number of how many times a function
+was recursivelly called.  If we see small numbers (below a million),
+the operating system does not automatically allocate more memory for
+the stack.  If we see large numbers (above a million or far more),
+then the operating system most likely automatically allocates more
+memory for the stack.
+
+{% highlight c++ %}
+{% include_relative stack_test.cc %}
+{% endhighlight %}
+
+Allocation on the heap is slow, because it's a complex data structure
+which not only allocates and deallocates memory of an arbitrary size,
+but also deals with defragmentation.  An operating system allocates
+more memory for the stack, when the process (i.e., the library, which
+allocates memory) requests it.
+
+Memory localization.  Furthemore, data on the stack is usually l
 
 # Function calls
 
