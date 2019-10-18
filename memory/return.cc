@@ -24,18 +24,19 @@ struct A
   }
 };
 
-void foo(A a)
+A foo()
 {
-  a.hello();
+  return A("foo");
 }
 
-void goo(const A &a)
+A & goo()
 {
-  a.hello();
+  static A a("goo");
+  return a;
 }
 
 int main()
 {
-  foo(A("foo"));
-  goo(A("goo"));
+  foo().hello();
+  goo().hello();
 }

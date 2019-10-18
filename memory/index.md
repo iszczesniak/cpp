@@ -106,7 +106,7 @@ Static data are initialized before its first use:
 
 ## The local data
 
-All data local to a function or a scope is allocated on the heap.
+All data local to a function or a scope is allocated on the stack.
 
 ## The dynamic data
 
@@ -179,6 +179,22 @@ Compile the example with the flag `-fno-elide-constructors`.
 {% endhighlight %}
 
 ## Returning values
+
+A function can return a result either by value or by reference.
+
+If the return type is of a non-reference type, we say that a function
+returns the result by value.  In the deep past that always entailed
+copying the result from one location at the stack to a temporaty on
+the stack, and then usually to its final resting place, e.g., a
+variable.
+
+If the return type is of a reference type, we say that a function
+returns by value.  The reference should be bound to an object that
+outlives the function (i.e., lives after the function exist), i.e.,
+that was not locally created (so it must be dynamically, statically,
+or globally created).  Usually we return a reference to
+dynamically-allocated data as in the case of containers, e.g.,
+`operator[]` of `std::vector`.
 
 ### Return value optimization
 
