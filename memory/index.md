@@ -203,8 +203,6 @@ Compile the example with the flag `-fno-elide-constructors`.
 {% include_relative return.cc %}
 {% endhighlight %}
 
-### Return value optimization
-
 # Constructor elision
 
 # Conclusion
