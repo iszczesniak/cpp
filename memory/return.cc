@@ -26,7 +26,8 @@ struct A
 
 A foo()
 {
-  return A("foo");
+  A a("foo");
+  return a;
 }
 
 A & goo()
