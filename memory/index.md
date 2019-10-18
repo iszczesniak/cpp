@@ -205,6 +205,27 @@ Compile the example with the flag `-fno-elide-constructors`.
 
 # Constructor elision
 
+Since C++11, C++ elides (avoids) constructors (i.e., the copy
+constructor, and the *move* constructor) for temporary or local
+objects that would soon be destroyed.  Instead of creating a
+temporary, an object is created in the final location where it would
+end up.
+
+This is a simple example that demonstrates a constructor elision.
+Compile the example with, then without the flag
+`-fno-elide-constructors`.  Notice the differences at run-time.
+
+{% highlight c++ %}
+{% include_relative default.cc %}
+{% endhighlight %}
+
+Compile the examples of passing arguments and returning values from
+functions but without disabling the constructor elision.  Notice the
+differences.
+
+Prior to C++11, return value optimization (RVO) tried to elide
+constructors for data returned from functions by value.
+
 # Conclusion
 
 <!-- LocalWords: lvalue lvalues rvalue rvalues -->
