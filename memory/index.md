@@ -13,7 +13,8 @@ D`).  The memory model of C++ describes:
 * where (i.e., what part of memory, what data structure) data is
   located,
 
-* how data is passed to and returned from a function.
+* how data is passed to and returned from a function (which is called
+  the call convention).
 
 C++ has to respect the basic requirements of an operating system, but
 the rest is up to C++.
