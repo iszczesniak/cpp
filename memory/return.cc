@@ -40,4 +40,7 @@ int main()
 {
   foo().hello();
   goo().hello();
+
+  A a = foo();
+  a.hello();
 }

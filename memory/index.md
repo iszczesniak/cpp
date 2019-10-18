@@ -175,7 +175,7 @@ This example shows how we pass an argument by value and by reference.
 Compile the example with the flag `-fno-elide-constructors`.
 
 {% highlight c++ %}
-{% include_relative stack_test.cc %}
+{% include_relative args.cc %}
 {% endhighlight %}
 
 ## Returning values
@@ -184,7 +184,7 @@ A function can return a result either by value or by reference.
 
 If the return type is of a non-reference type, we say that a function
 returns the result by value.  In the deep past that always entailed
-copying the result from one location at the stack to a temporaty on
+copying the result from one location at the stack to a temporary on
 the stack, and then usually to its final resting place, e.g., a
 variable.
 
@@ -195,6 +195,13 @@ that was not locally created (so it must be dynamically, statically,
 or globally created).  Usually we return a reference to
 dynamically-allocated data as in the case of containers, e.g.,
 `operator[]` of `std::vector`.
+
+This example shows how to return a result by value and by reference.
+Compile the example with the flag `-fno-elide-constructors`.
+
+{% highlight c++ %}
+{% include_relative return.cc %}
+{% endhighlight %}
 
 ### Return value optimization
 
