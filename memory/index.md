@@ -110,19 +110,19 @@ All data local to a function or a scope is allocated on the heap.
 
 ## Local vs dynamic data
 
-Allocation on the stack is fast: it's only necessary to increase or
-decrease the stack pointer register by the size of the data needed.
-No memory allocation is faster than this.  If an operating system
-supports is, the stack can grow automatically, i.e., without the
-process requesting is explicitly.
+Allocation on the stack is fast: it's only necessary to increase (or
+decrease, depending on the processor type) the stack pointer register
+by the size of the data needed.  No memory allocation is faster than
+this.  If an operating system supports is, the stack can grow
+automatically, i.e., without the process requesting is explicitly.
 
-The following code tests how big a stack is or can grow.  A function
-calls itself untill printing the number of how many times a function
-was recursivelly called.  If we see small numbers (below a million),
-the operating system does not automatically allocate more memory for
-the stack.  If we see large numbers (above a million or far more),
-then the operating system most likely automatically allocates more
-memory for the stack.
+The following code tests how big a stack can grow.  A function calls
+itself and prints the number of how many times the function was
+recursivelly called.  If we see small numbers (below a million) when
+the process is terminated, the operating system does not automatically
+allocate more memory for the stack.  If we see large numbers (above a
+million or far more), then the operating system most likely
+automatically allocates more memory for the stack.
 
 {% highlight c++ %}
 {% include_relative stack_test.cc %}
@@ -130,11 +130,20 @@ memory for the stack.
 
 Allocation on the heap is slow, because it's a complex data structure
 which not only allocates and deallocates memory of an arbitrary size,
-but also deals with defragmentation.  An operating system allocates
-more memory for the stack, when the process (i.e., the library, which
+but also deals with defragmentation, and so several memory reads and
+writes are necessary for an allocation.  An operating system allocates
+more memory for the heap, when the process (i.e., the library, which
 allocates memory) requests it.
 
-Memory localization.  Furthemore, data on the stack is usually l
+Data located on the stack is packed together according to when the
+data was created, and so data that are related are close to each
+other.  This is called localization.  And localization is good,
+becasue the data that a process needs is most likely already in the
+processor memory cache (which caches memory pages), speeding up the
+memory access manyfold.  Data allocated on the heap are usually not
+localized, i.e., they are spead all over the heap memory, which slows
+down memory access, as most likely the data is not in the processor
+memory cache.
 
 # Function calls
 
