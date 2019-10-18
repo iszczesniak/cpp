@@ -1,1 +1,1 @@
-all: global sigsegv static
+all: args elide global sigsegv static

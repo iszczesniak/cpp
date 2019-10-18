@@ -4,7 +4,9 @@ title: Memory model
 
 # Introduction
 
-The memory model of C++ describes:
+C++ processes *data* of *built-in* types (e.g., `int`, `long double`)
+or *user-defined* types (e.g., `struct A`, `class B`, `enum C`, `union
+D`).  The memory model of C++ describes:
 
 * when data is created and destroyed,
 
@@ -149,9 +151,29 @@ memory cache.
 
 # Function calls
 
+When calling a function we pass an argument by either value or by
+reference.  Also, a function can return the result by value or by
+reference.
+
 ## Passing arguments
 
+If a parameter of a function is of a non-reference type, we say that a
+function takes an argument by value, or that we pass an argument to a
+function by value.  The argument (i.e., the argument expression) is
+used to initialize the parameter, which in the past always entailed
+copying the data from the argument to the parameter.
+
+If a parameter of a function is of a reference type, we say that a
+function takes an argument by reference, or that we pass an argument
+to a function by reference.  The reference parameter is initialized by
+the argument expression.  The parameter becomes a name (an alias) for
+the data of the argument expression.
+
 ## Returning values
+
+### Return value optimization
+
+# Constructor elision
 
 # Conclusion
 
