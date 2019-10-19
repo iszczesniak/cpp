@@ -105,6 +105,9 @@ Static data are initialized before its first use:
 {% include_relative static.cc %}
 {% endhighlight %}
 
+In the example above remove `static`, and notice the changes in the
+program output.
+
 ## The local data
 
 All data local to a function or a block scope is allocated on the
