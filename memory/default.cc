@@ -9,7 +9,7 @@ struct A
     cout << "default-ctor" << endl;
   }
 
-  A()
+  A(const A &)
   {
     cout << "copy-ctor" << endl;
   }
@@ -17,9 +17,13 @@ struct A
   
 int main()
 {
+  // That's a function declaration, though in the legacy C++ it used
+  // to mean the default initialization of object "foo".
+  A foo();
+
+  // The equivalent ways of default initialization.
   A a;
-  A a{};
-  A a = A();
-  A a = A{};
-  A a(); // That's a function declaration!
+  A b{};
+  A c = A();
+  A d = A{};
 }
