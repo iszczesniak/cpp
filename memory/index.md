@@ -16,8 +16,8 @@ D`).  The memory model of C++ describes:
 * how data is passed to and returned from a function (which is called
   the call convention).
 
-C++ has to respect the basic requirements of an operating system, but
-the rest is up to C++.
+The memory model of C++ has to respect the basic requirements of an
+operating system, but the rest is up to C++.
 
 ## The basic requirements of an operating system
 
@@ -107,7 +107,11 @@ Static data are initialized before its first use:
 
 ## The local data
 
-All data local to a function or a scope is allocated on the stack.
+All data local to a function or a block scope is allocated on the
+stack.  The local data is automatically destroyed when it goes out of
+scope.  It's not only a great property you can rely on to have your
+data destroyed, but also a necessity since the stack has to be cleaned
+up when the scope ends.
 
 ## The dynamic data
 
