@@ -18,6 +18,7 @@ struct A
 int main()
 {
   A a;
+  A a{};
   A a = A();
   A a = A{};
   A a(); // That's a function declaration!
