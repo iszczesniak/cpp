@@ -113,6 +113,10 @@ scope.  It's not only a great property you can rely on to have your
 data destroyed, but also a necessity since the stack has to be cleaned
 up when the scope ends.
 
+{% highlight c++ %}
+{% include_relative local.cc %}
+{% endhighlight %}
+
 ## The dynamic data
 
 ## Local vs dynamic data
