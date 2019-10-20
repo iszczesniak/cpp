@@ -116,11 +116,21 @@ scope.  It's not only a great property you can rely on to have your
 data destroyed, but also a necessity since the stack has to be cleaned
 up when the scope ends.
 
+Data created locally are destroyed in the reverse order of their
+creation, because the stack is a FILO (first in, last out) structure.
+
 {% highlight c++ %}
 {% include_relative local.cc %}
 {% endhighlight %}
 
 ## The dynamic data
+
+Dynamic data are created on the heap with the `new` operator, and has
+to be destroyed with the `delete` operator.
+
+{% highlight c++ %}
+{% include_relative dynamic.cc %}
+{% endhighlight %}
 
 ## Local vs dynamic data
 
@@ -201,12 +211,11 @@ the stack, and then usually to its final resting place, e.g., a
 variable.
 
 If the return type is of a reference type, we say that a function
-returns by value.  The reference should be bound to an object that
-outlives the function (i.e., lives after the function exist), i.e.,
-that was not locally created (so it must be dynamically, statically,
-or globally created).  Usually we return a reference to
-dynamically-allocated data as in the case of containers, e.g.,
-`operator[]` of `std::vector`.
+returns by reference.  The reference should be bound to data that will
+exist when the function returns (i.e., the data should outlive the
+function).  Containters (e.g., `std::vector`), for instance, return a
+reference to dynamically-allocated data in, for instance, `operator[]`
+or `front` functions.
 
 This example shows how to return a result by value and by reference.
 Compile the example with the flag `-fno-elide-constructors`.

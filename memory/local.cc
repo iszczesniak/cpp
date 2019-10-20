@@ -20,11 +20,13 @@ struct A
 
 int main()
 {
-  A a("function scope");
+  A a("a, function scope");
+  A b("b, function scope");
 
   // Block scope.
   {
-    A a("block scope");
+    A a("a, block scope");
+    A b("b, block scope");
   }
   
   cout << "Bye!" << endl;
