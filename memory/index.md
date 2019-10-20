@@ -125,8 +125,18 @@ creation, because the stack is a FILO (first in, last out) structure.
 
 ## The dynamic data
 
-Dynamic data are created on the heap with the `new` operator, and has
-to be destroyed with the `delete` operator.
+Dynamic data are created on the heap, and should be managed by *smart
+pointers*, which in turn use the low-level functionality of the `new`
+and `delete` operators provided for *raw pointers*.
+
+Data created with the `new` operator has to be eventually destroyed by
+the `delete` operator, otherwise we get a memory leak.  We cannot
+destroy the same data twice, otherwise we get undefined behaviour
+(e.g., a segmentation fault, bugs).
+
+For regular use, a programmer should use the smart pointers, which are
+error-safe but hard to use.  In contrast, raw pointers are error-prone
+but easy to use.
 
 {% highlight c++ %}
 {% include_relative dynamic.cc %}
