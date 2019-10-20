@@ -248,7 +248,7 @@ Compile the example with, then without the flag
 `-fno-elide-constructors`.  Notice the differences at run-time.
 
 {% highlight c++ %}
-{% include_relative default.cc %}
+{% include_relative elide.cc %}
 {% endhighlight %}
 
 Compile the examples of passing arguments and returning values from
