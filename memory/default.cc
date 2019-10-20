@@ -13,6 +13,11 @@ struct A
   {
     cout << "copy-ctor" << endl;
   }
+
+  ~A()
+  {
+    cout << "default-dtor" << endl;
+  }
 };
   
 int main()
