@@ -19,16 +19,16 @@ struct A
     cout << "default-dtor" << endl;
   }
 };
-  
+
 int main()
 {
-  // That's a function declaration, though in the legacy C++ it used
-  // to mean the default initialization of object "foo".
-  A foo();
-
   // The equivalent ways of default initialization.
   A a;
   A b{};
   A c = A();
   A d = A{};
+
+  // That's a function declaration, though in the legacy C++ it used
+  // to mean the default initialization of object "foo".
+  A foo();
 }
