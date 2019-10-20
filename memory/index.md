@@ -136,7 +136,8 @@ destroy the same data twice, otherwise we get undefined behaviour
 
 For regular use, a programmer should use the smart pointers, which are
 error-safe but hard to use.  In contrast, raw pointers are error-prone
-but easy to use.
+but easy to use.  Since smart pointers are C++11 functionality, modern
+code uses the smart pointers, and the legacy code the raw pointers.
 
 {% highlight c++ %}
 {% include_relative dynamic.cc %}
