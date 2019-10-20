@@ -12,6 +12,11 @@ struct A
     cout << "default-ctor" << endl;
   }
 
+  A(const string &name): m_name(name)
+  {
+    cout << "direct-ctor: " << m_name << endl;
+  }
+
   A(const A &a): m_name(a.m_name)
   {
     cout << "copy-ctor: " << m_name << endl;
