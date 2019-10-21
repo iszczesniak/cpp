@@ -184,8 +184,8 @@ memory cache.
 
 # Function calls
 
-When calling a function we pass an argument by either value or by
-reference.  Also, a function can return the result by value or by
+When calling a function we pass an argument by either value or
+reference.  Also, a function can return its result by either value or
 reference.
 
 ## Passing arguments
