@@ -16,8 +16,8 @@ D`).  The memory model of C++ describes:
 * how data is passed to and returned from a function (which is called
   the call convention).
 
-C++ has to respect the basic requirements of an operating system, but
-the rest is up to C++.
+The memory model of C++ has to respect the basic requirements of an
+operating system, but the rest is up to C++.
 
 ## The basic requirements of an operating system
 
@@ -105,11 +105,43 @@ Static data are initialized before its first use:
 {% include_relative static.cc %}
 {% endhighlight %}
 
+In the example above remove `static`, and notice the changes in the
+program output.
+
 ## The local data
 
-All data local to a function or a scope is allocated on the stack.
+All data local to a function or a block scope is allocated on the
+stack.  The local data is automatically destroyed when it goes out of
+scope.  It's not only a great property you can rely on to have your
+data destroyed, but also a necessity since the stack has to be cleaned
+up when the scope ends.
+
+Data created locally are destroyed in the reverse order of their
+creation, because the stack is a FILO (first in, last out) structure.
+
+{% highlight c++ %}
+{% include_relative local.cc %}
+{% endhighlight %}
 
 ## The dynamic data
+
+Dynamic data are created on the heap, and should be managed by *smart
+pointers*, which in turn use the low-level functionality of the `new`
+and `delete` operators provided for *raw pointers*.
+
+Data created with the `new` operator has to be eventually destroyed by
+the `delete` operator, otherwise we get a memory leak.  We cannot
+destroy the same data twice, otherwise we get undefined behaviour
+(e.g., a segmentation fault, bugs).
+
+For regular use, a programmer should use the smart pointers, which are
+error-safe but hard to use.  In contrast, raw pointers are error-prone
+but easy to use.  Since smart pointers are C++11 functionality, modern
+code uses the smart pointers, and the legacy code the raw pointers.
+
+{% highlight c++ %}
+{% include_relative dynamic.cc %}
+{% endhighlight %}
 
 ## Local vs dynamic data
 
@@ -190,12 +222,11 @@ the stack, and then usually to its final resting place, e.g., a
 variable.
 
 If the return type is of a reference type, we say that a function
-returns by value.  The reference should be bound to an object that
-outlives the function (i.e., lives after the function exist), i.e.,
-that was not locally created (so it must be dynamically, statically,
-or globally created).  Usually we return a reference to
-dynamically-allocated data as in the case of containers, e.g.,
-`operator[]` of `std::vector`.
+returns by reference.  The reference should be bound to data that will
+exist when the function returns (i.e., the data should outlive the
+function).  Containters (e.g., `std::vector`), for instance, return a
+reference to dynamically-allocated data in, for instance, `operator[]`
+or `front` functions.
 
 This example shows how to return a result by value and by reference.
 Compile the example with the flag `-fno-elide-constructors`.
@@ -217,7 +248,7 @@ Compile the example with, then without the flag
 `-fno-elide-constructors`.  Notice the differences at run-time.
 
 {% highlight c++ %}
-{% include_relative default.cc %}
+{% include_relative elide.cc %}
 {% endhighlight %}
 
 Compile the examples of passing arguments and returning values from
