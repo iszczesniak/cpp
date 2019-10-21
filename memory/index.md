@@ -139,6 +139,10 @@ error-safe but hard to use.  In contrast, raw pointers are error-prone
 but easy to use.  Since smart pointers are C++11 functionality, modern
 code uses the smart pointers, and the legacy code the raw pointers.
 
+The following example uses the low-level `new` and `delete` operators,
+which is not recommended, but suitable to demonstrate the dynamic
+allocation.
+
 {% highlight c++ %}
 {% include_relative dynamic.cc %}
 {% endhighlight %}
@@ -195,8 +199,8 @@ In C++ arguments are always passed *by value* or *by reference*.
 If a parameter of a function is of a non-reference type, we say that a
 function takes an argument by value, or that we pass an argument to a
 function by value.  The argument (i.e., the argument expression) is
-used to initialize the parameter, which in the past always entailed
-copying the data from the argument to the parameter.
+used to initialize the parameter, which in the legacy C++ always
+entailed copying the data from the argument to the parameter.
 
 If a parameter of a function is of a reference type, we say that a
 function takes an argument by reference, or that we pass an argument
@@ -204,7 +208,7 @@ to a function by reference.  The reference parameter is initialized by
 the argument expression.  The parameter becomes a name (an alias) for
 the data of the argument expression.
 
-This example shows how we pass an argument by value and by reference.
+This example shows how we pass arguments by value and by reference.
 Compile the example with the flag `-fno-elide-constructors`.
 
 {% highlight c++ %}
@@ -213,7 +217,7 @@ Compile the example with the flag `-fno-elide-constructors`.
 
 ## Returning values
 
-A function can return a result either by value or by reference.
+A function can return a result either by value or reference.
 
 If the return type is of a non-reference type, we say that a function
 returns the result by value.  In the deep past that always entailed
