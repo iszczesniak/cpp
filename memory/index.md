@@ -149,11 +149,11 @@ Allocation on the stack is fast: it's only necessary to increase (or
 decrease, depending on the processor type) the stack pointer
 (a.k.a. the stack register) by the size of the data needed.  *No
 memory allocation is faster.* If an operating system supports is, the
-stack can have more memory allocated automatically, i.e., without the
-process requesting is explicitly.
+stack can have more memory allocated automatically when needed, i.e.,
+without the process requesting is explicitly.
 
 The following code tests how big a stack is, and whether an operating
-system automaticall allocates more memor for the stack.  A function
+system automaticall allocates more memory for the stack.  A function
 calls itself and prints the number of how many times the function was
 recursivelly called.  If we see small numbers (below a million) when
 the process is terminated, the operating system does not automatically
