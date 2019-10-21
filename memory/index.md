@@ -220,10 +220,10 @@ Compile the example with the flag `-fno-elide-constructors`.
 A function can return a result either by value or reference.
 
 If the return type is of a non-reference type, we say that a function
-returns the result by value.  In the deep past that always entailed
-copying the result from one location at the stack to a temporary on
-the stack, and then usually to its final resting place, e.g., a
-variable.
+returns the result by value.  In the deep past (before C++ was
+standardized) that always entailed copying the result from one
+location at the stack to a temporary on the stack, and then usually to
+its final resting place, e.g., a variable.
 
 If the return type is of a reference type, we say that a function
 returns by reference.  The reference should be bound to data that will
@@ -232,7 +232,7 @@ function).  Containters (e.g., `std::vector`), for instance, return a
 reference to dynamically-allocated data in, for instance, `operator[]`
 or `front` functions.
 
-This example shows how to return a result by value and by reference.
+This example shows how to return results by value and by reference.
 Compile the example with the flag `-fno-elide-constructors`.
 
 {% highlight c++ %}
@@ -255,9 +255,10 @@ Compile the example with, then without the flag
 {% include_relative elide.cc %}
 {% endhighlight %}
 
-Compile the examples of passing arguments and returning values from
-functions but without disabling the constructor elision.  Notice the
-differences.
+Compile the previous examples of passing arguments to and returning
+results from functions but without disabling the constructor elision.
+Notice that with constructor elision, objects are not copied
+unnecessarily.
 
 Prior to C++11, return value optimization (RVO) tried to elide
 constructors for data returned from functions by value.
