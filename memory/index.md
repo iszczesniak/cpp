@@ -114,11 +114,11 @@ All data local to a function or a scope is allocated on the stack.
 ## Local vs dynamic data
 
 Allocation on the stack is fast: it's only necessary to increase (or
-decrease, depending on the processor type) the stack pointer register
-by the size of the data needed.  No memory allocation is faster than
-this.  If an operating system supports is, the stack can have more
-memory allocated automatically, i.e., without the process requesting
-is explicitly.
+decrease, depending on the processor type) the stack pointer
+(a.k.a. the stack register) by the size of the data needed.  *No
+memory allocation is faster.* If an operating system supports is, the
+stack can have more memory allocated automatically, i.e., without the
+process requesting is explicitly.
 
 The following code tests how big a stack is, and whether an operating
 system automaticall allocates more memor for the stack.  A function
