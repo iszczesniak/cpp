@@ -307,14 +307,14 @@ Second, we try to return a function parameter, which was not created
 by the function, but by the caller:
 
 {% highlight c++ %}
-{% include_relative rvn_no2.cc %}
+{% include_relative rvo_no2.cc %}
 {% endhighlight %}
 
 We try to return static or global data, which has to be available
 after the function returns:
 
 {% highlight c++ %}
-{% include_relative rvn_no2.cc %}
+{% include_relative rvo_no3.cc %}
 {% endhighlight %}
 
 # Conclusion
