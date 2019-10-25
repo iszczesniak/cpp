@@ -239,6 +239,37 @@ Compile the example with the flag `-fno-elide-constructors`.
 {% include_relative return.cc %}
 {% endhighlight %}
 
+# Function call convention
+
+The details on how exactly a function is called is known as the *call
+convention*, which depends on the system architecture, the operating
+system, and the compiler.  C++ does not specify a call convention, but
+some C++ functionality (like the constructor elision and the return
+value optimization) follows from a typical call convention.
+
+Typically, a call convention requires that the caller of the function
+(i.e., the code that calls a function):
+
+* creates the function parameters on the stack,
+
+* allocates memory for the return value on the stack.
+
+Small data may be passsed or returned in processor registers (e.g., a
+for `int foo()`, the return value would be returned in a register,
+e.g., EAX for x86, Linux, and GCC).
+
+Legacy call conventions required the memory for the return value be
+the last data on the stack before a function was called, so that it
+could located with the pointer register.  This, however, entailed
+copying of the return value from that temporary (the last on the
+stack) location to its final destination, e.g., a local variable.
+
+Modern call conventions allow the memory for the return value be
+allocated anywhere in memory (at the stack, at the heap, or in the
+fixed-size memory for the static and global data), and the address be
+passed to a function in a processor register (e.g., RDI for x86,
+Linux, and GCC).
+
 # Constructor elision
 
 Since C++11, C++ elides (avoids) constructors (i.e., the copy
@@ -260,10 +291,44 @@ results from functions but without disabling the constructor elision.
 Notice that with constructor elision, objects are not copied
 unnecessarily.
 
-Prior to C++11, return value optimization (RVO) tried to elide
-constructors for data returned from functions by value.
+Constructor elision for data returned from functions by value.  is
+also called the return value optimization (RVO).
+
+# Return value optimization
+
+RVO not always can take place, because of technical reasons.  First,
+because it's not known at compile-time which data would be returned:
+
+{% highlight c++ %}
+{% include_relative rvo_no1.cc %}
+{% endhighlight %}
+
+Second, we try to return a function parameter, which was not created
+by the function, but by the caller:
+
+{% highlight c++ %}
+{% include_relative rvn_no2.cc %}
+{% endhighlight %}
+
+We try to return static or global data, which has to be available
+after the function returns:
+
+{% highlight c++ %}
+{% include_relative rvn_no2.cc %}
+{% endhighlight %}
 
 # Conclusion
+
+Data can be allocated statically, globally, locally or dynamically.
+
+Allocating memory for local data (at the stack) is ultra fast, while
+for dynamic data (at the heap) is much slower.
+
+Don't use the dynamically-allocated data, if local data is good
+enough.
+
+Passing parameters or return results by value is not that bad, because
+most likely their constructors will be elided.
 
 <!-- LocalWords: lvalue lvalues rvalue rvalues -->
 <!-- LocalWords: decrementation incrementation -->
