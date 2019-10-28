@@ -1,1 +1,1 @@
-all: args dynamic elide global local return sigsegv static
+all: args dynamic elide global local mcc return sigsegv static

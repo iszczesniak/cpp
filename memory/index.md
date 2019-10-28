@@ -255,7 +255,7 @@ Typically, a call convention requires that the caller of the function
 * allocates memory for the return value on the stack.
 
 Small data may be passsed or returned in processor registers (e.g., a
-for `int foo()`, the return value would be returned in a register,
+for `int foo()`, so the return value can be returned in a register,
 e.g., EAX for x86, Linux, and GCC).
 
 Legacy call conventions required the memory for the return value be
@@ -269,6 +269,17 @@ allocated anywhere in memory (at the stack, at the heap, or in the
 fixed-size memory for the static and global data), and the address be
 passed to a function in a processor register (e.g., RDI for x86,
 Linux, and GCC).
+
+The following example demonstrates that the return value can be
+created anywhere (as the modern call convention allows), and not only
+at the stack (as the legacy call convention stipulated).  In the
+example a function returns an object which is created directly in the
+memory location for global and static data, without copying the object
+from the stack as the legacy call convention would require.
+
+{% highlight c++ %}
+{% include_relative mcc.cc %}
+{% endhighlight %}
 
 # Constructor elision
 
