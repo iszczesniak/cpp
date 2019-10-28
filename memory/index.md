@@ -347,7 +347,7 @@ Don't use the dynamically-allocated data, if local data is good
 enough.
 
 Passing parameters or return results by value is not that bad, because
-most likely their constructors will be elided.
+most likely their copying or moving will be elided.
 
 <!-- LocalWords: lvalue lvalues rvalue rvalues -->
 <!-- LocalWords: decrementation incrementation -->
