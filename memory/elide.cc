@@ -41,7 +41,7 @@ int main()
     A c = A();
     A d = A{};
 
-    // These are acceptable, but we don't use them.
+    // Acceptable and interesting, but we don't code like that.
     A e = A(A());
     A f = A{A{}};
   }
@@ -53,7 +53,7 @@ int main()
     A c = A("c");
     A d = A{"d"};
 
-    // These are acceptable, but we don't use them.
+    // Acceptable and interesting, but we don't code like that.
     A e = A(A("e"));
     A f = A{A{"f"}};
   }
