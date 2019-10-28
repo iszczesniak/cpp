@@ -223,7 +223,7 @@ If the return type is of a non-reference type, we say that a function
 returns the result by value.  In the deep past (before C++ was
 standardized) that always entailed copying the result from one
 location on the stack to a temporary on the stack, and then usually to
-its final resting place, e.g., a variable.
+its final location, e.g., a variable.
 
 If the return type is of a reference type, we say that a function
 returns by reference.  The reference should be bound to data that will
@@ -302,27 +302,35 @@ results from functions but without disabling the constructor elision.
 Notice that with constructor elision, objects are not copied
 unnecessarily.
 
-Constructor elision for data returned from functions by value.  is
-also called the return value optimization (RVO).
+When a temporary is passed by value as an argument, that temporary is
+created directly (i.e., with the copy constructor elided) in the
+location of the function parameter.
 
 # Return value optimization
 
+When a result is returned by value from a function, it can be created
+directly (i.e., with the copy constructor elided) in the location for
+the return value.  This is known as the return value optimization
+(RVO).
+
 RVO not always can take place, because of technical reasons.  First,
-because it's not known at compile-time which data would be returned:
+because it's not known which data would be returned, but the data has
+to be created:
 
 {% highlight c++ %}
 {% include_relative rvo_no1.cc %}
 {% endhighlight %}
 
-Second, we try to return a function parameter, which was not created
-by the function, but by the caller:
+Second, because we try to return a function parameter, which was not
+created by the function, but by the caller (i.e., the function cannot
+create the parameter in the location for the return value):
 
 {% highlight c++ %}
 {% include_relative rvo_no2.cc %}
 {% endhighlight %}
 
-We try to return static or global data, which has to be available
-after the function returns:
+Finally, because we try to return static or global data, which has to
+be available after the function returns:
 
 {% highlight c++ %}
 {% include_relative rvo_no3.cc %}
