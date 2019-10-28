@@ -21,12 +21,23 @@ struct A
   }
 };
 
-A foo(A a)
+// Global data.
+A a;
+
+A foo()
+{
+  // This one overshadows the global "a".
+  static A a;
+  return a;
+}
+
+A goo()
 {
   return a;
 }
 
 int main()
 {
-  foo(A());
+  foo();
+  goo();
 }
