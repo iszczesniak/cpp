@@ -340,8 +340,8 @@ be available after the function returns:
 
 Data can be allocated statically, globally, locally or dynamically.
 
-Allocating memory for local data (at the stack) is ultra fast, while
-for dynamic data (at the heap) is much slower.
+Allocating memory for local data (on the stack) is ultra fast, while
+for dynamic data (on the heap) is much slower.
 
 Don't use the dynamically-allocated data, if local data is good
 enough.
