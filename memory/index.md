@@ -85,11 +85,11 @@ The read-write memory stores:
 
 * global and static data in a location of fixed size,
 
-* local data at a stack (more specifically, a stack per thread of the
+* local data on a stack (more specifically, a stack per thread of the
   process); a stack can be of fixed size or can grow (i.e., the
   operating system can allocate more memory for it),
 
-* dynamic data at the heap (a.k.a a free-store); a heap can grow.
+* dynamic data on the heap (a.k.a a free-store); a heap can grow.
 
 ## The global and static data
 
@@ -222,7 +222,7 @@ A function can return a result either by value or reference.
 If the return type is of a non-reference type, we say that a function
 returns the result by value.  In the deep past (before C++ was
 standardized) that always entailed copying the result from one
-location at the stack to a temporary on the stack, and then usually to
+location on the stack to a temporary on the stack, and then usually to
 its final resting place, e.g., a variable.
 
 If the return type is of a reference type, we say that a function
@@ -265,14 +265,14 @@ copying of the return value from that temporary (the last on the
 stack) location to its final destination, e.g., a local variable.
 
 Modern call conventions allow the memory for the return value be
-allocated anywhere in memory (at the stack, at the heap, or in the
+allocated anywhere in memory (on the stack, on the heap, or in the
 fixed-size memory for the static and global data), and the address be
 passed to a function in a processor register (e.g., RDI for x86,
 Linux, and GCC).
 
 The following example demonstrates that the return value can be
 created anywhere (as the modern call convention allows), and not only
-at the stack (as the legacy call convention stipulated).  In the
+on the stack (as the legacy call convention stipulated).  In the
 example a function returns an object which is created directly in the
 memory location for global and static data, without copying the object
 from the stack as the legacy call convention would require.
