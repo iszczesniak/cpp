@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -20,13 +21,17 @@ struct A
   }
 };
 
-A foo()
+A foo(bool flag)
 {
-  return A();
-}
+  // These objects have to be created, and since we don't know which
+  // is going to be returned, both of them have to be created locally.
+  A a, b;
 
-A a = foo();
+  // The returned value must be copied.
+  return flag ? a : b;
+}
 
 int main()
 {
+  foo(true);
 }
