@@ -314,8 +314,8 @@ the return value.  This is known as the return value optimization
 (RVO).
 
 RVO not always can take place, because of technical reasons.  First,
-because it's not known which data would be returned, but the data has
-to be created:
+because we return data, which has to be created prior to deciding
+which data exactly to return:
 
 {% highlight c++ %}
 {% include_relative rvo_no1.cc %}
