@@ -13,8 +13,7 @@ D`).  The memory model of C++ describes:
 * where (i.e., what part of memory, what data structure) data is
   located,
 
-* how data is passed to and returned from a function (which is called
-  the call convention).
+* how data is passed to and returned from a function.
 
 The memory model of C++ has to respect the basic requirements of an
 operating system, but the rest is up to C++.
@@ -241,11 +240,12 @@ Compile the example with the flag `-fno-elide-constructors`.
 
 # Function call convention
 
-The details on how exactly a function is called is known as the *call
-convention*, which depends on the system architecture, the operating
-system, and the compiler.  C++ does not specify a call convention, but
-some C++ functionality (like the constructor elision and the return
-value optimization) follows from a typical call convention.
+The technical details on how exactly a function is called is known as
+the *call convention*, which depends on the system architecture, the
+operating system, and the compiler.  C++ does not specify a call
+convention, but some C++ functionality (like the constructor elision
+and the return value optimization) follows from a typical call
+convention.
 
 Typically, a call convention requires that the caller of the function
 (i.e., the code that calls a function):
@@ -254,9 +254,9 @@ Typically, a call convention requires that the caller of the function
 
 * allocates memory for the return value on the stack.
 
-Small data may be passsed or returned in processor registers (e.g., a
-for `int foo()`, so the return value can be returned in a register,
-e.g., EAX for x86, Linux, and GCC).
+Small data may be passsed or returned in processor registers.  For
+instance, if a function returns an integer, the return value can be
+returned in a register, e.g., EAX for x86, Linux, and GCC.
 
 Legacy call conventions required the memory for the return value be
 the last data on the stack before a function was called, so that it
