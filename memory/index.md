@@ -20,7 +20,7 @@ an operating system, but the rest is up to C++.
 
 ## The basic requirements of an operating system
 
-When we run a *program*, it becomes a *process* in an operating
+When we run a *program*, it becomes a *process* of an operating
 system, and a *task* a processor is executing.  A process manages its
 memory within the limits imposed by the operating system.  An
 operating system offers a process two types of memory: *read-only*,
@@ -30,12 +30,12 @@ The read-only memory stores the code of the program (i.e., the
 processor instructions), and the static data (e.g., string literals).
 This memory is shared by all processes of the same program, which can
 be a substantial saving for a large program run in a large number
-(e.g., Google Chrome).
+(e.g., a web server).
 
 An *unprivileged* task (a *privileged* task is a kernel task, i.e., a
 task of an operating system) cannot do anything that could disturb the
 operating system and other processes.  For instance, an unprivileged
-task cannot write to its read-only memory.  Every processes is an
+task cannot write to its read-only memory.  Every process is an
 unprivileged task.
 
 In the following example we try to write to the read-only memory.  The
@@ -52,15 +52,14 @@ even when there are many processes of the same program.
 
 ## What is up to C++
 
-The C++ standard describes how data are managed in the read-write
-memory.  C++ strives for time and memory performance, and that is
-reflected in the memory organization by, e.g., using pointers (C++
-keeps close to hardware).  Furthermore, C++ also strives for a
-flexible control over data management by, e.g., allowing a programmer
-to allocate an object statically, globally, locally or dynamically.
-Finally, the C++ memory organization is also *deterministic*: we know
-exactly when and where the data are *destroyed* (so that they are
-immediately destroyed when necessary).
+C++ strives for time and memory performance, and that is reflected in
+the memory organization by, e.g., using pointers (C++ keeps close to
+hardware).  Furthermore, C++ also strives for a flexible control over
+data management by, e.g., allowing a programmer to allocate an object
+statically, globally, locally or dynamically.  Finally, the C++ memory
+organization is also *deterministic*: we know exactly when and where
+the data are *destroyed* (so that they are destroyed as soon as no
+longer needed).
 
 C++ is in stark contrast with other languages, such as Java or C#,
 where object management is simplified at the cost of performance, and
@@ -74,9 +73,8 @@ are destroyed.
 In the past, the C++ Standard Committee considered the garbage
 collection support, but dropped it for performance reasons.  Nowadays,
 C++ requires no garbage collection since it offers advanced container
-and smart pointer support, so that data are automatically destroyed
-when necessary (which could be considered a form of garbage
-collection).
+and smart pointer support, which could be considered a form of garbage
+collection.
 
 # Data and their location
 
