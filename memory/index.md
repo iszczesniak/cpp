@@ -6,7 +6,7 @@ title: Memory model
 
 C++ processes *data* of *built-in* types (e.g., `int`, `long double`)
 or *user-defined* types (e.g., `struct A`, `class B`, `enum C`, `union
-D`).  The memory model of C++ describes:
+D`).  The C++ standard describes:
 
 * when data is created and destroyed,
 
@@ -55,11 +55,11 @@ even when there are many processes of the same program.
 The C++ standard describes how data are managed in the read-write
 memory.  C++ strives for time and memory performance, and that is
 reflected in the memory model by, e.g., using pointers (keeping close
-to hardware).  Furhermore, C++ also strives for a flexible control
+to hardware).  Furthermore, C++ also strives for a flexible control
 over data management by, e.g., allowing a programmer to allocate an
 object statically, globally, locally or dynamically.  Finally, the
 memory model of C++ is also *deterministic*: we know exactly when and
-where the data are *destroyed* (so that they are immediatelly
+where the data are *destroyed* (so that they are immediately
 destroyed when necessary).
 
 C++ is in stark contrast with other languages, such as Java or C#,
@@ -130,7 +130,7 @@ and `delete` operators provided for *raw pointers*.
 
 Data created with the `new` operator has to be eventually destroyed by
 the `delete` operator, otherwise we get a memory leak.  We cannot
-destroy the same data twice, otherwise we get undefined behaviour
+destroy the same data twice, otherwise we get undefined behavior
 (e.g., a segmentation fault, bugs).
 
 For regular use, a programmer should use the smart pointers, which are
@@ -156,9 +156,9 @@ stack can have more memory allocated automatically when needed, i.e.,
 without the process requesting is explicitly.
 
 The following code tests how big a stack is, and whether an operating
-system automaticall allocates more memory for the stack.  A function
+system automatically allocates more memory for the stack.  A function
 calls itself and prints the number of how many times the function was
-recursivelly called.  If we see small numbers (below a million) when
+recursively called.  If we see small numbers (below a million) when
 the process is terminated, the operating system does not automatically
 allocate more memory for the stack.  If we see large numbers (above a
 million or far more), then the operating system most likely
@@ -178,10 +178,10 @@ allocates memory) requests it.
 Data located on the stack is packed together according to when the
 data was created, and so data that are related are close to each
 other.  This is called localization.  And localization is good,
-becasue the data that a process needs is most likely already in the
+because the data that a process needs is most likely already in the
 processor memory cache (which caches memory pages), speeding up the
 memory access manyfold.  Data allocated on the heap are usually not
-localized, i.e., they are spead all over the heap memory, which slows
+localized, i.e., they are spread all over the heap memory, which slows
 down memory access, as most likely the data is not in the processor
 memory cache.
 
@@ -227,7 +227,7 @@ its final location, e.g., a variable.
 If the return type is of a reference type, we say that a function
 returns by reference.  The reference should be bound to data that will
 exist when the function returns (i.e., the data should outlive the
-function).  Containters (e.g., `std::vector`), for instance, return a
+function).  Containers (e.g., `std::vector`), for instance, return a
 reference to dynamically-allocated data in, for instance, `operator[]`
 or `front` functions.
 
@@ -254,7 +254,7 @@ Typically, a call convention requires that the caller of the function
 
 * allocates memory for the return value on the stack.
 
-Small data may be passsed or returned in processor registers.  For
+Small data may be passed or returned in processor registers.  For
 instance, if a function returns an integer, the return value can be
 returned in a register, e.g., EAX for x86, Linux, and GCC.
 
