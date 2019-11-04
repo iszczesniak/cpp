@@ -15,8 +15,8 @@ D`).  The C++ standard describes:
 
 * how data is passed to and returned from a function.
 
-The memory model of C++ has to respect the basic requirements of an
-operating system, but the rest is up to C++.
+The C++ memory organization has to respect the basic requirements of
+an operating system, but the rest is up to C++.
 
 ## The basic requirements of an operating system
 
@@ -54,13 +54,13 @@ even when there are many processes of the same program.
 
 The C++ standard describes how data are managed in the read-write
 memory.  C++ strives for time and memory performance, and that is
-reflected in the memory model by, e.g., using pointers (keeping close
-to hardware).  Furthermore, C++ also strives for a flexible control
-over data management by, e.g., allowing a programmer to allocate an
-object statically, globally, locally or dynamically.  Finally, the
-memory model of C++ is also *deterministic*: we know exactly when and
-where the data are *destroyed* (so that they are immediately
-destroyed when necessary).
+reflected in the memory organization by, e.g., using pointers (C++
+keeps close to hardware).  Furthermore, C++ also strives for a
+flexible control over data management by, e.g., allowing a programmer
+to allocate an object statically, globally, locally or dynamically.
+Finally, the C++ memory organization is also *deterministic*: we know
+exactly when and where the data are *destroyed* (so that they are
+immediately destroyed when necessary).
 
 C++ is in stark contrast with other languages, such as Java or C#,
 where object management is simplified at the cost of performance, and
