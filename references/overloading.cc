@@ -37,8 +37,8 @@ main()
 
   const int y = 2;
   const int &ry = y;
-  foo(y); // Always verload #2, an error otherwise.
-  foo(ry); // Always verload #2, an error otherwise.
+  foo(y); // Always overload #2, an error otherwise.
+  foo(ry); // Always overload #2, an error otherwise.
 
   int &&rz = 3;
   foo(3); // Overload #3 if available, overload #2 otherwise.
