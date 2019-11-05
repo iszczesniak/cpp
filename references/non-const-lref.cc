@@ -30,6 +30,9 @@ main()
   // This placement of "&" is confusing: does "&" apply to "y" too?
   // int& z = x, y = 2;
 
+  // IMPORTANT: Now z is an alias of x.  Whenever you see z, just
+  // replace it with x to understand the code below.
+  
   // A reference has no address.  &z is the address of x.
   assert (&z == &x);
 
