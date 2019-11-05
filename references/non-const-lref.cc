@@ -6,44 +6,41 @@ main()
 {
   int x = 1;
 
-  // BŁĄD: brak inicjalizacji.
+  // Can initialize a non-const lvalue reference with an lvalue.
+  int &xr = x;
+
+  // Error: needs initialization.
   // int &a;
 
-  // Stała c.
+  // A const.
   const int c = 300000000;
 
-  // BŁĄD: non-const l-reference cannot bind to a const.
+  // Error: a non-const reference cannot bind to a const.
   // int &r = c;
 
-  // Can't initialize a non-const lvalue-reference with an rvalue.
+  // Error: a non-const lvalue reference cannot bind to an rvalue.
   // int &ncr = 1;
 
-  // Can initialize a non-const lvalue-reference with an lvalue.  The
-  // dereference expression is an lvalue.
-  int &cr = *((int *)nullptr);
-
-  // OK, z raz na zawsze zainicjalizowane.
+  // Initialized alright.
   int &z = x, y = 2;
 
-  // To samo, co wyżej, ale teraz wiadomo, do czego odnosi się &:
+  // The same as above, but this time we know what "&" applies to.
   // int y = 2, &z = x;
 
-  // Ten zapis jest mylący, bo sugeruje, że & odnosi się też do y:
+  // This placement of "&" is confusing: does "&" apply to "y" too?
   // int& z = x, y = 2;
 
-  // Wskaźnik na referencję to wskaźnik na obiekt.
+  // A reference has no address.  &z is the address of x.
   assert (&z == &x);
 
-  // To nie jest reinicjalizacja!  Przypisujemy wartość zmiennej y do
-  // zmiennej x.
+  // This is not a reinitialization!  It's an assignment to x.
   z = y;
 
   // x = 2
   std::cout << "x = " << x << std::endl;
 
-  // Inicjalizujemy l-referencję na podstawie l-wartości z.
+  // Initialize an lvalue reference with an lvalue reference.
   int &zz = z;
-  // Inicjalizacja referencji zz wyżej ma ten sam efekt co, taka
-  // inicjalizacja:
+  // The above has the same effect as this one.
   int &zx = x;
 }
