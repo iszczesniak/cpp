@@ -6,7 +6,7 @@
 // This example demonstrates that, unlike containers, std::pair and
 // std::tuple can have elements of a reference type.  std::pair,
 // std::tuple, and std::array are quasi-containers, because they have
-// some container functionality, but cannot change size dynamically as
+// some container functionality, but cannot change size at run-time as
 // containers do.
 int main()
 {
