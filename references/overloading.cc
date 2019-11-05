@@ -42,5 +42,5 @@ main()
 
   int &&rz = 3;
   foo(3); // Overload #3 if available, overload #2 otherwise.
-  foo(rz); // Overload #3 if available, overload #1 otherwise.
+  foo(rz); // Overload #1 if available, overload #2 otherwise.
 }
