@@ -2,23 +2,21 @@
 
 int main()
 {
-  // BŁĄD: brak inicjalizacji.
+  // Error: an rvalue reference must be initialized.
   // int &&a;
 
   int i;
 
-  // BŁĄD: r-referencja nie może wskazać l-wartości.
+  // Erorr: an rvalue reference cannot bind to an lvalue.
   // int &&z = i;
 
   int &l = i;
-  // BŁĄD: r-referencja nie może być inicjalizowana l-wartością (którą
-  // jest l-referencja).
+  // Error: l is an lvalue, and an rvalue reference can't bind to it.
   // int &&r = l;
 
-  // OK: wskazujemy r-wartość.
+  // OK: an rvalue reference can bind to an rvalue.
   int &&x = 1;
 
-  // BŁĄD: Inicjalizacja r-referencji na podstawie l-wartości (x ma
-  // nazwę, więc jest l-wartością)
+  // Error: x is an lvalue, and an rvalue reference can't bind to it.
   // int &&z = x;
 }
