@@ -1,3 +1,4 @@
+#include <array>
 #include <vector>
 
 int main()
@@ -13,4 +14,9 @@ int main()
   int *a[] = {&x, &y};
   // But not references.
   // int &r[] = {x, y};
+
+  // std::array can store pointers.
+  std::array<int *, 2> b = {&x, &y};
+  // But not references.
+  // std::array<int &, 2> c = {x, y};
 }
