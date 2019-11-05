@@ -1,16 +1,16 @@
-#include<vector>
+#include <vector>
 
 int main()
 {
   int x, y;
 
-  // Kontenery mogą przechowywać wskaźniki.
+  // Containers can store pointers.
   std::vector<int *> v = {&x, &y};
-  // Ale referencji już nie.
+  // But not references.
   // std::vector<int &> v;
 
-  // Tablice mogą przechowywać wskaźniki.
+  // Array can store pointers.
   int *a[] = {&x, &y};
-  // Ale referencji już nie.
+  // But not references.
   // int &r[] = {x, y};
 }
