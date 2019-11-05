@@ -38,8 +38,7 @@ main()
 
   // This is not a reinitialization!  It's an assignment to x.
   z = y;
-
-  // x = 2
+  // Now x has 2.
   std::cout << "x = " << x << std::endl;
 
   // Initialize an lvalue reference with an lvalue reference.
