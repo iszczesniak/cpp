@@ -131,11 +131,11 @@ the `delete` operator, otherwise we get a memory leak.  We cannot
 destroy the same data twice, otherwise we get undefined behavior
 (e.g., a segmentation fault, bugs).
 
-For regular use, a programmer should use the smart pointers, which are
-error-safe but hard to use.  In contrast, raw pointers are error-prone
-(often resulting in vexing heisenbugs) but easy to use.  Since smart
-pointers are the C++11 functionality, modern code uses the smart
-pointers, and the legacy code the raw pointers.
+A programmer should use the smart pointers, which is error-safe but
+hard.  In contrast, using raw pointers is error-prone (often resulting
+in vexing heisenbugs) but easy.  Since smart pointers are the C++11
+functionality, modern code uses the smart pointers, and the legacy
+code the raw pointers.
 
 The following example uses the low-level `new` and `delete` operators,
 which is not recommended, but suitable to demonstrate the dynamic
@@ -148,9 +148,9 @@ allocation.
 ## Local vs dynamic data
 
 Allocation on the stack is fast: it's only necessary to increase (or
-decrease, depending on the processor type) the stack pointer
+decrease, depending on the system architecture) the stack pointer
 (a.k.a. the stack register) by the size of the data needed.  *No
-memory allocation is faster.* If an operating system supports is, the
+memory allocation is faster.* If an operating system supports it, the
 stack can have more memory allocated automatically when needed, i.e.,
 without the process requesting is explicitly.
 
@@ -176,13 +176,13 @@ allocates memory) requests it.
 
 Data located on the stack is packed together according to when the
 data was created, and so data that are related are close to each
-other.  This is called localization.  And localization is good,
+other.  This is called *localization*.  And localization is good,
 because the data that a process needs is most likely already in the
 processor memory cache (which caches memory pages), speeding up the
-memory access manyfold.  Data allocated on the heap are usually not
-localized, i.e., they are spread all over the heap memory, which slows
-down memory access, as most likely the data is not in the processor
-memory cache.
+memory access manyfold.  Data allocated on the heap are less
+localized, i.e., they are more likely to be spread all over the heap
+memory, which slows down the memory access, as quite likely the data
+is not in the processor memory cache.
 
 # Function calls
 
@@ -192,7 +192,8 @@ reference.
 
 ## Passing arguments
 
-In C++ arguments are always passed *by value* or *by reference*.
+In C++ arguments are always passed either *by value* or *by
+reference*.
 
 If a parameter of a function is of a non-reference type, we say that a
 function takes an argument by value, or that we pass an argument to a
@@ -219,16 +220,16 @@ A function can return a result either by value or reference.
 
 If the return type is of a non-reference type, we say that a function
 returns the result by value.  In the deep past (before C++ was
-standardized) that always entailed copying the result from one
-location on the stack to a temporary on the stack, and then usually to
-its final location, e.g., a variable.
+standardized) that always entailed copying the result (i.e., the data
+local to the function) from one location on the stack to a temporary
+on the stack, and then to its final location, e.g., a variable.
 
 If the return type is of a reference type, we say that a function
-returns by reference.  The reference should be bound to data that will
-exist when the function returns (i.e., the data should outlive the
-function).  Containers (e.g., `std::vector`), for instance, return a
-reference to dynamically-allocated data in, for instance, `operator[]`
-or `front` functions.
+returns the results by reference.  The reference should be bound to
+data that will exist when the function returns (i.e., the data should
+outlive the function).  Containers (e.g., `std::vector`), for
+instance, return a reference to dynamically-allocated data in, for
+instance, `operator[]` or `front` functions.
 
 This example shows how to return results by value and by reference.
 Compile the example with the flag `-fno-elide-constructors`.
@@ -247,7 +248,7 @@ and the return value optimization) follows from a typical call
 convention.
 
 Typically, a call convention requires that the caller of the function
-(i.e., the code that calls a function):
+(i.e., the code that calls the function):
 
 * creates the function parameters on the stack,
 
@@ -267,7 +268,8 @@ Modern call conventions allow the memory for the return value be
 allocated anywhere in memory (on the stack, on the heap, or in the
 fixed-size memory for the static and global data), and the address be
 passed to a function in a processor register (e.g., RDI for x86,
-Linux, and GCC).
+Linux, and GCC), so that the function can create the return value in
+the pointed location.
 
 The following example demonstrates that the return value can be
 created anywhere (as the modern call convention allows), and not only
@@ -282,15 +284,15 @@ from the stack as the legacy call convention would require.
 
 # Constructor elision
 
-Since C++11, C++ elides (avoids) constructors (i.e., the copy
-constructor, and the *move* constructor) for temporary or local
+C++ elides (avoids) constructors (specifically, two constructors: the
+copy constructor, and the *move* constructor) for temporary or local
 objects that would soon be destroyed.  Instead of creating a
-temporary, an object is created in the final location where it would
+temporary, the object is created in the final location where it would
 end up.
 
-This is a simple example that demonstrates a constructor elision.
-Compile the example with, then without the flag
-`-fno-elide-constructors`.  Notice the differences at run-time.
+This example that demonstrates the constructor elision.  Compile the
+example with, then without the flag `-fno-elide-constructors`.  Notice
+the differences at run-time.
 
 {% highlight c++ %}
 {% include_relative elide.cc %}
@@ -302,15 +304,14 @@ Notice that with constructor elision, objects are not copied
 unnecessarily.
 
 When a temporary is passed by value as an argument, that temporary is
-created directly (i.e., with the copy constructor elided) in the
-location of the function parameter.
+created directly (i.e., with the constructor elided) in the location
+of the function parameter.
 
 # Return value optimization
 
 When a result is returned by value from a function, it can be created
-directly (i.e., with the copy constructor elided) in the location for
-the return value.  This is known as the return value optimization
-(RVO).
+directly (i.e., with the constructor elided) in the location for the
+return value.  This is known as the return value optimization (RVO).
 
 RVO not always can take place, because of technical reasons.  First,
 because we return data, which has to be created prior to deciding
@@ -320,16 +321,17 @@ which data exactly to return:
 {% include_relative rvo_no1.cc %}
 {% endhighlight %}
 
-Second, because we try to return a function parameter, which was not
-created by the function, but by the caller (i.e., the function cannot
-create the parameter in the location for the return value):
+Second, because we try to return a function parameter, which was
+created by the caller, not the function, and so the function cannot
+create the parameter in the location for the return value:
 
 {% highlight c++ %}
 {% include_relative rvo_no2.cc %}
 {% endhighlight %}
 
 Finally, because we try to return static or global data, which has to
-be available after the function returns:
+be available after the function returns, and so the function can only
+copy the result from the static or global data:
 
 {% highlight c++ %}
 {% include_relative rvo_no3.cc %}
