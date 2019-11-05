@@ -3,8 +3,11 @@
 #include <tuple>
 #include <vector>
 
-// This example demonstrates that std::pair and std::tuple can have
-// elements of a reference type.
+// This example demonstrates that, unlike containers, std::pair and
+// std::tuple can have elements of a reference type.  std::pair,
+// std::tuple, and std::array are quasi-containers, because they have
+// some container functionality, but cannot change size dynamically as
+// containers do.
 int main()
 {
   // Error: the pair elements of reference type must be initialized.
@@ -23,6 +26,8 @@ int main()
 
   std::cout << "x = " << x << std::endl;
 
+  // Interestingly, we cannot have a vector of references, but we can
+  // have a vector of reference pairs.
   std::vector<std::pair<int &, int &> > v{p, p};
   v[1].second = 4;
 
