@@ -348,7 +348,6 @@ enough.
 Passing parameters or return results by value is not that bad, because
 most likely their copying or moving will be elided.
 
-<!-- LocalWords: lvalue lvalues rvalue rvalues -->
-<!-- LocalWords: decrementation incrementation -->
-<!-- LocalWords: dereference expr unary -->
-<!-- LocalWords: glvalue prvalue xvalue -->
+<!-- LocalWords: enum  sigsegv endhighlight heisenbugs -->
+<!-- LocalWords: deallocates defragmentation manyfold args -->
+<!-- LocalWords: EAX RDI RVO SIGSEGV -->
