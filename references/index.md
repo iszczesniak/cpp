@@ -4,29 +4,35 @@ title: References
 
 # Introduction
 
-* Reference is an alias (a name) of some data (a variable, a
-  temporary).
+There are the most important facts about references:
 
-* The syntax of a reference is that of a variable, with object member
-  selection syntax (i.e., `object.member`).
+* Reference is an alias (a name) for some data (a variable, an object,
+  a temporary).
+
+* When using a reference to an object, we use the object-member
+  selection syntax (i.e., `object.member`), and not the object-member
+  selection through pointer syntax (i.e., `pointer->member`).
 
 * A reference must be initialized, and so there are no null references
   like there can be null pointers.
 
-* Unlike a pointer, a reference cannot be changed to be an alias of
+* Unlike a pointer, a reference cannot be changed to be an alias for
   some other data.
 
 * A reference can be a member of `std::pair` and `std::tuple`, but not
   of a container or an array.
 
-* The main use of references:
+The main use of references:
 
-  * passing an argument to a function by reference,
+* passing an argument to a function by reference,
 
-  * returning a result from a function by reference,
+* returning a result from a function by reference,
 
-  * referencing data in an object member field.
+* referencing data in an object member field.
 
+We say that a reference *binds to* data, which means something like
+*points to*, though points to is used when talking about pointers.
+  
 C++ references are like no references of other languages, because at
 run-time they might not exists (that can be optimized out at the
 compile-time).
@@ -34,9 +40,8 @@ compile-time).
 In languages like Java or C#, references are pointers with
 shared-ownership semantics (i.e., a reference can be copied, and the
 object exists as long as at least one reference exists), and with the
-object member selection syntax (i.e., `object.member`, instead of
-`pointer->member`).  In these languages references must exist at
-run-time.
+object-member selection syntax.  In these languages references must
+exist at run-time.
 
 As an example that references are optimized out at compile-time, there
 are two programs below that produce the same output, but in the second
@@ -72,9 +77,12 @@ Compare them to see that they are instruction-to-instruction the same:
 
 ## Reference types
 
-  \item \code{T &} - referencja typu \red{l-wartość}: służy do
-    wskazania obiektu, który możemy modyfikować, ale \red{nie
-      przenosić}, zakładając, że ten obiekt będzie później używany,
+* `T &` - lvalue reference: binds to data that we can modify
+
+referencja
+    typu \red{l-wartość}: służy do wskazania obiektu, który możemy
+    modyfikować, ale \red{nie przenosić}, zakładając, że ten obiekt
+    będzie później używany,
 
   \item \code{const T &} - referencja stała typu \red{l-wartość}:
     służy do wskazania obiektu, którego nie możemy modyfikować ani
