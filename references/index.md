@@ -59,6 +59,10 @@ Now compile with:
 
 `g++ -S -O3 out1.cc out2.cc`
 
+Taka look at one of them:
+
+`c++filt < out1.s | less`
+
 Now there are two files with the assembly code: out1.cc, and out2.cc.
 Compare them to see that they are instruction-to-instruction the same:
 
