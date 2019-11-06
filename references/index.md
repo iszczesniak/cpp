@@ -35,12 +35,38 @@ In languages like Java or C#, references are pointers with
 shared-ownership semantics (i.e., a reference can be copied, and the
 object exists as long as at least one reference exists), and with the
 object member selection syntax (i.e., `object.member`, instead of
-`pointer->member`).  In these languages references always exist at
+`pointer->member`).  In these languages references must exist at
 run-time.
+
+As an example that references are optimized out at compile-time, there
+are two programs below that produce the same output, but in the second
+one we use references.  However, at compile-time, the refernces are
+gone.
+
+Save this file as out1.cc:
+
+{% highlight c++ %}
+{% include_relative out1.cc %}
+{% endhighlight %}
+
+Save this file as out2.cc:
+
+{% highlight c++ %}
+{% include_relative out1.cc %}
+{% endhighlight %}
+
+Now compile with:
+
+`g++ -S -O3 out1.cc out2.cc`
+
+Now there are two files with the assembly code: out1.cc, and out2.cc.
+Compare them to see that they are instruction-to-instruction the same:
+
+`diff out1.s out2.s`
 
 # Details
 
-# Reference types
+## Reference types
 
   \item \code{T &} - referencja typu \red{l-wartość}: służy do
     wskazania obiektu, który możemy modyfikować, ale \red{nie
