@@ -63,17 +63,7 @@ run-time.
   \item \red{r-referencja} to referencja typy r-wartość.
   \end{itemize}
 
-\end{frame}
-
-%************************************************************************
-
-\subsection{Terminy l-wartość i r-wartość w nazwie typu}
-
-\begin{frame}
-
-  \frametitle{Terminy l-wartość i r-wartość w nazwie typu}
-
-  \begin{itemize}
+# Terminy l-wartość i r-wartość w nazwie typu
 
   \item Terminy l-wartość i r-wartość określają kategorię wartości
     wyrażenia:
@@ -108,13 +98,7 @@ run-time.
   
 \end{frame}
 
-%************************************************************************
-
-\subsection{L-referencja}
-
-\begin{frame}
-
-  \frametitle{L-referencja}
+# Lvalue reference
 
   L-referencja wskazuje l-wartość, a nie może wskazać r-wartości.
 
@@ -128,34 +112,7 @@ run-time.
   jest \red{l-wartością}, dlatego tak można zainicjalizować
   l-referencję: \code{int &z = foo();}
 
-\end{frame}
-
-%************************************************************************
-
 \subsection{L-referencja - przykłady}
-
-\begin{frame}[fragile]
-
-  \frametitle{L-referencja - przykłady}
-
-\begin{lstlisting}
-int x = 1;
-int y = 2;
-
-// BŁĄD: brak inicjalizacji.
-int &a;
-
-// OK, raz na zawsze zainicjalizowane.
-int &z = x;
-
-// Wskaźnik na referencję to wskaźnik na obiekt.
-assert(&z == &x);
-
-// To nie jest reinicjalizacja!
-z = y;
-\end{lstlisting}
-  
-\end{frame}
 
 %************************************************************************
 
@@ -342,21 +299,15 @@ T &&t2 = T();
 
 \end{frame}
 
-%************************************************************************
+# Conclusion
 
-\section{Koniec}
+* Referencja to inna nazwa obiektu.
 
-\subsection{Podsumowanie}
+* Referencję trzeba zainicjalizować.
 
-\begin{frame}
+* \item Wartości referencji (wskazywanego obiektu) nie można zmienić.
 
-  \frametitle{Podsumowanie}
-
-  \begin{itemize}
-  \item Referencja to inna nazwa obiektu.
-  \item Referencję trzeba zainicjalizować.
-  \item Wartości referencji (wskazywanego obiektu) nie można zmienić.
-  \item Podstawowe typy referencji:
+\item Podstawowe typy referencji:
     \begin{itemize}
     \item l-referencja,
     \item r-referencja.
