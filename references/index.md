@@ -4,6 +4,29 @@ title: References
 
 # Introduction
 
+* Reference is an alias (a name) of some data (a variable, a
+  temporary).
+
+* The syntax of a reference is that of a variable, with object member
+  selection syntax (i.e., `object.member`).
+
+* A reference must be initialized, and so there are no null references
+  like there can be null pointers.
+
+* Unlike a pointer, a reference cannot be changed to be an alias of
+  some other data.
+
+* A reference can be a member of `std::pair` and `std::tuple`, but not
+  of a container or an array.
+
+* The main use of references:
+
+  * passing an argument to a function by reference,
+
+  * returning a result from a function by reference,
+
+  * referencing data in an object member field.
+
 C++ references are like no references of other languages, because at
 run-time they might not exists (that can be optimized out at the
 compile-time).
@@ -12,81 +35,21 @@ In languages like Java or C#, references are pointers with
 shared-ownership semantics (i.e., a reference can be copied, and the
 object exists as long as at least one reference exists), and with the
 object member selection syntax (i.e., `object.member`, instead of
-`pointer->member`).
+`pointer->member`).  In these languages references always exist at
+run-time.
 
-% -*- coding: utf-8 -*-
+# Details
 
-\documentclass[compress]{beamer}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{color}
-\usepackage{listings}
+# Reference types
 
-\input{beamer.tex}
-\input{listings.tex}
-
-\begin{document}
-
-%************************************************************************
-
-\title{Referencje}
-
-\author{dr inż.~Ireneusz Szcześniak}
-
-\date{jesień 2017 roku}
-
-\begin{frame}[plain]
-  \titlepage
-\end{frame}
-
-%************************************************************************
-
-\section{Wprowadzenie}
-
-\subsection{Referencje}
-
-\begin{frame}
-
-  \frametitle{Referencje}
-
-  \begin{itemize}
-  \item \emph{Referencja} jest aliasem (inną nazwą) obiektu.
-  \item Składnia referencji jest taka sama, jak nazwy obiektu.
-  \item \red{Referencja musi być zainicjalizowana}, nie ma referencji
-    ``pustych'', jak puste wskaźniki.
-  \item \red{Referencji nie można zmienić}, żeby wskazać inny obiekt,
-    tak jak wskaźnik.
-  \item Można tworzyć pary (\code{std::pair}) i krotki
-    (\code{std::tuple}) referencji, ale już nie kontenery czy tablice.
-  \item Referencja nie zawsze ma miejsce w pamięci, bo może być
-    wyoptymalizowana w czasie kompilacji.
-  \item Główne zastosowanie:
-    \begin{itemize}
-    \item przekazywanie argumentów wywołania funkcji przez referencję,
-    \item zwracanie wartości funkcji przez referencję,
-    \item pola składowe klasy.
-    \end{itemize}
-  \end{itemize}
-
-\end{frame}
-
-%************************************************************************
-
-\section{Szczegóły}
-
-\subsection{Typy referencji}
-
-\begin{frame}
-
-  \frametitle{Typy referencji}
-
-  \begin{itemize}
   \item \code{T &} - referencja typu \red{l-wartość}: służy do
     wskazania obiektu, który możemy modyfikować, ale \red{nie
       przenosić}, zakładając, że ten obiekt będzie później używany,
+
   \item \code{const T &} - referencja stała typu \red{l-wartość}:
     służy do wskazania obiektu, którego nie możemy modyfikować ani
     przenosić,
+
   \item \code{T &&} - referencja typu \red{r-wartość}: służy do
     wskazania obiektu, który możemy modifikować i \red{przenosić},
     zakładając, że ten obiekt wkrótce zostanie zniszczony.
@@ -403,46 +366,6 @@ T &&t2 = T();
   \item R-referencja może wskazywać r-wartość, ale nie l-wartość.
   \item Stała r-referencja nie ma sensu.
   \item Referencje wiążą obiekty tymczasowe.
-  \end{itemize}
-
-\end{frame}
-
-%************************************************************************
-
-\subsection{Dziękuję}
-
-\begin{frame}[plain]
-
-  \begin{center}
-    \huge Dziękuję za uwagę.
-  \end{center}
-
-\end{frame}
-
-\end{document}
-
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-
-\section{}
-
-\begin{frame}
-
-  \frametitle{}
-
-  \begin{itemize}
-  \item
   \end{itemize}
 
 \end{frame}
