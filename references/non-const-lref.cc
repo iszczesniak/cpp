@@ -36,7 +36,7 @@ main()
   // A reference has no address.  &z is the address of x.
   assert (&z == &x);
 
-  // This is not a reinitialization!  It's an assignment to x.
+  // There's no "reinitialization"!  It's an assignment to x.
   z = y;
   // Now x has 2.
   std::cout << "x = " << x << std::endl;
