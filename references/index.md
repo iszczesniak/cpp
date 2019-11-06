@@ -80,13 +80,13 @@ Compare them to see that they are instruction-to-instruction the same:
 There are three reference types:
 
 * `T &` - *an lvalue reference*: binds to data that we can modify, but
-  not move (because it still will be needed),
+  not move (because they still will be needed),
 
 * `const T &` - *a const reference*: binds to data that we neither can
   modify nor move,
 
 * `T &&` - *an rvalue reference*: binds to data that we can both
-  modify and move (becasue it soon will not be needed).
+  modify and move (becasue they soon will not be needed).
 
 # Terminy l-wartość i r-wartość w nazwie typu
 
