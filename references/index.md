@@ -4,7 +4,7 @@ title: References
 
 # Introduction
 
-There are the most important facts about references:
+These are the most important facts about references:
 
 * Reference is an alias (a name) for some data (a variable, an object,
   a temporary).
@@ -77,29 +77,16 @@ Compare them to see that they are instruction-to-instruction the same:
 
 ## Reference types
 
-* `T &` - lvalue reference: binds to data that we can modify
+There are three reference types:
 
-referencja
-    typu \red{l-wartość}: służy do wskazania obiektu, który możemy
-    modyfikować, ale \red{nie przenosić}, zakładając, że ten obiekt
-    będzie później używany,
+* `T &` - *an lvalue reference*: binds to data that we can modify, but
+  not move (because it still will be needed),
 
-  \item \code{const T &} - referencja stała typu \red{l-wartość}:
-    służy do wskazania obiektu, którego nie możemy modyfikować ani
-    przenosić,
+* `const T &` - *a const reference*: binds to data that we neither can
+  modify nor move,
 
-  \item \code{T &&} - referencja typu \red{r-wartość}: służy do
-    wskazania obiektu, który możemy modifikować i \red{przenosić},
-    zakładając, że ten obiekt wkrótce zostanie zniszczony.
-  \end{itemize}
-
-  \vspace{0.25 cm}
-
-  Nazwy skrócone:
-  \begin{itemize}
-  \item \red{l-referencja} to referencja typu l-wartość,
-  \item \red{r-referencja} to referencja typy r-wartość.
-  \end{itemize}
+* `T &&` - *an rvalue reference*: binds to data that we can both
+  modify and move (becasue it soon will not be needed).
 
 # Terminy l-wartość i r-wartość w nazwie typu
 
