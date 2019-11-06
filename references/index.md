@@ -52,7 +52,7 @@ Save this file as out1.cc:
 Save this file as out2.cc:
 
 {% highlight c++ %}
-{% include_relative out1.cc %}
+{% include_relative out2.cc %}
 {% endhighlight %}
 
 Now compile with:
