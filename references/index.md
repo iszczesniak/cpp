@@ -114,8 +114,9 @@ We define an lvalue reference like this:
 
 `T &name = <expr>;`
 
-Reference `name` binds to data of type T.  `&` is called the reference
-declarator.  The reference is initialized with expression `<expr>`.
+Reference `name` binds to data of type T.  `&` is called the lvalue
+reference declarator.  The reference is initialized with expression
+`<expr>`.
 
 Here are some examples:
 
@@ -160,23 +161,25 @@ Here are some examples:
 
 ## Rvalue reference
 
-R-referencja wskazuje r-wartość, a nie może wskazać l-wartości.
+An rvalue reference can bind to an rvalue only.
 
-R-referencję definiujemy z użyciem \code{&&}: \code{T &&}
+We define an rvalue reference like this:
 
-To nowość wprowadzona w C++11, żeby umożliwić:
+`T &&name = <expr>;`
 
-* mechanizm przenoszenia obiektów,
+`&&` is called the rvalue reference declarator.
 
-* doskonałe przekazywanie argumentów funkcji.
+The rvalue reference was introduced in C+11 to enable:
+
+* the move semantics,
+
+* the perfect forwarding.
 
 Here are some examples:
 
 {% highlight c++ %}
 {% include_relative rref.cc %}
 {% endhighlight %}
-
-%************************************************************************
 
 \subsection{R-referencja do l-wartości}
 
