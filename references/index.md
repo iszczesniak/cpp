@@ -209,24 +209,25 @@ sematics enabled, because the expression `x` is an lvalue.
 
 # Reference type and function overload resolution
 
-Funkcję można przeciążyć różnymi typami referencyjnymi:
+A function can be overloaded depending on the parameter types, and
+this applies to references too.  We can have these overloads:
 
-* `void foo(T &);`
-* `void foo(const T &);`
-* `void foo(T &&);`
+* `void foo(T &);` - overload #1,
+* `void foo(const T &);` - overload #2,
+* `void foo(T &&);` - overload #3.
 
-Dla wywołania funkcji \code{foo(expr)}, kompilator wybierze:
+For a call expression `foo(<expr>)`, a compiler will choose (which is
+called *overload resolution*):
 
-* przeciążenie nr 1, jeżeli \code{expr} jest l-wartością typu
-  niestałego,
+* overload #1, if `<expr>` is an lvalue of a non-cost type,
 
-* przeciążenie nr 2, jeżeli \code{expr} jest l-wartością typu stałego,
+* overload #2, if `<expr>` is an lvalue of a const type,
 
-* przeciążenie nr 3, jeżeli \code{expr} jest r-wartością.
+* overload #3, if `<expr>` is an rvalue.
 
-Stała l-referencja (użyta w przeciążeniu nr 2) może wskazać l-wartość
-typu niestałego lub r-wartość, więc jeżeli nie ma przeciążenia nr 1
-lub 3, kompilator wybierze przeciążenie nr 2.
+A const reference (used in overload #2) can bind to an lvalue of a
+non-const type or to an rvalue, so when there is no overload #1 or #3,
+a compiler will choose overload #2.
 
 Here's a complete example:
 
