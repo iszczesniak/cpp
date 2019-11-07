@@ -142,31 +142,15 @@ We define a const reference like this:
 `const T &name = <expr>;`
 
 This is exactly an lvalue reference that binds to the const data of
-type `T`.  The reference itself is not really const, because we can't
-change what the reference is bound to.  Nonetheless, it's called the
-const reference, no need to say it's a const lvalue reference.
+type `T`, i.e., the const qualifier refers to the type of data the
+reference binds to.  The reference itself is not really const, because
+we can't change what the reference is bound to anyway.  Nonetheless,
+it's called the const reference for short; no need to say it's an
+lvalue reference to const data.
 
-\frametitle{Stała l-referencja do r-wartości}
-
-  \red{To nie jest r-referencja!}
-
-  \vspace{0.5cm}
-
-  Zasada wprowadzona w C++98, która obowiązuje do dzisiaj:
-  \begin{itemize}
-  \item stała l-referencja może wskazywać l-wartość lub \red{r-wartość}.
-  \end{itemize}
-
-  \vspace{0.5cm}
-
-  Po angielsku: \red{const lvalue reference to rvalue}
-
-  \vspace{0.5cm}
-
-  Kwalifikator \code{const} odnosi się do wskazywanego obiektu (to
-  obiekt jest stały), a nie referencja, bo referencji i tak nie można
-  zmienić.
-
+**A const reference can bind not only to the data of an lvalue, but to
+an rvalue too.** This rule originates from C++98, which was introduced
+to allow for binding a function parameter reference to a temporary.
 
   \frametitle{Stała l-referencja do r-wartości - przykłady}
 
