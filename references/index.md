@@ -9,9 +9,9 @@ These are the most important facts about references:
 * Reference is an alias (a name) for some data (a variable, an object,
   a temporary).
 
-* When using a reference to an object, we use the object-member
-  selection syntax (i.e., `object.member`), and not the object-member
-  selection through pointer syntax (i.e., `pointer->member`).
+* When using a reference to an object, we use the object member
+  selection syntax (i.e., `object.member`), and not the object member
+  selection through a pointer syntax (i.e., `pointer->member`).
 
 * A reference must be initialized, and so there are no null references
   like there can be null pointers.
@@ -40,7 +40,7 @@ compile-time).
 In languages like Java or C#, references are pointers with
 shared-ownership semantics (i.e., a reference can be copied, and the
 object exists as long as at least one reference exists), and with the
-object-member selection syntax.  In these languages references must
+object member selection syntax.  In these languages references must
 exist at run-time.
 
 As an example that references are optimized out at compile-time, there
@@ -68,7 +68,7 @@ Taka look at one of them:
 
 `c++filt < out1.s | less`
 
-Now there are two files with the assembly code: out1.cc, and out2.cc.
+Now there are two files with the assembly code: out1.s, and out2.s.
 Compare them to see that they are instruction-to-instruction the same:
 
 `diff out1.s out2.s`
@@ -185,10 +185,11 @@ Here are some examples:
 
 Możemy uzyskać r-referencję do l-wartości z użyciem operatora
 \code{static_cast<T &&>(expr)} lub funkcji \code{std::move(expr)},
-gdzie \code{expr} może być l-wartością albo r-wartością.  Funkcja
-\code{std::move} jest szablonowa i kompilator sam wnioskuje typ
-wyrażenia, którego nie trzeba już podawać, jak dla \code{static_cast}.
-Na przykład:
+gdzie \code{expr} może być l-wartością albo r-wartością.
+
+Funkcja \code{std::move} jest szablonowa i kompilator sam wnioskuje
+typ wyrażenia, którego nie trzeba już podawać, jak dla
+\code{static_cast}.  Na przykład:
 
 {% highlight c++ %}
 {% include_relative move.cc %}
