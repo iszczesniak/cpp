@@ -12,9 +12,11 @@ int
 main()
 {
   int x = 1;
-  // The reference binds to an lvalue.
+  // The const reference binds to an lvalue.  The type of the
+  // initializing expression `x` is automatically augmented with the
+  // const qualifier.
   const int &l1 = x;
-  // The reference binds to an rvalue.
+  // The const reference binds to an rvalue.
   const int &l2 = 1;
   
   string s;
