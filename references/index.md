@@ -235,7 +235,9 @@ Here's an example:
 I can think of one use case only.  We use `std::move(x)` to explicitly
 enable the move semantics for object `x` (i.e., we turn `x` from an
 lvalue to an rvalue), which by default would not have the move
-sematics enabled, because the expression `x` is an lvalue.
+sematics enabled, because the expression `x` is an lvalue.  We enable
+the move semantics by making the compiler choose a different overload
+depending on category of the expression.
 
 ## A temporary lifetime extension by reference
 
