@@ -60,7 +60,7 @@ Save this file as out2.cc:
 {% include_relative out2.cc %}
 {% endhighlight %}
 
-Now compile with:
+Now compile them to the assembly code with:
 
 `g++ -S -O3 out1.cc out2.cc`
 
@@ -173,7 +173,7 @@ The rvalue reference was introduced in C++11 to enable:
 
 * the move semantics,
 
-* the argument perfect forwarding.
+* the perfect forwarding of function arguments.
 
 Here are some examples:
 
@@ -183,21 +183,27 @@ Here are some examples:
 
 # Rvalue reference to an lvalue.
 
-Możemy uzyskać r-referencję do l-wartości z użyciem operatora
-\code{static_cast<T &&>(expr)} lub funkcji \code{std::move(expr)},
-gdzie \code{expr} może być l-wartością albo r-wartością.
+We can explicitely get an rvalue reference to an lvalue with the
+operator `static_cast<T &&>(<expr>)`, where `<expr>` be an lvalue or
+an rvalue.  This is, however, a bit wordy, since we have to type in
+the type `T`.
 
-Funkcja \code{std::move} jest szablonowa i kompilator sam wnioskuje
-typ wyrażenia, którego nie trzeba już podawać, jak dla
-\code{static_cast}.  Na przykład:
+It's easier to get an rvalue reference with \code{std::move(<expr>)},
+where `<expr>` can be an lvalue or an rvalue.  `std::move` is a
+function template, and so the compiler will deduce the type `T` based
+on `<expr>`, and so we don't have to type in the type.  That function
+uses `static_cast<T &&>(<expr>)`, which is the low-level mechanism to
+pull out this trick.
+
+Here's an example:
 
 {% highlight c++ %}
 {% include_relative move.cc %}
 {% endhighlight %}
 
-Funkcji \code{std::move(x)} będziemy używać, aby umożliwić
-przenoszenie obiektu \code{x}, dla którego domyślnie przenoszenie nie
-jest stosowane, ponieważ wyrażenie \code{x} jest l-wartością.
+We use `std::move(x)` to explicitly enable the move semantics for
+object `x`, which by default would not have the move sematics enabled,
+because expression `x` is an lvalue.
 
 # Reference type and function overload resolution
 
