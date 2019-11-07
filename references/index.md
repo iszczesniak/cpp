@@ -222,7 +222,7 @@ lub 3, kompilator wybierze przeciążenie nr 2.
 Here's a complete example:
 
 {% highlight c++ %}
-{% include_relative overload.cc %}
+{% include_relative overloading.cc %}
 {% endhighlight %}
 
 # Wiązanie obiektu tymczasowego przez referencję
