@@ -183,17 +183,16 @@ Here are some examples:
 
 # Rvalue reference to an lvalue.
 
-We can explicitely get an rvalue reference to an lvalue with the
-operator `static_cast<T &&>(<expr>)`, where `<expr>` be an lvalue or
+We can explicitely get an rvalue reference to the data of an lvalue
+with `static_cast<T &&>(<expr>)`, where `<expr>` can be an lvalue or
 an rvalue.  This is, however, a bit wordy, since we have to type in
 the type `T`.
 
-It's easier to get an rvalue reference with \code{std::move(<expr>)},
-where `<expr>` can be an lvalue or an rvalue.  `std::move` is a
-function template, and so the compiler will deduce the type `T` based
-on `<expr>`, and so we don't have to type in the type.  That function
-uses `static_cast<T &&>(<expr>)`, which is the low-level mechanism to
-pull out this trick.
+It's easier to get an rvalue reference with `std::move(<expr>)`, where
+`<expr>` can be an lvalue or an rvalue.  `std::move` is a function
+template: a compiler will deduce the type `T` based on `<expr>`, so we
+don't have to type it in.  That function uses `static_cast<T
+&&>(<expr>)`.
 
 Here's an example:
 
@@ -201,9 +200,12 @@ Here's an example:
 {% include_relative move.cc %}
 {% endhighlight %}
 
-We use `std::move(x)` to explicitly enable the move semantics for
-object `x`, which by default would not have the move sematics enabled,
-because expression `x` is an lvalue.
+## The use case
+
+I can think of one use case only.  We use `std::move(x)` to explicitly
+enable the move semantics for object `x` (i.e., we turn `x` from an
+lvalue to an rvalue), which by default would not have the move
+sematics enabled, because the expression `x` is an lvalue.
 
 # Reference type and function overload resolution
 
