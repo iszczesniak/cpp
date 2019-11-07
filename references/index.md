@@ -31,7 +31,7 @@ The main use of references:
 * referencing data in an object member field.
 
 We say that a reference *binds to* data, which means something like
-*points to*, though points to is used when talking about pointers.
+*points to*, though "points to" is used when talking about pointers.
   
 C++ references are like no references of other languages, because at
 run-time they might not exists (that can be optimized out at the
@@ -73,9 +73,7 @@ Compare them to see that they are instruction-to-instruction the same:
 
 `diff out1.s out2.s`
 
-# Details
-
-## Reference types
+# Reference types
 
 There are three reference types:
 
@@ -88,7 +86,7 @@ There are three reference types:
 * `T &&` - *an rvalue reference*: binds to data that we can both
   modify and move (becasue they soon will not be needed).
 
-# Terms lvalue and rvalue in type names
+## Terms lvalue and rvalue in type names
 
 Expressions are called an lvalue or an rvalue, e.g.:
 
@@ -107,14 +105,17 @@ These terms are also used to name a reference type:
 NOW I GET IT: *Even if the variable's type is an rvalue reference, the
 expression consisting of its name is an lvalue expression.*
 
-# Lvalue reference
+## Lvalue reference
 
-An lvalue reference can bind to an lvalue, but not to an rvalue.
+An lvalue reference can bind to the data of an lvalue, but not of an
+rvalue.
 
-We declare with the `&` declarator the lvalue reference of type T, the
-reference name, and the initialization expressions:
+We define an lvalue reference like this:
 
-`T & name = <expr>;`
+`T &name = <expr>;`
+
+Reference `name` binds to data of type T.  `&` is called the reference
+declarator.  The reference is initialized with expression `<expr>`.
 
 Here are some examples:
 
@@ -122,9 +123,19 @@ Here are some examples:
 {% include_relative non-const-lref.cc %}
 {% endhighlight %}
 
-%************************************************************************
+Here are some examples for containers and arrays:
 
-\subsection{Stała l-referencja do r-wartości}
+{% highlight c++ %}
+{% include_relative containers.cc %}
+{% endhighlight %}
+
+Here are some examples for `std::pair` and `std::tuple`:
+
+{% highlight c++ %}
+{% include_relative quasi.cc %}
+{% endhighlight %}
+
+## Const reference
 
 \begin{frame}
 
@@ -149,13 +160,6 @@ Here are some examples:
   obiekt jest stały), a nie referencja, bo referencji i tak nie można
   zmienić.
 
-\end{frame}
-
-%************************************************************************
-
-\subsection{Stała l-referencja do r-wartości - przykłady}
-
-\begin{frame}
 
   \frametitle{Stała l-referencja do r-wartości - przykłady}
 
@@ -174,7 +178,7 @@ Here are some examples:
 
 %************************************************************************
 
-\subsection{R-referencja}
+## Rvalue reference
 
 \begin{frame}
 
@@ -245,13 +249,7 @@ int &&z = 1;
 
 \end{frame}
 
-%************************************************************************
-
-\subsection{Przeciążanie funkcji a referencje}
-
-\begin{frame}[fragile]
-
-  \frametitle{Przeciążanie funkcji a referencje}
+# Reference type and overload resolution 
 
   Funkcję można przeciążyć różnymi typami referencyjnymi:
 
@@ -277,11 +275,6 @@ int &&z = 1;
 
 \end{frame}
 
-%************************************************************************
-
-\subsection{Wiązanie obiektu tymczasowego przez referencję}
-
-\begin{frame}[fragile]
 
   \frametitle{Wiązanie obiektu tymczasowego przez referencję}
 
