@@ -88,40 +88,24 @@ There are three reference types:
 * `T &&` - *an rvalue reference*: binds to data that we can both
   modify and move (becasue they soon will not be needed).
 
-# Terminy l-wartość i r-wartość w nazwie typu
+# Terms lvalue and rvalue in type names
 
-  \item Terminy l-wartość i r-wartość określają kategorię wartości
-    wyrażenia:
+Terms lvalue and rvalue name categories of expressions, e.g.:
 
-    \begin{itemize}
+* `"1"` is an lvalue,
 
-    \item wyrażenie \code{"1"} ma kategorię l-wartość,
+* `1` is an rvalue.
 
-    \item wyrażenie \code{1} ma kategorię r-wartość.
+These terms are also used to name a reference type:
 
-    \end{itemize}
+* `int &x = <expr>;` - expression `x` is of the lvalue reference type,
+  and of the lvalue category,
 
-  \item Ale słowa te mogą też definiować typ referencji:
+* `int &&x = <expr>;` - expression `x` is of the rvalue reference
+  type, but of the lvalue category.
 
-    \begin{itemize}
-
-    \item \code{int &x;} - wyrażenie \code{x} ma typ ``referencja typu
-      l-wartość'' i kategorię l-wartość,
-
-    \item \code{int &&x;} - wyrażenie \code{x} ma typ ``referencja
-      typu r-wartość'' i kategorię l-wartość.
-
-    \end{itemize}
-
-  \end{itemize}
-
-  \vspace{0.5 cm}
-  
-  \red{TERAZ ROZUMIEM: Even if the variable's type is rvalue
-    reference, the expression consisting of its name is an lvalue
-    expression.}
-  
-\end{frame}
+NOW I GET IT: *Even if the variable's type is an rvalue reference, the
+expression consisting of its name is an lvalue expression.*
 
 # Lvalue reference
 
