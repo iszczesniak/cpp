@@ -5,7 +5,7 @@ int main()
   // Error: an rvalue reference must be initialized.
   // int &&a;
 
-  int i;
+  int i = 1;
 
   // Erorr: an rvalue reference cannot bind to an lvalue.
   // int &&z = i;
@@ -20,6 +20,5 @@ int main()
   // Error: x is an lvalue, and an rvalue reference can't bind to it.
   // x is an lvalue, because it has a name, even though it's of the
   // rvalue reference type.
-
   // int &&z = x;
 }
