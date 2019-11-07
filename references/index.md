@@ -120,7 +120,7 @@ declarator.  The reference is initialized with expression `<expr>`.
 Here are some examples:
 
 {% highlight c++ %}
-{% include_relative non-const-lref.cc %}
+{% include_relative lref.cc %}
 {% endhighlight %}
 
 Here are some examples for containers and arrays:
@@ -137,9 +137,16 @@ Here are some examples for `std::pair` and `std::tuple`:
 
 ## Const reference
 
-\begin{frame}
+We define a const reference like this:
 
-  \frametitle{Stała l-referencja do r-wartości}
+`const T &name = <expr>;`
+
+This is exactly an lvalue reference that binds to the const data of
+type `T`.  The reference itself is not really const, because we can't
+change what the reference is bound to.  Nonetheless, it's called the
+const reference, no need to say it's a const lvalue reference.
+
+\frametitle{Stała l-referencja do r-wartości}
 
   \red{To nie jest r-referencja!}
 
@@ -175,6 +182,12 @@ Here are some examples for `std::pair` and `std::tuple`:
   \end{itemize}
 
 \end{frame}
+
+Here are some examples:
+
+{% highlight c++ %}
+{% include_relative cref.cc %}
+{% endhighlight %}
 
 %************************************************************************
 
