@@ -149,7 +149,7 @@ it's called the const reference for short; no need to say it's an
 lvalue reference to const data.
 
 *A const reference can bind not only to the data of an lvalue, but to
-an rvalue **too**.* This rule originates from C++98, which was
+an **rvalue** too.* This rule originates from C++98, which was
 introduced to allow for binding a function parameter reference to a
 temporary.
 
