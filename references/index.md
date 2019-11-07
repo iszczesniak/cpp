@@ -207,7 +207,7 @@ enable the move semantics for object `x` (i.e., we turn `x` from an
 lvalue to an rvalue), which by default would not have the move
 sematics enabled, because the expression `x` is an lvalue.
 
-# Reference type and function overload resolution
+## Reference type and function overload resolution
 
 A function can be overloaded depending on the parameter types, and
 this applies to references too.  We can have these overloads:
@@ -235,18 +235,16 @@ Here's a complete example:
 {% include_relative overloading.cc %}
 {% endhighlight %}
 
-# Wiązanie obiektu tymczasowego przez referencję
+# A temporary lifetime extension by reference
 
-Jeżeli obiekt tymczasowy jest wskazywany przez referencję, to jest on
-niszczony wtedy, kiedy referencja wychodzi poza \red{zakres}
-(ang.~scope).  Inaczej obiekt byłby niszczony po opracowaniu
-wyrażenia.
+The lifetime of a temporary is extended by the reference that binds to
+it.  The temporary will be destroyed when the reference goes out of
+scope.  Otherwise, a temporary would be destroyed after the expression
+was evaluated.
 
 {% highlight c++ %}
 {% include_relative tmp.cc %}
 {% endhighlight %}
-
-A reference extends the lifetime of a temporary.
 
 # Conclusion
 
