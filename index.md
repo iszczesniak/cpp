@@ -9,3 +9,4 @@ interesting and important for efficient code.
 
 * [Memory organization](memory)
 * [Expression categories](categories)
+* [References](references)
