@@ -137,6 +137,10 @@ Here are some examples for `std::pair` and `std::tuple`:
 
 ## Const reference
 
+*A const reference can bind not only to the data of an lvalue, but to
+an **rvalue** too.* This rule was introduced in C++98 to allow for
+binding a function parameter reference to a temporary.
+
 We define a const reference like this:
 
 `const T &name = <expr>;`
@@ -147,10 +151,6 @@ reference binds to.  The reference itself is not really const, because
 we can't change what the reference is bound to anyway.  Nonetheless,
 it's called the const reference for short; no need to say it's an
 lvalue reference to const data.
-
-*A const reference can bind not only to the data of an lvalue, but to
-an **rvalue** too.* This rule was introduced in C++98 to allow for
-binding a function parameter reference to a temporary.
 
 Here are some examples:
 
