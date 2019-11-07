@@ -1,6 +1,13 @@
 #include <cassert>
 #include <iostream>
 
+int &
+foo()
+{
+  static int x = 1;
+  return x;
+}
+
 int
 main()
 {
@@ -11,6 +18,9 @@ main()
 
   // Error: needs initialization.
   // int &a;
+
+  // OK: foo() is an lvalue.
+  int &fr = foo();
 
   // A const.
   const int c = 300000000;
