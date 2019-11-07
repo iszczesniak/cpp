@@ -109,19 +109,18 @@ expression consisting of its name is an lvalue expression.*
 
 # Lvalue reference
 
-  L-referencja wskazuje l-wartość, a nie może wskazać r-wartości.
+An lvalue reference can bind to an lvalue, but not to an rvalue.
 
-  \vspace{0.5 cm}
-  
-  L-referencję definiujemy z użyciem \code{&}: \code{T &}
+We declare with the `&` declarator the lvalue reference of type T, the
+reference name, and the initialization expressions:
 
-  \vspace{0.5 cm}
+`T & name = <expr>;`
 
-  Jeżeli mamy funkcję \code{int &foo()}, to wyrażenie \code{foo()}
-  jest \red{l-wartością}, dlatego tak można zainicjalizować
-  l-referencję: \code{int &z = foo();}
+Here are some examples:
 
-\subsection{L-referencja - przykłady}
+{% highlight c++ %}
+{% include_relative non-const-lref.cc %}
+{% endhighlight %}
 
 %************************************************************************
 
