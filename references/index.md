@@ -64,11 +64,11 @@ Now compile with:
 
 `g++ -S -O3 out1.cc out2.cc`
 
-Taka look at one of them:
+Now there are two files with the assembly code: out1.s, and out2.s.
+Take a look at one of them:
 
 `c++filt < out1.s | less`
 
-Now there are two files with the assembly code: out1.s, and out2.s.
 Compare them to see that they are instruction-to-instruction the same:
 
 `diff out1.s out2.s`
@@ -199,7 +199,7 @@ Funkcji \code{std::move(x)} będziemy używać, aby umożliwić
 przenoszenie obiektu \code{x}, dla którego domyślnie przenoszenie nie
 jest stosowane, ponieważ wyrażenie \code{x} jest l-wartością.
 
-# Reference type and function overload resolution 
+# Reference type and function overload resolution
 
 Funkcję można przeciążyć różnymi typami referencyjnymi:
 
