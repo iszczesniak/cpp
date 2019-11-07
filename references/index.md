@@ -181,31 +181,7 @@ Here are some examples:
 {% include_relative rref.cc %}
 {% endhighlight %}
 
-# Rvalue reference to an lvalue.
-
-We can explicitely get an rvalue reference to the data of an lvalue
-with `static_cast<T &&>(<expr>)`, where `<expr>` can be an lvalue or
-an rvalue.  This is, however, a bit wordy, since we have to type in
-the type `T`.
-
-It's easier to get an rvalue reference with `std::move(<expr>)`, where
-`<expr>` can be an lvalue or an rvalue.  `std::move` is a function
-template: a compiler will deduce the type `T` based on `<expr>`, so we
-don't have to type it in.  That function uses `static_cast<T
-&&>(<expr>)`.
-
-Here's an example:
-
-{% highlight c++ %}
-{% include_relative move.cc %}
-{% endhighlight %}
-
-## The use case
-
-I can think of one use case only.  We use `std::move(x)` to explicitly
-enable the move semantics for object `x` (i.e., we turn `x` from an
-lvalue to an rvalue), which by default would not have the move
-sematics enabled, because the expression `x` is an lvalue.
+# Reference tricks
 
 ## Reference type and function overload resolution
 
@@ -235,7 +211,33 @@ Here's a complete example:
 {% include_relative overloading.cc %}
 {% endhighlight %}
 
-# A temporary lifetime extension by reference
+## Rvalue reference to an lvalue
+
+We can explicitely get an rvalue reference to the data of an lvalue
+with `static_cast<T &&>(<expr>)`, where `<expr>` can be an lvalue or
+an rvalue.  This is, however, a bit wordy, since we have to type in
+the type `T`.
+
+It's easier to get an rvalue reference with `std::move(<expr>)`, where
+`<expr>` can be an lvalue or an rvalue.  `std::move` is a function
+template: a compiler will deduce the type `T` based on `<expr>`, so we
+don't have to type it in.  That function uses `static_cast<T
+&&>(<expr>)`.
+
+Here's an example:
+
+{% highlight c++ %}
+{% include_relative move.cc %}
+{% endhighlight %}
+
+## The use case
+
+I can think of one use case only.  We use `std::move(x)` to explicitly
+enable the move semantics for object `x` (i.e., we turn `x` from an
+lvalue to an rvalue), which by default would not have the move
+sematics enabled, because the expression `x` is an lvalue.
+
+## A temporary lifetime extension by reference
 
 The lifetime of a temporary is extended by the reference that binds to
 it.  The temporary will be destroyed when the reference goes out of
