@@ -84,7 +84,7 @@ understand and efficiently use the modern C++.  For instance, the
 following is a statement from <http://cppreference.com>, which is hard
 to understand without knowing the lvalue and rvalue details:
 
-> Even if the variable's type is *rvalue reference*, the expression
+> Even if the variable's type is an *rvalue reference*, the expression
 > consisting of its name is an *lvalue expression*.
 
 ## The lvalue category
