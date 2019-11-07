@@ -149,24 +149,8 @@ it's called the const reference for short; no need to say it's an
 lvalue reference to const data.
 
 *A const reference can bind not only to the data of an lvalue, but to
-an **rvalue** too.* This rule originates from C++98, which was
-introduced to allow for binding a function parameter reference to a
-temporary.
-
-  \frametitle{Stała l-referencja do r-wartości - przykłady}
-
-  \begin{itemize}
-  \item \code{int \&a = 1;} nie będzie się kompilować, bo 1 jest
-    r-wartością i chcemy ją wskazać niestałą l-referencją,
-  \item \code{const int \&b = 1;} będzie się kompilować, bo r-wartość
-    wskazujemy stałą l-referencją,
-  \item \code{int foo();} - deklaracja funkcji
-  \item \code{const int &c = foo();} - OK!
-  \item \code{const int *p = &foo();} - błąd!
-  \item \code{const int *p = &c;} - OK!
-  \end{itemize}
-
-\end{frame}
+an **rvalue** too.* This rule was introduced in C++98 to allow for
+binding a function parameter reference to a temporary.
 
 Here are some examples:
 
