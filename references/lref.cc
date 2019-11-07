@@ -13,7 +13,7 @@ main()
 {
   int x = 1;
 
-  // Can initialize a non-const lvalue reference with an lvalue.
+  // Can initialize an lvalue reference with an lvalue.
   int &xr = x;
 
   // Error: needs initialization.
@@ -25,10 +25,10 @@ main()
   // A const.
   const int c = 300000000;
 
-  // Error: a non-const reference cannot bind to a const.
+  // Error: an lvalue reference cannot bind to a const.
   // int &r = c;
 
-  // Error: a non-const lvalue reference cannot bind to an rvalue.
+  // Error: an lvalue reference cannot bind to an rvalue.
   // int &ncr = 1;
 
   // Initialized alright.
