@@ -230,7 +230,7 @@ Here's an example:
 {% include_relative move.cc %}
 {% endhighlight %}
 
-## The use case
+### The use case
 
 I can think of one use case only.  We use `std::move(x)` to explicitly
 enable the move semantics for object `x` (i.e., we turn `x` from an
