@@ -158,55 +158,23 @@ Here are some examples:
 {% include_relative cref.cc %}
 {% endhighlight %}
 
-%************************************************************************
-
 ## Rvalue reference
 
-\begin{frame}
+R-referencja wskazuje r-wartość, a nie może wskazać l-wartości.
 
-  \frametitle{R-referencja}
+R-referencję definiujemy z użyciem \code{&&}: \code{T &&}
 
-  R-referencja wskazuje r-wartość, a nie może wskazać l-wartości.
+To nowość wprowadzona w C++11, żeby umożliwić:
 
-  \vspace{0.5 cm}
-  
-  R-referencję definiujemy z użyciem \code{&&}: \code{T &&}
+* mechanizm przenoszenia obiektów,
 
-  \vspace{0.5 cm}
+* doskonałe przekazywanie argumentów funkcji.
 
-  To nowość wprowadzona w C++11, żeby umożliwić:
+Here are some examples:
 
-  \begin{itemize}
-  \item mechanizm przenoszenia obiektów,
-  \item doskonałe przekazywanie argumentów funkcji.
-  \end{itemize}
-
-  \vspace{0.5cm}
-
-\end{frame}
-
-%************************************************************************
-
-\subsection{R-referencja - przykłady}
-
-\begin{frame}[fragile]
-
-  \frametitle{R-referencja - przykłady}
-
-\begin{lstlisting}
-int x = 1;
-
-// BŁĄD: brak inicjalizacji.
-int &&a;
-
-// BŁĄD: nie może wskazać l-wartości.
-int &&z = x;
-
-// OK: wskazujemy r-wartość.
-int &&z = 1;
-\end{lstlisting}
-  
-\end{frame}
+{% highlight c++ %}
+{% include_relative rref.cc %}
+{% endhighlight %}
 
 %************************************************************************
 
@@ -255,17 +223,12 @@ int &&z = 1;
   l-wartość typu niestałego lub r-wartość, więc jeżeli nie ma
   przeciążenia nr 1 lub 3, kompilator wybierze przeciążenie nr 2.
 
-\end{frame}
+# Wiązanie obiektu tymczasowego przez referencję
 
-
-  \frametitle{Wiązanie obiektu tymczasowego przez referencję}
-
-  Jeżeli obiekt tymczasowy jest wskazywany przez referencję, to jest
-  on niszczony wtedy, kiedy referencja wychodzi poza \red{zakres}
-  (ang.~scope).  Inaczej obiekt byłby niszczony po opracowaniu
-  wyrażenia.
-
-  \vspace{0.25 cm}
+Jeżeli obiekt tymczasowy jest wskazywany przez referencję, to jest on
+niszczony wtedy, kiedy referencja wychodzi poza \red{zakres}
+(ang.~scope).  Inaczej obiekt byłby niszczony po opracowaniu
+wyrażenia.
 
 \begin{lstlisting}
 // Obiekt tymczasowy T() jest niszczony
