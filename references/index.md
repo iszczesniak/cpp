@@ -161,7 +161,7 @@ Here are some examples:
 
 ## Rvalue reference
 
-An rvalue reference can bind to an rvalue only.
+An rvalue reference can bind to the data of an rvalue only.
 
 We define an rvalue reference like this:
 
@@ -169,11 +169,11 @@ We define an rvalue reference like this:
 
 `&&` is called the rvalue reference declarator.
 
-The rvalue reference was introduced in C+11 to enable:
+The rvalue reference was introduced in C++11 to enable:
 
 * the move semantics,
 
-* the perfect forwarding.
+* the argument perfect forwarding.
 
 Here are some examples:
 
@@ -181,50 +181,49 @@ Here are some examples:
 {% include_relative rref.cc %}
 {% endhighlight %}
 
-\subsection{R-referencja do l-wartości}
+# Rvalue reference to an lvalue.
 
-\begin{frame}[fragile]
+Możemy uzyskać r-referencję do l-wartości z użyciem operatora
+\code{static_cast<T &&>(expr)} lub funkcji \code{std::move(expr)},
+gdzie \code{expr} może być l-wartością albo r-wartością.  Funkcja
+\code{std::move} jest szablonowa i kompilator sam wnioskuje typ
+wyrażenia, którego nie trzeba już podawać, jak dla \code{static_cast}.
+Na przykład:
 
-  \frametitle{R-referencja do l-wartości}
+{% highlight c++ %}
+{% include_relative move.cc %}
+{% endhighlight %}
 
-  Możemy uzyskać r-referencję do l-wartości z użyciem operatora
-  \code{static_cast<T &&>(expr)} lub funkcji \code{std::move(expr)},
-  gdzie \code{expr} może być l-wartością albo r-wartością.  Funkcja
-  \code{std::move} jest szablonowa i kompilator sam wnioskuje typ
-  wyrażenia, którego nie trzeba już podawać, jak dla
-  \code{static_cast}.  Na przykład:
+Funkcji \code{std::move(x)} będziemy używać, aby umożliwić
+przenoszenie obiektu \code{x}, dla którego domyślnie przenoszenie nie
+jest stosowane, ponieważ wyrażenie \code{x} jest l-wartością.
 
-  {\tiny\lstinputlisting{move.cc}}
+# Reference type and function overload resolution 
 
-  Funkcji \code{std::move(x)} będziemy używać, aby umożliwić
-  przenoszenie obiektu \code{x}, dla którego domyślnie przenoszenie
-  nie jest stosowane, ponieważ wyrażenie \code{x} jest l-wartością.
+Funkcję można przeciążyć różnymi typami referencyjnymi:
 
-\end{frame}
+* `void foo(T &);`
+* `void foo(const T &);`
+* `void foo(T &&);`
 
-# Reference type and overload resolution 
+Dla wywołania funkcji \code{foo(expr)}, kompilator wybierze:
 
-  Funkcję można przeciążyć różnymi typami referencyjnymi:
+* przeciążenie nr 1, jeżeli \code{expr} jest l-wartością typu
+  niestałego,
 
-  \begin{enumerate}
-  \item \code{void foo(T &);}
-  \item \code{void foo(const T &);}
-  \item \code{void foo(T &&);}
-  \end{enumerate}
+* przeciążenie nr 2, jeżeli \code{expr} jest l-wartością typu stałego,
 
-  Dla wywołania funkcji \code{foo(expr)}, kompilator wybierze:
+* przeciążenie nr 3, jeżeli \code{expr} jest r-wartością.
 
-  \begin{itemize}
-    \item przeciążenie nr 1, jeżeli \code{expr} jest l-wartością typu
-      niestałego,
-    \item przeciążenie nr 2, jeżeli \code{expr} jest l-wartością typu
-      stałego,
-    \item przeciążenie nr 3, jeżeli \code{expr} jest r-wartością.
-  \end{itemize}
+Stała l-referencja (użyta w przeciążeniu nr 2) może wskazać l-wartość
+typu niestałego lub r-wartość, więc jeżeli nie ma przeciążenia nr 1
+lub 3, kompilator wybierze przeciążenie nr 2.
 
-  Stała l-referencja (użyta w przeciążeniu nr 2) może wskazać
-  l-wartość typu niestałego lub r-wartość, więc jeżeli nie ma
-  przeciążenia nr 1 lub 3, kompilator wybierze przeciążenie nr 2.
+Here's a complete example:
+
+{% highlight c++ %}
+{% include_relative overload.cc %}
+{% endhighlight %}
 
 # Wiązanie obiektu tymczasowego przez referencję
 
@@ -233,41 +232,26 @@ niszczony wtedy, kiedy referencja wychodzi poza \red{zakres}
 (ang.~scope).  Inaczej obiekt byłby niszczony po opracowaniu
 wyrażenia.
 
-\begin{lstlisting}
-// Obiekt tymczasowy T() jest niszczony
-// wtedy, kiedy t1 wychodzi poza zakres.
-const T &t1 = T();
+{% highlight c++ %}
+{% include_relative tmp.cc %}
+{% endhighlight %}
 
-// To samo, ale dla r-referencji.
-T &&t2 = T();
-\end{lstlisting}
-
-  \vspace{0.25 cm}
-
-  Nazywa się to \red{wiązaniem} obiektu tymczasowego przez referencję.
-
-\end{frame}
+A reference extends the lifetime of a temporary.
 
 # Conclusion
 
-* Referencja to inna nazwa obiektu.
+* A reference gives us a way to refer by name to some data.
 
-* Referencję trzeba zainicjalizować.
+* A reference is initialized, and then cannot be changed.
 
-* \item Wartości referencji (wskazywanego obiektu) nie można zmienić.
+* Three reference types:
 
-\item Podstawowe typy referencji:
-    \begin{itemize}
-    \item l-referencja,
-    \item r-referencja.
-    \end{itemize}
-  \item Niestała l-referencja może wskazać l-wartość, ale nie r-wartość.
-  \item Stała l-referencja może wskazywać l-wartość lub r-wartość.
-  \item R-referencja może wskazywać r-wartość, ale nie l-wartość.
-  \item Stała r-referencja nie ma sensu.
-  \item Referencje wiążą obiekty tymczasowe.
-  \end{itemize}
+  * an lvalue reference, which can bind to an lvalue only,
 
-\end{frame}
+  * a const reference, which can bind to both an lvalue and rvalue,
+
+  * an rvalue reference, which can bind to an rvalue only.
+
+* A reference extends the lifetime of a temporary it's bound to.
 
 <!-- LocalWords: lvalue lvalues rvalue -->
