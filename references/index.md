@@ -90,7 +90,7 @@ There are three reference types:
 
 # Terms lvalue and rvalue in type names
 
-Terms lvalue and rvalue name categories of expressions, e.g.:
+Expressions are called an lvalue or an rvalue, e.g.:
 
 * `"1"` is an lvalue,
 
@@ -98,10 +98,10 @@ Terms lvalue and rvalue name categories of expressions, e.g.:
 
 These terms are also used to name a reference type:
 
-* `int &x = <expr>;` - expression `x` is of the lvalue reference type,
-  and of the lvalue category,
+* `int &x = <expr>;` - expression `x` is of the *lvalue reference*
+  type, and of the lvalue category,
 
-* `int &&x = <expr>;` - expression `x` is of the rvalue reference
+* `int &&x = <expr>;` - expression `x` is of the *rvalue reference*
   type, but of the lvalue category.
 
 NOW I GET IT: *Even if the variable's type is an rvalue reference, the
