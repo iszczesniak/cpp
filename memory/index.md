@@ -1,5 +1,5 @@
 ---
-title: Memory model
+title: Memory organization
 ---
 
 # Introduction
