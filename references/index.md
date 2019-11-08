@@ -19,7 +19,7 @@ These are the most important facts about references:
 * Unlike a pointer, a reference cannot be changed to be an alias for
   some other data.
 
-* A reference can be a member of `std::pair` and `std::tuple`, but not
+* A reference can be an element of `std::pair` and `std::tuple`, but not
   of a container or an array.
 
 The main use of references:
