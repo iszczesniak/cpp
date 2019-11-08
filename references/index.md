@@ -22,7 +22,7 @@ These are the most important facts about references:
 * A reference can be an element of `std::pair` and `std::tuple`, but not
   of a container or an array.
 
-The main use of references:
+The main uses of references:
 
 * passing an argument to a function by reference,
 
@@ -32,10 +32,13 @@ The main use of references:
 
 We say that a reference *binds to* data, which means something like
 *points to*, though "points to" is used when talking about pointers.
-  
-C++ references are like no references of other languages, because at
-run-time they might not exists (that can be optimized out at the
-compile-time).
+
+A reference binds to the *data* of an lvalue, or an rvalue, but in
+short we say that a reference binds to an lvalue or an rvalue.
+
+C++ references are like no references of other languages: in C++ a
+reference might not exists at run-time, because it was optimized out
+at compile-time.
 
 In languages like Java or C#, references are pointers with
 shared-ownership semantics (i.e., a reference can be copied, and the
@@ -107,8 +110,7 @@ expression consisting of its name is an lvalue expression.*
 
 ## Lvalue reference
 
-An lvalue reference can bind to the data of an lvalue, but not of an
-rvalue.
+An lvalue reference can bind to an lvalue, but not to an rvalue.
 
 We define an lvalue reference like this:
 
@@ -138,9 +140,9 @@ Here are some examples for `std::pair` and `std::tuple`:
 
 ## Const reference
 
-*A const reference can bind not only to the data of an lvalue, but to
-an **rvalue** too.* This rule was introduced in C++98 to allow for
-binding a function parameter reference to a temporary.
+*A const reference can bind not only to an lvalue, but to an *rvalue**
+*too.* This rule was introduced in C++98 to allow for binding a
+*function parameter reference to a temporary.
 
 We define a const reference like this:
 
@@ -161,7 +163,7 @@ Here are some examples:
 
 ## Rvalue reference
 
-An rvalue reference can bind to the data of an rvalue only.
+An rvalue reference can bind to an rvalue, but not to an lvalue.
 
 We define an rvalue reference like this:
 
@@ -202,8 +204,8 @@ called *overload resolution*):
 * overload #3, if `<expr>` is an rvalue.
 
 A const reference (used in overload #2) can bind to an lvalue of a
-non-const type or to an rvalue, so when there is no overload #1 or #3,
-a compiler will choose overload #2.
+non-const type or to an rvalue, so when there is no overload #1 and
+#3, a compiler will choose overload #2 instead.
 
 Here's a complete example:
 
@@ -213,10 +215,10 @@ Here's a complete example:
 
 ## Rvalue reference to an lvalue
 
-We can explicitely get an rvalue reference to the data of an lvalue
-with `static_cast<T &&>(<expr>)`, where `<expr>` can be an lvalue or
-an rvalue.  This is, however, a bit wordy, since we have to type in
-the type `T`.
+We can explicitely get an rvalue reference to an lvalue with
+`static_cast<T &&>(<expr>)`, where `<expr>` can be an lvalue or an
+rvalue.  This is, however, a bit wordy, since we have to type in the
+type `T`.
 
 It's easier to get an rvalue reference with `std::move(<expr>)`, where
 `<expr>` can be an lvalue or an rvalue.  `std::move` is a function
