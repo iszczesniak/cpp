@@ -1,0 +1,3 @@
+struct T;
+
+T foo();
