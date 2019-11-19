@@ -11,33 +11,46 @@ class or a structure was defined).  The state of the object is called
 the *value*.
 
 The definition of the value of an object depends on the implementation
-of the class.  Usually the value is the state of its member fields and
-base objects.  However, there might be some supporting data in an
-object (e.g., some cache data) that do not have to be part of the
-object value.
+of the class.  Usually the value of an object is the state of its
+member fields and base objects.  However, there might be some
+supporting data in an object (e.g., some cache data) that do not have
+to be part of the object value.
 
-The value can be copied when the object is:
+The value of an object can be copied when the object is:
+
+* used to initialize a new object,
+
+* used in an assignment expression,
 
 * passed by value as an argument to a function,
 
 * returned by value from a function,
 
-* assigned to another object (e.g., a variable, an object in a
-  container).
+all of which boil down to:
 
-Facts:
+* either the initialization:
+
+  `T t(<source expression>);`
+
+* or the assignment:
+
+ `t = <source expression>;`
+
+We're interested in the case where `<source expression>` is of a class
+type, i.e., it has an object, which we call the source object, or just
+a source.  Object `t` is the target object, or just a target.
+
+Important facts about copying:
 
 * Copying takes time when the value to copy is big.
 
 * Copying is implemented by:
 
-  * the copy constructor (to initialize a new object),
+  * the copy constructor (to initialize an object),
 
-  * the copy assignment operator (to assign to an existing object).
+  * the copy assignment operator (to assign to an object).
 
-* We copy a value from the *source* object to the *target* object.
-
-* The source and the target can be anywhere.
+* The source and the target can be *anywhere*.
 
 By anywhere we mean different memory locations, i.e., copying is not
 limited to objects on the stack or the heap only.  For instance, the
@@ -45,34 +58,46 @@ source can be on the stack, and the target in the fixed-size memory
 for static and global data.  Objects should have no clue where they
 live.
 
-Copying might be necessary or not.  It's not a problem, when it's
-necessary, e.g., when we need to modify a copy, and leave the original
-unchanged.
+Copying might be a problem depending on whether it's necessary or not.
+It's not a problem, when it's necessary, e.g., when we need to modify
+a copy, and leave the original intact.
 
-However, copying is a problem when it's unnecessary.  Copying is
-unnecessary, when the source is not needed after copying.  It's a
-*performance* problem: the code will work alright, but it could be
+Copying is a problem when it's unnecessary.  Copying is unnecessary,
+when the source is not needed after copying.  Unnecessary copying is a
+*performance* problem: the code will work alright, but we wish it was
 faster.
+
+
 
 # The move semantics
 
-The move semantics:
+The move semantics allows for moving the value from a source
+expression to a target, when copying is unnecessary.  It was
+introduced in C++11, but its need was already recognized in the
+1990's.
 
-* allows for moving the value from an object, when copying is
-  unnecessary,
+The move semantics:
 
 * takes effect when:
 
-  * the source is used in an rvalue (e.g., the source is a temporary),
+  * an object is initialized, or an object is assigned to,
+
+  * the source expression is an rvalue (e.g., the source is a
+    temporary),
 
   * the type of the target has the move semantics implemented,
 
-* is implemented by the *move constructor*, and the *move assignment
-  operator*,
+* is implemented by:
 
-* can be user-defined or compiler-provided, i.e., either the
-  programmer or the compiler provides the implementation of the move
-  constructor, and the move assignment operator.
+  * the *move constructor* (to initialize an object),
+
+  * the *move assignment operator* (to assign to an object),
+
+* can be user-defined or compiler-provided.
+
+By user-define, i.e., either the programmer or the compiler provides
+the implementation of the move constructor, and the move assignment
+operator.
 
 ## How it works
 
@@ -514,7 +539,6 @@ Special member functions are:
   \vspace{0.5cm}
 
 \end{frame}
-
 
 <!-- LocalWords: enum  sigsegv endhighlight heisenbugs -->
 <!-- LocalWords: deallocates defragmentation manyfold args -->
