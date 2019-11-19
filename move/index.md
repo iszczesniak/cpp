@@ -4,10 +4,17 @@ title: Move semantics
 
 # Introduction
 
-The move semantics applies only to the class types, so I'll talk about
-the *values of objects*, and not *data*.  An object is an instance of
-a class type (i.e., a piece of memory interpreted as a class type).
-The state of the object is called the *value*.
+The move semantics applies only to the data of class types, so I'll
+talk about the values of *objects*, and not *data*.  An object is an
+instance of a class type (i.e., a piece of memory interpreted as
+defined in a class or a structure).  The state of the object is called
+the *value*.
+
+The definition of the value of an object depends on the implementation
+of the class.  Usually the value is the state of its member fields and
+base objects.  However, there might be some supporting data in an
+object (e.g., some cache data) that do not have to be part of the
+object value.
 
 The value can be copied when the object is:
 
@@ -36,14 +43,14 @@ Facts:
   only.  For instance, the source can be on the stack, and the target
   in the fixed-size memory for static and global data.
 
-Copying of objects might be necessary or not.  When it's necessary
-(e.g., because we need to modify a copy, and leave the original
-unchanged), then it's not a problem.
+Copying might be necessary or not.  When it's necessary (e.g., because
+we need to modify a copy, and leave the original unchanged), then it's
+not a problem.
 
-However, copying is a problem when it's not necessary.  Copying an
-object is not necessary, when the source of the copy is not needed
-after copying.  It's a *performance* problem: the code will work
-alright, but it could be faster.
+However, copying is a problem when it's not necessary.  Copying is not
+necessary, when the source is not needed after copying.  It's a
+*performance* problem: the code will work alright, but it could be
+faster.
 
 # The move semantics
 
