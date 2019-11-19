@@ -1,14 +1,14 @@
 struct T
 {
-  // Konstruktor kopiujący.
+  // Copy constructor.
   T(const T &t)
   {
-    // Skopiuj dane z obiektu t do *this.
+    // Copy the data from object t to *this.
   }
 
-  // Konstruktor przenoszący.
+  // Move constructor.
   T(T &&t)
   {
-    // Przenieś dane z obiektu t do *this.
+    // Move the data from object t to *this.
   }
 };
