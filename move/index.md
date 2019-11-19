@@ -28,13 +28,9 @@ The value of an object can be copied when the object is:
 
 all of which boil down to:
 
-* either the initialization:
+* either the initialization: `T t(<source expression>)`,
 
-  `T t(<source expression>);`
-
-* or the assignment:
-
- `t = <source expression>;`
+* or the assignment: `t = <source expression>`.
 
 We're interested in the case where `<source expression>` is of a class
 type, i.e., it has an object, which we call the source object, or just
