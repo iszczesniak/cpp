@@ -5,10 +5,10 @@ title: Move semantics
 # Introduction
 
 The move semantics applies only to the data of class types, so I'll
-talk about *objects*, and not *data*.  An object is an instance of a
-class type (i.e., a piece of memory interpreted according to how a
-class or a structure was defined).  The state of the object is called
-the *value*.
+talk about *objects*, and not *data* as I do elsewhere.  An object is
+an instance of a class type (i.e., a piece of memory interpreted
+according to how a class or a structure was defined).  The state of
+the object is called the *value*.
 
 The definition of the value of an object depends on the implementation
 of the class.  Usually the value of an object is the state of its
@@ -28,13 +28,14 @@ The value of an object can be copied when the object is:
 
 all of which boil down to:
 
-* either the initialization: `T t(<source expression>)`,
+* either the initialization: `T t(<expr>);`,
 
-* or the assignment: `t = <source expression>`.
+* or the assignment: `t = <expr>;`.
 
-We're interested in the case where `<source expression>` is of a class
-type, i.e., it has an object, which we call the source object, or just
-a source.  Object `t` is the target object, or just a target.
+We're interested in the case where the source expression `<expr>` is
+of a class type, i.e., it has an object, which we call the source
+object, or just a source.  Object `t` is the target object, or just a
+target.
 
 Important facts about copying:
 
