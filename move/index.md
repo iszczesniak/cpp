@@ -5,9 +5,11 @@ title: Move semantics
 # Introduction
 
 The move semantics applies only to the class types, so I'll talk about
-moving *objects*, and not *data*.
+the *values of objects*, and not *data*.  An object is an instance of
+a class type (i.e., a piece of memory interpreted as a class type).
+The state of the object is called the *value*.
 
-An object (an instance of a class type) can be copied when it is:
+The value can be copied when the object is:
 
 * passed by value as an argument to a function,
 
@@ -16,54 +18,54 @@ An object (an instance of a class type) can be copied when it is:
 * assigned to another object (e.g., a variable, an object in a
   container).
 
-Copying an object:
+Facts:
 
-* takes time when the object is big,
+* Copying takes time when the value to copy is big.
 
-* is implemented by:
+* Copying is implemented by:
 
   * the copy constructor (to initialize a new object),
 
   * the copy assignment operator (to assign to an existing object).
 
-Przy kopiowaniu, obiekt źródłowy i obiekt docelowy mogą znajdować się
-w różnych miejscach na stosie albo stercie.
+* We copy a value from the *source* object to the *target* object (or
+  the source and the target in short).
+
+* The source and the target can be in different memory locations,
+  i.e., copying is not limited to objects on the stack or the heap
+  only.  For instance, the source can be on the stack, and the target
+  in the fixed-size memory for static and global data.
 
 Copying of objects might be necessary or not.  When it's necessary
 (e.g., because we need to modify a copy, and leave the original
-unchanged), then it's not a problem.  However, it's a problem when
-it's not necessary.
+unchanged), then it's not a problem.
 
-Copying an object is not necessary, when the source of the copy is
-not needed anylonger.
-
--- and that's the problem the move semantics
-solves.
+However, copying is a problem when it's not necessary.  Copying an
+object is not necessary, when the source of the copy is not needed
+after copying.  It's a *performance* problem: the code will work
+alright, but it could be faster.
 
 # The move semantics
 
-\begin{frame}
-
-  \frametitle{Semantyka przenoszenia obiektów}
-
-  \begin{itemize}
-  \item Cecha języka C++11, która pozwala na \emph{uniknięcie
+Cecha języka C++11, która pozwala na \emph{uniknięcie
     kopiowania obiektów} poprzez przenoszenie obiektów.
-  \item Kopiowanie nie jest potrzebne i może być uniknione, jeżeli
+
+\item Kopiowanie nie jest potrzebne i może być uniknione, jeżeli
     obiekt źródłowy nie będzie potem potrzebny.
-  \item Przenoszenie obiektów jest realizowane przez konstruktor
+
+\item Przenoszenie obiektów jest realizowane przez konstruktor
     przenoszący lub przenoszący operator przypisania.
-  \item Obiekt może być przeniesiony tylko wtedy, jeżeli:
-    \begin{itemize}
+
+\item Obiekt może być przeniesiony tylko wtedy, jeżeli:
+
+\begin{itemize}
     \item jest użyty w wyrażeniu kategorii r-wartość,
     \item ma zaimplementowaną semantykę przeniesienia.
     \end{itemize}
-  \item Implementacja semantyki przenoszenia obiektów danej klasy może
+
+\item Implementacja semantyki przenoszenia obiektów danej klasy może
     być domyślna (dostarczona przez kompilator) albo dostarczona przez
     programistę.
-  \end{itemize}
-
-\end{frame}
 
 %************************************************************************
 
