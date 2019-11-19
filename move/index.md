@@ -5,9 +5,9 @@ title: Move semantics
 # Introduction
 
 The move semantics applies only to the data of class types, so I'll
-talk about the values of *objects*, and not *data*.  An object is an
-instance of a class type (i.e., a piece of memory interpreted as
-defined in a class or a structure).  The state of the object is called
+talk about *objects*, and not *data*.  An object is an instance of a
+class type (i.e., a piece of memory interpreted according to how a
+class or a structure was defined).  The state of the object is called
 the *value*.
 
 The definition of the value of an object depends on the implementation
@@ -43,9 +43,9 @@ Facts:
   only.  For instance, the source can be on the stack, and the target
   in the fixed-size memory for static and global data.
 
-Copying might be necessary or not.  When it's necessary (e.g., because
-we need to modify a copy, and leave the original unchanged), then it's
-not a problem.
+Copying might be necessary or not.  It's not a problem, when it's
+necessary, e.g., when we need to modify a copy, and leave the original
+unchanged.
 
 However, copying is a problem when it's not necessary.  Copying is not
 necessary, when the source is not needed after copying.  It's a
