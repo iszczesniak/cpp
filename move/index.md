@@ -58,38 +58,23 @@ faster.
 
 The move semantics:
 
-* allows for moving the value from an object,
+* allows for moving the value from an object, when copying is
+  unnecessary,
 
-* because
-the object will not be needed.  It's better to move the value than to
-copy it, because the source object will not be needed anyway.  We
-could say that we salvage the value.
+* takes effect when:
 
-\item Kopiowanie nie jest potrzebne i może być uniknione, jeżeli
-    obiekt źródłowy nie będzie potem potrzebny.
+  * the source is used in an rvalue (e.g., the source is a temporary),
 
+  * the type of the target has the move semantics implemented,
 
-\item Obiekt może być przeniesiony tylko wtedy, jeżeli:
+* is implemented by the *move constructor*, and the *move assignment
+  operator*,
 
-\begin{itemize}
-    \item jest użyty w wyrażeniu kategorii r-wartość,
-    \item ma zaimplementowaną semantykę przeniesienia.
-    \end{itemize}
+* can be user-defined or compiler-provided, i.e., either the
+  programmer or the compiler provides the implementation of the move
+  constructor, and the move assignment operator.
 
-* is implemented for a class type by the move constructor, and the
-  move assignment operator,
-
-* can be user-defined or compiler-provided.
-
-%************************************************************************
-
-\section{Jak to działa?}
-
-\subsection{Jak to działa?}
-
-\begin{frame}
-
-  \frametitle{Jak to działa?}
+## How it works
 
   \begin{itemize}
   \item Nic magicznego się nie dzieje!  Obiekty nie są przenoszone
@@ -108,8 +93,6 @@ could say that we salvage the value.
     być \red{spójny} (bo obiekt będzie potem normalnie niszczony), ale
     jego stan nie musi być \red{zdefiniowany}.
   \end{itemize}
-
-\end{frame}
 
 %************************************************************************
 
