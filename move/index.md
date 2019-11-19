@@ -4,41 +4,43 @@ title: Move semantics
 
 # Introduction
 
-%************************************************************************
+The move semantics applies only to the class types, so I'll talk about
+moving *objects*, and not *data*.
 
-\section{Wprowadzenie}
+An object (an instance of a class type) can be copied when it is:
 
-\subsection{Problem: kopiowanie obiektów}
+* passed by value as an argument to a function,
 
-\begin{frame}
+* returned by value from a function,
 
-  \frametitle{Problem: kopiowanie obiektów}
+* assigned to another object (e.g., a variable, an object in a
+  container).
 
-  \begin{itemize}
+Copying an object:
 
-  \item Obiekt może być kopiowany, kiedy:
-    \begin{itemize}
-    \item jest przekazywany przez wartość do funkcji,
-    \item jest zwracany przez wartość z funkcji,
-    \item jest wsadzany do kontenera,
-    \item jego wartość jest zamieniana z wartością innego obiektu.
-    \end{itemize}
-  \item Jeżeli obiekty są duże, to częste kopiowanie obiektu
-    doprowadza do spowolnienia programu.
-  \item Kopiowanie obiektów jest realizowane przez konstruktor
-    kopiujący lub kopiujący operator przypisania.
-  \item Przy kopiowaniu, obiekt źródłowy i obiekt docelowy mogą
-    znajdować się w różnych miejscach na stosie albo stercie.
-  \item Obiekty lokalne tworzone są na stosie, ponieważ alokacja
-    pamięci na stosie jest znacznie szybsza niż alokacja pamięci na
-    stercie.
-  \end{itemize}
+* takes time when the object is big,
 
-\end{frame}
+* is implemented by:
 
-%************************************************************************
+  * the copy constructor (to initialize a new object),
 
-\subsection{Semantyka przenoszenia obiektów}
+  * the copy assignment operator (to assign to an existing object).
+
+Przy kopiowaniu, obiekt źródłowy i obiekt docelowy mogą znajdować się
+w różnych miejscach na stosie albo stercie.
+
+Copying of objects might be necessary or not.  When it's necessary
+(e.g., because we need to modify a copy, and leave the original
+unchanged), then it's not a problem.  However, it's a problem when
+it's not necessary.
+
+Copying an object is not necessary, when the source of the copy is
+not needed anylonger.
+
+-- and that's the problem the move semantics
+solves.
+
+# The move semantics
 
 \begin{frame}
 
@@ -179,6 +181,16 @@ title: Move semantics
 \end{frame}
 
 %************************************************************************
+
+Special member functions are:
+
+* the default constructor,
+
+* the copy constructor, the copy assignment operator,
+
+* the move constructor, the move assignment operator,
+
+* the destructor.
 
 \subsection{Domyślne implementacje składowych specjalnych}
 
