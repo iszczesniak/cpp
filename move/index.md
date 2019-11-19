@@ -35,33 +35,39 @@ Facts:
 
   * the copy assignment operator (to assign to an existing object).
 
-* We copy a value from the *source* object to the *target* object (or
-  the source and the target in short).
+* We copy a value from the *source* object to the *target* object.
 
-* The source and the target can be in different memory locations,
-  i.e., copying is not limited to objects on the stack or the heap
-  only.  For instance, the source can be on the stack, and the target
-  in the fixed-size memory for static and global data.
+* The source and the target can be anywhere.
+
+By anywhere we mean different memory locations, i.e., copying is not
+limited to objects on the stack or the heap only.  For instance, the
+source can be on the stack, and the target in the fixed-size memory
+for static and global data.  Objects should have no clue where they
+live.
 
 Copying might be necessary or not.  It's not a problem, when it's
 necessary, e.g., when we need to modify a copy, and leave the original
 unchanged.
 
-However, copying is a problem when it's not necessary.  Copying is not
-necessary, when the source is not needed after copying.  It's a
+However, copying is a problem when it's unnecessary.  Copying is
+unnecessary, when the source is not needed after copying.  It's a
 *performance* problem: the code will work alright, but it could be
 faster.
 
 # The move semantics
 
-Cecha języka C++11, która pozwala na \emph{uniknięcie
-    kopiowania obiektów} poprzez przenoszenie obiektów.
+The move semantics:
+
+* allows for moving the value from an object,
+
+* because
+the object will not be needed.  It's better to move the value than to
+copy it, because the source object will not be needed anyway.  We
+could say that we salvage the value.
 
 \item Kopiowanie nie jest potrzebne i może być uniknione, jeżeli
     obiekt źródłowy nie będzie potem potrzebny.
 
-\item Przenoszenie obiektów jest realizowane przez konstruktor
-    przenoszący lub przenoszący operator przypisania.
 
 \item Obiekt może być przeniesiony tylko wtedy, jeżeli:
 
@@ -70,9 +76,10 @@ Cecha języka C++11, która pozwala na \emph{uniknięcie
     \item ma zaimplementowaną semantykę przeniesienia.
     \end{itemize}
 
-\item Implementacja semantyki przenoszenia obiektów danej klasy może
-    być domyślna (dostarczona przez kompilator) albo dostarczona przez
-    programistę.
+* is implemented for a class type by the move constructor, and the
+  move assignment operator,
+
+* can be user-defined or compiler-provided.
 
 %************************************************************************
 
