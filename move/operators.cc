@@ -15,6 +15,7 @@ struct A
   A &
   operator=(const A &source)
   {
+    // Copy the data from object t to *this.
     cout << "copy assign\n";
     return *this;
   }
