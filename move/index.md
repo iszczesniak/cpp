@@ -115,7 +115,7 @@ A class can have either the copy constructor or the move constructor,
 both or none.
 
 The move constructor of class `T` has a single parameter of the rvalue
-reference type to `T`.
+reference to `T` type, i.e., `T &&`.
 
 In the example below the class has both constructors defined:
 
@@ -125,15 +125,17 @@ In the example below the class has both constructors defined:
 
 ## The copy and move assignment operators
 
-\subsection{Operator przypisania: kopiujący i przenoszący}
+A class can have either the copy assignment operator or the move
+assignment operator, both or none.
 
-\begin{frame}[fragile]
+The move assignment operator of class `T` has a single parameter of
+the rvalue reference to `T` type, i.e., `T &&`.
 
-  \frametitle{Operator przypisania: kopiujący i przenoszący}
+In the example below the class has both operators defined:
 
-  \lstinputlisting[]{operators.cc}
-
-\end{frame}
+{% highlight c++ %}
+{% include_relative operators.cc %}
+{% endhighlight %}
 
 %************************************************************************
 
@@ -377,36 +379,7 @@ Special member functions are:
 
 \end{frame}
 
-%************************************************************************
-
-\subsection{Kiedy RVO nie działa: przypadek 1}
-
-\begin{frame}[fragile]
-
-  \frametitle{Kiedy RVO nie działa: przypadek 1}
-
-  Kiedy w momencie tworzenia obiektów lokalnych funkcji nie wiadomo,
-  który z nich zostanie zwrócony, wtedy RVO nie może być zastosowana.
-
-  \vfill
-
-  {\scriptsize\lstinputlisting[]{no_rvo_1.cc}}
-
-  \vfill
-
-  Zwracana wartość będzie kopiowana, a nie przenoszona niejawnie, bo
-  wyrażeniem instrukcji \code{return} nie jest nazwa zmiennej, a
-  operator warunkowy.
-
-\end{frame}
-
-%************************************************************************
-
 \subsection{Kiedy RVO nie działa: przypadek 2}
-
-\begin{frame}[fragile]
-
-  \frametitle{Kiedy RVO nie działa: przypadek 2}
 
   Kiedy zwracany jest parametr funkcji.  Parametr funkcji jest
   alokowany i inicjowany w osobnym miejscu na stosie, a nie w miejscu
@@ -424,36 +397,7 @@ Special member functions are:
 
 \end{frame}
 
-%************************************************************************
-
-\subsection{Kiedy RVO nie działa: przypadek 3}
-
-\begin{frame}[fragile]
-
-  \frametitle{Kiedy RVO nie działa: przypadek 3}
-
-  Kiedy funkcja zwraca obiekt globalny albo statyczny, bo one nie są
-  alokowane na stosie, gdzie jest alokowane miejsce dla wracanego
-  obiektu.
-
-  \vfill
-
-  {\scriptsize\lstinputlisting[]{no_rvo_3.cc}}
-
-  Ponieważ wyrażeniem instrukcji \code{return} jest nazwa statycznej
-  zmiennej lokalnej \code{t} funkcji, to obiekt \code{t} nie zostanie
-  niejawnie przeniesiony.  Tego obiektu \code{t} będziemy potrzebować
-  przy następnym wywołaniu funkcji, skoro jest statyczny.
-
-\end{frame}
-
-%************************************************************************
-
 \subsection{Kiedy RVO nie działa: przypadek 4}
-
-\begin{frame}[fragile]
-
-  \frametitle{Kiedy RVO nie działa: przypadek 4}
 
   Kiedy zwracany obiekt jest obiektem bazowym lokalnego obiektu.
   Lokalny obiekt był za duży, żeby można było go stworzyć w miejscu
@@ -521,6 +465,4 @@ Special member functions are:
 
 \end{frame}
 
-<!-- LocalWords: enum  sigsegv endhighlight heisenbugs -->
-<!-- LocalWords: deallocates defragmentation manyfold args -->
-<!-- LocalWords: EAX RDI RVO SIGSEGV -->
+<!-- LocalWords:  -->
