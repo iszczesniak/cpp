@@ -64,13 +64,6 @@ when the source is not needed after copying.  Unnecessary copying is a
 *performance* problem: the code will work alright, but we wish it was
 faster.
 
-In the example below, we define the copy constructor and the copy
-assignment operator, and see how they work.
-
-{% highlight c++ %}
-{% include_relative copy.cc %}
-{% endhighlight %}
-
 # The move semantics
 
 The move semantics allows for moving the value from a source
@@ -116,19 +109,21 @@ operator can be:
 * compiler-provided: the compiler provides their default
   implementation.
 
-%************************************************************************
+## The copy and move constructors
 
-\subsection{Konstruktor: kopiujący i przenoszący}
+A class can have either the copy constructor or the move constructor,
+both or none.
 
-\begin{frame}[fragile]
+The move constructor of class `T` has a single parameter of the rvalue
+reference type to `T`.
 
-  \frametitle{Konstruktor: kopiujący i przenoszący}
+In the example below the class has both constructors defined:
 
-  \lstinputlisting[]{constructors.cc}
+{% highlight c++ %}
+{% include_relative constructors.cc %}
+{% endhighlight %}
 
-\end{frame}
-
-%************************************************************************
+## The copy and move assignment operators
 
 \subsection{Operator przypisania: kopiujący i przenoszący}
 
