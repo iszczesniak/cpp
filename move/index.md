@@ -64,8 +64,6 @@ when the source is not needed after copying.  Unnecessary copying is a
 *performance* problem: the code will work alright, but we wish it was
 faster.
 
-
-
 # The move semantics
 
 The move semantics allows for moving the value from a source
