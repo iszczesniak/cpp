@@ -114,8 +114,8 @@ operator can be:
 A class can have either the copy constructor or the move constructor,
 both or none.
 
-The move constructor of class `T` has a single parameter of the rvalue
-reference to `T` type, i.e., `T &&`.
+The move constructor of class `T` has a single parameter of type `T
+&&`.
 
 In the example below the class has both constructors defined:
 
@@ -129,7 +129,7 @@ A class can have either the copy assignment operator or the move
 assignment operator, both or none.
 
 The move assignment operator of class `T` has a single parameter of
-the rvalue reference to `T` type, i.e., `T &&`.
+type `T &&`.
 
 In the example below the class has both operators defined:
 
