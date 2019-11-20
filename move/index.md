@@ -117,12 +117,23 @@ both or none.
 The move constructor of class `T` has a single parameter of type `T
 &&`.
 
+### A simple example
+
 In the example below the class has both constructors defined:
 
 {% highlight c++ %}
 {% include_relative constructors.cc %}
 {% endhighlight %}
 
+### Implementation of a move constructor
+
+  W liście inicjalizacji argumentami konstruktorów obiektów bazowych i
+  składowych powinny być r-wartości, żeby zostały wybrane konstruktory
+  przenoszące obiektów bazowych i składowych, dlatego używamy funkcji
+  \code{std::move}.
+
+  {\footnotesize\lstinputlisting{move-ctor.cc}}
+  
 ## The copy and move assignment operators
 
 A class can have either the copy assignment operator or the move
@@ -137,57 +148,50 @@ In the example below the class has both operators defined:
 {% include_relative operators.cc %}
 {% endhighlight %}
 
-%************************************************************************
-
-\subsection{Przenoszący operator przypisania: zwracany typ}
-
-\begin{frame}[fragile]
-
-  \frametitle{Przenoszący operator przypisania: zwracany typ}
+### The return type of the move assignment operator
 
   Przenoszący operator przypisania powinien zwracać l-referencję, a
   nie r-referencję, ponieważ wyrażenie \code{a = b = T()} powinno
   przenieść obiekt tymczasowy \code{T()} do \code{b}, a następnie
   skopiować obiekt \code{b} do \code{a}.
 
-  \vfill
-
   Jeżeli operator przypisania zwracałby r-referencję, to wyrażenie
   \code{a = b = T()} przeniosłoby obiekty tymczasowy \code{T()} do
   \code{b}, a następnie obiekt \code{b} zostałby przeniesiony do
   \code{a}.
-
-  \vfill
 
   Ciekawostka: ponieważ przenoszący operator przypisania zwraca
   l-referencję, to jego wynikiem możemy zainicjalizować l-referencję:
   \code{T &l = T() = T();}, mimo że \code{T &l = T();} oczywiście się
   nie kompiluje.
 
-\end{frame}
+### Implementation of the move assignment operator
 
-%************************************************************************
+  Żeby kompilator wybrał przenoszące (a nie kopiujące) operatory
+  przypisania (jeżeli istnieją) dla obiektów bazowych i składowych,
+  używamy funkcji \code{std::move}.
+
+  {\scriptsize\lstinputlisting{move-assign.cc}}
+  
+\end{frame}
 
 ## Overload resolution
 
 Wybór przeciążenia (kopiującego lub przenoszącego) konstruktora czy
-  operatora przypisania zależy od kategorii wartości wyrażenia, które
-  jest argumentem wywołania i także od dostępności przeciążenia.
+operatora przypisania zależy od kategorii wartości wyrażenia, które
+jest argumentem wywołania i także od dostępności przeciążenia.
 
-  Jeżeli dostępne są oba przeciążenia, kompilator wybierze
-  przeciążenie kopiujące dla l-wartości i przeciążenie przenoszące dla
-  r-wartości.
+Jeżeli dostępne są oba przeciążenia, kompilator wybierze przeciążenie
+kopiujące dla l-wartości i przeciążenie przenoszące dla r-wartości.
 
+Jeżeli dostępne jest tylko przeciążenie kopiujące, kompilator wybierze
+przeciążenie kopiujące także dla r-wartości, bo stała l-referencja
+może wskazać r-wartość.
 
-  Jeżeli dostępne jest tylko przeciążenie kopiujące, kompilator
-  wybierze przeciążenie kopiujące także dla r-wartości, bo stała
-  l-referencja może wskazać r-wartość.
+Jeżeli dostępne jest tylko przeciążenie przenoszące, kompilator zgłosi
+błąd dla l-wartości, bo r-referencja nie może wskazać l-wartości.
 
-  Jeżeli dostępne jest tylko przeciążenie przenoszące, kompilator
-  zgłosi błąd dla l-wartości, bo r-referencja nie może wskazać
-  l-wartości.
-
-%************************************************************************
+## Special member funsion generation and their generation
 
 Special member functions are:
 
@@ -199,13 +203,7 @@ Special member functions are:
 
 * the destructor.
 
-\subsection{Domyślne implementacje składowych specjalnych}
-
-\begin{frame}
-
-  \frametitle{Domyślne implementacje składowych specjalnych}
-
-  Kompilator dołączy domyślne implementacje:
+Kompilator dołączy domyślne implementacje:
 
   \begin{itemize}
   \item konstruktora: kopiującego i przenoszącego,
@@ -218,39 +216,6 @@ Special member functions are:
 
   \lstinputlisting{default.cc}
 
-\end{frame}
-
-%************************************************************************
-
-\subsection{Implementacja konstruktora przenoszącego}
-
-\begin{frame}
-
-  \frametitle{Implementacja konstruktora przenoszącego}
-
-  W liście inicjalizacji argumentami konstruktorów obiektów bazowych i
-  składowych powinny być r-wartości, żeby zostały wybrane konstruktory
-  przenoszące obiektów bazowych i składowych, dlatego używamy funkcji
-  \code{std::move}.
-
-  {\footnotesize\lstinputlisting{move-ctor.cc}}
-  
-\end{frame}
-
-%************************************************************************
-
-\subsection{Implementacja przenoszącego operatora przypisania}
-
-\begin{frame}
-
-  \frametitle{Implementacja przenoszącego operatora przypisania}
-
-  Żeby kompilator wybrał przenoszące (a nie kopiujące) operatory
-  przypisania (jeżeli istnieją) dla obiektów bazowych i składowych,
-  używamy funkcji \code{std::move}.
-
-  {\scriptsize\lstinputlisting{move-assign.cc}}
-  
 \end{frame}
 
 %************************************************************************
