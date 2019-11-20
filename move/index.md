@@ -72,24 +72,27 @@ introduced in C++11, but its need was already recognized in the
 1990's.  Moving is like salvaging goods (the value) from a sinking
 ship (the object that soon will not be needed).
 
-The move semantics:
-
-* takes effect when:
+The move semantics takes effect when:
 
   * an object is initialized, or an object is assigned to,
 
   * the source expression is an rvalue (e.g., the source is a
     temporary),
 
-  * the type of the target has the move semantics implemented,
+  * the type of the target has the move semantics implemented.
 
-* is implemented by:
+The move semantics is implemented by:
 
   * the **move constructor** (to initialize an object),
 
-  * the **move assignment operator** (to assign to an object),
+  * the **move assignment operator** (to assign to an object).
 
-* can be user-defined or compiler-provided.
+The move constructor and the move assignment operator can be:
+
+* user-implemented: the programmer implements them,
+
+* compiler-provided: the compiler provides their default
+  implementation.
 
 ## How it works
 
