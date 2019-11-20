@@ -23,7 +23,7 @@ struct A
   // * has the parameter of type const A &,
   // * returns an lvalue reference to *this.
   A &
-  A(const A &source)
+  operator=(const A &source)
   {
     m_name = source.m_name;
     cout << "copy-assign: " << m_name << '\n';
@@ -38,5 +38,5 @@ main()
   // Calls the copy constructor.
   A b(a);
   // Calls the copy assignment operator.
-  A b = a;
+  b = a;
 }
