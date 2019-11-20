@@ -43,13 +43,13 @@ Important facts about copying:
 
 * Copying is implemented by:
 
-  * the copy constructor (to initialize an object),
+  * the *copy constructor* (to initialize an object),
 
-  * the copy assignment operator (to assign to an object).
+  * the *copy assignment operator* (to assign to an object).
 
 * The source and the target can be *anywhere*.
 
-By anywhere we mean different memory locations, i.e., copying is not
+By anywhere I mean different memory locations, i.e., copying is not
 limited to objects on the stack or the heap only.  For instance, the
 source can be on the stack, and the target in the fixed-size memory
 for static and global data.  Objects should have no clue where they
@@ -69,7 +69,8 @@ faster.
 The move semantics allows for moving the value from a source
 expression to a target, when copying is unnecessary.  It was
 introduced in C++11, but its need was already recognized in the
-1990's.
+1990's.  Moving is like salvaging goods (the value) from a sinking
+ship (the object that soon will not be needed).
 
 The move semantics:
 
@@ -84,15 +85,11 @@ The move semantics:
 
 * is implemented by:
 
-  * the *move constructor* (to initialize an object),
+  * the **move constructor** (to initialize an object),
 
-  * the *move assignment operator* (to assign to an object),
+  * the **move assignment operator** (to assign to an object),
 
 * can be user-defined or compiler-provided.
-
-By user-define, i.e., either the programmer or the compiler provides
-the implementation of the move constructor, and the move assignment
-operator.
 
 ## How it works
 
