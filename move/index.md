@@ -87,32 +87,26 @@ The move semantics is implemented by:
 
   * the **move assignment operator** (to assign to an object).
 
-The move constructor and the move assignment operator can be:
+## How it works
+
+* There is no magic!  An object is not moved bit-by-bit to some other
+  place.  The programmer knows every detail and remains in total
+  control.
+
+* Only the value is moved.  The source, and the target objects remain
+  in memory where they are, and they will be destroyed in a normal
+  way.
+
+* The source must be *consistent*, but its state can be *undefined*.
+  It must be consistent, because it will be destroyed as usual.
+
+For a given class type, the move constructor and the move assignment
+operator can be:
 
 * user-implemented: the programmer implements them,
 
 * compiler-provided: the compiler provides their default
   implementation.
-
-## How it works
-
-  \begin{itemize}
-  \item Nic magicznego się nie dzieje!  Obiekty nie są przenoszone
-    bit-po-bicie między różnymi miejscami pamięci!
-  \item Przenoszenie obiektu polega na przenoszeniu danych z obiektu
-    źródłowego do obiektu docelowego.  Obiekt źródłowy i obiekt
-    docelowy pozostają w pamięci tam, gdzie były i będą w normalny
-    sposób niszczone.
-  \item Programista może zaimplementować przenoszenie obiektów danej
-    klasy przez zdefiniowanie:
-    \begin{itemize}
-    \item \red{konstruktora przenoszącego},
-    \item \red{przenoszącego operatora przypisania}.
-    \end{itemize}
-  \item Obiekt, który jest źródłem przeniesienia, po przeniesieniu ma
-    być \red{spójny} (bo obiekt będzie potem normalnie niszczony), ale
-    jego stan nie musi być \red{zdefiniowany}.
-  \end{itemize}
 
 %************************************************************************
 
