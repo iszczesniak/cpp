@@ -142,6 +142,8 @@ assignment operator, both or none.
 The move assignment operator of class `T` has a single parameter of
 type `T &&`.
 
+### A simple example
+
 In the example below the class has both operators defined:
 
 {% highlight c++ %}
@@ -173,8 +175,6 @@ In the example below the class has both operators defined:
 
   {\scriptsize\lstinputlisting{move-assign.cc}}
   
-\end{frame}
-
 ## Overload resolution
 
 Wybór przeciążenia (kopiującego lub przenoszącego) konstruktora czy
@@ -216,15 +216,7 @@ Kompilator dołączy domyślne implementacje:
 
   \lstinputlisting{default.cc}
 
-\end{frame}
-
-%************************************************************************
-
-\subsection{Usuwanie składowych}
-
-\begin{frame}
-
-  \frametitle{Usuwanie składowych}
+## Deleting special member functions
 
   Możemy usunąć składowe przez zadeklarowanie ich jako \code{delete}:
 
@@ -235,15 +227,9 @@ Kompilator dołączy domyślne implementacje:
   (ang.~move-only type), którego przykładem jest
   \code{std::unique_ptr}.
 
-\end{frame}
+# Implications of the move semantics
 
-%************************************************************************
-
-\subsection{Inicjalizacja parametrów funkcji}
-
-\begin{frame}[fragile]
-
-  \frametitle{Inicjalizacja parametrów funkcji}
+## Initialization of function parameters
 
   Parametr funkcji inicjalizowany jest na podstawie wyrażenia, które
   jest argumentem wywołania funkcji.  Dla parametru typu
@@ -262,66 +248,23 @@ Kompilator dołączy domyślne implementacje:
   Jeżeli konstruktor przenoszący nie jest dostępny, a argumentem jest
   r-wartość, to będzie użyty konstruktor kopiujący.
 
-\end{frame}
-
-%************************************************************************
-
-\subsection{Zwracanie wyniku funkcji przez wartość}
-
-\begin{frame}[fragile]
-
-  \frametitle{Zwracanie wyniku funkcji przez wartość}
+## Returning by value from a function
 
   Jeżeli wartość zwracana przez funkcję nie jest typu referencyjnego,
   to mówimy, że funkcja zwraca wynik przez wartość.  Na przykład:
 
-  \vfill
-
   {\scriptsize\lstinputlisting[]{return.cc}}
-
-  \vfill
 
   Od C++03 zezwala się na optymalizację wartości powrotu (ang.~return
   value optimization, RVO), której celem jest uniknięcie wywołania
   konstruktora (ang.~constructor elision) kopiującego lub
   przenoszącego przy zwracaniu wartości funkcji.
 
-  \vfill
-
   Jeżeli nie można zastosować RVO, to C++11 wymaga, aby kompilator
   stosował niejawne przeniesienie (ang.~implicit move) zwracanego
   obiektu lokalnego.
-    
-\end{frame}
 
-%************************************************************************
-
-\subsection{Optymalizacja wartości powrotu}
-
-\begin{frame}[fragile]
-
-  \frametitle{Optymalizacja wartości powrotu}
-
-  Miejsce dla zwracanego obiektu jest alokowane na stosie przez kod
-  wywołujący funkcję przed wywołaniem funkcji.  Funkcja stworzy obiekt
-  w już zaalokowanym miejscu i jeżeli może, to bez wywoływania
-  konstruktora kopiującego czy przenoszącego.
-
-  \vfill
-
-  W ten sposób funkcja tworzy obiekt w miejscu, do którego zwracany
-  obiekt musiałby być skopiowany albo przeniesiony, gdyby był
-  stworzony w miejscu na stosie zaalokowanym przez funkcję.
-
-\end{frame}
-
-%************************************************************************
-
-\subsection{Niejawne przeniesienie}
-
-\begin{frame}[fragile]
-
-  \frametitle{Niejawne przeniesienie}
+### Implicit moves
 
   Przy zwracaniu przez wartość niestatycznego obiektu lokalnego $t$
   funkcji, jeżeli nie można zastosować RVO, lub zwracaniu parametru
@@ -330,21 +273,15 @@ Kompilator dołączy domyślne implementacje:
   obiektu.  Wtedy instrukcja \code{return t;} działa jak \code{return
     std::move(t);}.
 
-  \hfill
-
   Standard C++ pozwala na jawne przeniesienie tylko w przypadku
   \code{return t;}.  Inne, bardziej złożone, wyrażenia nie są
   uwzględnione.
-
-  \hfill
 
   Nie powinniśmy sami używać funkcji \code{std::move} dla argumentu
   instrukcji \code{return}, bo wtedy wymusimy przenoszenie obiektu
   nawet w sytuacjach, kiedy może być zastosowana RVO.
 
-\end{frame}
-
-\subsection{Kiedy RVO nie działa: przypadek 2}
+#### Example 1
 
   Kiedy zwracany jest parametr funkcji.  Parametr funkcji jest
   alokowany i inicjowany w osobnym miejscu na stosie, a nie w miejscu
@@ -360,60 +297,32 @@ Kompilator dołączy domyślne implementacje:
   \code{t} funkcji, to obiekt \code{t} zostanie niejawnie
   przeniesiony.
 
-\end{frame}
-
-\subsection{Kiedy RVO nie działa: przypadek 4}
+#### Example 2
 
   Kiedy zwracany obiekt jest obiektem bazowym lokalnego obiektu.
   Lokalny obiekt był za duży, żeby można było go stworzyć w miejscu
   dla zwracanej wartości.
 
-  \vfill
-
   {\scriptsize\lstinputlisting[]{no_rvo_4.cc}}
-
-  \vfill
 
   Tylko obiekt bazowy zmiennej lokalnej \code{b} zostanie niejawnie
   przeniesiony (ang.~object slicing) do zwracanego obiektu, bo i tak
   \code{b} będzie zniszczony.  Jeżeli obiekt \code{b} byłby statyczny,
   to obiekt bazowy zostałby skopiowany.
   
-\end{frame}
-
-%************************************************************************
-
-\subsection{Funkcja std::swap}
-
-\begin{frame}
-
-  \frametitle{Funkcja \code{std::swap}}
+## The `std::swap` function
 
   Funkcja \code{std::swap} była jednym z powodów, dla którego zaczęto
   pracować nad semantyką przeniesienia w języku C++.  Ta funkcja
   pokazała, że wydajniej jest przenosić obiekty niż je kopiować.
 
-  \vfill
-
   Funkcja \code{std::swap(x, y)} przyjmuje przez referencję dwa
   obiekty \code{x} i \code{y}, których wartości zamienia.  Przykładowa
   implementacja:
 
-  \vfill
-
   {\scriptsize\lstinputlisting{swap-impl.cc}}
 
-\end{frame}
-
-%************************************************************************
-
-\section{Koniec}
-
-\subsection{Podsumowanie}
-
-\begin{frame}
-
-  \frametitle{Podsumowanie}
+# Conclusion
 
   \begin{itemize}
   \item Przenoszenie obiektów wprowadzono w C++11.
@@ -425,9 +334,5 @@ Kompilator dołączy domyślne implementacje:
     wartości wyrażenia, które jest argumentem wywołania i także od
     dostępności przeciążenia.
   \end{itemize}
-
-  \vspace{0.5cm}
-
-\end{frame}
 
 <!-- LocalWords:  -->
