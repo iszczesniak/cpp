@@ -4,51 +4,39 @@ using namespace std;
 
 struct A
 {
-  string m_name;
-
-  A(const string &name): m_name(name)
+  A()
   {
-    cout << "default-ctor: " << m_name << '\n';
+    cout << "default ctor\n";
   }
 
-  // The copy constructor:
+  // The copy assignment operator:
   // * has a single parameter of type const A &,
-  // * returns nothing (because it's a constructor).
-  A(const A &source): m_name(source.m_name)
-  {
-    cout << "copy-ctor: " << m_name << '\n';
-  }
-
-  // The move constructor:
-  // * has a single parameter of type A &&,
-  // * returns nothing (because it's a constructor).
-  A(A &&t)
-  {
-    // Move the data from object t to *this.
-  }
-  
-  // The copy assignment operator always:
-  // * has a single parameter of type const A &,
-  // * returns an lvalue reference to *this.
+  // * returns A &.
   A &
   operator=(const A &source)
   {
-    m_name = source.m_name;
-    cout << "copy-assign: " << m_name << '\n';
+    cout << "copy assign\n";
     return *this;
-  }  
+  }
+
+  // The move assignment operator:
+  // * has a single parameter of type A &&,
+  // * returns A &.
+  A &
+  operator=(A &&t)
+  {
+    // Move the data from object t to *this.
+    cout << "move assign\n";
+    return *this;
+  }
 };
 
 int
 main()
 {
-  A a("Hello!");
-  // Calls the copy constructor.
-  A b(a);
+  A a, b;
   // Calls the copy assignment operator.
-  b = a;
+  a = b;
+  // Calls the move assignment operator.
+  a = A();
 }
-
-struct T
-{
-};
