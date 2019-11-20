@@ -64,6 +64,13 @@ when the source is not needed after copying.  Unnecessary copying is a
 *performance* problem: the code will work alright, but we wish it was
 faster.
 
+In the example below, we define the copy constructor and the copy
+assignment operator, and see how they work.
+
+{% highlight c++ %}
+{% include_relative copy.cc %}
+{% endhighlight %}
+
 # The move semantics
 
 The move semantics allows for moving the value from a source
@@ -97,8 +104,9 @@ The move semantics is implemented by:
   in memory where they are, and they will be destroyed in a normal
   way.
 
-* The source must be *consistent*, but its state can be *undefined*.
-  It must be consistent, because it will be destroyed as usual.
+* After moving, the source must be *consistent*, but its state can be
+  *undefined*.  It must be consistent, because it will be destroyed as
+  usual.
 
 For a given class type, the move constructor and the move assignment
 operator can be:
@@ -163,35 +171,24 @@ operator can be:
 
 %************************************************************************
 
-\subsection{Wybór przeciążenia}
+## Overload resolution
 
-\begin{frame}
-
-  \frametitle{Wybór przeciążenia}
-
-  Wybór przeciążenia (kopiującego lub przenoszącego) konstruktora czy
+Wybór przeciążenia (kopiującego lub przenoszącego) konstruktora czy
   operatora przypisania zależy od kategorii wartości wyrażenia, które
   jest argumentem wywołania i także od dostępności przeciążenia.
-
-  \vspace{0.25 cm}
 
   Jeżeli dostępne są oba przeciążenia, kompilator wybierze
   przeciążenie kopiujące dla l-wartości i przeciążenie przenoszące dla
   r-wartości.
 
-  \vspace{0.25 cm}
 
   Jeżeli dostępne jest tylko przeciążenie kopiujące, kompilator
   wybierze przeciążenie kopiujące także dla r-wartości, bo stała
   l-referencja może wskazać r-wartość.
 
-  \vspace{0.25 cm}
-
   Jeżeli dostępne jest tylko przeciążenie przenoszące, kompilator
   zgłosi błąd dla l-wartości, bo r-referencja nie może wskazać
   l-wartości.
-
-\end{frame}
 
 %************************************************************************
 
