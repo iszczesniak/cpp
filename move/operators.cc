@@ -1,15 +1,16 @@
 struct T
 {
-  // Kopiujący operator przypisania.
+  // The copy assignment operator.
   T &operator = (const T &t)
   {
-    // Skopiuj dane z obiektu t do *this.
+    // Copy the data from object t to *this.
     return *this;
   }
-  // Przenoszący operator przypisania.
+
+  // The move assignment operator.
   T &operator = (T &&t)
   {
-    // Przenieś dane z obiektu t do *this.
+    // Move the data from object t to *this.
     return *this;
   }
 };
