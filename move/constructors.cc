@@ -4,41 +4,34 @@ using namespace std;
 
 struct A
 {
-  string m_name;
-
-  A(const string &name): m_name(name)
+  A()
   {
-    cout << "default-ctor: " << m_name << '\n';
+    cout << "default-ctor\n";
   }
 
-  // The copy constructor:
-  // * has a single parameter of type const A &,
-  // * returns nothing (because it's a constructor).
-  A(const A &source): m_name(source.m_name)
+  // The copy constructor has a single parameter of type const A &.
+  A(const A &source)
   {
-    cout << "copy-ctor: " << m_name << '\n';
+    // Copy the data from object t to *this.
+    cout << "copy-ctor\n";
   }
 
-  // The move constructor:
-  // * has a single parameter of type A &&,
-  // * has the return type A &.
-  A &
-  A(A &&t): m_name(move(source.m_name))
+  // The move constructor has a single parameter of type A &&.
+  A(A &&t)
   {
     // Move the data from object t to *this.
-    cout << "move-ctor: " << m_name << '\n';
-    return *this;
+    cout << "move-ctor\n";
   }
 };
 
 int
 main()
 {
-  A a("Hello!");
+  A a;
   // Calls the copy constructor.
-  A b(a);
+  A b{a};
   // Calls the move constructor.
-  A c(A("test"));
+  A c{A()};
   // Calls the move constructor.
-  A d(move(a));
+  A d{move(a)};
 }
