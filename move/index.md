@@ -178,19 +178,12 @@ can use the `std::move` function, as shown in the example below.
 
 ## Overload resolution
 
-Wybór przeciążenia (kopiującego lub przenoszącego) konstruktora czy
-operatora przypisania zależy od kategorii wartości wyrażenia, które
-jest argumentem wywołania i także od dostępności przeciążenia.
-
-Jeżeli dostępne są oba przeciążenia, kompilator wybierze przeciążenie
-kopiujące dla l-wartości i przeciążenie przenoszące dla r-wartości.
-
-Jeżeli dostępne jest tylko przeciążenie kopiujące, kompilator wybierze
-przeciążenie kopiujące także dla r-wartości, bo stała l-referencja
-może wskazać r-wartość.
-
-Jeżeli dostępne jest tylko przeciążenie przenoszące, kompilator zgłosi
-błąd dla l-wartości, bo r-referencja nie może wskazać l-wartości.
+The overload resolution of a constructor or an assignment operator
+(i.e., whether the copy or the move version is chosen) depends on the
+category of the source expression, and the availability of the copy
+and move overloads.  The same rules apply as in the overload
+resolution for [a function overloaded with reference types]
+(../references/index.md#reference-type-and-function-overload-resolution).
 
 ## Special member functions
 
