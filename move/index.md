@@ -125,14 +125,17 @@ In the example below the class has both constructors defined:
 {% include_relative constructors.cc %}
 {% endhighlight %}
 
-### Implementation of a move constructor
+### Implementation of the move constructor
 
-  W liście inicjalizacji argumentami konstruktorów obiektów bazowych i
-  składowych powinny być r-wartości, żeby zostały wybrane konstruktory
-  przenoszące obiektów bazowych i składowych, dlatego używamy funkcji
-  \code{std::move}.
+In the implementation of the move constructor, in the initilization
+list of the base and member objects, the initializing arguments should
+be rvalues, so that the compiler can choose the move constructors for
+the base and member objects.  To this end we can use the `std::move`
+function, as shown in the example below.
 
-  {\footnotesize\lstinputlisting{move-ctor.cc}}
+{% highlight c++ %}
+{% include_relative move-ctor.cc %}
+{% endhighlight %}
   
 ## The copy and move assignment operators
 
