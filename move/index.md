@@ -183,7 +183,7 @@ The overload resolution of a constructor or an assignment operator
 category of the source expression, and the availability of the copy
 and move overloads.  The same rules apply as in the overload
 resolution for [a function overloaded with reference
-types](../references/index.md#reference-type-and-function-overload-resolution).
+types](../references#reference-type-and-function-overload-resolution).
 
 ## Special member functions
 
