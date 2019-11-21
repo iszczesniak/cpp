@@ -284,22 +284,12 @@ example of a move-only type:
 
 ## Initialization of function parameters
 
-  Parametr funkcji inicjalizowany jest na podstawie wyrażenia, które
-  jest argumentem wywołania funkcji.  Dla parametru typu
-  niereferencyjnego będzie wywołany:
-
-  \begin{itemize}
-    \item \red{konstruktor kopiujący}, jeżeli argumentem jest
-      \red{l-wartość},
-    \item \red{konstruktor przenoszący}, jeżeli argumentem jest
-      \red{r-wartość}.
-  \end{itemize}
-
-  Jeżeli konstruktor kopiujący nie jest dostępny, a argumentem jest
-  l-wartość, to będzie zgłoszony błąd kompilacji.
-
-  Jeżeli konstruktor przenoszący nie jest dostępny, a argumentem jest
-  r-wartość, to będzie użyty konstruktor kopiujący.
+A function parameter is initialized with the argument expression.  For
+a parameter of a non-reference (i.e., we pass the argument by value)
+class type, the constructor overload resolution will depend on the
+expression category and the overload availability, as usual for [a
+function overloaded with reference
+types](../references#reference-type-and-function-overload-resolution).
 
 ## Returning by value from a function
 
