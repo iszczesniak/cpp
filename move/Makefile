@@ -1,5 +1,5 @@
-PRGS = constructors default delete move
-OBJS = move-ctor.o move-assign.o
+PRGS = constructors default delete move move-only
+OBJS = move-assign.o move-ctor.o
 
 CXXFLAGS = -std=c++17
 
