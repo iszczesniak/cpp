@@ -1,5 +1,9 @@
+#include <utility>
+
 struct A
 {
+  A() = default;
+
   // Konstruktor kopiujący.
   A(const A &) = delete;
 
@@ -7,3 +11,11 @@ struct A
   A &
   operator =(const A &) = delete;
 };
+
+int
+main()
+{
+  A a;
+  // A b(a);
+  A b(std::move(a));
+}
