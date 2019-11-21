@@ -26,7 +26,7 @@ The value of an object can be copied when the object is:
 
 * returned by value from a function,
 
-all of which boil down to:
+all of which involve:
 
 * either the initialization: `T t(<expr>);`,
 
