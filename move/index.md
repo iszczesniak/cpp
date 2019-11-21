@@ -164,8 +164,8 @@ associativity.
 Therefore, the move assignment operator should return an lvalue
 reference, and not an rvalue reference.  If the move assignment
 operator returned an rvalue reference, then that expression would move
-the value from the temporary object `T()` to `b`, and then the value
-of `b` to `a`.
+the value from the temporary object `T()` to `b`, and then move (not
+copy) the value of `b` to `a`.
 
 Interestingly, because the move assignment operator returns an lvalue
 reference, we can initialize an lvalue reference with the return value
@@ -174,12 +174,16 @@ fail to compile.
 
 ### Implementation of the move assignment operator
 
-  Żeby kompilator wybrał przenoszące (a nie kopiujące) operatory
-  przypisania (jeżeli istnieją) dla obiektów bazowych i składowych,
-  używamy funkcji \code{std::move}.
+In the implementation of the move assignment operator, the argument
+expressions for the assignment operators of the base and member
+objects should be rvalues, so that the compiler can choose the move
+assignment operators for the base and member objects.  To this end we
+can use the `std::move` function, as shown in the example below.
 
-  {\scriptsize\lstinputlisting{move-assign.cc}}
-  
+{% highlight c++ %}
+{% include_relative move-assign.cc %}
+{% endhighlight %}
+
 ## Overload resolution
 
 Wybór przeciążenia (kopiującego lub przenoszącego) konstruktora czy
