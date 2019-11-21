@@ -204,29 +204,44 @@ The special member functions are:
 
 * the destructor.
 
-A special member function can be:
+A special member function can be either undeclared or declared.  A
+function can be declared:
 
-* *user-defined*: a programmer provides the function definition,
+* *excplicitely* as:
 
-* *undeclared*: a function was not declared,
+  * *user-defined*: a programmer provides the function definition,
 
-* *defaulted*: a compiler provides the function definition,
+  * *defaulted*: a programmer explicitely requests a default
+     implementation,
 
-* *deleted*: the function is considered in overload resolution, but an
-   error is produced when the function is chosen.
+  * *deleted*: the user explicitely declares the function as deleted,
 
-### Defaulted
+* *implicitely* as:
 
-A special member function can be defaulted *implicitly* or
-*explicitly*.  A programmer can explicitely request the default
-implementation of a special member function with `= default`, like
-this:
+  * *defaulted*: a compiler provides a default definition without the
+     user explicitely requesting it,
+
+  * *deleted*: a compiler declares the function as deleted without the
+     programmer explicitely requesting it.
+
+When a function is declared as *deleted* (regarless of whether
+implicitelly or explicitelly), the function is considered in overload
+resolution, but when the function is chosen, an error message reports
+the function is deleted.
+
+### Explicitely defaulted
+
+A programmer can explicitely request the default implementation of a
+special member function with `= default`, like this:
 
 {% highlight c++ %}
 {% include_relative default.cc %}
 {% endhighlight %}
 
-All base and member objects in a defaulted:
+### Default implementation
+
+All base and member objects in a defaulted (regardless of whether
+implicitely or explicitely):
 
 * default constructor are default constructed,
 
@@ -242,7 +257,6 @@ All base and member objects in a defaulted:
 
 ### Deleted
 
-A special member function can be deleted implicitely or explicitely.
 A programmer can explicitely request a special member function be
 deleted with `= delete`, like this:
 
@@ -250,31 +264,25 @@ deleted with `= delete`, like this:
 {% include_relative delete.cc %}
 {% endhighlight %}
 
-### Implicit deletion of special member functions
+### Rules for special member functions
 
-All special member functions are implicitly defaulted.  That's why
-`struct A {};` works as expected.
-
-However:
+All special member functions are implicitly defaulted, but:
 
 * the default constructor will be undeclared, if any other constructor
-  is user-defined, explicitely defaulted or explicitely deleted,
+  is explicitely declared,
 
 * the copy constructor and the copy assignment operator will be
-  undeclared, if the move constructor or the move assignment operator
-  is user-defined, explicitely defaulted or explicitely deleted,
+  implicitely deleted, if the move constructor or the move assignment
+  operator is explicitely declared,
 
-*
-
-The default implementation of the move constructor and the move
-assignment operator will not be implicitly included by a compiler, if
-the copy constructor, the copy assignment operator or the destructor
-were defined by a programmer.
+* the move constructor and the move assignment operator will be
+  undeclared, if the copy constructor, the copy assignment operator or
+  the destructor is explicitely declared.
 
 ## Move-only types
 
-A move-only type cannot be copied, only moved.  This is an example of
-a move-only type:
+A move-only type can only be moved: it cannot be copied.  This is an
+example of a move-only type:
 
 {% highlight c++ %}
 {% include_relative move-only.cc %}
@@ -303,16 +311,6 @@ a move-only type:
 
 ## Returning by value from a function
 
-  Jeżeli wartość zwracana przez funkcję nie jest typu referencyjnego,
-  to mówimy, że funkcja zwraca wynik przez wartość.  Na przykład:
-
-  {\scriptsize\lstinputlisting[]{return.cc}}
-
-  Od C++03 zezwala się na optymalizację wartości powrotu (ang.~return
-  value optimization, RVO), której celem jest uniknięcie wywołania
-  konstruktora (ang.~constructor elision) kopiującego lub
-  przenoszącego przy zwracaniu wartości funkcji.
-
   Jeżeli nie można zastosować RVO, to C++11 wymaga, aby kompilator
   stosował niejawne przeniesienie (ang.~implicit move) zwracanego
   obiektu lokalnego.
@@ -340,11 +338,9 @@ a move-only type:
   alokowany i inicjowany w osobnym miejscu na stosie, a nie w miejscu
   zaalokowanym dla zwracanej wartości.
 
-  \vfill
-
-  {\scriptsize\lstinputlisting[]{no_rvo_2.cc}}
-
-  \vfill
+{% highlight c++ %}
+{% include_relative implicit1.cc %}
+{% endhighlight %}
 
   Ponieważ wyrażeniem instrukcji \code{return} jest nazwa parametru
   \code{t} funkcji, to obiekt \code{t} zostanie niejawnie
@@ -356,7 +352,9 @@ a move-only type:
   Lokalny obiekt był za duży, żeby można było go stworzyć w miejscu
   dla zwracanej wartości.
 
-  {\scriptsize\lstinputlisting[]{no_rvo_4.cc}}
+{% highlight c++ %}
+{% include_relative implicit2.cc %}
+{% endhighlight %}
 
   Tylko obiekt bazowy zmiennej lokalnej \code{b} zostanie niejawnie
   przeniesiony (ang.~object slicing) do zwracanego obiektu, bo i tak
@@ -369,15 +367,20 @@ a move-only type:
   pracować nad semantyką przeniesienia w języku C++.  Ta funkcja
   pokazała, że wydajniej jest przenosić obiekty niż je kopiować.
 
+{% highlight c++ %}
+{% include_relative swap.cc %}
+{% endhighlight %}
+
   Funkcja \code{std::swap(x, y)} przyjmuje przez referencję dwa
   obiekty \code{x} i \code{y}, których wartości zamienia.  Przykładowa
   implementacja:
 
-  {\scriptsize\lstinputlisting{swap-impl.cc}}
+{% highlight c++ %}
+{% include_relative swap-impl.cc %}
+{% endhighlight %}
 
 # Conclusion
 
-  \begin{itemize}
   \item Przenoszenie obiektów wprowadzono w C++11.
   \item Przenoszenie obiektów pozwala na uniknięcie kopiowania.
   \item Tylko obiekty r-wartości mogą być przenoszone.
@@ -386,6 +389,5 @@ a move-only type:
     konstruktora czy operatora przypisania zależy od kategorii
     wartości wyrażenia, które jest argumentem wywołania i także od
     dostępności przeciążenia.
-  \end{itemize}
 
 <!-- LocalWords:  -->
