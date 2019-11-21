@@ -1,21 +1,19 @@
 #include <utility>
 
+// A move-only type.
 struct A
 {
   A() = default;
-
-  // Konstruktor kopiujący.
   A(const A &) = delete;
-
-  // Kopiujący operator przypisania.
-  A &
-  operator =(const A &) = delete;
+  A(A &&) = default;
+  A & operator=(const A &) = delete;
+  A & operator=(A &&) = default;
 };
 
 int
 main()
 {
   A a;
-  // A b(a);
+  // A b(a); // Error: we cannot copy.
   A b(std::move(a));
 }
