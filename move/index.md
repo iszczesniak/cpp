@@ -287,8 +287,8 @@ example of a move-only type:
 A function parameter is initialized with the argument expression.  For
 a parameter of a non-reference (i.e., we pass the argument by value)
 class type, the constructor overload resolution will depend on the
-expression category and the overload availability, as usual for [a
-function overloaded with reference
+category of the argument expression and the overload availability, as
+usual for [a function overloaded with reference
 types](../references#reference-type-and-function-overload-resolution).
 
 ## Returning by value from a function
