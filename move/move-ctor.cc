@@ -7,9 +7,9 @@ struct B: A
 {
   std::string m_s;
 
-  // The implementation of the move constructor would be incorrect if
-  // the std::move function was not used, because then would copy, not
-  // move.
+  // The implementation of the move constructor has to use the
+  // std::move function to move the base object of class A of object
+  // b, and the string of object b, otherwise they would be copied.
   B(B &&b): A(std::move(b)), m_s(std::move(b.m_s))
   {
   }
