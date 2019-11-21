@@ -4,9 +4,7 @@
 struct A
 {
   A() = default;
-  A(const A &) = delete;
   A(A &&) = default;
-  A & operator=(const A &) = delete;
   A & operator=(A &&) = default;
 };
 
