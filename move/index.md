@@ -196,9 +196,10 @@ może wskazać r-wartość.
 Jeżeli dostępne jest tylko przeciążenie przenoszące, kompilator zgłosi
 błąd dla l-wartości, bo r-referencja nie może wskazać l-wartości.
 
-## Special member funsion generation and their generation
+## Special member functions
 
-Special member functions are:
+A compiler can generate default implementations of the special member
+functions.  Special member functions are:
 
 * the default constructor,
 
@@ -207,6 +208,16 @@ Special member functions are:
 * the move constructor, the move assignment operator,
 
 * the destructor.
+
+The default implementation of the move constructor and the move
+assignment operator will not be implicitly included by a compiler, if
+the copy constructor, the copy assignment operator or the destructor
+were defined by a programmer.
+
+The default implementation of the copy constructor and the copy
+assignment operator will be defined as deleted, if the move
+constructor or the move assignment operator was defined (which
+includes as default or deleted too).
 
 A programmer can explicitely request the default implementation of a
 special member function with `= default`, like this:
