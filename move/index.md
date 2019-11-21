@@ -101,14 +101,6 @@ The move semantics is implemented by:
   *undefined*.  It must be consistent, because it will be destroyed as
   usual.
 
-For a given class type, the move constructor and the move assignment
-operator can be:
-
-* user-implemented: the programmer implements them,
-
-* compiler-provided: the compiler provides their default
-  implementation.
-
 ## The copy and move constructors
 
 A class can have either the copy constructor or the move constructor,
@@ -202,8 +194,7 @@ błąd dla l-wartości, bo r-referencja nie może wskazać l-wartości.
 
 ## Special member functions
 
-A compiler can generate default implementations of the special member
-functions.  Special member functions are:
+The special member functions are:
 
 * the default constructor,
 
@@ -213,33 +204,81 @@ functions.  Special member functions are:
 
 * the destructor.
 
-The default implementation of the move constructor and the move
-assignment operator will not be implicitly included by a compiler, if
-the copy constructor, the copy assignment operator or the destructor
-were defined by a programmer.
+A special member function can be:
 
-The default implementation of the copy constructor and the copy
-assignment operator will be defined as deleted, if the move
-constructor or the move assignment operator was defined (which
-includes as default or deleted too).
+* *user-defined*: a programmer provides the function definition,
 
-A programmer can explicitely request the default implementation of a
-special member function with `= default`, like this:
+* *undeclared*: a function was not declared,
+
+* *defaulted*: a compiler provides the function definition,
+
+* *deleted*: the function is considered in overload resolution, but an
+   error is produced when the function is chosen.
+
+### Defaulted
+
+A special member function can be defaulted *implicitly* or
+*explicitly*.  A programmer can explicitely request the default
+implementation of a special member function with `= default`, like
+this:
 
 {% highlight c++ %}
 {% include_relative default.cc %}
 {% endhighlight %}
 
-## Deleting special member functions
+All base and member objects in a defaulted:
 
-  Możemy usunąć składowe przez zadeklarowanie ich jako \code{delete}:
+* default constructor are default constructed,
 
-  \lstinputlisting{delete.cc}
+* copy constructor are copy initialized,
 
-  W ten sposób usunęliśmy konstruktor kopiujący i kopiujący operator
-  przypisania, jak robi się to w typach danych tylko do przenoszenia
-  (ang.~move-only type), którego przykładem jest
-  \code{std::unique_ptr}.
+* copy assignment operator are copy assigned,
+
+* move constructor are move initialized,
+
+* move assignment operator are move assigned,
+
+* destructor are destroyed.
+
+### Deleted
+
+A special member function can be deleted implicitely or explicitely.
+A programmer can explicitely request a special member function be
+deleted with `= delete`, like this:
+
+{% highlight c++ %}
+{% include_relative delete.cc %}
+{% endhighlight %}
+
+### Implicit deletion of special member functions
+
+All special member functions are implicitly defaulted.  That's why
+`struct A {};` works as expected.
+
+However:
+
+* the default constructor will be undeclared, if any other constructor
+  is user-defined, explicitely defaulted or explicitely deleted,
+
+* the copy constructor and the copy assignment operator will be
+  undeclared, if the move constructor or the move assignment operator
+  is user-defined, explicitely defaulted or explicitely deleted,
+
+*
+
+The default implementation of the move constructor and the move
+assignment operator will not be implicitly included by a compiler, if
+the copy constructor, the copy assignment operator or the destructor
+were defined by a programmer.
+
+## Move-only types
+
+A move-only type cannot be copied, only moved.  This is an example of
+a move-only type:
+
+{% highlight c++ %}
+{% include_relative move-only.cc %}
+{% endhighlight %}
 
 # Implications of the move semantics
 
