@@ -300,8 +300,9 @@ returned object is destroyed when returning from the function.  The
 return instruction `return t;` is implicitly converted to `return
 std::move(t);`.
 
-Only the return expressions consisting of a variable name are
-implicitly moved, and other expressions are not.
+Only the return expression consisting of a variable name is implicitly
+moved (converted from an lvalue to an rvalue), and other expressions
+are not.
 
 We shouldn't explicitelly use the `std::move` function (e.g., `return
 std::move(t);`) in the return statement whenever we can, because it
