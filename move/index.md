@@ -18,7 +18,7 @@ to be part of the object value.
 
 The value of an object can be copied when the object is:
 
-* used to initialize a new object,
+* used to initialize an object,
 
 * used in an assignment expression,
 
@@ -291,57 +291,52 @@ category of the argument expression and the overload availability, as
 usual for [a function overloaded with reference
 types](../references#reference-type-and-function-overload-resolution).
 
-## Returning by value from a function
+## Implicit move of returned values
 
-  Jeżeli nie można zastosować RVO, to C++11 wymaga, aby kompilator
-  stosował niejawne przeniesienie (ang.~implicit move) zwracanego
-  obiektu lokalnego.
+If [the return value optimization
+(RVO)](../memory/#return-value-optimization) cannot be used, then the
+value of the returned object will be *implicitly moved*, if the
+returned object is destroyed when returning from the function.  The
+return instruction `return t;` is implicitly converted to `return
+std::move(t);`.
 
-### Implicit moves
+Only the return expressions consisting of a variable name are
+implicitly moved, and other expressions are not.
 
-  Przy zwracaniu przez wartość niestatycznego obiektu lokalnego $t$
-  funkcji, jeżeli nie można zastosować RVO, lub zwracaniu parametru
-  $t$ funkcji, wyrażenie instrukcji \code{return} niejawnie traktowane
-  jest jako r-wartość, żeby pozwolić na przeniesienie zwracanego
-  obiektu.  Wtedy instrukcja \code{return t;} działa jak \code{return
-    std::move(t);}.
+We shouldn't explicitelly use the `std::move` function (e.g., `return
+std::move(t);`) in the return statement whenever we can, because it
+disables the RVO.
 
-  Standard C++ pozwala na jawne przeniesienie tylko w przypadku
-  \code{return t;}.  Inne, bardziej złożone, wyrażenia nie są
-  uwzględnione.
+There are two cases described below in which the RVO cannot be used,
+but the returned value will be implicitly moved.
 
-  Nie powinniśmy sami używać funkcji \code{std::move} dla argumentu
-  instrukcji \code{return}, bo wtedy wymusimy przenoszenie obiektu
-  nawet w sytuacjach, kiedy może być zastosowana RVO.
+#### Case 1
 
-#### Example 1
-
-  Kiedy zwracany jest parametr funkcji.  Parametr funkcji jest
-  alokowany i inicjowany w osobnym miejscu na stosie, a nie w miejscu
-  zaalokowanym dla zwracanej wartości.
+Kiedy zwracany jest parametr funkcji.  Parametr funkcji jest alokowany
+i inicjowany w osobnym miejscu na stosie, a nie w miejscu zaalokowanym
+dla zwracanej wartości.
 
 {% highlight c++ %}
 {% include_relative implicit1.cc %}
 {% endhighlight %}
 
-  Ponieważ wyrażeniem instrukcji \code{return} jest nazwa parametru
-  \code{t} funkcji, to obiekt \code{t} zostanie niejawnie
-  przeniesiony.
+Ponieważ wyrażeniem instrukcji \code{return} jest nazwa parametru
+\code{t} funkcji, to obiekt \code{t} zostanie niejawnie przeniesiony.
 
-#### Example 2
+#### Case 2
 
-  Kiedy zwracany obiekt jest obiektem bazowym lokalnego obiektu.
-  Lokalny obiekt był za duży, żeby można było go stworzyć w miejscu
-  dla zwracanej wartości.
+Kiedy zwracany obiekt jest obiektem bazowym lokalnego obiektu.
+Lokalny obiekt był za duży, żeby można było go stworzyć w miejscu dla
+zwracanej wartości.
 
 {% highlight c++ %}
 {% include_relative implicit2.cc %}
 {% endhighlight %}
 
-  Tylko obiekt bazowy zmiennej lokalnej \code{b} zostanie niejawnie
-  przeniesiony (ang.~object slicing) do zwracanego obiektu, bo i tak
-  \code{b} będzie zniszczony.  Jeżeli obiekt \code{b} byłby statyczny,
-  to obiekt bazowy zostałby skopiowany.
+Tylko obiekt bazowy zmiennej lokalnej \code{b} zostanie niejawnie
+przeniesiony (ang.~object slicing) do zwracanego obiektu, bo i tak
+\code{b} będzie zniszczony.  Jeżeli obiekt \code{b} byłby statyczny,
+to obiekt bazowy zostałby skopiowany.
   
 ## The `std::swap` function
 
