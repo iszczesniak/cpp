@@ -208,18 +208,12 @@ Special member functions are:
 
 * the destructor.
 
-Kompilator dołączy domyślne implementacje:
+A programmer can explicitely request the default implementation of a
+special member function with `= default`, like this:
 
-  \begin{itemize}
-  \item konstruktora: kopiującego i przenoszącego,
-  \item operatora przypisania: kopiującego i przenoszącego,
-  \item destruktora,
-  \end{itemize}
-
-  jeżeli programista nie dostarczył żadnej z nich.  W przeciwnym razie
-  kompilator ich nie dołączy, ale możemy jakąś jawnie dołączyć:
-
-  \lstinputlisting{default.cc}
+{% highlight c++ %}
+{% include_relative default.cc %}
+{% endhighlight %}
 
 ## Deleting special member functions
 

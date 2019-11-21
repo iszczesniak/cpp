@@ -1,15 +1,17 @@
 struct A
 {
-  ~A()
+  // We need to include the default constructor, because the
+  // definition of the argument constructor below would inhibit the
+  // generation of the default constructor.
+  A() = default;
+
+  A(int x)
   {
   }
-  
-  // A(const A &) = default;
 };
 
 int
 main()
 {
-  A a;
-  A b(a);
+  A a, b(1);
 }
