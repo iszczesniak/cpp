@@ -211,18 +211,17 @@ function can be declared:
 
   * *user-defined*: a programmer provides the function definition,
 
-  * *defaulted*: a programmer explicitely requests a default
-     implementation,
+  * *defaulted*: a programmer requests a default implementation,
 
-  * *deleted*: the user explicitely declares the function as deleted,
+  * *deleted*: a programmer declares the function as deleted,
 
 * *implicitely* as:
 
   * *defaulted*: a compiler provides a default definition without the
-     user explicitely requesting it,
+     user requesting it,
 
   * *deleted*: a compiler declares the function as deleted without the
-     programmer explicitely requesting it.
+     programmer requesting it.
 
 When a function is declared as *deleted* (regarless of whether
 implicitelly or explicitelly), the function is considered in overload
