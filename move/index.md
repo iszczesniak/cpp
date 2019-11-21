@@ -163,9 +163,9 @@ associativity.
 
 Therefore, the move assignment operator should return an lvalue
 reference, and not an rvalue reference.  If the move assignment
-operator returned an rvalue reference, then expression `a = b = T()`
-would move the value from the temporary object `T()` to `b`, and then
-the value of `b` would be moved to `a`.
+operator returned an rvalue reference, then that expression would move
+the value from the temporary object `T()` to `b`, and then the value
+of `b` to `a`.
 
 Interestingly, because the move assignment operator returns an lvalue
 reference, we can initialize an lvalue reference with the return value
