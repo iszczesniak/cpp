@@ -371,13 +371,14 @@ Here's an example of how to use the function:
 
 # Conclusion
 
-  \item Przenoszenie obiektów wprowadzono w C++11.
-  \item Przenoszenie obiektów pozwala na uniknięcie kopiowania.
-  \item Tylko obiekty r-wartości mogą być przenoszone.
-  \item Kompilator może dołączyć domyślne przeciążenia przenoszące.
-  \item Wybór przeciążenia (kopiującego lub przenoszącego)
-    konstruktora czy operatora przypisania zależy od kategorii
-    wartości wyrażenia, które jest argumentem wywołania i także od
-    dostępności przeciążenia.
+* The move semantics was introduced in C++11.
+
+* The move semantics is used when copying is unncessary.
+
+* The move semantics is a performance boost.
+
+* Only the values of rvalues can be moved.
+
+* Compiler can ship the default implementation of the move semantics.
 
 <!-- LocalWords:  -->
