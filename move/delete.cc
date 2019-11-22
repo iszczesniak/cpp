@@ -1,17 +1,14 @@
+// This example is wierd, but it shows how to explicitely delete a
+// special member function.
 struct A
 {
-  // We need to include the default constructor, because the
-  // definition of the argument constructor below would inhibit the
-  // generation of the default constructor.
-  A() = default;
-
-  A(int x)
-  {
-  }
+  ~A() = delete;
 };
 
 int
 main()
 {
-  A a, b(1);
+  // This compiles, because we're not deleting the object.
+  A *p = new A();
+  // A a; // Error: a local variable has to have a destructor called.
 }
