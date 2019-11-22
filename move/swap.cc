@@ -1,7 +1,9 @@
 #include <utility>
 
+struct A {};
+
 int main()
 {
-  int x = 1, y = 2;
+  A x, y;
   std::swap(x, y);
 }
