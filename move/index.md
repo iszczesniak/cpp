@@ -260,16 +260,26 @@ deleted with `= delete`, like this:
 
 All special member functions are implicitly defaulted, but:
 
-* the default constructor will be undeclared, if any other constructor
-  is explicitely declared,
+* the default constructor will be **undeclared**, if any other
+  constructor is *explicitely declared*,
 
 * the copy constructor and the copy assignment operator will be
-  implicitely deleted, if the move constructor or the move assignment
-  operator is explicitely declared,
+  **implicitely deleted**, if the move constructor or the move
+  assignment operator is *explicitely declared* (so that a programmer
+  has to implement, if needed, the copy constructor and the copy
+  assignment operators),
 
 * the move constructor and the move assignment operator will be
-  undeclared, if the copy constructor, the copy assignment operator or
-  the destructor is explicitely declared.
+  **undeclared**, if the copy constructor, the copy assignment
+  operator or the destructor is *explicitely declared* (so that the
+  legacy code continues to work and doesn't have the move semantics
+  stuffed in).
+
+These rules ensure the seamless integration of the move semantics into
+the legacy and modern code.  For instance, the legacy code (such as
+`std::pair`) that doesn't do any special resource management (in the
+copy constructor, the copy assignment operator, and the destructor),
+will have the move semantics implemented by default.
 
 ## Move-only types
 
