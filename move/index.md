@@ -336,7 +336,7 @@ place.
 {% endhighlight %}
 
 
-#### Case 2: object sliciing
+#### Case 2
 
 When we return a base object of a local object.  The local object is
 too big to be initialized in the location for the return value, which
