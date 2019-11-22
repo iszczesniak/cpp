@@ -323,31 +323,37 @@ but the returned value will be implicitly moved.
 
 #### Case 1
 
-Kiedy zwracany jest parametr funkcji.  Parametr funkcji jest alokowany
-i inicjowany w osobnym miejscu na stosie, a nie w miejscu zaalokowanym
-dla zwracanej wartości.
+When we return a function parameter.  A function parameter is
+allocated and initialized in a location on the stack that is different
+from the location for the return value.  A function parameter is
+destroyed when returning from the function, so we can move the value
+from it to the location for the return value.  The return expression
+is the name of the parameter only, so the implicit move can take
+place.
 
 {% highlight c++ %}
 {% include_relative implicit1.cc %}
 {% endhighlight %}
 
-Ponieważ wyrażeniem instrukcji \code{return} jest nazwa parametru
-\code{t} funkcji, to obiekt \code{t} zostanie niejawnie przeniesiony.
 
-#### Case 2
+#### Case 2: object sliciing
 
-Kiedy zwracany obiekt jest obiektem bazowym lokalnego obiektu.
-Lokalny obiekt był za duży, żeby można było go stworzyć w miejscu dla
-zwracanej wartości.
+When we return a base object of a local object.  The local object is
+too big to be initialized in the location for the return value, which
+is of the size of the base object.  The local object is destroyed when
+returning from the function, so we can move the value from its base
+object to the location for the return value.  Only the value of the
+base object will be moved, which is called *object slicing*, because
+we slice off the value of the base object.  The return expression is
+the name of the local object only, so the implicit move can take
+place.
 
 {% highlight c++ %}
 {% include_relative implicit2.cc %}
 {% endhighlight %}
 
-Tylko obiekt bazowy zmiennej lokalnej \code{b} zostanie niejawnie
-przeniesiony (ang.~object slicing) do zwracanego obiektu, bo i tak
-\code{b} będzie zniszczony.  Jeżeli obiekt \code{b} byłby statyczny,
-to obiekt bazowy zostałby skopiowany.
+If the local object was static, the value would have to be copied, not
+moved.
   
 ## The `std::swap` function
 
