@@ -119,7 +119,7 @@ In the example below the class has both constructors defined:
 
 ### Implementation of the move constructor
 
-In the implementation of the move constructor, in the initilization
+In the implementation of the move constructor, in the initialization
 list of the base and member objects, the initializing arguments should
 be rvalues, so that the compiler can choose the move constructors for
 the base and member objects.  To this end we can use the `std::move`
@@ -200,7 +200,7 @@ The special member functions are:
 A special member function can be either undeclared or declared.  A
 function can be declared:
 
-* *excplicitely* as:
+* *explicitly* as:
 
   * *user-defined*: a programmer provides the function definition,
 
@@ -208,7 +208,7 @@ function can be declared:
 
   * *deleted*: a programmer declares the function as deleted,
 
-* *implicitely* as:
+* *implicitly* as:
 
   * *defaulted*: a compiler provides a default definition without the
      user requesting it,
@@ -216,14 +216,14 @@ function can be declared:
   * *deleted*: a compiler declares the function as deleted without the
      programmer requesting it.
 
-When a function is declared as *deleted* (regarless of whether
-implicitelly or explicitelly), the function is considered in overload
+When a function is declared as *deleted* (regardless of whether
+implicitly or explicitly), the function is considered in overload
 resolution, but when the function is chosen, an error message reports
 the function is deleted.
 
-### Explicitely defaulted
+### Explicitly defaulted
 
-A programmer can explicitely request the default implementation of a
+A programmer can explicitly request the default implementation of a
 special member function with `= default`, like this:
 
 {% highlight c++ %}
@@ -233,7 +233,7 @@ special member function with `= default`, like this:
 ### Default implementation
 
 All base and member objects in a defaulted (regardless of whether
-implicitely or explicitely):
+implicitly or explicitly):
 
 * default constructor are default constructed,
 
@@ -249,7 +249,7 @@ implicitely or explicitely):
 
 ### Deleted
 
-A programmer can explicitely request a special member function be
+A programmer can explicitly request a special member function be
 deleted with `= delete`, like this:
 
 {% highlight c++ %}
@@ -261,17 +261,17 @@ deleted with `= delete`, like this:
 All special member functions are implicitly defaulted, but:
 
 * the default constructor will be **undeclared**, if any other
-  constructor is *explicitely declared*,
+  constructor is *explicitly declared*,
 
 * the copy constructor and the copy assignment operator will be
-  **implicitely deleted**, if the move constructor or the move
-  assignment operator is *explicitely declared* (so that a programmer
+  **implicitly deleted**, if the move constructor or the move
+  assignment operator is *explicitly declared* (so that a programmer
   has to implement, if needed, the copy constructor and the copy
   assignment operators),
 
 * the move constructor and the move assignment operator will be
   **undeclared**, if the copy constructor, the copy assignment
-  operator or the destructor is *explicitely declared* (so that the
+  operator or the destructor is *explicitly declared* (so that the
   legacy code continues to work and doesn't have the move semantics
   stuffed in).
 
@@ -314,7 +314,7 @@ Only the return expression consisting of a variable name is implicitly
 moved (converted from an lvalue to an rvalue), and other expressions
 are not.
 
-We shouldn't explicitelly use the `std::move` function (e.g., `return
+We shouldn't explicitly use the `std::move` function (e.g., `return
 std::move(t);`) in the return statement whenever we can, because it
 disables the RVO.
 
@@ -378,7 +378,7 @@ values.  This is an implementation example (though not perfect):
 
 * The move semantics was introduced in C++11.
 
-* The move semantics is used when copying is unncessary.
+* The move semantics is used when copying is unnecessary.
 
 * The move semantics is a performance boost.
 
@@ -389,4 +389,4 @@ values.  This is an implementation example (though not perfect):
 * A programmer doesn't have to know about the move semantics, but it
   will be used a compiler anyway.
 
-<!-- LocalWords:  -->
+<!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
