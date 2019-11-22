@@ -1,5 +1,5 @@
-// This example is wierd, but it shows how to explicitely delete a
-// special member function.
+// This example is wierd (I haven't yet seen a destructor deleted),
+// but it shows how to explicitely delete a special member function.
 struct A
 {
   ~A() = delete;
