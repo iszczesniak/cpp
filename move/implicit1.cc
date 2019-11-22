@@ -6,11 +6,6 @@ struct A
 {
   A() = default;
 
-  A(const A &source)
-  {
-    cout << "copy ctor\n";
-  }
-
   A(A &&t)
   {
     cout << "move ctor\n";
