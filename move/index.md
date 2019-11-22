@@ -361,9 +361,8 @@ Here's an example of how to use the function:
 {% include_relative swap.cc %}
 {% endhighlight %}
 
-  Funkcja \code{std::swap(x, y)} przyjmuje przez referencję dwa
-  obiekty \code{x} i \code{y}, których wartości zamienia.  Przykładowa
-  implementacja:
+Function `std::swap` takes by reference two arguments, and swaps their
+values.  This is an implementation example (though not perfect):
 
 {% highlight c++ %}
 {% include_relative swap-impl.cc %}
@@ -379,6 +378,9 @@ Here's an example of how to use the function:
 
 * Only the values of rvalues can be moved.
 
-* Compiler can ship the default implementation of the move semantics.
+* A compiler can ship the default implementation of the move semantics.
+
+* A programmer doesn't have to know about the move semantics, but it
+  will be used a compiler anyway.
 
 <!-- LocalWords:  -->
