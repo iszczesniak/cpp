@@ -351,9 +351,11 @@ to obiekt bazowy zostałby skopiowany.
   
 ## The `std::swap` function
 
-  Funkcja \code{std::swap} była jednym z powodów, dla którego zaczęto
-  pracować nad semantyką przeniesienia w języku C++.  Ta funkcja
-  pokazała, że wydajniej jest przenosić obiekty niż je kopiować.
+Let's end with how it all began.  Function `std::move` is the reason
+for the work on the move semantics that started in the 1990's.  This
+function showed that it's more efficient to move than to copy.
+
+Here's an example of how to use the function:
 
 {% highlight c++ %}
 {% include_relative swap.cc %}
