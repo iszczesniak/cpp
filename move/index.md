@@ -359,7 +359,7 @@ moved.
   
 ## The `std::swap` function
 
-Let's end with how it all began.  Function `std::move` is the reason
+Let's end with how it all began.  Function `std::swap` is the reason
 for the work on the move semantics that started in the 1990's.  This
 function showed that it's more efficient to move than to copy.
 
