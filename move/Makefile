@@ -1,7 +1,7 @@
-PRGS = constructors delete default move-ctor move-only implicit1	\
-       implicit2 operators swap
+PRGS = constructors delete default move-assign move-ctor move-only	\
+       implicit1 implicit2 operators swap
 
-OBJS = move-assign.o swap-impl.o
+OBJS = swap-impl.o
 
 CXXFLAGS = -std=c++17
 
