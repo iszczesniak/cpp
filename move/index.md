@@ -117,16 +117,17 @@ In the example below the class has both constructors defined:
 {% include_relative constructors.cc %}
 {% endhighlight %}
 
-### Implementation of the move constructor
+### Implementation of the constructor overloads
 
 In the implementation of the move constructor, in the initialization
 list of the base and member objects, the initializing arguments should
 be rvalues, so that the compiler can choose the move constructors for
 the base and member objects.  To this end we can use the `std::move`
-function, as shown in the example below.
+function, as shown in the example below, where the copy constructor is
+also implemented for comparison.
 
 {% highlight c++ %}
-{% include_relative move-ctor.cc %}
+{% include_relative ctor-impl.cc %}
 {% endhighlight %}
   
 ## The copy and move assignment operators
@@ -164,16 +165,17 @@ reference, we can initialize an lvalue reference with the return value
 of the operator: `T &l = T() = T();` even though `T &l = T();` would
 fail to compile.
 
-### Implementation of the move assignment operator
+### Implementation of the assignment operator overloads
 
 In the implementation of the move assignment operator, the argument
 expressions for the assignment operators of the base and member
 objects should be rvalues, so that the compiler can choose the move
 assignment operators for the base and member objects.  To this end we
-can use the `std::move` function, as shown in the example below.
+can use the `std::move` function, as shown in the example below, where
+the copy assignment operator is also implemented for comparison.
 
 {% highlight c++ %}
-{% include_relative move-assign.cc %}
+{% include_relative assign-impl.cc %}
 {% endhighlight %}
 
 ## Overload resolution
