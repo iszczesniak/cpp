@@ -10,16 +10,16 @@ struct A
   }
 
   // The copy constructor has a single parameter of type const A &.
-  A(const A &source)
+  A(const A &a)
   {
-    // Copy the data from object t to *this.
+    // Copy the data from object a to *this.
     cout << "copy ctor\n";
   }
 
   // The move constructor has a single parameter of type A &&.
-  A(A &&t)
+  A(A &&a)
   {
-    // Move the data from object t to *this.
+    // Move the data from object a to *this.
     cout << "move ctor\n";
   }
 };
@@ -32,6 +32,7 @@ main()
   A b{a};
   // Only the default constructor will be called, because the move
   // constructor will be elided.  Compile with -fno-elide-constructors
+  // to see the move constructor called.
   A c{A()};
   // Calls the move constructor.
   A d{move(a)};

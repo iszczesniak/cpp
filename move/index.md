@@ -11,10 +11,10 @@ according to how a class or a structure was defined).  The state of
 the object is called the *value*.
 
 The definition of the value of an object depends on the implementation
-of the class.  Usually the value of an object is the state of its
-member fields and base objects.  However, there might be some
-supporting data in an object (e.g., some cache data) that do not have
-to be part of the object value.
+of the class.  Usually the value of an object is the state of its base
+and member objects.  However, there might be some supporting data in
+an object (e.g., some cache data) that do not have to be part of the
+object value.
 
 The value of an object can be copied when the object is:
 
