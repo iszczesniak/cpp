@@ -1,9 +1,19 @@
 #include <utility>
 
-struct A {};
+struct A
+{
+};
+  
+void swap(A &a, A &b)
+{
+  A tmp = std::move(a);
+  a = std::move(b);
+  b = std::move(tmp);
+}
 
-int main()
+int
+main()
 {
   A x, y;
-  std::swap(x, y);
+  swap(x, y);
 }

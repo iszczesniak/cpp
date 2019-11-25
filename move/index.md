@@ -363,17 +363,13 @@ Let's end with how it all began.  Function `std::move` is the reason
 for the work on the move semantics that started in the 1990's.  This
 function showed that it's more efficient to move than to copy.
 
-Here's an example of how to use the function:
+Function `std::swap` takes by reference two arguments, and swaps their
+values.  This function is implemented in the standard library, but in
+the example below we also have an example implementation to show
+what's going on:
 
 {% highlight c++ %}
 {% include_relative swap.cc %}
-{% endhighlight %}
-
-Function `std::swap` takes by reference two arguments, and swaps their
-values.  This is an implementation example (though not perfect):
-
-{% highlight c++ %}
-{% include_relative swap-impl.cc %}
 {% endhighlight %}
 
 # Conclusion
@@ -389,6 +385,6 @@ values.  This is an implementation example (though not perfect):
 * A compiler can ship the default implementation of the move semantics.
 
 * A programmer doesn't have to know about the move semantics, but it
-  will be used a compiler anyway.
+  will be used by a compiler anyway.
 
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
