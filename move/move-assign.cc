@@ -21,7 +21,7 @@ struct B: A
   }
 
   // Above is the default implementation which we can get with:
-  // B &B(const B &) = default;
+  // B &operator=(const B &) = default;
 
   // The move assignment operator ------------------------------------
 
@@ -36,7 +36,7 @@ struct B: A
   }
 
   // Above is the default implementation which we can get with:
-  // B &B(B &&) = default;
+  // B &operator=(B &&) = default;
 };
 
 int
