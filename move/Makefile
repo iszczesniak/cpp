@@ -1,4 +1,4 @@
-PRGS = constructors delete default move-assign move-ctor move-only	\
+PRGS = assign-impl constructors ctor-impl delete default move-only	\
        implicit1 implicit2 operators swap
 
 OBJS = swap-impl.o
