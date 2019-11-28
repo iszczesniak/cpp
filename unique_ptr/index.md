@@ -4,70 +4,25 @@ title: std::unique_ptr
 
 # Introduction
 
+Pointers are indispensible.  Pointers:
 
+* point to memory locations,
 
-<!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
-% -*- coding: utf-8 -*-
+* are used in every programming language (at least internally): C,
+  C++, Java, C#,
 
-\documentclass[compress]{beamer}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{color}
-\usepackage{verbatim}
-\usepackage{listings}
+* can be used in the form of a reference, e.g., in Java or C#.
 
-\lstset{language = [ISO]C++, basicstyle = \ttfamily}
+The pointer support can be:
 
-\hypersetup{pdfpagemode = FullScreen}
+* internaly only, and unavilable for a programmer, e.g., in Java or
+  C#,
 
-\useinnertheme{circles}
-\useoutertheme[subsection = false, footline = pages]{irek}
-\setbeamercolor{separation line}{use=structure,bg=structure.fg!50!bg}
+* raw or smart, as in C++,
 
-% Turn off the navigation symbols.
-\setbeamertemplate{navigation symbols}{}
+* raw only, as in C.
 
-\newcommand{\red}[1]{\textcolor{red}{#1}}
-\newcommand{\code}[1]{\red{\lstinline|#1|}}
-
-\title{Inteligentny wskaźnik \code{std::unique_ptr}}
-
-\author{dr inż.~Ireneusz Szcześniak}
-
-\date{jesień 2017 roku}
-
-\begin{document}
-
-%************************************************************************
-
-\begin{frame}[plain]
-  \titlepage
-\end{frame}
-
-%************************************************************************
-
-\section{Wprowadzenie}
-
-\subsection{Wskaźniki są niezbędne!}
-
-\begin{frame}
-
-  \frametitle{Wskaźniki są niezbędne!}
-
-  \begin{itemize}
-  \item Wskaźnik wskazuje miejsce w pamięci.
-  \item W każdym wydajnym języku programowania jest stosowany: C, C++,
-    Java.
-  \item Chociaż niektóre języki, jak Java, ukrywają to w postaci
-    referencji.
-  \item Obsługa wskaźników może być różna:
-    \begin{itemize}
-    \item ukryta przed użytkownikiem w Javie,
-    \item mieszana w C++,
-    \item surowa w C.
-    \end{itemize}
-  \item W miarę możliwości należy unikać surowych wskaźników.
-  \end{itemize}
+In C++, it's best to avoid the raw pointers.
 
 \end{frame}
 
@@ -264,42 +219,4 @@ c.push_back(std::unique_ptr<A>(new A("C1")));
 
 \end{frame}
 
-%************************************************************************
-
-\subsection{Dziękuję}
-
-\begin{frame}[plain]
-
-  \begin{center}
-    \huge Dziękuję za uwagę.
-  \end{center}
-
-\end{frame}
-
-\end{document}
-
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-%************************************************************************
-
-\section{}
-
-\begin{frame}
-
-  \frametitle{}
-
-  \begin{itemize}
-  \item
-  \end{itemize}
-
-\end{frame}
+<!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
