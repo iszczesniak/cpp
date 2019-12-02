@@ -1,3 +1,7 @@
+#include <memory>
+
+struct A {};
+
 auto // C++14
 foo()
 {
@@ -7,4 +11,10 @@ foo()
   throw true; // To nie poezja programistyczna!
 
   return a;
+}
+
+int
+main()
+{
+  foo();
 }
