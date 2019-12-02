@@ -6,49 +6,74 @@ title: std::unique_ptr
 
 Pointers are indispensible.  Pointers:
 
-* point to memory locations,
+* point to memory locations, usually dynamically-allocated,
 
-* are used in every programming language (at least internally): C,
-  C++, Java, C#,
+* are used in every programming language: C, C++, Java, C#,
 
 * can be used in the form of a reference, e.g., in Java or C#.
 
 The pointer support can be:
 
-* internaly only, and unavilable for a programmer, e.g., in Java or
-  C#,
+* wrapped in a reference, e.g., in Java or C#,
 
-* raw or smart, as in C++,
+* raw or advanced, as in C++,
 
 * raw only, as in C.
 
-In C++, it's best to avoid the raw pointers.
+In C++, it's best to avoid the raw pointers, and go for the advanced
+pointer support in the form of standard smart pointers.
 
-\end{frame}
+A reference in Java or C# is a shared pointer with the object member
+selection syntax (i.e., `object.member`).  A C++ reference is
+something completely different.
 
-%************************************************************************
+# Motivation: the problems of raw pointers
 
-\subsection{Motywacja: wady surowych wskaźników}
+While raw pointers are easy to use, their use is very error-prone,
+i.e., it's easy to make mistakes.
 
-\begin{frame}
+When we have a pointer of type `T *` which points to a
+dynamically-allocated memory location, we have two problems:
 
-  \frametitle{Motywacja: wady surowych wskaźników}
+* **the type problem**: we don't know whether it points to a single
+  object or to an array of objects,
 
-  \begin{itemize}
-  \item Nie wiadomo, czy wskazuje jeden obiekt czy tablice obiektów.
-  \item Czy obiekt niszczymy przez \code{delete} czy \code{delete[]}?
-  \item Nie mówi, kiedy wskazany obiekt powinien być zniszczony.
-  \item Łatwo popełnić błędy używając surowych wskaźników:
-    \begin{itemize}
-    \item nie niszcząc obiektu (wyciek pamięci),
-    \item niszcząc obiekt i potem próbować się do niego odwołać (dyndający wskaźnik),
-    \item niepoprawna obsługa wyjątów.
-    \end{itemize}
-  \item Rozwiązaniem tych problemów są \emph{inteligentne wskaźniki}.
-  \item Czasy \code{void *} dawno minęły.
-  \end{itemize}
+* **the ownership problem**: we don't know whether *we* or *someone
+  else* (i.e., some other programmer who implemented some other part
+  of code) should destroy the allocated data.
 
-\end{frame}
+The type problem can result in undefined behavior when we destroy...
+
+The ownership problem can result in:
+
+* **a memory leak**, when the dynamically-allocated data is never
+  destroyed,
+
+* **a dangling pointer**, when we keep using a memory location, but
+  the data that used to be there was already destroyed,
+
+* **a double deletion**, when we try to destroy again the data that
+    was already destroyed.
+
+The smart pointers in C++ solve:
+
+* the type problem: a smart pointer knows the type of the object, so
+  that it can be automatically (i.e., without a programmer requesting
+  it explicitely) destroyed in the proper way,
+
+* the ownership problem: a smart pointer destroys automatically the
+  data when necessary.
+
+Every flexible language should support raw pointers, because this
+low-level functionality is needed to implement high-lever
+functionality, such as smart pointers.
+
+A programmer should have a choice between the raw pointers (perhaps
+for implementing an intricate functionality) and smart pointers (just
+for every day use).
+
+In C++, under no circumstances should a programmer resort to the `void
+*` trickery -- these times are long gone.
 
 %************************************************************************
 
