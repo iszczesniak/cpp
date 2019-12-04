@@ -42,6 +42,10 @@ dynamically-allocated memory location, we have two problems:
   else* (i.e., some other programmer who implemented some other part
   of code) should destroy the allocated data.
 
+{% highlight c++ %}
+{% include_relative problems.cc %}
+{% endhighlight %}
+
 The type problem can result in undefined behavior when we destroy...
 
 The ownership problem can result in:
