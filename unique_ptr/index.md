@@ -36,8 +36,8 @@ i.e., it's easy to make mistakes.
 When we have a pointer of type `T *` which points to a
 dynamically-allocated memory location, we have two problems:
 
-* **the type problem**: we don't know whether it points to a single
-  object or to an array of objects,
+* **the type problem**: we don't know whether a pointer points to a
+  single piece of data or to an array of data,
 
 * **the ownership problem**: we don't know whether *we* or *someone
   else* (i.e., some other programmer who implemented some other part
@@ -50,7 +50,17 @@ compiler does not report problems with this broken code.
 {% include_relative problems.cc %}
 {% endhighlight %}
 
-The type problem can result in undefined behavior when we destroy...
+The new and delete operators come in many versions, most notably:
+
+* the *single version* for allocating a single piece of data,
+
+* the *array version* for allocating an array of data.
+
+If we allocate data with either the single or array version of the new
+operator, we should destroy the data with the same version of the
+delete operator.  However, the type of the pointer used is the same
+for both version, so it's easy to mismatch the versions, which results
+in an undefined behaviour.
 
 The ownership problem can result in:
 
@@ -69,8 +79,9 @@ The smart pointers in C++ solve:
   that it can be automatically (i.e., without a programmer requesting
   it explicitely) destroyed in the proper way,
 
-* the ownership problem: a smart pointer destroys automatically the
-  data when necessary.
+* the ownership problem: a smart pointer automatically manages the
+  data: either enforces the exclusive ownership or allows for shared
+  management, and takes care of destruction.
 
 Every flexible language should support raw pointers, because this
 low-level functionality is needed to implement high-lever
@@ -80,8 +91,9 @@ A programmer should have a choice between the raw pointers (perhaps
 for implementing an intricate functionality) and smart pointers (just
 for every day use).
 
-In C++, under no circumstances should a programmer resort to the `void
-*` trickery -- these times are long gone.
+In C++, for every day use, a programmer should not resort to the raw
+pointers, let alone to the `void *` trickery -- these times are long
+gone.
 
 %************************************************************************
 
