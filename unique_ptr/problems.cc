@@ -7,11 +7,18 @@ void
 foo(int *p)
 {
   // Do sth with p.
+  try
+    {
+      throw true;
 
-  // We should have destroyed the data with the array version of
-  // delete (i.e., delete [] p), because it was allocated with the
-  // array version of new.
-  delete p;
+      // We should have destroyed the data with the array version of
+      // delete (i.e., delete [] p), because it was allocated with the
+      // array version of new.
+      delete p;
+    }
+  catch(bool)
+    {
+    }
 }
 
 int
