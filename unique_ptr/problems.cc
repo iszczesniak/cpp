@@ -9,6 +9,7 @@ foo(int *p)
   // Do sth with p.
   try
     {
+      // An exception could be thrown here.
       throw true;
 
       // We should have destroyed the data with the array version of
@@ -18,6 +19,8 @@ foo(int *p)
     }
   catch(bool)
     {
+      // It's easy to forget this delete:
+      // delete p;      
     }
 }
 
