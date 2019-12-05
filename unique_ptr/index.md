@@ -33,22 +33,22 @@ into a raw pointer.
 While raw pointers are easy to use, their use is very error-prone,
 i.e., it's easy to make mistakes.
 
+## The problems
+
 When we have a pointer of type `T *` which points to a
-dynamically-allocated memory location, we have two problems:
+dynamically-allocated memory location, we have these problems:
 
 * **the type problem**: we don't know whether a pointer points to a
   single piece of data or to an array of data,
 
 * **the ownership problem**: we don't know whether *we* or *someone
   else* (i.e., some other programmer who implemented some other part
-  of code) should destroy the allocated data.
+  of code) should destroy the allocated data,
 
-The example below shows how easily the two problems can arise.  The
-compiler does not report problems with this broken code.
+* **the exception handling problem**: exception handling with raw
+  pointers is difficult, arduous, and error-prone.
 
-{% highlight c++ %}
-{% include_relative problems.cc %}
-{% endhighlight %}
+### The type problem
 
 The new and delete operators come in many versions, most notably:
 
@@ -62,6 +62,8 @@ delete operator.  However, the type of the pointer used is the same
 for both version, so it's easy to mismatch the versions, which results
 in an undefined behaviour.
 
+### The ownership problem
+
 The ownership problem can result in:
 
 * **a memory leak**, when the dynamically-allocated data is never
@@ -73,6 +75,23 @@ The ownership problem can result in:
 * **a double deletion**, when we try to destroy again the data that
     was already destroyed.
 
+### The exception handling problem
+
+If we manage the dynamically-allocated data with raw pointers, the
+exception handling becomes a boring and error-prone task, espacially
+if the data is complex.  It's doable, but who really wants to do it?
+
+## An example
+
+The example below shows how easily these problems can arise.  The
+compiler does not report problems with this broken code.
+
+{% highlight c++ %}
+{% include_relative problems.cc %}
+{% endhighlight %}
+
+## The smart pointer solution
+
 The smart pointers in C++ solve:
 
 * the type problem: a smart pointer knows the type of the object, so
@@ -81,10 +100,13 @@ The smart pointers in C++ solve:
 
 * the ownership problem: a smart pointer automatically manages the
   data: either enforces the exclusive ownership or allows for shared
-  management, and takes care of destruction.
+  management, and takes care of destruction,
+
+* the exception handling problem: a smart pointer is automatically
+  destroyed when an exception is handled.
 
 Every flexible language should support raw pointers, because this
-low-level functionality is needed to implement high-lever
+low-level functionality is needed to implement high-level
 functionality, such as smart pointers.
 
 A programmer should have a choice between the raw pointers (perhaps
