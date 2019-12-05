@@ -24,8 +24,9 @@ In C++, it's best to avoid the raw pointers, and go for the advanced
 pointer support in the form of standard smart pointers.
 
 A reference in Java or C# is a shared pointer with the object member
-selection syntax (i.e., `object.member`).  A C++ reference is
-something completely different.
+selection syntax (i.e., `object.member`).  A C++ reference is an
+alias, which at compile time will be either optimized out or turned
+into a raw pointer.
 
 # Motivation: the problems of raw pointers
 
