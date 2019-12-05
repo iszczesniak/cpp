@@ -83,7 +83,7 @@ if the data is complex.  It's doable, but who really wants to do it?
 
 ## An example
 
-The example below shows how easily these problems can arise.  The
+The example below shows how easily we can get in trouble.  The
 compiler does not report problems with this broken code.
 
 {% highlight c++ %}
