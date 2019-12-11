@@ -146,7 +146,7 @@ Smart pointer types are:
 * *not thread-safe*: they should be carefully used in a multithreaded
    program.
 
-There is also deprecated `std::auto\_ptr` -- don't use it.
+There is also deprecated `std::auto_ptr` -- don't use it.
 
 \end{frame}
 
