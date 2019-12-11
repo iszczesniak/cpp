@@ -118,21 +118,21 @@ In C++, for every day use, a programmer should not resort to the raw
 pointers, let alone to the `void *` trickery -- these times are long
 gone.
 
-%************************************************************************
+# Smart pointer types
 
-\subsection{Rodzaje inteligentnych wskaźników}
+There are three smart pointer types:
 
-\begin{frame}
+* `std::unique_ptr` - usually used instead of a raw pointer,
 
-  \frametitle{Rodzaje inteligentnych wskaźników}
+* `std::shared_ptr` - used to share a managed data,
 
-  \begin{itemize}
-  \item \code{std::auto\_ptr} - przestażały, \red{lepiej unikać}
-  \item \code{std::unique\_ptr} - stosować zamiast surowego wskaźnika
-  \item \code{std::shared\_ptr} - wskazuje i współdzieli obiekt
-  \item \code{std::weak\_ptr} - wskazuje obiekt współdzielony, ale
+* `std::weak_ptr` - wskazuje obiekt współdzielony, ale
     nie współdzieli tego obiektu.
-  \item Te klasy to opakowania (używane w czasie kompilacji) surowych wskaźników.
+
+  \item \code{std::auto\_ptr} - przestażały, \red{lepiej unikać}
+
+
+\item Te klasy to opakowania (używane w czasie kompilacji) surowych wskaźników.
   \item Zajmują tyle samo miejsca w pamięci, co surowy wskaźnik.
   \item Tak wydajny pamięciowo i czasowo, jak surowy wskaźnik.
   \item Są odporne na \red{wyjątki}, ale nie na \red{wątki}!
