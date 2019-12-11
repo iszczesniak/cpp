@@ -93,15 +93,16 @@ report problems with this broken code.
 
 ## The smart pointer solution
 
-The smart pointers in C++ solve:
+The smart pointers solve:
 
 * the type problem: a smart pointer knows the type of the object, so
   that it can be automatically (i.e., without a programmer requesting
   it explicitely) destroyed in the proper way,
 
 * the ownership problem: a smart pointer automatically manages the
-  data: either enforces the exclusive ownership or allows for shared
-  management, and takes care of destruction,
+  dynamically-allocated data, i.e., takes care of their destruction,
+  and either enforces the exclusive ownership or allows for shared
+  management,
 
 * the exception handling problem: a smart pointer is automatically
   destroyed when an exception is handled.
@@ -120,24 +121,32 @@ gone.
 
 # Smart pointer types
 
+A smart pointer manages dynamically-allocated data, and so we call a
+smart pointer the **managing object**, and the dynamically-allocated
+data the **managed data**.
+
 There are three smart pointer types:
 
 * `std::unique_ptr` - usually used instead of a raw pointer,
 
-* `std::shared_ptr` - used to share a managed data,
+* `std::shared_ptr` - used to share the managed data,
 
-* `std::weak_ptr` - wskazuje obiekt współdzielony, ale
-    nie współdzieli tego obiektu.
+* `std::weak_ptr` - used to track, but not share, the managed data.
 
-  \item \code{std::auto\_ptr} - przestażały, \red{lepiej unikać}
+Smart pointer types are wrappers around raw pointers, which are used
+at compile-time, and so at run-time they do not degrade the memory or
+time performance.  They are as fast and take as little memory as the
+manually and carefully crafted code with raw pointers.
 
+Smart pointer types are:
 
-\item Te klasy to opakowania (używane w czasie kompilacji) surowych wskaźników.
-  \item Zajmują tyle samo miejsca w pamięci, co surowy wskaźnik.
-  \item Tak wydajny pamięciowo i czasowo, jak surowy wskaźnik.
-  \item Są odporne na \red{wyjątki}, ale nie na \red{wątki}!
-  \item Stosujemy inteligentne wskaźniki zamiast surowych wskaźników.
-  \end{itemize}
+* *exception-safe*: they can be used without problems when throwing or
+   catching exceptions,
+
+* *not thread-safe*: they should be carefully used in a multithreaded
+   program.
+
+There is also deprecated `std::auto\_ptr` -- don't use it.
 
 \end{frame}
 
