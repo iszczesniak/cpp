@@ -83,8 +83,9 @@ if the data is complex.  It's doable, but who really wants to do it?
 
 ## An example
 
-The example below shows how easily we can get in trouble.  The
-compiler does not report problems with this broken code.
+The example below shows how easily we can run into the type,
+ownership, and exception handling problems.  The compiler does not
+report problems with this broken code.
 
 {% highlight c++ %}
 {% include_relative problems.cc %}

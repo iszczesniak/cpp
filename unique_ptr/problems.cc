@@ -20,7 +20,7 @@ foo(int *p)
   catch(bool)
     {
       // It's easy to forget this delete:
-      // delete p;      
+      delete p;      
     }
 }
 
