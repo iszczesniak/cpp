@@ -248,10 +248,10 @@ Save this file as `test2.cc`:
 
 Now compile them to the assembly code with:
 
-g++ -S -O3 test1.cc test2.cc
+`g++ -S -O3 test1.cc test2.cc`
 
-Now there are two files with the assembly code: test1.s, and
-test2.s. Take a look at one of them:
+Now there are two files with the assembly code: `test1.s`, and
+`test2.s`.  Take a look at one of them:
 
 `c++filt < test1.s | less`
 
