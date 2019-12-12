@@ -51,30 +51,30 @@ are two programs below that produce the same output, but in the second
 one we use references.  However, at compile-time, the refernces are
 gone.
 
-Save this file as out1.cc:
+Save this file as `test1.cc`:
 
 {% highlight c++ %}
-{% include_relative out1.cc %}
+{% include_relative test1.cc %}
 {% endhighlight %}
 
-Save this file as out2.cc:
+Save this file as `test2.cc`:
 
 {% highlight c++ %}
-{% include_relative out2.cc %}
+{% include_relative test2.cc %}
 {% endhighlight %}
 
 Now compile them to the assembly code with:
 
-`g++ -S -O3 out1.cc out2.cc`
+`g++ -S -O3 test1.cc test2.cc`
 
-Now there are two files with the assembly code: out1.s, and out2.s.
-Take a look at one of them:
+Now there are two files with the assembly code: `test1.s`, and
+`test2.s`.  Take a look at one of them:
 
-`c++filt < out1.s | less`
+`c++filt < test1.s | less`
 
 Compare them to see that they are instruction-to-instruction the same:
 
-`diff out1.s out2.s`
+`diff test1.s test2.s`
 
 # Reference types
 
