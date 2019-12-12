@@ -199,9 +199,9 @@ The managing object `p` manages the data of type `managed_data_type`.
 # Function `std::make_unique`
 
 Function template `std::make_unique` was introduced for convenience:
-it creates the managing object, and the managed data in one function
-call.  Defined in C++14, and not in C++11 as `std::unique_ptr`.
-Instead of writing the type `A` twice like this:
+it creates both the managing object, and the managed data.  Defined in
+C++14, and not in C++11 as `std::unique_ptr`.  Instead of writing the
+type `A` twice like this:
 
 `unique_ptr<A> up(new A("A1"));`
 
