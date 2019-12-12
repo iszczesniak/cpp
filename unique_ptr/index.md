@@ -230,11 +230,11 @@ constructor of the managed data (a feat accomplished with the variadic
 templates).  In the example above `"A1"` is the argument passed to the
 constructor of type `A`.
 
-## No overhead
+## No performance overhead
 
-This example demonstrates that there is no overhead of using smart
-pointers.  In more complicated examples there might be some small
-overhead, which should go away as compilers get better at
+This example demonstrates that there is no performance overhead of
+using smart pointers.  In more complicated examples there might be
+some small overhead, which should go away as compilers get better at
 optimization.
 
 The following example uses both the `std::unique_ptr` and
@@ -288,8 +288,13 @@ c.push_back(std::unique_ptr<A>(new A("C1")));
 
 * Don't use raw pointers, unless you really have to.
 
-* Go for the smart pointers!
+* Start using `std::unique_ptr`, the most useful smart pointer type.
 
-* Start using `std::unique_ptr` first -- it's most useful.
+* Smart pointers solve the type, ownership and exception handling
+  problems.
+
+* Smart pointers introduce no, or little, performance overhead.
+
+* Go for the smart pointers!
 
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
