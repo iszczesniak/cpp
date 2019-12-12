@@ -127,16 +127,16 @@ data the **managed data**.
 
 There are three smart pointer types:
 
-* `std::unique_ptr` - usually used instead of a raw pointer,
+* `std::unique_ptr` - used to exclusively own the managed data,
 
 * `std::shared_ptr` - used to share the managed data,
 
 * `std::weak_ptr` - used to track, but not share, the managed data.
 
 Smart pointer types are wrappers around raw pointers, which are used
-at compile-time, and so at run-time they do not degrade the memory or
-time performance.  They are as fast and take as little memory as the
-manually and carefully crafted code with raw pointers.
+at compile-time only, and so at run-time they do not degrade the
+memory or time performance.  They are as fast and take as little
+memory as the manually crafted code with raw pointers.
 
 Smart pointer types are:
 
@@ -146,7 +146,7 @@ Smart pointer types are:
 * *not thread-safe*: they should be carefully used in a multithreaded
    program.
 
-There is also deprecated `std::auto_ptr` -- don't use it.
+There is also deprecated type `std::auto_ptr` -- don't use it.
 
 \end{frame}
 
