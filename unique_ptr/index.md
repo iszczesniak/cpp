@@ -182,7 +182,7 @@ managing object is:
 Most likely you need this smart pointer when you want to switch from
 raw pointers to smart pointers.
 
-# An example
+## An example
 
 Type `std::unique_ptr` is a templated type: you need to pass the type
 of managed data as an argument to the template type.  We pass the
@@ -198,7 +198,7 @@ of scope.
 {% include_relative simple.cc %}
 {% endhighlight %}
 
-# Function `std::make_unique`
+## Function `std::make_unique`
 
 Function template `std::make_unique` was introduced for convenience
 (we could do without it): it creates both the managing object, and the
@@ -216,9 +216,10 @@ constructor will be elided, the return value optimization will take
 place, and so the managing object will be created directly in the
 location of `up`.
 
-By type `auto` above we ask the compiler to make `up` be the same type
-as the type of the initializing expression `make_unique<A>("A1")`,
-which is `std::unique_ptr<A>`.  We could have equivallently written:
+By type `auto` above we ask the compiler to make the type of `up` the
+same type as the type of the initializing expression
+`make_unique<A>("A1")`, which is `std::unique_ptr<A>`.  We could have
+equivallently written:
 
 `unique_ptr<A> up = make_unique<A>("A1");`
 
@@ -229,9 +230,39 @@ constructor of the managed data (a feat accomplished with the variadic
 templates).  In the example above `"A1"` is the argument passed to the
 constructor of type `A`.
 
+## No overhead
+
+The following example which uses both the `std::unique_ptr` and
+`std::make_unique`.  Save this file as `test1.cc`:
+
 {% highlight c++ %}
 {% include_relative test1.cc %}
 {% endhighlight %}
+
+The following example with the same functionality uses raw pointers.
+Save this file as `test2.cc`:
+
+{% highlight c++ %}
+{% include_relative test2.cc %}
+{% endhighlight %}
+
+Now compile them to the assembly code with:
+
+g++ -S -O3 test1.cc test2.cc
+
+Now there are two files with the assembly code: test1.s, and
+test2.s. Take a look at one of them:
+
+`c++filt < test1.s | less`
+
+Compare them to see that they are instruction-to-instruction the same
+(almost, there is one small difference):
+
+diff test1.s test2.s
+
+This example demonstrates that there is no overhead of using smart
+pointers.  In more complicated examples there might be some small
+overhead, which should go away as compilers get better.
 
 # More on the usage
 
