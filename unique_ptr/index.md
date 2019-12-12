@@ -30,7 +30,7 @@ into a raw pointer.
 
 # Motivation: the problems of raw pointers
 
-While raw pointers are easy to use, their use is very error-prone,
+While raw pointers are easy to use, but their use is very error-prone,
 i.e., it's easy to make mistakes.
 
 ## The problems
