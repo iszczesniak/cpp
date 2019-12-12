@@ -198,10 +198,9 @@ The managing object `p` manages the data of type `managed_data_type`.
 
 # Function `std::make_unique`
 
-Function template `std::make_unique` was introduced for convenience:
-it creates both the managing object, and the managed data.  Defined in
-C++14, and not in C++11 as `std::unique_ptr`.  Instead of writing the
-type `A` twice like this:
+Function template `std::make_unique` was introduced for convenience
+(we could do without it): it creates both the managing object, and the
+managed data.  Instead of writing the type `A` twice like this:
 
 `unique_ptr<A> up(new A("A1"));`
 
@@ -210,16 +209,23 @@ twice:
 
 `auto up = make_unique<A>("A1");`
 
-The line above does not introduce any overhead: the move constructor
-will be elided, and the managing object will be created directly in
-object `up`.
+Function `std::make_unique` introduces no overhead: the move
+constructor will be elided, the return value optimization will take
+place, and so the managing object will be created directly in the
+location of `up`.
 
-To use this function, you need to pass the template argument, which is
-the type of the managed data to create, and manage.  The arguments
-(none, one or many) of the function are passed to the constructor of
-the managed data (a feat accomplished with the variadic templates).
-In the example above `"A1"` is the argument passed to the constructor
-of type `A`.
+By type `auto` above we ask the compiler to make `up` be the same type
+as the type of the initializing expression `make_unique<A>("A1")`,
+which is `std::unique_ptr<A>`.  We could have equivallently written:
+
+`unique_ptr<A> up = make_unique<A>("A1");`
+
+To use function `std::make_unique`, you need to pass the template
+argument, which is the type of the managed data to create, and manage.
+The arguments (none, one or more) of the function are passed to the
+constructor of the managed data (a feat accomplished with the variadic
+templates).  In the example above `"A1"` is the argument passed to the
+constructor of type `A`.
 
 # More on the usage
 
