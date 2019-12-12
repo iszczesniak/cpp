@@ -232,14 +232,19 @@ constructor of type `A`.
 
 ## No overhead
 
-The following example which uses both the `std::unique_ptr` and
+This example demonstrates that there is no overhead of using smart
+pointers.  In more complicated examples there might be some small
+overhead, which should go away as compilers get better at
+optimization.
+
+The following example uses both the `std::unique_ptr` and
 `std::make_unique`.  Save this file as `test1.cc`:
 
 {% highlight c++ %}
 {% include_relative test1.cc %}
 {% endhighlight %}
 
-The following example with the same functionality uses raw pointers.
+The following example of the same functionality uses raw pointers.
 Save this file as `test2.cc`:
 
 {% highlight c++ %}
@@ -256,13 +261,10 @@ Now there are two files with the assembly code: `test1.s`, and
 `c++filt < test1.s | less`
 
 Compare them to see that they are instruction-to-instruction the same
-(almost, there is one small difference):
+(almost, there is one small difference), which shows there is no
+overhead of using `std::unique_ptr` and `std::make_unique`:
 
-diff test1.s test2.s
-
-This example demonstrates that there is no overhead of using smart
-pointers.  In more complicated examples there might be some small
-overhead, which should go away as compilers get better.
+`diff test1.s test2.s`
 
 # More on the usage
 
