@@ -190,7 +190,9 @@ template arguments in the angle brackets, i.e., `<>`, like this:
 
 `std::unique_ptr<managed_data_type> p;`
 
-The managing object `p` manages the data of type `managed_data_type`.
+In the example below, the managing object `p` manages the data of type
+`int`, which will be automatically destroyed by `p` when it goes out
+of scope.
 
 {% highlight c++ %}
 {% include_relative simple.cc %}
@@ -226,6 +228,10 @@ The arguments (none, one or more) of the function are passed to the
 constructor of the managed data (a feat accomplished with the variadic
 templates).  In the example above `"A1"` is the argument passed to the
 constructor of type `A`.
+
+{% highlight c++ %}
+{% include_relative test1.cc %}
+{% endhighlight %}
 
 # More on the usage
 
