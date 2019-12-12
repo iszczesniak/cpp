@@ -119,13 +119,14 @@ In C++, for every day use, a programmer should not resort to the raw
 pointers, let alone to the `void *` trickery -- these times are long
 gone.
 
-# Smart pointer types
+## Smart pointer types
 
 A smart pointer manages dynamically-allocated data, and so we call a
 smart pointer the **managing object**, and the dynamically-allocated
 data the **managed data**.
 
-There are three smart pointer types:
+There are three smart pointer types defined in the `memory` header
+file:
 
 * `std::unique_ptr` - used to exclusively own the managed data,
 
@@ -134,9 +135,10 @@ There are three smart pointer types:
 * `std::weak_ptr` - used to track, but not share, the managed data.
 
 Smart pointer types are wrappers around raw pointers, which are used
-at compile-time only, and so at run-time they do not degrade the
-memory or time performance.  They are as fast and take as little
-memory as the manually crafted code with raw pointers.
+at compile-time only, and so at run-time they should not degrade the
+memory or time performance.  They should be as fast and take as little
+memory as the code of the same functionality manually crafted with raw
+pointers.
 
 Smart pointer types are:
 
@@ -148,64 +150,51 @@ Smart pointer types are:
 
 There is also deprecated type `std::auto_ptr` -- don't use it.
 
-\end{frame}
+# `std::unique_ptr`
 
-%************************************************************************
+An object of type `std::unique_ptr` has the **exclusive ownership
+semantics**:
 
-\section{std::unique\_ptr}
+* *exclusive*, because the managing object is the sole owner of the
+  managed data, i.e., there can be only a single object that owns the
+  managed data,
 
-\subsection{Ogólnie o std::unique\_ptr}
+* *ownership*, because the managing object is responsible for
+   destroying the managed data.
 
-\begin{frame}
+The exclusivity implies that `std::unique_ptr` is a move-only type,
+and so:
 
-  \frametitle{Ogólnie o \code{std::unique\_ptr}}
+* you cannot copy-initialize or copy-assign objects of this type, and
+  for this reason this type has the copy constructor, and the copy
+  assignment operator deleted,
 
-  \begin{itemize}
-  \item W większości przypadków: używać zamiast surowych wskaźników.
-  \item Jest wyłącznym właścicielem wskazywanego obiektu.
-  \item \code{\#include {<}memory{>}}
-  \item \code{std::unique\_ptr {<}moja\_klasa{>} p;}
-  \end{itemize}
+* you can transfer the ownership between the managing objects by
+  move-initializing, and move-assigning.
 
-\end{frame}
+The ownership means that the managed data should be destroyed when the
+managing object is:
 
-%************************************************************************
+* destroyed, e.g., goes out of scope,
 
-\subsection{std::unique\_ptr jest właścicielem}
+* assigned new data to manage.
 
-\begin{frame}
+Most likely you need this smart pointer when you want to switch from
+raw pointers to smart pointers.
 
-  \frametitle{\code{std::unique\_ptr} jest właścicielem}
+# An example
 
-  \begin{itemize}
-  \item Posiada semantykę (znaczenie) wyłącznej własności.
-  \item Posiada konstruktor przenoszący, ale nie kopiujący.
-  \item Jest \red{wyłącznym właścicielem} wskazywanego obiektu, czyli:
-    \begin{itemize}
-    \item niszczy obiekt, kiedy sam jest niszczony
-      (np.~kiedy wychodzi poza zakres),
-    \item niszczy obiekt, zanim będzie wskazywał następny obiekt,
-    \item nie da się kopiować, a jedynie przenosić (czyli nie ma dwóch
-      \code{std::unique\_ptr} wskazujących ten sam obiekt),
-    \item kiedy odda wskazywany obiekt, to sam wskazuje \code{nullptr}.
-    \end{itemize}
-  \end{itemize}
+Type `std::unique_ptr` is templated: you need to pass the type of
+managed data as an argument of the template.  We pass the template
+arguments in the angle brackets, i.e., `<>`, like this:
 
-\end{frame}
+`std::unique_ptr<managed_data_type> p;`
 
-%************************************************************************
+The managing object `p` manages the data of type `managed_data_type`.
 
-\subsection{Przykład użycia std::unique\_ptr}
+\verbatiminput{example1.cc}
 
-\begin{frame}
-
-  \frametitle{Przykład użycia \code{std::unique\_ptr}}
-
-  Funkcja zwracająca obiekt użytkownikowi:
-
-  \verbatiminput{example1.cc}
-
-\end{frame}
+# More on the usage
 
 std::unique_ptr<A> p1; // OK.  Nie wskazuje na nic.
 std::unique_ptr<A> p1(new A("A1")); // OK.
@@ -225,11 +214,7 @@ c.push_back(std::unique_ptr<A>(new A("C1")));
 
 %************************************************************************
 
-\subsection{std::make\_unique}
-
-\begin{frame}
-
-  \frametitle{std::make\_unique}
+# `std::make_unique`
 
   \begin{itemize}
   \item Zdefiniowany dopiero w C++14, a nie w C++11 jak
@@ -247,53 +232,13 @@ c.push_back(std::unique_ptr<A>(new A("C1")));
 
 \end{frame}
 
-%************************************************************************
 
-\subsection{Użycie uniqu\_ptr}
+# Conclusion
 
-\begin{frame}
+* Don't use raw pointers, unless you really have to.
 
-  \frametitle{Użycie unique\_ptr}
+* Go for the smart pointers!
 
-  \begin{itemize}
-  \item Zamiast implementować semantykę przeniesienia, możemy posługiwać się
-    wskaźnikiem \code{unique\_ptr} na obiekt, którego kopiowania chcemy
-    uniknąć.
-  \item Wskaźnik \code{unique\_ptr} implementuje semantykę przeniesienia.
-  \item Przeniesienie \code{unique\_ptr} jedynie będzie oznaczać
-    skopiowanie surowego wskaźnika, a obiekt docelowy pozostanie
-    nietknięty.
-  \item Najprostsze rozwiązanie: zostaw klasę A w spokoju, używaj
-    \code{unique\_ptr<A>}.
-  \item Jednak właściwym rozwiązaniem jest ciągle implementacja
-    semantyki przeniesienia dla danej klasy.
-  \end{itemize}
-  
-\end{frame}
-
-%************************************************************************
-
-\section{Koniec}
-
-\subsection{Podsumowanie}
-
-\begin{frame}
-
-  \frametitle{Podsumowanie}
-
-  \begin{itemize}
-    \item Unikać surowych wskaźników!
-    \item Używać inteligentnych wskaźników!
-    \item Najczęściej potrzebujemy \code{std::unique\_ptr}
-    \item \code{std::unique\_ptr} trzeba się nauczyć używać.
-    \item Na następnym wykładzie: \code{std::shared\_ptr}
-    \item Konwersja z \code{std::unique\_ptr} do \code{std::shared\_ptr}:
-      \begin{itemize}
-      \item \code{std::shared\_ptr{<}A{>} s = foo();}
-      \item \code{std::shared\_ptr{<}A{>} s = std::move(p1);}
-      \end{itemize}
-  \end{itemize}
-
-\end{frame}
+* Start using `std::unique_ptr` first -- it's most useful.
 
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
