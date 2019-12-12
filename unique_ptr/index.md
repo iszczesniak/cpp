@@ -184,15 +184,42 @@ raw pointers to smart pointers.
 
 # An example
 
-Type `std::unique_ptr` is templated: you need to pass the type of
-managed data as an argument of the template.  We pass the template
-arguments in the angle brackets, i.e., `<>`, like this:
+Type `std::unique_ptr` is a templated type: you need to pass the type
+of managed data as an argument to the template type.  We pass the
+template arguments in the angle brackets, i.e., `<>`, like this:
 
 `std::unique_ptr<managed_data_type> p;`
 
 The managing object `p` manages the data of type `managed_data_type`.
 
-\verbatiminput{example1.cc}
+{% highlight c++ %}
+{% include_relative simple.cc %}
+{% endhighlight %}
+
+# Function `std::make_unique`
+
+Function template `std::make_unique` was introduced for convenience:
+it creates the managing object, and the managed data in one function
+call.  Defined in C++14, and not in C++11 as `std::unique_ptr`.
+Instead of writing the type `A` twice like this:
+
+`unique_ptr<A> up(new A("A1"));`
+
+We can write the equivalent code like this, without typing type `A`
+twice:
+
+`auto up = make_unique<A>("A1");`
+
+The line above does not introduce any overhead: the move constructor
+will be elided, and the managing object will be created directly in
+object `up`.
+
+To use this function, you need to pass the template argument, which is
+the type of the managed data to create, and manage.  The arguments
+(none, one or many) of the function are passed to the constructor of
+the managed data (a feat accomplished with the variadic templates).
+In the example above `"A1"` is the argument passed to the constructor
+of type `A`.
 
 # More on the usage
 
@@ -211,27 +238,6 @@ p1.get(); // Wartość surowego wskaźnika.
 
 std::deque<std::unique_ptr<A> > c;
 c.push_back(std::unique_ptr<A>(new A("C1")));
-
-%************************************************************************
-
-# `std::make_unique`
-
-  \begin{itemize}
-  \item Zdefiniowany dopiero w C++14, a nie w C++11 jak
-    \code{unique\_ptr}.
-  \item Zamiast pisać tak i użyć typu A dwa razy:\\
-    \red{\lstinline|unique_ptr<A> up(A("A1"));|}
-  \item Możemy napisać tak i użyć typu A tylko raz:\\
-    \red{\lstinline|auto up = make_unique<A>("A1");|}
-  \item ZALETA: tworzenie obiektu zarządzanego i zarządzającego odbywa
-    się w jedyn kroku, co jest bezpieczne pod względem obsługi
-    wyjątków.
-  \item FACHOWO: \red{enkapsulacja i lokalizacja alokacji zasobów
-    (encapsulation and localization of resource allocation).}
-  \end{itemize}
-
-\end{frame}
-
 
 # Conclusion
 
