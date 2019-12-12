@@ -30,13 +30,13 @@ into a raw pointer.
 
 # Motivation: the problems of raw pointers
 
-While raw pointers are easy to use, but their use is very error-prone,
-i.e., it's easy to make mistakes.
+Raw pointers are easy to use, but their use is very error-prone, i.e.,
+it's easy to make mistakes.
 
 ## The problems
 
 When we have a pointer of type `T *` which points to a
-dynamically-allocated memory location, we have these problems:
+dynamically-allocated memory location, we face these problems:
 
 * **the type problem**: we don't know whether a pointer points to a
   single piece of data or to an array of data,
@@ -73,7 +73,7 @@ The ownership problem can result in:
   the data that used to be there was already destroyed,
 
 * **a double deletion**, when we try to destroy again the data that
-    was already destroyed.
+  was already destroyed.
 
 ### The exception handling problem
 
@@ -91,7 +91,12 @@ report problems with this broken code.
 {% include_relative problems.cc %}
 {% endhighlight %}
 
-## The smart pointer solution
+# The smart pointer solution
+
+A smart pointer manages dynamically-allocated data, and so we call a
+smart pointer the **managing object**, and the dynamically-allocated
+data the **managed data**.  A smart pointer doesn't copy or move the
+managed data, it can only destroy the data.
 
 The smart pointers solve:
 
@@ -101,11 +106,10 @@ The smart pointers solve:
 
 * the ownership problem: a smart pointer automatically manages the
   dynamically-allocated data, i.e., takes care of their destruction,
-  and either enforces the exclusive ownership or allows for shared
-  management,
+  and implements either the exclusive or shared ownership,
 
 * the exception handling problem: a smart pointer is automatically
-  destroyed when an exception is handled.
+  destroyed (and so is the managed data) when an exception is handled.
 
 Every flexible language should support raw pointers, because this
 low-level functionality is needed to implement high-level
@@ -120,10 +124,6 @@ pointers, let alone to the `void *` trickery -- these times are long
 gone.
 
 ## Smart pointer types
-
-A smart pointer manages dynamically-allocated data, and so we call a
-smart pointer the **managing object**, and the dynamically-allocated
-data the **managed data**.
 
 There are three smart pointer types defined in the `memory` header
 file:
@@ -266,7 +266,9 @@ overhead of using `std::unique_ptr` and `std::make_unique`:
 
 `diff test1.s test2.s`
 
-# More on the usage
+# How to use `std::unique_ptr`
+
+The example below shows
 
 std::unique_ptr<A> p1; // OK.  Nie wskazuje na nic.
 std::unique_ptr<A> p1(new A("A1")); // OK.
