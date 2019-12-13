@@ -11,3 +11,4 @@ interesting and important for efficient code.
 * [Expression categories](categories)
 * [References](references)
 * [Move semantics](move)
+* [`std::unique_ptr`](unique_ptr)
