@@ -209,12 +209,15 @@ of scope.
 
 Function template `std::make_unique` was introduced for convenience
 (we could do without it): it creates both the managing object, and the
-managed data.  Instead of writing the type `A` twice like this:
+managed data.
+
+We can create the managed data yourself with the new operator, and
+pass its raw pointer to the managing object like this:
 
 `unique_ptr<A> up(new A("A1"));`
 
-We can write the equivalent code like this, without typing type `A`
-twice:
+Instead, we can write the equivalent code like this, without typing
+type `A` twice:
 
 `auto up = make_unique<A>("A1");`
 
@@ -273,13 +276,38 @@ overhead of using `std::unique_ptr` and `std::make_unique`:
 
 `diff test1.s test2.s`
 
-# How to use `std::unique_ptr`
+## How to use `std::unique_ptr`
 
 The example below demonstrates the basic usage of `std::unique_ptr`.
 
 {% highlight c++ %}
 {% include_relative usage.cc %}
 {% endhighlight %}
+
+# The solutions to the problems
+
+## The type problem
+
+The type problem, more specifically the problem of mismatching the
+versions of the new and delete operators, is partially solved by two
+versions (two template overloads) of smart pointers:
+
+* one for a single piece of data: `std::unique_ptr<A>`,
+
+* and one for an array of data: `std::unique_ptr<A>`.
+
+It's better to use `std::make_unique`, because you can't introduce
+bugs like the one below, where I put `[5]` by mistake:
+
+`unique_ptr<int> up(new int[5]);`
+
+{% highlight c++ %}
+{% include_relative usage.cc %}
+{% endhighlight %}
+
+## The ownership problem
+
+## The exception handling problem
 
 # Conclusion
 
