@@ -174,7 +174,7 @@ and so:
 
 * you cannot copy-initialize or copy-assign objects of this type, and
   for this reason this type has the copy constructor, and the copy
-  assignment operator deleted,
+  assignment operator explicitly deleted,
 
 * you can transfer the ownership between the managing objects by
   move-initializing, and move-assigning.
@@ -275,23 +275,11 @@ overhead of using `std::unique_ptr` and `std::make_unique`:
 
 # How to use `std::unique_ptr`
 
-The example below shows
+The example below demonstrates the basic usage of `std::unique_ptr`.
 
-std::unique_ptr<A> p1; // OK.  Nie wskazuje na nic.
-std::unique_ptr<A> p1(new A("A1")); // OK.
-p1 = new A("A1'"); // Zabronione!
-p1.reset(new A("A2")); // OK, ale usunie "A1".
-std::unique_ptr<A> p2(p1); // Błąd! Nie można kopiować.
-std::unique_ptr<A> p2 = p1; // Błąd! Nie można kopiować.
-p2 = p1; // Błąd! Nie można kopiować.
-p2 = std::move(p1); // OK.  Przeniesienie.
-p2->foo(); // Wywyłanie A::foo(), jak przez wskaźnik.
-(*p2).foo(); // Wywyłanie A::foo(), jak przez wskaźnik.
-p1.release(); // p1 już nie ma obiektu, ale go nie usuwa.
-p1.get(); // Wartość surowego wskaźnika.
-
-std::deque<std::unique_ptr<A> > c;
-c.push_back(std::unique_ptr<A>(new A("C1")));
+{% highlight c++ %}
+{% include_relative usage.cc %}
+{% endhighlight %}
 
 # Conclusion
 
