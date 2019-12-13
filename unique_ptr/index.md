@@ -95,8 +95,15 @@ report problems with this broken code.
 
 A smart pointer manages dynamically-allocated data, and so we call a
 smart pointer the **managing object**, and the dynamically-allocated
-data the **managed data**.  A smart pointer doesn't copy or move the
-managed data, it can only destroy the data.
+data the **managed data**.
+
+A smart pointer doesn't copy or move the managed data, it can only
+destroy the data.
+
+The type of the managed data doesn't have to be prepared in some
+special way in order to be managed by smart pointers, e.g., the type
+doesn't have to be derived from some special type with the required
+functionality implemented.
 
 The smart pointers solve:
 
