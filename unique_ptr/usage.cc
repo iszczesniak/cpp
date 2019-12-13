@@ -60,6 +60,7 @@ main()
 
   // We cannot copy-initialize, because the ownership is exclusive.
   // std::unique_ptr<A> p3(p2);
+  // auto p3(p2);
 
   // We cannot copy-assign, because the ownership is exclusive.
   // p2 = p1;
@@ -73,7 +74,7 @@ main()
   // That's how we can get access to the managed data.
   cout << p2->m_name << endl;
   cout << (*p2).m_name << endl;
-  cout << p1.get()->m_name << endl;
+  cout << p2.get()->m_name << endl;
 
   // The "release" function releases p1 from managing the data.  The
   // managed data is not destroyed.  Luckily, p1 doesn't manage
