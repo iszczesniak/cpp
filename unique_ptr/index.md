@@ -302,7 +302,7 @@ bugs like the one below, where I put `[5]` by mistake:
 `unique_ptr<int> up(new int[5]);`
 
 {% highlight c++ %}
-{% include_relative usage.cc %}
+{% include_relative solved_type.cc %}
 {% endhighlight %}
 
 ## The ownership problem
