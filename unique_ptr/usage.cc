@@ -72,8 +72,8 @@ main()
 
   // That's how we can get access to the managed data.
   cout << p2->m_name << endl;
-  cout << (*p2).m_name() << endl;
-  cout << p1.get()->m_name() << endl;
+  cout << (*p2).m_name << endl;
+  cout << p1.get()->m_name << endl;
 
   // The "release" function releases p1 from managing the data.  The
   // managed data is not destroyed.  Luckily, p1 doesn't manage
