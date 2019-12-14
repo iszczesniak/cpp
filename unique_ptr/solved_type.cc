@@ -10,6 +10,6 @@ main()
   unique_ptr<int[]> up2(new int);
 
   // The preferred way, because it's less error-prone.
-  auto up = make_unique<int>();
-  auto up = make_unique<int[]>(5);
+  auto up3 = make_unique<int>();
+  auto up4 = make_unique<int[]>(5);
 }
