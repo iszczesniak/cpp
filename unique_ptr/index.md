@@ -321,16 +321,24 @@ Use `std::make_unique` to get the same done safer, as shown below.
 
 ### Use `std::array` instead!
 
-If you really have to have an array of static size (i.e., the size of
-which doesn't change at run-time), it's better to use `std::array`
-instead to the C-style array.  You can use it with smart pointers like
-this:
+If you really have to have an array of static size (i.e., the size
+doesn't change at run-time), it's better to use `std::array` instead
+of the C-style array.  You can use it with smart pointers like this:
 
 {% highlight c++ %}
 {% include_relative array.cc %}
 {% endhighlight %}
 
 ## The ownership problem
+
+The ownership problem is solved: you just move the ownership where you
+need to, e.g., a function or some structure.  You can move the
+ownership when you pass or return a unique pointer by value in a
+function call, as shown in the example below.
+
+{% highlight c++ %}
+{% include_relative solved_ownership.cc %}
+{% endhighlight %}
 
 ## The exception handling problem
 
