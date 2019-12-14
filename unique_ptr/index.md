@@ -300,8 +300,13 @@ by two versions (two template overloads) of smart pointers:
 
 By using the right version of the smart pointer, you don't have to
 remember to destroy the managed data with the matching version of the
-delete operator.  However, you still can introduce bugs like the one
-below, where I put `[5]` by mistake:
+delete operator.
+
+### Lurking problems, and how to deal with them.
+
+However, you still can introduce bugs like the one below, where I
+declare to allocate a single integer, but allocate an array of five
+integers:
 
 `unique_ptr<int> up(new int[5]);`
 
@@ -319,7 +324,7 @@ Or to create an array of 5 integers:
 
 `auto up = make_unique<int[]>(5);`
 
-### Use `std::array` instead
+### Use `std::array` instead!
 
 If you really have to have an array of static size (i.e., the size of
 which doesn't change at run-time), it's better to use `std::array`
