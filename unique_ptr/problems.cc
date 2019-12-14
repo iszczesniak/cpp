@@ -1,5 +1,3 @@
-#include <iostream>
-
 // Who should destroy the allocated data?  Should the data be
 // destroyed by the foo function?
 
