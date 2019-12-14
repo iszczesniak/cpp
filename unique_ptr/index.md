@@ -304,8 +304,8 @@ delete operator.
 
 ### Lurking problems, and how to deal with them.
 
-However, you still can introduce bugs like in the example below, where
-I:
+However, we still can introduce bugs like in the example below, where
+we:
 
 * declare to allocate a single integer, but allocate an array of
   integers,
@@ -313,8 +313,7 @@ I:
 * declare to allocate an array of integers, but allocate a single
   integer.
 
-You use `std::make_unique` to get the same done safer, as shown in the
-example.
+Use `std::make_unique` to get the same done safer, as shown below.
 
 {% highlight c++ %}
 {% include_relative solved_type.cc %}
