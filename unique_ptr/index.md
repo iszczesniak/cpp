@@ -304,25 +304,20 @@ delete operator.
 
 ### Lurking problems, and how to deal with them.
 
-However, you still can introduce bugs like the one below, where I
-declare to allocate a single integer, but allocate an array of five
-integers:
+However, you still can introduce bugs like in the example below, where
+I:
 
-`unique_ptr<int> up(new int[5]);`
+* declare to allocate a single integer, but allocate an array of five
+  integers,
 
-Or bugs like the one below, where I declare to allocate an array, but
-allocate a single integer:
+* declare to allocate an array, but allocate a single integer.
 
-`unique_ptr<int[]> up(new int);`
+You use `std::make_unique` to get the same done, as shown in the
+example.
 
-But you can't make that mistake, if you use `std::make_unique` to
-create a single integer:
-
-`auto up = make_unique<int>();`
-
-Or to create an array of 5 integers:
-
-`auto up = make_unique<int[]>(5);`
+{% highlight c++ %}
+{% include_relative solved_type.cc %}
+{% endhighlight %}
 
 ### Use `std::array` instead!
 
