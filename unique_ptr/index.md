@@ -307,12 +307,13 @@ delete operator.
 However, you still can introduce bugs like in the example below, where
 I:
 
-* declare to allocate a single integer, but allocate an array of five
+* declare to allocate a single integer, but allocate an array of
   integers,
 
-* declare to allocate an array, but allocate a single integer.
+* declare to allocate an array of integers, but allocate a single
+  integer.
 
-You use `std::make_unique` to get the same done, as shown in the
+You use `std::make_unique` to get the same done safer, as shown in the
 example.
 
 {% highlight c++ %}
