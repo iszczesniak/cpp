@@ -289,20 +289,45 @@ The example below demonstrates the basic usage of `std::unique_ptr`.
 ## The type problem
 
 The type problem, more specifically the problem of mismatching the
-versions of the new and delete operators, is partially solved by two
-versions (two template overloads) of smart pointers:
+single and array versions of the new and delete operators, is solved
+by two versions (two template overloads) of smart pointers:
 
-* one for a single piece of data: `std::unique_ptr<A>`,
+* `std::unique_ptr<A>`: the managed data will be destroyed with the
+  single version of the delete operator,
 
-* and one for an array of data: `std::unique_ptr<A>`.
+* `std::unique_ptr<A[]>`: the managed data will be destroyed with the
+  array version of the delete operator.
 
-It's better to use `std::make_unique`, because you can't introduce
-bugs like the one below, where I put `[5]` by mistake:
+By using the right version of the smart pointer, you don't have to
+remember to destroy the managed data with the matching version of the
+delete operator.  However, you still can introduce bugs like the one
+below, where I put `[5]` by mistake:
 
 `unique_ptr<int> up(new int[5]);`
 
+Or bugs like the one below, where I declare to allocate an array, but
+allocate a single integer:
+
+`unique_ptr<int[]> up(new int);`
+
+But you can't make that mistake, if you use `std::make_unique` to
+create a single integer:
+
+`auto up = make_unique<int>();`
+
+Or to create an array of 5 integers:
+
+`auto up = make_unique<int[]>(5);`
+
+### Use `std::array` instead
+
+If you really have to have an array of static size (i.e., the size of
+which doesn't change at run-time), it's better to use `std::array`
+instead to the C-style array.  You can use it with smart pointers like
+this:
+
 {% highlight c++ %}
-{% include_relative solved_type.cc %}
+{% include_relative array.cc %}
 {% endhighlight %}
 
 ## The ownership problem
