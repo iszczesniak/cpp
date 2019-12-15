@@ -360,6 +360,31 @@ The same can be accomplished with smart pointers better:
 {% include_relative except_smart1.cc %}
 {% endhighlight %}
 
+### Raw pointers not so easy, rather error-prone.
+
+Because function arguments are not guaranteed to be evalued in the
+order they are listed, in the example below we've got a memory leak.
+At least I've got it with GCC, and if you don't, try to swap the
+arguments in the call to `foo`.  The object of class `A` is:
+
+* created, because the second argument of the call to function `foo`
+  is evaluated first, before function `index` is called,
+
+* not destroyed, because function `foo` is not called, because a call
+  to function `index` throws an exception.
+
+{% highlight c++ %}
+{% include_relative except_raw2.cc %}
+{% endhighlight %}
+
+The same can be accomplished the safe way with smart pointers.  This
+code works correctly regardless of whether an exception is thrown or
+not.
+
+{% highlight c++ %}
+{% include_relative except_smart2.cc %}
+{% endhighlight %}
+
 # Conclusion
 
 * Don't use raw pointers, unless you really have to.
@@ -373,4 +398,4 @@ The same can be accomplished with smart pointers better:
 
 * Go for the smart pointers!
 
-<!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
+<!-- LocalWords:  -->
