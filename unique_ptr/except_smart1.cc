@@ -25,7 +25,7 @@ main(void)
 {
   try
     {
-      auto p = make_unique<A>();
+      auto p = std::make_unique<A>();
       foo();
     }
   catch (bool)
