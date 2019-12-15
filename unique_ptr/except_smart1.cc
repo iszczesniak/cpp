@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 
 struct A
 {
@@ -24,9 +25,8 @@ main(void)
 {
   try
     {
-      A *p = new A();
+      auto p = make_unique<A>();
       foo();
-      delete p;
     }
   catch (bool)
     {

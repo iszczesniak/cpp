@@ -1,5 +1,4 @@
 #include <iostream>
-#include <memory>
 
 struct A
 {
@@ -23,13 +22,18 @@ foo()
 int
 main(void)
 {
+  A *p;
+
   try
     {
-      std::unique_ptr<A> p(new A());
+      p = new A();
       foo();
+      delete p;
     }
   catch (bool)
     {
+      // Have to delete.
+      delete p;
     }
   
   return 0;
