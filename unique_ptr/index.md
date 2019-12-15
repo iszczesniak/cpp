@@ -345,9 +345,9 @@ function call, as shown in the example below.
 When an exception is thrown, the data previously allocated (or any
 other resource acquired) and not required any longer because of the
 exception, should be deleted (or released).  When programming with raw
-pointers, we should release the memory in the catch block, as shown in
-the example below, where we have to declare `p` before the try block,
-so that it's accessible in the catch block, which complicates the
+pointers, we can release the memory in the catch block, as shown in
+the example below.  We have to declare `p` before the try block, so
+that it's accessible in the catch block, and that complicates the
 code.
 
 {% highlight c++ %}
