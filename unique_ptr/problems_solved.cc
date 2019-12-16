@@ -1,24 +1,34 @@
-#include <array>
 #include <memory>
 
 using namespace std;
 
 void
-foo(unique_ptr<array<int, 5>> p)
+foo(unique_ptr<int> p)
 {
-  // Do sth with p.
+}
+
+unique_ptr<int>
+factory()
+{
   try
     {
-      // An exception could be thrown here.
+      auto p = make_unique<int>();
+
+      // Work on the new data.  An exception could be thrown here.
       throw true;
+
+      return p;
     }
   catch(bool)
     {
     }
+
+  return nullptr;
 }
 
 int
 main()
 {
-  foo(make_unique<array<int, 5>>());
+  auto p = factory();
+  foo(move(p));
 }
