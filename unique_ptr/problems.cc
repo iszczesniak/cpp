@@ -4,22 +4,31 @@
 void
 foo(int *p)
 {
-  // Do sth with p.
+  // By mistake the array delete is used.
+  delete [] p;
+}
+
+int *
+factory()
+{
+  int *p;
+
   try
     {
-      // An exception could be thrown here.
+      p = new int;
+
+      // Work on the new data.  An exception could be thrown here.
       throw true;
 
-      // We should have destroyed the data with the array version of
-      // delete (i.e., delete [] p), because it was allocated with the
-      // array version of new.
-      delete p;
+      return p;
     }
   catch(bool)
     {
       // It's easy to forget this delete:
       delete p;      
     }
+
+  return nullptr;
 }
 
 int
@@ -27,9 +36,11 @@ main()
 {
   // The problem is brewing: we use a pointer to integer to point to
   // the begining of an array of integers.
-  int *p = new int[5];
+  int *p = factory();
+
+  // I'm thinking that foo will use, but not destroy the data.
   foo(p);
 
   // This is the second delete.
-  delete [] p;
+  delete p;
 }
