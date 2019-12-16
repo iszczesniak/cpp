@@ -385,6 +385,15 @@ not.
 {% include_relative except_smart2.cc %}
 {% endhighlight %}
 
+## The first example revisited
+
+Below there is the first example fixed with raw pointers.  All
+problems gone.
+
+{% highlight c++ %}
+{% include_relative problems_solved.cc %}
+{% endhighlight %}
+
 # Conclusion
 
 * Don't use raw pointers, unless you really have to.
