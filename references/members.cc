@@ -1,3 +1,5 @@
+#include <utility>
+
 struct A
 {
   int &m_i;
@@ -11,5 +13,9 @@ int
 main()
 {
   int i;
-  A a(i);
+  A a(i), b(i);
+
+  // These would not compile:
+  // a = b;
+  // a = std::move(b);
 }
