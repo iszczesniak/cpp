@@ -6,3 +6,10 @@ struct A
   {
   }
 };
+
+int
+main()
+{
+  int i;
+  A a(i);
+}
