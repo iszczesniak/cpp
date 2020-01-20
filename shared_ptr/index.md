@@ -4,36 +4,24 @@ title: std::shared_ptr
 
 # Introduction
 
-\section{Wprowadzenie}
+Smart pointer type `std::shared_ptr` is used for sharing objects
+between different parts of code and threads.  It implemented the
+semantics of the shared pointer.
 
-\subsection{Współdzielenie obiektów}
+Sharing a dynamically-allocated object is necessary, when:
 
-\begin{frame}
+* the object is used by different parts of code, and perhaps by
+  different threads,
 
-  \frametitle{Współdzielenie obiektów}
+* it is hard to predict where and when exactly the object will be
+  destroyed.
 
-  \begin{itemize}
+It may be hard to predict where and where the object will be
+destroyed, because:
 
-  \item Współdzielenie obiektu jest wymagane, gdy obiekt:
+* its lifetime may depend on the data,
 
-    \begin{itemize}
-    \item jest dynamicznie tworzony,
-    \item używany jest, być może współbieżnie, przez różne części
-      programu,
-    \item nie wiadomo, kiedy i gdzie dokładnie będzie zniszczony.
-    \end{itemize}
-
-  \item Nie wiadomo, gdzie dokładnie obiekt będzie zniszczony, bo:
-
-    \begin{itemize}
-    \item przetwarzanie obiektu może zależeć od jego danych,
-    \item różne współbieżne części programu mogą w różnym czasie
-      zakończyć działanie na obiekcie.
-    \end{itemize}
-
-  \end{itemize}
-
-\end{frame}
+* different threads may process the data at different time.
 
 %************************************************************************
 
