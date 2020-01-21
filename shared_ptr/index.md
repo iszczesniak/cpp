@@ -83,24 +83,22 @@ The example below shows the basic usage.
 
 ## How it works
 
-\item Grupa obiektów \code{shared_ptr} współdzieli jedną strukturę
-    zarządzającą, alokowaną dynamicznie.
+* The group of managing objects share **a managing structure**, which
+  is allocated dynamically by the first object in the group.
 
-\item Każdy obiekt \code{shared_ptr} posiada wskaźnik na strukturę
-    zarządzającą.
+* A managing object has a pointer to the managing structure of its
+  group.
 
-\item Częścią struktury zarządzającej jest licznik odwołań.
+* A reference count (i.e., the size of the group) is a field in the
+  managing structure.
 
-\item Licznik odwołań to inaczej wielkość grupy.
+* When a managing object is copied, the reference count is
+  incremented.
 
-\item Przy kopiowaniu obiektów \code{shared_ptr}, licznik odwołań
-    jest inkrementowany.
+* When a managing object is destroyed, the reference count is
+  decremented.
 
-\item Przy niszczeniu obiektów \code{shared_ptr}, licznik odwołań
-    jest dekrementowany.
-
-\item Kiedy licznik odwołań wyniesie 0, obiekt zarządzany jest
-    niszczony.
+* When the reference count reaches 0, the managed data is destroyed.
 
 # From `unique_ptr` to `shared_ptr`
 
