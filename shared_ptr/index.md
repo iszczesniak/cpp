@@ -102,12 +102,19 @@ The example below shows the basic usage.
 
 # From `unique_ptr` to `shared_ptr`
 
-  Można tak? Można.
+We can move the ownershipd from `unique_ptr` to `shared_ptr` like
+that:
 
-  \code{unique_ptr<A> up(new A("A1"));}\\
-  \code{shared_ptr<A> sp(up.release());}
+{% highlight c++ %}
+{% include_relative u2s.cc %}
+{% endhighlight %}
 
-  \vspace{0.25 cm}
+But it's better done this way:
+
+{% highlight c++ %}
+{% include_relative u2s_better.cc %}
+{% endhighlight %}
+
   
   Ale lepiej tak:
   
