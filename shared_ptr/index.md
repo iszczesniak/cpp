@@ -32,17 +32,20 @@ The solution to the problem is the *shared-ownership semantics*:
 * ownership, because the data are destoryed when the group becomes
   empty.
 
-The smart pointer type `std::shared_ptr` implements the semantics of
-the shared ownership.  The objects of the `std::shared_ptr` type are
-the **managing objects**, and the data allocated dynamically is the
-**managed data**.
+In Java or C#, a reference has the shared-ownership semantics.
 
 # `std::shared_ptr`
 
 * `#include <memory>`
 
-* It's a template class that implements the sharing of the managed
-  data, i.e., the class implements the shared-ownership semantics.
+* The smart pointer type that implements the shared-ownership
+  semantics.
+
+* The objects of this type are the **managing objects**, and the data
+  allocated dynamically is the **managed data**.
+
+* It's a template class that implements the shared-ownership
+  semantics.  The template argument is the type of the manged data.
 
 * The opposite of `std::unique_ptr`.
 
@@ -53,9 +56,7 @@ the **managing objects**, and the data allocated dynamically is the
   one managing object.
 
 * When we copy a managing object, we create another managing object,
-  which belongs to the group of managing objects.
-
-* The group of managing objects is the owner of the managed data.
+  which belongs to the same group of managing objects.
 
 * The managed data is destroyed, when the last managing object is
   destroyed.
@@ -69,9 +70,6 @@ the **managing objects**, and the data allocated dynamically is the
 
 * An object of this class takes twice as much memory as the raw
   pointer.
-
-* In Java or C#, the shared-ownership semantics is offered as
-  references.
 
 %************************************************************************
 
