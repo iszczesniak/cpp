@@ -134,19 +134,20 @@ multithreaded programming, of course.
 
 # Performance
 
-  \item Obiekt \code{shared_ptr} zajmuje dwa razy więcej pamięci niż
-    surowy wskaźnik, bo zawiera dwa pola:
-    \begin{itemize}
-    \item wskaźnik na zarządzany obiekt,
-    \item wskaźnik na strukturę zarządającą.
-    \end{itemize}
+A `shared_ptr` object takes twice as much memory as a raw pointer,
+because it has two fields:
 
-\item Dodatkowo jest dynamicznie alokowana pamięć na strukturę
-    zarządzającą.
+* a pointer to the managed data,
 
-\item Wskaźnik na zarządzany obiekt mógłby być częścią struktury
-    zarządzającej, ale wtedy odwołanie do obiektu zarządzanego byłoby
-    wolniejsze.
+* a pointer to the managing data structure.
+
+On top of this, there is the managing data structure allocated, but
+it's shared among the managing objects of their group.
+
+A pointer to the managed data could be kept in the managing data
+structure, but then accessing the managed data would involve an extra
+indirect access (i.e., looking up a pointer value), thwarting
+performance.
   
 ## `std::make_shared`
 
