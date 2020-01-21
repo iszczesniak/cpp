@@ -147,7 +147,7 @@ it's shared among the managing objects.
 A pointer to the managed data could be kept in the managing data
 structure, but then getting to the managed data would involve an extra
 indirect access, thwarting performance.
-  
+
 ## `std::make_shared`
 
   Zamiast pisać typ A dwa razy w sposobie na piechotę:
@@ -172,20 +172,18 @@ indirect access, thwarting performance.
   zarządzający używając jednej alokacji pamięci, przez co jest szybsza
   niż osobne tworzenie tych obiektów.
 
-\end{frame}
-
 # Conclusion
 
-\item Klasa \code{shared_ptr<T>} pozwala na łatwe współdzielenie
-    obiektów, które były stworzone dynamicznie.
+* An object of class `shared_ptr<T>` allows for sharing data of type
+  `T` that were dynamically allocated.
 
-\item Główne zadanie: zniszczyć obiekt zarządzany, kiedy nie jest
-    już potrzebny.
+* The objective: destroy the managed data exactly at the time the data
+  is no longer needed.
 
-\item Obiekty klasy \code{shared_ptr<T>} są dwa razy większe niż
-    surowy wskaźnik.
+* A managing object of type `shared_ptr` is twice as large as a raw
+  pointer.
 
-\item Można łatwo tworzyć obiekty \code{shared_ptr<T>} z
-    \code{unique_ptr<T>}.
+* We can easily pass the ownership from `unique_ptr` to `shared_ptr`,
+  but not the other way around.
 
 <!-- LocalWords:  -->
