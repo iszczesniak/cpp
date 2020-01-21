@@ -4,24 +4,38 @@ title: std::shared_ptr
 
 # Introduction
 
-Smart pointer type `std::shared_ptr` is used for sharing objects
-between different parts of code and threads.  It implemented the
-semantics of the shared pointer.
+When we dynamically create some data (or any other resource) and use
+them in other threads or parts of code, we run into the problem when
+to destroy the data.  If we:
 
-Sharing a dynamically-allocated object is necessary, when:
+* don't destroy the data, we get a memory leak,
 
-* the object is used by different parts of code, and perhaps by
-  different threads,
+* destroy the data too soon, we get a race condition: a dangling
+  pointer and undefined behavior, because other threads or parts of
+  code still use the data,
 
-* it is hard to predict where and when exactly the object will be
-  destroyed.
+* destroy the data too late, we get suboptimal performance, because we
+  let the dispensable data linger in memory.
 
-It may be hard to predict where and where the object will be
-destroyed, because:
+Therefore we should destroy the data at the right time, i.e., when
+they are no longer needed.  However, this right time is hard to
+pinpoint with raw pointers, because it may depend on:
 
-* its lifetime may depend on the data,
+* the data (i.e., their specific values),
 
-* different threads may process the data at different time.
+* the timing of other threads.
+
+The solution to the problem is the *shared-ownership semantics*:
+
+* shared, because the data are managed by a group,
+
+* ownership, because the data are destoryed when the group becomes
+  empty.
+
+The smart pointer type `std::shared_ptr` implements the semantics of
+the shared ownership.  The objects of the `std::shared_ptr` type are
+the **managing objects**, and the data allocated dynamically is the
+**managed data**.
 
 # `std::shared_ptr`
 
