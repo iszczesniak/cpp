@@ -3,8 +3,8 @@
 
 using namespace std;
 
-make_unique<int>
-foo()
+unique_ptr<int>
+factory()
 {
   return make_unique<int>();
 }
@@ -12,5 +12,5 @@ foo()
 int
 main()
 {
-  shared_ptr<int> sp(foo());
+  shared_ptr<int> sp(factory());
 }
