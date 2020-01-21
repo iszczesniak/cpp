@@ -100,7 +100,7 @@ The example below shows the basic usage.
 
 * When the reference count reaches 0, the managed data is destroyed.
 
-# From `unique_ptr` to `shared_ptr`
+## From `unique_ptr` to `shared_ptr`
 
 We can move the ownership from `unique_ptr` to `shared_ptr` like that
 alright:
@@ -124,7 +124,7 @@ e.g., returned by a function like this:
 {% include_relative u2s_example.cc %}
 {% endhighlight %}
 
-# Parallel usage
+## Parallel usage
 
 You can copy, move, and destroy `share_ptr` objects thread-safe,
 because the operations on the managing data structure are atomic.
@@ -132,7 +132,7 @@ because the operations on the managing data structure are atomic.
 However, modification of the managed data should be synchronized in
 multithreaded programming, of course.
 
-# Performance
+## Performance
 
 A `shared_ptr` object takes twice as much memory as a raw pointer,
 because it has two fields:
@@ -142,12 +142,11 @@ because it has two fields:
 * a pointer to the managing data structure.
 
 On top of this, there is the managing data structure allocated, but
-it's shared among the managing objects of their group.
+it's shared among the managing objects.
 
 A pointer to the managed data could be kept in the managing data
-structure, but then accessing the managed data would involve an extra
-indirect access (i.e., looking up a pointer value), thwarting
-performance.
+structure, but then getting to the managed data would involve an extra
+indirect access, thwarting performance.
   
 ## `std::make_shared`
 
