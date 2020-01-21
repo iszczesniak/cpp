@@ -71,61 +71,38 @@ In Java or C#, a reference has the shared-ownership semantics.
 * An object of this class takes twice as much memory as the raw
   pointer.
 
-%************************************************************************
+# Details
 
-\section{Szczegóły}
+## Usage
 
-\subsection{Użycie}
+The example below shows the basic usage.
 
-\begin{frame}
+{% highlight c++ %}
+{% include_relative basic.cc %}
+{% endhighlight %}
 
-  \frametitle{Użycie}
+## How it works
 
-  \begin{itemize}
-  \item Deklaracja: \code{shared_ptr<A> a;}
-  \item Oddanie pod zarządzanie: \code{shared_ptr<A> sp(new A());}
-  \item Oddanie pod zarządzanie: \code{sp.reset(new A());}
-  \item Kopiowanie obiektów: \code{shared_ptr<A> sp2(sp);}
-  \item Kopiowanie obiektów: \code{sp2 = sp;}
-  \item Przenoszenie obiektów: \code{shared_ptr<A> sp2(move(sp));}
-  \item Przenoszenie obiektów: \code{sp2 = move(sp);}
-  \item Niszczenie: tego nie robimy, to odbywa się automatycznie.
-  \end{itemize}
-
-\end{frame}
-
-%************************************************************************
-
-\subsection{Jak to działa?}
-
-\begin{frame}
-
-  \frametitle{Jak to działa?}
-
-  \begin{itemize}
-  \item Grupa obiektów \code{shared_ptr} współdzieli jedną strukturę
+\item Grupa obiektów \code{shared_ptr} współdzieli jedną strukturę
     zarządzającą, alokowaną dynamicznie.
-  \item Każdy obiekt \code{shared_ptr} posiada wskaźnik na strukturę
+
+\item Każdy obiekt \code{shared_ptr} posiada wskaźnik na strukturę
     zarządzającą.
-  \item Częścią struktury zarządzającej jest licznik odwołań.
-  \item Licznik odwołań to inaczej wielkość grupy.
-  \item Przy kopiowaniu obiektów \code{shared_ptr}, licznik odwołań
+
+\item Częścią struktury zarządzającej jest licznik odwołań.
+
+\item Licznik odwołań to inaczej wielkość grupy.
+
+\item Przy kopiowaniu obiektów \code{shared_ptr}, licznik odwołań
     jest inkrementowany.
-  \item Przy niszczeniu obiektów \code{shared_ptr}, licznik odwołań
+
+\item Przy niszczeniu obiektów \code{shared_ptr}, licznik odwołań
     jest dekrementowany.
-  \item Kiedy licznik odwołań wyniesie 0, obiekt zarządzany jest
+
+\item Kiedy licznik odwołań wyniesie 0, obiekt zarządzany jest
     niszczony.
-  \end{itemize}
 
-\end{frame}
-
-%************************************************************************
-
-\subsection{Z unique_ptr do shared_ptr}
-
-\begin{frame}
-
-  \frametitle{Z \code{unique_ptr<T>} do \code{shared_ptr<T>}}
+# From `unique_ptr` to `shared_ptr`
 
   Można tak? Można.
 
@@ -152,13 +129,7 @@ In Java or C#, a reference has the shared-ownership semantics.
 
 \end{frame}
 
-%************************************************************************
-
-\subsection{Użycie współbieżne}
-
-\begin{frame}
-
-  \frametitle{Użycie współbieżne}
+# Parallel usage
 
   \begin{itemize}
     \item Klasa częściowo jest bezpieczna w programowaniu
@@ -172,54 +143,34 @@ In Java or C#, a reference has the shared-ownership semantics.
 
 \end{frame}
 
-%************************************************************************
+# Performance
 
-\subsection{Wydajność}
-
-\begin{frame}
-
-  \frametitle{Wydajność}
-
-  \begin{itemize}
   \item Obiekt \code{shared_ptr} zajmuje dwa razy więcej pamięci niż
     surowy wskaźnik, bo zawiera dwa pola:
     \begin{itemize}
     \item wskaźnik na zarządzany obiekt,
     \item wskaźnik na strukturę zarządającą.
     \end{itemize}
-  \item Dodatkowo jest dynamicznie alokowana pamięć na strukturę
+
+\item Dodatkowo jest dynamicznie alokowana pamięć na strukturę
     zarządzającą.
-  \item Wskaźnik na zarządzany obiekt mógłby być częścią struktury
+
+\item Wskaźnik na zarządzany obiekt mógłby być częścią struktury
     zarządzającej, ale wtedy odwołanie do obiektu zarządzanego byłoby
     wolniejsze.
-  \end{itemize}
   
-\end{frame}
-
-%************************************************************************
-
-\subsection{std::make_shared}
-
-\begin{frame}
-
-  \frametitle{\code{std::make_shared}}
+## `std::make_shared`
 
   Zamiast pisać typ A dwa razy w sposobie na piechotę:
 
   \code{shared_ptr<A> sp(new A("A1"));}
 
-  \vspace{0.2 cm}
-  
   Możemy napisać typ A tylko raz używając funkcji \code{make_shared}:
   
   \code{auto sp = make_shared<A>("A1");}
 
-  \vspace{0.2 cm}
-
   Obiekt stworzony przez \code{make_shared} jest przenoszony, a nie
   kopiowany.
-
-  \vspace{0.2 cm}
 
   ZALETA \#1: tworzenie obiektu zarządzanego i zarządzającego odbywa
   się w jedyn kroku, co jest bezpieczne pod względem obsługi wyjątków.
@@ -232,29 +183,18 @@ In Java or C#, a reference has the shared-ownership semantics.
 
 \end{frame}
 
-%************************************************************************
+# Conclusion
 
-\section{Koniec}
-
-\subsection{Podsumowanie}
-
-\begin{frame}
-
-  \frametitle{Podsumowanie}
-
-  \begin{itemize}
-
-  \item Klasa \code{shared_ptr<T>} pozwala na łatwe współdzielenie
+\item Klasa \code{shared_ptr<T>} pozwala na łatwe współdzielenie
     obiektów, które były stworzone dynamicznie.
-  \item Główne zadanie: zniszczyć obiekt zarządzany, kiedy nie jest
+
+\item Główne zadanie: zniszczyć obiekt zarządzany, kiedy nie jest
     już potrzebny.
-  \item Obiekty klasy \code{shared_ptr<T>} są dwa razy większe niż
+
+\item Obiekty klasy \code{shared_ptr<T>} są dwa razy większe niż
     surowy wskaźnik.
-  \item Można łatwo tworzyć obiekty \code{shared_ptr<T>} z
+
+\item Można łatwo tworzyć obiekty \code{shared_ptr<T>} z
     \code{unique_ptr<T>}.
-
-  \end{itemize}
-
-\end{frame}
 
 <!-- LocalWords:  -->
