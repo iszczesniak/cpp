@@ -23,34 +23,41 @@ destroyed, because:
 
 * different threads may process the data at different time.
 
-%************************************************************************
+# `std::shared_ptr`
 
-\subsection{std::shared\_ptr}
+* `#include <memory>`
 
-\begin{frame}
+* It's a template class that implements the sharing of the managed
+  data, i.e., the class implements the shared-ownership semantics.
 
-  \frametitle{\code{std::shared_ptr}}
+* The opposite of `std::unique_ptr`.
 
-  \begin{itemize}
+* Objects of this class can be copied and moved.
 
-  \item \code{\#include <memory>}
-  \item Klasa C++11 implementująca współdzielenie dynamicznego
-    obiektu.
-  \item Przeciwstawność \code{std::unique_ptr}.
-  \item Obiekty tej klasy można kopiować i przenosić.
-  \item Kopiując obiekt \code{std::shared_ptr}, tworzymy grupę
-    obiektów zarządzających, które współdzielą jeden obiekt
-    dynamiczny.
-  \item Grupa obiektów \code{shared_ptr} jest właścicielem
-    zarządzanego obiektu.
-  \item Grupa posiada \red{jeden licznik odwołań} do zarządzanego
-    obiektu.
-  \item Zarządzane obiekty nie wiedzą, że są zarządzane.
-  \item Użycie tak wydajne czasowo, jak surowego wskaźnika.
-  \item Zajmuje dwa razy więcej pamięci, niż surowy wskaźnik.
-  \end{itemize}
+* A managing object that takes the ownership of the managed data
+  creates a group of managing objects.  Initially, this group has only
+  one managing object.
 
-\end{frame}
+* When we copy a managing object, we create another managing object,
+  which belongs to the group of managing objects.
+
+* The group of managing objects is the owner of the managed data.
+
+* The managed data is destroyed, when the last managing object is
+  destroyed.
+
+* The managed data don't know they are managed: the type of the data
+  doesn't have to be prepared to be managed, e.g., derived from some
+  base class.
+
+* As performant in terms of memory and time, as the same functionality
+  implemented "manually" with raw pointers.
+
+* An object of this class takes twice as much memory as the raw
+  pointer.
+
+* In Java or C#, the shared-ownership semantics is offered as
+  references.
 
 %************************************************************************
 
