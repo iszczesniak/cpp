@@ -164,6 +164,8 @@ returned by functions like this:
   
   \code{auto sp = make_shared<A>("A1");}
 
+  auto sp = make_shared<A[]>(3);
+
   Obiekt stworzony przez \code{make_shared} jest przenoszony, a nie
   kopiowany.
 
