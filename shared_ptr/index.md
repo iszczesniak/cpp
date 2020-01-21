@@ -115,24 +115,14 @@ But it's better done this way:
 {% include_relative u2s_better.cc %}
 {% endhighlight %}
 
-  
-  Ale lepiej tak:
-  
-  \code{unique_ptr<A> up(new A("A1"));}\\
-  \code{shared_ptr<A> sp(move(up));}
+We can move the ownership from an rvalue of type `unique_ptr`, because
+`shared_ptr` has such a constructor.  Therefore, we can create a
+`shared_ptr` object from a temporary object of type `unique_ptr`
+returned by functions like this:
 
-  \vspace{0.25 cm}
-
-  Można, bo \code{shared_ptr<T>} ma konstruktor, który przyjmuje
-  referencję typu rvalue do obiektu typu \code{unique_ptr<T>}.
-
-  \vspace{0.25 cm}
-
-  Dzięki temu możemy tworzyć \code{shared_ptr<T>} z obiektów
-  tymczasowych typu \code{unique_ptr<T>}, np.~zwracanych jako wynik
-  wywołania funkcji.
-
-\end{frame}
+{% highlight c++ %}
+{% include_relative u2s_example.cc %}
+{% endhighlight %}
 
 # Parallel usage
 
