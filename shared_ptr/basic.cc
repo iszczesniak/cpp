@@ -66,4 +66,7 @@ int main (void)
   // other shared_ptr objects of their ownership.
 
   // sp.release();
+
+  // If we want to reset a pointer, we can use the reset function.
+  sp.reset();
 }
