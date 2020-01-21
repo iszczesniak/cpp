@@ -83,14 +83,14 @@ The example below shows the basic usage.
 
 ## How it works
 
-* The group of managing objects share **a managing structure**, which
-  is allocated dynamically by the first object in the group.
+* The group of managing objects share **a managing data structure**,
+  which is allocated dynamically by the first object in the group.
 
-* A managing object has a pointer to the managing structure of its
-  group.
+* A managing object has a pointer to the managing data structure of
+  its group.
 
 * A reference count (i.e., the size of the group) is a field in the
-  managing structure.
+  managing data structure.
 
 * When a managing object is copied, the reference count is
   incremented.
@@ -102,23 +102,23 @@ The example below shows the basic usage.
 
 # From `unique_ptr` to `shared_ptr`
 
-We can move the ownershipd from `unique_ptr` to `shared_ptr` like
-that:
+We can move the ownership from `unique_ptr` to `shared_ptr` like that
+alright:
 
 {% highlight c++ %}
 {% include_relative u2s.cc %}
 {% endhighlight %}
 
-But it's better done this way:
+But it's downright better done this way:
 
 {% highlight c++ %}
 {% include_relative u2s_better.cc %}
 {% endhighlight %}
 
 We can move the ownership from an rvalue of type `unique_ptr`, because
-`shared_ptr` has such a constructor.  Therefore, we can create a
-`shared_ptr` object from a temporary object of type `unique_ptr`
-returned by functions like this:
+`shared_ptr` has the right constructor.  Therefore, we can create a
+`shared_ptr` object from a temporary object of type `unique_ptr`,
+e.g., returned by a function like this:
 
 {% highlight c++ %}
 {% include_relative u2s_example.cc %}
@@ -126,17 +126,11 @@ returned by functions like this:
 
 # Parallel usage
 
-  \begin{itemize}
-    \item Klasa częściowo jest bezpieczna w programowaniu
-      współbieżnym.
-    \item Jeżeli wątek ma swoją kopię \code{shared_ptr}, to może jej
-      swobodnie używać bez synchronizacji, włącznie z jej
-      przenoszeniem i tworzeniem kopii.
-    \item Jeżeli wątki używają tego samego obiektu \code{shared_ptr},
-      to muszą synchronizować działania, jeżeli obiekt jest zmieniany.
-  \end{itemize}
+You can copy, move, and destroy `share_ptr` objects thread-safe,
+because the operations on the managing data structure are atomic.
 
-\end{frame}
+However, modification of the managed data should be synchronized in
+multithreaded programming, of course.
 
 # Performance
 
