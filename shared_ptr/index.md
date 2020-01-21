@@ -150,25 +150,23 @@ indirect access, thwarting performance.
 
 ## `std::make_shared`
 
-  Zamiast pisać typ A dwa razy w sposobie na piechotę:
+  Instead of writing twice the data type `A` like this:
 
-  \code{shared_ptr<A> sp(new A("A1"));}
+  `shared_ptr<A> sp(new A);`
 
-  Możemy napisać typ A tylko raz używając funkcji \code{make_shared}:
-  
-  \code{auto sp = make_shared<A>("A1");}
+  We can use the function `make_shared` and write the type only once
+  like this:
+
+  `auto sp = make_shared<A>("A1");`
+
+  There is no performance overhead.
 
   auto sp = make_shared<A[]>(3);
 
   Obiekt stworzony przez \code{make_shared} jest przenoszony, a nie
   kopiowany.
 
-  ZALETA \#1: tworzenie obiektu zarządzanego i zarządzającego odbywa
-  się w jedyn kroku, co jest bezpieczne pod względem obsługi wyjątków.
-
-  \vspace{0.25 cm}
-
-  ZALETA \#2: Funkcja \code{std::make_shared} tworzy obiekt zarządzany i
+  Funkcja \code{std::make_shared} tworzy obiekt zarządzany i
   zarządzający używając jednej alokacji pamięci, przez co jest szybsza
   niż osobne tworzenie tych obiektów.
 
