@@ -150,25 +150,31 @@ indirect access, thwarting performance.
 
 ## `std::make_shared`
 
-  Instead of writing twice the data type `A` like this:
+When creating the managed data and the managing object, we can write
+the type of the managed data twice (and perhaps introduce bugs):
 
-  `shared_ptr<A> sp(new A);`
+{% highlight c++ %}
+{% include_relative make_shared.cc %}
+{% endhighlight %}
 
-  We can use the function `make_shared` and write the type only once
-  like this:
+But we can use the function `make_shared` and write the type only once
+like this (which is less error-prone):
 
-  `auto sp = make_shared<A>("A1");`
+{% highlight c++ %}
+{% include_relative make_shared2.cc %}
+{% endhighlight %}
 
-  There is no performance overhead.
+Similar to function `make_unique`, function `make_shared` creates the
+managed data and the managing object, and then returns the managing
+object.  There is no performance overhead, since the function will
+most likely be inlined, and the constructors elided when returning the
+managing object.
 
-  auto sp = make_shared<A[]>(3);
-
-  Obiekt stworzony przez \code{make_shared} jest przenoszony, a nie
-  kopiowany.
-
-  Funkcja \code{std::make_shared} tworzy obiekt zarządzany i
-  zarządzający używając jednej alokacji pamięci, przez co jest szybsza
-  niż osobne tworzenie tych obiektów.
+Interestingly, `make_shared` allocates as one piece the memory for the
+managed data and the managing data structure with *one memory
+allocation*, and then creates *in place* (i.e., without allocating
+memory) the managed data and the managing data structure, which is
+faster than two separate memory allocations.
 
 # Conclusion
 
