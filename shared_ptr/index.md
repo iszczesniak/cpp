@@ -29,7 +29,7 @@ The solution to the problem is the *shared-ownership semantics*:
 
 * shared, because the data are managed by a group,
 
-* ownership, because the data are destoryed when the group becomes
+* ownership, because the data are destroyed when the group becomes
   empty.
 
 In Java or C#, a reference has the shared-ownership semantics.
@@ -191,4 +191,5 @@ managing data structure.
 * We can easily pass the ownership from `unique_ptr` to `shared_ptr`,
   but not the other way around.
 
-<!-- LocalWords:  -->
+<!-- LocalWords: inlined multithreaded -->
+<!-- LocalWords: performant rvalue suboptimal -->
