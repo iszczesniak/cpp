@@ -157,12 +157,15 @@ the type of the managed data twice (and perhaps introduce bugs):
 {% include_relative make_shared.cc %}
 {% endhighlight %}
 
-But we can use the function `make_shared` and write the type only once
+But we can use function `make_shared` and write the type only once
 like this (which is less error-prone):
 
 {% highlight c++ %}
 {% include_relative make_shared2.cc %}
 {% endhighlight %}
+
+Function template `make_shared` takes the type of the data to manage
+as its template argument.
 
 Similar to function `make_unique`, function `make_shared` creates the
 managed data and the managing object, and then returns the managing
