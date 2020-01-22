@@ -170,11 +170,12 @@ object.  There is no performance overhead, since the function will
 most likely be inlined, and the constructors elided when returning the
 managing object.
 
-Interestingly, `make_shared` allocates as one piece the memory for the
-managed data and the managing data structure with *one memory
-allocation*, and then creates *in place* (i.e., without allocating
+Interestingly, `make_shared` allocates *in one piece* (i.e., with one
+memory allocation) the memory for the managed data and the managing
+data structure, and then creates *in place* (i.e., without allocating
 memory) the managed data and the managing data structure, which is
-faster than two separate memory allocations.
+faster than allocating memory separately for the managed data and the
+managing data structure.
 
 # Conclusion
 
