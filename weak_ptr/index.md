@@ -1,54 +1,38 @@
 ---
-title: std::shared_ptr
+title: std::weak_ptr
 ---
 
 # Introduction
 
-  Współdzielenie bez uwiązania polega na możliwości ewentualnego
-  użycia współdzielonego obiektu, ale bez zachowania gwarancji, że
-  obiekt będzie ciągle istniał.
+We are guaranteed that the managed data exist as long as at least one
+shared pointer to them exists.  This guarantee, however, might be more
+than we need.  We might want something less: the ability to check
+whether the managed data still exist, and use them safely if needed.
+We might say that we want to *track the managed data* without claiming
+an ownership, i.e., without requiring them to exist.
 
-  Mając obiekt współdzielony, chcemy jedynie mieć możliwość
-  ewentualnego odwołania się do niego, jeżeli istnieje.  Jeżeli obiekt
-  już nie istnieje, to chcemy jedynie mieć możliwość sprawdzenia tego.
-
-Inteligentny wskaźnik \code{std::weak_ptr} pozwala na śledzenie
-obiektu, który jest zarządzany przez \code{std::shared_ptr}.
-Śledzenie nie daje nam gwarancji, że obiekt istnieje, ale daje nam
-możliwość ewentualnego dostępu, jeżeli zarządzany obiekt jeszcze
-istnieje.
-
-\lstinputlisting{intro.cc}
+In C++, this functionality is provided by the **weak pointer**,
+implemented by class template `std::weak_ptr`.  The weak pointer
+functionality is coupled with the shared pointer, because the weak
+pointer kind of shares the data, but not fully.  It's best to
+illustrate this functionality with an example.
 
 # Motivating example
 
-Napisać funkcję \code{factory}, która będzie fabryką obiektów klasy A.
-Fabryka powinna śledzić już stworzone obiekty i nie tworzyć ich
-ponownie, jeżeli ciągle istnieją.
+We need a factory function, which returns a shared pointer to some
+(possibly large) data.  The function should:
 
-\section{Rozwiązanie zadania}
+* create the data anew if they do not exist,
 
-\lstinputlisting{factory.cc}
+* reuse the already created data if they exist.
 
-  \item Jest fabryka (czyli funkcja zwracająca obiekty) wracająca
-    obiekty współdzielone z użyciem \code{shared_ptr<A>}.
+The factory function should track the created data without claiming
+the ownership, and reuse them if needed.  Whether the data still
+exists depends on the callers of the function, i.e., whether they keep
+or destroy their shared pointers.
 
-  \item Jeżeli obiekt nie istnieje, to fabryka go tworzy.
-
-  \item Obiekt współdzielony jest niszczony, jeżeli nie jest już
-    potrzebny.
-
-  \item Fabryka nie współdzieli obiektu (nie uwiązuje go), ale chce
-    mieć możliwość ponownego zwrócenia go, jeżeli on jeszcze istnieje
-    i jeżeli będzie potrzebny.
-
-  \item ROZWIĄZANIE: fabryka powinna pamiętać zwrócone obiekty
-    współdzielone, ale bez uwiązywania ich, żeby mogły być zniszczone,
-    jak nie będą już potrzebne.
-    
-  \end{itemize}
-
-\end{frame}
+For this job we need weak pointers.  We cover some basics before we
+give the implementation.
 
 # Details
 
@@ -56,22 +40,22 @@ ponownie, jeżeli ciągle istnieją.
 
 * `#include <memory>`
 
-* A C++11 class template for sharing
+* A C++11 class template, where the template argument is the type of
+  the tracked data.
 
-Klasa C++11 implementująca współdzielenie bez uwiązania.
+* Weak pointers can be copied and moved, but it's not that important
+  as for the unique and shared pointers.
 
-\item Obiekty tej klasy można kopiować i przenosić, ale nie ma to
-    szczególnego znaczenia, jak przy \code{unique_ptr} czy
-    \code{shared_ptr}.
+* A weak pointer is created from a shared pointer.
 
-\item Nierozerwalnie związany z \code{shared_ptr}.
+* A weak pointer never destroys its managed data.
 
-\item Obiekt \code{weak_ptr} tworzony jest na podstawie obiektu
-\code{shared_ptr}.
+* We can produce a shared pointer from a weak pointer, if the managed
+  data still exist.
 
-\item \red{Nie niszczy obiektu, do którego się odwołuje.}
-
-\item Zarządzane obiekty nie wiedzą, że są zarządzane.
+* The managed data do not know they are managed, i.e., the type of the
+  managed data doesn't have to be prepared in some special way, like
+  deriving from some base class.
 
 ## Usage
 
@@ -81,49 +65,28 @@ The example below shows the basic usage:
 {% include_relative basic.cc %}
 {% endhighlight %}
 
-%************************************************************************
+## Producing the shared poiner from a weak pointer
 
-\subsection{Pozyskanie obiektu współdzielonego}
+PROBLEM: Jak bezpiecznie użyć (bez hazadru), skoro \code{weak_ptr} nie
+daje nam gwarancji, że obiekt nie zostanie zniszczony?  Taką gwarancję
+daje nam \code{shared_ptr}.
 
-\begin{frame}
+Przecież bezpośrednio po uzyskaniu surowego wskaźnika obiekt może być
+zniszczony.
 
-  \frametitle{Pozyskanie obiektu współdzielonego}
+ROZWIĄZANIE: tworzenie \code{shared_ptr} na podstawie
 
-  PROBLEM: Jak bezpiecznie użyć (bez hazadru), skoro \code{weak_ptr}
-  nie daje nam gwarancji, że obiekt nie zostanie zniszczony?  Taką
-  gwarancję daje nam \code{shared_ptr}.
+Robimy to tak (może rzucić wyjątek):
 
-  \vspace{0.25 cm}
-
-  Przecież bezpośrednio po uzyskaniu surowego wskaźnika obiekt może
-  być zniszczony.
-
-  \vspace{0.25 cm}
-
-  ROZWIĄZANIE: tworzenie \code{shared_ptr} na podstawie
-  \code{weak_ptr}.
-
-  \vspace{0.25 cm}
-
-  Robimy to tak (może rzucić wyjątek):\\
-  \code{shared_ptr<A> sp(wp);}
+\code{shared_ptr<A> sp(wp);}
 
   \vspace{0.25 cm}
 
   Albo tak (obiekt sp może być \code{nullptr}):\\
   \code{shared_ptr<A> sp = wp.lock();}
 
-\end{frame}
+## How it works
 
-%************************************************************************
-
-\subsection{Jak to działa?}
-
-\begin{frame}
-
-  \frametitle{Jak to działa?}
-
-  \begin{itemize}
   \item Grupa obiektów \code{shared_ptr} i \code{weak_ptr} współdzielą
     jedną strukturę zarządzającą, alokowaną dynamicznie.
 
@@ -141,77 +104,50 @@ The example below shows the basic usage:
 
   \item Kiedy licznik odwołań \code{shared_ptr} i \code{weak_ptr}
     wyniesie 0, struktura zarządzająca jest niszczona.
-  \end{itemize}
 
-\end{frame}
+# The implementation of the motivating example
 
-%************************************************************************
+Here's the implementation:
 
-\subsection{Użycie współbieżne}
+\lstinputlisting{factory.cc}
 
-\begin{frame}
+## Parallel usage
 
-  \frametitle{Użycie współbieżne}
+\item Klasa jest bezpieczna w programowaniu współbieżnym.
 
-  \begin{itemize}
-  \item Klasa jest bezpieczna w programowaniu współbieżnym.
-  \item Pozyskany obiekt klasy \code{shared_ptr} możemy swobodnie
+\item Pozyskany obiekt klasy \code{shared_ptr} możemy swobodnie
     używać, bo jest on wyłączną kopią wątku.
-  \end{itemize}
 
-\end{frame}
+## Performance
 
-%************************************************************************
-
-\subsection{Wydajność}
-
-\begin{frame}
-
-  \frametitle{Wydajność}
-
-  \begin{itemize}
-  \item Obiekt \code{weak_ptr} zajmuje dwa razy więcej pamięci niż
+\item Obiekt \code{weak_ptr} zajmuje dwa razy więcej pamięci niż
     surowy wskaźnik, bo zawiera dwa pola:
     \begin{itemize}
     \item wskaźnik na zarządzany obiekt,
     \item wskaźnik na strukturę zarządającą.
     \end{itemize}
-  \item Po co wskaźnik na zarządzany obiekt, skoro i tak użytkownik
+
+\item Po co wskaźnik na zarządzany obiekt, skoro i tak użytkownik
     nie ma do niego dostępu?  Bo potrzebny jest przy tworzeniu obiektu
     \code{shared_ptr}.
-  \item Wskaźnik na zarządzany obiekt mógłby być częścią struktury
+
+\item Wskaźnik na zarządzany obiekt mógłby być częścią struktury
     zarządzającej, ale wtedy dla obiektów \code{shared_ptr} odwołanie
     do obiektu zarządzanego byłoby wolniejsze (bo byłoby dodatkowo
     pośrednie).
-  \end{itemize}
-  
-\end{frame}
 
-%************************************************************************
-
-\section{Koniec}
-
-\subsection{Podsumowanie}
-
-\begin{frame}
-
-  \frametitle{Podsumowanie}
-
-  \begin{itemize}
+# Conclusion
 
   \item Klasa \code{weak_ptr} implementuje współdzielenie bez
     uwiązania.
-  \item Bez uwiązania, czyli bez gwarancji, że obiekt, do którego się
+
+\item Bez uwiązania, czyli bez gwarancji, że obiekt, do którego się
     odwołujemy, będzie istniał.
-  \item Główne zadanie: pozwala użyć obiekt współdzielony, jeżeli
+
+\item Główne zadanie: pozwala użyć obiekt współdzielony, jeżeli
     jeszcze istnieje.
-  \item Nie niszczy obiektu, do którego się odwołuje.
-    
-  \end{itemize}
 
-\end{frame}
-
-# Conclusion
+\item Nie niszczy obiektu, do którego się odwołuje.
 
 <!-- LocalWords: inlined multithreaded -->
 <!-- LocalWords: performant rvalue suboptimal -->
