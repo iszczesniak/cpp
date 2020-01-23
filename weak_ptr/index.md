@@ -43,7 +43,7 @@ give the implementation.
 * A C++11 class template, where the template argument is the type of
   the tracked data.
 
-* Weak pointers can be copied and moved, but it's not that important
+* A weak pointer can be copied and moved, but it's not that important
   as for the unique and shared pointers.
 
 * A weak pointer is created from a shared pointer.
@@ -109,14 +109,16 @@ Robimy to tak (może rzucić wyjątek):
 
 Here's the implementation:
 
-\lstinputlisting{factory.cc}
+{% highlight c++ %}
+{% include_relative factory.cc %}
+{% endhighlight %}
 
 ## Parallel usage
 
-\item Klasa jest bezpieczna w programowaniu współbieżnym.
-
-\item Pozyskany obiekt klasy \code{shared_ptr} możemy swobodnie
-    używać, bo jest on wyłączną kopią wątku.
+Just as for a shared pointer, you can create, copy, move and destroy a
+weak pointer, and also create a shared pointer from a weak pointer,
+thread-safe.  However, writing to the managed data requires
+synchronization between threads.
 
 ## Performance
 
@@ -138,16 +140,15 @@ Here's the implementation:
 
 # Conclusion
 
-  \item Klasa \code{weak_ptr} implementuje współdzielenie bez
-    uwiązania.
+* A weak pointer tracks the managed data without claiming the
+  ownership.
 
-\item Bez uwiązania, czyli bez gwarancji, że obiekt, do którego się
-    odwołujemy, będzie istniał.
+* We *always* produce a weak pointer from a shared pointer.
 
-\item Główne zadanie: pozwala użyć obiekt współdzielony, jeżeli
-    jeszcze istnieje.
+* We can produce a shared pointer from a weak pointer if possible,
+  i.e., if the managed data exist.
 
-\item Nie niszczy obiektu, do którego się odwołuje.
+* A weak pointer never destroys the managed data.
 
 <!-- LocalWords: inlined multithreaded -->
 <!-- LocalWords: performant rvalue suboptimal -->
