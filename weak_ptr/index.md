@@ -20,8 +20,7 @@ istnieje.
 
 \lstinputlisting{intro.cc}
 
-
-# Example
+# Motivating example
 
 Napisać funkcję \code{factory}, która będzie fabryką obiektów klasy A.
 Fabryka powinna śledzić już stworzone obiekty i nie tworzyć ich
@@ -51,55 +50,36 @@ ponownie, jeżeli ciągle istnieją.
 
 \end{frame}
 
-%************************************************************************
+# Details
 
-\section{Szczegóły}
+## `std::weak_ptr`
 
-\subsection{std::weak\_ptr}
+* `#include <memory>`
 
-\begin{frame}
+* A C++11 class template for sharing
 
-  \frametitle{\code{std::weak_ptr}}
+Klasa C++11 implementująca współdzielenie bez uwiązania.
 
-  \begin{itemize}
-
-  \item \code{\#include <memory>}
-  \item Klasa C++11 implementująca współdzielenie bez uwiązania.
-  \item Obiekty tej klasy można kopiować i przenosić, ale nie ma to
+\item Obiekty tej klasy można kopiować i przenosić, ale nie ma to
     szczególnego znaczenia, jak przy \code{unique_ptr} czy
     \code{shared_ptr}.
-  \item Nierozerwalnie związany z \code{shared_ptr}.
-  \item Obiekt \code{weak_ptr} tworzony jest na podstawie obiektu
-    \code{shared_ptr}.
-  \item \red{Nie niszczy obiektu, do którego się odwołuje.}
-  \item Zarządzane obiekty nie wiedzą, że są zarządzane.
-    
-  \end{itemize}
 
-\end{frame}
+\item Nierozerwalnie związany z \code{shared_ptr}.
 
-%************************************************************************
+\item Obiekt \code{weak_ptr} tworzony jest na podstawie obiektu
+\code{shared_ptr}.
 
-\subsection{Użycie}
+\item \red{Nie niszczy obiektu, do którego się odwołuje.}
 
-\begin{frame}
+\item Zarządzane obiekty nie wiedzą, że są zarządzane.
 
-  \frametitle{Użycie \code{weak_ptr}}
+## Usage
 
-  \begin{itemize}
-  \item Mając: \code{shared_ptr<A> sp;}
-  \item Deklaracja: \code{weak_ptr<A> wp;}
-  \item Tworzenie: \code{weak_ptr<A> wp(sp);}
-  \item Tworzenie: \code{wp = sp;}
-  \item Kopiowanie obiektów: \code{weak_ptr<A> wp2(wp);}
-  \item Kopiowanie obiektów: \code{wp2 = wp;}
-  \item Przenoszenie obiektów: \code{weak_ptr<A> wp2(move(wp));}
-  \item Przenoszenie obiektów: \code{wp2 = move(wp);}
-  \item Czy obiekt został już zniszczony? \code{wp.expired();}
-  \item Ale jak pozyskać wskaźnik na obiekt współdzielony?
-  \end{itemize}
+The example below shows the basic usage:
 
-\end{frame}
+{% highlight c++ %}
+{% include_relative basic.cc %}
+{% endhighlight %}
 
 %************************************************************************
 
@@ -230,7 +210,6 @@ ponownie, jeżeli ciągle istnieją.
   \end{itemize}
 
 \end{frame}
-
 
 # Conclusion
 
