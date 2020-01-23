@@ -67,14 +67,19 @@ The example below shows the basic usage:
 
 ## Producing the shared poiner from a weak pointer
 
-PROBLEM: Jak bezpiecznie użyć (bez hazadru), skoro \code{weak_ptr} nie
-daje nam gwarancji, że obiekt nie zostanie zniszczony?  Taką gwarancję
-daje nam \code{shared_ptr}.
+The problem: how to safely (i.e., without the race condition) use the
+managed data if, using a weak pointer, we know the data exist.  Even
+if we check that a weak poiner has not expired yet, we cannot use a
+raw pointer, because that raw pointer might dangle just a while later.
+Luckily, `weak_ptr` does not offer a way of getting a raw pointer with
+the dereference operator, the member access through poiner operator,
+or the `get` function just as `unique_ptr` and `shared_ptr` do.
 
-Przecież bezpośrednio po uzyskaniu surowego wskaźnika obiekt może być
-zniszczony.
+The solution: *lock* the managed data (i.e., snatch the ownership) by
+creating a shared pointer from the weak pointer.  We can do it in two
+ways:
 
-ROZWIĄZANIE: tworzenie \code{shared_ptr} na podstawie
+* 
 
 Robimy to tak (może rzucić wyjątek):
 

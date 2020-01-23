@@ -29,19 +29,17 @@ main()
   auto sp = make_shared<A>();
   weak_ptr<A> wp(sp);
 
-  // Here the managed object exists.
+  // Here the managed data exist.
   {
     shared_ptr<A> sp2(wp);
     sp2->saysomething();
     assert(sp2 != nullptr);
   }
 
-  // Make the managed object go away.
-  {
-    auto sp2 = move(sp);
-  }
+  // Flush the managed data.
+  sp.reset();
 
-  // Here the managed object is already gone.
+  // Here the managed data is gone.
   {
     shared_ptr<A> sp2 = wp.lock();
     assert(sp2 == nullptr);
