@@ -69,26 +69,28 @@ The example below shows the basic usage:
 
 The problem: how to safely (i.e., without the race condition) use the
 managed data if, using a weak pointer, we know the data exist.  Even
-if we check that a weak poiner has not expired yet, we cannot use a
-raw pointer, because that raw pointer might dangle just a while later.
-Luckily, `weak_ptr` does not offer a way of getting a raw pointer with
-the dereference operator, the member access through poiner operator,
-or the `get` function just as `unique_ptr` and `shared_ptr` do.
+if we make sure that a weak poiner has not expired yet, we cannot use
+a raw pointer, because that raw pointer might dangle just a while
+later.  Luckily, `weak_ptr` does not offer a way of getting a raw
+pointer with the dereference operator (`operator *`), the member
+access through poiner operator (`operator ->`), or the `get` function
+just as the unique and shared pointers do.
 
-The solution: *lock* the managed data (i.e., snatch the ownership) by
+The solution: *lock* the managed data (snatch the ownership) by
 creating a shared pointer from the weak pointer.  We can do it in two
 ways:
 
-* 
+* call the constructor of `shared_ptr` with a weak pointer, which
+  throws an exception if the weak pointer has expired,
 
-Robimy to tak (może rzucić wyjątek):
+* call the `lock` function of the weak pointer, which returns a null
+  shared pointer if the weak pointer has expired.
 
-\code{shared_ptr<A> sp(wp);}
+Here's an example:
 
-  \vspace{0.25 cm}
-
-  Albo tak (obiekt sp może być \code{nullptr}):\\
-  \code{shared_ptr<A> sp = wp.lock();}
+{% highlight c++ %}
+{% include_relative basic.cc %}
+{% endhighlight %}
 
 ## How it works
 
