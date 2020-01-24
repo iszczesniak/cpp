@@ -124,14 +124,6 @@ e.g., returned by a function like this:
 {% include_relative u2s_example.cc %}
 {% endhighlight %}
 
-## Parallel usage
-
-You can copy, move, and destroy `share_ptr` objects thread-safe,
-because the operations on the managing data structure are atomic.
-
-However, modification of the managed data should be synchronized in
-multithreaded programming, of course.
-
 ## Performance
 
 A `shared_ptr` object takes twice as much memory as a raw pointer,

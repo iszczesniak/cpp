@@ -94,23 +94,21 @@ Here's an example:
 
 ## How it works
 
-  \item Grupa obiektów \code{shared_ptr} i \code{weak_ptr} współdzielą
-    jedną strukturę zarządzającą, alokowaną dynamicznie.
+The managing data structure of the shared pointer group is also used
+by the weak pointers, which also belong to the group, but without
+claiming ownership.
 
-  \item Każdy obiekt \code{shared_ptr} i \code{weak_ptr} posiada
-    wskaźnik na strukturę zarządzającą.
+Just as a shared pointer, a weak pointer has a raw pointer to the
+managing data structure.
 
-  \item Częścią struktury zarządzającej jest licznik odwołań tylko
-    obiektów \code{shared_ptr}.
+A managing structure not only has a reference count, but also a *weak
+count*, which keeps the number of weak pointers.
 
-  \item Inną częścią struktury zarządzającej jest licznik odwołań
-    obiektów \code{shared_ptr} i \code{weak_ptr}.
+We know that the managed data is destroyed, when the reference count
+reaches zero.
 
-  \item Kiedy licznik odwołań \code{shared_ptr} wyniesie 0, obiekt
-    zarządzany jest niszczony.
-
-  \item Kiedy licznik odwołań \code{shared_ptr} i \code{weak_ptr}
-    wyniesie 0, struktura zarządzająca jest niszczona.
+The managing data structure is destroyed when both the reference count
+and the weak count reach zero.
 
 # The implementation of the motivating example
 
@@ -120,30 +118,23 @@ Here's the implementation:
 {% include_relative factory.cc %}
 {% endhighlight %}
 
-## Parallel usage
-
-Just as for a shared pointer, you can create, copy, move and destroy a
-weak pointer, and also create a shared pointer from a weak pointer,
-thread-safe.  However, writing to the managed data requires
-synchronization between threads.
-
 ## Performance
 
-\item Obiekt \code{weak_ptr} zajmuje dwa razy więcej pamięci niż
-    surowy wskaźnik, bo zawiera dwa pola:
-    \begin{itemize}
-    \item wskaźnik na zarządzany obiekt,
-    \item wskaźnik na strukturę zarządającą.
-    \end{itemize}
+A weak pointer takes twice as much memory as a raw pointer, because it
+has:
 
-\item Po co wskaźnik na zarządzany obiekt, skoro i tak użytkownik
-    nie ma do niego dostępu?  Bo potrzebny jest przy tworzeniu obiektu
-    \code{shared_ptr}.
+* the raw pointer to the managed data,
 
-\item Wskaźnik na zarządzany obiekt mógłby być częścią struktury
-    zarządzającej, ale wtedy dla obiektów \code{shared_ptr} odwołanie
-    do obiektu zarządzanego byłoby wolniejsze (bo byłoby dodatkowo
-    pośrednie).
+* the raw pointer to the managing data structure.
+
+What do we need the raw pointer to the managed data for if we cannot
+access it directly?  Beause it will be needed to produce a shared
+pointer.
+
+As for a shared pointer, the same applies to a raw pointer: the raw
+pointer to the managed data could be a part of the managing data
+structure, but getting to the managed data would be slower, because an
+extra indirect access would be needed.
 
 # Conclusion
 
