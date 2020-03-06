@@ -12,19 +12,6 @@
 // int i = 1, j = 2;
 // compare(i, j);
 
-// If we try to say:
-//
-// volatile int i = 1, j = 2;
-//
-// The example will not compile, because the type qualifiers i and j
-// should have the same or less type qualifiers (cv-qualified) than
-// the parameter types of the template function.
-
-// We can see how the function is optimized out, and the code is
-// inlined, when we just pass by value, i.e.,
-//
-// compare(T a, T b, F f = {})
-
 template <typename T, typename F = std::less<T>>
 bool
 compare(const T &a, const T &b, F f = {})
@@ -35,5 +22,7 @@ compare(const T &a, const T &b, F f = {})
 int
 main()
 {
+  volatile int i = 1, j = 2;
   std::cout << std::boolalpha << compare(1, 2) << std::endl;
+  std::cout << std::boolalpha << compare(i, j) << std::endl;
 }
