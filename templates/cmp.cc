@@ -18,7 +18,12 @@
 //
 // The example will not compile, because the type qualifiers i and j
 // should have the same or less type qualifiers (cv-qualified) than
-// the template function parameter types.
+// the parameter types of the template function.
+
+// We can see how the function is optimized out, and the code is
+// inlined, when we just pass by value, i.e.,
+//
+// compare(T a, T b, F f = {})
 
 template <typename T, typename F = std::less<T>>
 bool
