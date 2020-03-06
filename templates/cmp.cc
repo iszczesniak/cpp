@@ -12,6 +12,16 @@
 // int i = 1, j = 2;
 // compare(i, j);
 
+// g++ -g -std=c++2a -c cmp.cc
+// objdump -dS cmo.p | c++filt | less
+
+// You should see instantiated:
+//
+// bool compare<int, std::less<int> >(int const&, int const&, std::less<int>)
+//
+// bool compare<int volatile, std::less<int volatile> >
+//        (int volatile const&, int volatile const&, std::less<int volatile>)
+    
 template <typename T, typename F = std::less<T>>
 bool
 compare(const T &a, const T &b, F f = {})
