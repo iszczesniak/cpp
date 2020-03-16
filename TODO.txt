@@ -1,0 +1,15 @@
+Template introduction:
+
+* the example with sorting:
+
+  - sort a vector, an array, a deque,
+
+  - try to sort a list: error, because a list doesn't offer a random
+    access iterator,
+
+  - use the function std::begin, and std::end, because then we can
+    take iterators to C arrays,
+
+  - 
+
+Partial specialization
