@@ -48,10 +48,10 @@ also declare equivalently a type parameter with `class T`, but
 during compilation T is substituted with a type, e.g., `int` or the
 user class `myclass`.
 
-Type `T` doesn't have to be a class type (it can be a built-in type)
-or meet some requirements (like inherit from an interface class).  The
-requirements on type `T` follow from how we use the type in the
-template definition, i.e., whether we:
+`T` can become any type: a built-in type, user-defined type, even
+`void`. `T` doesn't have to meet some requirements, e.g., inheriting
+from an interface class.  The requirements on type `T` follow from how
+we use the type in the template definition, i.e., whether we:
 
 * default-construct a value of type `T`,
 
@@ -71,10 +71,9 @@ This is an example of a function template with a type parameter `T`:
 
 ### Value parameter
 
-A parameter can also be a *value parameter* (aka a *non-type
-parameter*).  Value parameters can be of different types.  A typical
-example is `int`, but other types are possible, though not very
-common:
+A parameter can also be a *value parameter*.  A value parameter is
+asigned a value of some type, typically of `int`, but other types are
+possible, though not very common:
 
 ```
 template <int N>
@@ -86,27 +85,45 @@ This is an example of a function template with a value parameter `N`:
 {% include_relative print2.cc %}
 {% endhighlight %}
 
-This is an example of a function template with a value parameter N,
-where N has to be given explicitely, and T is deduced:
+This is an example of a function template with a value parameter `N`,
+where `N` has to be *given explicitely* by a programmer, and `T` is
+*deduced* by a compiler:
 
-\lstinputlisting{print3.cc}
+{% highlight c++ %}
+{% include_relative print3.cc %}
+{% endhighlight %}
 
 This is an example of a recursive function template.  The recursion is
-terminated by the function specialization for N = 0.  There is no
-partial specialization of function templates, only the full
-specialization, which means that we also have to specialize the
-terminating function for the type, i.e., int.
+terminated by the function specialization for `N = 0`.  There is no
+*partial specialization* of function templates, only the *full
+specialization*, which means that we also have to specialize the
+terminating function for the type, i.e., `int`.
 
-\lstinputlisting{print4.cc}
+{% highlight c++ %}
+{% include_relative print4.cc %}
+{% endhighlight %}
 
-\subsubsection{Template parameter}
+We can also terminate the recursion with a compile-time conditional
+statement `if constexpr`, and so we do not have to provide a full
+specialization:
 
-A template-type template parameter accepts a template as an argument.
-In the definition of the parameter, we specify the list of parameters
-of a template that can be an argument of this parameter.
+{% highlight c++ %}
+{% include_relative print5.cc %}
+{% endhighlight %}
 
-\code{__PRETTY_FUNCTION__} is replaced by GCC with the function name,
-and the template parameters, so that we can learn what the paremeters
+### Template parameter
+
+A template parameter `T` can be of a template type, i.e., at compile
+time the parameter is substituted with a template.  We declare a
+paramater `T` of the template type with, we have to specify what kind of
+templates can be repl
+
+```
+template <template <> typename N>
+```
+
+`__PRETTY_FUNCTION__` is replaced by GCC with the function name, and
+the template parameters, so that we can learn what the paremeters
 really are.
 
 \lstinputlisting{template_type.cc}
@@ -116,8 +133,5 @@ template argument C can accept template types which accept two
 arguments: the first being the type, the second being the value.
 
 \lstinputlisting{template_type2.cc}
-
-\end{document}
-
 
 <!-- LocalWords: lvalue lvalues rvalue -->
