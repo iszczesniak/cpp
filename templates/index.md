@@ -45,7 +45,7 @@ We declare a type parameter with `typename T`, where `typename` says
 it's a *type parameter*, and `T` is the name of the parameter.  We can
 also declare equivalently a type parameter with `class T`, but
 `typename T` is preferred in modern C++.  `T` represents a type, and
-during compilation T is substituted with a type, e.g., `int` or the
+during compilation `T` is replaced with a type, e.g., `int` or the
 user class `myclass`.
 
 `T` can become any type: a built-in type, user-defined type, even
@@ -114,24 +114,36 @@ specialization:
 ### Template parameter
 
 A template parameter `T` can be of a template type, i.e., at compile
-time the parameter is substituted with a template.  We declare a
-paramater `T` of the template type with, we have to specify what kind of
-templates can be repl
+time the parameter is replaced with a template.  We declare a template
+paramater `T` as a template type like this, where `param-type-list` is
+a list of parameter types of template `T`:
 
 ```
-template <template <> typename N>
+template <param-type-list> typename T
 ```
+
+This is an example of how a template with a template parameter begins:
+
+```
+template <template <param-type-list> typename T>
+```
+
+Here's an example:
+
+{% highlight c++ %}
+{% include_relative template_type.cc %}
+{% endhighlight %}
 
 `__PRETTY_FUNCTION__` is replaced by GCC with the function name, and
 the template parameters, so that we can learn what the paremeters
 really are.
 
-\lstinputlisting{template_type.cc}
-
 This is a modified example from above.  This time the template-type
 template argument C can accept template types which accept two
 arguments: the first being the type, the second being the value.
 
-\lstinputlisting{template_type2.cc}
+{% highlight c++ %}
+{% include_relative template_type2.cc %}
+{% endhighlight %}
 
 <!-- LocalWords: lvalue lvalues rvalue -->
