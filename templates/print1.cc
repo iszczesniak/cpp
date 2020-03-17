@@ -14,8 +14,7 @@ int
 main()
 {
   print(1);
-  print<int>(0.5);
-  print<double>(0.5);
+  print(0.5);
   print("Hello!");
   print(string("Hello!"));
 }
