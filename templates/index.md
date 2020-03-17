@@ -4,8 +4,13 @@ title: Templates
 
 # Introduction
 
-Generic programming in C++ is supported by templates.  There can be
-templates of:
+Generic programming in C++ is supported by templates.
+
+# Performance
+
+# Templates
+
+There can be templates of:
 
 * functions,
 * classes,
@@ -36,31 +41,35 @@ template <typename T, int N, template<typename> typename C>
 
 ### Type parameter
 
-We declare a type parameter with \code{typename T}, where
-\code{typename} says it's a type parameter, and T is the name of the
-parameter.  We can also declare equivalently a type parameter with
-\code{class T}, but \code{typename T} is preferred in modern C++.  T
-represents a type, and during compilation T is replaced with the
-required types, like \code{int} or the user class \code{myclass}.
+We declare a type parameter with `typename T`, where `typename` says
+it's a *type parameter*, and `T` is the name of the parameter.  We can
+also declare equivalently a type parameter with `class T`, but
+`typename T` is preferred in modern C++.  `T` represents a type, and
+during compilation T is substituted with a type, e.g., `int` or the
+user class `myclass`.
 
-Type T doesn't have to be a class type (it can be a built-in type) or
-meet some requirements (like inherit from an interface class).  The
-requirements on type T follow from how we use it in the template.  For
-instance:
+Type `T` doesn't have to be a class type (it can be a built-in type)
+or meet some requirements (like inherit from an interface class).  The
+requirements on type `T` follow from how we use the type in the
+template definition, i.e., whether we:
 
-\begin{itemize}
-\item Do we default-construct values of type T?
-\item Do we add, using \code{+}, the values of type T?
-\item Do we dereference, using \code{&}, the values of type T?
-\item Do we call some special function, e.g., \code{push_back} for the values of type T?
-\item Do we output values of type T to std::ostream using \code{<<}?
-\end{itemize}
+* default-construct a value of type `T`,
 
-This is an example of a function template with a type parameter T:
+* add, using `operator+`, the values of type `T`,
 
-\lstinputlisting{print1.cc}
+* dereference, using `operator&`, a value of type `T`,
 
-\subsubsection{Value parameter}
+* pass to some function, e.g., `push_back`, a value of type `T`,
+
+* output to `std::ostream` a value of type `T` using `operator<<`.
+
+This is an example of a function template with a type parameter `T`:
+
+{% highlight c++ %}
+{% include_relative print1.cc %}
+{% endhighlight %}
+
+### Value parameter
 
 A parameter can also be a value parameter.  Such a parameter is also
 called a non-type parameter.  Value parameters can be of different

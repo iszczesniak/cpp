@@ -5,7 +5,7 @@
 struct A
 {
   void foo()
-  # virtual void foo()
+  // virtual void foo()
   {
     std::cout << "A\n";
   }
