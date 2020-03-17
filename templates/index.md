@@ -71,18 +71,20 @@ This is an example of a function template with a type parameter `T`:
 
 ### Value parameter
 
-A parameter can also be a value parameter.  Such a parameter is also
-called a non-type parameter.  Value parameters can be of different
-types.  A typical example is "int", but other types are possible,
-though not very common.
+A parameter can also be a *value parameter* (aka a *non-type
+parameter*).  Value parameters can be of different types.  A typical
+example is `int`, but other types are possible, though not very
+common:
 
-\begin{lstlisting}
+```
 template <int N>
-\end{lstlisting}
+```
 
-This is an example of a function template with a value parameter N:
+This is an example of a function template with a value parameter `N`:
 
-\lstinputlisting{print2.cc}
+{% highlight c++ %}
+{% include_relative print2.cc %}
+{% endhighlight %}
 
 This is an example of a function template with a value parameter N,
 where N has to be given explicitely, and T is deduced:
