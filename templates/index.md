@@ -20,10 +20,10 @@ Key are:
 
 * **no loss of efficiency**: we don't want our program to run slower
   or take more memory, because it was generically programmed; we want
-  our code run as fast as when it's meticuously manually crafted.
+  our code to run as fast as when it's meticuously manually crafted.
 
 Generic programming in C++ is supported by templates.  With templates
-we can use and implement:
+we can use and implement without the loss of efficiency:
 
 * generic data structures, most notably the containers of the standard
   library, e.g., `std::vector`,
