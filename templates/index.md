@@ -4,7 +4,32 @@ title: Templates
 
 # Introduction
 
-Generic programming in C++ is supported by templates.
+*Alexander Stepanov*, one of the founding fathers of generic
+programming, wrote in his book "From Mathematics to Generic
+Programming":
+
+> Generic programming is an approach to programming that focuses on
+> designing algorithms and data structures so that they work in the
+> *most general setting without the loss of efficiency*.
+
+Key are:
+
+* the most general setting - 
+
+* no loss of efficiency
+
+Generic programming in C++ is supported by templates.  With templates
+we can use and implement:
+
+* generic data structures, most notably the containers of the standard
+  library, e.g., `std::vector`,
+
+* generic algorithms, most notably the algorithms of the standard
+  library, e.g., `std::algorithm`.
+
+{% highlight c++ %}
+{% include_relative motivation.cc %}
+{% endhighlight %}
 
 # Performance
 
