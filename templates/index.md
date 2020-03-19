@@ -14,9 +14,13 @@ Programming":
 
 Key are:
 
-* the most general setting - 
+* **the most general setting**: it's not only about being able to
+  choose the type we work with (e.g., `int` or `double`), but also the
+  data structure (e.g., `std::vector` or `std::list`),
 
-* no loss of efficiency
+* **no loss of efficiency**: we don't want our program to run slower
+  or take more memory, because it was generically programmed; we want
+  our code run as fast as when it's meticuously manually crafted.
 
 Generic programming in C++ is supported by templates.  With templates
 we can use and implement:
