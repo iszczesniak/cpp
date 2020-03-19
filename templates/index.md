@@ -29,7 +29,7 @@ we can use and implement without the loss of efficiency:
   library, e.g., `std::vector`,
 
 * generic algorithms, most notably the algorithms of the standard
-  library, e.g., `std::algorithm`.
+  library, e.g., `std::sort`.
 
 {% highlight c++ %}
 {% include_relative motivation.cc %}
