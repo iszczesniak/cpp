@@ -14,8 +14,8 @@ jest ustalony porządek (liniowy) z użyciem operatora `<`:
 W przykładzie niżej sortujemy obiekty typu klasowego.  Żeby kompilacja
 powiodła się, musimy zdefiniować porządek z użyciem operatora `<`.
 Operator zdefiniowaliśmy jako funkcję składową (która musi być stała),
-która drugi argument operatora `<` przyjmuje jako argument wywołania
-funkcji (pierwszym argumentem jest obiekt `*this`).
+która drugi operand operatora `<` przyjmuje jako argument wywołania
+funkcji (pierwszym operandem jest obiekt `*this`).
 
 {% highlight c++ %}
 {% include_relative motivation2.cc %}
