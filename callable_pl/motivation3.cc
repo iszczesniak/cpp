@@ -12,9 +12,9 @@ struct A
   }
 
   bool
-  operator < (const A &a) const
+  operator > (const A &a) const
   {
-    return this->id < a.id;
+    return this->id > a.id;
   }
 };
 
@@ -22,7 +22,7 @@ int
 main()
 {
   vector v{A(3), A(1), A(2)};
-  sort(v.begin(), v.end(), std::less<A>{});
+  sort(v.begin(), v.end(), std::greater<A>{});
   for(const auto &e: v)
     cout << e.id << endl;
 }
