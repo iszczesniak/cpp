@@ -101,6 +101,25 @@ ustalić porządek rosnący w kolejce priorytetowej.
 ## Funktor
 
 Funktor to obiekt, który ma zdefiniowany operator wywołania `()`
-(ang. call operator).
+(ang. call operator).  Zaletą funktora, w porównaniu z funkcją, jest
+możliwość przekazania dodatkowych danych, która są przechowywane w
+polach składowych funktora.
+
+W najprostszym przypadku, funktor może pełnić rolę funkcji.  Na
+przykład, domyślnie kolejka priorytetowa zwraca największy element, bo
+do porównania używa klasy funktora \code{std::less<T>}.  Poniżej
+użyjemy funktora klasy \code{std::greater<T>}, żeby kolejka zwracała
+najmniejszy element.
+
+{% highlight c++ %}
+{% include_relative pq_ro.cc %}
+{% endhighlight %}
+
+Możemy także zdefiniować własny typ funktora:
+
+{% highlight c++ %}
+{% include_relative pq_fo1.cc %}
+{% endhighlight %}
+
 
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
