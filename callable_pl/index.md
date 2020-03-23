@@ -121,5 +121,28 @@ Możemy także zdefiniować własny typ funktora:
 {% include_relative pq_fo1.cc %}
 {% endhighlight %}
 
+W tym przykładzie w czasie uruchomienia przekazujemy konstruktorowi
+funktora argument (dodatkową daną do obliczeń), który mówi o porządku
+(rosnącym bądź malejącym):
+
+{% highlight c++ %}
+{% include_relative pq_fo2.cc %}
+{% endhighlight %}
+
+### Domknięcie
+
+Domknięcie (ang. closure) jest funktorem, który jest wynikiem
+opracowania wyrażenia lambda.
+
+{% highlight c++ %}
+{% include_relative pq_lambda1.cc %}
+{% endhighlight %}
+
+A tu wersja w dodatkowym argumentem domknięcia przekazywanym w czasie
+uruchomienia:
+
+{% highlight c++ %}
+{% include_relative pq_lambda2.cc %}
+{% endhighlight %}
 
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
