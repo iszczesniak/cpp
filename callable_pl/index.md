@@ -1,5 +1,5 @@
 ---
-title: Wyrażenia wywołania
+title: Wyrażenia wywołania, callable
 ---
 
 # Wprowadzenie
@@ -36,6 +36,10 @@ struktury `std::greater`.  Funktor to obiekt, który ma zdefiniowany
 operator wywołania `()` (ang. call operator).  Struktur `std::greater`
 używa operatora `>`, więc musimy go zdefiniować, zamiast operatora
 `<`.
+
+{% highlight c++ %}
+{% include_relative motivation4.cc %}
+{% endhighlight %}
 
 Nie musimy jednak polegać na operatorze `<`.  Jeżeli chcemy sortować e
 
