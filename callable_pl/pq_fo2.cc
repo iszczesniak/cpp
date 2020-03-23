@@ -22,13 +22,7 @@ struct CMP
 int
 main(void)
 {
-  // priority_queue<int, vector<int>, CMP> q(false);
-
-  // priority_queue<int, vector<int>, CMP> q(CMP(false));
-
-  priority_queue<int, vector<int>,
-                 function<bool(const int &, const int &)>>
-    q(CMP(false));
+  priority_queue<int, vector<int>, CMP> q(CMP(false));
 
   q.push(2);
   q.push(1);
