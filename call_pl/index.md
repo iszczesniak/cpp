@@ -11,17 +11,28 @@ jest ustalony porządek (liniowy) z użyciem operatora `<`:
 {% include_relative motivation.cc %}
 {% endhighlight %}
 
-W przykładzie niżej próbujemy posortować obiekty typu klasowego, ale
-musimy zdefiniować porządek
-
-Kompilacja jednak kończy się błędem, bo nie ma ustalonego porządku z
-użyciem operatora `<`:
+W przykładzie niżej sortujemy obiekty typu klasowego.  Żeby kompilacja
+powiodła się, musimy zdefiniować porządek z użyciem operatora `<`.
+Operator zdefiniowaliśmy jako *stałą* funkcję składową, która drugi
+argument operatora `<` przyjmuje jako argument wywołania funkcji
+(pierwszym argumentem jest obiekt `*this`).
 
 {% highlight c++ %}
 {% include_relative motivation2.cc %}
 {% endhighlight %}
 
-Możemy zdefiniować zdefiniować operator
+Funkcja `std::sort` domyślnie używa operatora `<`, bo domyślną
+wartością trzeciego argumentu wywołania tej funkcji jest domyślna
+(ang. default-constructed) wartość obiektu struktury `std::less<A>`,
+która używa właśnie operatora `<`.  Ten
+
+{% highlight c++ %}
+{% include_relative motivation3.cc %}
+{% endhighlight %}
+
+Możemy sortować w kolejności rosnącej, jeżeli użyjemy 
+
+Nie musimy jednak polegać na operatorze `<`.  Jeżeli chcemy sortować e
 
 # Wyrażenia wywołania
 
