@@ -60,8 +60,8 @@ możemy przekazać callable, na czym możemy wykonać operator wywołania
 `()`.  Callable może być przekazywane przez wartość albo referencję.
 
 Callable może być przekazywany nie tylko funkcji, ale też
-konstruktorowi klasy, który może przechować callable w polu składowym.
-Tak robi, na przykład, kolejka priorytetowa biblioteki standardowej
+konstruktorowi, który może przechować callable w polu składowym.  Tak
+robi, na przykład, kolejka priorytetowa biblioteki standardowej
 (`std::priority_queue`).
 
 Poniżej jest nasz roboczy przykład z kolejką priorytetową, który

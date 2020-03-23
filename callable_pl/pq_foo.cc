@@ -13,11 +13,8 @@ foo(const int &a, const int &b)
 int
 main(void)
 {
-  // priority_queue<int, vector<int>,
-  //                bool(*)(const int &, const int &)> q(foo);
-
   priority_queue<int, vector<int>,
-                 function<bool(const int &, const int &)>> q(foo);
+                 bool(*)(const int &, const int &)> q(foo);
 
   q.push(2);
   q.push(1);
