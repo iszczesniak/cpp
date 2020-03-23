@@ -33,15 +33,17 @@ jawnie podamy trzeci argument:
 
 Możemy sortować w kolejności rosnącej, jeżeli użyjemy *funktora*
 struktury `std::greater`.  Funktor to obiekt, który ma zdefiniowany
-operator wywołania `()` (ang. call operator).  Struktur `std::greater`
-używa operatora `>`, więc musimy go zdefiniować, zamiast operatora
-`<`.
+operator wywołania `()` (ang. call operator).  Struktura
+`std::greater` używa operatora `>`, więc musimy go zdefiniować,
+zamiast operatora `<`.
 
 {% highlight c++ %}
 {% include_relative motivation4.cc %}
 {% endhighlight %}
 
-Nie musimy jednak polegać na operatorze `<`.  Jeżeli chcemy sortować e
+Nie musimy jednak polegać na operatorze `<`.  Funkcji `std::sort`
+możemy przekazać cokolwiek, na czym możemy wykonać operator wywołania
+`()`
 
 # Wyrażenia wywołania
 
