@@ -1,8 +1,24 @@
 ---
-title: Callable: cokolwiek do wywołania
+title: Callable: coś do wywołania
 ---
 
 # Wprowadzenie
+
+W języku C sposobem na dostarczenie fragmentu kodu (np. ustalającego
+porządek między elementami) do wywołania przez jakiś inny fragment
+kodu (np. funkcję sortującą) jest dostarczenie wskaźnika na funkcję do
+wywołania.  Uogólnieniem wskaźnika na funkcję jest "coś", co możemy
+wywołać, co z angielskiego jest nazywane *callable*.
+
+Uogólnienie ma na celu:
+
+* pominięcie pośredniego (czyli przez wskaźnik) wywołania funkcji, na
+  rzecz wkompilowania (ang. inlining) funkcji w miejsce wywołania,
+
+* możliwość dostarczenia dodatkowych danych do obliczeń, czego nie
+  jesteśmy w stanie wykonać ze wskaźnikiem na funkcję.
+
+## Motywacja
 
 W poniższym sortowaniu porównywane są liczby całkowite, dla których
 jest ustalony porządek (liniowy) z użyciem operatora `<`:
@@ -40,19 +56,16 @@ struktury `std::greater`.  Struktura `std::greater` używa operatora
 {% endhighlight %}
 
 Nie musimy jednak polegać na operatorze `<`.  Funkcji `std::sort`
-możemy przekazać cokolwiek, na czym możemy wykonać operator wywołania
-`()`.  To "cokolwiek" nazywamy z angielskiego *callable*.  Callable
-może być przekazywane przez wartość albo referencję.
+możemy przekazać callable, na czym możemy wykonać operator wywołania
+`()`.  Callable może być przekazywane przez wartość albo referencję.
 
 Callable może być przekazywany nie tylko funkcji, ale też
-konstruktorowi klasy, której może stać się polem składowym, na
-przykład, kolejki priorytetowej biblioteki standardowej, czyli
-`std::priority_queue`.
+konstruktorowi klasy, który może przechować callable w polu składowym.
+Tak robi, na przykład, kolejka priorytetowa biblioteki standardowej
+(`std::priority_queue`).
 
 Poniżej jest nasz roboczy przykład z kolejką priorytetową, który
-będziemy dalej zmieniać.  Kolejka priorytetowa przechowuje przez
-wartość (jako swoje pole składowe) callable przekazany do
-konstruktora.
+będziemy dalej zmieniać.
 
 {% highlight c++ %}
 {% include_relative pq.cc %}
@@ -68,8 +81,22 @@ Callable może być:
 
 ## Wskaźnik na funkcję
 
-Wyrażenie, które jest tylko nazwą funkcji (bez operatora wywołania),
-traktowane jest jako adres tej funkcji.
+Wyrażenie, które jest tylko nazwą funkcji (bez operatora wywołania)
+traktowane jest jako adres tej funkcji.  Używając tego adresu możemy
+wywołać funkcję.  Jedyne operacje możliwe na wskaźniku do funkcji to:
+pobranie adresu funkcji i wywołanie funkcji.
+
+{% highlight c++ %}
+{% include_relative function.cc %}
+{% endhighlight %}
+
+Domyślnie kolejka priorytetowa zwraca największy element.  W
+przykładzie niżej przekazujemy wskaźnik na funkcję porównującą, żeby
+ustalić porządek rosnący w kolejce priorytetowej.
+
+{% highlight c++ %}
+{% include_relative pq_foo.cc %}
+{% endhighlight %}
 
 ## Funktor
 
