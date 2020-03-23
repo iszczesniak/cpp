@@ -138,7 +138,7 @@ opracowania wyrażenia lambda.
 {% include_relative pq_lambda1.cc %}
 {% endhighlight %}
 
-A tu wersja w dodatkowym argumentem domknięcia przekazywanym w czasie
+A tu wersja z dodatkowym argumentem domknięcia przekazywanym w czasie
 uruchomienia:
 
 {% highlight c++ %}
