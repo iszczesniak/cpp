@@ -1,5 +1,5 @@
 ---
-title: Wyrażenia wywołania, callable
+title: Callable: cokolwiek do wywołania
 ---
 
 # Wprowadzenie
@@ -13,9 +13,9 @@ jest ustalony porządek (liniowy) z użyciem operatora `<`:
 
 W przykładzie niżej sortujemy obiekty typu klasowego.  Żeby kompilacja
 powiodła się, musimy zdefiniować porządek z użyciem operatora `<`.
-Operator zdefiniowaliśmy jako *stałą* funkcję składową, która drugi
-argument operatora `<` przyjmuje jako argument wywołania funkcji
-(pierwszym argumentem jest obiekt `*this`).
+Operator zdefiniowaliśmy jako funkcję składową (która musi być stała),
+która drugi argument operatora `<` przyjmuje jako argument wywołania
+funkcji (pierwszym argumentem jest obiekt `*this`).
 
 {% highlight c++ %}
 {% include_relative motivation2.cc %}
@@ -32,10 +32,8 @@ jawnie podamy trzeci argument:
 {% endhighlight %}
 
 Możemy sortować w kolejności rosnącej, jeżeli użyjemy *funktora*
-struktury `std::greater`.  Funktor to obiekt, który ma zdefiniowany
-operator wywołania `()` (ang. call operator).  Struktura
-`std::greater` używa operatora `>`, więc musimy go zdefiniować,
-zamiast operatora `<`.
+struktury `std::greater`.  Struktura `std::greater` używa operatora
+`>`, więc musimy go zdefiniować, zamiast operatora `<`.
 
 {% highlight c++ %}
 {% include_relative motivation4.cc %}
@@ -43,9 +41,39 @@ zamiast operatora `<`.
 
 Nie musimy jednak polegać na operatorze `<`.  Funkcji `std::sort`
 możemy przekazać cokolwiek, na czym możemy wykonać operator wywołania
-`()`
+`()`.  To "cokolwiek" nazywamy z angielskiego *callable*.  Callable
+może być przekazywane przez wartość albo referencję.
 
-# Wyrażenia wywołania
+Callable może być przekazywany nie tylko funkcji, ale też
+konstruktorowi klasy, której może stać się polem składowym, na
+przykład, kolejki priorytetowej biblioteki standardowej, czyli
+`std::priority_queue`.
 
+Poniżej jest nasz roboczy przykład z kolejką priorytetową, który
+będziemy dalej zmieniać.  Kolejka priorytetowa przechowuje przez
+wartość (jako swoje pole składowe) callable przekazany do
+konstruktora.
+
+{% highlight c++ %}
+{% include_relative pq.cc %}
+{% endhighlight %}
+
+# Typy callable
+
+Callable może być:
+
+* wskaźnikiem na funkcję,
+
+* funktorem.
+
+## Wskaźnik na funkcję
+
+Wyrażenie, które jest tylko nazwą funkcji (bez operatora wywołania),
+traktowane jest jako adres tej funkcji.
+
+## Funktor
+
+Funktor to obiekt, który ma zdefiniowany operator wywołania `()`
+(ang. call operator).
 
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
