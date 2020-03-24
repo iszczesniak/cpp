@@ -8,7 +8,7 @@ using namespace std;
 int
 main(void)
 {
-  int order;
+  bool order = false;
 
   priority_queue<int, vector<int>,
                  function<bool(const int &, const int &)>>

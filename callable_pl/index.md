@@ -63,8 +63,8 @@ możemy przekazać callable, na czym możemy wykonać operator wywołania
 `()`.  Callable może być przekazywane przez wartość albo referencję.
 
 Callable może być przekazywany nie tylko funkcji, ale też
-konstruktorowi klasy, który może przechować callable w polu składowym.
-Tak robi, na przykład, kolejka priorytetowa biblioteki standardowej
+konstruktorowi, który może przechować callable w polu składowym.  Tak
+robi, na przykład, kolejka priorytetowa biblioteki standardowej
 (`std::priority_queue`).
 
 Poniżej jest nasz roboczy przykład z kolejką priorytetową, który
@@ -104,6 +104,48 @@ ustalić porządek rosnący w kolejce priorytetowej.
 ## Funktor
 
 Funktor to obiekt, który ma zdefiniowany operator wywołania `()`
-(ang. call operator).
+(ang. call operator).  Zaletą funktora, w porównaniu z funkcją, jest
+możliwość przekazania dodatkowych danych, która są przechowywane w
+polach składowych funktora.
+
+W najprostszym przypadku, funktor może pełnić rolę funkcji.  Na
+przykład, domyślnie kolejka priorytetowa zwraca największy element, bo
+do porównania używa klasy funktora \code{std::less<T>}.  Poniżej
+użyjemy funktora klasy \code{std::greater<T>}, żeby kolejka zwracała
+najmniejszy element.
+
+{% highlight c++ %}
+{% include_relative pq_ro.cc %}
+{% endhighlight %}
+
+Możemy także zdefiniować własny typ funktora:
+
+{% highlight c++ %}
+{% include_relative pq_fo1.cc %}
+{% endhighlight %}
+
+W tym przykładzie w czasie uruchomienia przekazujemy konstruktorowi
+funktora argument (dodatkową daną do obliczeń), który mówi o porządku
+(rosnącym bądź malejącym):
+
+{% highlight c++ %}
+{% include_relative pq_fo2.cc %}
+{% endhighlight %}
+
+### Domknięcie
+
+Domknięcie (ang. closure) jest funktorem, który jest wynikiem
+opracowania wyrażenia lambda.
+
+{% highlight c++ %}
+{% include_relative pq_lambda1.cc %}
+{% endhighlight %}
+
+A tu wersja z dodatkowym argumentem domknięcia przekazywanym w czasie
+uruchomienia:
+
+{% highlight c++ %}
+{% include_relative pq_lambda2.cc %}
+{% endhighlight %}
 
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->

@@ -1,20 +1,23 @@
-#include <functional>
 #include <iostream>
 #include <queue>
+#include <vector>
 
 using namespace std;
 
-bool
-foo(const int &a, const int &b)
+struct CMP
 {
-  return a < b;
-}
+  bool
+  operator()(const int &a, const int &b)
+  {
+    return a > b;
+  }
+};
 
 int
 main(void)
 {
-  priority_queue<int, vector<int>,
-                 bool(*)(const int &, const int &)> q(foo);
+  // An object of CMP will be default-constructed by q.
+  priority_queue<int, vector<int>, CMP> q;
 
   q.push(2);
   q.push(1);
