@@ -1,5 +1,5 @@
 ---
-title: Callable: coś do wywołania
+title: Callable, coś do wywołania
 ---
 
 # Wprowadzenie
@@ -29,9 +29,12 @@ jest ustalony porządek (liniowy) z użyciem operatora `<`:
 
 W przykładzie niżej sortujemy obiekty typu klasowego.  Żeby kompilacja
 powiodła się, musimy zdefiniować porządek z użyciem operatora `<`.
-Operator zdefiniowaliśmy jako funkcję składową (która musi być stała),
-która drugi operand operatora `<` przyjmuje jako argument wywołania
-funkcji (pierwszym operandem jest obiekt `*this`).
+Operator zdefiniowaliśmy jako funkcję składową, która drugi operand
+operatora `<` przyjmuje jako argument wywołania funkcji (pierwszym
+operandem jest obiekt `*this`).  Składowy operator porównania powinien
+być stały (bo nie powinien zmieniać pierwszego operandu) i powinien
+pobierać drugi operand przez referenceję stałą (bo nie powinien
+zmieniać drugiego operandu).
 
 {% highlight c++ %}
 {% include_relative motivation2.cc %}
