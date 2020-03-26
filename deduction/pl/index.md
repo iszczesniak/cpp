@@ -1,4 +1,6 @@
+---
 title: Wnioskowanie argumentów szablonu
+---
 
 # Wprowadzenie
 
