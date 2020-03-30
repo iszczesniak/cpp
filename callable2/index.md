@@ -34,9 +34,8 @@ przykład:
 {% include_relative compile1.cc %}
 {% endhighlight %}
 
-Przykład niżej pokazuje wkompilowanie domknięcia, co pokazuje, że
-używanie domknięcia nie wprowadza narzutu wydajnościowego (czyli nie
-spowalnia).
+Przykład niżej pokazuje wkompilowanie domknięcia.  Przykład pokazuje
+też brak narzutu wydajnościowego użycia domknięcia.
 
 {% highlight c++ %}
 {% include_relative compile2.cc %}
