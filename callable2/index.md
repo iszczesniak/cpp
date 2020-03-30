@@ -43,6 +43,25 @@ też brak narzutu wydajnościowego użycia domknięcia.
 
 # Przekazywanie callable
 
+Callable jest wykorzystywane jako metoda dostarczenia fragmentu kodu
+do innego miejsca kodu, np. funkcji.  Wywołanie callable ma ustaloną
+składnię (czyli składnię wyrażenia wywołania) i określony interfejs,
+czyli jakiego typu są argumenty i wynik callable.
+
+## Ściśle zdefiniowany typ callable
+
+Callable może być przyjmowany tylko określony typ.
+
+{% highlight c++ %}
+{% include_relative passing1.cc %}
+{% endhighlight %}
+
+## Typ callable jako parametr szablonu
+
+## `std::function` jako callable
+
+`std::function` może być też argumentem szablonu.
+
 # Wydajność
 
 <!-- LocalWords: callable -->
