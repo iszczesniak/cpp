@@ -14,7 +14,9 @@ czasie **uruchomienia**, albo **kompilacji**.
 # Callable w czasie uruchomienia
 
 Jeżeli callable jest ustalane w czasie uruchomienia, to kod callable
-będzie wywołany i nie będzie wkompilowany w miejsce wywołania.
+będzie wywołany i nie będzie wkompilowany w miejsce wywołania.  Proszę
+sprawdzić kod wynikowy przykładu niżej (z Code Explorer lub z użyciem
+narzędzia `objdump`).
 
 {% highlight c++ %}
 {% include_relative run1.cc %}
@@ -24,16 +26,13 @@ będzie wywołany i nie będzie wkompilowany w miejsce wywołania.
 
 Jeżeli w czasie kompilacji callable jest znane i nie zmienia się w
 czasie uruchomienia, to może ono być wkompilowane (ang. inlined) w
-miejscu wywołania.
+miejscu wywołania.  Jeżeli chcemy użyć inne callable, to musimy
+zmienić kod źródłowy.  Oto przykład:
 
-
-
-Zmieniamy kod źródłowy.  W czasie uruchomienia callable już nie możemy
-zmieniać.  Najprawdopodobniej kod callable został wkompilowany w
-miejsce wywołania callable.
-
-Nawet jeżeli callable jest wskaźnikiem, to 
+{% highlight c++ %}
+{% include_relative compile1.cc %}
+{% endhighlight %}
 
 # Wydajność
 
-<!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
+<!-- LocalWords: callable -->
