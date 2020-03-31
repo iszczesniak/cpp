@@ -98,7 +98,8 @@ Dwie ważne funkcjonalności `std::function`:
   uruchomienia, a te callable mogą mieć różne typy.
 
 Ta funkcjonalność `std::function` niestety jest okupiona narzutem
-wydajnościowym pośredniego wywołania i kopiowania callable.
+wydajnościowym pośredniego wywołania i kopiowania callable.  Jeżeli
+tej funkcjonalności nie potrzebujemy, to nie używamy `std::function`.
 
 {% highlight c++ %}
 {% include_relative passing3.cc %}
