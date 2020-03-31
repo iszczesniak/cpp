@@ -1,20 +1,21 @@
 #include <chrono>
+#include <functional>
 #include <iostream>
 #include <queue>
 
 using namespace std;
 
-template <typename Q>
+template <typename C>
 void
-time_it(typename Q::value_compare c = {})
+time_it(C c)
 {
   using tp_t = chrono::time_point<chrono::high_resolution_clock>;
 
   tp_t t0 = std::chrono::system_clock::now();
 
-  Q q(c);
+  priority_queue<int, vector<int>, C> q(c);
 
-  for(int i = 0; i < 1000000; ++i)
+  for(int i = 0; i < 10000000; ++i)
     q.push(i);
 
   while(!q.empty())
@@ -27,27 +28,25 @@ time_it(typename Q::value_compare c = {})
   cout << __PRETTY_FUNCTION__ << " took " << dt << " s" << endl;
 }
 
-struct struct_callable
-{
-  bool
-  operator()(const int &a, const int &b) const
-  {
-    return a < b;
-  }
-};
-
-using callable = bool(*)(const int &, const int &);
-
 bool
 cmp(const int &a, const int &b)
 {
   return a < b;
 }
 
+using callable = bool(const int &, const int &);
+
 int
 main()
 {
-  time_it<priority_queue<int>>();
-  time_it<priority_queue<int, vector<int>, struct_callable>>();
-  time_it<priority_queue<int, vector<int>, callable>>(cmp);
+  auto functor = less<int>{};
+  auto closure = [](const int &a, const int &b){return a < b;};
+
+  time_it(functor);
+  time_it(cmp);
+  time_it(closure);
+
+  time_it(function<callable>(functor));
+  time_it(function<callable>(cmp));
+  time_it(function<callable>(closure));
 }
