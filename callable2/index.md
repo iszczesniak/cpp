@@ -82,6 +82,13 @@ funktora.
 
 ## `std::function` jako callable
 
+Klasa szablonowa `std::function` dale możliwość przekazywania
+dowolnego callable.
+
+{% highlight c++ %}
+{% include_relative passing3.cc %}
+{% endhighlight %}
+
 ## Szablonowy typ callable
 
 `std::function` może być też argumentem szablonu.
