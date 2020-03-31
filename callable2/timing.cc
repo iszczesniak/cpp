@@ -41,7 +41,7 @@ time_sort(C c)
   vector<int> v(N);
 
   for(int i = 0; i < v.size(); ++i)
-    v[i] = -i;
+    v[i] = i;
 
   tp_t t0 = std::chrono::system_clock::now();
 
