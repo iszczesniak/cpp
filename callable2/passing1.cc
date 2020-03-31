@@ -14,7 +14,7 @@ f(callable c)
   c();
 }
 
-// This is a function is a callable.
+// This function is a callable.
 void
 g()
 {
