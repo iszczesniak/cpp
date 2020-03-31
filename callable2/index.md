@@ -115,7 +115,17 @@ Użycie szablonu nie wyklucza użycie `std::function`, która może być po
 prostu argumentem szablonu.
 
 {% highlight c++ %}
-{% include_relative passing3.cc %}
+{% include_relative passing4.cc %}
+{% endhighlight %}
+
+# Wydajność
+
+Przykład niżej demonstruje wydajność użycia różnego rodzaju callable
+dla kolejki priorytetowej i sortowania.  Proszę skompilować program z
+opcją `-O3`.
+
+{% highlight c++ %}
+{% include_relative timing.cc %}
 {% endhighlight %}
 
 <!-- LocalWords: callable -->
