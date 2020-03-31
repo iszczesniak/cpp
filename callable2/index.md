@@ -73,13 +73,17 @@ przykład się kompiluje.
 {% include_relative passing1.cc %}
 {% endhighlight %}
 
+Możemy też określić typ przyjmowanego callable jako konkretny typ
+funktora.
+
+{% highlight c++ %}
+{% include_relative passing2.cc %}
+{% endhighlight %}
+
 ## `std::function` jako callable
 
 ## Szablonowy typ callable
 
-
 `std::function` może być też argumentem szablonu.
-
-# Wydajność
 
 <!-- LocalWords: callable -->
