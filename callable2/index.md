@@ -83,7 +83,17 @@ funktora.
 ## `std::function` jako callable
 
 Klasa szablonowa `std::function` dale możliwość przekazywania
-dowolnego callable.
+dowolnego callable: wskaźnika, funktora czy domknięcia, pod warunkiem,
+że callable ma wymagane typy parametrów i wyniku, które podajemy jako
+argument szablonu.
+
+Obiekt klasy `std::function` opakowuje i przechowuje przez wartość
+przekazany callable (więc callable jest kopiowany), udostępniając
+ujednolicony interfejs (jeden składowy operator wywołania) niezależnie
+od typu przechowywanego callable.
+
+Obiekt klasy `std::function` może mieć zmieniany callable w czasie
+uruchomienia, a te callable mogą mieć różne typy.
 
 {% highlight c++ %}
 {% include_relative passing3.cc %}

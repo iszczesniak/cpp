@@ -14,6 +14,15 @@ f(std::function<callable> c)
 // This is a functor struct.
 struct callme
 {
+  callme()
+  {
+  }
+
+  callme(const callme &)
+  {
+    cout << "copy-ctor\n";
+  }
+
   void
   operator()()
   {
@@ -39,4 +48,11 @@ main()
 
   // We pass a closure.
   f([]{cout << "!\n";});
+
+  function<callable> c = callme();
+  f(c);
+  c = g;
+  f(c);
+  c = []{cout << "!\n";};
+  f(c);    
 }
