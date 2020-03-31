@@ -106,7 +106,13 @@ wydajnościowym pośredniego wywołania i kopiowania callable.
 
 ## Szablonowy typ callable
 
-`std::function` może być też argumentem szablonu.
+Typ callable może być parametrem szablonu.  Wtedy na etapie kompilacji
+funkcja jest konkretyzowana dla tego konkretnego callable, co
+przekłada się na maksymalną wydajnośc, bo kod wynikowy generowany jest
+"na miarę".
+
+Użycie szablonu nie wyklucza użycie `std::function`, która może być po
+prostu argumentem szablonu.
 
 {% highlight c++ %}
 {% include_relative passing3.cc %}

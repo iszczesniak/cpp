@@ -15,9 +15,7 @@ f(C c)
 // This is a functor struct.
 struct callme
 {
-  callme()
-  {
-  }
+  callme() = default;
 
   callme(const callme &)
   {

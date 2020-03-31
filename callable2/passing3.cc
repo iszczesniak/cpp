@@ -14,9 +14,7 @@ f(std::function<callable> c)
 // This is a functor struct.
 struct callme
 {
-  callme()
-  {
-  }
+  callme() = default;
 
   callme(const callme &)
   {
