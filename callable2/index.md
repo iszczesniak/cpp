@@ -4,14 +4,28 @@ title: Callable - kontynuacja
 
 # Wprowadzenie
 
-Wiemy już, że callable jest czymś, co możemy wywołać, czyli użyć w
-wyrażeniu wywołania.  Od typu callable zależy z jakimi argumentami
-możemy callable wywołać i czy callable zwróci wynik.
+Callable jest wykorzystywane jako metoda dostarczenia fragmentu kodu
+do innego miejsca kodu.  Wywołanie callable ma ustaloną składnię
+(czyli składnię wyrażenia wywołania) i określony interfejs, czyli
+jakiego typu są argumenty i wynik callable.
+
+Biblioteka standardowa używa (przekazuje, zapisuje jako pole składowe)
+callable **przez wartość**, więc **kopiowanie callable powinno być
+szybkie**.  Callable przekazywane do standardowych algorytmów,
+np. `std::sort`, i standardowych kontenerów,
+np. `std::priority_queue`, powinno się szybko kopiować.  To oznacza,
+że callable nie powinno posiadać dużo danych do skopiowania.
+
+Callable używamy najczęściej przez wartość, tak jak robi to biblioteka
+standardowa, ale można też używać callable przez referencję albo
+wskaźnik.
+
+# Callable a czas kompilacji czy uruchomienia
 
 Callable może być określone (o który callable dokładnie chodzi) w
 czasie **uruchomienia**, albo **kompilacji**.
 
-# Callable w czasie uruchomienia
+## Callable w czasie uruchomienia
 
 Jeżeli callable jest ustalane w czasie uruchomienia, to kod callable
 będzie wywołany i nie będzie wkompilowany (ang. inlined) w miejsce
@@ -23,7 +37,7 @@ wynikowy przykładu niżej (z Code Explorer lub z użyciem narzędzia
 {% include_relative run.cc %}
 {% endhighlight %}
 
-# Callable w czasie kompilacji
+## Callable w czasie kompilacji
 
 Jeżeli w czasie kompilacji callable jest znane i nie zmienia się w
 czasie uruchomienia, to może ono być wkompilowane w miejscu wywołania.
@@ -41,24 +55,28 @@ też brak narzutu wydajnościowego użycia domknięcia.
 {% include_relative compile2.cc %}
 {% endhighlight %}
 
-# Przekazywanie callable
+# Typ przyjmowanego callable
 
-Callable jest wykorzystywane jako metoda dostarczenia fragmentu kodu
-do innego miejsca kodu, np. funkcji.  Wywołanie callable ma ustaloną
-składnię (czyli składnię wyrażenia wywołania) i określony interfejs,
-czyli jakiego typu są argumenty i wynik callable.
+Typ przyjmowanego callable określamy jako typ parametru funkcji czy
+konstruktora.  Ten typ możemy zdefiniować *dokładnie*, z użyciem
+*`std::function`*, lub *szablonowo*.
 
-## Ściśle zdefiniowany typ callable
+## Dokładnie zdefiniowany typ callable
 
-Callable może być przyjmowany tylko określony typ.
+Możemy dokładnie określić typ przyjmowanego callable jako typ
+wskaźnika na funkcję, jak w przykładzie niżej.  Co ciekawe, wyrażenie
+z domknięciem (w przykładzie jest to `[]{cout << "World!\n";}`) może
+być niejawnie rzutowane na wskaźnik na funkcję domknięcia, dlatego ten
+przykład się kompiluje.
 
 {% highlight c++ %}
 {% include_relative passing1.cc %}
 {% endhighlight %}
 
-## Typ callable jako parametr szablonu
-
 ## `std::function` jako callable
+
+## Szablonowy typ callable
+
 
 `std::function` może być też argumentem szablonu.
 
