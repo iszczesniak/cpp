@@ -87,13 +87,18 @@ dowolnego callable: wskaźnika, funktora czy domknięcia, pod warunkiem,
 że callable ma wymagane typy parametrów i wyniku, które podajemy jako
 argument szablonu.
 
-Obiekt klasy `std::function` opakowuje i przechowuje przez wartość
-przekazany callable (więc callable jest kopiowany), udostępniając
-ujednolicony interfejs (jeden składowy operator wywołania) niezależnie
-od typu przechowywanego callable.
+Dwie ważne funkcjonalności `std::function`:
 
-Obiekt klasy `std::function` może mieć zmieniany callable w czasie
-uruchomienia, a te callable mogą mieć różne typy.
+* Obiekt klasy `std::function` opakowuje i przechowuje przez wartość
+  przekazany callable (więc callable jest kopiowany), udostępniając
+  ujednolicony interfejs (jeden składowy operator wywołania)
+  niezależny od typu przechowywanego callable.
+
+* Obiekt klasy `std::function` może mieć zmieniany callable w czasie
+  uruchomienia, a te callable mogą mieć różne typy.
+
+Ta funkcjonalność `std::function` niestety jest okupiona narzutem
+wydajnościowym pośredniego wywołania i kopiowania callable.
 
 {% highlight c++ %}
 {% include_relative passing3.cc %}
@@ -102,5 +107,9 @@ uruchomienia, a te callable mogą mieć różne typy.
 ## Szablonowy typ callable
 
 `std::function` może być też argumentem szablonu.
+
+{% highlight c++ %}
+{% include_relative passing3.cc %}
+{% endhighlight %}
 
 <!-- LocalWords: callable -->
