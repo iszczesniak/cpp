@@ -2,11 +2,7 @@
 
 using namespace std;
 
-// A function pointer type.
 using callable = void();
-
-// The above type is the same as this one:
-// using callable = void (*)();
 
 void
 f(callable c)
