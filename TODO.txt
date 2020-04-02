@@ -1,3 +1,5 @@
+Type aliases cannot be specialized.  Use type traits.
+
 Template introduction:
 
 * the example with sorting:
