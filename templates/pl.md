@@ -19,34 +19,44 @@ Kluczowe są:
   danych (czyli nasza funkcja może działać na `std::vector` albo
   `std::list`),
 
-* **no loss of efficiency**: we don't want our program to run slower
-  or take more memory, because it was generically programmed; we want
-  our code to run as fast as when it's meticulously manually crafted.
+* **no loss of efficiency**: nie chcemy, żeby nasz program działał
+    wolniej, albo używał więcej pamięci, bo korzystał z programowania
+    uogólnionego.  Chcemy, żeby program był tak wydajny, jak w
+    przypadku, kiedy jest starannie dopracowany.
 
-Generic programming in C++ is supported by templates.  With templates
-we can use and implement without the loss of efficiency:
+Programowanie uogólnione jest wspierane przez język C++ z użyciem
+szablonów, przy użyciu których zaimplementowane są:
 
-* generic data structures, most notably the containers of the standard
-  library, e.g., `std::vector`,
+* uogólnione struktury danych, takie jak kontenery biblioteki
+  standardowej, np. `std::vector`,
 
-* generic algorithms, most notably the algorithms of the standard
-  library, e.g., `std::sort`.
+* uogólnione algorytmy, takie jak algorytmy biblioteki standardowej,
+  np. `std::sort`.
+
+Przykład niżej pokazuje w jaki sposób możemy używać kontenerów i
+algorytmów biblioteki standardowej.
 
 {% highlight c++ %}
 {% include_relative motivation.cc %}
 {% endhighlight %}
 
-# Performance
+# Wydajność
 
-# Templates
 
-There can be templates of:
 
-* functions,
-* classes,
-* members (of classes),
-* types (aliases),
-* variables.
+# Szablony
+
+Szablonowe mogą być:
+
+* funkcje, 
+
+* klasy, struktury, unie,
+
+* składowe klasy (czyli funkcje i pola składowe klasy),
+
+* typy (czyli aliasy typów),
+
+* zmienne.
 
 A template declaration or definition begins with the `template`
 keyword, and it has this syntax:
