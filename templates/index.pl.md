@@ -1,8 +1,8 @@
 ---
-title: Templates
+title: Szablony
 ---
 
-# Introduction
+# Wprowadzenie
 
 *Alexander Stepanov*, one of the founding fathers of generic
 programming, wrote in his book "From Mathematics to Generic
