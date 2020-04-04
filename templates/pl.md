@@ -34,11 +34,21 @@ szablonów, przy użyciu których zaimplementowane są:
   np. `std::sort`.
 
 Przykład niżej pokazuje w jaki sposób możemy używać kontenerów i
-algorytmów biblioteki standardowej.
+algorytmów biblioteki standardowej.  Przykład wymaga kompilatora
+C++17.
 
 {% highlight c++ %}
 {% include_relative motivation.cc %}
 {% endhighlight %}
+
+W przykładzie wyżej możemy zmienić typ sortowanych liczb z `int` na
+`double`.  Wystarczy zmienić strukturę `vector` na `vector<double>`.
+Możemy też zmienić strukturę z `vector` na `array` (trzeba dodać
+`#include <array>`) czy `deque` (trzeba dodać `#include <deque>`).
+Podczas kompilacji funcja `sort` jest konkretyzowana dla użytej
+struktury danych.
+
+Ale przykład nie działa ze strukturą `list`.
 
 # Wydajność
 
