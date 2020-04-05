@@ -65,7 +65,7 @@ dostępu.  C++20 wprowadza koncepty, które pozwolą na klarowną
 diagnostykę błędów, ale to wymaga zmian (użycia konceptów) w
 implementacji biblioteki standardowej.
 
-# Bez utraty wydajności
+## Bez utraty wydajności
 
 Dla komitetu standaryzacyjnego C++, priorytetem jest wydajność kodu
 wynikowego, a dopiero potem łatwość użycia języka.  Tak więc program
@@ -110,8 +110,8 @@ przykładzie:
 {% endhighlight %}
 
 Użycie krotki (`std::tuple`), też nie wprowadza narzutu.  Krotka jest
-typem klasowym, więc ma konstruktor i desktruktor, jednak są one
-puste.  Oto przykład z krotką dla testów:
+szablonowym typem klasowym, więc ma konstruktor i desktruktor, jednak
+są one puste.  Oto przykład dla testów:
 
 {% highlight c++ %}
 {% include_relative test_tuple.cc %}
@@ -123,6 +123,8 @@ Nawet iterowanie po elementach tablicy `std::array` nie wprowadza
 {% highlight c++ %}
 {% include_relative test_foray.cc %}
 {% endhighlight %}
+
+# Programowanie uogólnione a obiektowe
 
 # Szablony
 
