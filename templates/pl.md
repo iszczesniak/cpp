@@ -91,7 +91,7 @@ To jest kod z użyciem szablonu funkcji `test_template.cc`:
 {% endhighlight %}
 
 Kompilujem oba przykłady do asemblera (możemy też użyć Code Explorer)
-i patrzymy na różnice:
+i patrzymy na różnice (możemy też użyć `c++filt`):
 
 ```
 g++ -O2 -std=c++17 -S test_baseline.cc test_template.cc
@@ -99,13 +99,29 @@ meld test_baseline.s test_template.s
 ```
 
 Różnic nie ma.  Użycie funkcji szablonowej nie wprowadza żadnego
-narzutu, a kod jest tak szybki, jak bez wywołania funkcji.
+narzutu wydajnościowego, a kod jest tak szybki, jak bez wywołania
+funkcji.
 
-Zwykła funkcja jest też wkompilowywana, co można sprawdzić w ten sam
-sposób z tym przykładem:
+Zwykła funkcja też może być wkompilowana, co można sprawdzić na tym
+przykładzie:
 
 {% highlight c++ %}
 {% include_relative test_function.cc %}
+{% endhighlight %}
+
+Użycie krotki (`std::tuple`), też nie wprowadza narzutu.  Krotka jest
+typem klasowym, więc ma konstruktor i desktruktor, jednak są one
+puste.  Oto przykład z krotką dla testów:
+
+{% highlight c++ %}
+{% include_relative test_tuple.cc %}
+{% endhighlight %}
+
+Nawet iterowanie po elementach tablicy `std::array` nie wprowadza
+żadnego narzutu:
+
+{% highlight c++ %}
+{% include_relative test_foray.cc %}
 {% endhighlight %}
 
 # Szablony
