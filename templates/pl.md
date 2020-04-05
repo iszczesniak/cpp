@@ -73,6 +73,41 @@ napisany z użyciem mechanizmów abstrakcji (np. szablonów) ma działać
 szybko (tak szybko, jak to możliwe, czyli jak gdybyśmy "wyrzeźbili"
 kod ręcznie), chociaż sam kod źródłowy może być trudny do napisania.
 
+Z użyciem prostych przykładów niżej sprawdzimy, jaki narzut
+wydajnościowy wprowadzają mechanizmy abstrakcji.  Każdy z tych
+programów wypisuje na standardowe wyjście liczby 1 i 2.  Interesuje
+nas kod wynikowy (asembler) programów.
+
+To jest kod bazowy `test_baseline.cc`:
+
+{% highlight c++ %}
+{% include_relative test_baseline.cc %}
+{% endhighlight %}
+
+To jest kod z użyciem szablonu funkcji `test_template.cc`:
+
+{% highlight c++ %}
+{% include_relative test_template.cc %}
+{% endhighlight %}
+
+Kompilujem oba przykłady do asemblera (możemy też użyć Code Explorer)
+i patrzymy na różnice:
+
+```
+g++ -O2 -std=c++17 -S test_baseline.cc test_template.cc
+meld test_baseline.s test_template.s
+```
+
+Różnic nie ma.  Użycie funkcji szablonowej nie wprowadza żadnego
+narzutu, a kod jest tak szybki, jak bez wywołania funkcji.
+
+Zwykła funkcja jest też wkompilowywana, co można sprawdzić w ten sam
+sposób z tym przykładem:
+
+{% highlight c++ %}
+{% include_relative test_function.cc %}
+{% endhighlight %}
+
 # Szablony
 
 Szablonowe mogą być:

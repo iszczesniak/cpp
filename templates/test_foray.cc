@@ -4,7 +4,7 @@
 int
 main()
 {
-  std::array<int, 2> a{1, 2};
+  std::array a{1, 2};
   for(auto e: a)
     std::cout << e;
 }
