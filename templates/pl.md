@@ -69,12 +69,12 @@ implementacji biblioteki standardowej.
 
 Dla komitetu standaryzacyjnego C++, priorytetem jest wydajność kodu
 wynikowego, a dopiero potem łatwość użycia języka.  Tak więc program
-napisany z użyciem mechanizmów abstrakcji (np. szablonów) ma działać
+napisany z użyciem mechanizmów uogólnienia (np. szablonów) ma działać
 szybko (tak szybko, jak to możliwe, czyli jak gdybyśmy "wyrzeźbili"
 kod ręcznie), chociaż sam kod źródłowy może być trudny do napisania.
 
 Z użyciem prostych przykładów niżej sprawdzimy, jaki narzut
-wydajnościowy wprowadzają mechanizmy abstrakcji.  Każdy z tych
+wydajnościowy wprowadzają mechanizmy uogólnienia.  Każdy z tych
 programów wypisuje na standardowe wyjście liczby 1 i 2.  Interesuje
 nas kod wynikowy (asembler) programów.
 
@@ -125,6 +125,33 @@ Nawet iterowanie po elementach tablicy `std::array` nie wprowadza
 {% endhighlight %}
 
 # Programowanie uogólnione a obiektowe
+
+Programowanie uogólnione i obiektowe są komplementarne, nie wykluczają
+się.  Język C++ jest językiem wieloparadygmatowym, bo można w nim
+programować obiektowo, strukturalnie, proceduralnie, funkcyjnie i w
+sposób uogólniony.
+
+Częstym problemem programowania jest potrzeba dostarczenia różnych
+fragmentów kodu (operacji czy algorytmów) w zależności od typów
+danych, na których działamy.  Programowanie uogólnione i obiektowe
+rozwiązują problem z użyciem polimorfizmu, ale różnych rodzajów:
+
+* W **programowaniu uogólnionym** używamy wywołania funkcji i
+  mechanizmów ich uogólnienia: szablonów i przeciążeń.  W *czasie
+  kompilacji* dla danego wyrażenia wywołania funkcji wybierany jest
+  szablon lub przeciążenie w zależności od typów przekazywanych
+  argumentów.  Ten mechanizm nazywamy **polimorfizmem statycznym**
+  (aka *polimorfizm czasu kompilacji*).  *Polimorfizm statyczny nie
+  wprowadza narzutu czasowego w czasie uruchomienia.*
+
+* W **programowaniu obiektowym** używamy interfejsu klasy bazowej i
+  funkcji wirtualnych.  W *czasie uruchomienia* dla wywołania funkcji
+  wirtualnej na rzecz danego obiektu wybierana jest implementacja
+  funkcji wirtualnej w zależności od typu obiektu.  Ten mechanizm
+  nazywamy **polimorfizmem dynamicznym** (aka *polimorfizm czasu
+  uruchomienia*).  *Polimorfizm dynamiczny wprowadza narzut czasowy,
+  bo wywołanie funkcji wirtualnej wymaga wywołania pośredniego z
+  użyciem tablicy funkcji wirtualnych.*
 
 # Szablony
 
