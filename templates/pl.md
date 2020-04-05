@@ -45,8 +45,8 @@ W przykładzie wyżej możemy zmienić typ sortowanych liczb z `int` na
 `double`: wystarczy zmienić strukturę `vector` na `vector<double>`.
 Możemy też zmienić strukturę z `vector` na `array` (trzeba też dodać
 `#include <array>`) czy `deque` (trzeba też dodać `#include <deque>`).
-Podczas kompilacji funcja `sort` jest konkretyzowana dla użytej
-struktury danych i typów elementów struktury.
+Podczas kompilacji funcja `sort` jest *konkretyzowana* (kompilowana
+"na miarę") dla użytej struktury danych i typów elementów struktury.
 
 Ale przykład nie działa ze strukturą `list`.  Kompilator zwraca masę
 błędów, z których trudno się zorientować, gdzie jest problem.  A
