@@ -19,10 +19,12 @@ Kluczowe są:
   danych (czyli nasza funkcja może działać na `std::vector` albo
   `std::list`),
 
-* **no loss of efficiency**: nie chcemy, żeby nasz program działał
-    wolniej, albo używał więcej pamięci, bo korzystał z programowania
-    uogólnionego.  Chcemy, żeby program był tak wydajny, jak w
-    przypadku, kiedy jest starannie dopracowany.
+* **no loss of efficiency**, bez utraty wydajności: nie chcemy, żeby
+  nasz program działał wolniej, albo używał więcej pamięci, bo
+  korzystał z programowania uogólnionego.  Chcemy, żeby program był
+  tak wydajny, jak w przypadku, kiedy jest starannie dopracowany.
+
+## Najbardziej ogólny przypadek
 
 Programowanie uogólnione jest wspierane przez język C++ z użyciem
 szablonów, przy użyciu których zaimplementowane są:
@@ -63,9 +65,13 @@ dostępu.  C++20 wprowadza koncepty, które pozwolą na klarowną
 diagnostykę błędów, ale to wymaga zmian (użycia konceptów) w
 implementacji biblioteki standardowej.
 
-# Wydajność
+# Bez utraty wydajności
 
-
+Dla komitetu standaryzacyjnego C++, priorytetem jest wydajność kodu
+wynikowego, a dopiero potem łatwość użycia języka.  Tak więc program
+napisany z użyciem mechanizmów abstrakcji (np. szablonów) ma działać
+szybko (tak szybko, jak to możliwe, czyli jak gdybyśmy "wyrzeźbili"
+kod ręcznie), chociaż sam kod źródłowy może być trudny do napisania.
 
 # Szablony
 
