@@ -19,8 +19,8 @@ Kluczowe są:
   danych (czyli nasza funkcja może działać na `std::vector` albo
   `std::list`),
 
-* **no loss of efficiency**, bez utraty wydajności: nie chcemy, żeby
-  nasz program działał wolniej, albo używał więcej pamięci, bo
+* **no loss of efficiency**, czyli bez utraty wydajności: nie chcemy,
+  żeby nasz program działał wolniej, albo używał więcej pamięci, bo
   korzystał z programowania uogólnionego.  Chcemy, żeby program był
   tak wydajny, jak w przypadku, kiedy jest starannie dopracowany.
 
