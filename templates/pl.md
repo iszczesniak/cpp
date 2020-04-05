@@ -42,13 +42,26 @@ C++17.
 {% endhighlight %}
 
 W przykładzie wyżej możemy zmienić typ sortowanych liczb z `int` na
-`double`.  Wystarczy zmienić strukturę `vector` na `vector<double>`.
-Możemy też zmienić strukturę z `vector` na `array` (trzeba dodać
-`#include <array>`) czy `deque` (trzeba dodać `#include <deque>`).
+`double`: wystarczy zmienić strukturę `vector` na `vector<double>`.
+Możemy też zmienić strukturę z `vector` na `array` (trzeba też dodać
+`#include <array>`) czy `deque` (trzeba też dodać `#include <deque>`).
 Podczas kompilacji funcja `sort` jest konkretyzowana dla użytej
-struktury danych.
+struktury danych i typów elementów struktury.
 
-Ale przykład nie działa ze strukturą `list`.
+Ale przykład nie działa ze strukturą `list`.  Kompilator zwraca masę
+błędów, z których trudno się zorientować, gdzie jest problem.  A
+problem w tym, że iterator struktury `list` nie jest *iteratorem
+swobodnego dostępu* (ang. random access operator), czyli nie możemy
+zmniejszyć albo zwiększyć iteratora o dowolną liczbę elementów,
+np. `list{3, 2, 1}.end() - 2` nie kompiluje się.  Jeżeli struktura
+posiada operator swobodnego dostępu `operator []`, to jej iterator
+jest swobodnego dostępu.
+
+Problemem przede wszystkim jest obecna słaba diagnostyka.  Powinniśmy
+otrzymać komunikat, że funkcja `sort` wymaga iteratora swobodnego
+dostępu.  C++20 wprowadza koncepty, które pozwolą na klarowną
+diagnostykę błędów, ale to wymaga zmian (użycia konceptów) w
+implementacji biblioteki standardowej.
 
 # Wydajność
 
