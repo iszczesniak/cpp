@@ -1,11 +1,8 @@
 #include <iostream>
 
-// This is an example for polymorphism.
-
 struct A
 {
-  void foo()
-  // virtual void foo()
+  virtual void fun() const
   {
     std::cout << "A\n";
   }
@@ -13,20 +10,14 @@ struct A
 
 struct B: A
 {
-  void foo()
+  void fun() const
   {
     std::cout << "B\n";
   }
 };
 
 void
-foop(A *a)
-{
-  a->foo();
-}
-
-void
-foor(A &a)
+foo(const A &a)
 {
   a.foo();
 }
@@ -34,10 +25,6 @@ foor(A &a)
 int
 main()
 {
-  A *p = new B();
-  foop(p);
-  delete p;
-
-  B b;
-  foor(b);
+  foo(A());
+  foo(B());
 }
