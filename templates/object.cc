@@ -20,7 +20,7 @@ struct B: A
 void
 foo(const A &a)
 {
-  a.fun();
+  a.foo();
 }
 
 int
