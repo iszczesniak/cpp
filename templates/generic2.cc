@@ -16,7 +16,7 @@ void foo(const T &);
 template <>
 void foo(const int &i)
 {
-  std::cout << i << '\n';
+  std::cout << i;
 }
 
 template <>
@@ -34,6 +34,7 @@ void foo(const B &)
 int
 main()
 {
+  // foo(1);
   foo(A());
   foo(B());
 }

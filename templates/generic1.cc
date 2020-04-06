@@ -11,7 +11,7 @@ struct B
 
 void foo(const int &i)
 {
-  std::cout << i << '\n';
+  std::cout << i;
 }
 
 void foo(const A &)
@@ -27,7 +27,7 @@ void foo(const B &)
 int
 main()
 {
-  foo(1);
+  // foo(1);
   foo(A());
   foo(B());
 }
