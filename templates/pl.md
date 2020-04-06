@@ -224,19 +224,15 @@ Mówimy, że szablon jest sparametryzowany, bo ma listę parametrów.
 ## Lista parametrów
 
 Lista musi mieć co najmniej jeden parametr.  Parametry w liście są
-oddzielone przecinkami.  Deklaracja parametru składa się z typu i
-opcjonalnej
-
-Każdy parametr jest deklarowany 
-
-Each paramter in the list is declared with its type and name.  The
-types can be: type, value, and template.  For instance:
+oddzielone przecinkami.  Deklaracja parametru składa się z rodzaju i
+opcjonalnej nazwy parametru.  Rodzaje parametrów to: typ, wartość,
+szablon.  Przykład listy parametrów:
 
 ```
 template <typename T, int N, template<typename> typename C>
 ```
 
-### Type parameter
+### Rodzaj parametru: typ
 
 We declare a type parameter with `typename T`, where `typename` says
 it's a *type parameter*, and `T` is the name of the parameter.  We can
