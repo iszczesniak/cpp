@@ -232,31 +232,31 @@ szablon.  Przykład listy parametrów:
 template <typename T, int N, template<typename> typename C>
 ```
 
-### Rodzaj parametru: typ
+### Rodzaj parametru "typ"
 
-We declare a type parameter with `typename T`, where `typename` says
-it's a *type parameter*, and `T` is the name of the parameter.  We can
-also declare equivalently a type parameter with `class T`, but
-`typename T` is preferred in modern C++.  `T` represents a type, and
-during compilation `T` is replaced with a type, e.g., `int` or the
-user class `myclass`.
+Nazwijmy to prościej: typowy parametr szablonu.  I typowy on jest też
+dlatego, że tego rodzaju parametr jest najczęstszy.  Typowy parametr
+deklarujemy pisząc `typename T`: `typename` mówi, że chodzi o typowy
+parametr, a `T` jest nazwą parametru.  Możemy również równoważnie
+napisać `class T`, ale nowocześniej jest `typename T`.
 
-`T` can become any type: a built-in type, user-defined type, even
-`void`. `T` doesn't have to meet some requirements, e.g., inheriting
-from an interface class.  The requirements on type `T` follow from how
-we use the type in the template definition, i.e., whether we:
+Podczas kompilacji za `T` może być podstawiony dowolny typ: wbudowany
+(np. `int`), użytkownika (np. `myclass`), a nawet `void`.  `T` nie
+musi spełniać żadnych warunków, np. nie musi dziedziczyć z klasy
+bazowej.  Wymagania dotyczące typu `T` wynikają z jego użycia w
+definicji szablonu, czyli czy, na przykład:
 
-* default-construct a value of type `T`,
+* tworzymy domyślną wartość typu `T`, czyli `T{}`,
 
-* add, using `operator+`, the values of type `T`,
+* dodajemy, używając `operator+`, wartości typu `T`,
 
-* dereference, using `operator&`, a value of type `T`,
+* wyłuskujemy, używając `operator&`, wartość typu `T`,
 
-* pass to some function, e.g., `push_back`, a value of type `T`,
+* przekazujemy jakiejś funkcji, np. `push_back`, wartość typu `T`,
 
-* output to `std::ostream` a value of type `T` using `operator<<`.
+* piszemy do `std::ostream` wartość typu `T` z użyciem `operator<<`.
 
-This is an example of a function template with a type parameter `T`:
+To jest przykład funkcji szablonowej z typowym parametrem:
 
 {% highlight c++ %}
 {% include_relative print1.cc %}
