@@ -234,11 +234,11 @@ template <typename T, int N, template<typename> typename C>
 
 ### Rodzaj parametru "typ"
 
-Nazwijmy to prościej: typowy parametr szablonu.  I typowy on jest też
-dlatego, że tego rodzaju parametr jest najczęstszy.  Typowy parametr
-deklarujemy pisząc `typename T`: `typename` mówi, że chodzi o typowy
-parametr, a `T` jest nazwą parametru.  Możemy również równoważnie
-napisać `class T`, ale nowocześniej jest `typename T`.
+Nazwijmy to prosto: **typowy parametr szablonu**.  I typowy on jest
+też dlatego, że tego rodzaju parametr jest najczęstszy.  Typowy
+parametr deklarujemy pisząc `typename T`: `typename` mówi, że chodzi o
+typowy parametr, a `T` jest nazwą parametru.  Możemy również
+równoważnie napisać `class T`, ale nowocześniej jest `typename T`.
 
 Podczas kompilacji za `T` może być podstawiony dowolny typ: wbudowany
 (np. `int`), użytkownika (np. `myclass`), a nawet `void`.  `T` nie
@@ -262,11 +262,16 @@ To jest przykład funkcji szablonowej z typowym parametrem:
 {% include_relative print1.cc %}
 {% endhighlight %}
 
-### Value parameter
+### Rodzaj parametru "wartość"
 
-A parameter can also be a *value parameter*.  A value parameter is
-asigned a value of some type, typically of `int`, but other types are
-possible, though not very common:
+Nazwijmy to prosto: **wartościowy parametr szablonu**.  Parametr tego
+rodzaju deklarujemy pisząc `some_type I`, gdzie `some_type` jest
+typem, np. `int`.  Typ `some_type` nie jest dowolny, tylko nieduży
+zbiór typów jest dozwolony, a najczęściej używane są typy całkowite.
+Podczas kompilacji za `I` podstawiana jest wartość tego typu, np. 1
+dla parametru szablonu zadeklarowanego jako `int I`.
+
+Oto przykład deklaracji wartościowego parametru szablonu:
 
 ```
 template <int N>
