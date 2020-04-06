@@ -137,7 +137,7 @@ danych, na których działamy.  Programowanie uogólnione i obiektowe
 rozwiązują problem z użyciem polimorfizmu, ale różnych rodzajów:
 
 * W **programowaniu uogólnionym** używamy wywołania funkcji i
-  mechanizmów ich uogólnienia: szablonów i przeciążeń.  W *czasie
+  mechanizmów ich uogólnienia: przeciążeń lub szablonów.  W *czasie
   kompilacji* dla danego wyrażenia wywołania funkcji wybierany jest
   szablon lub przeciążenie w zależności od typów przekazywanych
   argumentów.  Ten mechanizm nazywamy **polimorfizmem statycznym**
@@ -156,6 +156,39 @@ rozwiązują problem z użyciem polimorfizmu, ale różnych rodzajów:
 Programowanie uogólnione może działać na danych dowolnego typu, a
 programowanie obiektowe wyłącznie na typach klasowych (`1.foo()` nie
 przejdzie).
+
+## Przykład polimorfizmu statycznego
+
+Przykład implementacji polimorfizmu statycznego z użyciem przeciążeń
+funkcji:
+
+{% highlight c++ %}
+{% include_relative generic1.cc %}
+{% endhighlight %}
+
+To samo zadanie rozwiązane z użyciem szablonów i ich specjalizacji:
+
+{% highlight c++ %}
+{% include_relative generic2.cc %}
+{% endhighlight %}
+
+Dla obu przykładów wyżej uzyskujemy ten sam kod wynikowy dla funkcji
+`main`, jak dla tego kodu źródłowego, czyli najprostszy możliwy kod
+wynikowy:
+
+{% highlight c++ %}
+{% include_relative baseline.cc %}
+{% endhighlight %}
+
+## Przykład polimorfizmu dynamicznego
+
+To samo zadanie możemy zaimplementować z użyciem polimorfizmu
+dynamicznego.  Kod wynikowy funkcji `main` jest jednak znacznie
+bardziej skomplikowany.
+
+{% highlight c++ %}
+{% include_relative object.cc %}
+{% endhighlight %}
 
 # Szablony
 
