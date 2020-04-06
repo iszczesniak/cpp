@@ -8,6 +8,7 @@ struct A
   }
 };
 
+// Type B must derive from the base class.
 struct B: A
 {
   void fun() const
@@ -19,7 +20,7 @@ struct B: A
 void
 foo(const A &a)
 {
-  a.foo();
+  a.fun();
 }
 
 int
