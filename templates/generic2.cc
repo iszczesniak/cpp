@@ -1,20 +1,34 @@
 #include <iostream>
 
-void fun(const A &)
+struct A
+{
+};
+
+// B doesn't have to derive from a base class.
+struct B
+{
+};
+
+// A primary template
+template <typename T>
+void foo(const T &);
+
+template <>
+void foo(const int &i)
+{
+  std::cout << i << '\n';
+}
+
+template <>
+void foo(const A &)
 {
   std::cout << "A\n";
 }
 
-void fun(const B &)
+template <>
+void foo(const B &)
 {
   std::cout << "B\n";
-}
-
-template <typename T>
-void
-foo(const T &a)
-{
-  foo(a);
 }
 
 int

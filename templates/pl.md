@@ -153,6 +153,10 @@ rozwiązują problem z użyciem polimorfizmu, ale różnych rodzajów:
   bo wywołanie funkcji wirtualnej wymaga wywołania pośredniego z
   użyciem tablicy funkcji wirtualnych.*
 
+Programowanie uogólnione może działać na danych dowolnego typu, a
+programowanie obiektowe wyłącznie na typach klasowych (`1.foo()` nie
+przejdzie).
+
 # Szablony
 
 Szablonowe mogą być:

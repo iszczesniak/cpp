@@ -2,7 +2,7 @@
 
 struct A
 {
-  virtual void fun() const
+  virtual void foo() const
   {
     std::cout << "A\n";
   }
@@ -11,7 +11,7 @@ struct A
 // Type B must derive from the base class.
 struct B: A
 {
-  void fun() const
+  void foo() const
   {
     std::cout << "B\n";
   }
@@ -26,6 +26,7 @@ foo(const A &a)
 int
 main()
 {
+  // foo(1);
   foo(A());
   foo(B());
 }
