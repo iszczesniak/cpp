@@ -102,6 +102,14 @@ Różnic nie ma.  Użycie funkcji szablonowej nie wprowadza żadnego
 narzutu wydajnościowego, a kod jest tak szybki, jak bez wywołania
 funkcji.
 
+W tym przykładzie, jak pokazuje kod wynikowy, parametry funkcji
+szablonowej nie są inicjalizowane (kopiowane) na podstawie argumentów
+wywołania, mimo że są przekazywane przez wartość.  W języku C, funkcja
+przyjmująca argumenty przez wartość (a nie przez wskaźnik, czy
+referencję, bo referencji w C nie ma), zawsze ma parametry
+inicjalizowane na podstawie argumentów wywołania, co wprowadza narzut
+wydajnościowy.
+
 Zwykła funkcja też może być wkompilowana, co można sprawdzić na tym
 przykładzie:
 
@@ -204,22 +212,25 @@ Szablonowe mogą być:
 
 * zmienne.
 
-A template declaration or definition begins with the `template`
-keyword, and it has this syntax:
+Deklaracje i definicje szablonów rozpoczynają się słowem kluczowym
+`template` z taką składnią:
 
 ```
-template <parameter list>
+template <lista parametrów>
 ```
 
-We say a template is *parametrized*, because it has a list of
-parameters.
+Mówimy, że szablon jest sparametryzowany, bo ma listę parametrów.
 
-## Parameter list
+## Lista parametrów
 
-The list has to have at least one parameter.  The parameters in a list
-are seprated by a comma.  Each paramter in the list is declared with
-its type and name.  The types can be: type, value, and template.  For
-instance:
+Lista musi mieć co najmniej jeden parametr.  Parametry w liście są
+oddzielone przecinkami.  Deklaracja parametru składa się z typu i
+opcjonalnej
+
+Każdy parametr jest deklarowany 
+
+Each paramter in the list is declared with its type and name.  The
+types can be: type, value, and template.  For instance:
 
 ```
 template <typename T, int N, template<typename> typename C>
