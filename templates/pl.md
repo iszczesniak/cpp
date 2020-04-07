@@ -47,7 +47,7 @@ W przykładzie wyżej możemy zmienić typ sortowanych liczb z `int` na
 `double`: wystarczy zmienić strukturę `vector` na `vector<double>`.
 Możemy też zmienić strukturę z `vector` na `array` (trzeba też dodać
 `#include <array>`) czy `deque` (trzeba też dodać `#include <deque>`).
-Podczas kompilacji funcja `sort` jest *konkretyzowana* (kompilowana
+Podczas kompilacji funkcja `sort` jest *konkretyzowana* (kompilowana
 "na miarę") dla użytej struktury danych i typów elementów struktury.
 
 Ale przykład nie działa ze strukturą `list`.  Kompilator zwraca masę
@@ -90,7 +90,7 @@ To jest kod z użyciem szablonu funkcji `test_template.cc`:
 {% include_relative test_template.cc %}
 {% endhighlight %}
 
-Kompilujem oba przykłady do asemblera (możemy też użyć Code Explorer)
+Kompilujemy oba przykłady do asemblera (możemy też użyć Code Explorer)
 i patrzymy na różnice (możemy też użyć `c++filt`):
 
 ```
@@ -118,7 +118,7 @@ przykładzie:
 {% endhighlight %}
 
 Użycie krotki (`std::tuple`), też nie wprowadza narzutu.  Krotka jest
-szablonowym typem klasowym, więc ma konstruktor i desktruktor, jednak
+szablonowym typem klasowym, więc ma konstruktor i destruktor, jednak
 są one puste.  Oto przykład dla testów:
 
 {% highlight c++ %}
@@ -305,7 +305,7 @@ parametru `T`, czyli `int`.
 {% include_relative print4.cc %}
 {% endhighlight %}
 
-Innym rozwiązaniem jest użycie statyczej instrukcji warunkowej `if
+Innym rozwiązaniem jest użycie statycznej instrukcji warunkowej `if
 constexpr`, żeby przerwać rekurencję:
 
 {% highlight c++ %}
