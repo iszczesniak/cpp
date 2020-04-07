@@ -174,7 +174,8 @@ funkcji:
 {% include_relative generic1.cc %}
 {% endhighlight %}
 
-To samo zadanie rozwiązane z użyciem szablonów i ich specjalizacji:
+To samo zadanie rozwiązane z użyciem szablonów i ich
+**specjalizacji**:
 
 {% highlight c++ %}
 {% include_relative generic2.cc %}
@@ -257,7 +258,7 @@ definicji szablonu, czyli czy, na przykład:
 * piszemy do `std::ostream` wartość typu `T` z użyciem `operator<<`.
 
 To jest przykład funkcji szablonowej z typowym parametrem, gdzie
-kompilator jest w stanie wywnioskować argument szablonu:
+kompilator jest w stanie **wywnioskować argument szablonu**:
 
 {% highlight c++ %}
 {% include_relative print1.cc %}
@@ -294,11 +295,12 @@ parametr szablonu `T`, którego *argument* może być wywnioskowany:
 {% include_relative print3.cc %}
 {% endhighlight %}
 
-This is an example of a recursive function template.  The recursion is
-terminated by the function specialization for `N = 0`.  There is no
-*partial specialization* of function templates, only the *full
-specialization*, which means that we also have to specialize the
-terminating function for the type, i.e., `int`.
+Przykład niżej ilustruje rekurencyjny szablon funkcji.  Rekurencja
+
+The recursion is terminated by the function specialization for `N =
+0`.  There is no *partial specialization* of function templates, only
+the *full specialization*, which means that we also have to specialize
+the terminating function for the type, i.e., `int`.
 
 {% highlight c++ %}
 {% include_relative print4.cc %}
@@ -351,8 +353,17 @@ arguments: the first being the type, the second being the value.
 
 Parametrem jest nazwa, np. `T`, którą używamy w deklaracji i definicji
 szablonu.  Argumentem jest typ, wartość, albo szablon, który jest
-podstawiany za parametr.  Argumenty możemy podać jawnie,
-np. `print<100>()`, albo mogą być wnioskowane na podstawie argumentów
+podstawiany za parametr.  Argument możemy podać jawnie,
+np. `print<100>()`, albo może być wnioskowany na podstawie argumentu
 wywołania funkcji.
+
+Ta terminologia jest analogiczna do terminologii **parametru funkcji**
+i **argumentu wywołania funkcji**, ale ta analogia jest jedynie
+powierzchowna.  Inicjalizacja parametru funkcji z użyciem argumentu
+wywołania ma dużo szczegółów (jak na przykład konwersje między typami,
+czy zasady inicjalizowania referencji), których podstawienie nie ma.
+Podstawienie to skopiowanie tekstu argumentu do parametru ze
+sprawdzeniem rodzaju argumentu (czy jest typem, wartością, czy typem
+szablonowym).  Wniosek: **podstawienie to nie inicjalizacja**.
 
 <!-- LocalWords: lvalue lvalues rvalue -->
