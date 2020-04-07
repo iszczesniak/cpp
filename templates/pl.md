@@ -233,7 +233,7 @@ szablon.  Przykład listy parametrów:
 template <typename T, int N, template<typename> typename C>
 ```
 
-### Rodzaj parametru "typ"
+### Rodzaj parametru: typ
 
 Nazwijmy to prosto: **typowy parametr szablonu**.  I typowy on jest
 też dlatego, że tego rodzaju parametr jest najczęstszy.  Typowy
@@ -264,7 +264,7 @@ kompilator jest w stanie **wywnioskować argument szablonu**:
 {% include_relative print1.cc %}
 {% endhighlight %}
 
-### Rodzaj parametru "wartość"
+### Rodzaj parametru: wartość
 
 Nazwijmy to prosto: **wartościowy parametr szablonu**.  Parametr tego
 rodzaju deklarujemy pisząc `some_type I`, gdzie `some_type` jest
@@ -312,24 +312,24 @@ constexpr`, żeby przerwać rekurencję:
 {% include_relative print5.cc %}
 {% endhighlight %}
 
-### Template parameter
+### Rodzaj parametru: szablon
 
-A template parameter `T` can be of a template type, i.e., at compile
-time the parameter is replaced with a template.  We declare a template
-paramater `T` as a template type like this, where `param-type-list` is
-a list of parameter types of template `T`:
+Nazwijmy to tak: **szablonowy parametr szablonu**.  Parametr tego
+rodzaju ma podstawiony typ szablonowy w czasie kompilacji, a w liście
+parametrów szablonu deklarujemy go tak:
 
 ```
-template <param-type-list> typename T
+template <lista parametrów parametru> typename T
 ```
 
-This is an example of how a template with a template parameter begins:
+A to przykład początku deklaracji lub definicji szablonu z parametrem
+tego rodzaju:
 
 ```
 template <template <param-type-list> typename T>
 ```
 
-Here's an example:
+Przykładowy program:
 
 {% highlight c++ %}
 {% include_relative template_type.cc %}
