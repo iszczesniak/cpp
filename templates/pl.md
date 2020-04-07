@@ -256,7 +256,8 @@ definicji szablonu, czyli czy, na przykład:
 
 * piszemy do `std::ostream` wartość typu `T` z użyciem `operator<<`.
 
-To jest przykład funkcji szablonowej z typowym parametrem:
+To jest przykład funkcji szablonowej z typowym parametrem, gdzie
+kompilator jest w stanie wywnioskować argument szablonu:
 
 {% highlight c++ %}
 {% include_relative print1.cc %}
@@ -271,21 +272,23 @@ zbiór typów jest dozwolony, a najczęściej używane są typy całkowite.
 Podczas kompilacji za `I` podstawiana jest wartość tego typu, np. 1
 dla parametru szablonu zadeklarowanego jako `int I`.
 
-Oto przykład deklaracji wartościowego parametru szablonu:
+Przykład deklaracji wartościowego parametru szablonu:
 
 ```
 template <int N>
 ```
 
-This is an example of a function template with a value parameter `N`:
+To jest przykład szablonu funkcji z wartościowym parametrem szablonu
+`N`, którego *argument* musi być jawnie podany, bo kompilator nie jest
+w stanie go wywnioskować:
 
 {% highlight c++ %}
 {% include_relative print2.cc %}
 {% endhighlight %}
 
-This is an example of a function template with a value parameter `N`,
-where `N` has to be *given explicitely* by a programmer, and `T` is
-*deduced* by a compiler:
+W przykładzie niżej też mamy wartościowy parametr szablonu `N`,
+którego argument musi być jawnie podany.  Ale mamy też wartościowy
+parametr szablonu `T`, którego *argument* może być wywnioskowany:
 
 {% highlight c++ %}
 {% include_relative print3.cc %}
@@ -343,5 +346,13 @@ arguments: the first being the type, the second being the value.
 {% highlight c++ %}
 {% include_relative template_type2.cc %}
 {% endhighlight %}
+
+## Parametr a argument szablonu
+
+Parametrem jest nazwa, np. `T`, którą używamy w deklaracji i definicji
+szablonu.  Argumentem jest typ, wartość, albo szablon, który jest
+podstawiany za parametr.  Argumenty możemy podać jawnie,
+np. `print<100>()`, albo mogą być wnioskowane na podstawie argumentów
+wywołania funkcji.
 
 <!-- LocalWords: lvalue lvalues rvalue -->
