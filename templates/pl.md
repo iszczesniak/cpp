@@ -295,20 +295,18 @@ parametr szablonu `T`, którego *argument* może być wywnioskowany:
 {% include_relative print3.cc %}
 {% endhighlight %}
 
-Przykład niżej ilustruje rekurencyjny szablon funkcji.  Rekurencja
-
-The recursion is terminated by the function specialization for `N =
-0`.  There is no *partial specialization* of function templates, only
-the *full specialization*, which means that we also have to specialize
-the terminating function for the type, i.e., `int`.
+Przykład niżej ilustruje rekurencyjny szablon funkcji, gdzie
+rekurencja jest przerwana przez specjalizację szablonu dla `N = 0`.
+Nie ma *częściowej specjalizacji* szablonu funkcji, jest tylko *pełna
+specjalizacja*, więc musimy jawnie podać także argument szablonu dla
+parametru `T`, czyli `int`.
 
 {% highlight c++ %}
 {% include_relative print4.cc %}
 {% endhighlight %}
 
-We can also terminate the recursion with a compile-time conditional
-statement `if constexpr`, and so we do not have to provide a full
-specialization:
+Innym rozwiązaniem jest użycie statyczej instrukcji warunkowej `if
+constexpr`, żeby przerwać rekurencję:
 
 {% highlight c++ %}
 {% include_relative print5.cc %}
