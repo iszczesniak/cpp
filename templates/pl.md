@@ -322,8 +322,8 @@ parametrów szablonu deklarujemy go tak:
 template <lista parametrów parametru> typename T
 ```
 
-A to przykład początku deklaracji lub definicji szablonu z parametrem
-tego rodzaju:
+A to przykład początku deklaracji lub definicji szablonu z szablonowym
+parametrem:
 
 ```
 template <template <param-type-list> typename T>
@@ -335,13 +335,13 @@ Przykładowy program:
 {% include_relative template_type.cc %}
 {% endhighlight %}
 
-`__PRETTY_FUNCTION__` is replaced by GCC with the function name, and
-the template parameters, so that we can learn what the paremeters
-really are.
+Za `__PRETTY_FUNCTION__` kompilator GCC podstawia nazwę funkcji i
+argumenty szablonu, więc możemy przekonać się w jaki sposób funkcja
+została skonkretyzowana.
 
-This is a modified example from above.  This time the template-type
-template argument C can accept template types which accept two
-arguments: the first being the type, the second being the value.
+W przykładzie niżej, za szablonowy parametr `C` może być podstawiony
+dowolny typ szablonowy, którego pierwszy parametr jest typowy, a drugi
+wartościowy.
 
 {% highlight c++ %}
 {% include_relative template_type2.cc %}
