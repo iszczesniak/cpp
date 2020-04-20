@@ -41,8 +41,35 @@ typu, np. kontenera), co jest przydatne w dwóch przypadkach:
   wywnioskować.
 
 Kompilator wnioskuje argumenty szablonu na podstawie typów wyrażeń,
-które są przekazywane w wyrażeniu wywołania funkcji, albo
-konstruktora.
+które są przekazywane w wyrażeniu wywołania funkcji (kiedy wywołujemy
+funkcję) czy konstruktora (kiedy tworzymy obiekt).  Jeżeli nie jest w
+stanie wywnioskować argumentów, to musimy jawnie je podać.
+
+Przykład niżej pokazuje implementację fabryki obiektów.  Argument
+wywołania fabryki przekazujemy do konstruktora obiektu, którego typ
+jest określony przez argument szablonu.  Kompilator nie jest w stanie
+określić typu obiektu, więc musimy go jawnie podać.
+
+{% highlight c++ %}
+{% include_relative explicit2.cc %}
+{% endhighlight %}
+
+### Kolejność argumentów
+
+Kolejność argumentów szablonu ma znaczenie (tak jak w przypadku
+argumentów wywołania funkcji), bo argumenty są pozycyjne, czyli od
+pozycji argumenty zależy to, o który argument nam chodzi.  Tak więc
+jeżeli chcemy podać drugi argument, to musimy podać też pierwszy
+argument.
+
+Jeżeli w powyższym przykładzie z fabryką zmienimy kolejność
+argumentów, to typ argumentu wywołania konstruktora będziemy musieli
+także podać jawnie, chociaż mógłby być wywnioskowany.  A musimy jawnie
+podać pierwszy argument, bo musimy podać drugi argument.
+
+{% highlight c++ %}
+{% include_relative explicit3.cc %}
+{% endhighlight %}
 
 ## Domyślne argumenty szablonu
 
