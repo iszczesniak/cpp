@@ -31,8 +31,8 @@ używając `<>`, czyli składni `typ kontenera<lista argumentów>`:
 {% include_relative explicit.cc %}
 {% endhighlight %}
 
-Tej składni możemy też użyć przy wywołaniu funkcji, co jest przydatne
-w dwóch przypadkach:
+Tej składni możemy też użyć przy wywołaniu funkcji (a nie definiowaniu
+typu, np. kontenera), co jest przydatne w dwóch przypadkach:
 
 * chcemy innych argumentów niż te wnioskowane przez kompilator, co
   zrobiliśmy w przykładzie wyżej z funkcją `print`,
@@ -40,7 +40,9 @@ w dwóch przypadkach:
 * musimy jawnie podać argumenty, bo kompilator nie jest ich w stanie
   wywnioskować.
 
-
+Kompilator wnioskuje argumenty szablonu na podstawie typów wyrażeń,
+które są przekazywane w wyrażeniu wywołania funkcji, albo
+konstruktora.
 
 ## Domyślne argumenty szablonu
 
