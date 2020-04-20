@@ -85,7 +85,7 @@ przykład:
 {% include_relative default.cc %}
 {% endhighlight %}
 
-### Domyślny callable
+### Domyślne callable
 
 Czasami trzeba przekazać callable jakiejś funkcji, ale nie zawsze to
 callable jest wymagane.  Nie chcemy przekazywać wskaźnika i sprawdzać
@@ -120,11 +120,19 @@ kompiluje wywołania funkcji szablonowej, ale też kiedy kompiluje:
 * inicjalizację obiektów klas szablonowych na podstawie argumentów
   wywołania konstruktora (np. `pair p{1, .1};`).
 
-## Najprostszy przypadek
+## Typowy i prosty przypadek
 
-W najprostszym przypadku wywołujemy funkcję szablonową z jednym
-parametrem:
+Typowy i prosty przypadek: wywołujemy funkcję szablonową z jednym
+typowym parametrem:
 
 ```
+template <typename T>
+void
+foo(ParameterType t);
 
+int
+main()
+{
+  foo(expr);
+}
 ```
