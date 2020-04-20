@@ -3,11 +3,11 @@ struct test
 {
 };
 
-template <template<int> typename T>
-void
-foo(T<> t)
-{
-}
+// template <template<int> typename T>
+// void
+// foo(T<> t)
+// {
+// }
 
 int main()
 {
