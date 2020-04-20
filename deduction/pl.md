@@ -89,16 +89,16 @@ przykład:
 
 Czasami potrzeba przekazać callable jakiejś funkcji, ale nie zawsze to
 callable jest wymagane.  Nie chcemy przekazywać wskaźnika i sprawdzać
-w czasie uruchomienia, czy jest on `nullptr`.  Chcemy, żeby callable
-było uwzględnione w czasie kompilacji, a w szczególnym przypadku, żeby
-callable nie wprowadzało narzutu, jeżeli jest puste.  Do tego się
-przydaje domyślny argument szablonu.
+w czasie uruchomienia, czy jest on `nullptr`, albowiem niewydajne.
+Chcemy, żeby callable było wkompilowane, a w szczególnym przypadku,
+żeby callable nie wprowadzało narzutu, jeżeli nie jest wymagane.  Do
+tego właśnie przydaje się domyślny argument szablonu.
 
-Żeby rozwiązać ten problem, typ callable jest parametrem szablonu z
-domyślnym argumentem, którym jest pusty callable, czyli struktura z
-operatorem wywołania o pustym ciele.  Musimy też podać domyślną
-wartość callable (argumentu wywołania funkcji), czyli `{}` (będzie
-wywołany domyślny konstruktor).  Oto super przykład:
+Rozwiązanie: typ callable jest parametrem szablonu z domyślnym
+argumentem, którym jest pusty callable, czyli struktura z operatorem
+wywołania o pustym ciele.  Musimy też podać domyślną wartość callable
+(argumentu wywołania funkcji), czyli `{}` (będzie wywołany domyślny
+konstruktor).  Oto super przykład:
 
 {% highlight c++ %}
 {% include_relative empty_callable.cc %}
