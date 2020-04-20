@@ -19,7 +19,7 @@ Ten przykład pokazuje wyżej wymienione przypadki:
 {% endhighlight %}
 
 Skoncentrujemy się na wnioskowaniu, ale pierwsze krótko omówimy jawne
-podawanie argumentów i domyślne argumenty.
+podawanie argumentów szablonów i domyślne argumenty szablonów.
 
 ## Jawnie podane argumenty szablonu
 
@@ -73,8 +73,16 @@ podać pierwszy argument, bo musimy podać drugi argument.
 
 ## Domyślne argumenty szablonu
 
-Parametry szablonu (wszystkich rodzajów: typowe, wartościowe i
-szablonowe) mogą mieć zdefiniowane domyślne argumenty.  Oto przykład:
+Parametr szablonu (każdego rodzaju: typowy, wartościowy i szablonowy)
+może mieć zdefiniowany domyślny argument, które będzie użyty, jeżeli
+kompilator nie jest w stanie wywnioskować argumentu.
+
+Domyślny argument podajemy po nazwie parametru z użycien znaku `=`.
+Oto przykład:
+
+{% highlight c++ %}
+{% include_relative explicit3.cc %}
+{% endhighlight %}
 
 ### Domyślny callable
 
