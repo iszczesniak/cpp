@@ -73,6 +73,13 @@ podać pierwszy argument, bo musimy podać drugi argument.
 
 ## Domyślne argumenty szablonu
 
+Parametry szablonu (wszystkich rodzajów: typowe, wartościowe i
+szablonowe) mogą mieć zdefiniowane domyślne argumenty.  Oto przykład:
+
+### Domyślny callable
+
+
+
 # Wnioskowanie argumentów szablonu
 
 Kiedy wywołujemy funkcję szablonową, kompilator może wywnioskować

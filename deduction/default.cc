@@ -1,15 +1,19 @@
-template <int N = 1>
-struct test
-{
-};
+#include <iostream>
+#include <>
 
-// template <template<int> typename T>
-// void
-// foo(T<> t)
-// {
-// }
+using namespace std;
 
-int main()
+template <template<typename> typename C = ,
+          typename T = int, unsigned I = 10>
+C<T>
+container_factory()
 {
-  //  foo(test<int>{});
+  cout << __PRETTY_FUNCTION__ << endl;
+  return C<T>(I);
+}
+
+int
+main()
+{
+  
 }
