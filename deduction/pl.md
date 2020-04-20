@@ -87,7 +87,7 @@ przykład:
 
 ### Domyślny callable
 
-Czasami potrzeba przekazać callable jakiejś funkcji, ale nie zawsze to
+Czasami trzeba przekazać callable jakiejś funkcji, ale nie zawsze to
 callable jest wymagane.  Nie chcemy przekazywać wskaźnika i sprawdzać
 w czasie uruchomienia, czy jest on `nullptr`, albowiem niewydajne.
 Chcemy, żeby callable było wkompilowane, a w szczególnym przypadku,
