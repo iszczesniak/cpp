@@ -75,10 +75,11 @@ podać pierwszy argument, bo musimy podać drugi argument.
 
 Parametr szablonu (każdego rodzaju: typowy, wartościowy i szablonowy)
 może mieć zdefiniowany domyślny argument, które będzie użyty, jeżeli
-kompilator nie jest w stanie wywnioskować argumentu.
+kompilator nie jest w stanie wywnioskować argumentu.  Może mieć, więc
+domyślny argument jest opcjonalny.
 
-Domyślny argument podajemy po nazwie parametru z użycien znaku `=`.
-Oto przykład:
+Domyślny argument podajemy po nazwie parametru z użyciem `=`.  Oto
+przykład:
 
 {% highlight c++ %}
 {% include_relative explicit3.cc %}
@@ -86,7 +87,22 @@ Oto przykład:
 
 ### Domyślny callable
 
+Czasami potrzeba przekazać callable jakiejś funkcji, ale nie zawsze to
+callable jest wymagane.  Nie chcemy przekazywać wskaźnika i sprawdzać
+w czasie uruchomienia, czy jest on `nullptr`.  Chcemy, żeby callable
+było uwzględnione w czasie kompilacji, a w szczególnym przypadku, żeby
+callable nie wprowadzało narzutu, jeżeli jest puste.  Do tego się
+przydaje domyślny argument szablonu.
 
+Żeby rozwiązać ten problem, typ callable jest parametrem szablonu z
+domyślnym argumentem, którym jest pusty callable, czyli struktura z
+operatorem wywołania o pustym ciele.  Musimy też podać domyślną
+wartość callable (argumentu wywołania funkcji), czyli `{}` (będzie
+wywołany domyślny konstruktor).  Oto super przykład:
+
+{% highlight c++ %}
+{% include_relative empty_callable.cc %}
+{% endhighlight %}
 
 # Wnioskowanie argumentów szablonu
 
