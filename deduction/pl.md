@@ -82,7 +82,7 @@ Domyślny argument podajemy po nazwie parametru z użyciem `=`.  Oto
 przykład:
 
 {% highlight c++ %}
-{% include_relative explicit3.cc %}
+{% include_relative default.cc %}
 {% endhighlight %}
 
 ### Domyślny callable
