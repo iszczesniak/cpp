@@ -139,7 +139,7 @@ W najprostszym przypadku kompilator kompiluje wywołanie funkcji z
 jednym parametrem:
 
 ```cpp
-template <template parameter list>
+template <parameter list>
 void
 foo(ParameterType t)
 {
@@ -153,12 +153,10 @@ main()
 }
 ```
 
-Kompilator ma wywnioskować argumenty dla parametrów (tych z `template
-parameter list`) szablonu funkcji `foo` na podstawie typu
-`ParameterType` i typu wyrażenia `expr`.
-
-Parametr `t` funkcji `foo` jest typu `ParametType`.  Typ
-`ParameterType` zależy od co najmniej jednego parametru szablonu.
+Kompilator ma wywnioskować argumenty dla parametrów (tych z `parameter
+list`) szablonu funkcji `foo` na podstawie typu `ParameterType` i typu
+wyrażenia `expr`.  Parametr `t` funkcji `foo` jest typu `ParametType`.
+Typ `ParameterType` zależy od co najmniej jednego parametru szablonu.
 Sposobów zdefiniowania typu `TypParametru` w zależności od parametrów
 szablonu jest wiele, a my omówimy najważniejsze.
 
