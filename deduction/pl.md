@@ -215,7 +215,7 @@ może być typem:
 W zależności od zdefiniowanego typu parametru funkcji, kompilator
 stosuje różne zasady wnioskowania typowego argumentu.
 
-### Referencyjny lub wskażnikowy typ parametru funkcji
+### Referencyjny lub wskaźnikowy typ parametru funkcji
 
 *Zasada: wnioskowany argument jest typem argumentu wywołania z
  pominięciem kwalifikatorów `const` czy `volatile` jeżeli te
