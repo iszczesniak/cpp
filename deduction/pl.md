@@ -23,7 +23,7 @@ podawanie argumentów szablonów i domyślne argumenty szablonów.
 
 ## Jawnie podane argumenty szablonu
 
-Kiedy korzystamy z kontenerów bilbioteki standardowej (a każdy robił
+Kiedy korzystamy z kontenerów biblioteki standardowej (a każdy robił
 to na pewno), jawnie podajemy argumenty szablonu jako część nazwy typu
 używając `<>`, czyli składni `typ kontenera<lista argumentów>`:
 
@@ -115,8 +115,7 @@ wnioskowania są też wykorzystywane kiedy *inicjalizujemy*:
 
 * zmienną typu `auto` na podstawie wyrażenia inicjalizującego
   (np. `auto i = m.find(key);`), gdzie `auto` pełni rolę typowego
-  parametru szablonu jednoparametrowego, którego argument komilator
-  wnioskuje,
+  parametru szablonu, którego argument kompilator wnioskuje,
 
 * obiekt klasy szablonowej na podstawie argumentów wywołania
   konstruktora (np. `pair p{1, .1};`).
@@ -157,7 +156,7 @@ main()
 
 Kompilator ma wywnioskować argumenty dla parametrów (tych z `parameter
 list`) szablonu funkcji `foo` na podstawie typu wyrażenia `expr` i
-typu `ParameterType` arametru `t` funkcji `foo`.  Żeby można mówić o
+typu `ParameterType` parametru `t` funkcji `foo`.  Żeby można mówić o
 wnioskowaniu, typ `ParameterType` musi zależeć od (użyć w swojej
 definicji) co najmniej jednego parametru szablonu.  Sposobów
 zdefiniowania typu `ParameterType` w zależności od parametrów szablonu
