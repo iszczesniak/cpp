@@ -166,5 +166,8 @@ argumenty, ale czasem też argumenty wartościowe czy szablonowe.
 
 ## Typowy argument
 
-Najprostszy przypadek: wywołujemy funkcję szablonową z jednym typowym
-parametrem:
+## Wartościowy argument
+
+## Szablonowy argument
+
+## 
