@@ -121,10 +121,10 @@ wnioskowania są też wykorzystywane kiedy *inicjalizujemy*:
 * obiekt klasy szablonowej na podstawie argumentów wywołania
   konstruktora (np. `pair p{1, .1};`).
 
-Kiedy kompilator kompiluje wywołanie jakiejś funkcji szablonowej, to
-musi skonkretyzować szablon funkcji, czyli wygenerować kod funkcji
-szablonowej na podstawie szablonu funkcji i jego argumentów.  Jeżeli
-argumenty szablonu nie są jawnie podane, to kompilator musi je
+Kiedy kompilator kompiluje wywołanie jakiejś **funkcji szablonowej**,
+to musi skonkretyzować **szablon funkcji**, czyli wygenerować kod
+funkcji szablonowej na podstawie szablonu funkcji i jego argumentów.
+Jeżeli argumenty szablonu nie są jawnie podane, to kompilator musi je
 wywnioskować, a jeżeli nie jest w stanie tego zrobić, to korzysta z
 domyślnych argumentów, jeżeli są.
 
@@ -134,6 +134,8 @@ Kompilator wnioskuje argumenty szablonu funkcji na podstawie:
 
 * **typów** argumentów funkcji szablonowej, czyli wyrażeń, które są
   argumentami wywołania funkcji szablonowej.
+
+## Najprostszy przypadek
 
 W najprostszym przypadku kompilator kompiluje wywołanie funkcji z
 jednym parametrem:
@@ -154,12 +156,14 @@ main()
 ```
 
 Kompilator ma wywnioskować argumenty dla parametrów (tych z `parameter
-list`) szablonu funkcji `foo` na podstawie typu `ParameterType` i typu
-wyrażenia `expr`.  Parametr `t` funkcji `foo` jest typu
-`ParameterType`.  Typ `ParameterType` zależy od co najmniej jednego
-parametru szablonu.  Sposobów zdefiniowania typu `TypParametru` w
-zależności od parametrów szablonu jest wiele, a my omówimy
-najważniejsze.
+list`) szablonu funkcji `foo` na podstawie typu wyrażenia `expr` i
+typu `ParameterType` arametru `t` funkcji `foo`.  Żeby można mówić o
+wnioskowaniu, typ `ParameterType` musi zależeć od (użyć w swojej
+definicji) co najmniej jednego parametru szablonu.  Sposobów
+zdefiniowania typu `ParameterType` w zależności od parametrów szablonu
+jest wiele, a my omówimy najważniejsze.
+
+## Inicjalizacja parametrów funkcji bez konwersji
 
 Ponieważ parametr funkcji jest inicjalizowany na podstawie argumentu
 wywołania funkcji, to wnioskowanie sprowadza się do znalezienia typu
@@ -179,6 +183,8 @@ r-wartością, a tę można wskazać referencją stałą):
 const T &r = 1;
 ```
 
+# Rodzaje argumentów
+
 Dla każdego **rodzaju** parametru szablonu, kompilator może wnioskować
 argument.  Najczęściej chcemy, żeby kompilator wnioskował typowe
 argumenty, ale czasem też argumenty wartościowe czy szablonowe.
@@ -190,7 +196,7 @@ może być typem:
 
 * referencyjnym lub wskaźnikowym,
 
-* zwykłym (niereferencyjnym, niewskaźnikowym).
+* zwykłym (niereferencyjnym i niewskaźnikowym).
 
 W zależności od zdefiniowanego typu parametru funkcji, kompilator
 stosuje różne zasady wnioskowania typowego argumentu.
@@ -213,12 +219,5 @@ Oto przykład dla typów wskaźnikowych:
 {% include_relative arg_type_ptr.cc %}
 {% endhighlight %}
 
-### Wskaźnikowy typ parametru funkcji
-
 ### Zwykły typ parametru funkcji
 
-## Wartościowy argument
-
-## Szablonowy argument
-
-## Więcej parametrów funkcji
