@@ -31,8 +31,9 @@ używając `<>`, czyli składni `typ kontenera<lista argumentów>`:
 {% include_relative explicit.cc %}
 {% endhighlight %}
 
-Tej składni możemy też użyć przy wywołaniu funkcji (a nie definiowaniu
-typu, np. kontenera), co jest przydatne w dwóch przypadkach:
+Tej składni możemy też użyć przy wywołaniu funkcji szablonowej (a nie
+tylko przy definiowaniu typu, np. kontenera), co jest przydatne w
+dwóch przypadkach:
 
 * chcemy innych argumentów niż te wnioskowane przez kompilator, co
   zrobiliśmy w przykładzie wyżej z funkcją `print`,
@@ -108,23 +109,34 @@ konstruktor).  Oto super przykład:
 
 Argumenty szablonu są wnioskowane dla naszej wygody, żeby nie trzeba
 było ich jawnie podawać i nie pomylić się przy okazji.  Kompilator
-wnioskuje argumenty szablonu na podstawie **typów** wyrażeń, które są
-argumentami wyrażenia wywołania.
+wnioskuje argumenty szablonu kiedy kompiluje wywołanie szablonu
+funkcji -- to jest najczęstsze zastosowanie.  Ale te same zasady
+wnioskowania są też wykorzystywane kiedy *inicjalizujemy*:
 
-Kompilator wnioskuje argumenty szablonu przede wszystkim kiedy
-kompiluje wywołania funkcji szablonowej, ale też kiedy kompiluje:
+* zmienną typu `auto` na podstawie wyrażenia inicjalizującego
+  (np. `auto i = m.find(key);`), gdzie `auto` pełni rolę typowego
+  parametru, którego argument komilator wnioskuje,
 
-* inicjalizację zmiennych typu `auto` na podstawie wyrażenia
-  inicjalizującego (np. `auto i = m.find(key);`),
+* obiekt klasy szablonowej na podstawie argumentów wywołania
+  konstruktora (np. `pair p{1, .1};`).
 
-* inicjalizację obiektów klas szablonowych na podstawie argumentów
-  wywołania konstruktora (np. `pair p{1, .1};`).
+Kiedy kompilator kompiluje wywołanie jakiegoś szablonu funkcji, to
+musi skonkretyzować ten szablon funkcji, czyli wygenerować kod
+szablonu funkcji dla argumentów szablonu.  Jeżeli argumenty szablonu
+nie są jawnie podane, to kompilator musi je wywnioskować, a jeżeli nie
+jest w stanie tego zrobić, to korzysta z domyślnych argumentów, jeżeli
+są.
 
+Kompilator wnioskuje argumenty funkcji szablonowej na podstawie:
+
+* **typów** parametrów funkcji,
+
+* **typów** wyrażeń, które są argumentami wyrażenia wywołania.
 
 ```cpp
-template <typename T>
+template <lista parametrów szablonu>
 void
-foo(ParameterType t);
+foo(TypParametru t);
 
 int
 main()
