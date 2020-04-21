@@ -6,11 +6,11 @@ title: Wnioskowanie argumentów szablonu
 
 Argumenty szablonu mogą być:
 
-* wnioskowane (najczęściej stosowane),
+* wnioskowane przez kompilator (najczęściej stosowane),
 
-* jawnie podane (czasami potrzebne),
+* jawnie podane przez programistę (czasami niezbędne),
 
-* domyślnie podane (czasami wygodne).
+* domyślnie podane przez programistę (czasami wygodne).
 
 Ten przykład pokazuje wyżej wymienione przypadki:
 
@@ -120,12 +120,8 @@ kompiluje wywołania funkcji szablonowej, ale też kiedy kompiluje:
 * inicjalizację obiektów klas szablonowych na podstawie argumentów
   wywołania konstruktora (np. `pair p{1, .1};`).
 
-## Typowy i prosty przypadek
 
-Typowy i prosty przypadek: wywołujemy funkcję szablonową z jednym
-typowym parametrem:
-
-```
+```cpp
 template <typename T>
 void
 foo(ParameterType t);
@@ -136,3 +132,11 @@ main()
   foo(expr);
 }
 ```
+
+Dla każdego rodzaju parametru, kompilator może wnioskować argument.
+
+## Typowy argument
+
+Najprostszy przypadek: wywołujemy funkcję szablonową z jednym typowym
+parametrem:
+
