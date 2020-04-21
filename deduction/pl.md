@@ -163,25 +163,38 @@ definicji) co najmniej jednego parametru szablonu.  Sposobów
 zdefiniowania typu `ParameterType` w zależności od parametrów szablonu
 jest wiele, a my omówimy najważniejsze.
 
-## Inicjalizacja parametrów funkcji bez konwersji
+## Inicjalizacja parametrów funkcji szablonowej: bez konwersji
 
 Ponieważ parametr funkcji jest inicjalizowany na podstawie argumentu
-wywołania funkcji, to wnioskowanie sprowadza się do znalezienia typu
-`T` w deklaracji i inicjalizacji na podstawie typu wyrażenia `expr`:
+wywołania funkcji, to wnioskowanie argumentów szablonu ma pozwolić na
+tę inicjalizację.  Wnioskowanie wprowadza ważne ograniczenie:
+**inicjalizacja ma się odbyć bez konwersji typu** (z typu argumentu
+wywołania funkcji do typu parametru funkcji).  Tego warunku nie ma
+przy wywołaniu zwykłej (nieszablonowej) funkcji, gdzie konwersje są
+dozwolone.
+
+Inicjalizacja parametru `t` w powyższym najprostszym przypadku wygląda
+zatem tak:
 
 ```cpp
-lista_kwalifikatorów T deklarator nazwa_zmiennej = expr;
+ParameterType t = expr;
 ```
 
-`lista_kwalifikatorów` może być pusta, `const`, `volatile`, albo
-`const volatile`.  `deklarator` może być pusty, `*` lub `&`.
+Kompilator musi tak (nie jakkolwiek, a zgodnie z zasadami omówionymi
+niżej) wywnioskować argumenty szablonu, które są użyte w definicji
+typu `ParameterType`, żeby inicjalizacja była możliwa bez konwersji
+typu.  Może się to okazać niemożliwe, co uniemożliwia użycie szablonu.
 
-Na przykład, `T = int` żeby ten kod się skompilował (bo `1` jest
-r-wartością, a tę można wskazać referencją stałą):
+Na przykład, jeżeli `ParameterType` jest typem referencyjnym na obiekt
+stały typu `T`, który jest parametrem szablonu, a argumentem wywołania
+funkcji jest `1`, to inicjalizacja wygląda tak:
 
 ```cpp
-const T &r = 1;
+const T & t = 1;
 ```
+
+Wywnioskowanym argumentem będzie `int`, bo wtedy ta inicjalizacja jest
+możliwa bez konwersji typu.
 
 # Rodzaje argumentów
 
@@ -221,3 +234,4 @@ Oto przykład dla typów wskaźnikowych:
 
 ### Zwykły typ parametru funkcji
 
+**
