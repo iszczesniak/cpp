@@ -217,11 +217,17 @@ stosuje różne zasady wnioskowania typowego argumentu.
 
 ### Referencyjny lub wskaźnikowy typ parametru funkcji
 
-*Zasada: wnioskowany argument jest typem argumentu wywołania z
- pominięciem kwalifikatorów `const` czy `volatile` jeżeli te
+*Zasada: wnioskowany argument szablonu jest typem argumentu wywołania
+ z pominięciem kwalifikatorów typu (`const` czy `volatile`) jeżeli te
  kwalifikatory zostały podane w definicji typu parametru funkcji.*
 
-Oto przykład dla typów referencyjnych:
+Chodzi o to, żeby referencyjny (albo wskaźnikowy) typ parametru
+funkcji rzeczywiście mógł być zainicjalizowany: jeżeli typ argumentu
+wywołania jest stały (bądź ulotny), to referencja (albo wskaźnik) musi
+być stała (bądź ulotna).
+
+Oto przykład dla typów referencyjnych, gdzie funkcja `foo1` ma trzy
+konkretyzacje, funkcje `foo2` i `foo3` po dwie, a `foo4` jedną:
 
 {% highlight c++ %}
 {% include_relative arg_type_ref.cc %}
@@ -235,4 +241,14 @@ Oto przykład dla typów wskaźnikowych:
 
 ### Zwykły typ parametru funkcji
 
-**
+*Zasada: wnioskowany argument szablonu jest typem argumentu wywołania
+ z pominięciem kwalifikatorów `const` i `volatile`.*
+
+Chodzi o to, że inicjalizacja parametrów funkcji przy przekazywaniu
+argumentów wywołania przez wartość kopiuje wartość argumentu wywołania
+do parametru funkcji.  Wtedy nie trzeba już zadbać o kwalifikatory
+typu, bo w ciele funkcji działamy na kopii.
+
+{% highlight c++ %}
+{% include_relative arg_type_ptr.cc %}
+{% endhighlight %}

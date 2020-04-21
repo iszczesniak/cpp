@@ -32,8 +32,8 @@ int
 main()
 {
   int x = 1;
-  const double y = 2;
-  const volatile unsigned z = 3;
+  const int y = 2;
+  const volatile int z = 3;
 
   foo1(&x);
   foo1(&y);

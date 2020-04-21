@@ -2,28 +2,28 @@
 
 template <typename T>
 void
-foo1(T &t)
+foo1(T t)
 {
   std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
 template <typename T>
 void
-foo2(const T &t)
+foo2(const T t)
 {
   std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
 template <typename T>
 void
-foo3(volatile T &t)
+foo3(volatile T t)
 {
   std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
 template <typename T>
 void
-foo4(const volatile T &t)
+foo4(const volatile T t)
 {
   std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
