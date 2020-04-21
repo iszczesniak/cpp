@@ -180,10 +180,11 @@ zatem tak:
 ParameterType t = expr;
 ```
 
-Kompilator musi tak (nie jakkolwiek, a zgodnie z zasadami omówionymi
-niżej) wywnioskować argumenty szablonu, które są użyte w definicji
-typu `ParameterType`, żeby inicjalizacja była możliwa bez konwersji
-typu.  Może się to okazać niemożliwe, co uniemożliwia użycie szablonu.
+Kompilator musi tak (ale nie jakkolwiek, a zgodnie z zasadami
+omówionymi niżej) wywnioskować argumenty szablonu, których parametry
+są użyte w definicji typu `ParameterType`, żeby inicjalizacja była
+możliwa bez konwersji typu.  Może się to okazać niemożliwe, co
+uniemożliwia użycie szablonu.
 
 Na przykład, jeżeli `ParameterType` jest typem referencyjnym na obiekt
 stały typu `T`, który jest parametrem szablonu, a argumentem wywołania
