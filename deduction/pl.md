@@ -132,30 +132,35 @@ Kompilator wnioskuje argumenty szablonu funkcji na podstawie:
 
 * **typów** parametrów szablonu funkcji,
 
-* **typów** wyrażeń, które są argumentami wyrażenia wywołania.
+* **typów** argumentów funkcji szablonowej, czyli wyrażeń, które są
+  argumentami wywołania funkcji szablonowej.
 
-Kompilator kompiluje taki kod:
+W najprostszym przypadku kompilator kompiluje wywołanie funkcji z
+jednym parametrem:
 
 ```cpp
-template <lista parametrów szablonu>
+template <template parameter list>
 void
-foo(TypParametru t);
+foo(ParameterType t)
+{
+  // Ciało szablonu funkcji.
+}
 
 int
 main()
 {
-  foo(wyrażenie);
+  foo(expr);
 }
 ```
 
-Zadaniem kompilatora jest wywnioskować argumenty dla parametrów
-szablonu (tych z `lista parametrów szablonu`) na podstawie
-`TypParametru` i typu wyrażenia `wyrażenie`.
+Kompilator ma wywnioskować argumenty dla parametrów (tych z `template
+parameter list`) szablonu funkcji `foo` na podstawie typu
+`ParameterType` i typu wyrażenia `expr`.
 
-Parametr `t` funkcji `foo` jest typu `TypParametru`.  Typ
-`TypParametru` jest zależy od co najmniej jednego parametru szablonu.
+Parametr `t` funkcji `foo` jest typu `ParametType`.  Typ
+`ParameterType` zależy od co najmniej jednego parametru szablonu.
 Sposobów zdefiniowania typu `TypParametru` w zależności od parametrów
-szablonu jest bardzo dużo.  Niżej omówimy najważniejsze sposoby.
+szablonu jest wiele, a my omówimy najważniejsze.
 
 Dla każdego **rodzaju** parametru, kompilator może wnioskować
 argument.  Najczęściej chcemy, żeby kompilator wnioskował typowe
@@ -165,4 +170,3 @@ argumenty, ale czasem też argumenty wartościowe czy szablonowe.
 
 Najprostszy przypadek: wywołujemy funkcję szablonową z jednym typowym
 parametrem:
-
