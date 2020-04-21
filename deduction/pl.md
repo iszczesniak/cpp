@@ -244,11 +244,22 @@ Oto przykład dla typów wskaźnikowych:
 *Zasada: wnioskowany argument szablonu jest typem argumentu wywołania
  z pominięciem kwalifikatorów `const` i `volatile`.*
 
-Chodzi o to, że inicjalizacja parametrów funkcji przy przekazywaniu
-argumentów wywołania przez wartość kopiuje wartość argumentu wywołania
-do parametru funkcji.  Wtedy nie trzeba już zadbać o kwalifikatory
-typu, bo w ciele funkcji działamy na kopii.
+Chodzi o to, że inicjalizacja parametrów funkcji (przy przekazywaniu
+argumentów wywołania przez wartość) kopiuje wartość argumentu
+wywołania do parametru funkcji.  Wtedy nie trzeba już zadbać o
+kwalifikatory typu, bo w ciele funkcji działamy na kopii.
+
+Przykład:
 
 {% highlight c++ %}
-{% include_relative arg_type_ptr.cc %}
+{% include_relative arg_type_val.cc %}
 {% endhighlight %}
+
+Każda z funkcji w powyższym przykładzie została skonkretyzowana tylko
+raz - wydaje się, że kwalifikatory typu (`const` i `volatile`) nie
+miały znaczenia.  Kwalifikatory typu dla parametrów zwykłych typów
+(niereferencyjnych i niewskaźnikowych) mają jedynie znaczenie na
+etapie kompilacji: kompilator ma nie pozwolić na modyfikację parametru
+i nie ma optymalizować odwołań do parametru.  Sygnatury tych funkcji
+nie mają zachowanych kwalifikatorów typu, bo nie mają one znaczenia
+dla kodu wywołującego te funkcje.
