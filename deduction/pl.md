@@ -188,23 +188,29 @@ argumenty, ale czasem też argumenty wartościowe czy szablonowe.
 Typowego parametru używamy w definicji typu parametru funkcji, który
 może być typem:
 
-* referencyjnym,
-
-* wskaźnikowym,
+* referencyjnym lub wskaźnikowym,
 
 * zwykłym (niereferencyjnym, niewskaźnikowym).
 
 W zależności od zdefiniowanego typu parametru funkcji, kompilator
 stosuje różne zasady wnioskowania typowego argumentu.
 
-### Referencyjny typ parametru funkcji
+### Referencyjny lub wskażnikowy typ parametru funkcji
 
-*Zasada: wnioskowany argument jest typu argumentu wywołania z
+*Zasada: wnioskowany argument jest typem argumentu wywołania z
  pominięciem kwalifikatorów `const` czy `volatile` jeżeli te
  kwalifikatory zostały podane w definicji typu parametru funkcji.*
 
+Oto przykład dla typów referencyjnych:
+
 {% highlight c++ %}
 {% include_relative arg_type_ref.cc %}
+{% endhighlight %}
+
+Oto przykład dla typów wskaźnikowych:
+
+{% highlight c++ %}
+{% include_relative arg_type_ptr.cc %}
 {% endhighlight %}
 
 ### Wskaźnikowy typ parametru funkcji
