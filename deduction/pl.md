@@ -155,19 +155,64 @@ main()
 
 Kompilator ma wywnioskować argumenty dla parametrów (tych z `parameter
 list`) szablonu funkcji `foo` na podstawie typu `ParameterType` i typu
-wyrażenia `expr`.  Parametr `t` funkcji `foo` jest typu `ParametType`.
-Typ `ParameterType` zależy od co najmniej jednego parametru szablonu.
-Sposobów zdefiniowania typu `TypParametru` w zależności od parametrów
-szablonu jest wiele, a my omówimy najważniejsze.
+wyrażenia `expr`.  Parametr `t` funkcji `foo` jest typu
+`ParameterType`.  Typ `ParameterType` zależy od co najmniej jednego
+parametru szablonu.  Sposobów zdefiniowania typu `TypParametru` w
+zależności od parametrów szablonu jest wiele, a my omówimy
+najważniejsze.
 
-Dla każdego **rodzaju** parametru, kompilator może wnioskować
+Ponieważ parametr funkcji jest inicjalizowany na podstawie argumentu
+wywołania funkcji, to wnioskowanie sprowadza się do znalezienia typu
+`T` w deklaracji i inicjalizacji na podstawie typu wyrażenia `expr`:
+
+```cpp
+lista_kwalifikatorów T deklarator nazwa_zmiennej = expr;
+```
+
+`lista_kwalifikatorów` może być pusta, `const`, `volatile`, albo
+`const volatile`.  `deklarator` może być pusty, `*` lub `&`.
+
+Na przykład, `T = int` żeby ten kod się skompilował (bo `1` jest
+r-wartością, a tę można wskazać referencją stałą):
+
+```cpp
+const T &r = 1;
+```
+
+Dla każdego **rodzaju** parametru szablonu, kompilator może wnioskować
 argument.  Najczęściej chcemy, żeby kompilator wnioskował typowe
 argumenty, ale czasem też argumenty wartościowe czy szablonowe.
 
 ## Typowy argument
 
+Typowego parametru używamy w definicji typu parametru funkcji, który
+może być typem:
+
+* referencyjnym,
+
+* wskaźnikowym,
+
+* zwykłym (niereferencyjnym, niewskaźnikowym).
+
+W zależności od zdefiniowanego typu parametru funkcji, kompilator
+stosuje różne zasady wnioskowania typowego argumentu.
+
+### Referencyjny typ parametru funkcji
+
+*Zasada: wnioskowany argument jest typu argumentu wywołania z
+ pominięciem kwalifikatorów `const` czy `volatile` jeżeli te
+ kwalifikatory zostały podane w definicji typu parametru funkcji.*
+
+{% highlight c++ %}
+{% include_relative arg_type_ref.cc %}
+{% endhighlight %}
+
+### Wskaźnikowy typ parametru funkcji
+
+### Zwykły typ parametru funkcji
+
 ## Wartościowy argument
 
 ## Szablonowy argument
 
-## 
+## Więcej parametrów funkcji
