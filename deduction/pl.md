@@ -109,29 +109,32 @@ konstruktor).  Oto super przykład:
 
 Argumenty szablonu są wnioskowane dla naszej wygody, żeby nie trzeba
 było ich jawnie podawać i nie pomylić się przy okazji.  Kompilator
-wnioskuje argumenty szablonu kiedy kompiluje wywołanie szablonu
-funkcji -- to jest najczęstsze zastosowanie.  Ale te same zasady
+wnioskuje argumenty szablonu kiedy kompiluje wywołanie funkcji
+szablonowej -- to jest najczęstsze zastosowanie.  Ale te same zasady
 wnioskowania są też wykorzystywane kiedy *inicjalizujemy*:
 
 * zmienną typu `auto` na podstawie wyrażenia inicjalizującego
   (np. `auto i = m.find(key);`), gdzie `auto` pełni rolę typowego
-  parametru, którego argument komilator wnioskuje,
+  parametru szablonu jednoparametrowego, którego argument komilator
+  wnioskuje,
 
 * obiekt klasy szablonowej na podstawie argumentów wywołania
   konstruktora (np. `pair p{1, .1};`).
 
-Kiedy kompilator kompiluje wywołanie jakiegoś szablonu funkcji, to
-musi skonkretyzować ten szablon funkcji, czyli wygenerować kod
-szablonu funkcji dla argumentów szablonu.  Jeżeli argumenty szablonu
-nie są jawnie podane, to kompilator musi je wywnioskować, a jeżeli nie
-jest w stanie tego zrobić, to korzysta z domyślnych argumentów, jeżeli
-są.
+Kiedy kompilator kompiluje wywołanie jakiejś funkcji szablonowej, to
+musi skonkretyzować szablon funkcji, czyli wygenerować kod funkcji
+szablonowej na podstawie szablonu funkcji i jego argumentów.  Jeżeli
+argumenty szablonu nie są jawnie podane, to kompilator musi je
+wywnioskować, a jeżeli nie jest w stanie tego zrobić, to korzysta z
+domyślnych argumentów, jeżeli są.
 
-Kompilator wnioskuje argumenty funkcji szablonowej na podstawie:
+Kompilator wnioskuje argumenty szablonu funkcji na podstawie:
 
-* **typów** parametrów funkcji,
+* **typów** parametrów szablonu funkcji,
 
 * **typów** wyrażeń, które są argumentami wyrażenia wywołania.
+
+Kompilator kompiluje taki kod:
 
 ```cpp
 template <lista parametrów szablonu>
@@ -141,11 +144,22 @@ foo(TypParametru t);
 int
 main()
 {
-  foo(expr);
+  foo(wyrażenie);
 }
 ```
 
-Dla każdego rodzaju parametru, kompilator może wnioskować argument.
+Zadaniem kompilatora jest wywnioskować argumenty dla parametrów
+szablonu (tych z `lista parametrów szablonu`) na podstawie
+`TypParametru` i typu wyrażenia `wyrażenie`.
+
+Parametr `t` funkcji `foo` jest typu `TypParametru`.  Typ
+`TypParametru` jest zależy od co najmniej jednego parametru szablonu.
+Sposobów zdefiniowania typu `TypParametru` w zależności od parametrów
+szablonu jest bardzo dużo.  Niżej omówimy najważniejsze sposoby.
+
+Dla każdego **rodzaju** parametru, kompilator może wnioskować
+argument.  Najczęściej chcemy, żeby kompilator wnioskował typowe
+argumenty, ale czasem też argumenty wartościowe czy szablonowe.
 
 ## Typowy argument
 
