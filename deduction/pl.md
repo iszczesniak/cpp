@@ -259,6 +259,6 @@ raz - wydaje się, że kwalifikatory typu (`const` i `volatile`) nie
 miały znaczenia.  Kwalifikatory typu dla parametrów zwykłych typów
 (niereferencyjnych i niewskaźnikowych) mają jedynie znaczenie na
 etapie kompilacji: kompilator ma nie pozwolić na modyfikację parametru
-i nie ma optymalizować odwołań do parametru.  Sygnatury tych funkcji
-nie mają zachowanych kwalifikatorów typu, bo nie mają one znaczenia
-dla kodu wywołującego te funkcje.
+i nie optymalizować odwołań do parametru.  Sygnatury tych funkcji nie
+mają zachowanych kwalifikatorów typu, bo nie mają one znaczenia dla
+kodu wywołującego te funkcje.
