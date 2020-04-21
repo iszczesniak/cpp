@@ -143,7 +143,7 @@ template <parameter list>
 void
 foo(ParameterType t)
 {
-  // Ciało szablonu funkcji.
+  // Body of a function template.
 }
 
 int
