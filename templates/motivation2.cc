@@ -8,6 +8,6 @@ main()
 {
   int a[] = {3, 1, 2};
   sort(begin(a), end(a));
-  for(const auto &e: v)
+  for(const auto &e: a)
     cout << e << endl;
 }
