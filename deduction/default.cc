@@ -1,15 +1,23 @@
-template <int N = 1>
-struct test
-{
-};
+#include <deque>
+#include <iostream>
+#include <vector>
 
-// template <template<int> typename T>
-// void
-// foo(T<> t)
-// {
-// }
+using namespace std;
 
-int main()
+template <template <typename> typename C = std::vector,
+          typename T = int, unsigned I = 10>
+C<T>
+container_factory()
 {
-  //  foo(test<int>{});
+  cout << __PRETTY_FUNCTION__ << endl;
+  return C<T>(I);
+}
+
+int
+main()
+{
+  container_factory();
+  container_factory<std::deque>();
+  container_factory<std::vector, double>();
+  container_factory<std::deque, bool, 1>();
 }

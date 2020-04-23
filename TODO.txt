@@ -1,17 +1,10 @@
+In templates, in the first example, use std::begin instead of v.begin,
+so that we can use also C-style arrays.
+
 Type aliases cannot be specialized.  Use type traits.
 
-Template introduction:
-
-* the example with sorting:
-
-  - sort a vector, an array, a deque,
-
-  - try to sort a list: error, because a list doesn't offer a random
-    access iterator,
-
-  - use the function std::begin, and std::end, because then we can
-    take iterators to C arrays,
-
-  - 
+Injected class names in class templates.
 
 Partial specialization
+
+Tag dispatching
