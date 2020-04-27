@@ -179,8 +179,7 @@ zatem tak:
 ParameterType t = expr;
 ```
 
-Kompilator musi tak (ale nie jakkolwiek, a zgodnie z zasadami
-omówionymi niżej) wywnioskować argumenty szablonu, których parametry
+Kompilator musi tak wywnioskować argumenty szablonu, których parametry
 są użyte w definicji typu `ParameterType`, żeby inicjalizacja była
 możliwa bez konwersji typu.  Może się to okazać niemożliwe, co
 uniemożliwia użycie szablonu.
@@ -225,8 +224,9 @@ funkcji rzeczywiście mógł być zainicjalizowany: jeżeli typ argumentu
 wywołania jest stały (bądź ulotny), to referencja (albo wskaźnik) musi
 być stała (bądź ulotna).
 
-Oto przykład dla typów referencyjnych, gdzie funkcja `foo1` ma trzy
-konkretyzacje, funkcje `foo2` i `foo3` po dwie, a `foo4` jedną:
+Oto przykład dla typów referencyjnych, gdzie funkcja `foo1` została
+skonkretyzowana trzy razy, funkcje `foo2` i `foo3` po dwa razy, a
+`foo4` raz:
 
 {% highlight c++ %}
 {% include_relative arg_type_ref.cc %}
@@ -255,10 +255,92 @@ Przykład:
 {% endhighlight %}
 
 Każda z funkcji w powyższym przykładzie została skonkretyzowana tylko
-raz - wydaje się, że kwalifikatory typu (`const` i `volatile`) nie
-miały znaczenia.  Kwalifikatory typu dla parametrów zwykłych typów
-(niereferencyjnych i niewskaźnikowych) mają jedynie znaczenie na
-etapie kompilacji: kompilator ma nie pozwolić na modyfikację parametru
-i nie optymalizować odwołań do parametru.  Sygnatury tych funkcji nie
-mają zachowanych kwalifikatorów typu, bo nie mają one znaczenia dla
-kodu wywołującego te funkcje.
+raz - wydaje się, że kwalifikatory typu (`const` i `volatile`) podane
+w definicji szablonu nie miały znaczenia.  Kwalifikatory typu dla
+parametrów zwykłych typów (niereferencyjnych i niewskaźnikowych) mają
+jedynie znaczenie na etapie kompilacji: kompilator ma nie pozwolić na
+modyfikację parametru i nie optymalizować odwołań do parametru.  Typy
+tych funkcji nie mają zachowanych kwalifikatorów typu, bo nie mają one
+znaczenia dla kodu wywołującego te funkcje.
+
+### Przekazywanie funkcji
+
+Funkcję (czyli callable) możemy przekazać do funkcji szablonowej
+przez:
+
+* referencję,
+
+* wskaźnik (jak w języku C).
+
+Żeby funkcję przekazać przez referencję, to parametr funkcji
+szablonowej ma mieć typ referencyjny, a dokładnie typ `F &`, gdzie `F`
+jest typowym parametrem szablonu.  Wywnioskowanym argumentem szablonu
+będzie typ przekazywanej funkcji.  Przykład:
+
+{% highlight c++ %}
+{% include_relative foo_ref.cc %}
+{% endhighlight %}
+
+Żeby funkcję przekazać przez wskaźnik, to parametr funkcji szablonowej
+może mieć typ wskaźnikowy, a dokładnie typ `F *`, gdzie `F` jest
+typowym parametrem szablonu.  Wywnioskowanym argumentem szablonu
+będzie typ funkcji.  Przykład:
+
+{% highlight c++ %}
+{% include_relative foo_ptr.cc %}
+{% endhighlight %}
+
+Zamianę nazwy funkcji na wskaźnik do niej nazywamy **rozpadem funkcji
+na wskaźnik** (ang. decay), który pochodzi z języka C.  Z rozpadu
+skorzystaliśmy wyżej podając nazwę funkcji jako argument wywołania
+funkcji szablonowej.
+
+Możemy też zadeklarować zwykły (niereferencyjny i niewskaźnikowy) typ
+parametru funkcji szablonowej, a i tak będziemy mogli przekazać
+wskaźnik na funkcję, bo wtedy wywnioskowanym argumentem szablonu
+będzie typ wskaźnikowy na funkcję.  Przykład:
+
+{% highlight c++ %}
+{% include_relative foo_val.cc %}
+{% endhighlight %}
+
+### Przekazywanie tablic języka C
+
+Tablicę języka C możemy przekazać do funkcji szablonowej przez:
+
+* referencję,
+
+* wskaźnik.
+
+Żeby tablicę przekazać przez referencję, to parametr funkcji
+szablonowej ma mieć typ referencyjny, a dokładnie typ `F &`, gdzie `F`
+jest typowym parametrem szablonu.  Wywnioskowanym argumentem będzie
+typ tablicy.  Przykład:
+
+{% highlight c++ %}
+{% include_relative foo_ref.cc %}
+{% endhighlight %}
+
+Żeby funkcję przekazać przez wskaźnik, to parametr funkcji szablonowej
+ma mieć typ wskaźnikowy, a dokładnie typ `F *`, gdzie `F` jest typowym
+parametrem szablonu.  Wywnioskowanym argumentem będzie typ funkcji.
+Przykład:
+
+{% highlight c++ %}
+{% include_relative foo_ptr.cc %}
+{% endhighlight %}
+
+Jeżeli typem argumentu funkcji szablonowej jest zwykły typ
+(niereferencyjny i niewskaźnikowy), a argumentem wywołania funkcji
+będzie nazwa tablicy, to:
+
+* tablica rozpadnie (ang. decay) się na wskaźnik na pierwszy element
+  tablicy,
+
+* wywnioskowanym argumentem będzie typ wskaźnikowy na element tablicy.
+
+Oto przykład z rozpadem:
+
+{% highlight c++ %}
+{% include_relative foo_val.cc %}
+{% endhighlight %}
