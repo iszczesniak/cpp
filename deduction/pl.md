@@ -321,20 +321,20 @@ typ tablicy.  Przykład:
 {% include_relative car_ref.cc %}
 {% endhighlight %}
 
-Żeby funkcję przekazać przez wskaźnik, to parametr funkcji szablonowej
+Żeby tablicę przekazać przez wskaźnik, to parametr funkcji szablonowej
 ma mieć typ wskaźnikowy, a dokładnie typ `A *`, gdzie `A` jest typowym
-parametrem szablonu.  Wywnioskowanym argumentem będzie typ funkcji.
+parametrem szablonu.  Wywnioskowanym argumentem będzie typ tablicy.
 Przykład:
 
 {% highlight c++ %}
 {% include_relative car_ptr.cc %}
 {% endhighlight %}
 
-Jeżeli typem argumentu funkcji szablonowej jest zwykły typ
+Jeżeli typem parametru funkcji szablonowej jest zwykły typ
 (niereferencyjny i niewskaźnikowy), a argumentem wywołania funkcji
 będzie nazwa tablicy, to:
 
-* tablica rozpadnie (ang. decay) się na wskaźnik na pierwszy element
+* tablica rozpadnie się (ang. decay) na wskaźnik na pierwszy element
   tablicy,
 
 * wywnioskowanym argumentem będzie typ wskaźnikowy na element tablicy.
