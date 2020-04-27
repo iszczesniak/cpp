@@ -269,18 +269,18 @@ Funkcję możemy przekazać do funkcji szablonowej przez:
 
 * referencję,
 
-* wskaźnik (jak w języku C).
+* wskaźnik.
 
-Funkcję możemy przekazać przez referencję używając referencyjnego typu
-parametru funkcji szablonowej, a dokładnie typu `F &`, gdzie `F` jest
-typowym parametrem szablonu.  Wywnioskowanym argumentem szablonu
+Funkcję możemy przekazać przez *referencję* używając referencyjnego
+typu parametru funkcji szablonowej, a dokładnie typu `F &`, gdzie `F`
+jest typowym parametrem szablonu.  Wywnioskowanym argumentem szablonu
 będzie typ przekazywanej funkcji.  Przykład:
 
 {% highlight c++ %}
 {% include_relative foo_ref.cc %}
 {% endhighlight %}
 
-Funkcję możemy przekazać przez wskaźnik używając wskaźnikowego typu
+Funkcję możemy przekazać przez *wskaźnik* używając wskaźnikowego typu
 parametru funkcji szablonowej, a dokładnie typu `F *`, gdzie `F` jest
 typowym parametrem szablonu.  Wywnioskowanym argumentem szablonu
 będzie typ przekazywanej funkcji.  Przykład:
@@ -294,7 +294,7 @@ na wskaźnik** (ang. decay), który pochodzi z języka C.  Z rozpadu
 skorzystaliśmy wyżej podając nazwę funkcji jako argument wywołania
 funkcji szablonowej.
 
-Funkcję możemy także przekazać przez wskaźnik używając zwykłego
+Funkcję możemy także przekazać przez *wskaźnik* używając zwykłego
 (niereferencyjnego i niewskaźnikowego) typu parametru funkcji
 szablonowej, a dokładnie typu `F`, gdzie `F` jest typowym parametrem
 szablonu.  Wtedy wywnioskowanym argumentem szablonu będzie typ
@@ -312,16 +312,16 @@ Tablicę języka C możemy przekazać do funkcji szablonowej przez:
 
 * wskaźnik.
 
-Tablicę możemy przekazać przez referencję używając referencyjnego typu
-parametru funkcji szablonowej, a dokładnie typu `A &`, gdzie `A` jest
-typowym parametrem szablonu.  Wywnioskowanym argumentem będzie typ
-tablicy.  Przykład:
+Tablicę możemy przekazać przez *referencję* używając referencyjnego
+typu parametru funkcji szablonowej, a dokładnie typu `A &`, gdzie `A`
+jest typowym parametrem szablonu.  Wywnioskowanym argumentem będzie
+typ tablicy.  Przykład:
 
 {% highlight c++ %}
 {% include_relative car_ref.cc %}
 {% endhighlight %}
 
-Tablicę możemy przekazać przez wskaźnik używając wskaźnikowego typu
+Tablicę możemy przekazać przez *wskaźnik* używając wskaźnikowego typu
 parametru funkcji szablonowej, a dokładnie typu `A *`, gdzie `A` jest
 typowym parametrem szablonu.  Wywnioskowanym argumentem będzie typ
 tablicy.  Przykład:
@@ -332,7 +332,8 @@ tablicy.  Przykład:
 
 Jeżeli typem parametru funkcji szablonowej jest zwykły typ
 (niereferencyjny i niewskaźnikowy), a argumentem wywołania funkcji
-będzie nazwa tablicy, to:
+będzie nazwa tablicy, to do funkcji zostanie przekazany wskaźnik na
+pierwszy element tablicy (a nie wskaźnik na tablicę), bo:
 
 * tablica rozpadnie się (ang. decay) na wskaźnik na pierwszy element
   tablicy,
