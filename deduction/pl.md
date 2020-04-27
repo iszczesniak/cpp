@@ -265,26 +265,25 @@ znaczenia dla kodu wywołującego te funkcje.
 
 ### Przekazywanie funkcji
 
-Funkcję (czyli callable) możemy przekazać do funkcji szablonowej
-przez:
+Funkcję możemy przekazać do funkcji szablonowej przez:
 
 * referencję,
 
 * wskaźnik (jak w języku C).
 
-Żeby funkcję przekazać przez referencję, to parametr funkcji
-szablonowej ma mieć typ referencyjny, a dokładnie typ `F &`, gdzie `F`
-jest typowym parametrem szablonu.  Wywnioskowanym argumentem szablonu
+Funkcję możemy przekazać przez referencję używając referencyjnego typu
+parametru funkcji szablonowej, a dokładnie typu `F &`, gdzie `F` jest
+typowym parametrem szablonu.  Wywnioskowanym argumentem szablonu
 będzie typ przekazywanej funkcji.  Przykład:
 
 {% highlight c++ %}
 {% include_relative foo_ref.cc %}
 {% endhighlight %}
 
-Żeby funkcję przekazać przez wskaźnik, to parametr funkcji szablonowej
-może mieć typ wskaźnikowy, a dokładnie typ `F *`, gdzie `F` jest
+Funkcję możemy przekazać przez wskaźnik używając wskaźnikowego typu
+parametru funkcji szablonowej, a dokładnie typu `F *`, gdzie `F` jest
 typowym parametrem szablonu.  Wywnioskowanym argumentem szablonu
-będzie typ funkcji.  Przykład:
+będzie typ przekazywanej funkcji.  Przykład:
 
 {% highlight c++ %}
 {% include_relative foo_ptr.cc %}
@@ -295,10 +294,11 @@ na wskaźnik** (ang. decay), który pochodzi z języka C.  Z rozpadu
 skorzystaliśmy wyżej podając nazwę funkcji jako argument wywołania
 funkcji szablonowej.
 
-Możemy też zadeklarować zwykły (niereferencyjny i niewskaźnikowy) typ
-parametru funkcji szablonowej, a i tak będziemy mogli przekazać
-wskaźnik na funkcję, bo wtedy wywnioskowanym argumentem szablonu
-będzie typ wskaźnikowy na funkcję.  Przykład:
+Funkcję możemy także przekazać przez wskaźnik używając zwykłego
+(niereferencyjnego i niewskaźnikowego) typu parametru funkcji
+szablonowej, a dokładnie typu `F`, gdzie `F` jest typowym parametrem
+szablonu.  Wtedy wywnioskowanym argumentem szablonu będzie typ
+wskaźnikowy na funkcję.  Przykład:
 
 {% highlight c++ %}
 {% include_relative foo_val.cc %}
@@ -312,19 +312,19 @@ Tablicę języka C możemy przekazać do funkcji szablonowej przez:
 
 * wskaźnik.
 
-Żeby tablicę przekazać przez referencję, to parametr funkcji
-szablonowej ma mieć typ referencyjny, a dokładnie typ `A &`, gdzie `A`
-jest typowym parametrem szablonu.  Wywnioskowanym argumentem będzie
-typ tablicy.  Przykład:
+Tablicę możemy przekazać przez referencję używając referencyjnego typu
+parametru funkcji szablonowej, a dokładnie typu `A &`, gdzie `A` jest
+typowym parametrem szablonu.  Wywnioskowanym argumentem będzie typ
+tablicy.  Przykład:
 
 {% highlight c++ %}
 {% include_relative car_ref.cc %}
 {% endhighlight %}
 
-Żeby tablicę przekazać przez wskaźnik, to parametr funkcji szablonowej
-ma mieć typ wskaźnikowy, a dokładnie typ `A *`, gdzie `A` jest typowym
-parametrem szablonu.  Wywnioskowanym argumentem będzie typ tablicy.
-Przykład:
+Tablicę możemy przekazać przez wskaźnik używając wskaźnikowego typu
+parametru funkcji szablonowej, a dokładnie typu `A *`, gdzie `A` jest
+typowym parametrem szablonu.  Wywnioskowanym argumentem będzie typ
+tablicy.  Przykład:
 
 {% highlight c++ %}
 {% include_relative car_ptr.cc %}
