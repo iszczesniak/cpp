@@ -13,7 +13,7 @@ foo(A *a)
 
   // I thought the following should not compile, but it does.  I hoped
   // to get an error or at least a warning, because the compiler knows
-  // the function is instantiated for this type: int (&)[3]
+  // the function is instantiated for this type: int (*)[3]
 
   // cout << a[3] << endl;
 }

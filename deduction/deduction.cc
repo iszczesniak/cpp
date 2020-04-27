@@ -17,9 +17,9 @@ void foo(T *t)
 int
 main()
 {
-  int *p;
+  int *p = nullptr;
   foo<int>(p);
 
-  int i;
+  int i = 0;
   foo<int>(i);
 }
