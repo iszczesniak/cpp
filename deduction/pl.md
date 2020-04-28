@@ -117,6 +117,10 @@ wnioskowania są też wykorzystywane kiedy *inicjalizujemy*:
   (np. `auto i = m.find(key);`), gdzie `auto` pełni rolę typowego
   parametru szablonu, którego argument kompilator wnioskuje,
 
+* wynik typu `auto` zwracany przez funkcję, który jest inicjalizowany
+  na podstawie wyrażenia zdania `return`, gdzie `auto` pełni rolę
+  typowego parametru szablonu, którego argument kompilator wnioskuje,
+
 * obiekt klasy szablonowej na podstawie argumentów wywołania
   konstruktora (np. `pair p{1, .1};`).
 
@@ -131,8 +135,7 @@ Kompilator wnioskuje argumenty szablonu funkcji na podstawie:
 
 * **typów** parametrów szablonu funkcji,
 
-* **typów** argumentów funkcji szablonowej, czyli wyrażeń, które są
-  argumentami wywołania funkcji szablonowej.
+* **typów** argumentów wywołania funkcji szablonowej.
 
 ## Najprostszy przypadek
 
@@ -200,6 +203,12 @@ możliwa bez konwersji typu.
 Dla każdego **rodzaju** parametru szablonu, kompilator może wnioskować
 argument.  Najczęściej chcemy, żeby kompilator wnioskował typowe
 argumenty, ale czasem też argumenty wartościowe czy szablonowe.
+
+Wnioskowanie typowych argumentów szablonu jest najbardziej złożone (w
+porównaniu do wartościowych i szablonowych argumentów szablonu), bo
+uwzględnia inicjalizowanie zmiennych referencyjnych i wskaźnikowych,
+które są parametrami funkcji szablonowej.  Co więcej, argumentami
+wywołania funkcji mogą być
 
 ## Typowy argument
 
@@ -345,3 +354,4 @@ Oto przykład z rozpadem:
 {% highlight c++ %}
 {% include_relative foo_val.cc %}
 {% endhighlight %}
+
