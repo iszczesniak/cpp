@@ -117,12 +117,13 @@ wnioskowania są też wykorzystywane kiedy *inicjalizujemy*:
   (np. `auto i = m.find(key);`), gdzie `auto` pełni rolę typowego
   parametru szablonu, którego argument kompilator wnioskuje,
 
-* wynik typu `auto` zwracany przez funkcję, który jest inicjalizowany
-  na podstawie wyrażenia zdania `return`, gdzie `auto` pełni rolę
-  typowego parametru szablonu, którego argument kompilator wnioskuje,
+* wynik typu `auto` zwracany przez funkcję na podstawie wyrażenia
+  zdania `return`, gdzie `auto` pełni rolę typowego parametru
+  szablonu, którego argument kompilator wnioskuje,
 
 * obiekt klasy szablonowej na podstawie argumentów wywołania
-  konstruktora (np. `pair p{1, .1};`).
+  konstruktora (np. `pair p{1, .1};`), gdzie kompilator wnioskuje
+  wymagane argumenty szablonu klasy.
 
 Kiedy kompilator kompiluje wywołanie jakiejś **funkcji szablonowej**,
 to musi skonkretyzować **szablon funkcji**, czyli wygenerować kod
@@ -205,10 +206,13 @@ argument.  Najczęściej chcemy, żeby kompilator wnioskował typowe
 argumenty, ale czasem też argumenty wartościowe czy szablonowe.
 
 Wnioskowanie typowych argumentów szablonu jest najbardziej złożone (w
-porównaniu do wartościowych i szablonowych argumentów szablonu), bo
-uwzględnia inicjalizowanie zmiennych referencyjnych i wskaźnikowych,
-które są parametrami funkcji szablonowej.  Co więcej, argumentami
-wywołania funkcji mogą być
+porównaniu do wartościowych i szablonowych argumentów szablonu), bo:
+
+* uwzględnia różne typy parametrów funkcji szablonowej: zwykłe,
+  referencyjne i wskaźnikowe,
+
+* uwzględnia różne typy argumentów wywołania funkcji: wbudowane
+  (np. `int`), funkcyjne i tablicowe.
 
 ## Typowy argument
 
