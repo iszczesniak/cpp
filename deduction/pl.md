@@ -361,10 +361,14 @@ Oto przykład z rozpadem:
 
 ## Wartościowy argument
 
-Wartościowy argument jest wnioskowany tylko na podstawie typu
-argumentu wywołania funkcji.  Częścią typu argumentu wywołania funkcji
-jest wartość, która jest wywnioskowanym wartościowym argumentem.
-Typami argumentu wywołania funkcji może być:
+Wartościowy argument szablonu jest wnioskowany tylko na podstawie typu
+argumentu wywołania funkcji szablonowej, z którego można ten argument
+wywnioskować.  Częścią typu argumentu wywołania funkcji musi być pewna
+wartość, którą potrzebujemy, i która staje się wywnioskowanym
+wartościowym argumentem.
+
+Jedynymi typami argumentu wywołania funkcji szablonowej, na podstawie
+których możemy wywnioskować wartościowy argument szablonu, to:
 
 * typ tablicy języka C,
 
@@ -380,8 +384,16 @@ Oto przykład:
 
 ### Dowolny typ szablonowy
 
-Oto przykład, gdzie typ `std::size_t` wartości parametru `I` musi się
-zgadzać z typem wartości typu szablonowego `std::array`:
+Typy wartościowych parametrów obu szablonów muszą się zgadzać, gdzie:
+
+* jeden szablon to szablon funkcji (albo typu), który implementujemy,
+którego wartościowy parametr ma mieć wywnioskowany argument,
+
+* drugi szablon to szablon typu, którego jest wyrażenie wywołania
+funkcji.
+
+Na przykład, wartościowy parametr `I` musi mieć typ `std::size_t`, bo
+takiego typu jest wartościowy parametr typu szablonowego `std::array`:
 
 {% highlight c++ %}
 {% include_relative array.cc %}
