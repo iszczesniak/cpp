@@ -389,7 +389,7 @@ Typy wartościowych parametrów obu szablonów muszą się zgadzać, gdzie:
 * jeden szablon to szablon funkcji (albo typu), który implementujemy,
 którego wartościowy parametr ma mieć wywnioskowany argument,
 
-* drugi szablon to szablon typu, którego jest wyrażenie wywołania
+* drugi szablon to szablon typu, którego jest argument wywołania
 funkcji.
 
 Na przykład, wartościowy parametr `I` musi mieć typ `std::size_t`, bo
