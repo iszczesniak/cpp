@@ -1,17 +1,15 @@
-template <typename T>
-void
-foo(T (&&t)[4])
-{
-}
+#include <iostream>
 
-template <unsigned I>
+template <typename T, unsigned I>
 void
-foo(int (&&t)[I])
+foo(const T (&)[I])
 {
+  std::cout << "The array has " << I << " elements.\n";
 }
 
 int
 main()
 {
+  foo({"Hello ", "World!"});
   foo({1, 2, 3, 4, 5});
 }
