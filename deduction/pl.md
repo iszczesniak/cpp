@@ -420,4 +420,4 @@ funkcji.
 
 Szablonowy parametr szablonu pozwala na przyjęcie argumentu wywołania
 funkcji, który jest typu szablonowego i jednoczesne wywnioskowanie
-argumentów jego szablonowego typu.
+argumentów tego typu szablonowego.
