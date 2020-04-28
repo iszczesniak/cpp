@@ -427,7 +427,7 @@ funkcji.
 {% include_relative template2.cc %}
 {% endhighlight %}
 
-# Wiele argumentów wywołania
+# Wiele parametrów funkcji szablonowej
 
 W przykładach wyżej używaliśmy tylko jednego parametru funkcji
 szablonowej, więc parametry szablonu mogły być użyte w co najwyżej
