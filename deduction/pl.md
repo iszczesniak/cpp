@@ -398,3 +398,30 @@ takiego typu jest wartościowy parametr typu szablonowego `std::array`:
 {% highlight c++ %}
 {% include_relative array.cc %}
 {% endhighlight %}
+
+## Szablonowy argument
+
+Zwykła sprawa:
+
+* deklarujemy szablonowy parametr szablonu,
+
+* deklarujemy parametry szablonu, które będą jawnymi argumentami
+  szablonowego parametru szablonu.
+
+Oto przykład:
+
+{% highlight c++ %}
+{% include_relative template.cc %}
+{% endhighlight %}
+
+A to prostszy przykład, gdzie jawnie podaliśmy argument (`int`)
+szablonowego parametru szablonu `C`, który jest typem parametru
+funkcji.
+
+{% highlight c++ %}
+{% include_relative template2.cc %}
+{% endhighlight %}
+
+Szablonowy parametr szablonu pozwala nam na przyjęcie argumentu
+wywołania funkcji, który jest typu szablonowego i jednoczesne
+wywnioskowanie jego argumentów.
