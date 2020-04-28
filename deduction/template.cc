@@ -1,3 +1,4 @@
+#include <iostream>
 #include <set>
 #include <vector>
 
@@ -7,6 +8,7 @@ template <template <typename> typename C, typename T>
 void
 foo(const C<T> &c)
 {
+  cout << __PRETTY_FUNCTION__ << endl;
 }
 
 int

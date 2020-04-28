@@ -7,6 +7,7 @@ template <template <typename, std::size_t> typename C, std::size_t I>
 void
 foo(const C<int, I> &c)
 {
+  cout << __PRETTY_FUNCTION__ << endl;
   cout << "Got " << I << " elements\n";
 }
 

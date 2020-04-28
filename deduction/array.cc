@@ -7,6 +7,7 @@ template <typename T, std::size_t I>
 void
 foo(const array<T, I> &)
 {
+  cout << __PRETTY_FUNCTION__ << endl;
   cout << "The array has " << I << " elements.\n";
 }
 
