@@ -401,6 +401,15 @@ takiego typu jest wartościowy parametr typu szablonowego `std::array`:
 
 ## Szablonowy argument
 
+*Typowy parametr szablonu* pozwala na przyjęcie przez funkcję
+szablonową argumentu wywołania, który jest typu szablonowego, ale nie
+jesteśmy w stanie określić, jakie były argumenty tego typu
+szablonowego.
+
+*Szablonowy parametr szablonu* pozwala na przyjęcie przez funkcję
+szablonową argumentu wywołania, który jest typu szablonowego i
+jednoczesne wywnioskowanie argumentów tego typu szablonowego.
+
 Zwykła sprawa: wywnioskowanym typem jest typ argumentu wywołania
 funkcji.
 
@@ -418,6 +427,25 @@ funkcji.
 {% include_relative template2.cc %}
 {% endhighlight %}
 
-Szablonowy parametr szablonu pozwala na przyjęcie argumentu wywołania
-funkcji, który jest typu szablonowego i jednoczesne wywnioskowanie
-argumentów tego typu szablonowego.
+# Wiele argumentów wywołania
+
+W przykładach wyżej używaliśmy tylko jednego parametru funkcji
+szablonowej, więc parametry szablonu mogły być użyte w co najwyżej
+jednej definicji typu parametru funkcji szablonowej.  Parametrów
+funkcji szablonowej może być jednak dowolna liczba, a parametr
+szablonu może być użyty w dowolnej liczbie definicji typów parametrów
+funkcji szablonowej.  Jak wtedy wnioskowane są argumenty szablonu?
+
+Wtedy wnioskowanie argumentów szablonu odbywa się niezależnie dla
+każdej pary parametru funkcji i argumentu wywołania.  Dla każdej pary
+wnioskowane są argumenty dla parametrów, które zostały użyte w
+definicji typu tego parametru funkcji.  Jeżeli jakiś argument został
+wywnioskowany więcej niż raz (czyli dla różnych par), to musiał on
+zostać wywnioskowany zawsze tak samo, w przeciwnym razie wnioskowanie
+nie udaje się.
+
+W poniższym przykładzie wnioskowanie nie udaje się:
+
+{% highlight c++ %}
+{% include_relative fail.cc %}
+{% endhighlight %}
