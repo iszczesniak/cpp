@@ -359,3 +359,30 @@ Oto przykład z rozpadem:
 {% include_relative foo_val.cc %}
 {% endhighlight %}
 
+## Wartościowy argument
+
+Wartościowy argument jest wnioskowany tylko na podstawie typu
+argumentu wywołania funkcji.  Częścią typu argumentu wywołania funkcji
+jest wartość, która jest wywnioskowanym wartościowym argumentem.
+Typami argumentu wywołania funkcji może być:
+
+* typ tablicy języka C,
+
+* dowolny typ szablonowy.
+
+### Typ tablicy języka C
+
+Oto przykład:
+
+{% highlight c++ %}
+{% include_relative carray.cc %}
+{% endhighlight %}
+
+### Dowolny typ szablonowy
+
+Oto przykład, gdzie typ `std::size_t` wartości parametru `I` musi się
+zgadzać z typem wartości typu szablonowego `std::array`:
+
+{% highlight c++ %}
+{% include_relative array.cc %}
+{% endhighlight %}
