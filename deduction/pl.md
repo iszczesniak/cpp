@@ -410,7 +410,7 @@ Oto przykład:
 {% include_relative template.cc %}
 {% endhighlight %}
 
-A to prostszy przykład, gdzie jawnie podaliśmy argument (`int`)
+A to inny przykład, gdzie jawnie podaliśmy argument (`int`)
 szablonowego parametru szablonu `C`, który jest typem parametru
 funkcji.
 
