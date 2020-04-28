@@ -401,12 +401,8 @@ takiego typu jest wartościowy parametr typu szablonowego `std::array`:
 
 ## Szablonowy argument
 
-Zwykła sprawa:
-
-* deklarujemy szablonowy parametr szablonu,
-
-* deklarujemy parametry szablonu, które będą jawnymi argumentami
-  szablonowego parametru szablonu.
+Zwykła sprawa: wywnioskowanym typem jest typ argumentu wywołania
+funkcji.
 
 Oto przykład:
 
@@ -422,6 +418,6 @@ funkcji.
 {% include_relative template2.cc %}
 {% endhighlight %}
 
-Szablonowy parametr szablonu pozwala nam na przyjęcie argumentu
-wywołania funkcji, który jest typu szablonowego i jednoczesne
-wywnioskowanie jego argumentów.
+Szablonowy parametr szablonu pozwala na przyjęcie argumentu wywołania
+funkcji, który jest typu szablonowego i jednoczesne wywnioskowanie
+argumentów jego szablonowego typu.

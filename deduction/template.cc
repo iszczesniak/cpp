@@ -12,6 +12,6 @@ foo(const C<T> &c)
 int
 main()
 {
-    foo(set{1, 2, 3});
+    foo(set{"Hello", "World"});
     foo(vector{1, 2, 3});
 }
