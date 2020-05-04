@@ -356,7 +356,7 @@ pierwszy element tablicy (a nie wskaźnik na tablicę), bo:
 Oto przykład z rozpadem:
 
 {% highlight c++ %}
-{% include_relative foo_val.cc %}
+{% include_relative car_val.cc %}
 {% endhighlight %}
 
 ## Wartościowy argument
