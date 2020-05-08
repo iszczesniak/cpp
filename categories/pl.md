@@ -23,28 +23,37 @@ Wartość wyrażenia ma:
 
 * kategorię (np. l-wartość, r-wartość) znaną w czasie kompilacji.
 
-## History: CPL, C, C++98
+Możemy mówić o **kategorii wartości wyrażenia**, albo w skrócie o
+**kategorii wyrażenia**.
 
-Two expression categories introduced in the CPL language (about half a
-century ago) were:
+## Historia: CPL, C, C++98
 
-* **lvalue**: ``left of assignment'' value, i.e., any expression that
-    can go on the left of the assignment operator is an lvalue,
+Język CPL (około pół wieku temu) wprowadził dwie kategorie wartości
+wyrażenia:
 
-* **rvalue**: ``right of assignment'' value, i.e., any expression that
-    can go on the right of the assignment operator is an rvalue.
+* **l-wartość**: kategoria ``na lewo od operatora przypisania'', czyli
+    wyrażenie, któremu można coś przypisać,
 
-CPL defined the lvalue and rvalue categories in relation to the
-assignment operator.  These definitions are only of historical
-importance, and do not apply to C++.
+* **r-wartość**: kategoria ``na prawo od operatora przypisania'',
+    czyli wyrażenie, które można przypisać.
 
-In C, expressions are either lvalues (for **locator** value; a locator
-is something that locates (points to) the value, e.g., the name of a
-variable).  In C, a **non-lvalue** is an expression that is not an
-lvalue.  There is no rvalue in C!
+Język CPL zdefiniował kategorie wyrażeń w odniesieniu do operatora
+przypisania.  Te definicje mają jedynie znaczenie historyczne i nie są
+stosowane w C++.
 
-C++98 adopted lvalues from C, and named the expressions that are not
-an lvalue as an **rvalue**.
+W języku C, wyrażenie jest albo l-wartością, gdzie "l" pochodzi od
+"locator", czyli czegoś, co lokalizuje (wskazuje) miejsce wartości
+wyrażenia.  W języku C, **non-lvalue** jest wyrażeniem, które nie jest
+kategorii l-wartość.  W języku C nie ma pojęcia r-wartości!
+
+C++98 przyjął termin i definicję l-wartości z języka C, a wyrażenia,
+które nie są l-wartością, nazwał **r-wartością**.
+
+Wyrażenie, które jest:
+
+* kategorii l-wartość nazywamy w skrócie l-wartością,
+
+* kategorii r-wartość nazywamy w skrócie r-wartością.
 
 # Details
 
