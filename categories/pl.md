@@ -1,28 +1,27 @@
 ---
-title: Expression categories
+title: Kategorie wartości wyrażeń
 ---
 
-# Introduction
+# Wprowadzenie
 
-## The value of an expression
+## Wartość wyrażenia
 
-An expression can be:
+Wyrażenie może być:
 
-* a literal: `3.14`,
-* a variable: `x`,
-* an operator with operands: `x + y`,
-* a function call: `foo(x)`.
+* literałem: `3.14`,
+* zmienną: `x`,
+* operatorem z operandami: `x + y`,
+* wywołaniem funkcji: `foo(x)`.
 
-**The value of an expression** is the result of evaluating an
-  expression.
+**Wartość wyrażenia** jest wynikiem opracowania wyrażenia.
 
-The value of an expression has:
+Wartość wyrażenia ma:
 
-* a type (e.g., `int`, `bool`, `class A`) known at compile time,
+* typ (np. `int`, `bool`, `class A`) znany w czasie kompilacji,
 
-* a value of the type (e.g., `5`, `false`, `A()`) known at run time,
+* wartość typu (np. `5`, `false`, `A()`) znaną w czasie uruchomienia,
 
-* a category (e.g., lvalue, rvalue) known at compile time.
+* kategorię (np. l-wartość, r-wartość) znaną w czasie kompilacji.
 
 ## History: CPL, C, C++98
 
