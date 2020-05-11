@@ -46,36 +46,31 @@ W języku C, wyrażenie jest albo l-wartością, gdzie "l" pochodzi od
 wyrażenia.  W języku C, **non-lvalue** jest wyrażeniem, które nie jest
 kategorii l-wartość.  W języku C nie ma pojęcia r-wartości!
 
-C++98 przyjął termin i definicję l-wartości z języka C, a wyrażenia,
-które nie są l-wartością, nazwał **r-wartością**.
+C++98 przyjął termin i definicję l-wartości z języka C, a wyrażenie,
+które nie jest l-wartością, nazwał **r-wartością**.
 
-Wyrażenie, które jest:
+# Szczegóły
+
+## Kategorie wyrażeń
+
+W C++, dwiema najważniejszymi kategoriami wyrażeń są l-wartość i
+r-wartość.  Wyrażenie, które jest:
 
 * kategorii l-wartość nazywamy w skrócie l-wartością,
 
 * kategorii r-wartość nazywamy w skrócie r-wartością.
 
-# Details
+Kategoria wyrażenia określa, co możemy zrobić z wyrażeniem.  Pewne
+operacje możemy wykonać wyłącznie na l-wartości (np. `&x`, czyli
+pobranie adresu zmiennej `x`), inne operacje wyłącznie na r-wartości.
 
-## Category of an expression
+Przykładowe operacje na wyrażeniu `<expr>`:
 
-In C++, the two most important categories of an expression are: the
-lvalue category and the rvalue category.  In short, an lvalue is an
-expression of the lvalue category, and an rvalue is an expression of
-the rvalue category.
-
-The expression category determines what we can do with the expression.
-Some operations we can do only with an lvalue (e.g., `&x`, i.e.,
-taking the address of variable `x`), other operations only with an
-rvalue.
-
-Example operations for expression `<expr>`:
-
-* assign: `<expr> = 1`
-* initialize reference: `<reference type> y = <expr>`
-* take the address: `&<expr>`
-* dereference: `*<expr>`
-* increment: `++<expr>`, `<expr>++`
+* przypisanie: `<expr> = 1`
+* inicjalizacja referencji: `<reference type> y = <expr>`
+* pobranie adresu: `&<expr>`
+* wyłuskanie: `*<expr>`
+* inkrementacja: `++<expr>`, `<expr>++`
 
 ## The definitions of lvalues and rvalues
 
