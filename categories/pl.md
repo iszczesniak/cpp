@@ -114,7 +114,7 @@ Standard C++ nie podaje zwięzłej definicji, ale poniższa obserwacja
 
 **Obserwacja**: Jeżeli `&<expr>` kompiluje się, to `<expr>` jest
 l-wartością.  Czyli wyrażenie jest l-wartością, jeżeli możemy pobrać
-jej adres.
+jego adres.
 
 Najważniejszym przypadkiem tej obserwacji jest `&x`, gdzie `x` jest
 nazwą zmiennej.  **Wyrażenie z nazwą zmiennej jest l-wartością.**
