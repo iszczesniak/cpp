@@ -194,39 +194,37 @@ niżej:
 {% include_relative conversion3.cc %}
 {% endhighlight %}
 
-## Example of the increment operator
+## Przykład z operatorem inkrementacji
 
-The increment operator (i.e., the `++` operator) requires an lvalue as
-its operand.  This requirement applies to both the prefix and the
-suffix versions of the operator.
+Operator inkrementacji (czyli `++`) wymaga l-wartości jako operandu.
+Wymóg ten dotyczy wersji prefiksowej i sufiksowej operatora.
 
 {% highlight c++ %}
 {% include_relative increment1.cc %}
 {% endhighlight %}
 
-The expression of the increment operator is:
+Wyrażenie operatora inkrementacji jest:
 
-* an **lvalue** for the **prefix** version of the operator, i.e., the
-  `++<expr>` is an lvalue, because the prefix increment operator
-  returns a reference to the just-incremented object it got as an
-  operand,
+* **l-wartością** w przypadku wersji prefiksowej, czyli wyrażenie
+  `++<expr>` jest l-wartością, bo zwracana jest referencja na daną,
+  która została przekazana operatorowi, i która właśnie została
+  zwiększona,
 
-* an **rvalue** for the **suffix** version of the operator, i.e., the
-  `<expr>++` is an rvalue, because the suffix increment operator
-  returns a temporary copy (which is an rvalue) of the object is got
-  as an operand.
+* **r-wartością** w przypadku wersji sufiksowej, czyli wyrażenie
+  `<expr>++` jest r-wartością, bo operator sufiksowy zwraca daną
+  tymczasową (a ta jest r-wartością), która jest kopią danej
+  przekazanej operatorowi.
 
-Therefore `++++x` compiles, and `x++++` doesn't.
+Dlatego `++++x` kompiluje się, a `x++++` nie.
 
 {% highlight c++ %}
 {% include_relative increment2.cc %}
 {% endhighlight %}
 
-As a side note, the prefix increment operator has the right-to-left
-associativity, while the suffix increment operator has the
-left-to-right associativity.
+Tak przy okazji, wersja prefiksowa ma wiązanie od prawej do lewej, a
+wersja sufiksowa od lewej do prawej.
 
-The same applies to the decrement operator.
+To samo dotyczy operatora dekrementacji.
 
 ## Temporary objects
 
