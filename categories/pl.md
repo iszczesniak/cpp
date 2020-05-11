@@ -53,9 +53,6 @@ wyrażenia:
   czyli wyrażenie, które **nie może** znaleźć sie po lewej stronie
   operatora przypisania: **nie można mu przypisać innego wyrażenia**.
 
-Zarówno wyrażenie kategorii l-wartość, jak i r-wartość, może być
-przypisane innemu wyrażeniu.
-
 Język CPL zdefiniował kategorie wyrażeń w odniesieniu do operatora
 przypisania.  Te definicje mają jedynie znaczenie historyczne i nie są
 stosowane w C++.
@@ -132,10 +129,10 @@ Przykłady l-wartości:
 * wynik prefiksowego operatora inkrementacji: `++i`
 
 Definicja l-wartości jako wyrażenia, które może znaleźć się po lewej
-stronie operatora przypisania nie ma zastosowania w C++.  W poniższym
-przykładzie nie możemy użyć l-wartości po lewej stronie operatora
-przypisania (a niby powinniśmy móc zgodnie z definicją), bo jest ona
-stała:
+stronie operatora przypisania (czyli może też po prawej) nie ma
+zastosowania w C++.  W poniższym przykładzie nie możemy użyć
+l-wartości po lewej stronie operatora przypisania (a niby powinniśmy
+móc zgodnie z definicją), bo jest ona stała:
 
 {% highlight c++ %}
 {% include_relative wrong-lvalue.cc %}
@@ -154,11 +151,11 @@ Przykładami r-wartości są:
 * wywołanie funkcji: `foo()`, jeżeli `int foo();`
 
 Definicja r-wartości jako wyrażenia, które nie może znaleźć się po
-lewej stronie operatora przypisania (czyli musi być po prawej
-stronie), nie ma zastosowania w C++.  R-wartości możemy coś przypisać,
-jak pokazuje poniższy przykład. `A()` jest wartością (bo tworzy obiekt
-tymczasowy) i możemy mu przypisać `1`, bo zdefiniowaliśmy taki
-operator przypisania w strukturze `A`:
+lewej stronie operatora przypisania (czyli musi po prawej), nie ma
+zastosowania w C++.  R-wartości możemy coś przypisać, jak pokazuje
+poniższy przykład. `A()` jest wartością (bo tworzy obiekt tymczasowy)
+i możemy mu przypisać `1`, bo zdefiniowaliśmy taki operator
+przypisania w strukturze `A`:
 
 {% highlight c++ %}
 {% include_relative left-rvalue.cc %}
