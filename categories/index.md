@@ -4,6 +4,19 @@ title: Expression categories
 
 # Introduction
 
+Expression categories are fundamental, yet difficult to understand.
+It's all about the details of the **lvalues** and **rvalues**, about
+which we don't think in our daily programming.
+
+To understand the meaning of the lvalues and rvalues, it's best to go
+through this text, without searching for some deeper meaning at this
+time.  Similar advice got Alice from Humpty Dumpty in the novel
+"Through the Looking-Glass" by Lewis Carroll:
+
+> “Must a name mean something?” Alice asks Humpty Dumpty, only to get
+> this answer: “When I use a word... it means just what I choose it to
+> mean – neither more nor less.”
+
 ## The value of an expression
 
 An expression can be:
@@ -71,9 +84,9 @@ Example operations for expression `<expr>`:
 
 ## The definitions of lvalues and rvalues
 
-It is difficult to find a concise and correct definition of lvalues
-and rvalues in C++.  The C++ standard, which has about 1500 pages,
-defines them is various places, as needed, all over the document.
+You can look in vain for a concise and correct definition of lvalues
+and rvalues in the C++ standard.  The C++ standard, which has about
+1500 pages, defines them partially is various places, as needed.
 
 Furthermore, in modern C++ new expression categories were introduced:
 prvalue, glvalue, and xvalue.  However, the most important categories

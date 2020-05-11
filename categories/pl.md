@@ -4,6 +4,20 @@ title: Kategorie wartości wyrażeń
 
 # Wprowadzenie
 
+Kategorie wartości wyrażeń to podstawa, ale trudno je zrozumieć.
+Chodzi o szczegóły dotyczące **l-wartości** i **r-wartości**, które w
+codziennym programowaniu uchodzą naszej uwadze.
+
+Żeby łatwiej zrozumieć znaczenie terminów l-wartości i r-wartości
+proponuję szczegółowo przyswoić ten materiał, bez poszukiwania
+głębszego sensu na tym etapie.  Jest to podobna rada, jaką Alicja
+otrzymała od Humpty Dumpty w powieści "Po drugiej strony lustra"
+autorstwa Lewisa Carrolla:
+
+> “Must a name mean something?” Alice asks Humpty Dumpty, only to get
+> this answer: “When I use a word... it means just what I choose it to
+> mean – neither more nor less.”
+
 ## Wartość wyrażenia
 
 Wyrażenie może być:
@@ -72,23 +86,26 @@ Przykładowe operacje na wyrażeniu `<expr>`:
 * wyłuskanie: `*<expr>`
 * inkrementacja: `++<expr>`, `<expr>++`
 
-## The definitions of lvalues and rvalues
+## Definicje l-wartości i r-wartości
 
-It is difficult to find a concise and correct definition of lvalues
-and rvalues in C++.  The C++ standard, which has about 1500 pages,
-defines them is various places, as needed, all over the document.
+Na próżno szukać w standarcie C++ zwięzłej i poprawnej definicji
+l-wartości i r-wartości.  Standard C++, który ma około 1500 stron,
+definiuje po trochu te kategorie w różnych miejscach, według potrzeby.
 
-Furthermore, in modern C++ new expression categories were introduced:
-prvalue, glvalue, and xvalue.  However, the most important categories
-are still lvalue, and rvalue.
+Na domiar tych trudności, w C++17 wprowadzono kolejne kategorie:
+pr-wartość, gl-wartość i x-wartość.  Jednak dwiema podstawowymi
+kategoriami są l-wartość i r-wartość i tylko nimi będziemy się
+zajmować.
 
-We need to learn the details of the lvalue and rvalue categories to
-understand and efficiently use the modern C++.  For instance, the
-following is a statement from <http://cppreference.com>, which is hard
-to understand without knowing the lvalue and rvalue details:
+Trzeba poznać szczegóły l-wartości i r-wartości, żeby zrozumieć i
+wydajnie używać nowoczesny C++ (chociaż też bez nich można jakoś się
+obejść po omacku).  Na przykład, nie sposób zrozumieć poniższego
+zdania pochodzącego z <http://cppreference.com> bez szczegółowej
+wiedzy na temat kategorii wyrażeń:
 
-> Even if the variable's type is an *rvalue reference*, the expression
-> consisting of its name is an *lvalue expression*.
+> Nawet jeżeli typem zmiennej jest referencja typu r-wartość
+> (r-referencja), to wyrażenie składające się z nazwy tej zmiennej
+> jest l-wartością.
 
 ## The lvalue category
 
