@@ -112,7 +112,7 @@ wiedzy na temat kategorii wyrażeń:
 Standard C++ nie podaje zwięzłej definicji, ale poniższa obserwacja
 (nie definicja) wydaje się sprawdzać.
 
-Obserwacja: Jeżeli `&<expr>` kompiluje się, to `<expr>` jest
+**Obserwacja**: Jeżeli `&<expr>` kompiluje się, to `<expr>` jest
 l-wartością.  Czyli wyrażenie jest l-wartością, jeżeli możemy pobrać
 jej adres.
 
