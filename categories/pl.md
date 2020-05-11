@@ -107,30 +107,29 @@ wiedzy na temat kategorii wyrażeń:
 > (r-referencja), to wyrażenie składające się z nazwy tej zmiennej
 > jest l-wartością.
 
-## The lvalue category
+## L-wartość
 
-It's hard to find a succinct definition in the C++ standard of the
-lvalue category, because the meaning of the lvalue category is spread
-all over the standard.  But the following is a good description of the
-lvalue category.
+Standard C++ nie podaje zwięzłej definicji, ale poniższa obserwacja
+wydaje się sprawdzać.
 
-If `&<expr>` compiles, then `<expr>` is an lvalue.  That is, if we can
-take the address of an expression, then this expression is an lvalue.
+Jeżeli `&<expr>` kompiluje się, to `<expr>` jest l-wartością.  Czyli
+wyrażenie jest l-wartością, jeżeli możemy pobrać jej adres.
 
-**An expression with a variable name (e.g., `x`) is always an
-  lvalue.**
+Najważniejszym przypadkiem tej obserwacji jest `&x`, gdzie `x` jest
+nazwą zmiennej.  **Wyrażenie z nazwą zmiennej jest l-wartością.**
 
-The examples of lvalues are:
+Przykłady l-wartości:
 
-* the name of a variable: `x`
-* the name of a function: `foo`
-* a string literal: `"Hello World!"`
-* the results of the prefix incrementation: `++i`
+* nazwa zmiennej: `x`
+* nazwa funkcji: `foo`
+* ciąg znaków: `"Hello World!"`
+* wynik prefiksowego operatora inkrementacji: `++i`
 
-The definition of the lvalue that anything that can go on the left of
-the assignment operator is an lvalue does not apply to C++.  You can
-have an lvalue on the left of the assignment operator, and the code
-will not compile:
+Definicja l-wartości jako czegoś, co może znaleźć się po lewej stronie
+operatora przypisania nie ma zastosowania w C++.  W poniższym
+przykładzie nie możemy użyć l-wartości po lewej stronie operatora
+przypisania (a niby powinniśmy móc zgodnie z definicją), bo jest ona
+stała:
 
 {% highlight c++ %}
 {% include_relative wrong-lvalue.cc %}

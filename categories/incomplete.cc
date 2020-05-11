@@ -3,6 +3,7 @@ class B;
 B &
 boo()
 {
+  return *static_cast<B *>(0);
 }
 
 int main()
