@@ -47,11 +47,11 @@ wyrażenia:
 
 * **l-wartość**: kategoria ``na lewo od operatora przypisania'', czyli
   wyrażenie, które **może** znaleźć się po lewej stronie operatora
-  przypisania: *można mu przypisać inne wyrażenie*,
+  przypisania: **można mu przypisać inne wyrażenie**,
 
 * **r-wartość**: kategoria ``na prawo od operatora przypisania'',
-  czyli wyrażenie, które *nie może* znaleźć sie po lewej stronie
-  operatora przypisania: *nie można mu przypisać innego wyrażenia*.
+  czyli wyrażenie, które **nie może** znaleźć sie po lewej stronie
+  operatora przypisania: **nie można mu przypisać innego wyrażenia**.
 
 Zarówno wyrażenie kategorii l-wartość, jak i r-wartość, może być
 przypisane innemu wyrażeniu.
