@@ -46,10 +46,15 @@ Język CPL (około pół wieku temu) wprowadził dwie kategorie wartości
 wyrażenia:
 
 * **l-wartość**: kategoria ``na lewo od operatora przypisania'', czyli
-    wyrażenie, któremu można coś przypisać,
+  wyrażenie, które **może** znaleźć się po lewej stronie operatora
+  przypisania: *można mu przypisać inne wyrażenie*,
 
 * **r-wartość**: kategoria ``na prawo od operatora przypisania'',
-    czyli wyrażenie, które można przypisać.
+  czyli wyrażenie, które *nie może* znaleźć sie po lewej stronie
+  operatora przypisania: *nie można mu przypisać innego wyrażenia*.
+
+Zarówno wyrażenie kategorii l-wartość, jak i r-wartość, może być
+przypisane innemu wyrażeniu.
 
 Język CPL zdefiniował kategorie wyrażeń w odniesieniu do operatora
 przypisania.  Te definicje mają jedynie znaczenie historyczne i nie są
@@ -126,8 +131,8 @@ Przykłady l-wartości:
 * ciąg znaków: `"Hello World!"`
 * wynik prefiksowego operatora inkrementacji: `++i`
 
-Definicja l-wartości jako czegoś, co może znaleźć się po lewej stronie
-operatora przypisania nie ma zastosowania w C++.  W poniższym
+Definicja l-wartości jako wyrażenia, które może znaleźć się po lewej
+stronie operatora przypisania nie ma zastosowania w C++.  W poniższym
 przykładzie nie możemy użyć l-wartości po lewej stronie operatora
 przypisania (a niby powinniśmy móc zgodnie z definicją), bo jest ona
 stała:
@@ -136,24 +141,24 @@ stała:
 {% include_relative wrong-lvalue.cc %}
 {% endhighlight %}
 
-## The rvalue category
+## R-wartość.
 
-An expression is an rvalue, if it's not an lvalue.  We can't take the
-address of an rvalue.
+Wyrażenie jest r-wartością, jeżeli nie jest l-wartością.  Nie możemy
+pobrać adresu r-wartości.
 
-The examples of rvalues are:
+Przykładami r-wartości są:
 
-* a numeric literal: `1`
-* a temporary object: `std::string("Hello World!")`
-* the result of the sufffix incrementation: `i++`
-* a function call: `foo()`, if `int foo();`
+* literał numeryczny: `1`
+* obiekt tymczasowy: `std::string("Hello World!")`
+* wynik sufiksowego operatora inkrementacji: `i++`
+* wywołanie funkcji: `foo()`, jeżeli `int foo();`
 
-The definition of the rvalue as something that should be on the right
-of the assignment operator does not apply to C++.  You can have an
-rvalue on the left of the assignment operator, and the code will
-compile.  For instance, `A()` is an rvalue (that creates a temporary
-object), and we can assign to it, because we defined the assignment
-operator in class `A`:
+Definicja r-wartości jako wyrażenia, które nie może znaleźć się po
+lewej stronie operatora przypisania (czyli musi być po prawej
+stronie), nie ma zastosowania w C++.  R-wartości możemy coś przypisać,
+jak pokazuje poniższy przykład. `A()` jest wartością (bo tworzy obiekt
+tymczasowy) i możemy mu przypisać `1`, bo zdefiniowaliśmy taki
+operator przypisania w strukturze `A`:
 
 {% highlight c++ %}
 {% include_relative left-rvalue.cc %}
