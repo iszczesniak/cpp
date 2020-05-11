@@ -110,10 +110,11 @@ wiedzy na temat kategorii wyrażeń:
 ## L-wartość
 
 Standard C++ nie podaje zwięzłej definicji, ale poniższa obserwacja
-wydaje się sprawdzać.
+(nie definicja) wydaje się sprawdzać.
 
-Jeżeli `&<expr>` kompiluje się, to `<expr>` jest l-wartością.  Czyli
-wyrażenie jest l-wartością, jeżeli możemy pobrać jej adres.
+Obserwacja: Jeżeli `&<expr>` kompiluje się, to `<expr>` jest
+l-wartością.  Czyli wyrażenie jest l-wartością, jeżeli możemy pobrać
+jej adres.
 
 Najważniejszym przypadkiem tej obserwacji jest `&x`, gdzie `x` jest
 nazwą zmiennej.  **Wyrażenie z nazwą zmiennej jest l-wartością.**
