@@ -53,7 +53,7 @@ które nie jest l-wartością, nazwał **r-wartością**.
 
 ## Kategorie wyrażeń
 
-W C++, dwiema najważniejszymi kategoriami wyrażeń są l-wartość i
+W C++, dwiema podstawowymi kategoriami wyrażeń są l-wartość i
 r-wartość.  Wyrażenie, które jest:
 
 * kategorii l-wartość nazywamy w skrócie l-wartością,
