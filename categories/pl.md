@@ -42,8 +42,8 @@ Możemy mówić o **kategorii wartości wyrażenia**, albo w skrócie o
 
 ## Historia: CPL, C, C++98
 
-Język CPL (około pół wieku temu) wprowadził dwie kategorie wartości
-wyrażenia:
+Język CPL (około pół wieku temu) zdefiniował dwie kategorie wyrażeń w
+odniesieniu do operatora przypisania:
 
 * **l-wartość**: kategoria ``na lewo od operatora przypisania'', czyli
   wyrażenie, które **może** znaleźć się po lewej stronie operatora
@@ -53,9 +53,8 @@ wyrażenia:
   czyli wyrażenie, które **nie może** znaleźć sie po lewej stronie
   operatora przypisania: **nie można mu przypisać innego wyrażenia**.
 
-Język CPL zdefiniował kategorie wyrażeń w odniesieniu do operatora
-przypisania.  Te definicje mają jedynie znaczenie historyczne i nie są
-stosowane w C++.
+Te definicje mają jedynie znaczenie historyczne i nie są stosowane w
+C++.
 
 W języku C, wyrażenie jest albo l-wartością, gdzie "l" pochodzi od
 "locator", czyli czegoś, co lokalizuje (wskazuje) miejsce wartości
