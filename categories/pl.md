@@ -10,9 +10,9 @@ codziennym programowaniu uchodzą naszej uwadze.
 
 Żeby łatwiej zrozumieć znaczenie terminów l-wartości i r-wartości
 proponuję szczegółowo przyswoić ten materiał, bez poszukiwania
-głębszego sensu na tym etapie.  Jest to podobna rada, jaką Alicja
-otrzymała od Humpty Dumpty w powieści "Po drugiej strony lustra"
-autorstwa Lewisa Carrolla:
+głębszego sensu na tym etapie.  Podobną radę otrzymała Alicja od
+Humpty Dumpty w powieści "Po drugiej strony lustra" autorstwa Lewisa
+Carrolla:
 
 > “Must a name mean something?” Alice asks Humpty Dumpty, only to get
 > this answer: “When I use a word... it means just what I choose it to
