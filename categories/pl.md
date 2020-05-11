@@ -160,36 +160,35 @@ przypisania w strukturze `A`:
 {% include_relative left-rvalue.cc %}
 {% endhighlight %}
 
-## From lvalue to rvalue
+## Konwersja standardowa z l-wartości na r-wartość
 
-The C++ standard defines this *standard conversion*, which is applied
-without the programmer explicitly requesting it:
+Standard C++ definiuje taką *konwersję standardową*: l-wartość może
+zostać niejawnie poddana konwersji do r-wartości.  Niejawnie, czyli
+programista nie musi o to prosić.
 
-> An lvalue of a non-function, non-array type T can be converted to an
-> rvalue.
-
-For instance, the `+` operator for an integer type (e.g., `int`)
-requires rvalues as its operands.  In the following example the `+`
-operator expects rvalues, and so the lvalues `x` and `y` are converted
-to rvalues.
+Na przykład, operator `+` dla typów całkowitych (np. `int`) wymaga
+r-wartości jako operandów.  W poniższym przykładzie operator `+`
+wymaga r-wartości, więc l-wartości `x` i `y` są konwertowane niejawnie
+do r-wartości.
 
 {% highlight c++ %}
 {% include_relative conversion1.cc %}
 {% endhighlight %}
 
-For instance, the unary `*` operator (i.e., the dereference operator)
-requires a value of a memory address, which is an rvalue.  However, we
-can use the dereference operator with an lvalue too, because that
-lvalue will be converted to an rvalue.
+Kolejny przykład dotyczy jednoargumentowego operatora `*` (czyli
+operatora wyłuskania), który wymaga r-wartości: adresu pamięci.  Ale
+wyłuskać możemy też l-wartość, bo zostanie ona poddana konwersji
+standardowej:
 
 {% highlight c++ %}
 {% include_relative conversion2.cc %}
 {% endhighlight %}
 
-There is no standard or implicit conversion from an rvalue to an
-lvalue.  For example, the reference operator (i.e., the unary `&`
-operator, a.k.a. the take-the-address-of operator) expects an lvalue.
-The rvalue that you try to pass will not be converted to an lvalue.
+Nie ma niejawnej czy standardowej konwersji z r-wartości na l-wartość.
+Na przykład, operator pobrania adresu (czyli jednoargumentowy operator
+`&`) wymaga l-wartości.  Jeżeli przekażemy mu r-wartość, to nie będzie
+ona poddana niejawnej konwersji do l-wartości, jak pokazuje przykład
+niżej:
 
 {% highlight c++ %}
 {% include_relative conversion3.cc %}
