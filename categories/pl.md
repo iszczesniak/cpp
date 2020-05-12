@@ -251,17 +251,28 @@ Dana tymczasowa czasem jest **błędnie** określana r-wartością, a
 przecież dana tymczasowa nie jest wyrażeniem, więc nie ma kategorii i
 nie możemy mówić o niej jako o l-wartości czy r-wartości.
 
-### A temporary as a function argument
+Ta sama dana tymczasowa może być użyta w l-wartości, albo r-wartości,
+kiedy, na przykład:
 
-An expression with a temporary can be an argument of a function call,
-in which case that expression is an rvalue.  If a function takes an
-argument by reference (i.e., the parameter of the function is of a
-const reference type), the expression with that parameter name is an
-lvalue even though the reference is bound to an rvalue.
+* przekazujemy daną przez referencję do funkcji,
 
-That example follows.  The constructor outputs the address of the
-object, so that we can make sure it's the same object in function
-`foo`.
+* rzucamy daną jako wyjątek.
+
+### Dana tymczasowa jako argument funkcji
+
+Dana tymczasowa może być argumentem wywołania funkcji.  Jeżeli funkcja
+przyjmuje argument przez referencję stałą (czyli parametr funkcji jest
+typu referencyjnego na daną stałą), to parametr będzie aliasem danej
+tymczasowej.
+
+I tu zwrot akcji: dana tymczasowa została stworzona w r-wartości, a
+wyrażenie odwołujące się do niej przez nazwę (referencję) to już
+l-wartość.  L-wartość i r-wartość odnoszą się do wyrażeń, a dana
+tymczasowa była i jest bez kategorii.
+
+Omówiony wyżej przypadek prezentuje poniższy przykład.  Konstruktor
+wypisuje adres tworzonego obiektu, żebyśmy mogli się upewnić, że to
+ten sam obiekt w funkcji `foo`.
 
 {% highlight c++ %}
 {% include_relative tmp-fun.cc %}
