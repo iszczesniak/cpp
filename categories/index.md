@@ -269,8 +269,8 @@ reference name is an lvalue even though the reference is bound to an
 rvalue.
 
 That example follows.  The constructor outputs the address of the
-object, so that we can make sure it's the same object in function
-`foo`.
+object, so that we can make sure it's the same object in the catch
+block:
 
 {% highlight c++ %}
 {% include_relative tmp-except.cc %}
