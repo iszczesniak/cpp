@@ -278,39 +278,43 @@ ten sam obiekt w funkcji `foo`.
 {% include_relative tmp-fun.cc %}
 {% endhighlight %}
 
-### A temporary as an exception
+### Dana tymczasowa jako wyjątek
 
-An expression with a temporary can be an argument of the `throw`
-instruction, in which case that expression is an rvalue.  If a catch
-block catches the exception by a reference, the expression with that
-reference name is an lvalue even though the reference is bound to an
-rvalue.
+Wyrażenie z daną tymczasową (czyli r-wartość) może być argumentem
+rzucania wyjątku.  Jeżeli blok obsługi wyjątku przechwyci wyjątek
+przez referencję stałą, to parametr bloku będzie aliasem danej
+tymczasowej.
 
-That example follows.  The constructor outputs the address of the
-object, so that we can make sure it's the same object in function
-`foo`.
+I tu zwrot akcji: dana tymczasowa została stworzona w r-wartości, a
+wyrażenie odwołujące się do niej przez nazwę (referencję) to już
+l-wartość.
+
+Omówiony wyżej przypadek prezentuje poniższy przykład.  Konstruktor
+wypisuje adres tworzonego obiektu, żebyśmy mogli się upewnić, że to
+ten sam obiekt w bloku obsługi wyjątku.
 
 {% highlight c++ %}
 {% include_relative tmp-except.cc %}
 {% endhighlight %}
 
-We should catch an exception by reference: if we catch it by value,
-we're going to copy that exception.  Change the example so that an
-exception is caught by value, and you'll see that we get a copy
-(you'll see different addresses).
+Powinniśmy obsługiwać wyjątki przez referencję, bo jeżeli będziemy
+obsługiwać przez wartość, to wyjątek będzie kopiowany.  Proszę zmienić
+przykład wyżej, żeby obsługiwać wyjątek przez wartość: wyjątek będzie
+kopiowany i zobaczymy różne adresy.
 
-Interestingly, and as a side note: in the example above, that
-non-const reference is bound to an rvalue.  C++98 states that only a
-const reference can bind to an rvalue, which does not hold in the case
-of catching an exception.  In the example above, I would expect
-`catch(A &a)` to fail to compile, as it should be `catch(const A &a)`.
-Wierd.
+Co ciekawe, w powyższym przykładzie obsłużyliśmy wyjątek przez
+**niestałą referencję**!  C++98 mówi, że tylko **stałą referencję**
+można zainicjalizować r-wartością, czyli niestałej referencji już nie.
+Ale jakoś ta zasada nie dotyczy obsługi wyjątków.  Spodziewałbym się,
+że w przykładzie wyżej `catch(A &a)` nie będzie się kompilowało, i że
+będzie trzeba napisać `catch(const A &a)`.  A jednak.
 
-Interestingly, and as a side note, a statement block (i.e.,
-`{<statements>}`), can be replaced with a single statement, e.g.,
-`{++i;}` can be replaced with `++i;`.  However, the try and catch
-blocks always have to be blocks, and you cannot remote `{}` even if it
-has a single statement.  Wierd.
+Blok instrukcji (czyli `{<instrukcje>}`) z jedną instrukcją możemy
+zamienić na tę jedną instrukcję, co jest wygodne w pisaniu pętli.  Na
+przykład, możemy zamienić `{++i;}` na `++i;`.  Jednak bloki
+przechwytywania wyjątku (`try`) i obsługi wyjątku (`catch`) ciągle
+muszą być blokami i nie można usunąć `{}`, nawet jeżeli zawierają
+jedną instrukcję.  Taka nieścisłość.
 
 ## Functions and categories of expressions
 
