@@ -376,7 +376,7 @@ W przykładzie niżej używamy typu, który nie został zdefiniowany:
 
 # Podsumowanie
 
-* Wyrażenie ma kategorię.  Dana kategorii nie ma.
+* Wyrażenie ma kategorię.  Dana nie ma kategorii.
 
 * Od kategorii zależy, co możemy zrobić z wyrażeniem.
 
