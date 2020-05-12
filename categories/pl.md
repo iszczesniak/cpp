@@ -1,12 +1,12 @@
 ---
-title: Kategorie wartości wyrażeń
+title: Kategorie wyrażeń
 ---
 
 # Wprowadzenie
 
-Kategorie wartości wyrażeń to podstawa, ale trudno je zrozumieć.
-Chodzi o szczegóły dotyczące **l-wartości** i **r-wartości**, które w
-codziennym programowaniu uchodzą naszej uwadze.
+Kategorie wyrażeń to podstawa, ale trudno je zrozumieć, bo chodzi o
+wiele szczegółów **l-wartości** i **r-wartości**, które w codziennym
+programowaniu uchodzą naszej uwadze.
 
 Żeby łatwiej zrozumieć znaczenie terminów l-wartości i r-wartości
 proponuję szczegółowo przyswoić ten materiał, bez poszukiwania
@@ -37,8 +37,8 @@ Wartość wyrażenia ma:
 
 * kategorię (np. l-wartość, r-wartość) znaną w czasie kompilacji.
 
-Możemy mówić o **kategorii wartości wyrażenia**, albo w skrócie o
-**kategorii wyrażenia**.
+Możemy mówić o **kategorii wartości wyrażenia**, albo lepiej w skrócie
+o **kategorii wyrażenia**.
 
 ## Historia: CPL, C, C++98
 
@@ -137,7 +137,7 @@ móc zgodnie z definicją), bo jest ona stała:
 {% include_relative wrong-lvalue.cc %}
 {% endhighlight %}
 
-## R-wartość.
+## R-wartość
 
 Wyrażenie jest r-wartością, jeżeli nie jest l-wartością.  Nie możemy
 pobrać adresu r-wartości.
@@ -355,31 +355,34 @@ bo zwracana wartość nie jest typu referencyjnego:
 {% include_relative rvalue-call.cc %}
 {% endhighlight %}
 
-## Incomplete types and categories of expressions
+## Typy niekompletne a kategorie wyrażeń
 
-An incomplete type is the type that was either:
+Typ niekompletny to taki, którego obiektów nie jesteśmy w stanie
+stworzyć, bo:
 
-* declared, but not defined,
+* został zadeklarowany, ale nie został zdefiniowany, lub
 
-* or defined as an abstract class.
+* został zdefiniowany jako klasa abstrakcyjna (czyli ma funkcję czysto
+  wirtualną).
 
-Expressions of the incomplete type can be only lvalues (and so rvalues
-can be only of complete types).
+Wyrażenia typów inkompletnych mogą być tylko l-wartością (czyli nie
+mogą być r-wartością).
+
+W przykładzie niżej używamy typu, który nie został zdefiniowany:
 
 {% highlight c++ %}
 {% include_relative incomplete.cc %}
 {% endhighlight %}
 
-# Conclusion
+# Podsumowanie
 
-An expression has a category.  A value of some type (e.g., of class
-`A` or type `int`) has no category.
+* Wyrażenie ma kategorię.  Dana kategorii nie ma.
 
-What we can do with an expression depends on its category.
+* Od kategorii zależy, co możemy zrobić z wyrażeniem.
 
-Every expression is either an lvalue or an rvalue.
+* Wyrażenie jest l-wartością, albo r-wartością.
 
-We covered only the basics, there is more: glvalue, prvalue, xvalue.
+* To tylko początek.  Jest więcej: gl-wartość, pr-wartość i x-wartość.
 
 <!-- LocalWords: lvalue lvalues rvalue rvalues -->
 <!-- LocalWords: decrementation incrementation -->
