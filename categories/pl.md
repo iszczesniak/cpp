@@ -226,28 +226,30 @@ wersja sufiksowa od lewej do prawej.
 
 To samo dotyczy operatora dekrementacji.
 
-## Temporary objects
+## Dana tymczasowa
 
-A temporary object (or just a temporary) is an object that is created
-when an expression is evaluated.  A temporary is automatically
-destroyed (i.e., you don't need to explicitly destroy it) when it is
-not needed anymore.
+Podczas opracowywania wyrażenia może być tworzona dana tymczasowa
+(ang. a temporary), która jest później niszczona automatycznie (czyli
+nie musimy jej jawnie niszczyć), kiedy nie jest już potrzebna.  Data
+tymczasowa to wartość typu podstawowego (np. `int`), lub obiekt.
 
-A temporary is needed when:
+Dana tymczasowa jest potrzebna, kiedy:
 
-* evaluating an operation: `1 + 2`, `string("T") + "4"`
+* używamy operatora: `1 + 2`, `string("T") + "4"`
 
-* when passing an argument to a function: `foo(A())`
+* przekazujemy argument do funkcji: `foo(A())`
 
-* when returning an object from a function: `string x = foo();`
+* zwracamy wynik z funkcji: `string x = foo();`
 
-* throwing an exception: `throw A();`
+* rzucamy wyjątek: `throw A();`
 
-A temporary is an object, not an expression, and so a temporary is
-neither an lvalue nor an rvalue, because an object has no category of
-expression.  An object is used in an expression that is either an
-lvalue or an rvalue.  Usually a temporary is created in rvalue
-expressions.
+**Wyrażenie tworzące daną tymczasową jest r-wartością.** Na przykład,
+jeżeli `A` jest typem klasowym, to `A()` tworzy obiekt tymczasowy, a
+wyrażenie to jest r-wartością.
+
+Dana tymczasowa czasem jest **błędnie** określana r-wartością, a
+przecież dana tymczasowa nie jest wyrażeniem, więc nie ma kategorii i
+nie możemy mówić o niej jako o l-wartości czy r-wartości.
 
 ### A temporary as a function argument
 
