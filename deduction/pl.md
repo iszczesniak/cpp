@@ -118,7 +118,7 @@ wnioskowania są też wykorzystywane kiedy *inicjalizujemy*:
   parametru szablonu, którego argument kompilator wnioskuje,
 
 * wynik typu `auto` zwracany przez funkcję na podstawie wyrażenia
-  zdania `return`, gdzie `auto` pełni rolę typowego parametru
+  instrukcji `return`, gdzie `auto` pełni rolę typowego parametru
   szablonu, którego argument kompilator wnioskuje,
 
 * obiekt klasy szablonowej na podstawie argumentów wywołania
