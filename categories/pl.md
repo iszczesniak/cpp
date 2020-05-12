@@ -316,39 +316,40 @@ przechwytywania wyjątku (`try`) i obsługi wyjątku (`catch`) ciągle
 muszą być blokami i nie można usunąć `{}`, nawet jeżeli zawierają
 jedną instrukcję.  Taka nieścisłość.
 
-## Functions and categories of expressions
+## Funkcje a kategorie wyrażeń
 
-Function `foo`, (e.g., `void foo(<params>)`) can be used in an
-expression in two ways:
+Funkcja `foo` (np. `void foo();`) może być użyta w wyrażeniu na dwa
+sposoby:
 
-* by name only:
+* tylko przez nazwę:
 
-  * the expression: `foo`,
+  * wyrażenie: `foo`,
 
-  * that expression is an lvalue, 
+  * to wyrażenie jest l-wartością,
+  
+  * możemy pobrać adres: `&foo`,
 
-  * we can take the address of that expression: `&foo`,
+* wywołanie funkcji:
 
-* by a function call:
+  * wyrażenie: `foo(<argumenty>)`,
 
-  * the expression: `foo(<args>)`,
+  * kategoria tego wyrażenia zależy od typu wartości zwracanej przez
+    funkcję: jeżeli zwracana wartość:
 
-  * the category of that expression expression depends on the return
-    type of the function called:
+    * jest typy referencyjnego (typ zdefiniowany z użyciem deklaratora
+      `&`), to wyrażenie jest l-wartością,
 
-    * if the return type is *a reference* type, then that expression
-      is an *lvalue*,
+    * nie jest typu referencyjnego, to wyrażenie jest r-wartością.
 
-    * if the return type is *not a reference* type, then that
-      expression is *an rvalue*.
-
-This is an example of a function call that is an lvalue:
+To jest przykład wyrażenia wywołania funkcji, które jest l-wartością,
+bo zwracana wartość jest typu referencyjnego:
 
 {% highlight c++ %}
 {% include_relative lvalue-call.cc %}
 {% endhighlight %}
 
-This is an example of a function call that is an rvalue:
+To jest przykład wyrażenia wywołania funkcji, które jest r-wartością,
+bo zwracana wartość nie jest typu referencyjnego:
 
 {% highlight c++ %}
 {% include_relative rvalue-call.cc %}
