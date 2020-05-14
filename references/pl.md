@@ -90,15 +90,15 @@ Porównajmy je, żeby się przekonać, że są takie same (czyli że nie ma
 
 Są trzy typy referencji:
 
-* `T &` - *l-referencja*: odnosi się do danej, którą możemy zmieniać,
-  ale nie przenosić (ang. move), bo będzie może ta dana potem
-  potrzebna w jej obecnym miejscu,
+* **l-referencja** typu `T &`: odnosi się do danej, którą możemy
+  zmieniać, ale nie przenosić (ang. move), bo będzie może ta dana
+  potem potrzebna w jej obecnym miejscu,
 
-* `const T &` - *referencja stała*: odnosi się do danej, której nie
-  możemy zmieniać, ani przenosić,
+* **referencja stała** typu `const T &`: odnosi się do danej, której
+  nie możemy zmieniać, ani przenosić,
 
-* `T &&` - *r-referencja*: odnosi się do danej, którą możemy zmieniać
-  i przenosić, bo wkrótce będzie zniszczona.
+* **r-referencja** typu `T &&`: odnosi się do danej, którą możemy
+  zmieniać i przenosić, bo wkrótce będzie zniszczona.
 
 ## Terms lvalue and rvalue in type names
 
