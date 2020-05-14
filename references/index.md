@@ -264,6 +264,13 @@ was evaluated.
 {% include_relative tmp.cc %}
 {% endhighlight %}
 
+We can even create a temporary, and make a member reference bind to
+it.  The temporary will be destroyed, when the object is destroyed:
+
+{% highlight c++ %}
+{% include_relative tmp2.cc %}
+{% endhighlight %}
+
 # Conclusion
 
 * A reference gives us a way to refer by name to some data.
