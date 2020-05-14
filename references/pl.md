@@ -1,78 +1,85 @@
 ---
-title: References
+title: Referencje
 ---
 
-# Introduction
+# Wprowadzenie
 
-These are the most important facts about references:
+Najważniejsze fakty o referencjach:
 
-* Reference is an alias (a name) for some data (a variable, an object,
-  a temporary).
+* Referencja jest aliasem (nazwą) danej (zmiennej, obiektu, czy
+  obiektu tymczasowego),
 
-* When using a reference to an object, we use the object member
-  selection syntax (i.e., `object.member`), and not the object member
-  selection through a pointer syntax (i.e., `pointer->member`).
+* Mając referencję do obiektu, możemy uzyskać dostęp do składowych pól
+  i funkcji z użyciem operatora dostępu (czyli `object.member`, jak w
+  przypadku nazwy zmiennej), a nie z użyciem operatora dostępu przez
+  wskaźnik (czyli `pointer->member`, jak w przypadku wskaźnika).
 
-* A reference must be initialized, and so there are no null references
-  like there can be null pointers.
+* Referencja musi być zaincjalizowana, więc nie ma referencji pustych,
+  które nie zostały zainicjalizowane.  Wskaźnik może być pusty (czyli
+  `nullptr`).
 
-* Unlike a pointer, a reference cannot be changed to be an alias for
-  some other data.
+* W przeciwieństwie do wskaźnika, referencji nie można zmienić, żeby
+  była aliasem innej danej.
 
-* A reference can be an element of `std::pair` and `std::tuple`, but not
-  of a container or an array.
+* Referencja może być przechowywana w `std::pair` i `std::tuple`, ale
+  nie w kontenerze czy tablicy.
 
-The main uses of references:
+Główne zastosowania referencji:
 
-* passing an argument to a function by reference,
+* przekazywanie argumentu do funkcji przez referencję,
 
-* returning a result from a function by reference,
+* zwracanie wartości z funkcji przez referencję,
 
-* referencing data in an object member field.
+* użycie danych przez referencję w polach składowych obiektów.
 
-We say that a reference *binds to* data, which means something like
-*points to*, though "points to" is used when talking about pointers.
+Możemy powiedzieć równoważnie, że referencja:
 
-A reference binds to the *data* of an lvalue, or an rvalue, but in
-short we say that a reference binds to an lvalue or an rvalue.
+* jest inicjalizowana na podstawie wyrażenia,
 
-C++ references are like no references of other languages: in C++ a
-reference might not exists at run-time, because it was optimized out
-at compile-time.
+* **wiąże się** (ang. binds to) z daną, która jest wartością
+  wyrażenia,
 
-In languages like Java or C#, references are pointers with
-shared-ownership semantics (i.e., a reference can be copied, and the
-object exists as long as at least one reference exists), and with the
-object member selection syntax.  In these languages references must
-exist at run-time.
+* nazywa daną, która jest wartością wyrażenia.
 
-As an example that references are optimized out at compile-time, there
-are two programs below that produce the same output, but in the second
-one we use references.  However, at compile-time, the refernces are
-gone.
+Referencja wiąże się z daną l-wartości, albo r-wartości, ale w skrócie
+możemy powiedzieć, że wiąże się z l-wartością albo r-wartością.
 
-Save this file as `test1.cc`:
+Referencje języka C++ nie mają odpowiednika w języku Java czy C#: w
+C++ referencja może nie istnieć w czasie uruchomienia, bo została
+**wyoptymalizowana** w czasie kompilacji.
+
+W Javie czy C#, referencja jest wskaźnikiem o semantyce współdzielonej
+własności: referencje mogą być kopiowane, a dana będzie tak długo
+istnieć, jak istnieje przynajmniej jeden taki wskaźnik.  W tych języka
+wskaźnik zawsze istnieje w czasie uruchomienia.
+
+Poniższy przykład pokazuje wyoptymalizowanie referencji w czasie
+kompilacji.  Poniższe dwa programy robią to samo, ale w drugim używamy
+referencji, które są wyoptymalizowane.
+
+Zapisz ten plik jako `test1.cc`:
 
 {% highlight c++ %}
 {% include_relative test1.cc %}
 {% endhighlight %}
 
-Save this file as `test2.cc`:
+Zapisz ten plik jako `test2.cc`:
 
 {% highlight c++ %}
 {% include_relative test2.cc %}
 {% endhighlight %}
 
-Now compile them to the assembly code with:
+Skompiluj je do asemblera:
 
 `g++ -S -O3 test1.cc test2.cc`
 
-Now there are two files with the assembly code: `test1.s`, and
-`test2.s`.  Take a look at one of them:
+Mamy teraz dwa pliki `test1.s` i `test2.s`.  Spójrz na pierwszy z
+nich:
 
 `c++filt < test1.s | less`
 
-Compare them to see that they are instruction-to-instruction the same:
+Porównaj je, żeby się przekonać, że są takie same (czyli że nie ma
+referencji):
 
 `diff test1.s test2.s`
 
@@ -262,6 +269,13 @@ was evaluated.
 
 {% highlight c++ %}
 {% include_relative tmp.cc %}
+{% endhighlight %}
+
+We can even create a temporary, and make a member reference bind to
+it.  The temporary will be destroyed, when the object is destroyed:
+
+{% highlight c++ %}
+{% include_relative tmp2.cc %}
 {% endhighlight %}
 
 # Conclusion
