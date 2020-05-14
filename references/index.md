@@ -48,7 +48,7 @@ exist at run-time.
 
 As an example that references are optimized out at compile-time, there
 are two programs below that produce the same output, but in the second
-one we use references.  However, at compile-time, the refernces are
+one we use references.  However, at compile-time, the references are
 gone.
 
 Save this file as `test1.cc`:
