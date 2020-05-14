@@ -1,3 +1,0 @@
-References as member fields of objects: you can use them, but then you
-cannot change them.  So the copy and move assignment operators will
-not work, as shown in members.cc.

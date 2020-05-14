@@ -183,6 +183,18 @@ Here are some examples:
 {% include_relative rref.cc %}
 {% endhighlight %}
 
+## A reference cannot rebind
+
+Every reference (not only the const reference) cannot rebind to a new
+expression.  A reference can only be initialized, i.e., bound to an
+expression.  Such rebinding would be required in the assignment
+operator of a class-type, which has a reference member field, as in
+this example:
+
+{% highlight c++ %}
+{% include_relative members.cc %}
+{% endhighlight %}
+
 # Reference tricks
 
 ## Reference type and function overload resolution
