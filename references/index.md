@@ -87,7 +87,7 @@ There are three reference types:
   modify nor move,
 
 * `T &&` - *an rvalue reference*: binds to data that we can both
-  modify and move (becasue they soon will not be needed).
+  modify and move (because they soon will not be needed).
 
 ## Terms lvalue and rvalue in type names
 
