@@ -32,69 +32,73 @@ Główne zastosowania referencji:
 
 * użycie danych przez referencję w polach składowych obiektów.
 
-Możemy powiedzieć równoważnie, że referencja:
+**Referencja jest inicjalizowana na podstawie wyrażenia
+inicjalizującego**.  Mając daną, która jest wartością wyrażenia
+inicjalizującego, możemy powiedzieć równoważnie, że referencja:
 
-* jest inicjalizowana na podstawie wyrażenia,
+* **odnosi się** (ang. refers to) do danej,
 
-* **wiąże się** (ang. binds to) z daną, która jest wartością
-  wyrażenia,
+* **wiąże się** (ang. binds to) z daną,
 
-* nazywa daną, która jest wartością wyrażenia.
+* **nazywa** (ang. names) daną.
 
-Referencja wiąże się z daną l-wartości, albo r-wartości, ale w skrócie
-możemy powiedzieć, że wiąże się z l-wartością albo r-wartością.
+Referencja odnosi się do wartości wyrażenia kategorii l-wartość, albo
+kategorii r-wartość, ale w skrócie możemy powiedzieć, że wiąże się z
+l-wartością albo r-wartością.
 
 Referencje języka C++ nie mają odpowiednika w języku Java czy C#: w
 C++ referencja może nie istnieć w czasie uruchomienia, bo została
 **wyoptymalizowana** w czasie kompilacji.
 
-W Javie czy C#, referencja jest wskaźnikiem o semantyce współdzielonej
+W Javie czy C# referencja jest wskaźnikiem o semantyce współdzielonej
 własności: referencje mogą być kopiowane, a dana będzie tak długo
 istnieć, jak istnieje przynajmniej jeden taki wskaźnik.  W tych języka
-wskaźnik zawsze istnieje w czasie uruchomienia.
+wskaźnik (i to nie taki zwykły jak w C, tylko implementujący
+współdzielenie obiektu) zawsze istnieje w czasie uruchomienia.
 
 Poniższy przykład pokazuje wyoptymalizowanie referencji w czasie
 kompilacji.  Poniższe dwa programy robią to samo, ale w drugim używamy
 referencji, które są wyoptymalizowane.
 
-Zapisz ten plik jako `test1.cc`:
+Zapiszmy ten plik jako `test1.cc`:
 
 {% highlight c++ %}
 {% include_relative test1.cc %}
 {% endhighlight %}
 
-Zapisz ten plik jako `test2.cc`:
+Zapiszmy ten plik jako `test2.cc`:
 
 {% highlight c++ %}
 {% include_relative test2.cc %}
 {% endhighlight %}
 
-Skompiluj je do asemblera:
+Skompilujmy je do asemblera:
 
 `g++ -S -O3 test1.cc test2.cc`
 
-Mamy teraz dwa pliki `test1.s` i `test2.s`.  Spójrz na pierwszy z
+Mamy teraz dwa pliki `test1.s` i `test2.s`.  Spójrzmy na pierwszy z
 nich:
 
 `c++filt < test1.s | less`
 
-Porównaj je, żeby się przekonać, że są takie same (czyli że nie ma
-referencji):
+Porównajmy je, żeby się przekonać, że są takie same (czyli że nie ma
+śladu po referencji):
 
 `diff test1.s test2.s`
 
-# Reference types
+# Typy referencyjne
 
-There are three reference types:
+Są trzy typy referencji:
 
-* `T &` - *an lvalue reference*: binds to data that we can modify, but
-  not move (because they still will be needed),
+* `T &` - *l-referencja*: odnosi się do danej, którą możemy zmieniać,
+  ale nie przenosić (ang. move), bo będzie może ta dana potem
+  potrzebna w jej obecnym miejscu,
 
-* `const T &` - *a const reference*: binds to data that we neither can
-  modify nor move,
+* `const T &` - *referencja stała*: odnosi się do danej, której nie
+  możemy zmieniać, ani przenosić,
 
-* `T &&` - *an rvalue reference*: binds to data that we can both
-  modify and move (becasue they soon will not be needed).
+* `T &&` - *r-referencja*: odnosi się do danej, którą możemy zmieniać
+  i przenosić, bo wkrótce będzie zniszczona.
 
 ## Terms lvalue and rvalue in type names
 
