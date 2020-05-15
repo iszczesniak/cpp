@@ -126,31 +126,30 @@ Teraz rozumiem to zdanie z <http://cppreference.com>:
 > (r-referencja), to wyrażenie składające się z nazwy tej zmiennej
 > jest l-wartością.
 
-## Lvalue reference
+## L-referencja
 
-An lvalue reference can bind to an lvalue, but not to an rvalue.
+**L-referencja może być zainicjalizowana tylko l-wartością.**
 
-We define an lvalue reference like this:
+Tak definiujemy l-referencję:
 
 `T &name = <expr>;`
 
-Reference `name` binds to data of type T.  `&` is called the lvalue
-reference declarator.  The reference is initialized with expression
-`<expr>`.
+Referencja `name` odnosi się do danej typu `T`.  *Deklaratorem*
+l-referencji jest `&`.  Wyrażeniem inicjalizującym jest `<expr>`.
 
-Here are some examples:
+Podstawowe przykłady:
 
 {% highlight c++ %}
 {% include_relative lref.cc %}
 {% endhighlight %}
 
-Here are some examples for containers and arrays:
+Przykłady dla kontenerów i tablic:
 
 {% highlight c++ %}
 {% include_relative containers.cc %}
 {% endhighlight %}
 
-Here are some examples for `std::pair` and `std::tuple`:
+Przykłady dla `std::pair` i `std::tuple`:
 
 {% highlight c++ %}
 {% include_relative quasi.cc %}
