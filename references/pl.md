@@ -197,13 +197,13 @@ Przykłady:
 {% include_relative rref.cc %}
 {% endhighlight %}
 
-## A reference cannot rebind
+## Referencji nie można zmienić
 
-Every reference (not only the const reference) cannot rebind to a new
-expression.  A reference can only be initialized, i.e., bound to an
-expression.  Such rebinding would be required in the assignment
-operator of a class-type, which has a reference member field, as in
-this example:
+Referencja (każda, nie tylko stała) nie może być zmieniona, żeby
+odwoływała się do innej danej.  Referencja może być tylko
+zainicjalizowana.  Taka zmiana byłaby wymagana przez operator
+przypisania typu klasowego, który ma referencyjne pole składowe, tak
+jak w przykładzie niżej:
 
 {% highlight c++ %}
 {% include_relative members.cc %}
