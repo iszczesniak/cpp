@@ -100,24 +100,31 @@ Są trzy typy referencji:
 * **r-referencja** typu `T &&`: odnosi się do danej, którą możemy
   zmieniać i przenosić, bo wkrótce będzie zniszczona.
 
-## Terms lvalue and rvalue in type names
+L-referencja jest też nazywana referencją l-wartości, albo referencją
+do l-wartości.  R-referencja jest też nazywana referencją r-wartości,
+albo referencją do r-wartości.
 
-Expressions are called an lvalue or an rvalue, e.g.:
+## Terminy l-wartość i r-wartość w nazwach typów
 
-* `"1"` is an lvalue,
+Wyrażenia nazywamy l-wartością lub r-wartością, np.:
 
-* `1` is an rvalue.
+* `"1"` jest l-wartością,
 
-These terms are also used to name a reference type:
+* `1` jest r-wartością.
 
-* `int &x = <expr>;` - expression `x` is of the *lvalue reference*
-  type, and of the lvalue category,
+Te terminy także są używane w nazwach typów, co jest trochę mylące:
 
-* `int &&x = <expr>;` - expression `x` is of the *rvalue reference*
-  type, but of the lvalue category.
+* `int &x = <expr>;` - wyrażenie `x` jest referencją l-wartości
+  (ang. lvalue reference) i kategorii l-wartość.
 
-NOW I GET IT: *Even if the variable's type is an rvalue reference, the
-expression consisting of its name is an lvalue expression.*
+* `int &&x = <expr>;` - wyrażenie `x` jest referencją r-wartości
+  (ang. rvalue reference) i kategorii l-wartość.
+
+Teraz rozumiem to zdanie z <http://cppreference.com>:
+
+> Nawet jeżeli typem zmiennej jest referencja typu r-wartość
+> (r-referencja), to wyrażenie składające się z nazwy tej zmiennej
+> jest l-wartością.
 
 ## Lvalue reference
 
