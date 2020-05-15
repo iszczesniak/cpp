@@ -159,26 +159,25 @@ Przykłady dla `std::pair` i `std::tuple`:
 
 **Referencja stała może być zainicjalizowana l-wartością lub
 r-wartością.** Ta funkcjonalność została wprowadzona w C++98, żeby
-można przekazać obiekt tymczasowy jako argument wywołania funkcji.
+można przekazać przez referencję obiekt tymczasowy jako argument
+wywołania funkcji.
 
 Tak definiujemy referencję stałą:
 
 `const T &name = <expr>;`
 
-This is exactly an lvalue reference that binds to the const data of
-type `T`, i.e., the const qualifier refers to the type of data the
-reference binds to.  The reference itself is not really const, because
-we can't change what the reference is bound to anyway.  Nonetheless,
-it's called the const reference for short; no need to say it's an
-lvalue reference to const data.
+To jest l-referencja, która odwołuje się do danej typu `const T`,
+czyli kwalifikator `const` odnosi się do danej, a nie referencji.
+Referencji i tak nie możemy znienić, ale nazywamy ją referencją stałą
+w skrócie (myślowym), żeby nie mówić o l-referencji do stałej danej.
 
-Here are some examples:
+Podstawowe przykłady:
 
 {% highlight c++ %}
 {% include_relative cref.cc %}
 {% endhighlight %}
 
-## Rvalue reference
+## R-referencja
 
 An rvalue reference can bind to an rvalue, but not to an lvalue.
 
