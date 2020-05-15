@@ -34,7 +34,7 @@ Główne zastosowania referencji:
 
 **Referencja jest inicjalizowana na podstawie wyrażenia
 inicjalizującego**.  Mając daną, która jest wartością wyrażenia
-inicjalizującego, możemy powiedzieć równoważnie, że referencja:
+inicjalizującego, możemy równoważnie powiedzieć, że referencja:
 
 * **odnosi się** (ang. refers to) do danej,
 
@@ -44,7 +44,7 @@ inicjalizującego, możemy powiedzieć równoważnie, że referencja:
 
 Referencja odnosi się do wartości wyrażenia kategorii l-wartość, albo
 kategorii r-wartość, ale w skrócie możemy powiedzieć, że wiąże się z
-l-wartością albo r-wartością.
+l-wartością albo r-wartością (ang. a reference binds to an lvalue).
 
 Referencje języka C++ nie mają odpowiednika w języku Java czy C#: w
 C++ referencja może nie istnieć w czasie uruchomienia, bo została
