@@ -209,50 +209,51 @@ jak w przykładzie niżej:
 {% include_relative members.cc %}
 {% endhighlight %}
 
-# Reference tricks
+# Sztuczki referencyjne
 
-## Reference type and function overload resolution
+## Typ referencji a wybór przeciążeń funkcji
 
-A function can be overloaded depending on the parameter types, and
-this applies to references too.  We can have these overloads:
+Funkcja może być przeciążana w zależności od typów parametrów i to
+także dotyczy typów referencyjnych.  Mamy zatem trzy możliwe
+przeciążenia:
 
-* `void foo(T &);` - overload #1,
-* `void foo(const T &);` - overload #2,
-* `void foo(T &&);` - overload #3.
+* `void foo(T &);` - przeciążenie #1,
+* `void foo(const T &);` - przeciążenie #2,
+* `void foo(T &&);` - przeciążenie #3.
 
-For a call expression `foo(<expr>)`, a compiler will choose (which is
-called *overload resolution*):
+Przy wywołaniu funkcji `foo(<expr>)` kompilator wybierze przeciążenie
+(ang. overload resolution):
 
-* overload #1, if `<expr>` is an lvalue of a non-cost type,
+* #1, jeżeli `<expr>` jest l-wartością niestałego typu,
 
-* overload #2, if `<expr>` is an lvalue of a const type,
+* #2, jeżeli `<expr>` jest l-wartością stałego typu,
 
-* overload #3, if `<expr>` is an rvalue.
+* #3, jeżeli `<expr>` jest r-wartością.
 
-A const reference (used in overload #2) can bind to an lvalue of a
-non-const type or to an rvalue, so when there is no overload #1 and
-#3, a compiler will choose overload #2 instead.
+Referencja stała (użyta w przeciążeniu #2) może być zainicjalizowana
+l-wartością niestałego typu albo r-wartością, więc kiedy nie
+zadeklarowano przeciążeń #1 i #3, kompilator wybierze przeciążenie #2.
 
-Here's a complete example:
+Oto przykład:
 
 {% highlight c++ %}
 {% include_relative overloading.cc %}
 {% endhighlight %}
 
-## Rvalue reference to an lvalue
+## R-referencja do l-wartości
 
-We can explicitely get an rvalue reference to an lvalue with
-`static_cast<T &&>(<expr>)`, where `<expr>` can be an lvalue or an
-rvalue.  This is, however, a bit wordy, since we have to type in the
-type `T`.
+Możemy jawnie otrzymać r-referencję odwołującą się do l-wartości przez
+użycie `static_cast<T &&>(<expr>)`, gdzie `<expr>` może być
+l-wartością albo r-wartością.  Jawne podanie typu `T` jest jednak
+trochę uciążliwe.
 
-It's easier to get an rvalue reference with `std::move(<expr>)`, where
-`<expr>` can be an lvalue or an rvalue.  `std::move` is a function
-template: a compiler will deduce the type `T` based on `<expr>`, so we
-don't have to type it in.  That function uses `static_cast<T
-&&>(<expr>)`.
+Prościej jest otrzymać r-referencję z użyciem `std::move(<expr>)`,
+gdzie `<expr>` może być l-wartością albo r-wartością.  Funkcja
+`std::move` jest szablonowa, gdzie typ r-referencji będzie
+wywnioskowany na podstawie typu wyrażenia `<expr>`.  Funkcja używa
+`static_cast<T &&>(<expr>)`.
 
-Here's an example:
+Przykład:
 
 {% highlight c++ %}
 {% include_relative move.cc %}
