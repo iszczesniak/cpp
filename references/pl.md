@@ -134,8 +134,8 @@ Tak definiujemy l-referencję:
 
 `T &name = <expr>;`
 
-Referencja `name` odnosi się do danej typu `T`.  *Deklaratorem*
-l-referencji jest `&`.  Wyrażeniem inicjalizującym jest `<expr>`.
+Referencja `name` odnosi się do danej typu `T`.  Wyrażeniem
+inicjalizującym jest `<expr>`.  *Deklaratorem* l-referencji jest `&`.
 
 Podstawowe przykłady:
 
@@ -171,7 +171,7 @@ czyli kwalifikator `const` odnosi się do danej, a nie referencji.
 Referencji i tak nie możemy znienić, ale nazywamy ją referencją stałą
 w skrócie (myślowym), żeby nie mówić o l-referencji do stałej danej.
 
-Podstawowe przykłady:
+Przykłady:
 
 {% highlight c++ %}
 {% include_relative cref.cc %}
@@ -179,21 +179,19 @@ Podstawowe przykłady:
 
 ## R-referencja
 
-An rvalue reference can bind to an rvalue, but not to an lvalue.
+**R-referencja może być zainicjalizowana tylko r-wartością.**
 
-We define an rvalue reference like this:
+Tak definiujemy r-referencję z użyciem deklaratora `&&`:
 
 `T &&name = <expr>;`
 
-`&&` is called the rvalue reference declarator.
+R-referencja została wprowadzona w C++11, żeby umożliwić:
 
-The rvalue reference was introduced in C++11 to enable:
+* semantykę przeniesienia,
 
-* the move semantics,
+* doskonałe przekazywanie argumentów wywołania funkcji szablonowej.
 
-* the perfect forwarding of function arguments.
-
-Here are some examples:
+Przykłady:
 
 {% highlight c++ %}
 {% include_relative rref.cc %}
