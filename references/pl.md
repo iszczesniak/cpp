@@ -155,13 +155,13 @@ Przykłady dla `std::pair` i `std::tuple`:
 {% include_relative quasi.cc %}
 {% endhighlight %}
 
-## Const reference
+## Referencja stała
 
-*A const reference can bind not only to an lvalue, but to an *rvalue**
-*too.* This rule was introduced in C++98 to allow for binding a
-*function parameter reference to a temporary.
+**Referencja stała może być zainicjalizowana l-wartością lub
+r-wartością.** Ta funkcjonalność została wprowadzona w C++98, żeby
+można przekazać obiekt tymczasowy jako argument wywołania funkcji.
 
-We define a const reference like this:
+Tak definiujemy referencję stałą:
 
 `const T &name = <expr>;`
 
