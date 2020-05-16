@@ -260,11 +260,11 @@ Przykład:
 
 ### Jeden przypadek użycia
 
-Jawnej konwersji l-wartości do r-wartości tylko po to, żeby jawnie
-umożliwić przenoszenie obiektu `x`, który nie mógłby być przeniesiony,
-bo to wyrażenie jest l-wartością.  Zmieniając kategorię wyrażenia,
-wpływamy na wybór przeciążenia konstruktora obiektu, operatora
-przypisania, czy dowolnej innej funkcji przeciążonej typami
+Jawnej konwersji l-wartości do r-wartości używamy tylko po to, żeby
+jawnie umożliwić przenoszenie obiektu `x`, który nie mógłby być
+przeniesiony, bo wyrażenie `x` jest l-wartością.  Zmieniając kategorię
+wyrażenia, wpływamy na wybór przeciążenia konstruktora obiektu,
+operatora przypisania, czy dowolnej innej funkcji przeciążonej typami
 referencyjnymi.
 
 ## Przedłużenie istnienia danej tymczasowej
