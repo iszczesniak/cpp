@@ -240,18 +240,17 @@ Oto przykład:
 {% include_relative overloading.cc %}
 {% endhighlight %}
 
-## R-referencja do l-wartości
+## Konwersja l-wartości do r-wartości
 
-Możemy jawnie otrzymać r-referencję odwołującą się do l-wartości przez
-użycie `static_cast<T &&>(<expr>)`, gdzie `<expr>` może być
-l-wartością albo r-wartością.  Jawne podanie typu `T` jest jednak
-trochę uciążliwe.
+Możemy jawnie konwertować l-wartość do r-wartości przez użycie
+`static_cast<T &&>(<expr>)`, gdzie `<expr>` może być l-wartością albo
+r-wartością.  Jawne podanie typu `T` jest jednak trochę uciążliwe.
 
-Prościej jest otrzymać r-referencję z użyciem `std::move(<expr>)`,
-gdzie `<expr>` może być l-wartością albo r-wartością.  Funkcja
-`std::move` jest szablonowa, gdzie typ r-referencji będzie
-wywnioskowany na podstawie typu wyrażenia `<expr>`.  Funkcja używa
-`static_cast<T &&>(<expr>)`.
+Prościej jest otrzymać r-wartość z użyciem `std::move(<expr>)`, gdzie
+`<expr>` może być l-wartością albo r-wartością.  Funkcja `std::move`
+jest szablonowa, gdzie typ r-wartości będzie wywnioskowany na
+podstawie typu wyrażenia `<expr>`.  Funkcja używa `static_cast<T
+&&>(<expr>)`.
 
 Przykład:
 
@@ -259,14 +258,14 @@ Przykład:
 {% include_relative move.cc %}
 {% endhighlight %}
 
-### The use case
+### Jeden przypadek użycia
 
-I can think of one use case only.  We use `std::move(x)` to explicitly
-enable the move semantics for object `x` (i.e., we turn `x` from an
-lvalue to an rvalue), which by default would not have the move
-sematics enabled, because the expression `x` is an lvalue.  We enable
-the move semantics by making the compiler choose a different overload
-depending on category of the expression.
+Jawnej konwersji l-wartości do r-wartości tylko po to, żeby jawnie
+umożliwić przenoszenie obiektu `x`, który nie mógłby być przeniesiony,
+bo to wyrażenie jest l-wartością.  Zmieniając kategorię wyrażenia,
+wpływamy na wybór przeciążenia konstruktora obiektu, operatora
+przypisania, czy dowolnej innej funkcji przeciążonej typami
+referencyjnymi.
 
 ## A temporary lifetime extension by reference
 
