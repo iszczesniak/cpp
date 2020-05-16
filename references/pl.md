@@ -14,9 +14,9 @@ Najważniejsze fakty o referencjach:
   przypadku nazwy zmiennej), a nie z użyciem operatora dostępu przez
   wskaźnik (czyli `pointer->member`, jak w przypadku wskaźnika).
 
-* Referencja musi być zaincjalizowana, więc nie ma referencji pustych,
-  które nie zostały zainicjalizowane.  Wskaźnik może być pusty (czyli
-  `nullptr`).
+* Referencja musi być zainicjalizowana, więc nie ma referencji
+  pustych, które nie zostały zainicjalizowane.  Wskaźnik może być
+  pusty (czyli `nullptr`).
 
 * W przeciwieństwie do wskaźnika, referencji nie można zmienić, żeby
   była aliasem innej danej.
@@ -168,7 +168,7 @@ Tak definiujemy referencję stałą:
 
 To jest l-referencja, która odwołuje się do danej typu `const T`,
 czyli kwalifikator `const` odnosi się do danej, a nie referencji.
-Referencji i tak nie możemy znienić, ale nazywamy ją referencją stałą
+Referencji i tak nie możemy zmienić, ale nazywamy ją referencją stałą
 w skrócie (myślowym), żeby nie mówić o l-referencji do stałej danej.
 
 Przykłady:
@@ -302,4 +302,35 @@ niszczona podczas niszczenia obiektu:
 
 * Referencja przedłuża istnienie danej tymczasowej.
 
+<!-- LocalWords: expr -->
 <!-- LocalWords: lvalue lvalues rvalue -->
+<!-- LocalWords: rvalue -->
+
+<!-- LocalWords: deklaratora -->
+<!-- LocalWords: deklaratorem -->
+
+<!-- LocalWords: inicjalizowana -->
+<!-- LocalWords: inicjalizowaną -->
+<!-- LocalWords: inicjalizowane -->
+<!-- LocalWords: inicjalizującego -->
+<!-- LocalWords: inicjalizującym -->
+
+<!-- LocalWords: wyoptymalizowana -->
+<!-- LocalWords: wyoptymalizowane -->
+<!-- LocalWords: wyoptymalizowanie -->
+
+<!-- LocalWords: zainicjalizowana -->
+<!-- LocalWords: zainicjalizowaną -->
+<!-- LocalWords: zainicjalizowane -->
+
+<!-- LocalWords: binds -->
+<!-- LocalWords: nullptr -->
+<!-- LocalWords: object -->
+<!-- LocalWords: overload -->
+<!-- LocalWords: name names -->
+<!-- LocalWords: member -->
+<!-- LocalWords: move -->
+<!-- LocalWords: reference references -->
+<!-- LocalWords: refer refers -->
+<!-- LocalWords: resolution -->
+<!-- LocalWords: title -->
