@@ -267,38 +267,39 @@ wpływamy na wybór przeciążenia konstruktora obiektu, operatora
 przypisania, czy dowolnej innej funkcji przeciążonej typami
 referencyjnymi.
 
-## A temporary lifetime extension by reference
+## Przedłużenie istnienia danej tymczasowej
 
-The lifetime of a temporary is extended by the reference that binds to
-it.  The temporary will be destroyed when the reference goes out of
-scope.  Otherwise, a temporary would be destroyed after the expression
-was evaluated.
+Istnienie danej tymczasowej może być przedłużone referencją, która
+odwołuje się do niej.  Dana tymczasowa będzie zniszczona, kiedy
+referencja wyjdzie poza zakres.  Bez referencji, dana tymczasowa
+byłaby niszczona po opracowaniu wyrażenia.
 
 {% highlight c++ %}
 {% include_relative tmp.cc %}
 {% endhighlight %}
 
-We can even create a temporary, and make a member reference bind to
-it.  The temporary will be destroyed, when the object is destroyed:
+Referencyjne pole składowe może odwoływać się do danej tymczasowej.
+Referencja musi być zainicjalizowana przez konstruktor.  Dana będzie
+niszczona podczas niszczenia obiektu:
 
 {% highlight c++ %}
 {% include_relative tmp2.cc %}
 {% endhighlight %}
 
-# Conclusion
+# Podsumowanie
 
-* A reference gives us a way to refer by name to some data.
+* Referencja daje możliwość odwołania się do danej przez nazwę.
 
-* A reference is initialized, and then cannot be changed.
+* Referencja musi być zainicjalizowana i nie może być zmieniona.
 
-* Three reference types:
+* Są trzy typy referencji:
 
-  * an lvalue reference, which can bind to an lvalue only,
+  * l-referencja,
 
-  * a const reference, which can bind to both an lvalue and rvalue,
+  * stała referencja,
 
-  * an rvalue reference, which can bind to an rvalue only.
+  * r-referencja.
 
-* A reference extends the lifetime of a temporary it's bound to.
+* Referencja przedłuża istnienie danej tymczasowej.
 
 <!-- LocalWords: lvalue lvalues rvalue -->
