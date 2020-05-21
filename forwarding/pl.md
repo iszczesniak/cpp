@@ -4,54 +4,43 @@ title: Doskonałe przekazywanie argumentów
 
 # Wprowadzenie
 
-\section{Wprowadzenie}
+Argumentem wywołania funkcji może być albo l-wartość, albo r-wartość.
+W ciele funkcji, wyrażenie z nazwą parametru funkcji jest zawsze
+l-wartością, nawet jeżeli ten parametr jest r-referencją
+(zainicjalizowaną r-wartością).  W ten sposób tracimy informację o
+kategorii wyrażenia argumentu.
 
-\subsection{Wprowadzenie}
+Piszemy funkcję `f`, która wywołuje funkcję `g`.  Argument przekazany
+funkcji `f` ma zostać przekazany funkcji `g` bez kopiowania i z
+zachowaniem kategorii wartości tego argumentu.  Ten problem nazywamy
+*doskonałym przekazywaniem argumentu*.
 
-\begin{frame}[fragile]
+O kwalifikatorach (const, volatile) i typie parametru funkcji `g` nic
+nie wiemy.  Chcemy napisać tylko jedną wersję funkcji `f`, która nie
+kopiowałaby argumentu i zachowywała jego kategorię wartości.
 
-  \frametitle{Przekazywanie argumentów}
-
-  Piszemy funkcję \code{f}, która wywołuje funkcję \code{g} z jednym
-  parametrem, ale o kwalifikatorach (const, volatile) i typie
-  parametru funkcji \code{g} nic nie wiemy.  Chcemy napisać tylko
-  jedną wersję funkcji \code{f}.
-
-\begin{lstlisting}[language=C++]
+{% highlight c++ %}
 template<typename T>
 void
-f(<kwalifikatory> <typ> a)
+f(qualifiers_a type_a a)
 {
   g(a);
 }
-\end{lstlisting}
+{% endhighlight %}
 
-  PYTANIE: jakie mają być kwalifikatory i jaki typ parametru \code{a}
-  funkcji \code{f}?  Czy kwalifikatorem może być \code{const}, czy
-  musi być \code{const}?  Czy typem ma być \code{T}, \code{T &}, czy
-  \code{T &&}?
+PYTANIE: jakie mają być kwalifikatory `qualifiers_a` i jaki typ
+`type_a` funkcji `f`?  Czy kwalifikatorem może być `const`, czy musi
+być `const`?  Czy typem ma być `T`, `T &`, czy `T &&`?
 
-  \vspace{0.25 cm}
+ODPOWIEDŹ: można, ale tylko z C++11.  O tym później.
 
-  ODPOWIEDŹ: można, ale tylko z C++11.  O tym później.
+## Motywacja: fabryki obiektów
 
-\end{frame}
+Funkcje \code{make_unique} i \code{make_shared} są fabrykami obiektów.
+Tworzą one obiekty i potrzebują przekazać swoje argumenty do
+konstruktora klasy w niezmienionej postaci.
 
-%************************************************************************
-
-\subsection{Motywacja: fabryki obiektów}
-
-\begin{frame}[fragile]
-
-  \frametitle{Motywacja: fabryki obiektów}
-
-  Funkcje \code{make_unique} i \code{make_shared} są fabrykami
-  obiektów.  Tworzą one obiekty i potrzebują przekazać swoje argumenty
-  do konstruktora klasy w niezmienionej postaci.
-
-  \vspace{0.25 cm}
-
-  To jest przykład dla dwóch parametrów:
+To jest przykład dla dwóch parametrów:
 
 \begin{lstlisting}[language=C++]
 template<typename T, typename A1, typename A2>
