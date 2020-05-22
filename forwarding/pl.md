@@ -6,9 +6,14 @@ title: Doskonałe przekazywanie argumentów
 
 Argumentem wywołania funkcji może być albo l-wartość, albo r-wartość.
 W ciele funkcji, wyrażenie z nazwą parametru funkcji jest zawsze
-l-wartością, nawet jeżeli ten parametr jest r-referencją
-(zainicjalizowaną r-wartością).  W ten sposób tracimy informację o
-kategorii wyrażenia argumentu.
+l-wartością, nawet jeżeli ten parametr jest r-referencją (która
+została zainicjalizowaną r-wartością).  W ten sposób tracimy
+informację o kategorii argumentu.
+
+Kategoria przekazanego argumentu ma znaczenie, jeżeli jest nią
+r-wartość, np. kiedy argumentem jest wyrażenie tworzące obiekt
+tymczasowy.  Kategoria ma znaczenie, bo od niego zależy czy obiekt
+będzie kopiowany
 
 Piszemy funkcję `f`, która wywołuje funkcję `g`.  Argument przekazany
 funkcji `f` ma zostać przekazany funkcji `g` bez kopiowania i z
@@ -36,59 +41,39 @@ ODPOWIEDŹ: można, ale tylko z C++11.  O tym później.
 
 ## Motywacja: fabryki obiektów
 
-Funkcje \code{make_unique} i \code{make_shared} są fabrykami obiektów.
+Funkcje `std::make_unique` i `std::make_shared` są fabrykami obiektów.
 Tworzą one obiekty i potrzebują przekazać swoje argumenty do
 konstruktora klasy w niezmienionej postaci.
 
 To jest przykład dla dwóch parametrów:
 
-\begin{lstlisting}[language=C++]
+{% highlight c++ %}
 template<typename T, typename A1, typename A2>
 unique_ptr<T>
-make_unique(<kwalifikator> <typ A1> a1,
-            <kwalifikator> <typ A2> a2)
+make_unique(kwalifikatory_a1 typ_a1 a1,
+            kwalifikatory_a2 typ_a2 a2)
 {
   return unique_ptr<T>(new T(a1, a2));
 }
-\end{lstlisting}
+{% endhighlight %}
 
-\end{frame}
+# Szczegóły
 
-%************************************************************************
+## Parametry i argumenty funkcji
 
-\section{Szczegóły}
+* Parametry i argumenty funkcji to nie to samo!
+* Parametr to zmienna dostępna w ciele funkcji.
+* Argument to wyrażenie w wywołaniu funkcji.
+* Parametry są \red{inicjalizowane} na podstawie argumentów.
+* `foo(int x)`, gdzie `x` jest parametrem funkcji
+* `foo(a)`, gdzie `a` jest argumentem wywołania funkcji
 
-\subsection{Parametry i argumenty funkcji}
+Argument może być l-wartością albo r-wartością, a parametr zawsze jest
+l-wartością, bo ma nazwę (możemy pobrać jego adres).
 
-\begin{frame}
+## Możliwe rozwiązania
 
-  \frametitle{Parametry i argumenty funkcji}
-
-  \begin{itemize}
-  \item Parametry i argumenty funkcji to nie to samo!
-  \item Parametr to zmienna dostępna w ciele funkcji.
-  \item Argument to wyrażenie w wywołaniu funkcji.
-  \item Parametry są \red{inicjalizowane} na podstawie argumentów.
-  \item \code{foo(int x)} - \code{x} jest parametrem funkcji
-  \item \code{foo(a)} - \code{a} jest argumentem wywołania funkcji
-  \end{itemize}
-
-  \vspace{0.5cm}
-
-  Argument może być l-wartością albo r-wartością, a parametr zawsze
-  jest l-wartością, bo ma nazwę (możemy pobrać jego adres).
-
-\end{frame}
-
-%************************************************************************
-
-\subsection{Możliwe rozwiązania}
-
-\begin{frame}
-
-  \frametitle{Możliwe rozwiązania}
-
-  Możliwe rozwiązania z pominięciem kwalifikatora \code{volatile}.
+Możliwe rozwiązania z pominięciem kwalifikatora \code{volatile}.
 
   \begin{itemize}
   \item przez wartość: \code{T}
