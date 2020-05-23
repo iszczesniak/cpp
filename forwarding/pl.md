@@ -4,25 +4,17 @@ title: Doskonałe przekazywanie argumentów
 
 # Wprowadzenie
 
-Argumentem wywołania funkcji może być albo l-wartość, albo r-wartość.
-W ciele funkcji, wyrażenie z nazwą parametru funkcji jest zawsze
-l-wartością, nawet jeżeli ten parametr jest r-referencją (która
-została zainicjalizowaną r-wartością).  W ten sposób tracimy
-informację o kategorii argumentu.
-
-Kategoria przekazanego argumentu ma znaczenie, jeżeli jest nią
-r-wartość, np. kiedy argumentem jest wyrażenie tworzące obiekt
-tymczasowy.  Kategoria ma znaczenie, bo od niego zależy czy obiekt
-będzie kopiowany
-
-Piszemy funkcję `f`, która wywołuje funkcję `g`.  Argument przekazany
-funkcji `f` ma zostać przekazany funkcji `g` bez kopiowania i z
-zachowaniem kategorii wartości tego argumentu.  Ten problem nazywamy
-*doskonałym przekazywaniem argumentu*.
+Problemem do rozwiązania jest napisanie funkcji `f`, która wywołuje
+funkcję `g`.  Argument przekazany funkcji `f` ma zostać przekazany
+funkcji `g` bez kopiowania i z *zachowaniem kategorii* tego argumentu.
+Ten problem nazywamy **doskonałym przekazywaniem argumentu**
+(ang. perfect argument forwarding).
 
 O kwalifikatorach (const, volatile) i typie parametru funkcji `g` nic
 nie wiemy.  Chcemy napisać tylko jedną wersję funkcji `f`, która nie
-kopiowałaby argumentu i zachowywała jego kategorię wartości.
+kopiowałaby argumentu i zachowywałaby jego kategorię wartości.
+
+Zadaniem jest napisanie takiego szablonu funkcji:
 
 {% highlight c++ %}
 template<typename T>
@@ -33,11 +25,31 @@ f(qualifiers_a type_a a)
 }
 {% endhighlight %}
 
-PYTANIE: jakie mają być kwalifikatory `qualifiers_a` i jaki typ
-`type_a` funkcji `f`?  Czy kwalifikatorem może być `const`, czy musi
-być `const`?  Czy typem ma być `T`, `T &`, czy `T &&`?
+**PYTANIE**: Czy można napisać taki szablon funkcji `f`?  Jakie mają
+być kwalifikatory `qualifiers_a` i jaki typ `type_a` funkcji `f`?  Czy
+kwalifikatorem może, czy musi być `const`?  Czy typem ma być `T`, `T
+&`, czy `T &&`?
 
-ODPOWIEDŹ: można, ale tylko z C++11.  O tym później.
+ODPOWIEDŹ: Można, ale tylko z C++11.  O tym później.
+
+## Dlaczego jest to problemem?
+
+Zadanie jest problematyczne, bo argumentem wywołania funkcji może być
+albo l-wartość, albo r-wartość, co tworzy dwa podproblemy.
+
+### Podproblem #1
+
+Problemem jest określenie typu parametru funkcji, żeby mógł on być
+zawsze zainicjalizowany, bez względu na typ i tegorię argumentu.
+
+### Podproblem #2
+
+Problemem jest utrata kategorii argumentu.  W ciele funkcji, wyrażenie
+z nazwą parametru funkcji jest zawsze l-wartością, nawet jeżeli
+parametr jest r-referencją (która została zainicjalizowaną
+r-wartością).  Zachowanie kategorii przekazanego argumentu ma
+znaczenie, bo od niej zależy, jakie przeciążenie funkcji `g` będzie
+wybrane.
 
 ## Motywacja: fabryki obiektów
 
@@ -50,8 +62,8 @@ To jest przykład dla dwóch parametrów:
 {% highlight c++ %}
 template<typename T, typename A1, typename A2>
 unique_ptr<T>
-make_unique(kwalifikatory_a1 typ_a1 a1,
-            kwalifikatory_a2 typ_a2 a2)
+make_unique(qualifiers_a1 type_a1 a1,
+            qualifiers_a2 type_a2 a2)
 {
   return unique_ptr<T>(new T(a1, a2));
 }
