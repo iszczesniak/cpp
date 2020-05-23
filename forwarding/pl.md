@@ -35,7 +35,7 @@ kwalifikatorem może, czy musi być `const`?  Czy typem ma być `T`, `T
 ## Dlaczego jest to problemem?
 
 Zadanie jest problematyczne, bo argumentem wywołania funkcji może być
-albo l-wartość, albo r-wartość, co tworzy dwa podproblemy.
+albo l-wartość, albo r-wartość.  Są dwa podproblemy.
 
 ### Podproblem #1
 
@@ -47,9 +47,9 @@ zawsze zainicjalizowany, bez względu na typ i kategorię argumentu.
 Problemem jest utrata kategorii argumentu.  W ciele funkcji, wyrażenie
 z nazwą parametru funkcji jest zawsze l-wartością, nawet jeżeli
 parametr jest r-referencją (która została zainicjalizowaną
-r-wartością).  Zachowanie kategorii przekazanego argumentu ma
-znaczenie, bo też od kategorii (nie tylko od typu) argumentu powinno
-zależeć, które przeciążenie funkcji `g` powinno być wybrane.
+r-wartością).  Zachowanie kategorii argumentu funkcji `f` podczas
+przekazywania go do funkcji `g` ma znaczenie, bo też kategoria (nie
+tylko typ) argumentu ma wpływ na wybór przeciążenia funkcji `g`.
 
 ## Motywacja: fabryki obiektów
 
