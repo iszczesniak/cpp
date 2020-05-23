@@ -11,8 +11,9 @@ Ten problem nazywamy **doskonałym przekazywaniem argumentu**
 (ang. perfect argument forwarding).
 
 O kwalifikatorach (const, volatile) i typie parametru funkcji `g` nic
-nie wiemy.  Chcemy napisać tylko jedną wersję funkcji `f`, która nie
-kopiowałaby argumentu i zachowywałaby jego kategorię wartości.
+nie wiemy.  Chcemy napisać tylko jedną implementację funkcji `f`
+(czyli szablon funkcji), która nie kopiowałaby argumentu i
+zachowywałaby jego kategorię wartości.
 
 Zadaniem jest napisanie takiego szablonu funkcji:
 
