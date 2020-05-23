@@ -54,9 +54,9 @@ tylko typ) argumentu ma wpływ na wybór przeciążenia funkcji `g`.
 
 ## Motywacja: fabryki obiektów
 
-Funkcje `std::make_unique` i `std::make_shared` są fabrykami obiektów.
-Tworzą one obiekty i potrzebują przekazać swoje argumenty do
-konstruktora klasy w niezmienionej postaci.
+Funkcje szablonowe `std::make_unique` i `std::make_shared` są
+fabrykami obiektów.  Tworzą one obiekty i muszą przekazać swoje
+argumenty do konstruktora klasy w niezmienionej postaci.
 
 To jest przykład dla dwóch parametrów:
 
@@ -77,7 +77,7 @@ make_unique(qualifiers_a1 type_a1 a1,
 * Parametry i argumenty funkcji to nie to samo!
 * Parametr to zmienna dostępna w ciele funkcji.
 * Argument to wyrażenie w wywołaniu funkcji.
-* Parametry są \red{inicjalizowane} na podstawie argumentów.
+* Parametry są *inicjalizowane* na podstawie argumentów.
 * `foo(int x)`, gdzie `x` jest parametrem funkcji
 * `foo(a)`, gdzie `a` jest argumentem wywołania funkcji
 
