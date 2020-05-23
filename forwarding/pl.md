@@ -30,7 +30,7 @@ być kwalifikatory `qualifiers_a` i jaki typ `type_a`?  Czy
 kwalifikatorem może, czy musi być `const`?  Czy typem ma być `T`, `T
 &`, czy `T &&`?
 
-ODPOWIEDŹ: Można, ale tylko z C++11.  O tym później.
+**ODPOWIEDŹ**: Można, ale tylko z C++11.  O tym później.
 
 ## Dlaczego jest to problemem?
 
@@ -48,8 +48,8 @@ Problemem jest utrata kategorii argumentu.  W ciele funkcji, wyrażenie
 z nazwą parametru funkcji jest zawsze l-wartością, nawet jeżeli
 parametr jest r-referencją (która została zainicjalizowaną
 r-wartością).  Zachowanie kategorii przekazanego argumentu ma
-znaczenie, bo od niej zależy, jakie przeciążenie funkcji `g` będzie
-wybrane.
+znaczenie, bo też od kategorii (nie tylko od typu) argumentu powinno
+zależeć, które przeciążenie funkcji `g` powinno być wybrane.
 
 ## Motywacja: fabryki obiektów
 
