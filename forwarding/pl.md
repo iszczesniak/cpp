@@ -26,7 +26,7 @@ f(qualifiers_a type_a a)
 {% endhighlight %}
 
 **PYTANIE**: Czy można napisać taki szablon funkcji `f`?  Jakie mają
-być kwalifikatory `qualifiers_a` i jaki typ `type_a` funkcji `f`?  Czy
+być kwalifikatory `qualifiers_a` i jaki typ `type_a`?  Czy
 kwalifikatorem może, czy musi być `const`?  Czy typem ma być `T`, `T
 &`, czy `T &&`?
 
@@ -40,7 +40,7 @@ albo l-wartość, albo r-wartość, co tworzy dwa podproblemy.
 ### Podproblem #1
 
 Problemem jest określenie typu parametru funkcji, żeby mógł on być
-zawsze zainicjalizowany, bez względu na typ i tegorię argumentu.
+zawsze zainicjalizowany, bez względu na typ i kategorię argumentu.
 
 ### Podproblem #2
 
