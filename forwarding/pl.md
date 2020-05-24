@@ -93,9 +93,16 @@ Możliwe rozwiązania z pominięciem kwalifikatora `volatile`.
 * przez r-referencję: `T &&`
 * przez r-referencję stałą: `const T &&`
 
+Nie bierzemy pod uwagę rozwiązań:
+
+* `const T`, bo jest to przekazanie przez wartość, jak w przypadku
+  `T`, z deklaracją, że parametru nie będziemy zmieniać,
+
+* `const T &&`, bo nie znam zastosowania tego typu referencji.
+
 ## Rozwiązanie: przekazywanie przez wartość
 
-Chodzi o `T` i `const T`.  Rozwiązanie dla `T`:
+Wygląda tak:
 
 {% highlight c++ %}
 template<typename T>
@@ -109,92 +116,60 @@ f(T a)
 Gdy wykonamy `f(1)`, a funkcja `g` będzie pobierać argumenty przez
 referencję, to nie otrzyma referencji na oryginalny obiekt, a
 referencję na parametr funkcji `f`, który jest kopią oryginalnego
-obiektu.
+obiektu.  **Złe rozwiązanie.**
 
-**TO JEST ZŁE ROZWIĄZANIE!**
+Zatem zostają nam trzy przypadki z referencjami do rozważenia:
 
-\end{frame}
+* `T &`
+* `const T &`
+* `T &&`
 
-\subsection{Pozostałe rozwiązania do rozważenia}
+## Rozwiązanie: T &
 
-\begin{frame}[fragile]
-
-  \frametitle{Pozostałe rozwiązania do rozważenia}
-
-  Bierzemy pod uwagę wyłącznie rozwiązania z referencjami, ale bez
-  \code{const T &&}, bo jest ona bezużyteczna.
-
-  \vspace{0.25 cm}
-
-  Zostają nam trzy przypadki do rozważenia:
-
-  \begin{itemize}
-  \item \code{T &}
-  \item \code{const T &}
-  \item \code{T &&}
-  \end{itemize}
-
-\end{frame}
-
-%************************************************************************
-
-\subsection{Rozwiązanie: T &}
-
-\begin{frame}[fragile]
-
-  \frametitle{Rozwiązanie: \code{T &}}
-
-  Rozwiązanie z \code{T &} wygląda tak:
+Wygląda tak:
   
-\begin{lstlisting}[language=C++]
+{% highlight c++ %}
 template<typename T>
 void
 f(T &a)
 {
   g(a);
 }
-\end{lstlisting}
+{% endhighlight %}
 
-PROBLEM: jeżeli argument jest kategorii rvalue, np.~\code{f(1)}, to
-będzie błąd kompilacji.  Dlaczego?
+Jeżeli argumentem wywołania funkcji `f` jest r-wartość, to kompilacja
+nie powiedzie się, bo l-referencja nie może być zainicjalizowana
+r-wartością.  **Złe rozwiązanie.**
 
-\vspace{0.25 cm}
+Przykład:
 
-\red{TO JEST ZŁE ROZWIĄZANIE!}
+{% highlight c++ %}
+{% include_relative bad1.cc %}
+{% endhighlight %}
 
-\end{frame}
+## Rozwiązanie: const T &
 
-%************************************************************************
-
-\subsection{Rozwiązanie: const T &}
-
-\begin{frame}[fragile]
-
-  \frametitle{Rozwiązanie: \code{const T &}}
-
-  Rozwiązanie z \code{const T &} wygląda tak:
+Wygląda tak:
   
-\begin{lstlisting}[language=C++]
+{% highlight c++ %}
 template<typename T>
 void
 f(const T &a)
 {
   g(a);
 }
-\end{lstlisting}
+{% endhighlight %}
 
-Teraz będzie się kompilować dla r-wartości, np.~\code{f(1)}.
+Teraz będzie się kompilować dla r-wartości, np. `f(1)`, ale teraz
+jeżeli funkcja będzie `void g(int &);`, to kod nie będzie się
+kompilował, bo niestałej l-referencji nie można zainicjalizować stałą
+referencją.  **Złe rozwiązanie.**
 
-\vspace{0.25 cm}
+Przykład:
 
-PROBLEM: Jeżeli funkcja będzie \code{g(int &)}, to kod nie będzie się
-kompilować.  Dlaczego?
-
-\vspace{0.25 cm}
-
-\red{TO JEST ZŁE ROZWIĄZANIE!}
-
-\end{frame}
+{% highlight c++ %}
+{% include_relative bad2.cc %}
+{% endhighlight %}
 
 %************************************************************************
 
