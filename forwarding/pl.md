@@ -230,6 +230,10 @@ sposób tracimy informację o kategorii wartości wyrażenia, które było
 argumentem funkcji `f`.  Funkcja `std::forward` odzyskuje tę kategorię
 wartości, czego szczegóły są wyjaśnione niżej.
 
+**Podproblem #1 został rozwiązany referencją przekazującą.**
+
+**Podproblem #2 został rozwiązany funkcją `std::forward`.**
+
 ## Referencja do referencji
 
 W C++ nie ma typu *referencji do referencji*, ale takie typy mogą się
@@ -289,6 +293,25 @@ Przykład:
 {% include_relative forward.cc %}
 {% endhighlight %}
 
+# Rozbudowany przykład
+
+Zdefiniujemy różne przeciążenia dla funkcji `g`.  Funkcja `g` będzie
+przyjmowała też drugi parametr, który pozwoli nam stwierdzić, czy
+kompilator wybrał to przeciążenie, które się spodziewaliśmy.  W
+funkcji `main` wywołujemy każde przeciążenie funkcji.
+
+Piszemy funkcję `f`, która doskonale przekazuje swój argument do
+funkcji `g`.
+
+Przykład:
+
+{% highlight c++ %}
+{% include_relative perfect.cc %}
+{% endhighlight %}
+
+Co się stanie, jeżeli usuniemy funkcję `forward` z funkcji `f`?  Wtedy
+będą przekazywane zawsze l-wartości do funkcji `g`.  Można sprawdzić.
+
 # Podsumowanie
 
 * Problem doskonałego przekazywania argumentów występuje w
@@ -299,24 +322,6 @@ Przykład:
 
 * Aby przekazać parametr do innej funkcji, używamy funkcji
   `std::forward`, która odzyskuje kategorię wartości wyrażenia.
-
-\section{Dobre rozwiązanie}
-
-Zdefiniujemy różne przeciążenia dla funkcji \code{g}.  Funkcja
-\code{g} będzie przyjmowała też drugi parametr, który będzie pozwalał
-nam stwierdzić, czy kompilator wybrał te przeciążenie, które się
-spodziewaliśmy.  W funkcji \code{main} wywołujemy każde przeciążenie
-funkcji.
-
-Potem piszemy funkcję \code{f}, która doskonale przekazuje swój
-argument do funkcji \code{g}.
-
-\lstinputlisting{perfect.cc}
-
-Usunąć funkcję \code{forward} z funkcji \code{f}.  Wtedy będą
-przekazywane zawsze l-wartości do funkcji \code{g}.  Funkcja forward
-załatwia nam poprawne przekazywanie kategorii wartości argumentu
-wywołania funkcji \code{f}.
 
 <!-- LocalWords: expr -->
 <!-- LocalWords: lvalue lvalues rvalue -->
