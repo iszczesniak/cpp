@@ -202,16 +202,12 @@ Przykład:
 {% include_relative bad3.cc %}
 {% endhighlight %}
 
-\subsection{Prawidłowe rozwiązanie}
+# Prawidłowe rozwiązanie
 
-\begin{frame}[fragile]
+Żeby rozwiązać podproblem #1 z C++11, typem parametru powina być
+r-referencja bez kwalifikatorów.  Prawda objawiona:
 
-  \frametitle{Prawidłowe rozwiązanie}
-
-  Z C++11, typem parametru powina być r-referencja bez kwalifikatorów,
-  czyli tak:
-
-\begin{lstlisting}[language=C++]
+{% highlight c++ %}
 template<typename T>
 void
 f(T &&t)
@@ -219,25 +215,19 @@ f(T &&t)
   g(std::forward<T>(t));
 }
 \end{lstlisting}
+{% endhighlight %}
 
-  Problem w tym, że parametr \code{t} jest l-wartością (bo ma nazwę
-  \code{t}), nawet jeżeli argumentem wywołania funkcji \code{f} była
-  r-wartość.  W ten sposób tracimy informację o kategorii wartości
-  wyrażenia, które było argumentem funkcji \code{f}.
+Problem w tym, że parametr `t` jest l-wartością (bo ma nazwę `t`),
+nawet jeżeli argumentem wywołania funkcji `f` była r-wartość.  W ten
+sposób tracimy informację o kategorii wartości wyrażenia, które było
+argumentem funkcji `f`.  Kategorię wartości odzyskuje nam użyta
+funkcja `std::forward`.
 
-\end{frame}
+## Referencja do referencji
 
-%************************************************************************
-
-\subsection{Referencja do referencji}
-
-\begin{frame}[fragile]
-
-  \frametitle{Referencja do referencji}
-
-  W C++ nie ma typu \red{referencji do referencji}, ale takie typy
-  mogą się pojawić, jako efekt definicji typów szablonowych z użyciem
-  \code{typedef} czy \code{using}.
+W C++ nie ma typu `referencji do referencji`, ale takie typy mogą się
+pojawić, jako efekt definicji typów szablonowych z użyciem `typedef`
+czy `using`.
 
 \begin{lstlisting}
 template<typename T>
