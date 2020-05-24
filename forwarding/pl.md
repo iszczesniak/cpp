@@ -216,6 +216,10 @@ f(T &&t)
 }
 {% endhighlight %}
 
+Jeżeli `T` jest parametrem szablonu, to typ `T &&` parametru funkcji
+nazywamy typem **referencji przekazującej** (ang. forwarding
+reference).  Referencja przekazująca to nie r-referencja.
+
 Prawda objawiona, bo dla typu parametru `T &&` funkcji szablonowej
 wprowadzono specjalne zasady wnioskowania typu `T` w zależności od
 kategorii argumentu, co jest dalej wyjaśnione.
@@ -229,20 +233,19 @@ wartości, czego szczegóły są wyjaśnione niżej.
 ## Referencja do referencji
 
 W C++ nie ma typu `referencji do referencji`, ale takie typy mogą się
-pojawić, jako efekt definicji typów szablonowych z użyciem `typedef`
-czy `using`.
+pojawić, jako efekt deklaracji referencji przekazujących, albo
+definicji typów szablonowych z użyciem `typedef` czy `using`.
 
 {% highlight c++ %}
 template<typename T>
 class A
 {
   typedef typename T &&my_type;
-  // ...
 };
 {% endhighlight %}
 
-Jeżeli kompilator wywnioskuje typ T jako, na przykład, `int &`, to
-wtedy otrzymamy typ `my_type` jako `int & &&`.  Co wtedy?
+Jeżeli argumentem szablonu będzie `int &`, to wtedy otrzymamy typ
+`my_type` jako `int & &&`.  Co wtedy?
 
 ## Spłaszczanie typów referencji
 
@@ -258,31 +261,22 @@ Zbiory `cv1`, `cv2`, `cv12` oznaczają zbiory kwalifikatorów, do
 których mogą należeć `const` i `volatile`.  Zbiór `cv12` jest sumą
 zbiorów `cv1` i `cv2`.
 
-\subsection{Dopasowywanie typu argumentu szablonu}
+Przykład spłaszczania referencji:
 
-\begin{frame}[fragile]
+{% highlight c++ %}
+{% include_relative collapse.cc %}
+{% endhighlight %}
 
-  \frametitle{Dopasowywanie typu argumentu szablonu}
+## Wnioskowanie
 
-  Jaki będzie dopasowany typ \code{T} w szablonie?  Przykład:
+Jaki będzie wywnioskowany argument dla parametru `T` szablonu, jeżeli
+jest on użyty w deklaracji referencji przekazującej?
 
-\begin{lstlisting}[language=C++]
-template<typename T>
-void
-f(T &&a)
-{
-}
-\end{lstlisting}
+Jeżeli argumentem funkcji `f` jest:
 
-Dwie zasady:
-\begin{itemize}
-\item jeżeli argumentem funkcji \code{f} jest r-wartość typu A, to
-  \code{T = A}
-\item jeżeli argumentem funkcji \code{f} jest l-wartość typu A, to
-  \code{T = A &}
-\end{itemize}
+* l-wartość typu A, to `T = A &`,
 
-\end{frame}
+* r-wartość typu A, to `T = A`.
 
 %************************************************************************
 
