@@ -214,14 +214,17 @@ f(T &&t)
 {
   g(std::forward<T>(t));
 }
-\end{lstlisting}
 {% endhighlight %}
+
+Prawda objawiona, bo dla typu parametru `T &&` funkcji szablonowej
+wprowadzono specjalne zasady wnioskowania typu `T` w zależności od
+kategorii argumentu, co jest dalej wyjaśnione.
 
 Problem w tym, że parametr `t` jest l-wartością (bo ma nazwę `t`),
 nawet jeżeli argumentem wywołania funkcji `f` była r-wartość.  W ten
 sposób tracimy informację o kategorii wartości wyrażenia, które było
-argumentem funkcji `f`.  Kategorię wartości odzyskuje nam użyta
-funkcja `std::forward`.
+argumentem funkcji `f`.  Funkcja `std::forward` odzyskuje tę kategorię
+wartości, czego szczegóły są wyjaśnione niżej.
 
 ## Referencja do referencji
 
@@ -229,46 +232,31 @@ W C++ nie ma typu `referencji do referencji`, ale takie typy mogą się
 pojawić, jako efekt definicji typów szablonowych z użyciem `typedef`
 czy `using`.
 
-\begin{lstlisting}
+{% highlight c++ %}
 template<typename T>
 class A
 {
-  typedef typename T &my_type;
+  typedef typename T &&my_type;
   // ...
 };
-\end{lstlisting}
+{% endhighlight %}
 
-Jeżeli kompilator wywnioskuje typ T jako, na przykład, \code{int &},
-to wtedy otrzymamy typ \code{my_type} jako \code{int & &}.  Co wtedy?
+Jeżeli kompilator wywnioskuje typ T jako, na przykład, `int &`, to
+wtedy otrzymamy typ `my_type` jako `int & &&`.  Co wtedy?
 
-\end{frame}
+## Spłaszczanie typów referencji
 
-%************************************************************************
+Jeżeli pojawi się typ referencji do referencji, to kompilator zamieni
+taki typ na referencję według zasady:
 
-\subsection{Spłaszczanie typów referencji}
+* `cv1 T & cv2 T &` na `cv12 T &`
+* `cv1 T & cv2 T &&` na `cv12 T &`
+* `cv1 T && cv2 T &` na `cv12 T &`
+* `cv1 T && cv2 T &&` na `cv12 T &&`
 
-\begin{frame}[fragile]
-
-  \frametitle{Spłaszczanie typów referencji}
-
-  Jeżeli pojawi się typ referencji do referencji, to kompilator
-  zamieni taki typ na referencję według zasady:
-
-  \begin{itemize}
-  \item \code{cv1 T & cv2 T &} $\to$ \code{cv12 T &}
-  \item \code{cv1 T & cv2 T &&} $\to$ \code{cv12 T &}
-  \item \code{cv1 T && cv2 T &} $\to$ \code{cv12 T &}
-  \item \code{cv1 T && cv2 T &&} $\to$ \code{cv12 T &&}
-  \end{itemize}
-
-  Zbiory cv1, cv2, cv12 oznaczają zbiory kwalifikatorów, do których
-  mogą należeć \red{const} i \red{volatile}.  Zbiór cv12 jest sumą
-  zbiorów cv1 i cv2, czyli $\texttt{cv12} = \texttt{cv1} \cup
-  \texttt{cv2}$.
-
-\end{frame}
-
-%************************************************************************
+Zbiory `cv1`, `cv2`, `cv12` oznaczają zbiory kwalifikatorów, do
+których mogą należeć `const` i `volatile`.  Zbiór `cv12` jest sumą
+zbiorów `cv1` i `cv2`.
 
 \subsection{Dopasowywanie typu argumentu szablonu}
 
