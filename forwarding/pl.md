@@ -107,9 +107,9 @@ Wygląda tak:
 {% highlight c++ %}
 template<typename T>
 void
-f(T a)
+f(T t)
 {
-  g(a);
+  g(t);
 }
 {% endhighlight %}
 
@@ -131,9 +131,9 @@ Wygląda tak:
 {% highlight c++ %}
 template<typename T>
 void
-f(T &a)
+f(T &t)
 {
-  g(a);
+  g(t);
 }
 {% endhighlight %}
 
@@ -154,9 +154,9 @@ Wygląda tak:
 {% highlight c++ %}
 template<typename T>
 void
-f(const T &a)
+f(const T &t)
 {
-  g(a);
+  g(t);
 }
 {% endhighlight %}
 
@@ -180,16 +180,16 @@ dla jednego parametru:
 {% highlight c++ %}
 template<typename T>
 void
-f(T &a)
+f(T &t)
 {
-  g(a);
+  g(t);
 }
 
 template<typename T>
 void
-f(const T &a)
+f(const T &t)
 {
-  g(a);
+  g(t);
 }
 {% endhighlight %}
 
