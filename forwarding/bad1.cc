@@ -3,9 +3,9 @@ void g(const int &)
 }
 
 template <typename T>
-void f(T &p)
+void f(T &t)
 {
-  g(p);
+  g(t);
 }
 
 struct A

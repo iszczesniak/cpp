@@ -3,9 +3,9 @@ void g(int &)
 }
 
 template <typename T>
-void f(const T &p)
+void f(const T &t)
 {
-  g(p);
+  g(t);
 }
 
 int main()

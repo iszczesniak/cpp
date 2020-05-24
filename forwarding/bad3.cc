@@ -11,15 +11,15 @@ void g(const int &)
 }
 
 template <typename T>
-void f(T &p)
+void f(T &t)
 {
-  g(p);
+  g(t);
 }
 
 template <typename T>
-void f(const T &p)
+void f(const T &t)
 {
-  g(p);
+  g(t);
 }
 
 int main()
