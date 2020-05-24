@@ -33,7 +33,7 @@ kwalifikatorem może, czy musi być `const`?  Czy typem ma być `T`, `T
 
 **ODPOWIEDŹ**: Można, ale tylko z C++11.  O tym później.
 
-## Dlaczego jest to problemem?
+## Dlaczego to problem?
 
 Zadanie jest problematyczne, bo argumentem wywołania funkcji może być
 albo l-wartość, albo r-wartość.  Są dwa podproblemy.
@@ -70,8 +70,6 @@ make_unique(qualifiers_a1 type_a1 a1,
 }
 {% endhighlight %}
 
-# Szczegóły
-
 ## Parametry i argumenty funkcji
 
 * Parametry i argumenty funkcji to nie to samo!
@@ -84,52 +82,38 @@ make_unique(qualifiers_a1 type_a1 a1,
 Argument może być l-wartością albo r-wartością, a parametr zawsze jest
 l-wartością, bo ma nazwę (możemy pobrać jego adres).
 
-## Możliwe rozwiązania
+# Możliwe rozwiązania
 
-Możliwe rozwiązania z pominięciem kwalifikatora \code{volatile}.
+Możliwe rozwiązania z pominięciem kwalifikatora `volatile`.
 
-  \begin{itemize}
-  \item przez wartość: \code{T}
-  \item przez stałą wartość: \code{const T}
-  \item przez referencję typu lvalue: \code{T &}
-  \item przez referencję stałą typu lvalue: \code{const T &}
-  \item przez referencję typu rvalue: \code{T &&}
-  \item przez referencję stałą typu rvalue: \code{const T &&}
-  \end{itemize}
+* przez wartość: `T`
+* przez stałą wartość: `const T`
+* przez l-referencję: `T &`
+* przez referencję stałą: `const T &`
+* przez r-referencję: `T &&`
+* przez r-referencję stałą: `const T &&`
 
-\end{frame}
+## Rozwiązanie: przekazywanie przez wartość
 
-%************************************************************************
+Chodzi o `T` i `const T`.  Rozwiązanie dla `T`:
 
-\subsection{Rozwiązanie: przekazywanie przez wartość}
-
-\begin{frame}[fragile]
-
-  \frametitle{Rozwiązanie: przekazywanie przez wartość}
-
-  Chodzi o \code{T} i \code{const T}.  Na przykład dla \code{T}:
-
-\begin{lstlisting}[language=C++]
+{% highlight c++ %}
 template<typename T>
 void
 f(T a)
 {
   g(a);
 }
-\end{lstlisting}
+{% endhighlight %}
 
-  Gdy wykonamy \code{f(1)}, a funkcja \code{g} będzie pobierać
-  argumenty przez referencję, to nie otrzyma referencji na oryginalny
-  obiekt, a referencję na parametr funkcji \code{f}, który jest kopią
-  oryginalnego obiektu.
+Gdy wykonamy `f(1)`, a funkcja `g` będzie pobierać argumenty przez
+referencję, to nie otrzyma referencji na oryginalny obiekt, a
+referencję na parametr funkcji `f`, który jest kopią oryginalnego
+obiektu.
 
-  \vspace{0.25 cm}
-
-  \red{TO JEST ZŁE ROZWIĄZANIE!}
+**TO JEST ZŁE ROZWIĄZANIE!**
 
 \end{frame}
-
-%************************************************************************
 
 \subsection{Pozostałe rozwiązania do rozważenia}
 
