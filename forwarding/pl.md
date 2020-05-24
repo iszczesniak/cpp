@@ -100,7 +100,7 @@ Nie bierzemy pod uwagę rozwiązań:
 
 * `const T &&`, bo nie znam zastosowania tego typu referencji.
 
-## Rozwiązanie: przekazywanie przez wartość
+## Rozwiązanie: `T`
 
 Wygląda tak:
 
@@ -124,7 +124,7 @@ Zatem zostają nam trzy przypadki z referencjami do rozważenia:
 * `const T &`
 * `T &&`
 
-## Rozwiązanie: T &
+## Rozwiązanie: `T &`
 
 Wygląda tak:
   
@@ -147,7 +147,7 @@ Przykład:
 {% include_relative bad1.cc %}
 {% endhighlight %}
 
-## Rozwiązanie: const T &
+## Rozwiązanie: `const T &`
 
 Wygląda tak:
   
@@ -160,10 +160,10 @@ f(const T &a)
 }
 {% endhighlight %}
 
-Teraz będzie się kompilować dla r-wartości, np. `f(1)`, ale teraz
-jeżeli funkcja będzie `void g(int &);`, to kod nie będzie się
-kompilował, bo niestałej l-referencji nie można zainicjalizować stałą
-referencją.  **Złe rozwiązanie.**
+Teraz będzie się kompilować dla r-wartości, np. `f(1)`, ale jeżeli
+funkcja będzie `void g(int &);`, to kod nie będzie się kompilował, bo
+niestałej l-referencji nie można zainicjalizować stałą referencją.
+**Złe rozwiązanie.**
 
 Przykład:
 
@@ -171,28 +171,36 @@ Przykład:
 {% include_relative bad2.cc %}
 {% endhighlight %}
 
-%************************************************************************
+## Rozwiązanie: `T &` razem z `const T &`
 
-\subsection{Rozwiązanie: T & razem z const T &}
+Możemy mieć dwa szablony: jeden dla `T &`, a drugi dla `const T &`.
+Czyli mamy dwie definicje szablonu funkcji (dwa przeciążenia szablonu)
+dla jednego parametru:
 
-\begin{frame}[fragile]
+{% highlight c++ %}
+template<typename T>
+void
+f(T &a)
+{
+  g(a);
+}
 
-  \frametitle{Rozwiązanie: \code{T &} razem z \code{const T &}}
+template<typename T>
+void
+f(const T &a)
+{
+  g(a);
+}
+{% endhighlight %}
 
-  Możemy mieć dwie definicje, jedna dla \code{T &}, a druga dla
-  \code{const T &}.  Czyli mamy dwie definicje dla jednego parametru.
+Ta implementacja rozwiąże podproblem #1, ale dla $n$ parametrów
+potrzebujemy $2^n$ definicji funkcji!  **Złe rozwiązanie.**
 
-  \vspace{0.25 cm}
+Przykład:
 
-  PROBLEM: Dla $n$ parametrów potrzebujemy $2^n$ definicji funkcji!
-
-  \vspace{0.25 cm}
-  
-  \red{TO JEST ZŁE ROZWIĄZANIE!}
-
-\end{frame}
-
-%************************************************************************
+{% highlight c++ %}
+{% include_relative bad3.cc %}
+{% endhighlight %}
 
 \subsection{Prawidłowe rozwiązanie}
 
@@ -344,27 +352,6 @@ Dwie zasady:
 
   \end{itemize}
 \section{Złe rozwiązania}
-
-Programista ma napisać funkcję \code{f}, która wywołuje funkcję
-\code{g}.  Nie wiemy jaki jest typ parametru funkcji \code{g}, ale
-chcielibyśmy wywoływać funkcję \code{f} tak, jak wykonujemy funkcję
-\code{g}.
-
-Rozwiązanie z taką definicją szablonu (typem parametru funkcji
-szablonowej jest niestała l-referencja) nie kompiluje się:
-
-\lstinputlisting{bad1.cc}
-
-Rozwiązanie z taką inną definicją szablonu (typem parametru funkcji
-szablonowej jest stała l-referencja) też się nie kompiluje:
-
-\lstinputlisting{bad2.cc}
-
-Jeżeli zdefiniujemy dwa szablony (jeden dla referencji niestałej, a
-drugi dla stałej), to wtedy problem jest rozwiązany, chociaż lepiej
-byłoby zdefiniować tylko jeden szablon:
-
-\lstinputlisting{bad3.cc}
 
 \section{\code{std::forward}}
 
