@@ -232,20 +232,13 @@ wartości, czego szczegóły są wyjaśnione niżej.
 
 ## Referencja do referencji
 
-W C++ nie ma typu `referencji do referencji`, ale takie typy mogą się
-pojawić, jako efekt deklaracji referencji przekazujących, albo
-definicji typów szablonowych z użyciem `typedef` czy `using`.
+W C++ nie ma typu *referencji do referencji*, ale takie typy mogą się
+pojawić, jako efekt deklaracji referencji przekazującej, albo
+definicji typów szablonowych z użyciem `using` czy `typedef`.
 
-{% highlight c++ %}
-template<typename T>
-class A
-{
-  typedef typename T &&my_type;
-};
-{% endhighlight %}
-
-Jeżeli argumentem szablonu będzie `int &`, to wtedy otrzymamy typ
-`my_type` jako `int & &&`.  Co wtedy?
+Jeżeli argumentem parametru szablonu `T` będzie `T &`, to wtedy typem
+parametru funkcji, który został zadeklarowana jako referencja
+przekazująca, będzie typ `T & &&`.  Co wtedy?
 
 ## Spłaszczanie typów referencji
 
@@ -278,77 +271,34 @@ Jeżeli argumentem funkcji `f` jest:
 
 * r-wartość typu A, to `T = A`.
 
-%************************************************************************
+## Funkcja `std::forward`
 
-\subsection{std::forward}
+Funkcja szablonowa `std::forward` przyjmuje l-wartość `t` typu $T$ i
+zależności od argumentu szablonu zwraca:
 
-\begin{frame}[fragile]
+* r-referencję na `t` dla `std::forward<T>(t)`
+* l-referencję na `t` dla `std::forward<T &>(t)`
 
-  \frametitle{\code{std::forward}}
+Funkcji `std::forward` używa się w definicji pewnej funkcji
+szablonowej `f`, gdzie trzeba odzyskać kategorię wyrażenia, które było
+argumentem wywołania funkcji szablonowej `f`.
 
-  Funkcja szablonowa \code{std::forward} przyjmuje l-wartość \code{a}
-  typu $T$ i zależności od sposobu wywołania (typu argumentu szablonu)
-  zwraca:
+Przykład:
 
-  \begin{itemize}
-  \item r-referencję na \code{a} dla \code{std::forward<T>(a)}
-  \item l-referencję na \code{a} dla \code{std::forward<T &>(a)} 
-  \end{itemize}
+{% highlight c++ %}
+{% include_relative forward.cc %}
+{% endhighlight %}
 
-  Funkcji \code{std::forward} używa się w definicji pewnej funkcji
-  szablonowej \code{f}, gdzie trzeba odzyskać kategorię wyrażenia,
-  które było argumentem wywołania funkcji szablonowej \code{f}.
+# Podsumowanie
 
-\end{frame}
+* Problem doskonałego przekazywania argumentów występuje w
+  programowaniu generycznym z użyciem szablonów.
 
-%************************************************************************
+* Jako typ parametru funkcji używamy: `T &&t`, gdzie `T` jest
+  parametrem szablonu, a `t` parametrem funkcji.
 
-\section{Koniec}
-
-\subsection{Podsumowanie}
-
-\begin{frame}
-
-  \frametitle{Podsumowanie}
-
-  \begin{itemize}
-
-  \item Problem doskonałego przekazywania argumentów występuje w
-    programowaniu generycznym z użyciem szablonów.
-
-  \item Jako typ parametru funkcji używamy: \code{T &&t}, gdzie
-    \code{T} jest parametrem szablonu, a \code{t} parametrem funkcji.
-
-  \item Aby przekazać parametr do innej funkcji, używamy funkcji
-    \code{std::forward}, która odzyskuje kategorię wartości wyrażenia.
-
-  \end{itemize}
-\section{Złe rozwiązania}
-
-\section{\code{std::forward}}
-
-Przykładowy program pokazujący działanie funkcji \code{std::forward}:
-
-\lstinputlisting{forward.cc}
-
-\section{Spłaszczenie referencji}
-
-Przykładowy program pokazujący spłaszczanie referencji:
-
-\lstinputlisting{collapse.cc}
-
-\section{Wnioskowanie typów}
-
-Przykładowy program pokazujący wnioskowanie typów.  Jeżeli typem jest
-\code{auto &&}, to kompilator wywnioskuje, czy referencja powinna być
-typu l-wartość czy r-wartość w zależności od kategorii wartości
-wyrażenia, które jest inicjalizatorem referencji.
-
-Żeby zobaczyć wywnioskowany typ w czasie kompilacji, w kodzie
-wprowadzono błąd, o którym kompilator informuje jednocześnie wypisując
-interesujący nas typ.
-
-\lstinputlisting{deduction.cc}
+* Aby przekazać parametr do innej funkcji, używamy funkcji
+  `std::forward`, która odzyskuje kategorię wartości wyrażenia.
 
 \section{Dobre rozwiązanie}
 

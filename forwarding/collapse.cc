@@ -3,6 +3,12 @@
 
 using namespace std;
 
+template<typename T>
+class A
+{
+  using my_type = T &&;
+};
+
 int
 main()
 {
