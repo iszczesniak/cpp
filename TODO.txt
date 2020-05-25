@@ -1,7 +1,13 @@
+Containers, iterators and algorithms
+
+Variadic templates
+
 Type aliases cannot be specialized.  Use type traits.
 
 Injected class names in class templates.
 
 Partial specialization
+
+auto - more details
 
 Tag dispatching
