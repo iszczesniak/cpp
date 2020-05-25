@@ -204,8 +204,10 @@ Przykład:
 
 # Prawidłowe rozwiązanie: T &&
 
-Żeby rozwiązać podproblem #1 z C++11, typem parametru powina być
-r-referencja bez kwalifikatorów.  Prawda objawiona:
+Żeby rozwiązać podproblem #1 z C++11, typ parametru powinien być
+zadeklarowany jako r-referencja bez kwalifikatorów.
+
+Prawda objawiona:
 
 {% highlight c++ %}
 template<typename T>
@@ -218,7 +220,8 @@ f(T &&t)
 
 Jeżeli `T` jest parametrem szablonu, to parametr funkcji typu `T &&`
 nazywamy **referencją przekazującą** (ang. forwarding reference).
-Referencja przekazująca to nie r-referencja.
+Mimo, że deklarowanym typem jest r-referencja, to na etapie kompilacji
+parametr może otrzymać typ l-referencji albo r-referencji.
 
 Prawda objawiona, bo dla referencji przekazującej wprowadzono w C++11
 specjalne zasady wnioskowania typu `T` w zależności od kategorii
@@ -319,35 +322,12 @@ będą przekazywane zawsze l-wartości do funkcji `g`.  Można sprawdzić.
 * Żeby doskonale przekazać argument wywołania funkcji, używamy
   referencji przekazującej i funkcji `std::forward`.
 
-<!-- LocalWords: expr -->
-<!-- LocalWords: lvalue lvalues rvalue -->
-<!-- LocalWords: rvalue -->
-
-<!-- LocalWords: deklaratora -->
-<!-- LocalWords: deklaratorem -->
-
 <!-- LocalWords: inicjalizowana -->
 <!-- LocalWords: inicjalizowaną -->
 <!-- LocalWords: inicjalizowane -->
 <!-- LocalWords: inicjalizującego -->
 <!-- LocalWords: inicjalizującym -->
 
-<!-- LocalWords: wyoptymalizowana -->
-<!-- LocalWords: wyoptymalizowane -->
-<!-- LocalWords: wyoptymalizowanie -->
-
 <!-- LocalWords: zainicjalizowana -->
 <!-- LocalWords: zainicjalizowaną -->
 <!-- LocalWords: zainicjalizowane -->
-
-<!-- LocalWords: binds -->
-<!-- LocalWords: nullptr -->
-<!-- LocalWords: object -->
-<!-- LocalWords: overload -->
-<!-- LocalWords: name names -->
-<!-- LocalWords: member -->
-<!-- LocalWords: move -->
-<!-- LocalWords: reference references -->
-<!-- LocalWords: refer refers -->
-<!-- LocalWords: resolution -->
-<!-- LocalWords: title -->
