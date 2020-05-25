@@ -1,6 +1,3 @@
-In templates, in the first example, use std::begin instead of v.begin,
-so that we can use also C-style arrays.
-
 Type aliases cannot be specialized.  Use type traits.
 
 Injected class names in class templates.

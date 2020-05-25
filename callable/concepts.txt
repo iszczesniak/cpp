@@ -1,0 +1,97 @@
+Problems of generic programming in C++:
+
+* difficult to use templates,
+
+* the lack of requirements on the template parameters (this is the
+  past now),
+
+* template declaration is not enough to make sure the template
+  arguments are all right, we need the definition of the template
+  (this is the past now too).
+
+If a template parameter does not support some functionality (like
+incrementation), we get a compile-time error that is hard to
+understand, because it relates to implementation details that a user
+should not care about.
+
+Goal: simplify generic programming in C++.
+
+******************************************************************
+
+Requirements (constraints), and concepts are a solution to these
+problems.  Requirements and concepts have been introduces for C++20.
+There was a version of concepts designed from C++0x, but did not make
+it for C++11, and was dropped.
+
+A new design (with new syntax) was developed later, and made it into
+C++20.
+
+******************************************************************
+
+C, in contrast, is simpler.  We can write:
+
+double sqrt(double);
+sqrt(2.0);
+
+When we pass an argument of a wrong type:
+
+sqrt("Hello!");
+
+We get this error:
+
+error: incompatible type for argument 1 of ‘sqrt’
+note: expected ‘double’ but argument is of type ‘char *’
+
+In C++, we get this error:
+
+error: no matching function for call to ‘sqrt(const char [7])’
+note: candidate: ‘double sqrt(double)’
+note: no known conversion for argument 1 from ‘const char [7]’ to ‘double’
+
+It would be good to write templated code in C++ that produced such
+simple messages.  Instead, for code like this:
+
+int
+main()
+{
+  struct A
+  {
+  };
+
+  max(A(), A());
+}
+
+We get this error:
+
+/usr/local/gcc-8.1.0/include/c++/8.1.0/bits/stl_algobase.h:224:15:
+error: no match for ‘operator<’ (operand types are ‘const main()::A’ and ‘const main()::A’)
+
+******************************************************************
+
+Today we'll learn:
+
+* how to use static_assert,
+
+* how to write a template with requirements,
+
+* how to write generic function without using "template",
+
+* how to write a concept.
+
+******************************************************************
+
+static_assert
+
+******************************************************************
+
+A requirement is a predicate (a logical expression) that is evaluated
+at compile time.  A requirement takes template parameters, and returns
+true if the requirement is met, and false otherwise.
+
+A requirement constraints the applicability of a template, therefore a
+requirement is sometime referred to as a constraint.
+
+******************************************************************
+
+A concept is a set of requirements on a set of template parameters.
+Concepts have a special syntax.
