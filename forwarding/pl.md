@@ -47,7 +47,7 @@ zawsze zainicjalizowany, bez względu na typ i kategorię argumentu.
 
 Problemem jest utrata kategorii argumentu.  W ciele funkcji, wyrażenie
 z nazwą parametru funkcji jest zawsze l-wartością, nawet jeżeli
-parametr jest r-referencją (która została zainicjalizowaną
+parametr jest r-referencją (która została zainicjalizowana
 r-wartością).  Zachowanie kategorii argumentu funkcji `f` podczas
 przekazywania go do funkcji `g` ma znaczenie, bo też kategoria (nie
 tylko typ) argumentu ma wpływ na wybór przeciążenia funkcji `g`.
@@ -322,12 +322,20 @@ będą przekazywane zawsze l-wartości do funkcji `g`.  Można sprawdzić.
 * Żeby doskonale przekazać argument wywołania funkcji, używamy
   referencji przekazującej i funkcji `std::forward`.
 
-<!-- LocalWords: inicjalizowana -->
-<!-- LocalWords: inicjalizowaną -->
 <!-- LocalWords: inicjalizowane -->
-<!-- LocalWords: inicjalizującego -->
-<!-- LocalWords: inicjalizującym -->
 
+<!-- LocalWords: podproblem -->
+<!-- LocalWords: podproblemy -->
+
+<!-- LocalWords: zainicjalizować -->
 <!-- LocalWords: zainicjalizowana -->
-<!-- LocalWords: zainicjalizowaną -->
-<!-- LocalWords: zainicjalizowane -->
+<!-- LocalWords: zainicjalizowany -->
+
+<!-- LocalWords: forwarding -->
+<!-- LocalWords: main -->
+<!-- LocalWords: reference -->
+<!-- LocalWords: template -->
+<!-- LocalWords: title -->
+<!-- LocalWords: typedef -->
+<!-- LocalWords: using -->
+<!-- LocalWords: volatile -->
