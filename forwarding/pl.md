@@ -89,9 +89,9 @@ Możliwe rozwiązania z pominięciem kwalifikatora `volatile`.
 * przez wartość: `T`
 * przez stałą wartość: `const T`
 * przez l-referencję: `T &`
-* przez referencję stałą: `const T &`
+* przez stałą referencję: `const T &`
 * przez r-referencję: `T &&`
-* przez r-referencję stałą: `const T &&`
+* przez stałą r-referencję: `const T &&`
 
 Nie bierzemy pod uwagę rozwiązań:
 
@@ -161,9 +161,9 @@ f(const T &t)
 {% endhighlight %}
 
 Teraz będzie się kompilować dla r-wartości, np. `f(1)`, ale jeżeli
-funkcja będzie `void g(int &);`, to kod nie będzie się kompilował, bo
-niestałej l-referencji nie można zainicjalizować stałą referencją.
-**Złe rozwiązanie.**
+parametr funkcji `g` będzie niestałą l-referencją, to kod nie będzie
+się kompilował, bo niestałej l-referencji nie można zainicjalizować
+stałą referencją.  **Złe rozwiązanie.**
 
 Przykład:
 
