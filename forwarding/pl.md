@@ -193,8 +193,8 @@ f(const T &t)
 }
 {% endhighlight %}
 
-Ta implementacja rozwiąże podproblem #1, ale dla $n$ parametrów
-potrzebujemy $2^n$ definicji funkcji!  **Złe rozwiązanie.**
+Ta implementacja rozwiąże podproblem #1, ale dla `n` parametrów
+potrzebujemy `2^n` definicji funkcji!  **Złe rozwiązanie.**
 
 Przykład:
 
@@ -202,7 +202,7 @@ Przykład:
 {% include_relative bad3.cc %}
 {% endhighlight %}
 
-# Prawidłowe rozwiązanie
+# Prawidłowe rozwiązanie: T &&
 
 Żeby rozwiązać podproblem #1 z C++11, typem parametru powina być
 r-referencja bez kwalifikatorów.  Prawda objawiona:
@@ -216,13 +216,13 @@ f(T &&t)
 }
 {% endhighlight %}
 
-Jeżeli `T` jest parametrem szablonu, to typ `T &&` parametru funkcji
-nazywamy typem **referencji przekazującej** (ang. forwarding
-reference).  Referencja przekazująca to nie r-referencja.
+Jeżeli `T` jest parametrem szablonu, to parametr funkcji typu `T &&`
+nazywamy **referencją przekazującą** (ang. forwarding reference).
+Referencja przekazująca to nie r-referencja.
 
-Prawda objawiona, bo dla typu parametru `T &&` funkcji szablonowej
-wprowadzono specjalne zasady wnioskowania typu `T` w zależności od
-kategorii argumentu, co jest dalej wyjaśnione.
+Prawda objawiona, bo dla referencji przekazującej wprowadzono w C++11
+specjalne zasady wnioskowania typu `T` w zależności od kategorii
+argumentu, co jest dalej wyjaśnione.
 
 Problem w tym, że parametr `t` jest l-wartością (bo ma nazwę `t`),
 nawet jeżeli argumentem wywołania funkcji `f` była r-wartość.  W ten
@@ -277,15 +277,14 @@ Jeżeli argumentem funkcji `f` jest:
 
 ## Funkcja `std::forward`
 
-Funkcja szablonowa `std::forward` przyjmuje l-wartość `t` typu $T$ i
+Funkcja szablonowa `std::forward` przyjmuje l-wartość `t` typu `T` i w
 zależności od argumentu szablonu zwraca:
 
 * r-referencję na `t` dla `std::forward<T>(t)`
 * l-referencję na `t` dla `std::forward<T &>(t)`
 
-Funkcji `std::forward` używa się w definicji pewnej funkcji
-szablonowej `f`, gdzie trzeba odzyskać kategorię wyrażenia, które było
-argumentem wywołania funkcji szablonowej `f`.
+Funkcji `std::forward` używamy w definicji funkcji szablonowej, kiedy
+trzeba odzyskać kategorię argumentu wywołania funkcji.
 
 Przykład:
 
@@ -315,13 +314,10 @@ będą przekazywane zawsze l-wartości do funkcji `g`.  Można sprawdzić.
 # Podsumowanie
 
 * Problem doskonałego przekazywania argumentów występuje w
-  programowaniu generycznym z użyciem szablonów.
+  programowaniu uogólnionym z użyciem szablonów.
 
-* Jako typ parametru funkcji używamy: `T &&t`, gdzie `T` jest
-  parametrem szablonu, a `t` parametrem funkcji.
-
-* Aby przekazać parametr do innej funkcji, używamy funkcji
-  `std::forward`, która odzyskuje kategorię wartości wyrażenia.
+* Żeby doskonale przekazać argument wywołania funkcji, używamy
+  referencji przekazującej i funkcji `std::forward`.
 
 <!-- LocalWords: expr -->
 <!-- LocalWords: lvalue lvalues rvalue -->

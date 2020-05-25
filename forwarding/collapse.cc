@@ -4,9 +4,9 @@
 using namespace std;
 
 template<typename T>
-class A
+struct A
 {
-  using my_type = T &&;
+  using type = T &&;
 };
 
 int
@@ -22,4 +22,8 @@ main()
 
   using typ2 = rt &&;
   cout << is_same<int &&, typ2>::value << endl;
+
+  cout << is_same<int &&, typename A<int>::type>::value << endl;
+  cout << is_same<int &, typename A<int &>::type>::value << endl;
+  cout << is_same<int &&, typename A<int &&>::type>::value << endl;
 }
