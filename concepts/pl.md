@@ -22,9 +22,10 @@ całkowity, którego implementacja zależy od
 
 # Koncept w C++20
 
-Koncept to szablon.  To więc w C++ szablononowe są już nie tylko
-struktury danych, funkcje, czy typy, ale też koncepty.  Definicja
-szablonu konceptu wygląda tak:
+Koncept to szablon predykatu, który jest opracowywany w czasie
+kompilacji.  Predykat to wyrażenie typu logicznego.  To więc w C++
+szablononowe są już nie tylko struktury danych, funkcje, czy typy, ale
+też koncepty.  Definicja szablonu konceptu wygląda tak:
 
 
 
