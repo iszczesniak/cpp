@@ -1,0 +1,6 @@
+---
+title: Ograniczenia
+---
+
+# Wprowadzenie
+
