@@ -1,10 +1,10 @@
-#include <concepts>
 #include <string>
 
 using namespace std;
 
+template <typename T>
 void
-inc(integral &t)
+inc(T &t)
 {
   ++t;
 }
@@ -16,5 +16,6 @@ main()
   inc(x);
 
   std::string y("Hello World!");
-  //  inc(y);
+  // This would not compile, because std::string is not incrementable.
+  // inc(y);
 }
