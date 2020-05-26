@@ -17,8 +17,8 @@ przykład tu:
 {% include_relative intro1.cc %}
 {% endhighlight %}
 
-Ale w przypadku programu korzystającego z bibliotek, do których kodu
-nie chcemy nawet zaglądać, to jest problem.  Oczywiście możemy zajrzeć
+Ale to jest problem w przypadku programu korzystającego z bibliotek,
+do których kodu nie chcemy nawet zaglądać.  Oczywiście możemy zajrzeć
 i może się domyślimy w czym problem (często po długim czasie i ze
 sporym wysiłkiem), ale nasza wydajność pracy spada.  **Chcemy lepszej
 diagnostyki błędów.**
@@ -35,6 +35,8 @@ argumentom szablonu, co możemy zrobić na dwa sposoby:
 Statyczna asercja `static_assert` sprawdza w czasie kompilacji, czy
 argument asercji jest prawdą.
 
+Przykład:
+
 {% highlight c++ %}
 {% include_relative intro2.cc %}
 {% endhighlight %}
@@ -47,3 +49,6 @@ nie spełnia wymagań.
 
 # Ograniczenia
 
+Ograniczenia (ang. constraints) to funkcjonalność C++20.  Do
+**deklaracji szablonu** możemy dołożyć warunki, jakie argumenty
+szablonu muszą spełniać, żeby można było użyć szablonu.
