@@ -3,7 +3,7 @@
 using namespace std;
 
 template <typename F, typename ... Args>
-concept bool Callable = requires(F f, Args ... args)
+concept Callable = requires(F f, Args ... args)
 {
   f(args...);
 };
