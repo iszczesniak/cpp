@@ -1,8 +1,10 @@
+#include <concepts>
 #include <string>
 
-template <typename T>
+using namespace std;
+
 void
-inc(T &t)
+inc(integral &t)
 {
   ++t;
 }
@@ -14,5 +16,5 @@ main()
   inc(x);
 
   std::string y("Hello World!");
-  inc(y);
+  //  inc(y);
 }
