@@ -26,9 +26,9 @@ main()
   foo<1>();
 
   auto y = .1;
-  // This would not compile, because double is not an integral.
+  // Error: double is not an integral.
   // inc(y);
 
-  // This would not compile:the argument must be less than 10.
+  // Error: the argument must be less than 10.
   // foo<10>();
 }

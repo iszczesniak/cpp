@@ -28,7 +28,7 @@ argumentom szablonu, co możemy zrobić na dwa sposoby:
 
 * stary sposób (C++11): `static_assert`,
 
-* nowy sposób (C++17): ograniczenia.
+* nowy sposób (C++20): ograniczenia.
 
 ## Stary sposób: `static_assert`
 
@@ -41,20 +41,21 @@ Przykład:
 {% include_relative intro2.cc %}
 {% endhighlight %}
 
-Do sprawdzenia warunków możemy użyć standardowej biblioteki **cech
-typów** (ang. type traits).  Cecha typu jest szablonem (struktury lub
-zmiennej), który dostarcza nam informacji (typów, stałych wartości) w
-czasie kompilacji na temat typu, który jest argumentem szablonu.
+Do sprawdzenia niektórych warunków możemy użyć standardowej biblioteki
+**cech typów** (ang. type traits).  Cecha typu jest szablonem
+(struktury lub zmiennej), który dostarcza nam informacji (typów,
+stałych wartości) w czasie kompilacji na temat dowolnego () typu,
+który jest argumentem szablonu.
 
 W przykładzie wyżej użyliśmy cechy typu `std::is_integral_v<T>`, który
 jest prawdą, jeżeli typ `T` jest całkowity.  Ta cecha typu jest
-szablonem stałej zmiennej (chociaż brzmi to dziwnie), która istnieje
+szablonem *stałej zmiennej* (chociaż brzmi to dziwnie), która istnieje
 tylko w czasie kompilacji (nie w czasie uruchomienia).
 
-Błąd niespełnionej statycznej asercji jest lepszy od błędu kompilacji,
-ale to ciągle błąd kompilacji ciała funkcji.  Lepiej jest mieć
-możliwość definicji warunków jako część definicji interfejsu, poza
-ciałem funkcji.
+Błąd niespełnionej statycznej asercji jest jakąś lepszą diagnostyką,
+ale to ciągle błąd kompilacji ciała funkcji, który zawsze kończy się
+zakończeniem kompilacji.  Lepiej jest mieć możliwość definicji
+warunków jako część definicji interfejsu, poza ciałem funkcji.
 
 ## Nowy sposób: Ograniczenia
 
@@ -72,5 +73,7 @@ Przykład:
 {% endhighlight %}
 
 # Ograniczenia
+
+# Przeciążenie szablonów
 
 # Derived from:
