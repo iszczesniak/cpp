@@ -6,7 +6,7 @@ template <typename T>
 void
 inc(T &t)
 {
-  static_assert(std::is_arithmetic_v<T>, "Gimme an arithmetic type.");
+  static_assert(std::is_integral_v<T>, "Gimme an integral type.");
   ++t;
 }
 
@@ -20,13 +20,13 @@ foo()
 int
 main()
 {
-  int x = 1;
+  auto x = 1;
   inc(x);
 
   foo<1>();
 
-  std::string y("Hello World!");
-  // This would not compile, because std::string is not arithmetic.
+  auto y = .1;
+  // This would not compile, because double is not an integral.
   // inc(y);
 
   // This would not compile:the argument must be less than 10.

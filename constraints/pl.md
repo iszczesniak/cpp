@@ -41,26 +41,29 @@ Przykład:
 {% include_relative intro2.cc %}
 {% endhighlight %}
 
-Błąd niespełnionej statycznej asercji jest lepszu od błędu kompilacji,
+Do sprawdzenia warunków możemy użyć standardowej biblioteki **cech
+typów** (ang. type traits).  Cecha typu jest szablonem (struktury lub
+zmiennej), który dostarcza nam informacji (typów, stałych wartości) w
+czasie kompilacji na temat typu, który jest argumentem szablonu.
+
+W przykładzie wyżej użyliśmy cechy typu `std::is_integral_v<T>`, który
+jest prawdą, jeżeli typ `T` jest całkowity.  Ta cecha typu jest
+szablonem stałej zmiennej (chociaż brzmi to dziwnie), która istnieje
+tylko w czasie kompilacji (nie w czasie uruchomienia).
+
+Błąd niespełnionej statycznej asercji jest lepszy od błędu kompilacji,
 ale to ciągle błąd kompilacji ciała funkcji.  Lepiej jest mieć
-możliwość definicji wymagań w **deklaracji szablonu**.
-
-Do sprawdzenia warunków możemy użyć standardowej biblioteki cech typów
-(ang. type traits).  Cecha typu jest szablonem (struktury lub
-zmiennej), który dostarcza nam informacji (typów, stałych wartości) na
-temat typu, który jest argumentem szablonu.
-
-W przykładzie wyżej użyliśmy cechy typu `std::is_arithmetic_v<T>`,
-który jest prawdą, jeżeli typ `T` jest arytmetyczny (czyli możemy
-przeprowadzać na wartościach tego typu operacje arytmetyczne).  Ta
-cecha typu jest szablonem stałej zmiennej (chociaż brzmi to dziwnie),
-która istnieje w czasie kompilacji, ale nie w czasie uruchomienia.
+możliwość definicji warunków jako część definicji interfejsu, poza
+ciałem funkcji.
 
 ## Nowy sposób: Ograniczenia
 
-Ograniczenia (ang. constraints) to funkcjonalność C++20.  W
-**deklaracji szablonu** możemy zdefiniować warunki, jakie argumenty
-szablonu muszą spełniać, żeby można było użyć szablonu.
+Ograniczenia (ang. constraints) to warunki do spełnienia przez
+argumenty szablonu, żeby można było użyć szablonu.  Warunki te
+podajemy jako **część definicji interfejsu**, czyli w części
+deklaracyjnej szablonu, a nie w ciele szablonu.  Cześć deklaracyjna
+szablonu to wszystko oprócz ciała szablonu.  Ograniczenia to
+funkcjonalność C++20.
 
 Przykład:
 
