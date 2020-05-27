@@ -30,7 +30,7 @@ argumentom szablonu, co możemy zrobić na dwa sposoby:
 
 * nowy sposób (C++17): ograniczenia.
 
-# `static_assert`
+## Stary sposób: `static_assert`
 
 Statyczna asercja `static_assert` sprawdza w czasie kompilacji, czy
 argument asercji jest prawdą.
@@ -42,13 +42,20 @@ Przykład:
 {% endhighlight %}
 
 Błąd niespełnionej statycznej asercji jest lepszu od błędu kompilacji,
-ale to ciągle błąd kompilacji ciała funkcji, który może pochodzić ze
-specjalizacji podstawowego szablonu.  Lepiej jest otrzymać błąd
-pochodzący z deklaracji podstawowego szablonu, że argument szablonu
-nie spełnia wymagań.
+ale to ciągle błąd kompilacji ciała funkcji.  Lepiej jest mieć
+możliwość definicji wymagań w **deklaracji szablonu**.
+
+## Nowy sposób: Ograniczenia
+
+Ograniczenia (ang. constraints) to funkcjonalność C++20.  W
+**deklaracji szablonu** możemy zdefiniować warunki, jakie argumenty
+szablonu muszą spełniać, żeby można było użyć szablonu.
+
+Przykład:
+
+{% highlight c++ %}
+{% include_relative declaration.cc %}
+{% endhighlight %}
 
 # Ograniczenia
 
-Ograniczenia (ang. constraints) to funkcjonalność C++20.  Do
-**deklaracji szablonu** możemy dołożyć warunki, jakie argumenty
-szablonu muszą spełniać, żeby można było użyć szablonu.
