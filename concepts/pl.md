@@ -17,8 +17,15 @@ minimalistyczne: stawiane są tylko te wymagania, które są absolutnie
 potrzebne.  W ten sposób programowanie uogólnione ma swoje korzenie w
 algebrze abstrakcyjnej zapoczątkowanej przez Emmy Noether.
 
+Możemy nawet powiedzieć, że `std::vector<T>` jest pewnym konceptem,
+który reprezentuje wektor.
+
 Możemy powiedzieć, że typ danych `int` jest konceptem: jest to typ
-całkowity, którego implementacja zależy od 
+całkowity, którego implementacja zależy od systemu.  Typ może być 32
+bitowy, lub 64 bitowy.
+
+Koncept jako idea była stosowana od początku standardowej biblioteki
+szablonów.  Już wtedy mówiono o iteratorze jako koncepcie.
 
 # Koncept w C++20
 
