@@ -20,7 +20,7 @@ przykład tu:
 Ale to jest problem w przypadku programu korzystającego z bibliotek,
 do których kodu nie chcemy nawet zaglądać.  Oczywiście możemy zajrzeć
 i może się domyślimy w czym problem (często po długim czasie i ze
-sporym wysiłkiem), ale nasza wydajność pracy spada.  **Chcemy lepszej
+sporym wysiłkiem), ale kto chce to robić.  **Chcemy lepszej
 diagnostyki błędów.**
 
 Lepsza diagnostyka polega na sprawdzeniu warunków stawianych
@@ -69,7 +69,7 @@ funkcjonalność C++20.
 Przykład:
 
 {% highlight c++ %}
-{% include_relative declaration.cc %}
+{% include_relative requires1.cc %}
 {% endhighlight %}
 
 # Ograniczenia
