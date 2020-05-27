@@ -45,6 +45,17 @@ Błąd niespełnionej statycznej asercji jest lepszu od błędu kompilacji,
 ale to ciągle błąd kompilacji ciała funkcji.  Lepiej jest mieć
 możliwość definicji wymagań w **deklaracji szablonu**.
 
+Do sprawdzenia warunków możemy użyć standardowej biblioteki cech typów
+(ang. type traits).  Cecha typu jest szablonem (struktury lub
+zmiennej), który dostarcza nam informacji (typów, stałych wartości) na
+temat typu, który jest argumentem szablonu.
+
+W przykładzie wyżej użyliśmy cechy typu `std::is_arithmetic_v<T>`,
+który jest prawdą, jeżeli typ `T` jest arytmetyczny (czyli możemy
+przeprowadzać na wartościach tego typu operacje arytmetyczne).  Ta
+cecha typu jest szablonem stałej zmiennej (chociaż brzmi to dziwnie),
+która istnieje w czasie kompilacji, ale nie w czasie uruchomienia.
+
 ## Nowy sposób: Ograniczenia
 
 Ograniczenia (ang. constraints) to funkcjonalność C++20.  W
@@ -59,3 +70,4 @@ Przykład:
 
 # Ograniczenia
 
+# Derived from:
