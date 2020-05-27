@@ -74,6 +74,19 @@ Przykład:
 
 # Ograniczenia
 
-# Przeciążenie szablonów
+# Przeciążenie szablonów funkcji
 
-# Derived from:
+Szablony funkcji można przeciążać pod względem ograniczeń, bo przecież
+ograniczenia są częścią interfejsu.  Szablony, których ograniczenia
+nie są spełnione, są pomijane, bez zgłaszania błędu.
+
+Dla danego wywołania funkcji, tylko dla jednego przeciążenia powinny
+zostać poprawnie wywnioskowane argumenty spełniające ograniczenia.
+Błąd jest zgłaszany, jeżeli takich przeciążeń nie ma, lub jest ich
+więcej niż jedno.
+
+{% highlight c++ %}
+{% include_relative overload.cc %}
+{% endhighlight %}
+
+# 
