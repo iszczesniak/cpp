@@ -11,7 +11,7 @@ struct A
 // Type B must derive from the base class.
 struct B: A
 {
-  void foo() const
+  void foo() const override
   {
     std::cout << "B\n";
   }
