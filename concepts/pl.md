@@ -4,6 +4,14 @@ title: Koncepty
 
 # Wprowadzenie
 
+Alexander Stepanov powiedział:
+
+> Concepts are all about semantics.
+
+Koncep ma mieć jakieś znaczenie.  Jak mówimy o liczbie całkowitej, to
+wiemy o co chodzi, nie musimy precyzyjnie opisywać jak, na przykład,
+jest ona reprezentowana w pamięci komputera.
+
 **Koncepty** przeszły długą drogę, żeby w końcu być w C++20.  Od
 strony technicznej programowania w C++, koncepty pozwalają na wygodną
 i pełną definicję wymagań stawianych argumentom szablonu.  Dzięki
