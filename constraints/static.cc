@@ -20,6 +20,18 @@ struct C
 {
 };
 
+void
+foo(const A &)
+{
+  cout << "Type A\n";
+}
+
+void
+foo(const B &)
+{
+  cout << "Type B\n";
+}
+
 // For objects of any class derived from A.
 void
 foo1(const A &a)
