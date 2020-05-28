@@ -14,9 +14,9 @@ Argumenty szablonu mogą być:
 
 Ten przykład pokazuje wyżej wymienione przypadki:
 
-{% highlight c++ %}
+```cpp
 {% include_relative intro.cc %}
-{% endhighlight %}
+```
 
 Skoncentrujemy się na wnioskowaniu, ale pierwsze omówimy jawne
 podawanie argumentów szablonów i domyślne argumenty szablonów.
