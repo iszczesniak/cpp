@@ -106,24 +106,25 @@ się.  I do tego właśnie służy wyrażenie ograniczenia.
 
 Wyrażenie ograniczenia (ang. a requires-expression) jest predykatem
 czasu kompilacji.  Zaczyna się od słowa kluczowego `requires`, po
-którym następuje opcjonalna lista parametrów tak jak w funkcji, po
-czym następuje ciało wyrażenia:
+którym następuje opcjonalna lista parametrów (taka jak w funkcji), po
+czym następuje ciało wyrażenia zawierające definicje warunków.
+Wyrażenie jest prawdziwe, jeżeli spełnione są wszystkie warunki.
 
 ```cpp
 requires (parameter-list) {expression body}
 ```
 
-To przykład:
+Przykład:
 
 ```cpp
 {% include_relative requires1.cc %}
 ```
 
-W przykładzie wyżej `requires requires` to nie błąd.  Piersze
+W przykładzie wyżej `requires requires` to nie błąd.  Pierwsze
 `requires` wprowadza klauzulę ograniczenia, a drugie `requires`
 wprowadza wyrażenie ograniczenia.  Wyrażenie ograniczenia jest
 predykatem klauzuli ograniczenia.  Słowo kluczowe `requires` ma po
-prostu dwa znaczenia.
+prostu dwa różne, chociaż pokrewne, zastosowania.
 
 Lista parametrów w wyrażeniu ograniczenia jest opcjonalna i możemy ją
 pominąć, na przykład wtedy, kiedy w ciele wyrażenia ograniczenia
@@ -152,6 +153,14 @@ więcej niż jedno.
 {% include_relative overload.cc %}
 ```
 
-Tego nie zrobimy z `static_assert`.
+Tego nie zrobimy z `static_assert`, który zawsze kończy kompilację
+błędem.
 
-# Cechy typu
+# Podsumowanie
+
+* Organiczenia to mechanizm czasu kompilacji.  Nie wprowadzają żadnego
+  narzutu w czasie uruchomienia.
+
+* Ograniczenia pozwalają na definicję warunków szablonu.
+
+* Ograniczenia pozwalają na przeciążanie szablonów.
