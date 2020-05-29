@@ -30,6 +30,6 @@ main()
   // inc(y);
 
   divide<2>(2);
-  // Error: the argument cannot be 0.
-  divide<0>(2);
+  // Error: the argument can not be 0.
+  // divide<0>(2);
 }

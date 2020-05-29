@@ -10,10 +10,11 @@ inc(T &t)
   ++t;
 }
 
-template <unsigned I> requires (I < 10)
-void
-foo()
+template <unsigned I> requires (I != 0)
+int
+divide(int t)
 {
+  return t / I;
 }
 
 int
@@ -22,12 +23,11 @@ main()
   auto x = 1;
   inc(x);
 
-  foo<1>();
-
   auto y = .1;
   // Error: double is not an integral.
   // inc(y);
 
-  // Error: the argument must be less than 10.
-  // foo<10>();
+  divide<2>(2);
+  // Error: the argument cannot be 0.
+  // divide<0>(2);
 }

@@ -27,5 +27,6 @@ main()
   // inc(y);
 
   divide<2>(2);
+  // This shouldn't compile: template argument can't be 0.
   divide<0>(2);
 }
