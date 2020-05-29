@@ -9,6 +9,13 @@ inc(T &t)
   ++t;
 }
 
+template <unsigned I>
+int
+divide(int t)
+{
+  return t / I;
+}
+
 int
 main()
 {
@@ -18,4 +25,7 @@ main()
   std::string y("Hello World!");
   // This would not compile, because std::string is not incrementable.
   // inc(y);
+
+  divide<2>(2);
+  divide<0>(2);
 }

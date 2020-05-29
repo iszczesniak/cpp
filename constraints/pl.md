@@ -59,27 +59,34 @@ warunków jako część definicji interfejsu, poza ciałem funkcji.
 
 ## Nowy sposób: Ograniczenia
 
-**Ograniczenie (ang. constraints) to predykat czasu kompilacji, który
-definiuje warunki dotyczące argumentów szablonów.** Predykat czasu
-kompilacji to wyrażenie typu logicznego, którego wartość jest znana w
-czasie kompilacji.  Ograniczenie jest warunkiem, który musi być
-spełniony (czyli wartością ma być prawda) przez argumenty szablonu,
-żeby można było użyć szablonu.
-
-Ograniczenie podajemy jako **część definicji interfejsu**, czyli w
-części deklaracyjnej szablonu, a nie w ciele szablonu.  Cześć
-deklaracyjna szablonu to wszystko oprócz ciała szablonu.  Ograniczenia
-to funkcjonalność C++20.
+Ograniczenie (ang. constraint) podajemy jako **część definicji
+interfejsu**, czyli w części deklaracyjnej szablonu, a nie w ciele
+szablonu.  Cześć deklaracyjna szablonu to wszystko oprócz ciała
+szablonu.  Ograniczenia to funkcjonalność C++20.
 
 Przykład:
 
 {% highlight c++ %}
-{% include_relative requires1.cc %}
+{% include_relative intro3.cc %}
 {% endhighlight %}
 
-# Ograniczenia
+# Ograniczenie
 
-Ograniczenia definiujemy z użyciem słowa kluczowego `requires`.
+**Ograniczenie to predykat czasu kompilacji, który definiuje warunki
+dotyczące argumentów szablonu.** Predykat czasu kompilacji to
+wyrażenie typu logicznego, którego wartość jest znana w czasie
+kompilacji.  Ograniczenie jest warunkiem, który musi być spełniony
+(czyli wartością ma być prawda) przez argumenty szablonu, żeby można
+było użyć szablonu.
+
+Ograniczenie podajemy po słowie kluczowym `requires` po liście
+parametrów szablonu funkcji czy struktury danych.  Słowo kluczowe
+`requires` wraz z następującym ograniczeniem nazywamy **klauzulą
+ograniczenia** (ang. a requires-clause).
+
+## Wyrażenie ograniczenia
+
+
 
 # Przeciążenie szablonów funkcji
 
@@ -96,4 +103,6 @@ więcej niż jedno.
 {% include_relative overload.cc %}
 {% endhighlight %}
 
-# 
+Tego nie zrobimy z `static_assert`.
+
+# Cechy typu
