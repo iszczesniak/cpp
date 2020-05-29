@@ -84,10 +84,10 @@ parametrów szablonu funkcji czy struktury danych.  Słowo kluczowe
 `requires` wraz z następującym ograniczeniem nazywamy **klauzulą
 ograniczenia** (ang. a requires-clause).
 
-Predykat może być zaprzeczeniem, alternatywą czy koniunkcją, których
-operandami mogą być kolejne predykaty.  Jeżeli predykat jest
-wyrażeniem, które wymaga opracowania (na przykład wykonania
-porównania), to należy to wyrażenie ująć w nawiasy.
+Predykat może być alternatywą czy koniunkcją, których operandami mogą
+być kolejne predykaty.  Jeżeli predykat jest wyrażeniem, które wymaga
+opracowania (na przykład wykonania porównania), to należy to wyrażenie
+ująć w nawiasy.
 
 Na przykład:
 
