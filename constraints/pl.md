@@ -107,8 +107,9 @@ się.  I do tego właśnie służy wyrażenie ograniczenia.
 Wyrażenie ograniczenia (ang. a requires-expression) jest predykatem
 czasu kompilacji.  Zaczyna się od słowa kluczowego `requires`, po
 którym następuje opcjonalna lista parametrów (taka jak w funkcji), po
-czym następuje ciało wyrażenia zawierające definicje warunków.
-Wyrażenie jest prawdziwe, jeżeli spełnione są wszystkie warunki.
+czym następuje ciało wyrażenia zawierające definicje warunków
+oddzielonych średnikami.  Wyrażenie jest prawdziwe, jeżeli spełnione
+są wszystkie warunki.
 
 ```cpp
 requires (parameter-list) {expression body}
@@ -136,7 +137,22 @@ tym przykładzie:
 {% include_relative requires2.cc %}
 ```
 
+Możemy także sprawdzić dostępność typów, na przykład, typu iteratora
+jako typ składowy klasy:
 
+```cpp
+{% include_relative requires3.cc %}
+```
+
+Możemy sprawdzić typ wyrażenia, jak w drugim wyrażeniu ograniczenia w
+poniższym przykładzie.  Sprawdzamy typ wyrażenia `c.begin()`, które
+umieszczamy w `{}`.  Potem następuje `->`, a potem warunek.  Warunkiem
+jest `std::same_as`, który jest dwuargumentowy **konceptem**, gdzie
+pierwszym argumentem jest sprawdzay typ.
+
+```cpp
+{% include_relative requires4.cc %}
+```
 
 # Przeciążenie szablonów funkcji
 
@@ -153,8 +169,9 @@ więcej niż jedno.
 {% include_relative overload.cc %}
 ```
 
-Tego nie zrobimy z `static_assert`, który zawsze kończy kompilację
-błędem.
+Przeciążeń szablonów pod względem spełniania warunków nie
+zaimplementujemy ze statyczną asercją, bo ona zawsze kończy kompilację
+błędem, kiedy warunki nie są spełnione.
 
 # Podsumowanie
 
