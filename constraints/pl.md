@@ -148,7 +148,8 @@ Możemy sprawdzić typ wyrażenia, jak w drugim wyrażeniu ograniczenia w
 poniższym przykładzie.  Sprawdzamy typ wyrażenia `c.begin()`, które
 umieszczamy w `{}`.  Potem następuje `->`, a potem warunek.  Warunkiem
 jest `std::same_as`, który jest dwuargumentowy **konceptem**, gdzie
-pierwszym argumentem jest sprawdzay typ.
+pierwszym argumentem jest sprawdzany typ.  Czyli sprawdzamy
+`same_as<decltype(c.begin()), typename C::iterator>`.
 
 ```cpp
 {% include_relative requires4.cc %}
