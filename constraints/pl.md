@@ -86,7 +86,7 @@ ograniczenia** (ang. a requires-clause).
 
 Predykat może być alternatywą czy koniunkcją, których operandami mogą
 być kolejne predykaty.  Jeżeli predykat jest wyrażeniem, które wymaga
-opracowania (na przykład wykonania porównania), to należy to wyrażenie
+opracowania (na przykład wykonania porównania), to należy wyrażenie
 ująć w nawiasy.
 
 Na przykład:
