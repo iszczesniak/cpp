@@ -59,12 +59,17 @@ warunków jako część definicji interfejsu, poza ciałem funkcji.
 
 ## Nowy sposób: Ograniczenia
 
-Ograniczenia (ang. constraints) to warunki do spełnienia przez
-argumenty szablonu, żeby można było użyć szablonu.  Warunki te
-podajemy jako **część definicji interfejsu**, czyli w części
-deklaracyjnej szablonu, a nie w ciele szablonu.  Cześć deklaracyjna
-szablonu to wszystko oprócz ciała szablonu.  Ograniczenia to
-funkcjonalność C++20.
+**Ograniczenie (ang. constraints) to predykat czasu kompilacji, który
+definiuje warunki dotyczące argumentów szablonów.** Predykat czasu
+kompilacji to wyrażenie typu logicznego, którego wartość jest znana w
+czasie kompilacji.  Ograniczenie jest warunkiem, który musi być
+spełniony (czyli wartością ma być prawda) przez argumenty szablonu,
+żeby można było użyć szablonu.
+
+Ograniczenie podajemy jako **część definicji interfejsu**, czyli w
+części deklaracyjnej szablonu, a nie w ciele szablonu.  Cześć
+deklaracyjna szablonu to wszystko oprócz ciała szablonu.  Ograniczenia
+to funkcjonalność C++20.
 
 Przykład:
 
@@ -73,6 +78,8 @@ Przykład:
 {% endhighlight %}
 
 # Ograniczenia
+
+Ograniczenia definiujemy z użyciem słowa kluczowego `requires`.
 
 # Przeciążenie szablonów funkcji
 
