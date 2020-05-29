@@ -4,11 +4,10 @@ title: Ograniczenia
 
 # Wprowadzenie
 
-Szablony nie wprowadzają ograniczeń na typowe argumenty szablonu:
-argumentem może być dowolny typ.  Jeżeli argumentem jest niedozwolony
-typ, dopiero na etapie konkretyzacji szablonu otrzymamy błąd, że
-**ciało funkcji** nie kompiluje się, ze wskazaniem w której linii jest
-błąd.
+Szablony nie wprowadzają ograniczeń na argumenty szablonu.  Jeżeli
+argument jest niedozwolony, to dopiero na etapie konkretyzacji
+szablonu otrzymamy błąd, że **ciało funkcji** nie kompiluje się, ze
+wskazaniem w której linii jest błąd.
 
 W przypadku prostego kodu łatwo zorientujemy się o co chodzi, jak na
 przykład tu:
@@ -44,8 +43,8 @@ Przykład:
 Do sprawdzenia niektórych warunków możemy użyć standardowej biblioteki
 **cech typów** (ang. type traits).  Cecha typu jest szablonem
 (struktury lub zmiennej), który dostarcza nam informacji (typów,
-stałych wartości) w czasie kompilacji na temat dowolnego () typu,
-który jest argumentem szablonu.
+stałych wartości) w czasie kompilacji na temat dowolnego typu, który
+jest argumentem szablonu.
 
 W przykładzie wyżej użyliśmy cechy typu `std::is_integral_v<T>`, który
 jest prawdą, jeżeli typ `T` jest całkowity.  Ta cecha typu jest
