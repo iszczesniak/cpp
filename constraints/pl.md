@@ -13,9 +13,9 @@ błąd.
 W przypadku prostego kodu łatwo zorientujemy się o co chodzi, jak na
 przykład tu:
 
-{% highlight c++ %}
+```cpp
 {% include_relative intro1.cc %}
-{% endhighlight %}
+```
 
 Ale to jest problem w przypadku programu korzystającego z bibliotek,
 do których kodu nie chcemy nawet zaglądać.  Oczywiście możemy zajrzeć
@@ -37,9 +37,9 @@ argument asercji jest prawdą.
 
 Przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative intro2.cc %}
-{% endhighlight %}
+```
 
 Do sprawdzenia niektórych warunków możemy użyć standardowej biblioteki
 **cech typów** (ang. type traits).  Cecha typu jest szablonem
@@ -66,9 +66,9 @@ szablonu.  Ograniczenia to funkcjonalność C++20.
 
 Przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative intro3.cc %}
-{% endhighlight %}
+```
 
 # Ograniczenie
 
@@ -83,6 +83,17 @@ Ograniczenie podajemy po słowie kluczowym `requires` po liście
 parametrów szablonu funkcji czy struktury danych.  Słowo kluczowe
 `requires` wraz z następującym ograniczeniem nazywamy **klauzulą
 ograniczenia** (ang. a requires-clause).
+
+Predykat może być zaprzeczeniem, alternatywą czy koniunkcją, których
+operandami mogą być kolejne predykaty.  Jeżeli predykat jest
+wyrażeniem, które wymaga opracowania (na przykład wykonania
+porównania), to należy to wyrażenie ująć w nawiasy.
+
+Na przykład:
+
+```cpp
+{% include_relative complex.cc %}
+```
 
 ## Wyrażenie ograniczenia
 
@@ -99,9 +110,9 @@ zostać poprawnie wywnioskowane argumenty spełniające ograniczenia.
 Błąd jest zgłaszany, jeżeli takich przeciążeń nie ma, lub jest ich
 więcej niż jedno.
 
-{% highlight c++ %}
+```cpp
 {% include_relative overload.cc %}
-{% endhighlight %}
+```
 
 Tego nie zrobimy z `static_assert`.
 
