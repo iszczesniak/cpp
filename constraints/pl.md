@@ -96,6 +96,45 @@ Na przykład:
 
 ## Wyrażenie ograniczenia
 
+Są warunki do sprawdzenia, których nie sprawdzimy używając cech typów,
+a przynajmniej nie tych standardowych.  Na przykład, jak sprawdzić,
+czy typ danych, który jest argumentem szablonu, ma zdefiniowany
+operator inkrementacji?
+
+Najlepiej sprawdzić, czy fragment kodu z inkrementacją kompilowałby
+się.  I do tego właśnie służy wyrażenie ograniczenia.
+
+Wyrażenie ograniczenia (ang. a requires-expression) jest predykatem
+czasu kompilacji.  Zaczyna się od słowa kluczowego `requires`, po
+którym następuje opcjonalna lista parametrów tak jak w funkcji, po
+czym następuje ciało wyrażenia:
+
+```cpp
+requires (parameter-list) {expression body}
+```
+
+To przykład:
+
+```cpp
+{% include_relative requires1.cc %}
+```
+
+W przykładzie wyżej `requires requires` to nie błąd.  Piersze
+`requires` wprowadza klauzulę ograniczenia, a drugie `requires`
+wprowadza wyrażenie ograniczenia.  Wyrażenie ograniczenia jest
+predykatem klauzuli ograniczenia.  Słowo kluczowe `requires` ma po
+prostu dwa znaczenia.
+
+Lista parametrów w wyrażeniu ograniczenia jest opcjonalna i możemy ją
+pominąć, na przykład wtedy, kiedy w ciele wyrażenia ograniczenia
+użyjemy parametrów funkcji.  Żeby jednak użyć parametrów funkcji, to
+klauzulę ograniczenia musimy podać po liście parametrów funkcji, jak w
+tym przykładzie:
+
+```cpp
+{% include_relative requires2.cc %}
+```
+
 
 
 # Przeciążenie szablonów funkcji
