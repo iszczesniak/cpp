@@ -161,9 +161,9 @@ ale nie kompiluje się.  Nie wiem dlaczego.
 
 # Przeciążenie szablonów funkcji
 
-Szablony funkcji można przeciążać pod względem ograniczeń, bo przecież
-ograniczenia są częścią interfejsu.  Szablony, których ograniczenia
-nie są spełnione, są pomijane, bez zgłaszania błędu.
+Szablony funkcji można przeciążać pod względem ograniczeń, ponieważ są
+one częścią interfejsu.  Szablony bez spełnionych warunków są
+pomijane, bez zgłaszania błędu.
 
 Dla danego wywołania funkcji, co najmniej dla jednego przeciążenia
 powinny zostać poprawnie wywnioskowane argumenty spełniające
@@ -181,7 +181,7 @@ error).
 
 Przeciążeń szablonów pod względem spełniania warunków nie
 zaimplementujemy ze statyczną asercją, bo ona zawsze kończy kompilację
-błędem, kiedy warunki nie są spełnione.
+błędem dla niespełnionego warunku.
 
 # Podsumowanie
 
