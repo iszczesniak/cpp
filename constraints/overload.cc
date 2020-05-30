@@ -1,15 +1,15 @@
 #include <iostream>
 
-template <unsigned I> requires (I < 18)
+template <unsigned I>
 void play()
 {
-  std::cout << "<18\n";
+  std::cout << "Play.\n";
 }
 
 template <unsigned I> requires (I >= 18)
 void play()
 {
-  std::cout << ">18\n";
+  std::cout << "Play >18.\n";
 }
 
 int
