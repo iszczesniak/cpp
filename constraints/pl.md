@@ -52,9 +52,9 @@ szablonem *stałej zmiennej* (chociaż brzmi to dziwnie), która istnieje
 tylko w czasie kompilacji (nie w czasie uruchomienia).
 
 Błąd niespełnionej statycznej asercji jest jakąś lepszą diagnostyką,
-ale to ciągle błąd kompilacji ciała funkcji, który zawsze kończy się
-zakończeniem kompilacji.  Lepiej jest mieć możliwość definicji
-warunków jako część definicji interfejsu, poza ciałem funkcji.
+ale to ciągle błąd kompilacji ciała funkcji, który kończy kompilację.
+Lepiej jest mieć możliwość definicji warunków jako część definicji
+interfejsu, poza ciałem funkcji.
 
 ## Nowy sposób: Ograniczenia
 
@@ -99,17 +99,16 @@ Na przykład:
 Są warunki do sprawdzenia, których nie sprawdzimy używając cech typów,
 a przynajmniej nie tych standardowych.  Na przykład, jak sprawdzić,
 czy typ danych, który jest argumentem szablonu, ma zdefiniowany
-operator inkrementacji?
-
-Najlepiej sprawdzić, czy fragment kodu z inkrementacją kompilowałby
-się.  I do tego właśnie służy wyrażenie ograniczenia.
+operator inkrementacji?  Najlepiej sprawdzić, czy fragment kodu z
+inkrementacją kompilowałby się.  I do tego właśnie służy wyrażenie
+ograniczenia.
 
 Wyrażenie ograniczenia (ang. a requires-expression) jest predykatem
 czasu kompilacji.  Zaczyna się od słowa kluczowego `requires`, po
 którym następuje opcjonalna lista parametrów (taka jak w funkcji), po
-czym następuje ciało wyrażenia zawierające definicje warunków
-oddzielonych średnikami.  Wyrażenie jest prawdziwe, jeżeli spełnione
-są wszystkie warunki.
+czym następuje ciało zawierające definicje warunków zakończone
+średnikami.  Wyrażenie jest prawdziwe, jeżeli spełnione są wszystkie
+warunki.  Taka jest więc składnia:
 
 ```cpp
 requires (parameter-list) {expression body}
@@ -137,19 +136,24 @@ tym przykładzie:
 {% include_relative requires2.cc %}
 ```
 
-Możemy także sprawdzić dostępność typów, na przykład, typu iteratora
-jako typ składowy klasy:
+Możemy także sprawdzić dostępność typu składowego klasy, na przykład
+typu iteratora:
 
 ```cpp
 {% include_relative requires3.cc %}
 ```
 
-Możemy sprawdzić typ wyrażenia, jak w drugim wyrażeniu ograniczenia w
+Możemy sprawdzić typ wyrażenia jak w drugim wyrażeniu ograniczenia w
 poniższym przykładzie.  Sprawdzamy typ wyrażenia `c.begin()`, które
 umieszczamy w `{}`.  Potem następuje `->`, a potem warunek.  Warunkiem
-jest `std::same_as`, który jest dwuargumentowy **konceptem**, gdzie
-pierwszym argumentem jest sprawdzany typ.  Czyli sprawdzamy
-`same_as<decltype(c.begin()), typename C::iterator>`.
+jest szablonowy predykat, za którego pierwszy argument jest
+podstawiany typ testowanego wyrażenia.  Czyli w przykładzie niżej
+sprawdzamy `same_as<typ testowanego wyrażenia, typename C::iterator>`,
+gdzie `std::same_as`, który jest dwuargumentowy **konceptem** (koncept
+to szablon predykatu).
+
+Próbowałm użyć cechy typu `is_same_v` jako warunku, zamiast `same_as`,
+ale nie kompiluje się.  Nie wiem dlaczego.
 
 ```cpp
 {% include_relative requires4.cc %}
@@ -161,10 +165,15 @@ Szablony funkcji można przeciążać pod względem ograniczeń, bo przecież
 ograniczenia są częścią interfejsu.  Szablony, których ograniczenia
 nie są spełnione, są pomijane, bez zgłaszania błędu.
 
-Dla danego wywołania funkcji, tylko dla jednego przeciążenia powinny
-zostać poprawnie wywnioskowane argumenty spełniające ograniczenia.
-Błąd jest zgłaszany, jeżeli takich przeciążeń nie ma, lub jest ich
-więcej niż jedno.
+Dla danego wywołania funkcji, co najmniej dla jednego przeciążenia
+powinny zostać poprawnie wywnioskowane argumenty spełniające
+ograniczenia.  Jeżeli takich przeciążeń nie ma, zgłaszany jest błąd.
+
+Jeżeli takich przeciążeń jest więcej, to wybierane jest to bardziej
+wyspecjalizowane, którego warunki nie są spełniane przez pozostałe
+przeciążenia.  Jeżeli kompilator nie jest w stanie wybrać jednego
+przeciążenia, zgłaszany jest błąd niejednoznaczności (ang. ambiguity
+error).
 
 ```cpp
 {% include_relative overload.cc %}
@@ -176,7 +185,7 @@ błędem, kiedy warunki nie są spełnione.
 
 # Podsumowanie
 
-* Organiczenia to mechanizm czasu kompilacji.  Nie wprowadzają żadnego
+* Ograniczenia to mechanizm czasu kompilacji.  Nie wprowadzają żadnego
   narzutu w czasie uruchomienia.
 
 * Ograniczenia pozwalają na definicję warunków szablonu.
