@@ -5,22 +5,22 @@ using namespace std;
 
 template <unsigned I, typename T> requires integral<T>
 void
-foo(T x)
+divide(T x)
 {
-  cout << "foo: integral" << endl;
+  cout << "divide: integral" << endl;
 }
 
 template <unsigned I, typename T> requires (I == 0) && integral<T>
 void
-foo(T x)
+divide(T x)
 {
-  cout << "don't divide integrals by 0" << endl;
+  cout << "divide: don't divide integrals by 0" << endl;
 }
 
 int
 main()
 {
   int x = 1;
-  foo<0>(x);
-  foo<1>(x);
+  divide<0>(x);
+  divide<1>(x);
 }
