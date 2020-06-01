@@ -1,20 +1,26 @@
+#include <concepts>
 #include <iostream>
 
-template <unsigned I>
-void play()
+using namespace std;
+
+template <unsigned I, typename T> requires integral<T>
+void
+foo(T x)
 {
-  std::cout << "Play.\n";
+  cout << "foo: integral" << endl;
 }
 
-template <unsigned I> requires (I >= 18)
-void play()
+template <unsigned I, typename T> requires (I == 0) && integral<T>
+void
+foo(T x)
 {
-  std::cout << "Play >18.\n";
+  cout << "don't divide integrals by 0" << endl;
 }
 
 int
 main()
 {
-  play<10>();
-  play<20>();
+  int x = 1;
+  foo<0>(x);
+  foo<1>(x);
 }
