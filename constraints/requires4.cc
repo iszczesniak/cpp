@@ -8,6 +8,7 @@ template <typename C> requires requires {typename C::iterator;}
 void
 iterate(C &t) requires requires
   {
+    {t.empty()} -> same_as<bool>;
     {t.begin()} -> same_as<typename C::iterator>;
   }
 {
