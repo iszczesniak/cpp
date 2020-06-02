@@ -179,7 +179,7 @@ error).
 {% include_relative overload1.cc %}
 ```
 
-Tutaj jest kolejny przykład, który nie kompiluje się w calości,
+Tutaj jest kolejny przykład, który nie kompiluje się w całości,
 chociaż nie rozumiem dlaczego.  Problem jest z wyborem przeciążenia
 dla zakomentowanego wywołania funkcji.  Albo to bug w kompilatorze,
 albo moja niewiedza.
