@@ -63,8 +63,8 @@ też jest sparametryzowany, czyli jest szablonem.  Oto prosty przykład:
 ```
 
 Ponieważ ograniczenie jest predykatem czasu kompilacji, to koncept też
-nim jest, ale nazwanym.  Tak więc w C++ mamy szablonowe mogą być nie
-tylko struktury danych, funkcje, czy typy, ale też koncepty.
+nim jest, ale nazwanym.  Tak więc w C++ szablonowe mogą być nie tylko
+struktury danych, funkcje, czy typy, ale też koncepty.
 
 Koncept definiujemy tak:
 
