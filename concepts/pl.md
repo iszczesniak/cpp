@@ -14,7 +14,7 @@ na przykład, jest ona reprezentowana w pamięci komputera, bo jest to
 już raczej szczegół implementacyjny.  Koncept jest pewną ugruntowaną
 ideą.
 
-Możemy powiedzieć, że typ danych `int` jest konceptem: jest to typ
+Możemy powiedzieć, że typ danych `int` już jest konceptem: jest to typ
 całkowity ze znakiem, którego implementacja zależy od systemu.  Typ
 może być 24 bitowy lub 32 bitowy, w kodowaniu zależnym od systemu,
 np. little-endian lub big-endian.
@@ -39,12 +39,18 @@ Możemy nawet powiedzieć, że `std::vector<T>` jest pewnym konceptem,
 który reprezentuje wektor.  Możemy powiedzieć nawet, że sortowanie
 jest pewnym konceptem, pewną ideą oderwaną od sortowanych danych.  W
 C++ jednak koncepty dotyczą wyłącznie danych, a nie algorytmów.  Na
-przykład, w C++ nie ma sposobu upewnienia się, że `std::sort` sortuje
+przykład, w C++ nie ma sposobu upewnienia się, że algorytm sortuje
 stabilnie.  Jeżli chcemy sortować stabilnie, to powinniśmy wybrać
-`std::stable_sort`.
+`std::stable_sort`, w przeciwnym razie `std::sort`.
 
-Koncept jako idea była stosowana od początku standardowej biblioteki
-szablonów.  Już wtedy mówiono o iteratorze jako koncepcie.
+Koncept jako idea była stosowana od początku w standardowej bibliotece
+szablonów.  Już wtedy, w dokumentacji STLa na stronie Silicon Graphics
+(SGI) mówiono o iteratorze jako koncepcie.  Wtedy nie bardzo
+wiedziałem o co chodzi, a dokumentacja tych konceptów nie trafiała do
+mnie, bo nie było w niej przykładowych programów z konceptami.  Mi się
+to po prostu nie kompilowało.  Koncepty jako idea były, ale nie były
+zdefiniowane w postaci biblioteki C++, bo język nie miał takiej
+funkcjonalności.  Teraz jest i to bogata.
 
 # Koncept w C++20
 
@@ -56,10 +62,42 @@ też jest sparametryzowany, czyli jest szablonem.  Oto prosty przykład:
 {% include_relative intro.cc %}
 ```
 
-Koncept to szablon predykatu, który jest opracowywany w czasie
-kompilacji.  Predykat to wyrażenie typu logicznego.  To więc w C++
-szablononowe są już nie tylko struktury danych, funkcje, czy typy, ale
-też koncepty.  Definicja szablonu konceptu wygląda tak:
+Ponieważ ograniczenie jest predykatem czasu kompilacji, to koncept też
+nim jest, ale nazwanym.  Tak więc w C++ mamy szablonowe mogą być nie
+tylko struktury danych, funkcje, czy typy, ale też koncepty.
+
+Koncept definiujemy tak:
+
+```cpp
+template <lista parametrów>
+concept nazwa = ograniczenie
+```
+
+Koncept nie może mieć ograniczeń, czyli po liście parametrów nie
+możemy napisać `requires` i podać ograniczenia na parametry.
+
+# Skrócone zapisy
+
+Korzystając z konceptów możemy skrócić definicję szablonów używających
+konceptów.  Zamiast deklarować typowy parametr `T` z użyciem
+`typename` i potem definiować ograniczenie na tym parametrze, na
+przykład, `requires incr<T>`, to możemy zadeklarować parametr szablonu
+już nie jako typowy, ale spełniający koncept `incr`, czyli jako `incr
+T`.  Oto przykład:
+
+```cpp
+{% include_relative short.cc %}
+```
+
+Pozwolono nam jeszcze bardziej skrócić definicję szablonu.  Już nie
+musimy pisać, że chodzi o szablon, którego parametr spełnia jakiś
+koncept.  Teraz możemy zdefiniować funkcję szablonową, używając nazwy
+konceptu jako typu parametru funkcji.  Taki koncept musi być
+jednoargumentowy.  Oto przykład:
+
+```cpp
+{% include_relative shorter.cc %}
+```
 
 # Standardowe koncepty
 
