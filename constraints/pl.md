@@ -176,7 +176,16 @@ przeciążenia, zgłaszany jest błąd niejednoznaczności (ang. ambiguity
 error).
 
 ```cpp
-{% include_relative overload.cc %}
+{% include_relative overload1.cc %}
+```
+
+Tutaj jest kolejny przykład, który nie kompiluje się w calości,
+chociaż nie rozumiem dlaczego.  Problem jest z wyborem przeciążenia
+dla zakomentowanego wywołania funkcji.  Albo to bug w kompilatorze,
+albo moja niewiedza.
+
+```cpp
+{% include_relative overload2.cc %}
 ```
 
 Przeciążeń szablonów pod względem spełniania warunków nie
