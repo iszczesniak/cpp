@@ -149,8 +149,8 @@ umieszczamy w `{}`.  Potem następuje `->`, a potem warunek.  Warunkiem
 jest szablonowy predykat, za którego pierwszy argument jest
 podstawiany typ testowanego wyrażenia.  Czyli w przykładzie niżej
 sprawdzamy `same_as<typ testowanego wyrażenia, typename C::iterator>`,
-gdzie `std::same_as`, który jest dwuargumentowy **konceptem** (koncept
-to szablon predykatu).
+gdzie `std::same_as` jest dwuargumentowy **konceptem** (koncept to
+szablon predykatu).
 
 Próbowałem użyć cechy typu `is_same_v` jako warunku, zamiast konceptu
 `same_as`, ale nie kompiluje się.  Nie wiem dlaczego.
