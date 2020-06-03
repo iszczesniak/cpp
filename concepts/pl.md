@@ -101,15 +101,15 @@ T`.  Oto przykład:
 
 Pozwolono nam jeszcze bardziej skrócić definicję szablonu.  Już nie
 musimy pisać, że chodzi o szablon, którego parametr spełnia jakiś
-koncept.  Teraz możemy zdefiniować funkcję szablonową, używając nazwy
+koncept.  Teraz możemy zdefiniować szablon funkcji używając nazwy
 konceptu jako typu parametru funkcji, po której podajemy typ `auto`.
-Taki koncept musi być jednoargumentowy.  Oto przykład:
+Użyty koncept musi być jednoargumentowy.  Oto przykład:
 
 ```cpp
 {% include_relative shorter.cc %}
 ```
 
-Nazwę konceptu możeny nawet pominąć, pozostawiając typ `auto`.  W
+Nazwę konceptu możemy nawet pominąć, pozostawiając typ `auto`.  W
 przykładzie niżej definiujemy dwa przeciążenia szablonu funkcji:
 wygląda prosto, ale wiemy, że skomplikowane.
 
