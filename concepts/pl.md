@@ -24,32 +24,33 @@ definicję wymagań stawianych argumentom szablonu.  Dzięki konceptom
 wzbogacono i uproszczono programowanie uogólnione w C++, a komunikaty
 o błędach generowane przez kompilator są **jasne**.
 
-Koncept jako idea programowania funkcjonuje w programowaniu od dekad.
-Koncept to zbiór **minimalnych** warunków dotyczących typu.  Ponieważ
-mówimy o minimalnych warunkach, to koncepty są minimalistyczne:
-stawiane są tylko te wymagania, które są niezbędne.  W ten sposób
+Koncept jako idea programowania funkcjonuje od dekad.  Koncept to
+zbiór **minimalnych** warunków dotyczących typu.  Ponieważ mówimy o
+minimalnych warunkach, to koncepty są minimalistyczne: stawiane są
+tylko te wymagania, które są **niezbędne**.  W ten sposób
 programowanie uogólnione ma swoje korzenie w algebrze abstrakcyjnej
-zapoczątkowanej przez Emmy Noether, gdzie strukturom algebraicznym
-stawiane są minimalne warunki.  W informatyce, podstawowe własności
-typów (a w tym i struktur danych) możemy opisać własnościami struktur
-algebraicznych.
+zapoczątkowanej przez Emmy Noether, gdzie struktury algebraiczne
+(np. monoid) definiuje się przez minimalne warunki.  W informatyce,
+podstawowe własności typów (a w tym i struktur danych) możemy opisać
+własnościami struktur algebraicznych.
 
-Możemy nawet powiedzieć, że `std::vector<T>` jest pewnym konceptem,
-który reprezentuje wektor.  Możemy powiedzieć nawet, że sortowanie
-jest pewnym konceptem, pewną ideą oderwaną od sortowanych danych.  W
-C++ jednak koncepty dotyczą wyłącznie danych, a nie algorytmów.  Na
+Możemy nawet powiedzieć, że `std::set<T>` i `std::vector<T>` są
+konceptami.  Możemy powiedzieć nawet, że sortowanie jest pewnym
+konceptem, pewną ideą oderwaną od typu sortowanych danych.  W C++
+jednak koncepty dotyczą wyłącznie danych, a nie algorytmów.  Na
 przykład, w C++ nie ma sposobu upewnienia się, że algorytm sortuje
 stabilnie.  Jeżli chcemy sortować stabilnie, to powinniśmy wybrać
 `std::stable_sort`, w przeciwnym razie `std::sort`.
 
-Koncept jako idea była stosowana od początku w standardowej bibliotece
-szablonów (STL).  Już wtedy, w dokumentacji STLa na stronie Silicon
-Graphics (SGI) mówiono o iteratorze jako koncepcie.  Wtedy nie bardzo
-wiedziałem o co chodzi, a dokumentacja tych konceptów nie trafiała do
-mnie, bo nie było w niej przykładowych programów z konceptami.  Mi się
-to po prostu nie kompilowało.  Koncepty jako idea były, ale nie były
-zdefiniowane w postaci biblioteki C++, bo język nie miał takiej
-funkcjonalności.  Teraz jest i to bogata.
+Koncept jako idea był zastosowany od początku przez Alexandra
+Stepanova w standardowej bibliotece szablonów (STL).  Już wtedy, w
+dokumentacji STLa na stronie Silicon Graphics (SGI) mówiono o
+iteratorze jako koncepcie, o koncepcie jako abstrakcyjnej idei.  Wtedy
+nie bardzo wiedziałem o co chodzi, a dokumentacja tych konceptów nie
+trafiała do mnie, bo koncepty nie były wprost wpisane w przykładowe
+programy, więc mi się to po prostu nie kompilowało.  Koncepty jako
+idea były, ale nie były zdefiniowane w postaci biblioteki C++, bo
+język nie miał takiej funkcjonalności.  Teraz jest i to bogata.
 
 # Koncept w C++20
 
