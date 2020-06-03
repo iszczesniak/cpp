@@ -15,9 +15,8 @@ już raczej szczegół implementacyjny.  Koncept jest pewną ugruntowaną
 ideą.
 
 Możemy powiedzieć, że typ danych `int` już jest konceptem: jest to typ
-całkowity ze znakiem, którego implementacja zależy od systemu.  Typ
-może być 24 bitowy lub 32 bitowy, w kodowaniu zależnym od systemu,
-np. little-endian lub big-endian.
+całkowity ze znakiem.  A już jego implementacja zależy od systemu: typ
+może być 24 bitowy lub 32 bitowy, little-endian lub big-endian.
 
 Koncepty przeszły długą drogę, żeby w końcu być w C++20.  Od strony
 technicznej programowania w C++, koncepty pozwalają na wygodną i pełną
@@ -26,14 +25,14 @@ wzbogacono i uproszczono programowanie uogólnione w C++, a komunikaty
 o błędach generowane przez kompilator są **jasne**.
 
 Koncept jako idea programowania funkcjonuje w programowaniu od dekad.
-Koncept jest to zbiór **minimalnych** warunków, które typ danych musi
-spełniać.  Ponieważ mówimy o minimalnych warunkach, to koncepty są
-minimalistyczne: stawiane są tylko te wymagania, które są niezbędne.
-W ten sposób programowanie uogólnione ma swoje korzenie w algebrze
-abstrakcyjnej zapoczątkowanej przez Emmy Noether, której podstawą jest
-stawianie minimalnych warunków strukturom algebraicznym.  W
-informatyce, podstawowe własności typów i struktur danych możemy
-opisać własnościami struktur algebraicznych.
+Koncept to zbiór **minimalnych** warunków dotyczących typu.  Ponieważ
+mówimy o minimalnych warunkach, to koncepty są minimalistyczne:
+stawiane są tylko te wymagania, które są niezbędne.  W ten sposób
+programowanie uogólnione ma swoje korzenie w algebrze abstrakcyjnej
+zapoczątkowanej przez Emmy Noether, gdzie strukturom algebraicznym
+stawiane są minimalne warunki.  W informatyce, podstawowe własności
+typów (a w tym i struktur danych) możemy opisać własnościami struktur
+algebraicznych.
 
 Możemy nawet powiedzieć, że `std::vector<T>` jest pewnym konceptem,
 który reprezentuje wektor.  Możemy powiedzieć nawet, że sortowanie
@@ -44,8 +43,8 @@ stabilnie.  Jeżli chcemy sortować stabilnie, to powinniśmy wybrać
 `std::stable_sort`, w przeciwnym razie `std::sort`.
 
 Koncept jako idea była stosowana od początku w standardowej bibliotece
-szablonów.  Już wtedy, w dokumentacji STLa na stronie Silicon Graphics
-(SGI) mówiono o iteratorze jako koncepcie.  Wtedy nie bardzo
+szablonów (STL).  Już wtedy, w dokumentacji STLa na stronie Silicon
+Graphics (SGI) mówiono o iteratorze jako koncepcie.  Wtedy nie bardzo
 wiedziałem o co chodzi, a dokumentacja tych konceptów nie trafiała do
 mnie, bo nie było w niej przykładowych programów z konceptami.  Mi się
 to po prostu nie kompilowało.  Koncepty jako idea były, ale nie były
@@ -54,17 +53,12 @@ funkcjonalności.  Teraz jest i to bogata.
 
 # Koncept w C++20
 
-**Koncept to nazwane ograniczenie.**  Ponieważ ograniczenie jest
-sparametryzowane (ma parametry, więc przyjmuje argumenty), to koncept
-też jest sparametryzowany, czyli jest szablonem.  Oto prosty przykład:
-
-```cpp
-{% include_relative intro.cc %}
-```
-
-Ponieważ ograniczenie jest predykatem czasu kompilacji, to koncept też
-nim jest, ale nazwanym.  Tak więc w C++ szablonowe mogą być nie tylko
-struktury danych, funkcje, czy typy, ale też koncepty.
+**Koncept to nazwane ograniczenie.** Ponieważ ograniczenie jest
+predykatem czasu kompilacji, to koncept też nim jest, ale nazwanym.
+Ponieważ ograniczenie jest sparametryzowane (ma parametry, więc
+przyjmuje argumenty), to koncept też jest sparametryzowany, czyli jest
+szablonem.  Tak więc w C++ szablony są nie tylko struktur danych,
+funkcji, czy typów, ale też konceptów.
 
 Koncept definiujemy tak:
 
@@ -75,6 +69,12 @@ concept nazwa = ograniczenie
 
 Koncept nie może mieć ograniczeń, czyli po liście parametrów nie
 możemy napisać `requires` i podać ograniczenia na parametry.
+
+Oto prosty przykład:
+
+```cpp
+{% include_relative intro.cc %}
+```
 
 # Skrócone zapisy
 
@@ -97,6 +97,12 @@ Taki koncept musi być jednoargumentowy.  Oto przykład:
 
 ```cpp
 {% include_relative shorter.cc %}
+```
+
+Nazwę konceptu możeny nawet pominąć, pozostawiając typ `auto`:
+
+```cpp
+{% include_relative auto.cc %}
 ```
 
 # Standardowe koncepty
