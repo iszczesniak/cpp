@@ -65,17 +65,26 @@ Koncept definiujemy tak:
 
 ```
 template <lista parametrów>
-concept nazwa = ograniczenie
+concept nazwa = ograniczenie;
 ```
 
-Koncept nie może mieć ograniczeń, czyli po liście parametrów nie
-możemy napisać `requires` i podać ograniczenia na parametry.
+Konceptu nie można ograniczyć, czyli po liście parametrów nie możemy
+napisać `requires` i podać ograniczenie na parametry.
 
 Oto prosty przykład:
 
 ```cpp
 {% include_relative intro.cc %}
 ```
+
+Raz zdefiniowany koncept możemy użyć w różnych miejscach.  Gdybyśmy
+nie chcieli używać konceptów, a jedynie ograniczeń, to musielibyśmy te
+ograniczenia (często rozbudowane) kopiować w każde miejsce użycia.
+Wiemy z autopsji, że copy-paste to najlepszy sposób na bugi.
+
+**Koncepty wprowadzają porządek**.  Biblioteka standardowa definiuje
+standardowe koncepty.  Jak użyjemy standardowego konceptu, to każdy
+będzie wiedział o co nam chodziło (także my sami, jak już zapomnimy).
 
 # Skrócone zapisy
 
@@ -100,7 +109,9 @@ Taki koncept musi być jednoargumentowy.  Oto przykład:
 {% include_relative shorter.cc %}
 ```
 
-Nazwę konceptu możeny nawet pominąć, pozostawiając typ `auto`:
+Nazwę konceptu możeny nawet pominąć, pozostawiając typ `auto`.  W
+przykładzie niżej definiujemy dwa przeciążenia szablonu funkcji:
+wygląda prosto, ale wiemy, że skomplikowane.
 
 ```cpp
 {% include_relative auto.cc %}
@@ -112,35 +123,3 @@ W bibliotece standardowej C++, główną biblioteką konceptów jest
 `concepts`, ale koncepty są zdefiniowane też w innym bibliotekach.  Na
 przykład w bibliotece `iterator` zdefiniowano koncept `incrementable`.
 
-<!-- LocalWords: expr -->
-<!-- LocalWords: lvalue lvalues rvalue -->
-<!-- LocalWords: rvalue -->
-
-<!-- LocalWords: deklaratora -->
-<!-- LocalWords: deklaratorem -->
-
-<!-- LocalWords: inicjalizowana -->
-<!-- LocalWords: inicjalizowaną -->
-<!-- LocalWords: inicjalizowane -->
-<!-- LocalWords: inicjalizującego -->
-<!-- LocalWords: inicjalizującym -->
-
-<!-- LocalWords: wyoptymalizowana -->
-<!-- LocalWords: wyoptymalizowane -->
-<!-- LocalWords: wyoptymalizowanie -->
-
-<!-- LocalWords: zainicjalizowana -->
-<!-- LocalWords: zainicjalizowaną -->
-<!-- LocalWords: zainicjalizowane -->
-
-<!-- LocalWords: binds -->
-<!-- LocalWords: nullptr -->
-<!-- LocalWords: object -->
-<!-- LocalWords: overload -->
-<!-- LocalWords: name names -->
-<!-- LocalWords: member -->
-<!-- LocalWords: move -->
-<!-- LocalWords: reference references -->
-<!-- LocalWords: refer refers -->
-<!-- LocalWords: resolution -->
-<!-- LocalWords: title -->
