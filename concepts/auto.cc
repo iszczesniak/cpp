@@ -4,13 +4,13 @@
 using namespace std;
 
 void
-print(auto x)
+print(const auto &x)
 {
   cout << "Print: " << x << endl;
 }
 
 void
-print(integral auto x)
+print(const integral auto &x)
 {
   cout << "Print for integrals: " << x << endl;
 }
