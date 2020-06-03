@@ -63,7 +63,7 @@ funkcji, czy typów, ale też konceptów.
 
 Koncept definiujemy tak:
 
-```cpp
+```
 template <lista parametrów>
 concept nazwa = ograniczenie
 ```
