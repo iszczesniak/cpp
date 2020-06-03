@@ -56,7 +56,7 @@ ale to ciągle błąd kompilacji ciała funkcji, który kończy kompilację.
 Lepiej jest mieć możliwość definicji warunków jako część definicji
 interfejsu, poza ciałem funkcji.
 
-## Nowy sposób: Ograniczenia
+## Nowy sposób: ograniczenia
 
 Ograniczenie (ang. constraint) podajemy jako **część definicji
 interfejsu**, czyli w części deklaracyjnej szablonu, a nie w ciele
