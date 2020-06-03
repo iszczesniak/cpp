@@ -20,18 +20,6 @@ struct C
 {
 };
 
-void
-foo(const A &)
-{
-  cout << "Type A\n";
-}
-
-void
-foo(const B &)
-{
-  cout << "Type B\n";
-}
-
 // For objects of any class derived from A.
 void
 foo1(const A &a)
@@ -52,6 +40,7 @@ template <typename T> requires std::is_base_of_v<A, T>
 void
 foo3(const T &t)
 {
+  cout << __PRETTY_FUNCTION__ << endl;
   t.hello();
 }
 

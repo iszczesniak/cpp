@@ -152,11 +152,32 @@ sprawdzamy `same_as<typ testowanego wyrażenia, typename C::iterator>`,
 gdzie `std::same_as`, który jest dwuargumentowy **konceptem** (koncept
 to szablon predykatu).
 
-Próbowałm użyć cechy typu `is_same_v` jako warunku, zamiast `same_as`,
-ale nie kompiluje się.  Nie wiem dlaczego.
+Próbowałem użyć cechy typu `is_same_v` jako warunku, zamiast konceptu
+`same_as`, ale nie kompiluje się.  Nie wiem dlaczego.
 
 ```cpp
 {% include_relative requires4.cc %}
+```
+
+### Przykład ograniczenia: wymagana klasa bazowa
+
+Jeżeli funkcja ma przyjąć jako argument wywołania obiekt typu, który
+dziedziczy po klasie bazowej `A`, to możemy ten obiekt przyjąć przez
+referencję na obiekt klasy `A`, tak jak robi to funkcja `foo1` w
+przykładzie niżej.  **W ten sposób funkcja działa zawsze na obiekcie
+typu `A`, czyli tracimy typ argumentu.**
+
+Możemy też napisać szablon funkcji (`foo2` w przykładzie niżej), która
+przyjmie obiekt dowolnego typu i będzie używała składowych klasy `A`,
+bez deklarowania tego wymogu, co może się skończyć błędem kompilacji.
+
+Kolejną możliwością jest napisanie szablonu funkcji (`foo3` w
+przykładzie niżej) i zdefiniowanie ograniczenia: przyjmujemy dowolny
+typ `T` wyprowadzony z `A`.  **W ten sposób funkcja działa na obiekcie
+typu `T`, czyli nie tracimy typu argumentu.**
+
+```cpp
+{% include_relative static.cc %}
 ```
 
 # Przeciążenie szablonów funkcji
