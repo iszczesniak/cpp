@@ -42,15 +42,16 @@ przykład, w C++ nie ma sposobu upewnienia się, że algorytm sortuje
 stabilnie.  Jeżli chcemy sortować stabilnie, to powinniśmy wybrać
 `std::stable_sort`, w przeciwnym razie `std::sort`.
 
-Koncept jako idea był zastosowany od początku przez Alexandra
-Stepanova w standardowej bibliotece szablonów (STL).  Już wtedy, w
-dokumentacji STLa na stronie Silicon Graphics (SGI) mówiono o
-iteratorze jako koncepcie, o koncepcie jako abstrakcyjnej idei.  Wtedy
-nie bardzo wiedziałem o co chodzi, a dokumentacja tych konceptów nie
-trafiała do mnie, bo koncepty nie były wprost wpisane w przykładowe
-programy, więc mi się to po prostu nie kompilowało.  Koncepty jako
-idea były, ale nie były zdefiniowane w postaci biblioteki C++, bo
-język nie miał takiej funkcjonalności.  Teraz jest i to bogata.
+Koncept jako idea był zastosowany od początku lat dziewięćdziesiątych
+przez Alexandra Stepanova w standardowej bibliotece szablonów (STL).
+Już wtedy, w dokumentacji STLa na stronie Silicon Graphics (SGI)
+mówiono o iteratorze jako koncepcie, o koncepcie jako abstrakcyjnej
+idei.  Wtedy nie bardzo wiedziałem o co chodzi, a dokumentacja tych
+konceptów nie trafiała do mnie, bo koncepty nie były wprost wpisane w
+przykładowe programy, więc mi się to po prostu nie kompilowało.
+Koncepty jako idea były, ale nie były zdefiniowane w postaci
+biblioteki C++, bo język nie miał takiej funkcjonalności.  Teraz jest
+i to bogata.
 
 # Koncept w C++20
 
@@ -60,6 +61,10 @@ Ponieważ ograniczenie jest sparametryzowane (ma parametry, więc
 przyjmuje argumenty), to koncept też jest sparametryzowany, czyli jest
 szablonem.  Tak więc w C++ szablony są nie tylko struktur danych,
 funkcji, czy typów, ale też konceptów.
+
+W bibliotece standardowej C++, główną biblioteką konceptów jest
+`concepts`, ale koncepty są zdefiniowane też w innym bibliotekach.  Na
+przykład w bibliotece `iterator` zdefiniowano koncept `incrementable`.
 
 Koncept definiujemy tak:
 
@@ -84,16 +89,16 @@ Wiemy z autopsji, że copy-paste to najlepszy sposób na bugi.
 
 **Koncepty wprowadzają porządek**.  Biblioteka standardowa definiuje
 standardowe koncepty.  Jak użyjemy standardowego konceptu, to każdy
-będzie wiedział o co nam chodziło (także my sami, jak już zapomnimy).
+będzie wiedział, o co nam chodziło (także my sami, jak już zapomnimy).
 
-# Skrócone zapisy
+## Skrócone zapisy
 
-Korzystając z konceptów możemy skrócić definicję szablonów używających
-konceptów.  Zamiast deklarować typowy parametr `T` z użyciem
-`typename` i potem definiować ograniczenie na tym parametrze, na
-przykład, `requires incr<T>`, to możemy zadeklarować parametr szablonu
-już nie jako typowy, ale spełniający koncept `incr`, czyli jako `incr
-T`.  Oto przykład:
+Korzystając z konceptów możemy skrócić definicję szablonów.  Zamiast
+deklarować typowy parametr `T` z użyciem `typename` i potem definiować
+ograniczenie na tym parametrze, na przykład, `requires incr<T>`, to
+możemy zadeklarować parametr szablonu już nie z użyciem `typename`,
+ale jako spełniający koncept `incr`, czyli jako `incr T`.  Oto
+przykład:
 
 ```cpp
 {% include_relative short.cc %}
@@ -117,9 +122,13 @@ wygląda prosto, ale wiemy, że skomplikowane.
 {% include_relative auto.cc %}
 ```
 
-# Standardowe koncepty
+### Doskonałe przekazywanie argumentów
 
-W bibliotece standardowej C++, główną biblioteką konceptów jest
-`concepts`, ale koncepty są zdefiniowane też w innym bibliotekach.  Na
-przykład w bibliotece `iterator` zdefiniowano koncept `incrementable`.
+Jeżeli użyjemy skróconego zapisu, to tracimy nazwę parametru, którą
+musimy przekazać funkcji `std::forward` w przypadku doskonałego
+przekazywania argumentów.  Wtedy potrzebujemy typ parametru, który
+możemy otrzymać z użyciem specyfikatora `decltype`.  Oto przykład:
 
+```cpp
+{% include_relative forward.cc %}
+```
