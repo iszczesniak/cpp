@@ -134,3 +134,5 @@ otrzymać z użyciem specyfikatora `decltype`.  Oto przykład:
 ```cpp
 {% include_relative forward.cc %}
 ```
+
+# Przykład
