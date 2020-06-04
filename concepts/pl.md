@@ -124,10 +124,12 @@ wygląda prosto, ale wiemy, że skomplikowane.
 
 ### Doskonałe przekazywanie argumentów
 
-Jeżeli użyjemy skróconego zapisu, to tracimy nazwę parametru, którą
-musimy przekazać funkcji `std::forward` w przypadku doskonałego
-przekazywania argumentów.  Wtedy potrzebujemy typ parametru, który
-możemy otrzymać z użyciem specyfikatora `decltype`.  Oto przykład:
+Jeżeli użyjemy skróconej definicji szablonu, to tracimy nazwę
+parametru szablonu, który musimy przekazać funkcji `std::forward` w
+przypadku doskonałego przekazywania argumentów.  W tej sytuacji cel
+możemy osiągnąć przekazując funkcji `std::forward` typ parametru
+funkcji (zadeklarowanego jako referencja przekazująca), który możemy
+otrzymać z użyciem specyfikatora `decltype`.  Oto przykład:
 
 ```cpp
 {% include_relative forward.cc %}
