@@ -38,6 +38,9 @@ int main()
 {
   f();
 
+  // Error: the constraint of the concept not satisfied.
+  // f([]{});
+
   f(foo);
   f(function(foo));
 

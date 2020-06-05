@@ -1,4 +1,5 @@
 #include <concepts>
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -13,8 +14,9 @@ void f(T t = {})
 }
 
 void
-foo(int, string)
+foo(int i, string s)
 {
+  cout << "foo: " << i << ", " << s << endl;
 }
 
 int main()

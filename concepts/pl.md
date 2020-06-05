@@ -136,3 +136,38 @@ otrzymać z użyciem specyfikatora `decltype`.  Oto przykład:
 ```
 
 # Przykład
+
+Ograniczenia i koncepty mogą dotyczyć także callable.  W ten sposób
+możemy określić ograniczenia na callable dotyczące przyjmowanych
+argumentów czy zwracanego typu.
+
+W przykładzie niżej używamy szablonów wariadycznych (o dowolnej
+liczbie parametrów) do zdefiniowania ograniczenia `Callable`.
+Definiujemy także typ `EmptyCallable`, który jest domyślnym argumentem
+szablonu.  Zdefiniowaliśmy także domyślny `{}` argument wywołania
+funkcji `f`.
+
+Oto przykład:
+
+```cpp
+{% include_relative callable.cc %}
+```
+
+Ale biblioteka standardowa ma już koncept podobny do naszego
+`Callable`, którym jest `invocable`.  Teraz nasz przykład jest lepszy:
+
+```cpp
+{% include_relative invocable.cc %}
+```
+
+Jeżeli chcielibyśmy skrócić dalej definicję szablonu funkcji `f`,
+czyli chcielibyśmy usunąć listę parametrów szablonu, to tracimy
+możliwość podania domyślengo argumentu `EmptyCallable` szablonu.
+
+# Podsumowanie.
+
+* Koncept to nazwane ograniczenie.
+
+* Koncept z idei stał się funkcjonalnością C++20.
+
+* Podstawowe koncepty zostały zdefiniowane w bibliotece standardowej.
