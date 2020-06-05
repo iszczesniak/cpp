@@ -1,3 +1,5 @@
+#include <functional>
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -18,11 +20,32 @@ void f(T t = {})
 }
 
 void
-foo(int, string)
+foo(int i, string s)
 {
+  cout << "foo: " << i << ", " << s << endl;
 }
+
+struct A
+{
+  void
+  operator()(int i, string s)
+  {
+    cout << "A: " << i << ", " << s << endl;
+  }
+};
 
 int main()
 {
+  f();
+
   f(foo);
+  f(function(foo));
+
+  f([](int i, string s)
+    {cout << "lambda: " << i << ", " << s << endl;});
+  f(function([](int i, string s)
+    {cout << "lambda: " << i << ", " << s << endl;}));
+
+  f(A());
+  f(function(A()));
 }
