@@ -196,8 +196,9 @@ niżej:
 
 ## Przykład z operatorem inkrementacji
 
-Operator inkrementacji (czyli `++`) wymaga l-wartości jako operandu.
-Wymóg ten dotyczy wersji prefiksowej i sufiksowej operatora.
+Operator inkrementacji (czyli `++`) dla typów całkowitych wymaga
+l-wartości jako operandu.  Wymóg ten dotyczy wersji prefiksowej i
+sufiksowej operatora.
 
 {% highlight c++ %}
 {% include_relative increment1.cc %}
