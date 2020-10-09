@@ -23,14 +23,13 @@ The goal of that generalization is to:
 
 The standard library is using (passing, keeping as a member field)
 callables **by value** (i.e., not by reference), so **copying a
-callable should be fast**.  Callables can be passed to standard
-algorithms (e.g., `std::sort`) and standard containers (e.g.,
-`std::priority_queue`), powinno się szybko kopiować.  To oznacza, że
-callable nie powinno posiadać dużo danych do skopiowania.
+callable should be fast**.  Callables passed to standard algorithms
+(e.g., `std::sort`) and standard containers (e.g.,
+`std::priority_queue`) should be copied fast.  That means, a callable
+should not keep a lot of data that should be copied.
 
-Callable używamy najczęściej przez wartość, tak jak robi to biblioteka
-standardowa, ale można też używać callable przez referencję albo
-wskaźnik.
+Callable is frequentlu used by value (as the standard library does),
+but it can be used by reference or by pointer too.
 
 ## Motywacja
 
