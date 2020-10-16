@@ -26,28 +26,28 @@ callables **by value** (i.e., not by reference), so **copying a
 callable should be fast**.  Callables passed to standard algorithms
 (e.g., `std::sort`) and standard containers (e.g.,
 `std::priority_queue`) should be copied fast.  That means, a callable
-should not keep a lot of data that should be copied.
+should not keep a lot of data that would be copied.
 
 Callable is frequentlu used by value (as the standard library does),
 but it can be used by reference or by pointer too.
 
-## Motywacja
+## Motivation
 
-W poniższym sortowaniu porównywane są liczby całkowite, dla których
-jest ustalony porządek (liniowy) z użyciem operatora `<`:
+We sort integers below.  We can do it, because integers have a
+built-in operator `<` defined:
 
 {% highlight c++ %}
 {% include_relative motivation.cc %}
 {% endhighlight %}
 
-W przykładzie niżej sortujemy obiekty typu klasowego.  Żeby kompilacja
-powiodła się, musimy zdefiniować porządek z użyciem operatora `<`.
-Operator zdefiniowaliśmy jako funkcję składową, która drugi operand
-operatora `<` przyjmuje jako argument wywołania funkcji (pierwszym
-operandem jest obiekt `*this`).  Składowy operator porównania powinien
-być stały (bo nie powinien zmieniać pierwszego operandu) i powinien
-pobierać drugi operand przez referenceję stałą (bo nie powinien
-zmieniać drugiego operandu).
+Below we sort data of a class type, and to this end we need to define
+the ordering between the objects with the comparison operator, i.e.,
+the `<` operator.  We defined the operator as a member function:
+`this` is the first object to compare, and the function parameter is
+the second object to compare.  The member comparison operator should
+be declared as `const` (because it should not modify its object, i.e.,
+`this`), and it should take the other operand by a const reference
+(because it should not change that operand).
 
 {% highlight c++ %}
 {% include_relative motivation2.cc %}
