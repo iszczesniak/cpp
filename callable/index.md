@@ -28,7 +28,7 @@ callable should be fast**.  Callables passed to standard algorithms
 `std::priority_queue`) should be copied fast.  That means, a callable
 should not keep a lot of data that would be copied.
 
-Callable is frequentlu used by value (as the standard library does),
+Callable is frequently used by value (e.g., by the standard library),
 but it can be used by reference or by pointer too.
 
 ## Motivation
