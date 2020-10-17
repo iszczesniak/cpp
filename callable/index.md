@@ -41,23 +41,23 @@ built-in operator `<` defined:
 {% endhighlight %}
 
 Below we sort data of a class type, and to this end we need to define
-the ordering between the objects with the comparison operator, i.e.,
-the `<` operator.  We defined the operator as a member function:
-`this` is the first object to compare, and the function parameter is
-the second object to compare.  The member comparison operator should
-be declared as `const` (because it should not modify its object, i.e.,
-`this`), and it should take the other operand by a const reference
-(because it should not change that operand).
+the ordering between the objects with the **comparison operator**,
+i.e., **the `<` operator**.  We defined the operator as a member
+function: `this` is the first object to compare, and the function
+parameter is the second object to compare.  The member comparison
+operator should be declared as `const` (because it should not modify
+its object, i.e., `this`), and it should take the other operand by a
+const reference (because it should not change that operand).
 
 {% highlight c++ %}
 {% include_relative motivation2.cc %}
 {% endhighlight %}
 
-Funkcja `std::sort` domyślnie używa operatora `<`, bo domyślną
-wartością trzeciego argumentu wywołania tej funkcji jest domyślna
-(ang. default-constructed) wartość obiektu struktury `std::less<A>`,
-która używa właśnie operatora `<`.  Identyczny efekt uzyskamy, jeżeli
-jawnie podamy trzeci argument:
+Function `std::sort` is using the comparison operator if we do not
+provide a comparison callable as the last call argument.  We can get
+the same effect as in the example above if we pass as the last
+argument an object of class `std::less<A>`, which uses the `<`
+operator:
 
 {% highlight c++ %}
 {% include_relative motivation3.cc %}
