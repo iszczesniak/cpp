@@ -81,7 +81,7 @@ does.  Here's an example, which we'll modify later:
 {% include_relative pq.cc %}
 {% endhighlight %}
 
-# Callable types.
+# Callable types
 
 A callable is either:
 
@@ -89,7 +89,7 @@ A callable is either:
 
 * a functor.
 
-## A pointer to a function.
+## A pointer to a function
 
 An expression that is only the name of a function (without the `()`
 operator) is treated as the address of that function.  Having this
@@ -106,7 +106,7 @@ In the example below, we pass a pointer to a comparison function.
 {% include_relative pq_foo.cc %}
 {% endhighlight %}
 
-## A functor.
+## A functor
 
 A functor is an object on which we can call the `()` operator.  The
 exact definition of the `()` operator depends on how we call a
