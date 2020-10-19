@@ -91,49 +91,49 @@ A callable is either:
 
 ## A pointer to a function.
 
-Wyrażenie, które jest tylko nazwą funkcji (bez operatora wywołania)
-traktowane jest jako adres tej funkcji.  Używając tego adresu możemy
-wywołać funkcję.  Jedyne operacje możliwe na wskaźniku do funkcji to:
-pobranie adresu funkcji i wywołanie funkcji.
+An expression that is only the name of a function (without the `()`
+operator) is treated as the address of that function.  Having this
+address, we can call the function.  The only operations we can do with
+a function pointer is: take a function address, call the function.
 
 {% highlight c++ %}
 {% include_relative function.cc %}
 {% endhighlight %}
 
-Domyślnie kolejka priorytetowa zwraca największy element.  W
-przykładzie niżej przekazujemy wskaźnik na funkcję porównującą, żeby
-ustalić porządek rosnący w kolejce priorytetowej.
+In the example below, we pass a pointer to a comparison function.
 
 {% highlight c++ %}
 {% include_relative pq_foo.cc %}
 {% endhighlight %}
 
-## A funktor
+## A functor.
 
-Funktor to obiekt, który ma zdefiniowany operator wywołania `()`
-(ang. call operator).  Zaletą funktora, w porównaniu z funkcją, jest
-możliwość przekazania dodatkowych danych, która są przechowywane w
-polach składowych funktora.
+A functor is an object on which we can call the `()` operator.  The
+exact definition of the `()` operator depends on how we call a
+functor.  In comparison with a function, a functor is more capable,
+because it can keep some extra data passed to its constructor.
 
-W najprostszym przypadku, funktor może pełnić rolę funkcji.  Na
-przykład, domyślnie kolejka priorytetowa zwraca największy element, bo
-do porównania używa klasy funktora \code{std::less<T>}.  Poniżej
-użyjemy funktora klasy \code{std::greater<T>}, żeby kolejka zwracała
-najmniejszy element.
+A functor can act just like a function when it keeps no data.  For
+example, types `std::less` and `std::greater` act like functions,
+because they do not store any data.
+
+By default, the priority queue uses `std::less`, and returns the
+largest element.  To make the priority queue return the smallest
+element, we can pass it a functor of type `std::greater`:
 
 {% highlight c++ %}
 {% include_relative pq_ro.cc %}
 {% endhighlight %}
 
-Możemy także zdefiniować własny typ funktora:
+Here we define a functor type, which acts like a function:
 
 {% highlight c++ %}
 {% include_relative pq_fo1.cc %}
 {% endhighlight %}
 
-W tym przykładzie w czasie uruchomienia przekazujemy konstruktorowi
-funktora argument (dodatkową daną do obliczeń), który mówi o porządku
-(rosnącym bądź malejącym):
+In the example below we pass to a functor a boolean value that is used
+by the call operator.  This value is passed at run-time.  This
+functionality couldn't be achieved with a function.
 
 {% highlight c++ %}
 {% include_relative pq_fo2.cc %}
