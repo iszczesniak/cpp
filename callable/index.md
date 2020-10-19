@@ -8,9 +8,9 @@ In C we use a function pointer to ship a piece of code (e.g., that
 establishes order between objects) to some other piece of code (e.g.,
 a sorting function).  In C++ a generalization of a function is
 something that we can call, and that something we call a *callable*.
-Calling a callable has the syntax of calling a function, and the
-function interface: we know the types of the arguments and the return
-value.
+Calling a callable has the syntax of calling a function (i.e.,
+applying the `()` operator), and the function interface: we know the
+types of the arguments and the return value.
 
 The goal of that generalization is to:
 
@@ -53,35 +53,29 @@ const reference (because it should not change that operand).
 {% include_relative motivation2.cc %}
 {% endhighlight %}
 
-Function `std::sort` is using the comparison operator if we do not
-provide a comparison callable as the last call argument.  We can get
-the same effect as in the example above if we pass as the last
-argument an object of class `std::less<A>`, which uses the `<`
+Function `std::sort` is using the '<' operator if we do not provide a
+comparison callable as the last call argument.  We can get the same
+effect as in the example above if we pass as the last argument an
+object (**a functor**) of class `std::less<A>`, which uses the `<`
 operator:
 
 {% highlight c++ %}
 {% include_relative motivation3.cc %}
 {% endhighlight %}
 
-Możemy sortować w kolejności rosnącej, jeżeli użyjemy *funktora*
-struktury `std::greater`.  Struktura `std::greater` używa operatora
-`>`, więc musimy go zdefiniować, zamiast operatora `<`.
+We can sort in ascending order if we pass a functor of the
+`std::greater` structure.  That structure is using the `>` operator,
+and so we have to define it instead of the `<` operator.
 
 {% highlight c++ %}
 {% include_relative motivation4.cc %}
 {% endhighlight %}
 
-Nie musimy jednak polegać na operatorze `<`.  Funkcji `std::sort`
-możemy przekazać callable, na czym możemy wykonać operator wywołania
-`()`.  Callable może być przekazywane przez wartość albo referencję.
-
-Callable może być przekazywany nie tylko funkcji, ale też
-konstruktorowi, który może przechować callable w polu składowym.  Tak
-robi, na przykład, kolejka priorytetowa biblioteki standardowej
-(`std::priority_queue`).
-
-Poniżej jest nasz roboczy przykład z kolejką priorytetową, który
-będziemy dalej zmieniać.
+We do not have to always use the `<` operator with `std::sort`, and
+instead we can pass a callable.  A callable can be passed not only to
+a function, but also to a constructor, which can store the callable as
+a member field, which, e.g., `std::priority_queue`.  Here's an
+example, which we'll modify later:
 
 {% highlight c++ %}
 {% include_relative pq.cc %}
