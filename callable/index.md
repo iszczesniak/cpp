@@ -7,10 +7,10 @@ title: Callable, sth to call
 In C we use a function pointer to ship a piece of code (e.g., that
 establishes order between objects) to some other piece of code (e.g.,
 a sorting function).  In C++ a generalization of a function is
-something that we can call, and that something we call a *callable*.
-Calling a callable has the syntax of calling a function (i.e.,
-applying the `()` operator), and the function interface: we know the
-types of the arguments and the return value.
+something that we can call.  We call it a *callable*.  Calling a
+callable has the syntax of calling a function (i.e., applying the `()`
+operator), and the function interface: we know the types of the
+arguments and the return value.
 
 The goal of that generalization is to:
 
@@ -71,25 +71,25 @@ and so we have to define it instead of the `<` operator.
 {% include_relative motivation4.cc %}
 {% endhighlight %}
 
-We do not have to always use the `<` operator with `std::sort`, and
-instead we can pass a callable.  A callable can be passed not only to
-a function, but also to a constructor, which can store the callable as
-a member field, which, e.g., `std::priority_queue`.  Here's an
-example, which we'll modify later:
+With `std::sort`, we do not always have to use the `<` operator, and
+instead we can pass a callable to induce ordering.  A callable can be
+passed not only to a function, but also to a constructor, which can
+store the callable as a member field, as, e.g., `std::priority_queue`
+does.  Here's an example, which we'll modify later:
 
 {% highlight c++ %}
 {% include_relative pq.cc %}
 {% endhighlight %}
 
-# Typy callable
+# Callable types.
 
-Callable może być:
+A callable is either:
 
-* wskaźnikiem na funkcję,
+* a pointer to a function,
 
-* funktorem.
+* a functor.
 
-## Wskaźnik na funkcję
+## A pointer to a function.
 
 Wyrażenie, które jest tylko nazwą funkcji (bez operatora wywołania)
 traktowane jest jako adres tej funkcji.  Używając tego adresu możemy
@@ -108,7 +108,7 @@ ustalić porządek rosnący w kolejce priorytetowej.
 {% include_relative pq_foo.cc %}
 {% endhighlight %}
 
-## Funktor
+## A funktor
 
 Funktor to obiekt, który ma zdefiniowany operator wywołania `()`
 (ang. call operator).  Zaletą funktora, w porównaniu z funkcją, jest
