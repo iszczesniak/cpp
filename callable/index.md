@@ -63,28 +63,35 @@ change that operand).
 {% endhighlight %}
 
 Function `std::sort` is using the '<' operator if we do not provide a
-comparison callable as the last call argument.  We can get the same
-effect as in the example above if we pass as the last argument an
-object (**a functor**) of type `std::less<A>`, which uses the `<`
-operator:
+comparison callable as the last call argument.  Well, `std::sort` is
+actually using an object of type `std::less` which in turn uses the
+`<` operator.  For comparing the sorted elements, the implementation
+of `std::sort` does not use the `<` directly, because it would be
+stuck with it, and be unfit for customization.  Instead, the
+implementation uses a callable for comparison.
+
+No wonder that we can get the same effect as in the example above if
+we pass as the last argument an object of type `std::less<A>` (that's
+a callable), because if we didn't, it would be used anyway:
 
 {% highlight c++ %}
 {% include_relative motivation3.cc %}
 {% endhighlight %}
 
-We can sort in ascending order if we pass a functor of the
-`std::greater` type.  That type is using the `>` operator, and so we
-have to define it instead of the `<` operator.
+With `std::sort`, we do not always have to use the `<` operator, and
+instead we can pass a callable to induce ordering.  We can sort in
+ascending order if we pass an object of the `std::greater` type.  That
+type is using the `>` operator, and so we have to define it instead of
+the `<` operator.
 
 {% highlight c++ %}
 {% include_relative motivation4.cc %}
 {% endhighlight %}
 
-With `std::sort`, we do not always have to use the `<` operator, and
-instead we can pass a callable to induce ordering.  A callable can be
-passed not only to a function, but also to a constructor, which can
-store the callable as a member field, as, e.g., `std::priority_queue`
-does.  Here's an example, which we'll modify later:
+A callable can be passed not only to a function, but also to a
+constructor, which can store the callable as a member field, as, e.g.,
+the standard priority queue (type `std::priority_queue`) does.  Here's
+an example, which we'll be modifying later:
 
 {% highlight c++ %}
 {% include_relative pq.cc %}
@@ -155,8 +162,8 @@ expression**.  A lambda (in short for a lambda expression) is
 *syntactic sugar* for conveniently creating functors: they help us
 create functors with less writing in comparison with creating a
 functor class, and then creating a functor.  We could do away with
-lambda expressions, and achieve the same functionality by implementing
-manually a functor class.  Lambdas are handy.
+lambda expressions, and achieve the same functionality with functors.
+Lambdas are handy.
 
 Here's an example of using a lambda with a priority queue:
 
