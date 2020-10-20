@@ -150,15 +150,21 @@ functionality couldn't be achieved with a function.
 
 ### Closure
 
-**Closure** is a functor, which is the result of a **lambda
-  expression**.
+**Closure** is a functor which is the result of a **lambda
+expression**.  A lambda (in short for a lambda expression) is
+*syntactic sugar* for conveniently creating functors: they help us
+create functors with less writing in comparison with creating a
+functor class, and then creating a functor.  We could do away with
+lambda expressions, and achieve the same functionality by implementing
+manually a functor class.  Lambdas are handy.
+
+Here's an example of using a lambda with a priority queue:
 
 {% highlight c++ %}
 {% include_relative pq_lambda1.cc %}
 {% endhighlight %}
 
-A tu wersja z dodatkowym argumentem domknięcia przekazywanym w czasie
-uruchomienia:
+Here we pass an argument to a closure:
 
 {% highlight c++ %}
 {% include_relative pq_lambda2.cc %}
