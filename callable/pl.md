@@ -37,7 +37,7 @@ W poniższym sortowaniu porównywane są liczby całkowite, dla których
 jest ustalony porządek (liniowy) z użyciem operatora `<`:
 
 {% highlight c++ %}
-{% include_relative motivation.cc %}
+{% include_relative motivation1.cc %}
 {% endhighlight %}
 
 W przykładzie niżej sortujemy obiekty typu klasowego.  Żeby kompilacja

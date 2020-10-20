@@ -13,7 +13,7 @@ struct CMP
   }
 
   bool
-  operator()(const int &a, const int &b)
+  operator()(const int &a, const int &b) const
   {
     return m_order ? a < b : a > b;
   }

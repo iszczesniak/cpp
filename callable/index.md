@@ -37,18 +37,26 @@ We sort integers below.  We can do it, because integers have a
 built-in operator `<` defined:
 
 {% highlight c++ %}
-{% include_relative motivation.cc %}
+{% include_relative motivation1.cc %}
 {% endhighlight %}
 
 Below we sort data of a user-defined type, and to this end we need to
-define the ordering between the objects with the **comparison
-operator**, i.e., **the `<` operator**.  We defined the operator as a
-member function: `this` is the first object to compare, and the
-function parameter is the second object to compare.  The member
-comparison operator should be declared as `const` (because it should
-not modify its object, i.e., `this`), and it should take the other
-operand by a const reference (because it should not change that
-operand).
+define the ordering (we could also say to induce order or to establish
+order) between the objects with the **comparison operator**, i.e.,
+**the `<` operator**.  There are a number of comparison operators that
+we can define for a user-defined type: `==`, `!=`, `<`, `<=`, `>`,
+`=>`, `<=>`, but for inducing order between elements (the objects of
+the user-defined type) the most important operator is the **less-than
+operator**, i.e., the `<` operator.  We could refer to the less-than
+operator as *the comparison operator*, but the avoid confusion, we
+refer to it as the `<` operator.
+
+We defined the `<` operator as a member function: `this` is the first
+object to compare, and the function parameter is the second object to
+compare.  The member comparison operator should be declared as `const`
+(because it should not modify its object, i.e., `this`), and it should
+take the other operand by a const reference (because it should not
+change that operand).
 
 {% highlight c++ %}
 {% include_relative motivation2.cc %}
@@ -140,10 +148,10 @@ functionality couldn't be achieved with a function.
 {% include_relative pq_fo2.cc %}
 {% endhighlight %}
 
-### Domknięcie
+### Closure
 
-Domknięcie (ang. closure) jest funktorem, który jest wynikiem
-opracowania wyrażenia lambda.
+**Closure** is a functor, which is the result of a **lambda
+  expression**.
 
 {% highlight c++ %}
 {% include_relative pq_lambda1.cc %}
