@@ -62,7 +62,7 @@ change that operand).
 {% include_relative motivation2.cc %}
 {% endhighlight %}
 
-Function `std::sort` is using the '<' operator if we do not provide a
+Function `std::sort` is using the `<` operator if we do not provide a
 comparison callable as the last call argument.  Well, `std::sort` is
 actually using an object of type `std::less` which in turn uses the
 `<` operator.  For comparing the sorted elements, the implementation
