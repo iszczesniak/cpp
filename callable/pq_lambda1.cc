@@ -8,10 +8,9 @@ using namespace std;
 int
 main(void)
 {
-  priority_queue<int, vector<int>,
-                 function<bool(const int &, const int &)>>
-    q([](const int &a, const int &b)
-      {return a > b;});
+  auto f = [](const int &a, const int &b){return a > b;};
+
+  priority_queue<int, vector<int>, decltype(f)> q(f);
 
   q.push(2);
   q.push(1);

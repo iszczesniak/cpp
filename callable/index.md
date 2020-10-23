@@ -161,7 +161,8 @@ A functor acts just like a function when it keeps no data.  For
 example, types `std::less` and `std::greater` act like functions,
 because they do not store any data.  Such functor types introduce no
 performance hit: the constructors and destructors are empty, so they
-generate no code, and the comparison function is inlined.
+generate no code, and the comparison function is inlined.  It's as
+fast as it can be.
 
 By default, the priority queue uses `std::less`, and returns the
 largest element.  To make the priority queue return the smallest
@@ -185,15 +186,23 @@ functionality couldn't be achieved with a function.
 {% include_relative pq_fo2.cc %}
 {% endhighlight %}
 
-### Closure
+# Closure
 
 **Closure** is a functor which is the result of a **lambda
 expression**.  A lambda (in short for a lambda expression) is
 *syntactic sugar* for conveniently creating functors: they help us
 create functors with less writing in comparison with creating a
-functor class, and then creating a functor.  We could do away with
-lambda expressions, and achieve the same functionality with functors.
-Lambdas are handy.
+functor class first, and then creating a functor.  We could do away
+with lambda expressions, and achieve the same functionality with
+functors.  Lambdas are handy.
+
+Since a closure is an object, it must have some type, but we usually
+do not need it, and so we say that a closure is of an *anonymous
+type*.  We can get the type of a closure with the `decltype` operator.
+
+A lambda expression looks like this:
+
+`[capture-list](param-list){function-body}`
 
 Here's an example of using a lambda with a priority queue:
 
