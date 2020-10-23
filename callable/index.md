@@ -284,10 +284,14 @@ variables either by value or by reference.  If a default capture
 policy is given, *all variables* used in the body are captured, and we
 do not have to list them.
 
-We set the default capture-by-value policy with `=`.  When a variable
-is captured by value, the closure has a copy of the variable as a
-member field, i.e., the member field was initialized by copying the
-value of the captured value.  For example:
+When a variable is captured by value, the closure keeps in its member
+field a copy of the value of the captured variable, i.e., the member
+field was initialized by copying the value of the captured variable.
+When a variable is captured by reference, the closure keeps in its
+member field a reference to the captured variable, i.e., the member
+reference was initialized with the captured variable.
+
+We set the default capture-by-value policy with `=`.  For example:
 
 {% highlight c++ %}
 {% include_relative capture3.cc %}
@@ -299,10 +303,7 @@ The code above is equivalent to this code:
 {% include_relative capture3a.cc %}
 {% endhighlight %}
 
-We set the default capture-by-reference policy with `&`.  When a
-variable is captured by reference, the closure has a member reference
-to the captured variable, i.e., the member reference was initialized
-with the captured variable.  For example:
+We set the default capture-by-reference policy with `&`.  For example:
 
 {% highlight c++ %}
 {% include_relative capture4.cc %}
