@@ -107,13 +107,26 @@ A callable is either:
 
 ## A pointer to a function
 
-An expression that is only the name of a function (without the `()`
-operator) is treated as the address of that function.  Having this
-address, we can call the function.  The only operations we can do with
-a function pointer is: take a function address, call the function.
+An expression that is only the name of a function, e.g., `foo`,
+(without the `()` operator) is treated as the address of that
+function.  We can also take the address of a function by preceeding
+the name of the function with the `&` operator, e.g., `&foo`.  These
+ways of taking a function address are equivalent, which is
+inconsistent, because there should be just one way.
+
+Having this address, we can call the function.  The only operations we
+can do with a function pointer is: take a function address, call the
+function.
 
 {% highlight c++ %}
 {% include_relative function.cc %}
+{% endhighlight %}
+
+Here we sort descendingly by passing a callable, which is a function
+pointer:
+
+{% highlight c++ %}
+{% include_relative sort_foo.cc %}
 {% endhighlight %}
 
 In the example below, we pass a pointer to a comparison function.
