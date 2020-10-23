@@ -274,6 +274,12 @@ the `param-list` are available in the `function-body`.  Example:
 {% include_relative capture2.cc %}
 {% endhighlight %}
 
+The code above is equivalent to this code:
+
+{% highlight c++ %}
+{% include_relative capture2.cc %}
+{% endhighlight %}
+
 The `capture-list` can begin with the default policy of capturing
 variables either by value or by reference.  If a default capture
 policy is given, *all variables* are captured, and we do not have to
@@ -286,6 +292,12 @@ value of the captured value.  For example:
 
 {% highlight c++ %}
 {% include_relative capture2.cc %}
+{% endhighlight %}
+
+The code above is equivalent to this code:
+
+{% highlight c++ %}
+{% include_relative capture2a.cc %}
 {% endhighlight %}
 
 We set the default capture-by-reference policy with `&`.

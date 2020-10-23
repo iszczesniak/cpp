@@ -5,17 +5,11 @@ using namespace std;
 int
 main()
 {
-  int x = 1;
-
-  // Would not compile, because x is not captured, and the parameter
-  // list is empty.
-  // []{x = 10;}();
+  int x = 1, y = 2;
 
   // Capture every variable by value.
-  [=]() mutable {x = 10;}();
-  cout << "x = " << x << endl;
+  [=]() mutable {x = 10; y = 20;}();
 
-  // Capture every variable by reference.
-  [&](){x = 10;}();
   cout << "x = " << x << endl;
+  cout << "y = " << y << endl;
 }
