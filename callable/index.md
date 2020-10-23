@@ -300,9 +300,9 @@ The code above is equivalent to this code:
 {% endhighlight %}
 
 We set the default capture-by-reference policy with `&`.  When a
-variable is captured by reference, the closure has a reference to the
-variable as a member field, i.e., the reference member field was
-initialized by the captured variable.  For example:
+variable is captured by reference, the closure has a member reference
+to the captured variable, i.e., the member reference was initialized
+with the captured variable.  For example:
 
 {% highlight c++ %}
 {% include_relative capture4.cc %}
