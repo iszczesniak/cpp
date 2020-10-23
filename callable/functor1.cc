@@ -11,6 +11,6 @@ struct functor_type
 int
 main()
 {
-  functor_type f;
+  const functor_type f;
   f();
 }

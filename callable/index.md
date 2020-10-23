@@ -7,7 +7,7 @@ title: Callable, sth to call
 In C we use a function pointer to ship a piece of code (e.g., that
 establishes order between objects) to some other piece of code (e.g.,
 a sorting function).  In C++ a generalization of a function is
-something that we can call.  We call it a *callable*.  Calling a
+something that we can call.  We call it a **callable**.  Calling a
 callable has the syntax of calling a function (i.e., applying the `()`
 operator), and the function interface: we know the types of the
 arguments and the return value.
@@ -142,9 +142,26 @@ exact definition of the `()` operator depends on how we call a
 functor.  In comparison with a function, a functor is more capable,
 because it can keep some extra data passed to its constructor.
 
-A functor can act just like a function when it keeps no data.  For
+In the example below we define a simple functor type, create a
+functor, and call it.  The functor is a callable, because we can call
+it.  Since the `()` operator was defined constant, we can call it for
+constant functors.
+
+{% highlight c++ %}
+{% include_relative functor1.cc %}
+{% endhighlight %}
+
+We can store some data in a functor:
+
+{% highlight c++ %}
+{% include_relative functor2.cc %}
+{% endhighlight %}
+
+A functor acts just like a function when it keeps no data.  For
 example, types `std::less` and `std::greater` act like functions,
-because they do not store any data.
+because they do not store any data.  Such functor types introduce no
+performance hit: the constructors and destructors are empty, so they
+generate no code, and the comparison function is inlined.
 
 By default, the priority queue uses `std::less`, and returns the
 largest element.  To make the priority queue return the smallest
