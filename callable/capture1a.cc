@@ -1,8 +1,8 @@
 int
 main()
 {
-  // The block scope is here, so that a behaves like a temporary
-  // object.  Object a is of anonymous type.
+  // The block scope is here, so that object x behaves like a
+  // temporary object.  Object a is of anonymous type.
   {
     struct
     {
@@ -10,7 +10,7 @@ main()
       operator()() const
       {
       }
-    } a;
-    a();
+    } x;
+    x();
   }
 }
