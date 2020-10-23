@@ -200,9 +200,74 @@ Since a closure is an object, it must have some type, but we usually
 do not need it, and so we say that a closure is of an *anonymous
 type*.  We can get the type of a closure with the `decltype` operator.
 
-A lambda expression looks like this:
+## Syntax
 
-`[capture-list](param-list){function-body}`
+Lambda expressions can be nuanced, and we'll not cover all the
+nuances.  However, most lambdas are of this syntax:
+
+`[capture-list](param-list) mutable {function-body}`
+
+The `capture-list` and `param-list` are comma-separated.  If
+`param-list` is empty, the `()` can be dropped.  Even if
+`capture-list` and `function-body` are empty, `[]` and `{}` cannot be
+dropped.
+
+The `capture-list` can have:
+
+* either `=` or `&`, but not both, e.g., `[=]`,
+
+* captured variable names that can, but do not have to be, preceded by
+  `&`, e.g., `[&x]`,
+
+* declaration of the form `some-name = captured-variable` that can but
+  do not have to be, preceded by `&`, e.g., `[&x = y]`.
+
+The `param-list` is a list of parameters of the member `()` operator
+function.
+
+The `mutable` specifier is optional.  By default the member `()`
+operator function is defined constant, but we can make it non-const
+with the `mutable` specifier.
+
+Therefore the simplest lambda is `[]{}`.  Here we create a closure and
+call it in one go (in one expression):
+
+{% highlight c++ %}
+{% include_relative capture1.cc %}
+{% endhighlight %}
+
+Expression `[]{}()` is translated into this expression:
+
+{% highlight c++ %}
+{% include_relative capture1a.cc %}
+{% endhighlight %}
+
+## Semantics
+
+A lambda creates a functor type (a structure or a class), and an
+object of this type.
+
+The captured variables are stored as fields in the type of the
+functor.  The `param-list` becomes the parameter list of the member
+`()` operator in that type with the body of `function-body`
+
+The `capture-list` describes how to capture (access) variables from
+the scope of the lambda expression, so that they are available in the
+function body.  The scope is the fragment of code where variables are
+accessible: the global scope, the class scope, the function scope, and
+the block scope.
+
+The capture-list can begin with the default policy of capturing
+variables either by value or by reference.  If a default capture
+policy is given, *all variables* are captured, and we do not have to
+list them.  We set the default capture by value policy with `=`, and
+the default capture by reference policy with `&`.  For example:
+
+{% highlight c++ %}
+{% include_relative capture2.cc %}
+{% endhighlight %}
+
+## Examples
 
 Here's an example of using a lambda with a priority queue:
 
