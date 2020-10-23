@@ -205,12 +205,11 @@ type*.  We can get the type of a closure with the `decltype` operator.
 Lambda expressions can be nuanced, and we'll not cover all the
 nuances.  However, most lambdas are of this syntax:
 
-`[capture-list](param-list) mutable {function-body}`
+`[capture-list](param-list) mutable {body}`
 
 The `capture-list` and `param-list` are comma-separated.  If
 `param-list` is empty, the `()` can be dropped.  Even if
-`capture-list` and `function-body` are empty, `[]` and `{}` cannot be
-dropped.
+`capture-list` and `body` are empty, `[]` and `{}` cannot be dropped.
 
 The `capture-list` can have:
 
@@ -256,19 +255,19 @@ object of this type.  These are the basic facts:
 * The member `()` operator function is const unless `mutable` is
   specified.
 
-* The `function-body` becomes the body of the member `()` operator
-  function.  The return type of that function is deduced based on the
-  expression of the return statement in the function body.  If there
-  is no return statement, the return type is `void`.
+* The `body` becomes the body of the member `()` operator function.
+  The return type of that function is deduced based on the expression
+  of the return statement in the body.  If there is no return
+  statement, the return type is `void`.
 
 The `capture-list` describes how to capture (access) variables from
 the scope of the lambda expression, so that they are available in the
-function body.  The scope is the fragment of code where variables are
+body.  The scope is the fragment of code where variables are
 accessible: the global scope, the class scope, the function scope, and
 the block scope.
 
 The `capture-list` can be empty.  In that case only the parameters of
-the `param-list` are available in the `function-body`.  Example:
+the `param-list` are available in the `body`.  Example:
 
 {% highlight c++ %}
 {% include_relative capture2.cc %}
@@ -282,8 +281,8 @@ The code above is equivalent to this code:
 
 The `capture-list` can begin with the default policy of capturing
 variables either by value or by reference.  If a default capture
-policy is given, *all variables* are captured, and we do not have to
-list them.
+policy is given, *all variables* used in the body are captured, and we
+do not have to list them.
 
 We set the default capture-by-value policy with `=`.  When a variable
 is captured by value, the closure has a copy of the variable as a
@@ -291,13 +290,13 @@ member field, i.e., the member field was initialized by copying the
 value of the captured value.  For example:
 
 {% highlight c++ %}
-{% include_relative capture2.cc %}
+{% include_relative capture3.cc %}
 {% endhighlight %}
 
 The code above is equivalent to this code:
 
 {% highlight c++ %}
-{% include_relative capture2a.cc %}
+{% include_relative capture3a.cc %}
 {% endhighlight %}
 
 We set the default capture-by-reference policy with `&`.
