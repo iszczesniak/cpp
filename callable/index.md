@@ -277,7 +277,7 @@ the `param-list` are available in the `function-body`.  Example:
 The code above is equivalent to this code:
 
 {% highlight c++ %}
-{% include_relative capture2.cc %}
+{% include_relative capture2a.cc %}
 {% endhighlight %}
 
 The `capture-list` can begin with the default policy of capturing
