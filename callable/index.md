@@ -279,6 +279,8 @@ The code above is equivalent to this code:
 {% include_relative capture2a.cc %}
 {% endhighlight %}
 
+## Ways of capturing variables
+
 The `capture-list` can begin with the default policy of capturing
 variables either by value or by reference.  If a default capture
 policy is given, *all variables* used in the body are captured, and we
@@ -315,7 +317,16 @@ The code above is equivalent to this code:
 {% include_relative capture4a.cc %}
 {% endhighlight %}
 
-## Examples
+We can specify the default capture policy, and then list exceptions.
+We can specifiy how to capture each variable without specifying the
+default capture policy.  Also, for the member fields, we do not have
+to use the names of the captured variables, but we can give any name.
+
+{% highlight c++ %}
+{% include_relative capture5.cc %}
+{% endhighlight %}
+
+## Closure Examples
 
 Here's an example of using a lambda with a priority queue:
 

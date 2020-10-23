@@ -10,10 +10,10 @@ main()
   {
     struct F
     {
-      int x;
-      int y;
+      int &x;
+      int &y;
 
-      F(int x, int y): x(x), y(y)
+      F(int &x, int &y): x(x), y(y)
       {
       }
 
