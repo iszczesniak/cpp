@@ -11,6 +11,11 @@ main()
   // list is empty.
   // []{x = 10;}();
 
-  [](int &x){x = 10;}(x);
+  // Capture every variable by value.
+  [=]() mutable {x = 10;}();
+  cout << "x = " << x << endl;
+
+  // Capture every variable by reference.
+  [&](){x = 10;}();
   cout << "x = " << x << endl;
 }

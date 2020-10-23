@@ -220,7 +220,7 @@ The `capture-list` can have:
 * captured variable names that can, but do not have to be, preceded by
   `&`, e.g., `[&x]`,
 
-* declaration of the form `name-in-closure = variable-name` that can
+* declaration of the form `name-in-closure = variable-name` that can,
   but do not have to be, preceded by `&`, e.g., `[&x = y]`.
 
 The `param-list` is the list of function parameters, just like for a
@@ -253,6 +253,9 @@ object of this type.  These are the basic facts:
 * The `param-list` becomes the parameter list of the member `()`
   operator function.
 
+* The member `()` operator function is const unless `mutable` is
+  specified.
+
 * The `function-body` becomes the body of the member `()` operator
   function.  The return type of that function is deduced based on the
   expression of the return statement in the function body.  If there
@@ -264,15 +267,28 @@ function body.  The scope is the fragment of code where variables are
 accessible: the global scope, the class scope, the function scope, and
 the block scope.
 
-The `capture-list` can begin with the default policy of capturing
-variables either by value or by reference.  If a default capture
-policy is given, *all variables* are captured, and we do not have to
-list them.  We set the default capture by value policy with `=`, and
-the default capture by reference policy with `&`.  For example:
+The `capture-list` can be empty.  In that case only the parameters of
+the `param-list` are available in the `function-body`.  Example:
 
 {% highlight c++ %}
 {% include_relative capture2.cc %}
 {% endhighlight %}
+
+The `capture-list` can begin with the default policy of capturing
+variables either by value or by reference.  If a default capture
+policy is given, *all variables* are captured, and we do not have to
+list them.
+
+We set the default capture-by-value policy with `=`.  When a variable
+is captured by value, the closure has a copy of the variable as a
+member field, i.e., the member field was initialized by copying the
+value of the captured value.  For example:
+
+{% highlight c++ %}
+{% include_relative capture2.cc %}
+{% endhighlight %}
+
+We set the default capture-by-reference policy with `&`.
 
 ## Examples
 
