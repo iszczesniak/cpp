@@ -1,7 +1,5 @@
 #include <iostream>
 
-using namespace std;
-
 int
 main()
 {
@@ -10,6 +8,5 @@ main()
   // Variable x is captured by value, y by reference.
   [x, &y]() mutable {x = 10, y = 20;}();
 
-  cout << "x = " << x << endl;
-  cout << "y = " << y << endl;
+  std::cout << "x = " << x << ", y = " << y << std::endl;
 }

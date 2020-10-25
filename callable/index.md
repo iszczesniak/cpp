@@ -188,7 +188,7 @@ functionality couldn't be achieved with a function.
 
 # Closure
 
-**Closure** is a functor which is the result of a **lambda
+A **closure** is a functor which is the result of a **lambda
 expression**.  A lambda (in short for a lambda expression) is
 *syntactic sugar* for conveniently creating functors: they help us
 create functors with less writing in comparison with creating a

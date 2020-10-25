@@ -29,6 +29,5 @@ main()
     f();
   }
 
-  cout << "x = " << x << endl;
-  cout << "y = " << y << endl;
+  std::cout << "x = " << x << ", y = " << y << std::endl;
 }
