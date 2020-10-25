@@ -247,7 +247,8 @@ Expression `[]{}()` is simply translated into this code:
 A lambda creates a functor type (a structure or a class), and an
 object of this type.  These are the basic facts:
 
-* The captured variables are stored as fields in the functor.
+* The captured variables are stored as fields in the functor, and are
+  initialized by the constructor.
 
 * The parameter list becomes the parameter list of the member `()`
   operator function.
