@@ -305,7 +305,7 @@ The code above is equivalent to this code:
 {% include_relative capture3a.cc %}
 {% endhighlight %}
 
-### Default policy
+### Default capture policy
 
 The capture list can begin with the default policy of capturing
 variables either by value or by reference.  If a default capture
