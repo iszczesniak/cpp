@@ -205,13 +205,13 @@ type*.  We can get the type of a closure with the `decltype` operator.
 Lambda expressions can be nuanced, and we'll not cover all the
 nuances.  However, most lambdas are of this syntax:
 
-`[capture-list](param-list) mutable {body}`
+`[capture list](parameter list) mutable {body}`
 
-The `capture-list` and `param-list` are comma-separated.  If
-`param-list` is empty, the `()` can be dropped.  Even if
-`capture-list` and `body` are empty, `[]` and `{}` cannot be dropped.
+The capture list and the parameter list are comma-separated.  If the
+parameter list is empty, the `()` can be dropped.  Even if the capture
+list and the body are empty, `[]` and `{}` cannot be dropped.
 
-The `capture-list` can have:
+The capture list can have:
 
 * either `=` or `&`, but not both, e.g., `[=]`, or `[&]`, but not `[&,
   =]`,
@@ -222,7 +222,7 @@ The `capture-list` can have:
 * declaration of the form `name-in-closure = variable-name` that can,
   but do not have to be, preceded by `&`, e.g., `[&x = y]`.
 
-The `param-list` is the list of function parameters, just like for a
+The parameter list is the list of function parameters, just like for a
 regular function.
 
 The `mutable` specifier is optional.  By default the member `()`
@@ -249,25 +249,25 @@ object of this type.  These are the basic facts:
 
 * The captured variables are stored as fields in the functor.
 
-* The `param-list` becomes the parameter list of the member `()`
+* The parameter list becomes the parameter list of the member `()`
   operator function.
 
 * The member `()` operator function is const unless `mutable` is
   specified.
 
-* The `body` becomes the body of the member `()` operator function.
-  The return type of that function is deduced based on the expression
-  of the return statement in the body.  If there is no return
-  statement, the return type is `void`.
+* The body becomes the body of the member () operator function.  The
+  return type of that function is deduced based on the expression of
+  the return statement in the body.  If there is no return statement,
+  the return type is `void`.
 
-The `capture-list` describes how to capture (access) variables from
-the scope of the lambda expression, so that they are available in the
-body.  The scope is the fragment of code where variables are
-accessible: the global scope, the class scope, the function scope, and
-the block scope.
+The capture list describes how to capture variables from the scope of
+the lambda expression, so that they are available in the body.  The
+scope is the fragment of code where variables are accessible: the
+global scope, the class scope, the function scope, and the block
+scope.
 
-The `capture-list` can be empty.  In that case only the parameters of
-the `param-list` are available in the `body`.  Example:
+The capture list can be empty.  In that case only the parameters of
+the parameter list are available in the body.  Example:
 
 {% highlight c++ %}
 {% include_relative capture2.cc %}
@@ -281,19 +281,19 @@ The code above is equivalent to this code:
 
 ## Ways of capturing variables
 
-The `capture-list` can begin with the default policy of capturing
-variables either by value or by reference.  If a default capture
-policy is given, *all variables* used in the body are captured, and we
-do not have to list them.
+A variable can be captured by value or by reference.  When a variable
+is captured by value, the closure keeps in its member field a copy of
+the value of the captured variable, i.e., the member field was
+initialized by copying the value of the captured variable.  To capture
+a variable by value, put its name in the capture list.
 
-When a variable is captured by value, the closure keeps in its member
-field a copy of the value of the captured variable, i.e., the member
-field was initialized by copying the value of the captured variable.
 When a variable is captured by reference, the closure keeps in its
 member field a reference to the captured variable, i.e., the member
-reference was initialized with the captured variable.
+reference was initialized with the captured variable.  To capture a
+variable by reference, put its name in the capture list, and preceeded
+it by an ampersand.
 
-We set the default capture-by-value policy with `=`.  For example:
+For example:
 
 {% highlight c++ %}
 {% include_relative capture3.cc %}
@@ -305,7 +305,14 @@ The code above is equivalent to this code:
 {% include_relative capture3a.cc %}
 {% endhighlight %}
 
-We set the default capture-by-reference policy with `&`.  For example:
+### Default policy
+
+The capture list can begin with the default policy of capturing
+variables either by value or by reference.  If a default capture
+policy is given, *all variables* used in the body are captured, and we
+do not have to list them.
+
+We set the default capture-by-value policy with `=`.  For example:
 
 {% highlight c++ %}
 {% include_relative capture4.cc %}
@@ -317,13 +324,25 @@ The code above is equivalent to this code:
 {% include_relative capture4a.cc %}
 {% endhighlight %}
 
-We can specify the default capture policy, and then list exceptions.
-We can specifiy how to capture each variable without specifying the
-default capture policy.  Also, for the member fields, we do not have
-to use the names of the captured variables, but we can give any name.
+We set the default capture-by-reference policy with `&`.  For example:
 
 {% highlight c++ %}
 {% include_relative capture5.cc %}
+{% endhighlight %}
+
+The code above is equivalent to this code:
+
+{% highlight c++ %}
+{% include_relative capture5a.cc %}
+{% endhighlight %}
+
+We can specify the default capture policy, and then list those
+variables that should be captured differently.  Also, for the member
+fields, we do not have to use the names of the captured variables, but
+we can give any name.
+
+{% highlight c++ %}
+{% include_relative capture6.cc %}
 {% endhighlight %}
 
 ## Closure Examples
