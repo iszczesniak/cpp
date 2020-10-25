@@ -8,3 +8,4 @@ all: $(PRGS) $(ASMS)
 %.s: %.cc
 	g++ ${CXXFLAGS} -S $< -o $@.tmp
 	c++filt < $@.tmp > $@
+	rm $@.tmp
