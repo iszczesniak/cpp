@@ -1,7 +1,5 @@
 #include <iostream>
 
-using namespace std;
-
 int
 main()
 {
@@ -12,5 +10,5 @@ main()
   // []{x = 10;}();
 
   [](int &x){x = 10;}(x);
-  cout << "x = " << x << endl;
+  std::cout << "x = " << x << std::endl;
 }

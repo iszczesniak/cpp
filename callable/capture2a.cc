@@ -1,7 +1,5 @@
 #include <iostream>
 
-using namespace std;
-
 int
 main()
 {
@@ -19,5 +17,5 @@ main()
     f(x);
   }
 
-  cout << "x = " << x << endl;
+  std::cout << "x = " << x << std::endl;
 }
