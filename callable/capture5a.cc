@@ -16,7 +16,7 @@ main()
       }
 
       void
-      operator()()
+      operator()() const
       {
         x = 10;
         y = 20;

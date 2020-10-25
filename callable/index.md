@@ -191,10 +191,9 @@ functionality couldn't be achieved with a function.
 A **closure** is a functor which is the result of a **lambda
 expression**.  A lambda (in short for a lambda expression) is
 *syntactic sugar* for conveniently creating functors: they help us
-create functors with less writing in comparison with creating a
-functor class first, and then creating a functor.  We could do away
-with lambda expressions, and achieve the same functionality with
-functors.  Lambdas are handy.
+create functors with less fuss in comparison with creating a functor.
+We could do away with lambda expressions, and achieve the same
+functionality with functors.  Lambdas are handy.
 
 Since a closure is an object, it must have some type, but we usually
 do not need it, and so we say that a closure is of an *anonymous
@@ -325,7 +324,10 @@ The code above is equivalent to this code:
 {% include_relative capture4a.cc %}
 {% endhighlight %}
 
-We set the default capture-by-reference policy with `&`.  For example:
+We set the default capture-by-reference policy with `&`.  Please note
+that in the example below, and the next example too, the call operator
+can be const, because we are not modifying a member reference, but a
+variable to which the member reference is bound.
 
 {% highlight c++ %}
 {% include_relative capture5.cc %}
