@@ -22,7 +22,12 @@ struct CMP
 int
 main(void)
 {
-  priority_queue<int, vector<int>, CMP> q(CMP(false));
+  bool order;
+
+  cout << "Enter 0 or 1:";
+  cin >> order;
+  
+  priority_queue<int, vector<int>, CMP> q(CMP(order));
 
   q.push(2);
   q.push(1);
