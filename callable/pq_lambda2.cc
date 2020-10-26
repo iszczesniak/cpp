@@ -8,12 +8,15 @@ using namespace std;
 int
 main(void)
 {
-  bool order = false;
+  bool order;
 
-  priority_queue<int, vector<int>,
-                 function<bool(const int &, const int &)>>
-    q([order](const int &a, const int &b)
-      {return order ? a < b : a > b;});
+  cout << "Enter 0 or 1: ";
+  cin >> order;
+  
+  auto c = [order](const int &a, const int &b)
+           {return order ? a < b : a > b;};
+
+  priority_queue<int, vector<int>, decltype(c)> q(c);
 
   q.push(2);
   q.push(1);

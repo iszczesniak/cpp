@@ -350,6 +350,18 @@ we can give any name.
 
 ## Closure Examples
 
+Since a closure has some type, but we just don't care about it, we
+write:
+
+`auto c = closure expression;`
+
+By using the `auto` type, we let the compiler deduce (this process is
+called *type deduction*) the type of `c` based on the type of the
+closure expression.  Even though there is the `=` sign, the line above
+is not an *assignment expression*, but an *initialization statement*.
+That entails that the closure is not copied, but created directly in
+the memory location of `c` because of the copy elision.
+
 Here's an example of using a lambda with a priority queue:
 
 {% highlight c++ %}
