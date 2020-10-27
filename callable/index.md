@@ -193,7 +193,7 @@ expression**.  A lambda (in short for a lambda expression) is
 *syntactic sugar* for conveniently creating functors: they help us
 create functors with less fuss in comparison with creating a functor.
 We could do away with lambda expressions, and achieve the same
-functionality with functors.  Lambdas are handy.
+functionality with functors.  Lambdas are just handy.
 
 Since a closure is an object, it must have some type, but we usually
 do not need it, and so we say that a closure is of an *anonymous
@@ -360,7 +360,7 @@ called *type deduction*) the type of `c` based on the type of the
 closure expression.  Even though there is the `=` sign, the line above
 is not an *assignment expression*, but an *initialization statement*.
 That entails that the closure is not copied, but created directly in
-the memory location of `c` because of the copy elision.
+the memory location of `c` with copy elision.
 
 Here's an example of using a lambda with a priority queue:
 
@@ -373,5 +373,25 @@ Here we pass an argument to a closure:
 {% highlight c++ %}
 {% include_relative pq_lambda2.cc %}
 {% endhighlight %}
+
+# Conclusion
+
+A callable is a generalization of a function.  A callable can be:
+
+* a function pointer,
+
+* a functor.
+
+Lambdas are nifty and succinct: we can create closures with little
+writing, and with less room for mistakes (lambdas are less
+error-prone).
+
+# Quiz
+
+* In what way are functors more capable than functions?
+
+* What's the difference between a functor and a closure?
+
+* Are lambdas indispensable?
 
 <!-- LocalWords: callable callables constructor inlined -->
