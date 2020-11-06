@@ -1,3 +1,12 @@
+In references, mention how to overload a member function based on the
+category of the expression for which the member function was called,
+like here, where foo can be called only for rvalues:
+
+struct A
+{
+  void foo() &&;
+};
+
 callable vs invokable
 
 type traits
