@@ -84,21 +84,21 @@ The vector offers:
     effective.
 
 The vector may have to reallocate the elements when the currently
-allocated memory for elements is not enough.  First, new memory has to
-be allocated.  Next, the elements are copied or moved, depending on
-whether the type of the elements has the move semantics implemented.
-Finally, the old memory is released.
+allocated memory for elements is not enough, as when, e.g., we insert
+an element into a vector.  First, new memory has to be allocated.
+Next, the elements are copied or moved, depending on whether the type
+of the elements has the move semantics implemented.  Finally, the old
+memory is released.
 
 In comparison with other containers, the vector performs very well if
 the reallocation does not frequently happen.  For instance, if we
 build a vector
 
-
-[]}), ale rzadko zmieniamy rozmiar wektora, wstawiamy albo usuwamy
-elementy.
-
-Jest to po prostu tablica, którą możemy swobodnie i
-wygodnie zmieniać.
+The performance of the vector drops not only when reallocation
+frequently takes place, but also then elements are frequently inserted
+or removed.  Since the vector guarantees memory contiguity, when an
+element is inserted or removed, the elements the follow have to be
+moved (or copied) one-by-one.
 
 ### `std::list<T>`
 
