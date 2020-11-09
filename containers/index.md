@@ -8,9 +8,14 @@ A list, a vector, an array, an associative map, a set, and other data
 structures, are called **containers** in C++.  A container:
 
 * is a *generic* data structure,
+
 * stores elements of any type,
+
 * stores elements only of a single type,
-* stores elements by value, not by reference.
+
+* stores elements by value, not by reference,
+
+* can grow or shrink dynamically (i.e., at run-time).
 
 Containers are complemented by iterators and algorithms.  The iterator
 is a generalization of a pointer.  Algorithms, such as `std::sort`,
@@ -21,12 +26,14 @@ are generalized in that they can be used with various containers.
 In the early 90's, the containers were:
 
 * a cutting-edge technology, and a hot research topic,
-* implemented as the STL.
+
+* originally implemented as the STL.
 
 Now the containers are:
 
-* an indispensible tool of every-day use,
-* part of the standard library.
+* an indispensable tool of every-day use,
+
+* a part of the standard library.
 
 There is no excuse, put them to use.
 
@@ -34,12 +41,12 @@ There is no excuse, put them to use.
 
 * `std::vector<T>` - the vector,
 
-* `std::forward_list<T>` - the sinlgy-linked list,
-
 * `std::list<T>` - the doubly-linked list,
 
 * `std::deque<T>` - the deque, amalgamation of the vector and the
   doubly-linked list,
+
+* `std::forward_list<T>` - the sinlgy-linked list,
 
 * `std::map<K, V>` - the associative array (aka dictionary),
 
@@ -54,40 +61,41 @@ There is no excuse, put them to use.
 
 Container types can be nested, i.e. `T` can be a container type too.
 
+## Comparison of basic types of containers
 
+### `std::vector<T>`
 
-%************************************************************************
+The vector offers:
 
-\subsection{Typy kontenerów - wady i zalety}
+* random access with the `[]` operator,
 
-\begin{frame}
+* memory contiguity: all elements are stored contiguous in memory,
+  which implies:
 
-  \frametitle{Typy kontenerów - wady i zalety}
+  - the random access operator as fast as can be, because it's only
+    about increasing a pointer,
 
-  \begin{itemize}
+  - the memory access is faster: the elements of the vector are all
+    stored compactly together, and so the processor cache is the most
+    effective.
 
-  \item \code{std::vector{<}T{>}} - najlepszy, jeżeli potrzebujemy
-    swobodnego dostępu (\code{operator []}), ale rzadko zmieniamy
-    rozmiar wektora, wstawiamy albo usuwamy elementy.  Jest to po
-    prostu tablica, którą możemy swobodnie i wygodnie zmieniać.
+[]}), ale rzadko zmieniamy rozmiar wektora, wstawiamy albo usuwamy
+elementy.  Jest to po prostu tablica, którą możemy swobodnie i
+wygodnie zmieniać.
 
-  \item \code{std::list{<}T{>}} - najlepsza, jeżeli często zmieniamy
-    rozmiar, często dodajemy albo usuwamy elementy, wystarczy dostęp
-    iteracyjny i nie jest nam potrzebny swobodny dostęp (nie ma
-    \code{operator []}).
+### `std::list<T>`
 
-  \item \code{std::deque{<}T{>}} - najlepszy, jeżeli często zmianiamy
-    rozmiar, często dodajemy albo usuwamy elementy, ale ciągle
-    potrzebujemy szybkiego swobodnego dostępu (\code{operator []}
-    jest).
+najlepsza, jeżeli często zmieniamy rozmiar, często dodajemy albo
+usuwamy elementy, wystarczy dostęp iteracyjny i nie jest nam potrzebny
+swobodny dostęp (nie ma \code{operator []}).
 
-  \end{itemize}
+### `std::deque<T>`
 
-\end{frame}
+najlepszy, jeżeli często zmianiamy rozmiar, często dodajemy albo
+usuwamy elementy, ale ciągle potrzebujemy szybkiego swobodnego dostępu
+(\code{operator []} jest).
 
-%************************************************************************
-
-\subsection{Iteratory}
+# Iterators
 
 \begin{frame}
 
@@ -122,6 +130,30 @@ Container types can be nested, i.e. `T` can be a container type too.
   \item dlatego nie mają większego znaczenia praktycznego.
   \item Przestroga: \red{lepiej nie używać!}
   \end{itemize}
+
+\end{frame}
+
+%************************************************************************
+
+# Iterating the old way
+
+\begin{frame}
+
+  \frametitle{Pętle iteracyjne po staremu}
+
+  \verbatiminput{03-example1.cc}
+
+\end{frame}
+
+%************************************************************************
+
+# Iterating the new way
+
+\begin{frame}
+
+  \frametitle{Pętle iteracyjne po nowemu}
+
+  \verbatiminput{03-example2.cc}
 
 \end{frame}
 
@@ -175,89 +207,17 @@ Container types can be nested, i.e. `T` can be a container type too.
 
 \end{frame}
 
-%************************************************************************
-
-\subsection{Obiekt funkcyjny}
-
-\begin{frame}
-
-  \frametitle{Obiekt funkcyjny}
-
-  \begin{itemize}
-  \item Obiekt funkcyjny nazywany jest też funktorem.
-  \item Obiekt klasy, w której zdefiniowany jest operator wywołania
-    funkcji: \code{operator()}
-  \item Ten operator musi być \code{non-static} i najlepiej
-    \code{const}.
-  \item Ten operator można przeciążyć na wiele sposobów, ale nas
-    interesuje operator, który można wykorzystać do porównania
-    obiektów pewnej klasy A, elementów kontenera:\\ \code{bool
-      operator () (const A \&a1, const A \&a2) const;}
-  \item Kompilator będzie się starał wkompilować inline tę funkję.
-  \item ZALETA: Obiektowi funkcyjnemu możemy podać dodatkowe dane w
-    konstruktorze, potem używane w operatorze wywołania funkcji.
-  \end{itemize}
-
-\end{frame}
-
-%************************************************************************
-
-\subsection{Obiekt funkcyjny - przykład}
-
-\begin{frame}[fragile]
-
-  \frametitle{Obiekt funkcyjny - przykład}
-
-\begin{lstlisting}[language=C++]
-struct CMP
-{
-  bool m_order;
-  CMP(bool order): m_order(order) {}
-  bool operator () (const A &e1,
-                    const A &e2) const
-  {
-    bool s = e1.m_text < e2.m_text;
-    return m_order ? !s : s;
-  }
-};
-\end{lstlisting}
-
-\end{frame}
-
-%************************************************************************
-
-\subsection{Pętle iteracyjne po staremu}
-
-\begin{frame}
-
-  \frametitle{Pętle iteracyjne po staremu}
-
-  \verbatiminput{03-example1.cc}
-
-\end{frame}
-
-%************************************************************************
-
-\subsection{Pętle iteracyjne po nowemu}
-
-\begin{frame}
-
-  \frametitle{Pętle iteracyjne po nowemu}
-
-  \verbatiminput{03-example2.cc}
-
-\end{frame}
-
 # Conclusion
 
 * Don't implement the basic data structures, because they are already
   there.
 
-* Use the containers, and get better at using them.
+* Use the containers, and get better at using them.  Their
+  functionality is quite rich.
 
 * With the containers, you can build complex data structures.
 
 * With the containers use the standard algorithms, because your own
-  algorithm implementations will most likely perform worse.
+  algorithm implementations will most likely perform far worse.
 
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
