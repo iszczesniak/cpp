@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{csquotes}
+
+\input{listings.tex}
+
+\title{Kontenery}
+
+\author{dr inż.~Ireneusz Szcześniak}
+
+\date{jesień 2017}
+
+\begin{document}
+
+\maketitle
+
+\section{Zadanie 1}
+
+Napisać szablonowy kontener \code{range}, który będzie generował
+żądany ciąg liczb całkowitych przy użyciu pętli \code{for}.  To jest
+przykładowy plik \code{range.cc}:
+
+\lstinputlisting{range.cc}
+
+\section{Rozwiązanie zadania}
+
+Zawartość pliku \code{range.hpp}:
+
+\lstinputlisting{range.hpp}
+
+\section{Zadanie 2}
+
+Napisać klasę \code{A} tylko do przenoszenia.  Stworzyć dwa zbiory
+obiektów tej klasy.  Dodać jeden element do pierwszego zbioru, a potem
+ten element bez kopiowania do drugiego zbioru.
+
+\section{Rozwiązanie zadania}
+
+\lstinputlisting{extract.cc}
+
+\end{document}
