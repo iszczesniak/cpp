@@ -4,8 +4,8 @@ title: Containers
 
 # Introduction
 
-A list, a vector, an array, an associative map, a set, and other data
-structures, are called **containers** in C++.  A container:
+A list, an associative map, a set, and other data structures, are
+called **containers** in C++.  A container:
 
 * is a *generic* data structure,
 
@@ -16,6 +16,10 @@ structures, are called **containers** in C++.  A container:
 * stores elements by value, not by reference,
 
 * can grow or shrink dynamically (i.e., at run-time).
+
+A container is generic, because it can store data of any type `T`.  A
+container type (e.g., `std::vector<T>`) is templated, because we have
+to give a *template argument* `T` at compile-type.
 
 Containers are complemented by iterators and algorithms.  The iterator
 is a generalization of a pointer.  Algorithms, such as `std::sort`,
@@ -59,7 +63,7 @@ There is no excuse, put them to use.
 
 * `std::priority_queue<T>` - the priority queue.
 
-Container types can be nested, i.e. `T` can be a container type too.
+Container types can be nested, i.e., `T` can be a container type too.
 
 ## Comparison of basic types of containers
 
