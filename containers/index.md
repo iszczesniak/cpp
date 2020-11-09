@@ -76,15 +76,28 @@ The vector offers:
 * memory contiguity: all elements are stored contiguous in memory,
   which implies:
 
-  - the random access operator as fast as can be, because it's only
-    about increasing a pointer,
+  - the random access operator is as fast as can be, because it only
+    has to increase a pointer,
 
   - the memory access is faster: the elements of the vector are all
     stored compactly together, and so the processor cache is the most
     effective.
 
+The vector may have to reallocate the elements when the currently
+allocated memory for elements is not enough.  First, new memory has to
+be allocated.  Next, the elements are copied or moved, depending on
+whether the type of the elements has the move semantics implemented.
+Finally, the old memory is released.
+
+In comparison with other containers, the vector performs very well if
+the reallocation does not frequently happen.  For instance, if we
+build a vector
+
+
 []}), ale rzadko zmieniamy rozmiar wektora, wstawiamy albo usuwamy
-elementy.  Jest to po prostu tablica, którą możemy swobodnie i
+elementy.
+
+Jest to po prostu tablica, którą możemy swobodnie i
 wygodnie zmieniać.
 
 ### `std::list<T>`
