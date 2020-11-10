@@ -9,17 +9,23 @@ called **containers** in C++.  A container:
 
 * is a *generic* data structure,
 
-* stores elements of any type,
+* stores elements of *any type*,
 
-* stores elements only of a single type,
+* stores elements only of a *single type*,
 
-* stores elements by value, not by reference,
+* stores elements *by value*, not by reference,
+
+* stores elements at the *heap*,
 
 * can grow or shrink dynamically (i.e., at run-time).
 
 A container is generic, because it can store data of any type `T`.  A
 container type (e.g., `std::vector<T>`) is templated, because we have
 to give a *template argument* `T` at compile-type.
+
+While the container itself (i.e., the object of the container type)
+can be anywhere in memory, the elements have to be stored at the heap,
+because the size of the container can change at run-time.
 
 Containers are complemented by iterators and algorithms.  The iterator
 is a generalization of a pointer.  Algorithms, such as `std::sort`,
@@ -71,18 +77,20 @@ Container types can be nested, i.e., `T` can be a container type too.
 
 The vector offers:
 
-* random access with the random access operator, i.e., the `[]`
+* **random access** with the random access operator, i.e., the `[]`
   operator, aka the index operator, or the subscript operator,
 
-* memory contiguity: all elements are stored contiguous in memory,
+* **memory contiguity**: all elements are stored contiguous in memory,
   which implies:
 
   - the random access operator is as fast as can be, because it only
     has to increase a pointer,
 
   - the memory access is faster: the elements of the vector are all
-    stored compactly together, and so the processor cache is the most
-    effective.
+    stored compactly together, and so the processor cache is used the
+    most effectively,
+
+  - **slow insertion and removal**.
 
 The vector may have to reallocate the elements when the currently
 allocated memory for elements is not enough, as when, e.g., we insert
@@ -91,30 +99,36 @@ Next, the elements are copied or moved, depending on whether the type
 of the elements has the move semantics implemented.  Finally, the old
 memory is released.
 
-In comparison with other containers, the vector performs very well if
-the reallocation does not frequently happen.  For instance, if we
-build a vector
-
 The performance of the vector drops not only when elements are
 frequently reallocated, but also when elements are frequently inserted
-or removed.  Since the vector guarantees memory contiguity, when an
-element is inserted or removed, the elements the follow have to be
-moved (or copied) one-by-one.
+or removed.  When an element is inserted or removed, the elements that
+follow have to be moved (or copied) one-by-one, because the vector has
+to guarantee the memory contiguity.
+
+In comparison with other containers, the vector performs very well if
+the reallocation, insertion and removal do not frequently happen, for
+instance, if we build a vector, fill it in, and then random-access the
+elements frequently.
 
 ### `std::list<T>`
 
-The list offers:
+The list does not store its elements contiguously in memory, but
+stores them in different locations at the heap, which were allocated
+separately.  Then the elements are doubly-linked, which implies:
 
-* fast element insertion and removal, but at the cost of...
+* **fast insertion and removal**, because elements do not have to be
+  reallocated, and neither the elements that follow have to be moved
+  one-by-one,
 
-* iterative element access only.
+* **iterative access only**, because to access some element, we have
+  to get to it through the elements that proceed or follow it.
 
-The list does not offer random access, even though it could with a
-more elaborate implementation.  However, C++ aims at providing fast
-and lean tools, and such a bloated list would decrease performance for
-an unsuspecting user.
-
-Iterative element access is all we get, and that's ofter all we need.
+The list does not offer element random access, even though it could
+with a more elaborate implementation.  However, C++ aims at providing
+fast and lean tools, and such a bloated list would decrease
+performance.  The list of type `std::list` offers the minimal
+functionality required, but with superior (time and memory)
+performance.
 
 ### `std::deque<T>`
 
