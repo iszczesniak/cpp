@@ -71,7 +71,8 @@ Container types can be nested, i.e., `T` can be a container type too.
 
 The vector offers:
 
-* random access with the `[]` operator,
+* random access with the random access operator, i.e., the `[]`
+  operator, aka the index operator, or the subscript operator,
 
 * memory contiguity: all elements are stored contiguous in memory,
   which implies:
@@ -94,17 +95,26 @@ In comparison with other containers, the vector performs very well if
 the reallocation does not frequently happen.  For instance, if we
 build a vector
 
-The performance of the vector drops not only when reallocation
-frequently takes place, but also then elements are frequently inserted
+The performance of the vector drops not only when elements are
+frequently reallocated, but also when elements are frequently inserted
 or removed.  Since the vector guarantees memory contiguity, when an
 element is inserted or removed, the elements the follow have to be
 moved (or copied) one-by-one.
 
 ### `std::list<T>`
 
-najlepsza, jeżeli często zmieniamy rozmiar, często dodajemy albo
-usuwamy elementy, wystarczy dostęp iteracyjny i nie jest nam potrzebny
-swobodny dostęp (nie ma \code{operator []}).
+The list offers:
+
+* fast element insertion and removal, but at the cost of...
+
+* iterative element access only.
+
+The list does not offer random access, even though it could with a
+more elaborate implementation.  However, C++ aims at providing fast
+and lean tools, and such a bloated list would decrease performance for
+an unsuspecting user.
+
+Iterative element access is all we get, and that's ofter all we need.
 
 ### `std::deque<T>`
 
