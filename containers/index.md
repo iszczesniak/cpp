@@ -50,6 +50,8 @@ There is no excuse, put them to use.
 
 ## Basic container types
 
+Sequence containers:
+
 * `std::vector<T>` - the vector,
 
 * `std::list<T>` - the doubly-linked list,
@@ -59,6 +61,8 @@ There is no excuse, put them to use.
 
 * `std::forward_list<T>` - the sinlgy-linked list,
 
+Sorted containers:
+
 * `std::map<K, V>` - the associative array (aka dictionary),
 
 * `std::multimap<K, V>` - the associative array with duplicate keys
@@ -67,6 +71,12 @@ There is no excuse, put them to use.
 * `std::set<T>` - the set,
 
 * `std::multiset<T>` - the set with duplicate elements allowed,
+
+The adaptors:
+
+* `std::stack` - the stack,
+
+* `std::queue` - the queue,
 
 * `std::priority_queue<T>` - the priority queue.
 
@@ -145,21 +155,28 @@ The deque offers a trade-off between functionality, and efficiency.
 Use the deque if you frequently need to random-access, insert and
 remove elements.
 
-The deque is implemented with small vectors linked together.  If
-element reallocation, insertion or removal is required, then it's
-limited to one small vector.  However, random access is less efficient
-in comparison with vector, because finding an address of an element
+The deque is implemented with small vectors organized one after
+another, but without guaranteeing memory contiguity.  If element
+reallocation, insertion or removal is required, then it's limited to
+one small vector.  However, random access is less efficient in
+comparison with vector, because finding an address of an element
 requires more arithmetic.
+
+Use the deque only when the vector and the list won't do.
 
 ### `std::forward_list<T>`
 
+Sometimes `std::list` is more than we need from a list.  Sometimes we
+need to forward iterate only, and can do without the capability to
+backward iterate that is offered by `std::list`, the capability that
+we pay for with performance.
+
+Type `std::forward_list` is even leaner and more performant than
+`std::list`, because it is a singly linked list: we can iterate
+forward, but not backward.
+
 # Iterators
 
-\begin{frame}
-
-  \frametitle{Iteratory}
-
-  \begin{itemize}
     \item Pozwalają na dostęp do elementów kontenera.
     \item Implementacja: wskaźniki obudowane w klasy.
     \item Do funkcji przekazujemy przez wartość, nie referencję.
@@ -169,19 +186,9 @@ requires more arithmetic.
     \item Podstawowe operacje: \code{++i}, \code{i++}.
     \item Podstawowe funkcje: \code{T::begin()}, \code{T::end()}.
     \item Różne funkcje (\code{find}, \code{insert}) zwracają iteratory.
-  \end{itemize}
 
-\end{frame}
+## Reverse iterators
 
-%************************************************************************
-
-\subsection{Iteratory odwrotne}
-
-\begin{frame}
-
-  \frametitle{Iteratory odwrotne}
-
-  \begin{itemize}
   \item Pozwalają na iterację od końca po elementach kontenera.
   \item Typ: \code{T::reverse\_iterator} i \code{T::const\_reverse\_iterator}
   \item Skomplikowane, bardzo trudne w użyciu i...
@@ -189,39 +196,17 @@ requires more arithmetic.
   \item Przestroga: \red{lepiej nie używać!}
   \end{itemize}
 
-\end{frame}
+# Iterating over the elements of a container
 
-%************************************************************************
-
-# Iterating the old way
-
-\begin{frame}
-
-  \frametitle{Pętle iteracyjne po staremu}
+## Iterating the old way
 
   \verbatiminput{03-example1.cc}
 
-\end{frame}
-
-%************************************************************************
-
-# Iterating the new way
-
-\begin{frame}
-
-  \frametitle{Pętle iteracyjne po nowemu}
+## Iterating the new way
 
   \verbatiminput{03-example2.cc}
 
-\end{frame}
-
-%************************************************************************
-
-\subsection{Algorytmy}
-
-\begin{frame}
-
-  \frametitle{Algorytmy}
+# Algorithms
 
   \begin{itemize}
   \item Algorytmy dla różnych kontenerów:
@@ -239,15 +224,17 @@ requires more arithmetic.
     \end{itemize}
   \end{itemize}
 
-\end{frame}
+# Containers and move semantics
 
-%************************************************************************
+Containers have the move semantics implemented.
 
-\subsection{std::pair<A, B>}
+## Move semantics for element types
 
-\begin{frame}
+## Extract 
 
-  \frametitle{std::pair<A, B>}
+# Quasi-containers
+
+## `std::pair`
 
   \begin{itemize}
   \item \code{\#include <utility>}
@@ -263,7 +250,11 @@ requires more arithmetic.
   \item Ma zdefiniowane globalne operatory: \code{!= < == > <= >=}
   \end{itemize}
 
-\end{frame}
+## `std::tuple`
+
+## `std::array`
+
+## `std::optional`
 
 # Conclusion
 
