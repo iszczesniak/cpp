@@ -135,11 +135,23 @@ performance.
 
 The deque (pronounced as "deck", as in deck of cards) offers:
 
-* **fast insertion and removal**,
+* **random access**,
 
-* **random access**.
+* **fast insertion and removal**.
 
-How come?
+How come?  Well, insertion and removal are not as fast as in
+`std::list`, and random access is not as fast as in `std::vector`.
+The deque offers a trade-off between functionality, and efficiency.
+Use the deque if you frequently need to random-access, insert and
+remove elements.
+
+The deque is implemented with small vectors linked together.  If
+element reallocation, insertion or removal is required, then it's
+limited to one small vector.  However, random access is less efficient
+in comparison with vector, because finding an address of an element
+requires more arithmetic.
+
+### `std::forward_list<T>`
 
 # Iterators
 
