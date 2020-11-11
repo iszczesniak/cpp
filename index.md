@@ -12,6 +12,7 @@ interesting and important for efficient code.
 * [References](references)
 * [Move semantics](move)
 * [Callable](callable)
+* [Containers](containers)
 * [`std::unique_ptr`](unique_ptr)
 * [`std::shared_ptr`](shared_ptr)
 * [`std::weak_ptr`](weak_ptr)
