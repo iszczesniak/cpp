@@ -20,8 +20,8 @@ called **containers** in C++.  A container:
 * can grow or shrink dynamically (i.e., at run-time).
 
 A container is generic, because it can store data of any type `T`.  A
-container type (e.g., `std::vector<T>`) is templated, because we have
-to give a *template argument* `T` at compile-type.
+container type (e.g., `std::vector<T>`) is **templated**, because we
+have to give a *template argument* `T` at compile-type.
 
 While the container itself (i.e., the object of the container type)
 can be anywhere in memory, the elements have to be stored at the heap,
@@ -29,17 +29,18 @@ because the size of the container can change at run-time.
 
 Containers are complemented by iterators and algorithms.  The iterator
 is a generalization of a pointer.  Algorithms, such as `std::sort`,
-are generalized in that they can be used with various containers.
+are generalized in that they can be used with various containers,
+because access to the container elements is provided with iterators.
 
-# History
+## History
 
-In the early 90's, the containers were:
+In the early 90's, containers were:
 
 * a cutting-edge technology, and a hot research topic,
 
 * originally implemented as the STL.
 
-Now the containers are:
+Now containers are:
 
 * an indispensable tool of every-day use,
 
@@ -47,7 +48,7 @@ Now the containers are:
 
 There is no excuse, put them to use.
 
-\subsection{Basic container types}
+## Basic container types
 
 * `std::vector<T>` - the vector,
 
@@ -132,9 +133,13 @@ performance.
 
 ### `std::deque<T>`
 
-najlepszy, jeżeli często zmianiamy rozmiar, często dodajemy albo
-usuwamy elementy, ale ciągle potrzebujemy szybkiego swobodnego dostępu
-(\code{operator []} jest).
+The deque (pronounced as "deck", as in deck of cards) offers:
+
+* **fast insertion and removal**,
+
+* **random access**.
+
+How come?
 
 # Iterators
 
