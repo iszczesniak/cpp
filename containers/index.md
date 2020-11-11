@@ -210,6 +210,12 @@ Różne funkcje (\code{find}, \code{insert}) zwracają iteratory.
 {% include_relative iterate_new.cc %}
 {% endhighlight %}
 
+## How iteration the new way works
+
+{% highlight c++ %}
+{% include_relative range.cc %}
+{% endhighlight %}
+
 # Algorithms
 
 Algorytmy dla różnych kontenerów:
