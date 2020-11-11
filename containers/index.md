@@ -177,24 +177,26 @@ forward, but not backward.
 
 # Iterators
 
-Pozwalają na dostęp do elementów kontenera.
-Implementacja: wskaźniki obudowane w klasy.
-Do funkcji przekazujemy przez wartość, nie referencję.
-Dla kontenera T, iterator to: \code{T::iterator}.
-Iterator ``const'' obiektów stałych: \code{T::const\_iterator}.
-Używaj iteratora ``const'', jeżeli nie modyfikujesz kontenera.
-Required operations for any iterator: `*i`, `++i`
-Podstawowe funkcje: \code{T::begin()}, \code{T::end()}.
-Różne funkcje (\code{find}, \code{insert}) zwracają iteratory.
+* Pozwalają na dostęp do elementów kontenera.
+* Implementacja: wskaźniki obudowane w klasy.
+* Do funkcji przekazujemy przez wartość, nie referencję.
+* Dla kontenera T, iterator to: \code{T::iterator}.
+* Iterator ``const'' obiektów stałych: \code{T::const\_iterator}.
+* Używaj iteratora ``const'', jeżeli nie modyfikujesz kontenera.
+* Required operations for any iterator: `*i`, `++i`
+* Podstawowe funkcje: \code{T::begin()}, \code{T::end()}.
+* Różne funkcje (\code{find}, \code{insert}) zwracają iteratory.
 
 ## Reverse iterators
 
-  \item Pozwalają na iterację od końca po elementach kontenera.
-  \item Typ: \code{T::reverse\_iterator} i \code{T::const\_reverse\_iterator}
-  \item Skomplikowane, bardzo trudne w użyciu i...
-  \item dlatego nie mają większego znaczenia praktycznego.
-  \item Przestroga: \red{lepiej nie używać!}
-  \end{itemize}
+* Pozwalają na iterację od końca po elementach kontenera.
+
+* Typ: \code{T::reverse\_iterator} i \code{T::const\_reverse\_iterator}
+
+* Skomplikowane, bardzo trudne w użyciu i... dlatego nie mają
+  większego znaczenia praktycznego.
+
+* Przestroga: \red{lepiej nie używać!}
 
 # Iterating over the elements of a container
 
@@ -246,19 +248,25 @@ Containers have the move semantics implemented.
 
 ## `std::pair`
 
-  \begin{itemize}
-  \item \code{\#include <utility>}
-  \item Para p obiektów typów A i B: \code{std::pair<A, B> p;}
-  \item p.first - pierwszy element, p.second - drugi element
-  \item Globalna funkcja szablonowa \code{std::make\_pair} pozwala na
-    tworzenie pary bez podania typów, kompilator wywnioskuje typy
-    sam:\\ \code{std::make\_pair(1, "test");}
-  \item Funkcja \code{tie} pozwala na wygodne przypisanie wartości z
-    pary do osobnych zmiennych:\\ \code{std::tie(f, s) = p;}
-  \item Przeniesienie pary polega na przeniesieniu każdego z obiektów
-    składowych.
-  \item Ma zdefiniowane globalne operatory: \code{!= < == > <= >=}
-  \end{itemize}
+* `#include <utility>`
+
+* Para `p` obiektów typów A i B: \code{std::pair<A, B> p;}
+
+* `p.first` - pierwszy element, `p.second` - drugi element
+
+* Globalna funkcja szablonowa `std::make_pair` pozwala na tworzenie
+  pary bez podania typów, kompilator wywnioskuje typy sam:
+  `std::make_pair(1, "test");`
+
+* Funkcja `std::tie`  pozwala na wygodne przypisanie wartości z
+  pary do osobnych  zmiennych: `std::tie(f, s) = p;`
+
+* Przeniesienie pary polega na przeniesieniu każdego z obiektów
+  składowych.
+
+* Ma zdefiniowane globalne operatory: \code{!= < == > <= >=}
+
+### Structured bindings
 
 ## `std::tuple`
 
