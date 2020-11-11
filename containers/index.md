@@ -61,7 +61,7 @@ Sequence containers:
 
 * `std::forward_list<T>` - the sinlgy-linked list,
 
-Sorted containers:
+Associative containers:
 
 * `std::map<K, V>` - the associative array (aka dictionary),
 
@@ -167,8 +167,8 @@ Use the deque only when the vector and the list won't do.
 ### `std::forward_list<T>`
 
 Sometimes `std::list` is more than we need from a list.  Sometimes we
-need to forward iterate only, and can do without the capability to
-backward iterate that is offered by `std::list`, the capability that
+need to forward-iterate only, and can do without the capability to
+backward-iterate that is offered by `std::list`, the capability that
 we pay for with performance.
 
 Type `std::forward_list` is even leaner and more performant than
@@ -177,15 +177,15 @@ forward, but not backward.
 
 # Iterators
 
-    \item Pozwalają na dostęp do elementów kontenera.
-    \item Implementacja: wskaźniki obudowane w klasy.
-    \item Do funkcji przekazujemy przez wartość, nie referencję.
-    \item Dla kontenera T, iterator to: \code{T::iterator}.
-    \item Iterator ``const'' obiektów stałych: \code{T::const\_iterator}.
-    \item Używaj iteratora ``const'', jeżeli nie modyfikujesz kontenera.
-    \item Podstawowe operacje: \code{++i}, \code{i++}.
-    \item Podstawowe funkcje: \code{T::begin()}, \code{T::end()}.
-    \item Różne funkcje (\code{find}, \code{insert}) zwracają iteratory.
+Pozwalają na dostęp do elementów kontenera.
+Implementacja: wskaźniki obudowane w klasy.
+Do funkcji przekazujemy przez wartość, nie referencję.
+Dla kontenera T, iterator to: \code{T::iterator}.
+Iterator ``const'' obiektów stałych: \code{T::const\_iterator}.
+Używaj iteratora ``const'', jeżeli nie modyfikujesz kontenera.
+Required operations for any iterator: `*i`, `++i`
+Podstawowe funkcje: \code{T::begin()}, \code{T::end()}.
+Różne funkcje (\code{find}, \code{insert}) zwracają iteratory.
 
 ## Reverse iterators
 
@@ -200,29 +200,29 @@ forward, but not backward.
 
 ## Iterating the old way
 
-  \verbatiminput{03-example1.cc}
+{% highlight c++ %}
+{% include_relative iterate_old.cc %}
+{% endhighlight %}
 
 ## Iterating the new way
 
-  \verbatiminput{03-example2.cc}
+{% highlight c++ %}
+{% include_relative iterate_new.cc %}
+{% endhighlight %}
 
 # Algorithms
 
-  \begin{itemize}
-  \item Algorytmy dla różnych kontenerów:
-    \begin{itemize}
-    \item sortowanie elementów (lepszej implementacji nie znajdziecie),
-    \item wyszukiwanie elementów,
-    \item iterowanie po elementach,
-    \item usuwanie i dodawanie elementów.
-    \end{itemize}
-  \item Działają dla różnych kontenerów, bo kontenery mają ten sam
-    interfejs:
-    \begin{itemize}
-      \item nazwy typów (np. \code{T::data\_value}),
-      \item nazwy funkcji (np. \code{T::begin()}).
-    \end{itemize}
-  \end{itemize}
+Algorytmy dla różnych kontenerów:
+
+* sortowanie elementów (lepszej implementacji nie znajdziecie),
+* wyszukiwanie elementów,
+* iterowanie po elementach,
+* usuwanie i dodawanie elementów.
+
+Działają dla różnych kontenerów, bo kontenery mają ten sam interfejs:
+
+* nazwy typów (np. \code{T::data\_value}),
+* nazwy funkcji (np. \code{T::begin()}).
 
 # Containers and move semantics
 
@@ -231,6 +231,10 @@ Containers have the move semantics implemented.
 ## Move semantics for element types
 
 ## Extract 
+
+{% highlight c++ %}
+{% include_relative extract.cc %}
+{% endhighlight %}
 
 # Quasi-containers
 
