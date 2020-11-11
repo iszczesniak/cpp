@@ -24,6 +24,7 @@ struct A
   {
     m_id = a.m_id;
     cout << "move-assignment\n";
+    return *this;
   }
 
   bool
