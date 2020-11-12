@@ -204,8 +204,8 @@ forward, but not backward.
 
 As shown in the example below, you can forward-iterate over the
 elements of a container the old way, which is a bit tedious, and
-error-prone.  It's easy to write '--i' instead of '++i', or `begin`
-instead of `end`.
+error-prone.  It's easy to mistakenly write '--i' instead of '++i', or
+`begin` instead of `end`.
 
 The `begin` function returns an iterator to the first element.  The
 `end` function returns an iterator which you would get if you
@@ -229,6 +229,11 @@ const reference, the job done by the `std::as_const` function.
 {% endhighlight %}
 
 ## Iterating the new way
+
+Since C++11, we can iterate the new way, using the new for-each syntax
+of the for loop, as shown below.  The semantics is the same as in the
+old way.  The for-each loop is less error-prone, because we have to
+write less.
 
 {% highlight c++ %}
 {% include_relative iterate_new.cc %}
