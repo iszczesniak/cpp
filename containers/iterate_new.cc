@@ -14,6 +14,10 @@ int main()
   for(auto &e: a)
     std::cout << ++e << std::endl;
 
+  // Here we iterate with a const reference.
+  for(const auto &e: a)
+    std::cout << e << std::endl;
+
   // This would not compile, because we refer to the elements through
   // a const reference: const auto &
 
