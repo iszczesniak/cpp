@@ -200,18 +200,29 @@ forward, but not backward.
 
 # Iterating over the elements of a container
 
-## Iterating the old way
+## Forward-iterating the old way
 
-As shown in the example below, you can iterate over the elements of a
-container the old way, which is a bit tedious, and error-prone.  The
-`begin` function return an iterator to the first element.  The `end`
-function returns an iterator which you would get if you incremented an
-iterator to the last element.
+As shown in the example below, you can forward-iterate over the
+elements of a container the old way, which is a bit tedious, and
+error-prone.  It's easy to write '--i' instead of '++i', or `begin`
+instead of `end`.
+
+The `begin` function returns an iterator to the first element.  The
+`end` function returns an iterator which you would get if you
+incremented an iterator to the last element: we could say the `end`
+function returns an iterator to an *imaginary* element (that element
+does not exist) right after the last element.  If a container has no
+elements, the iterators returned by `begin` and `end` equal.
 
 The `begin` and `end` functions return non-const iterators for a
 non-const container, and const iterators for a const container.  If we
 want to iterate with a const iterator over a non-const container, we
 can use the `cbegin` and `cend` functions.
+
+The `cbegin` and `cend` are for convenience only, because they are
+despensible: we can achieve the same functionality by calling the
+`begin` and `end` functions for container that is referenced by a
+const reference, the job done by the `std::as_const` function.
 
 {% highlight c++ %}
 {% include_relative iterate_old.cc %}

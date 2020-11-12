@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <utility>
 
 int main()
 {
@@ -39,5 +40,17 @@ int main()
   // elements that we access through a const iterator.
 
   // for(auto i = a.cbegin(); i != a.cend(); ++i)
+  //   std::cout << (*i)++ << std::endl;
+
+  // We're using const iterators here.
+  for(auto i = std::as_const(a).begin();
+      i != std::as_const(a).end(); ++i)
+    std::cout << *i << std::endl;
+
+  // That would not compile, because we're trying to modifying the
+  // elements that we access through a const iterator.
+
+  // for(auto i = std::as_const(a).begin();
+  //     i != std::as_const(a).end(); ++i)
   //   std::cout << (*i)++ << std::endl;
 }
