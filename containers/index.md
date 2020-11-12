@@ -202,6 +202,17 @@ forward, but not backward.
 
 ## Iterating the old way
 
+As shown in the example below, you can iterate over the elements of a
+container the old way, which is a bit tedious, and error-prone.  The
+`begin` function return an iterator to the first element.  The `end`
+function returns an iterator which you would get if you incremented an
+iterator to the last element.
+
+The `begin` and `end` functions return non-const iterators for a
+non-const container, and const iterators for a const container.  If we
+want to iterate with a const iterator over a non-const container, we
+can use the `cbegin` and `cend` functions.
+
 {% highlight c++ %}
 {% include_relative iterate_old.cc %}
 {% endhighlight %}
