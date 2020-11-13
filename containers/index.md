@@ -389,16 +389,7 @@ Here is an example how we can use that functionality:
 {% include_relative range.cc %}
 {% endhighlight %}
 
-# Algorithms
-
-Algorytmy dla różnych kontenerów:
-
-* sortowanie elementów (lepszej implementacji nie znajdziecie),
-* wyszukiwanie elementów,
-* iterowanie po elementach,
-* usuwanie i dodawanie elementów.
-
-# Containers and move semantics
+# Containers and element management
 
 Containers have the move semantics implemented.
 
@@ -426,6 +417,11 @@ extracted.  The element remains untouched (still in the same place
 with the same value) when it's extracted and inserted; the ownership
 of the element changes from one container to the other passing through
 a node handle.
+
+Having a node handle, we can access the owned element with the `value`
+function, and move it (move its value) somewhere, e.g., to a different
+container of a different type.  When the node handle is destroyed, it
+will destroy an element that was moved.
 
 An example:
 

@@ -1,35 +1,37 @@
+#include <list>
 #include <iostream>
 #include <set>
+#include <string>
 
 using namespace std;
 
 struct A
 {
-  int m_id;
+  string m_id;
 
-  A(int id): m_id(id)
+  A(string &&id): m_id(std::move(id))
   {
-    cout << "ctor\n";
+    cout << "ctor: " << m_id << '\n';
   }
 
   ~A()
   {
-    cout << "dtor\n";
+    cout << "dtor: " << m_id << '\n';
   }
 
   A(const A &a) = delete;
   A& operator = (const A &a) = delete;
 
-  A(A &&a): m_id(a.m_id)
+  A(A &&a): m_id(std::move(a.m_id))
   {
-    cout << "move-ctor\n";
+    cout << "move-ctor: " << m_id << '\n';
   }
 
   A &
   operator = (A &&a)
   {
-    m_id = a.m_id;
-    cout << "move-assignment\n";
+    m_id = std::move(a.m_id);
+    cout << "move-assignment: " << m_id << '\n';
     return *this;
   }
 
@@ -43,9 +45,18 @@ struct A
 int main()
 {
   set<A> a, b;
-  // The temporary object is moved into a container.
-  a.insert(A(1));
+  // The temporary object is moved into a container element.
+  a.insert(A("A1"));
+  a.insert(A("A2"));
   cout << "TEST\n";
-  //  b.insert(a.extract(a.begin()));
+  b.insert(a.extract(a.begin()));
+
+  list<A> l;
+  {
+    // That node handle owns A2.
+    auto nh = a.extract(a.begin());
+    l.push_back(std::move(nh.value()));
+  }
+
   return 0;
 }
