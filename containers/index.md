@@ -195,21 +195,37 @@ pointer, compare it to some other pointer, dereference it to get to
 the element it points to, and also to increment a pointer.
 Furthermore, we can random access any element in the C-style array if
 we increase (with the + operator) the pointer to the element number 0
-by the value of the index.
+by the value of the index as in here:
 
 {% highlight c++ %}
 {% include_relative pointer.cc %}
 {% endhighlight %}
 
-Iterator types are user-defined.  Iterators are wrappers around
-pointers, where the operators (defined for that type) provide the
-required functionality.
+Iterator types are user-defined, e.g., of the struct type.  Iterators
+are wrappers around pointers, where the operators (defined for that
+type) implement the required functionality.  For instance, if in the
+example above we replace the C-style array with a deque, the rest of
+the code can remain untouched:
 
-* Implementacja: wskaźniki obudowane w klasy.
-* Do funkcji przekazujemy przez wartość, nie referencję.
-* Dla kontenera T, iterator to: \code{T::iterator}.
-* Iterator ``const'' obiektów stałych: \code{T::const\_iterator}.
-* Używaj iteratora ``const'', jeżeli nie modyfikujesz kontenera.
+{% highlight c++ %}
+{% include_relative iterator_intro.cc %}
+{% endhighlight %}
+
+Iterators of the standard library are very small and very efficient.
+They typically store only a single pointer.  Therefore we are free to
+use them by value, i.e., copy them.  We could use iterators by
+reference too, but that would be just akward.
+
+For a given container type `T`, there are always at least two iterator
+types defined:
+
+* non-const iterator type: `T::iterator`,
+
+* const iterator type: `T::const_iterator`.
+
+You cannot modify elements of a container with a const iterator.  If
+you do not modify the elements, always use the const iterator.
+
 * Required operations for any iterator: `*i`, `++i`
 * Podstawowe funkcje: \code{T::begin()}, \code{T::end()}.
 * Różne funkcje (\code{find}, \code{insert}) zwracają iteratory.
