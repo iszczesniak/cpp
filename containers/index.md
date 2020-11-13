@@ -407,19 +407,20 @@ Containers have the move semantics implemented.
 ## Extract
 
 We cannot move an element from an associative container, because we
-cannot modify it, even if we are using a non-const iterator, because
-the type of the element is const.
+cannot modify that element, even if we are using a non-const iterator,
+as the type of the element is const.
 
-Moving is not even required, because the object we move from does not
-have to be part of the container any longer, as it would have to be in
-the case of a vector.  Instead, we can **extract** the element from
-the container, and let the element remain on the heap.
+Moving is not even what we should need, because the object does not
+have to be moved: the object we move from does not have to be part of
+the container any longer, as it would have to be in the case of, e.g.,
+a vector.  Instead, we can **extract** the element, and let the
+element remain on the heap.
 
-Extraction is implemented by unlinking the element from the container,
-and making the node handle own the element.  By owning we mean that if
-a node handle is destroyed, so the element is destroyed too.  The node
-handle can be implemented with a unique smart pointer, i.e.,
-`std::unique_ptr`.
+Extraction is implemented by *unlinking* the element from the
+container, and returning a *node handle* for it.  A node handle is an
+object that owns the element: when a node handle is destroyed, so the
+element is destroyed too.  The node handle can be implemented with a
+unique smart pointer, i.e., `std::unique_ptr`.
 
 Having a node handle, we can insert the element into a different
 container of the same type as the container from which the element was
