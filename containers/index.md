@@ -274,7 +274,7 @@ Here's an example:
 ## A bidirectional iterator
 
 A bidirectional iterator is a forward iterator with an extra operation
-defined: '--i', i.e., move back by one element.  The iterator of
+defined: `--i`, i.e., move back by one element.  The iterator of
 `std::list` is a bidirectional iterator.  For example:
 
 {% highlight c++ %}
@@ -283,9 +283,10 @@ defined: '--i', i.e., move back by one element.  The iterator of
 
 ## A random-access iterator
 
-
-
-A pointer is a random-access iterator.
+A random-access iterator allows for increasing or decreasing the value
+by any number, as we've done in the example above with the deque.  For
+example, the iterators of the deque and the vector are random-access
+iterators.  A pointer is a random-access iterator too.
 
 ## Reverse iterators
 
