@@ -203,16 +203,18 @@ forward, but not backward.
 ## Forward-iterating the old way
 
 As shown in the example below, you can forward-iterate over the
-elements of a container the old way, which is a bit tedious, and
-error-prone.  It's easy to mistakenly write '--i' instead of '++i', or
-`begin` instead of `end`.
+elements of a container the old way, which is a bit tedious, because
+we have to initialize the *iteration variable* `i`, write the loop
+condition, and then increment the variable.  This loop is also
+error-prone, as it's easy to mistakenly write '--i' instead of '++i',
+or `begin` instead of `end`.
 
 The `begin` function returns an iterator to the first element.  The
 `end` function returns an iterator which you would get if you
 incremented an iterator to the last element: we could say the `end`
-function returns an iterator to an *imaginary* element (that element
-does not exist) right after the last element.  If a container has no
-elements, the iterators returned by `begin` and `end` equal.
+function returns an iterator to an **imaginary** element (that element
+does not exist) that would follow the last element.  If a container
+has no elements, the iterators returned by `begin` and `end` equal.
 
 The `begin` and `end` functions return non-const iterators for a
 non-const container, and const iterators for a const container.  If we
@@ -222,7 +224,7 @@ can use the `cbegin` and `cend` functions.
 The `cbegin` and `cend` are for convenience only, because they are
 despensible: we can achieve the same functionality by calling the
 `begin` and `end` functions for container that is referenced by a
-const reference, the job done by the `std::as_const` function.
+const reference, which we can do with the `std::as_const` function.
 
 {% highlight c++ %}
 {% include_relative iterate_old.cc %}
@@ -230,16 +232,45 @@ const reference, the job done by the `std::as_const` function.
 
 ## Iterating the new way
 
-Since C++11, we can iterate the new way, using the new for-each syntax
-of the for loop, as shown below.  The semantics is the same as in the
-old way.  The for-each loop is less error-prone, because we have to
-write less.
+Since C++11, we can iterate the new way, using the *range-based* (aka
+for-each) syntax of the for loop.  The semantics is the same as for
+the old way.  The range-based loop is less error-prone, because we
+have to write less.
+
+The syntax is:
+
+{% highlight c++ %}
+for(declaration: expression) statement
+{% endhighlight %}
+
+Where:
+
+* `declaration` declares the variable that is initialized with the
+  container elements in every iteration of the loop.  We refer to this
+  variable as the *declared variable*.
+
+* `expression` is the *range expression*.  Most often, we put the
+  container here.  A range expression has the begin and end iterator
+  values.
+
+* `statement` is the statement executed in every iteration of the
+  loop.
+
+An example:
 
 {% highlight c++ %}
 {% include_relative iterate_new.cc %}
 {% endhighlight %}
 
 ## How iteration the new way works
+
+The new range-based loop is translated by the compiler to a regular
+loop, where the iteration variable is of an interator type.  The
+variable is initialized with a value returned by the `begin` function.
+The loop continues if the value of the iterator is not equal to the
+value returned by the `end` function.  After every iteration of the
+loop, the iterator is incremented.  In the body of the loop, the
+iteration variable
 
 {% highlight c++ %}
 {% include_relative range.cc %}
