@@ -223,12 +223,34 @@ types defined:
 
 * const iterator type: `T::const_iterator`.
 
-You cannot modify elements of a container with a const iterator.  If
-you do not modify the elements, always use the const iterator.
+You cannot modify elements of a container with a const iterator.  For
+better code, if you do not modify the elements, always use the const
+iterator.
 
-* Required operations for any iterator: `*i`, `++i`
-* Podstawowe funkcje: \code{T::begin()}, \code{T::end()}.
-* Różne funkcje (\code{find}, \code{insert}) zwracają iteratory.
+## Functions `begin`, `end`
+
+We know where the elements of a container are with the `begin`, and
+`end` functions.  The `begin` function returns an iterator to the
+first element.  The `end` function returns an iterator which you would
+get if you incremented an iterator to the last element: we could say
+the `end` function returns an iterator to an **imaginary** element
+(imaginary, because that element does not exist) that would follow the
+last element.  If a container has no elements, the iterators returned
+by `begin` and `end` equal.
+
+The `begin` and `end` functions return non-const iterators for a
+non-const container, and const iterators for a const container.  If we
+want to iterate with a const iterator over a non-const container, we
+can use the `cbegin` and `cend` functions, which return const
+iterators.
+
+The `cbegin` and `cend` are for convenience only, because they are
+despensible.  We can achieve the same functionality by calling the
+`begin` and `end` functions for a non-const container when we
+reference the container with a const reference, which we can do with
+the `std::as_const` function.
+
+Required operations for any iterator: `*i`, `++i`
 
 ## Forward iterators
 
@@ -260,24 +282,6 @@ we have to initialize the *iteration variable* `i`, write the loop
 condition, and then increment the variable.  This loop is also
 error-prone, as it's easy to mistakenly write '--i' instead of '++i',
 or `begin` instead of `end`.
-
-The `begin` function returns an iterator to the first element.  The
-`end` function returns an iterator which you would get if you
-incremented an iterator to the last element: we could say the `end`
-function returns an iterator to an **imaginary** element (that element
-does not exist) that would follow the last element.  If a container
-has no elements, the iterators returned by `begin` and `end` equal.
-
-The `begin` and `end` functions return non-const iterators for a
-non-const container, and const iterators for a const container.  If we
-want to iterate with a const iterator over a non-const container, we
-can use the `cbegin` and `cend` functions.
-
-The `cbegin` and `cend` are for convenience only, because they are
-despensible.  We can achieve the same functionality by calling the
-`begin` and `end` functions for a non-const container when we
-reference the container with a const reference, which we can do with
-the `std::as_const` function.
 
 {% highlight c++ %}
 {% include_relative iterate_old.cc %}
