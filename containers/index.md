@@ -215,7 +215,8 @@ the code can remain untouched:
 Iterators of the standard library are very small and very efficient.
 They typically store only a single pointer.  Therefore we are free to
 use them by value, i.e., copy them.  We could use iterators by
-reference too, but that would be just akward.
+reference too, but that would be just akward, just as akward would be
+using pointers by reference.
 
 For a given container type `T`, there are always at least two iterator
 types defined:
@@ -225,8 +226,8 @@ types defined:
 * const iterator type: `T::const_iterator`.
 
 You cannot modify elements of a container with a const iterator.  For
-better code, if you do not modify the elements, always use the const
-iterator.
+better code, always use the const iterator if you do not modify the
+elements.
 
 ## Functions `begin`, `end`
 
