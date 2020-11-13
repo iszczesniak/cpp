@@ -191,7 +191,8 @@ establish any order with a callable.
 
 Interestingly, we cannot modify the elements, because that would
 destroy the order of elements, and make the container inconsistent.
-For this reason, the type of the elements stored is made const.
+For this reason, the type of the elements stored is made const, even
+if the template parameter was non-const.
 
 If we want to modify an element, then we have to remove the element
 first, and insert a new element with a different value next.
@@ -406,7 +407,23 @@ Containers have the move semantics implemented.
 ## Extract
 
 We cannot move an element from an associative container, because we
-cannot modify it, even if we are using a non-const iterator.
+cannot modify it, even if we are using a non-const iterator, because
+the type of the element is const.
+
+Moving is not even required, because the object we move from does not
+have to be part of the container any longer, as it would have to be in
+the case of a vector.  Instead, we can **extract** the element from
+the container, and let the element remain on the heap.
+
+Extraction is implemented by unlinking the element from the container,
+and making the node handle own the element.  By owning we mean that if
+a node handle is destroyed, so the element is destroyed too.  The node
+handle can be implemented with a unique smart pointer, i.e.,
+`std::unique_ptr`.
+
+Having a node handle, we can insert the element into a different
+container of the same type as the container from which the element was
+extracted.
 
 {% highlight c++ %}
 {% include_relative extract.cc %}
