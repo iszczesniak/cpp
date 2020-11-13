@@ -222,9 +222,10 @@ want to iterate with a const iterator over a non-const container, we
 can use the `cbegin` and `cend` functions.
 
 The `cbegin` and `cend` are for convenience only, because they are
-despensible: we can achieve the same functionality by calling the
-`begin` and `end` functions for container that is referenced by a
-const reference, which we can do with the `std::as_const` function.
+despensible.  We can achieve the same functionality by calling the
+`begin` and `end` functions for a non-const container when we
+reference the container with a const reference, which we can do with
+the `std::as_const` function.
 
 {% highlight c++ %}
 {% include_relative iterate_old.cc %}
@@ -246,15 +247,16 @@ for(declaration: expression) statement
 Where:
 
 * `declaration` declares the variable that is initialized with the
-  container elements in every iteration of the loop.  We refer to this
-  variable as the *declared variable*.
+  container elements (or more precisely, the range elements) in every
+  iteration of the loop.  We refer to this variable as the *declared
+  variable*.
 
 * `expression` is the *range expression*.  Most often, we put the
   container here.  A range expression has the begin and end iterator
   values.
 
 * `statement` is the statement executed in every iteration of the
-  loop.
+  loop.  In that statement we use the declared variable.
 
 An example:
 
@@ -264,13 +266,30 @@ An example:
 
 ## How iteration the new way works
 
-The new range-based loop is translated by the compiler to a regular
+The new range-based loop is translated by a compiler to a regular
 loop, where the iteration variable is of an interator type.  The
-variable is initialized with a value returned by the `begin` function.
-The loop continues if the value of the iterator is not equal to the
-value returned by the `end` function.  After every iteration of the
-loop, the iterator is incremented.  In the body of the loop, the
-iteration variable
+iteration variable is initialized with a value returned by the `begin`
+function.  The loop continues if the value of the iterator is not
+equal to the value returned by the `end` function.  In every iteration
+of the loop, the **declared variable** is initialized by the
+dereferenced **iteration variable**.  After an iteration, the iterator
+is incremented.
+
+To use the range-based loops, we need to make sure that:
+
+* we can call the `begin` and `end` functions for the range
+  expression,
+
+* the type of the values returned by the `begin` and `end` functions
+  should have the following defined:
+
+  - the `!=` comparison operator,
+
+  - the dereference operator, i.e., `*`,
+
+  - the prefix increment operator, i.e., `++`.
+
+Here is an example how we can use that functionality:
 
 {% highlight c++ %}
 {% include_relative range.cc %}
