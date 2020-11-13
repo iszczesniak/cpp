@@ -202,8 +202,8 @@ For this reason, the type of the elements stored is made const.
 Iterators are the glue between the containers, and the algorithms.
 Function `std::sort` can be used with various containers through
 iterators.  Iterators provide access to the container elements, so
-that we do not care what the container is (the container type was
-abstracted away).
+that we do not care about the type of a container (the container type
+was abstracted away).
 
 An iterator is a generalization of a pointer.  We could say that a
 pointer in the iterator of a C-style array.  We can initialize the
@@ -403,7 +403,7 @@ Containers have the move semantics implemented.
 ## Extract
 
 We cannot move an element from an associative container, because we
-cannot modify it.
+cannot modify it, even if we are using a non-const iterator.
 
 {% highlight c++ %}
 {% include_relative extract.cc %}
