@@ -214,9 +214,9 @@ the code can remain untouched:
 
 Iterators of the standard library are very small and very efficient.
 They typically store only a single pointer.  Therefore we are free to
-use them by value, i.e., copy them.  We could use iterators by
-reference too, but that would be just akward, just as akward would be
-using pointers by reference.
+use them by value, and copy them.  We could use iterators by reference
+too, but that would be just akward, just as akward would be using
+pointers by reference.
 
 For a given container type `T`, there are always at least two iterator
 types defined:
@@ -274,7 +274,12 @@ Here's an example:
 ## A bidirectional iterator
 
 A bidirectional iterator is a forward iterator with an extra operation
-defined: '--i', i.e., move back by one element.
+defined: '--i', i.e., move back by one element.  The iterator of
+`std::list` is a bidirectional iterator.  For example:
+
+{% highlight c++ %}
+{% include_relative iterator_bidirectional.cc %}
+{% endhighlight %}
 
 ## A random-access iterator
 
