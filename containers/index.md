@@ -288,17 +288,6 @@ iterator value by any integer, as we've done in the example above with
 the deque.  The iterator of the vector is a random-access iterator.  A
 pointer is a random-access iterator too.
 
-## Reverse iterators
-
-* Pozwalają na iterację od końca po elementach kontenera.
-
-* Typ: \code{T::reverse\_iterator} i \code{T::const\_reverse\_iterator}
-
-* Skomplikowane, bardzo trudne w użyciu i... dlatego nie mają
-  większego znaczenia praktycznego.
-
-* Przestroga: \red{lepiej nie używać!}
-
 # Forward-iterating over the elements of a container
 
 We can forward-iterate over the elements of a container (or, more
@@ -390,11 +379,6 @@ Algorytmy dla różnych kontenerów:
 * iterowanie po elementach,
 * usuwanie i dodawanie elementów.
 
-Działają dla różnych kontenerów, bo kontenery mają ten sam interfejs:
-
-* nazwy typów (np. \code{T::data\_value}),
-* nazwy funkcji (np. \code{T::begin()}).
-
 # Containers and move semantics
 
 Containers have the move semantics implemented.
@@ -406,6 +390,8 @@ Containers have the move semantics implemented.
 {% highlight c++ %}
 {% include_relative extract.cc %}
 {% endhighlight %}
+
+## Emplace
 
 # Conclusion
 
