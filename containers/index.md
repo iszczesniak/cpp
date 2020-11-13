@@ -415,17 +415,19 @@ vector.  We should **extract** the element.
 
 Extraction is implemented by *unlinking* the element from the
 container.  As the result of the extraction, we get a *node handle*
-(of a move-only type) which owns the extracted element: when a node
-handle is destroyed while still holding the element, that element is
-destroyed too.  The node handle can be implemented with the unique
-smart pointer, i.e., `std::unique_ptr`.
+(an object of a move-only type) which owns the extracted element: when
+a node handle is destroyed while still holding the element, that
+element is destroyed too.  The node handle can be implemented with the
+unique smart pointer, i.e., `std::unique_ptr`.
 
 Having a node handle, we can insert the element into a different
 container of the same type as the container from which the element was
 extracted.  The element remains untouched (still in the same place
-with the value unchanged) when it's extracted and inserted; the
-ownership of the element changes from one container to the other
-passing through a node handle.
+with the same value) when it's extracted and inserted; the ownership
+of the element changes from one container to the other passing through
+a node handle.
+
+An example:
 
 {% highlight c++ %}
 {% include_relative extract.cc %}

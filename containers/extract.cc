@@ -9,6 +9,12 @@ struct A
 
   A(int id): m_id(id)
   {
+    cout << "ctor\n";
+  }
+
+  ~A()
+  {
+    cout << "dtor\n";
   }
 
   A(const A &a) = delete;
@@ -37,8 +43,9 @@ struct A
 int main()
 {
   set<A> a, b;
+  // The temporary object is moved into a container.
   a.insert(A(1));
   cout << "TEST\n";
-  b.insert(a.extract(a.begin()));
+  //  b.insert(a.extract(a.begin()));
   return 0;
 }
