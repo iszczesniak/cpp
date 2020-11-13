@@ -262,7 +262,7 @@ technically speaking), depending on the provided functionality:
 
 ## A forward iterator
 
-Forward iterators require only the two most basic operations: `*i`,
+A forward iterator provides only the two most basic operations: `*i`,
 `++i`.  The iterator of `std::forward_list` is a forward iterator.
 Here's an example:
 
