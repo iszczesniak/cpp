@@ -193,6 +193,9 @@ Interestingly, we cannot modify the elements, because that would
 destroy the order of elements, and make the container inconsistent.
 For this reason, the type of the elements stored is made const.
 
+If we want to modify an element, then we have to remove the element
+first, and insert a new element with a different value next.
+
 {% highlight c++ %}
 {% include_relative set.cc %}
 {% endhighlight %}
