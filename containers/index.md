@@ -32,6 +32,12 @@ is a generalization of a pointer.  Algorithms, such as `std::sort`,
 are generalized in that they can be used with various containers,
 because access to the container elements is provided with iterators.
 
+Standard containers, iterators, and algorithms fit together because of
+the naming and semantic convention.  As for the naming convention, for
+instance, every container has the `begin`, and `end`, `size`, and
+other functions.  As for the semantic convention, for instance, we get
+the data of iterator `i` by dereferencing: `*i`.
+
 ## History
 
 In the early 90's, containers were:
@@ -177,7 +183,28 @@ forward, but not backward.
 
 # Iterators
 
-* Pozwalają na dostęp do elementów kontenera.
+Iterators are the glue between the containers, and the algorithms.
+Function `std::sort` can be used with various containers through
+iterators.  Iterators provide access to the container elements, so
+that we do not care what the container is (the container type was
+abstracted away).
+
+An iterator is a generalization of a pointer.  We could say that a
+pointer in the iterator of a C-style array.  We can initialize the
+pointer, compare it to some other pointer, dereference it to get to
+the element it points to, and also to increment a pointer.
+Furthermore, we can random access any element in the C-style array if
+we increase (with the + operator) the pointer to the element number 0
+by the value of the index.
+
+{% highlight c++ %}
+{% include_relative pointer.cc %}
+{% endhighlight %}
+
+Iterator types are user-defined.  Iterators are wrappers around
+pointers, where the operators (defined for that type) provide the
+required functionality.
+
 * Implementacja: wskaźniki obudowane w klasy.
 * Do funkcji przekazujemy przez wartość, nie referencję.
 * Dla kontenera T, iterator to: \code{T::iterator}.
@@ -186,6 +213,12 @@ forward, but not backward.
 * Required operations for any iterator: `*i`, `++i`
 * Podstawowe funkcje: \code{T::begin()}, \code{T::end()}.
 * Różne funkcje (\code{find}, \code{insert}) zwracają iteratory.
+
+## Forward iterators
+
+## Bidirectional iterators
+
+## Random access iterators
 
 ## Reverse iterators
 
@@ -198,9 +231,12 @@ forward, but not backward.
 
 * Przestroga: \red{lepiej nie używać!}
 
-# Iterating over the elements of a container
+# Forward-iterating over the elements of a container
 
-## Forward-iterating the old way
+We can forward-iterate over the elements of a container (or, more
+broadly, a range) in two ways: the old, and the new.
+
+## Iterating the old way
 
 As shown in the example below, you can forward-iterate over the
 elements of a container the old way, which is a bit tedious, because
