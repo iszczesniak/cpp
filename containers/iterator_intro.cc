@@ -12,9 +12,9 @@ main()
   cout << *i << endl;
   cout << *(i + 2) << endl;
   ++i;
-  cout << *i << endl;
-
+  cout << *(i - 1) << endl;
+  --i;
   cout << std::boolalpha << (i == std::end(a)) << endl;
-  i += 2;
+  i += 3;
   cout << std::boolalpha << (i == std::end(a)) << endl;
 }

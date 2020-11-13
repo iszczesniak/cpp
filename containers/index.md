@@ -44,7 +44,8 @@ In the early 90's, containers were:
 
 * a cutting-edge technology, and a hot research topic,
 
-* originally implemented as the STL.
+* originally implemented as the STL, the seminal work by Alexander
+  Stepanov.
 
 Now containers are:
 
@@ -52,7 +53,7 @@ Now containers are:
 
 * a part of the standard library.
 
-There is no excuse, put them to use.
+**There is no excuse, put them to use.**
 
 ## Basic container types
 
@@ -250,13 +251,35 @@ despensible.  We can achieve the same functionality by calling the
 reference the container with a const reference, which we can do with
 the `std::as_const` function.
 
-Required operations for any iterator: `*i`, `++i`
+Iterators can be categorized into a few basic categories (concepts,
+technically speaking), depending on the provided functionality:
 
-## Forward iterators
+* a forward iterator,
 
-## Bidirectional iterators
+* a bidirectional iterator,
 
-## Random access iterators
+* a random-access iterator.
+
+## A forward iterator
+
+Forward iterators require only the two most basic operations: `*i`,
+`++i`.  The iterator of `std::forward_list` is a forward iterator.
+Here's an example:
+
+{% highlight c++ %}
+{% include_relative iterator_forward.cc %}
+{% endhighlight %}
+
+## A bidirectional iterator
+
+A bidirectional iterator is a forward iterator with an extra operation
+defined: '--i', i.e., move back by one element.
+
+## A random-access iterator
+
+
+
+A pointer is a random-access iterator.
 
 ## Reverse iterators
 
