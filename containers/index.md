@@ -182,6 +182,21 @@ Type `std::forward_list` is even leaner and more performant than
 `std::list`, because it is a singly linked list: we can iterate
 forward, but not backward.
 
+### `std::set`, and `std::multiset`
+
+The set stores **unique** elements, and the multiset allows for
+multiple elements of an equal value.  Both container types store the
+elements **sorted**.  By default the order is ascending, but we can
+establish any order with a callable.
+
+Interestingly, we cannot modify the elements, because that would
+destroy the order of elements, and make the container inconsistent.
+For this reason, the type of the elements stored is made const.
+
+{% highlight c++ %}
+{% include_relative set.cc %}
+{% endhighlight %}
+
 # Iterators
 
 Iterators are the glue between the containers, and the algorithms.
@@ -385,7 +400,10 @@ Containers have the move semantics implemented.
 
 ## Move semantics for element types
 
-## Extract 
+## Extract
+
+We cannot move an element from an associative container, because we
+cannot modify it.
 
 {% highlight c++ %}
 {% include_relative extract.cc %}
