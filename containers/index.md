@@ -346,8 +346,8 @@ Where:
   variable*.
 
 * `expression` is the *range expression*.  Most often, we put the
-  container here.  A range expression has the begin and end iterator
-  values.
+  container here.  Having the range expression, we can get the values
+  of the begin and end iterators.
 
 * `statement` is the statement executed in every iteration of the
   loop.  In that statement we use the declared variable.
@@ -395,14 +395,17 @@ Containers have the move semantics implemented.
 
 ## Move semantics for element types
 
+
+
 ## Extract
 
-We cannot move an element from an associative container, because we
+We cannot move an element from an *associative container*, because we
 cannot modify that element, even if we are using a non-const iterator,
 as the type of the element is const.  We shouldn't even move, because
-the object we would move from does not have to be part of the
-container any longer, as it would have to be in the case of, e.g., a
-vector.  We should **extract** the element.
+the object we would move from would not be part of the container any
+longer, as it would have to be in the case of, e.g., a vector.  We
+should **extract** the element.  Extraction is supported only by the
+associative containers, because it's needed only there.
 
 Extraction is implemented by *unlinking* the element from the
 container.  As the result of the extraction, we get a *node handle*
@@ -421,7 +424,7 @@ a node handle.
 Having a node handle, we can access the owned element with the `value`
 function, and move it (move its value) somewhere, e.g., to a different
 container of a different type.  When the node handle is destroyed, it
-will destroy an element that was moved.
+will destroy the element from which we moved.
 
 An example:
 
