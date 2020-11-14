@@ -391,7 +391,11 @@ Here is an example how we can use that functionality:
 
 # Containers and element management
 
-Containers have the move semantics implemented.
+Containers have the move semantics implemented.  An example:
+
+{% highlight c++ %}
+{% include_relative container_move.cc %}
+{% endhighlight %}
 
 ## Move semantics for element types
 
