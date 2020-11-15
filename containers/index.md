@@ -405,7 +405,8 @@ Containers have the move semantics implemented.  An example:
 ## Move semantics for element types
 
 We can move elements into containers: it's enough to make sure that
-the element we insert is used in an rvalue.  Example:
+the element we insert is used in an rvalue.  We can also move from an
+element of a sequence container.  Example:
 
 {% highlight c++ %}
 {% include_relative element_move.cc %}
@@ -447,6 +448,8 @@ An example:
 {% endhighlight %}
 
 ## Emplace
+
+
 
 # Conclusion
 
