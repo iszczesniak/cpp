@@ -30,7 +30,7 @@ struct A
   }
 
   A &
-  operator = (A &&a) noexcept
+  operator = (A &&a)
   {
     m_id = std::move(a.m_id) + "-moved";
     cout << "move-assignment: " << m_id << '\n';
@@ -49,13 +49,29 @@ int main()
   vector<A> v;
   // Moves the element into a container.
   v.push_back(A("V1"));
-  cout << "Before insert.\n";
+  cout << "Before vector insert.\n";
   v.insert(v.begin(), A("V2"));
-  cout << "after insert.\n";
+  cout << "After vector insert.\n";
 
-  // list<A> l;
+  cout << "-------------------------------------------------\n";
 
-  // set<A> s;
+  list<A> l;
+  // Moves the element into a container.
+  l.push_back(A("L1"));
+  cout << "Before list insert.\n";
+  l.push_front(A("L2"));
+  cout << "After list insert.\n";
+
+  cout << "-------------------------------------------------\n";
+
+  set<A> s;
+  // Moves the element into a container.
+  s.insert(A("S2"));
+  cout << "Before set insert.\n";
+  s.insert(A("S1"));
+  cout << "After set insert.\n";
+
+  cout << "-------------------------------------------------\n";
 
   return 0;
 }

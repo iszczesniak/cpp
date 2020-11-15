@@ -48,16 +48,22 @@ int main()
   vector<A> va, vb{A("V1")};
   cout << "Moving a container touches no element.\n";
   va = move(vb);
+
+  cout << "-------------------------------------------------\n";
   
   // A temporary object is not moved but copied.  I don't know why.
   list<A> la, lb{A("L1")};
   cout << "Moving a container touches no element.\n";
   la = move(lb);
 
+  cout << "-------------------------------------------------\n";
+
   // A temporary object is not moved but copied.  I don't know why.
   set<A> sa, sb{A("S1")};
   cout << "Moving a container touches no element.\n";
   sa = move(sb);
+
+  cout << "-------------------------------------------------\n";
 
   return 0;
 }
