@@ -22,10 +22,15 @@ struct A
 
   A(const A &a): m_id(a.m_id)
   {
+    m_id += "-copied";
     cout << "copy-ctor: " << m_id << '\n';
   }
 
-  A(A &&a) = delete;
+  A(A &&a): m_id(std::move(a.m_id))
+  {
+    m_id += "-moved";
+    cout << "copy-ctor: " << m_id << '\n';
+  }
 
   A& operator = (const A &a) = delete;
   A& operator = (A &&a) = delete;
@@ -40,17 +45,17 @@ struct A
 int main()
 {
   // A temporary object is not moved but copied.  I don't know why.
-  vector<A> va{A("A1")}, vb;
+  vector<A> va, vb{A("V1")};
   cout << "Moving a container touches no element.\n";
   va = move(vb);
   
   // A temporary object is not moved but copied.  I don't know why.
-  list<A> la{A("A1")}, lb;
+  list<A> la, lb{A("L1")};
   cout << "Moving a container touches no element.\n";
   la = move(lb);
 
   // A temporary object is not moved but copied.  I don't know why.
-  set<A> sa{A("A1")}, sb;
+  set<A> sa, sb{A("S1")};
   cout << "Moving a container touches no element.\n";
   sa = move(sb);
 
