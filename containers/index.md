@@ -449,7 +449,25 @@ An example:
 
 ## Emplace
 
+An element can be copied, moved, or *emplaced* into a container.
+Copying is needed when we want to need the source element.  Moving is
+faster, and so prefered over copying, if the source won't be needed.
 
+Emplacing is the fastest: an element is created directly in a
+container.  No copying or moving is needed.  The element is created
+in-place, i.e., in the place (memory location) pointed out by the
+container, and not in a newly allocated memory at the heap.
+
+We emplace by calling an `emplace` function of a container.  Some
+containers have other functions for emplacing, e.g., `std::list` has
+`emplace_front` to emplace at the front of the list.
+
+The emplace functions take the arguments that are then passed
+(forwarded, technically speaking) to constructor of the element.
+
+{% highlight c++ %}
+{% include_relative emplace.cc %}
+{% endhighlight %}
 
 # Conclusion
 
