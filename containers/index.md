@@ -391,6 +391,11 @@ Here is an example how we can use that functionality:
 
 # Containers and element management
 
+We can copy or move an element into a container.  We can albo move it
+from a container, except for the associative containers, for which we
+can extract an element.  We can also **emplace** an element in a
+container.
+
 Containers have the move semantics implemented.  An example:
 
 {% highlight c++ %}
@@ -399,7 +404,12 @@ Containers have the move semantics implemented.  An example:
 
 ## Move semantics for element types
 
+We can move elements into containers: it's enough to make sure that
+the element we insert is used in an rvalue.  Example:
 
+{% highlight c++ %}
+{% include_relative element_move.cc %}
+{% endhighlight %}
 
 ## Extract
 
