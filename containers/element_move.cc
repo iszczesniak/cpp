@@ -47,29 +47,31 @@ struct A
 int main()
 {
   vector<A> v;
-  // Moves the element into a container.
+  cout << "Vector push_back:\n";
   v.push_back(A("V1"));
-  cout << "Before vector insert.\n";
+  cout << "Vector insert:\n";
   v.insert(v.begin(), A("V2"));
-  cout << "After vector insert.\n";
+  cout << "Vector element assignment:\n";
+  v[0] = A("V3");
 
   cout << "-------------------------------------------------\n";
 
   list<A> l;
-  // Moves the element into a container.
+  cout << "List push_back:\n";
   l.push_back(A("L1"));
-  cout << "Before list insert.\n";
+  cout << "List push_front:\n";
   l.push_front(A("L2"));
-  cout << "After list insert.\n";
+  cout << "List element assignment:\n";
+  A l3{"L3"};
+  (*l.begin()) = move(l3);
 
   cout << "-------------------------------------------------\n";
 
   set<A> s;
-  // Moves the element into a container.
+  cout << "Set insert:\n";
   s.insert(A("S2"));
-  cout << "Before set insert.\n";
+  cout << "Set insert again:\n";
   s.insert(A("S1"));
-  cout << "After set insert.\n";
 
   cout << "-------------------------------------------------\n";
 
