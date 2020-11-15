@@ -20,22 +20,19 @@ struct A
     cout << "dtor: " << m_id << '\n';
   }
 
-  A(const A &a): m_id(a.m_id)
-  {
-    cout << "copy-ctor: " << m_id << '\n';
-  }
-
+  A(const A &a) = delete;
   A& operator = (const A &a) = delete;
 
   A(A &&a): m_id(std::move(a.m_id))
   {
+    m_id += "-moved";
     cout << "move-ctor: " << m_id << '\n';
   }
 
   A &
   operator = (A &&a) noexcept
   {
-    m_id = std::move(a.m_id);
+    m_id = std::move(a.m_id) + "-moved";
     cout << "move-assignment: " << m_id << '\n';
     return *this;
   }
