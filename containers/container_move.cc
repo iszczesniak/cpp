@@ -25,20 +25,10 @@ struct A
     cout << "copy-ctor: " << m_id << '\n';
   }
 
+  A(A &&a) = delete;
+
   A& operator = (const A &a) = delete;
-
-  A(A &&a): m_id(std::move(a.m_id))
-  {
-    cout << "move-ctor: " << m_id << '\n';
-  }
-
-  A &
-  operator = (A &&a)
-  {
-    m_id = std::move(a.m_id);
-    cout << "move-assignment: " << m_id << '\n';
-    return *this;
-  }
+  A& operator = (A &&a) = delete;
 
   bool
   operator < (const A &a) const
@@ -49,14 +39,17 @@ struct A
 
 int main()
 {
+  // A temporary object is not moved but copied.  I don't know why.
   vector<A> va{A("A1")}, vb;
   cout << "Moving a container touches no element.\n";
   va = move(vb);
   
+  // A temporary object is not moved but copied.  I don't know why.
   list<A> la{A("A1")}, lb;
   cout << "Moving a container touches no element.\n";
   la = move(lb);
 
+  // A temporary object is not moved but copied.  I don't know why.
   set<A> sa{A("A1")}, sb;
   cout << "Moving a container touches no element.\n";
   sa = move(sb);
