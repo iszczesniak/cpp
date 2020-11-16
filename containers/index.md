@@ -210,12 +210,12 @@ that we do not care about the type of a container (the container type
 was abstracted away).
 
 An iterator is a generalization of a pointer.  We could say that a
-pointer in the iterator of a C-style array.  We can initialize the
+pointer is the iterator of a C-style array.  We can initialize the
 pointer, compare it to some other pointer, dereference it to get to
-the element it points to, and also to increment a pointer.
-Furthermore, we can random access any element in the C-style array if
-we increase (with the + operator) the pointer to the element number 0
-by the value of the index as in here:
+the element it points to, and also increment it.  Furthermore, we can
+random access any element in the C-style array if we increase (with
+the + operator) the pointer to the element number 0 by the value of
+the index as in here:
 
 {% highlight c++ %}
 {% include_relative pointer.cc %}
