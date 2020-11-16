@@ -1,4 +1,5 @@
 #include <iostream>
+#include <forward_list>
 #include <list>
 #include <set>
 #include <vector>
@@ -47,13 +48,26 @@ struct A
 int main()
 {
   vector<A> v;
-  v.emplace_back("V1");
+  v.emplace_back("V");
+  v.emplace(v.begin(), "V1");
+  v.emplace(v.end(), "V2");
 
   cout << "-------------------------------------------------\n";
 
   list<A> l;
   l.emplace_front("L1");
   l.emplace_back("L2");
+
+  cout << "-------------------------------------------------\n";
+
+  forward_list<A> f;
+  f.emplace_front("L1");
+  f.emplace_after(f.begin(), "L2");
+
+  // We can't emplace at the back, because we don't have an iterator
+  // to the preceeding element in the list.
+
+  // f.emplace_back("L3");
 
   cout << "-------------------------------------------------\n";
 
