@@ -66,7 +66,7 @@ Sequence containers:
 * `std::deque<T>` - the deque, amalgamation of the vector and the
   doubly-linked list,
 
-* `std::forward_list<T>` - the sinlgy-linked list,
+* `std::forward_list<T>` - the singly-linked list,
 
 Associative containers:
 
@@ -79,7 +79,7 @@ Associative containers:
 
 * `std::multiset<T>` - the set with duplicate elements allowed,
 
-The adaptors:
+The adapters:
 
 * `std::stack` - the stack,
 
@@ -221,7 +221,7 @@ by the value of the index as in here:
 {% include_relative pointer.cc %}
 {% endhighlight %}
 
-Iterator types are user-defined, e.g., of the struct type.  Iterators
+Iterator types are user-defined, e.g., of a structure type.  Iterators
 are wrappers around pointers, where the operators (defined for that
 type) implement the required functionality.  For instance, if in the
 example above we replace the C-style array with a deque, the rest of
@@ -234,7 +234,7 @@ the code can remain untouched:
 Iterators of the standard library are very small and very efficient.
 They typically store only a single pointer.  Therefore we are free to
 use them by value, and copy them.  We could use iterators by reference
-too, but that would be just akward, just as akward would be using
+too, but that would be just awkward, just as awkward would be using
 pointers by reference.
 
 For a given container type `T`, there are always at least two iterator
@@ -498,4 +498,13 @@ and then moved into the required place.
 * With the containers use the standard algorithms, because your own
   algorithm implementations will most likely perform far worse.
 
-<!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
+<!-- LocalWords: const -->
+<!-- LocalWords: deque -->
+<!-- LocalWords: dereference -->
+<!-- LocalWords: dereferencing -->
+<!-- LocalWords: rvalue -->
+<!-- LocalWords: multiset -->
+<!-- LocalWords: performant -->
+<!-- LocalWords: Stepanov -->
+<!-- LocalWords: STL -->
+<!-- LocalWords: templated -->
