@@ -452,21 +452,34 @@ An example:
 An element can be copied, moved, or *emplaced* into a container.
 Copying is needed when we want to keep the source element intact.
 Moving is faster, and so prefered over copying, if the source won't be
-needed.
+needed later.  In both copying and moving, we create an object
+ourselves, and then pass it to a container.  Emplacing creates an
+object based on the arguments we provide.
 
-Emplacing is the fastest: an element is created directly in a
-container.  **No copying, no moving.** The element is created
-*in-place*, i.e., in the place (memory location) pointed out by the
-container, and not in a newly allocated memory at the heap.
-
-We emplace by calling an `emplace` function of a container.
-Containers have other functions for emplacing with slight semantic
-differences, e.g., `std::list` has `emplace_front` to emplace at the
-front of the list.
+Emplacing is the fastest: a container tries to create the element in
+the required place: the element is created *in-place*, i.e., in the
+place (memory location) required by the container.  No copying, no
+moving... if all goes well.
 
 An emplace function takes the arguments of an element constructor, and
 passes them (forwards, technically speaking) to the constructor when
-it's known where the element should be constructed.
+it's known where (i.e., the place is known) the element should be
+constructed.
+
+We emplace by calling an `emplace` function of a container.
+Containers have other functions for emplacing with slight semantic
+differences, e.g., `std::list` has `emplace_front`, and
+`std::forward_list` has `emplace_after`.
+
+Emplacement works similar to insertion in that the elements that
+follow are "pushed to the right".  Therefore emplacement entails the
+same performance issues as the insertion does.
+
+A container **tries** to emplace the element.  Tries, because the
+place for the element might be already taken by some other element,
+e.g., when we emplace at the front of a non-empty vector.  If that
+happens, the new element is created in a different memory location,
+and then moved into the required place.
 
 {% highlight c++ %}
 {% include_relative emplace.cc %}
