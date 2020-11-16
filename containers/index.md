@@ -503,6 +503,7 @@ and then moved into the required place.
 <!-- LocalWords: const -->
 <!-- LocalWords: deque -->
 <!-- LocalWords: dereference -->
+<!-- LocalWords: dereferenced -->
 <!-- LocalWords: dereferencing -->
 <!-- LocalWords: emplace -->
 <!-- LocalWords: emplaced -->
