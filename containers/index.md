@@ -252,12 +252,12 @@ elements.
 
 We know where the elements of a container are with the `begin`, and
 `end` functions.  The `begin` function returns an iterator to the
-first element.  The `end` function returns an iterator which you would
-get if you incremented an iterator to the last element: we could say
-the `end` function returns an iterator to an **imaginary** element
-(imaginary, because that element does not exist) that would follow the
-last element.  If a container has no elements, the iterators returned
-by `begin` and `end` equal.
+first element.  The `end` function returns a *past-the-end* iterator
+which you would get if you incremented an iterator to the last
+element: we could say the `end` function returns an iterator to an
+**imaginary** element (imaginary, because that element does not exist)
+that would follow the last element.  If a container has no elements,
+the iterators returned by `begin` and `end` equal.
 
 The `begin` and `end` functions return non-const iterators for a
 non-const container, and const iterators for a const container.  If we
@@ -460,8 +460,9 @@ container.  **No copying, no moving.** The element is created
 container, and not in a newly allocated memory at the heap.
 
 We emplace by calling an `emplace` function of a container.
-Containers have other functions for emplacing, e.g., `std::list` has
-`emplace_front` to emplace at the front of the list.
+Containers have other functions for emplacing with slight semantic
+differences, e.g., `std::list` has `emplace_front` to emplace at the
+front of the list.
 
 An emplace function takes the arguments of an element constructor, and
 passes them (forwards, technically speaking) to the constructor when
