@@ -266,7 +266,7 @@ can use the `cbegin` and `cend` functions, which return const
 iterators.
 
 The `cbegin` and `cend` are for convenience only, because they are
-despensible.  We can achieve the same functionality by calling the
+dispensable.  We can achieve the same functionality by calling the
 `begin` and `end` functions for a non-const container when we
 reference the container with a const reference, which we can do with
 the `std::as_const` function.
@@ -361,7 +361,7 @@ An example:
 ## How iteration the new way works
 
 The new range-based loop is translated by a compiler to a regular
-loop, where the iteration variable is of an interator type.  The
+loop, where the iteration variable is of an iterator type.  The
 iteration variable is initialized with a value returned by the `begin`
 function.  The loop continues if the value of the iterator is not
 equal to the value returned by the `end` function.  In every iteration
@@ -391,7 +391,7 @@ Here is an example how we can use that functionality:
 
 # Containers and element management
 
-We can copy or move an element into a container.  We can albo move it
+We can copy or move an element into a container.  We can also move it
 from a container, except for the associative containers, for which we
 can extract an element.  We can also **emplace** an element in a
 container.
@@ -451,7 +451,7 @@ An example:
 
 An element can be copied, moved, or *emplaced* into a container.
 Copying is needed when we want to keep the source element intact.
-Moving is faster, and so prefered over copying, if the source won't be
+Moving is faster, and so preferred over copying, if the source won't be
 needed later.  In both copying and moving, we create an object
 ourselves, and then pass it to a container.  Emplacing creates an
 object based on the arguments we provide.
@@ -498,13 +498,19 @@ and then moved into the required place.
 * With the containers use the standard algorithms, because your own
   algorithm implementations will most likely perform far worse.
 
+<!-- LocalWords: cbegin -->
+<!-- LocalWords: cend -->
 <!-- LocalWords: const -->
 <!-- LocalWords: deque -->
 <!-- LocalWords: dereference -->
 <!-- LocalWords: dereferencing -->
+<!-- LocalWords: emplace -->
+<!-- LocalWords: emplaced -->
+<!-- LocalWords: emplacing -->
 <!-- LocalWords: rvalue -->
 <!-- LocalWords: multiset -->
 <!-- LocalWords: performant -->
 <!-- LocalWords: Stepanov -->
 <!-- LocalWords: STL -->
 <!-- LocalWords: templated -->
+<!-- LocalWords: unlinking -->
