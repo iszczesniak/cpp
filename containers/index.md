@@ -498,6 +498,14 @@ and then moved into the required place.
 * With the containers use the standard algorithms, because your own
   algorithm implementations will most likely perform far worse.
 
+# Quiz
+
+* What are the prominent differences between container types?
+
+* Why can't we modify the set elements?
+
+* How does emplacement work?
+
 <!-- LocalWords: cbegin -->
 <!-- LocalWords: cend -->
 <!-- LocalWords: const -->
