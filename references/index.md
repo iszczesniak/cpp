@@ -287,4 +287,12 @@ temporary will be destroyed, when the object is destroyed:
 
 * A reference extends the lifetime of a temporary it's bound to.
 
+# Quiz
+
+* What are the reference types, and what are their hallmarks?
+
+* What can we initialize a const reference with?
+
+* Can we get an rvalue reference to a non-const lvalue?
+
 <!-- LocalWords: lvalue lvalues rvalue -->

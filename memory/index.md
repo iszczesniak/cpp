@@ -350,6 +350,14 @@ enough.
 Passing parameters or return results by value is not that bad, because
 most likely their copying or moving will be elided.
 
+# Quiz
+
+* Is memory allocation on the stack faster than on the heap?
+
+* Where can we allocate objects?
+
+* What is the return value optimization?
+
 <!-- LocalWords: enum  sigsegv endhighlight heisenbugs -->
 <!-- LocalWords: deallocates defragmentation manyfold args -->
 <!-- LocalWords: EAX RDI RVO SIGSEGV -->

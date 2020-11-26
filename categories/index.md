@@ -358,6 +358,14 @@ Every expression is either an lvalue or an rvalue.
 
 We covered only the basics, there is more: glvalue, prvalue, xvalue.
 
+# Quiz
+
+* Can an expression be both an lvalue and an rvalue at the same time?
+
+* Is a temporary object an rvalue?
+
+* What does the category of the function-call expression depend on?
+
 <!-- LocalWords: lvalue lvalues rvalue rvalues -->
 <!-- LocalWords: decrementation incrementation -->
 <!-- LocalWords: dereference expr unary -->
