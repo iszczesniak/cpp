@@ -116,7 +116,8 @@ But it's downright better done this way:
 {% endhighlight %}
 
 We can move the ownership from an rvalue of type `unique_ptr`, because
-`shared_ptr` has the right constructor.  Therefore, we can create a
+`shared_ptr` has the constructor which takes by rvalue reference an
+object of type `std::unique_ptr`.  Therefore, we can create a
 `shared_ptr` object from a temporary object of type `unique_ptr`,
 e.g., returned by a function like this:
 
@@ -186,6 +187,15 @@ control data structure.
 
 * We can easily pass the ownership from `unique_ptr` to `shared_ptr`,
   but not the other way around.
+
+# Quiz
+
+* What's the difference between `unique_ptr` and `shared_ptr`?
+
+* What do we need a control data structure for?
+
+* Does the type of the managed data need to have some properties in
+  order to be managed?
 
 <!-- LocalWords: inlined multithreaded -->
 <!-- LocalWords: performant rvalue suboptimal -->
