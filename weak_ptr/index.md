@@ -89,7 +89,7 @@ ways:
 Here's an example:
 
 {% highlight c++ %}
-{% include_relative basic.cc %}
+{% include_relative snatch.cc %}
 {% endhighlight %}
 
 ## How it works
