@@ -47,7 +47,8 @@ main()
     assert(sp2);
   }
 
-  // Flush the managed data.
+  // Release the ownership from sp.  Since sp was the sole managing
+  // object, the managed data are destroyed.
   sp.reset();
 
   // Here the managed data is gone.
