@@ -358,6 +358,8 @@ most likely their copying or moving will be elided.
 
 * What is the return value optimization?
 
+{% include rid %}
+
 <!-- LocalWords: enum  sigsegv endhighlight heisenbugs -->
 <!-- LocalWords: deallocates defragmentation manyfold args -->
 <!-- LocalWords: EAX RDI RVO SIGSEGV -->

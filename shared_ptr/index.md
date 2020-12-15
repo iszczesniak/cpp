@@ -197,5 +197,7 @@ control data structure.
 * Does the type of the managed data need to have some properties in
   order to be managed?
 
+{% include rid %}
+
 <!-- LocalWords: inlined multithreaded -->
 <!-- LocalWords: performant rvalue suboptimal -->

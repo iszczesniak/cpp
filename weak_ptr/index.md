@@ -157,5 +157,7 @@ extra indirect access would be needed.
 * Can we create an object of type `weak_ptr` based on an object of
   type `unique_ptr`?
 
+{% include rid %}
+
 <!-- LocalWords: inlined multithreaded -->
 <!-- LocalWords: performant rvalue suboptimal -->

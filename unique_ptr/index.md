@@ -415,4 +415,6 @@ problems gone.
 
 * What do we need the `make_uniqe` function for?
 
+{% include rid %}
+
 <!-- LocalWords:  -->

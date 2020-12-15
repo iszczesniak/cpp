@@ -395,4 +395,6 @@ what's going on:
 
 * What's a move-only type?
 
+{% include rid %}
+
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->

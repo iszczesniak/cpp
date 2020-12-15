@@ -506,6 +506,8 @@ and then moved into the required place.
 
 * How does emplacement work?
 
+{% include rid %}
+
 <!-- LocalWords: cbegin -->
 <!-- LocalWords: cend -->
 <!-- LocalWords: const -->

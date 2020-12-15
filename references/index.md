@@ -295,4 +295,6 @@ temporary will be destroyed, when the object is destroyed:
 
 * Can we get an rvalue reference to a non-const lvalue?
 
+{% include rid %}
+
 <!-- LocalWords: lvalue lvalues rvalue -->

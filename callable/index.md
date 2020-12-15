@@ -394,4 +394,6 @@ error-prone).
 
 * Are lambdas indispensable?
 
+{% include rid %}
+
 <!-- LocalWords: callable callables constructor inlined -->
