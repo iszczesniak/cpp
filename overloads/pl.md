@@ -4,11 +4,7 @@ title: Przeciążenia
 
 # Wyprowadzenie
 
-Przeciążenia:
-
-* funkcji
-
-* szablonów
+Funkcje mogą być przeciążane, także szablony funkcji.
 
 # Przeciążenia a specjalizacja
 
