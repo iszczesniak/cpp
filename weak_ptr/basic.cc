@@ -37,7 +37,7 @@ main()
   // assert(wp);
 
   // Instead we can use function 'expired' of the weak pointer, which
-  // should alert us of a special semantics.
+  // should alert us of special semantics.
   assert(!wp.expired());
 
   // Here the managed data exist.
