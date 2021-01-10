@@ -153,9 +153,9 @@ Przykładami r-wartości są:
 Definicja r-wartości jako wyrażenia, które nie może znaleźć się po
 lewej stronie operatora przypisania (czyli musi po prawej), nie ma
 zastosowania w C++.  R-wartości możemy coś przypisać, jak pokazuje
-poniższy przykład. `A()` jest wartością (bo tworzy obiekt tymczasowy)
-i możemy mu przypisać `1`, bo zdefiniowaliśmy taki operator
-przypisania w strukturze `A`:
+poniższy przykład. `A()` jest r-wartością (bo tworzy obiekt
+tymczasowy) i możemy mu przypisać `1`, bo zdefiniowaliśmy taki
+operator przypisania w strukturze `A`:
 
 {% highlight c++ %}
 {% include_relative left-rvalue.cc %}
@@ -165,7 +165,7 @@ przypisania w strukturze `A`:
 
 Standard C++ definiuje taką *konwersję standardową*: l-wartość może
 zostać niejawnie poddana konwersji do r-wartości.  Niejawnie, czyli
-programista nie musi o to prosić.
+programista nie musi rzutować.
 
 Na przykład, operator `+` dla typów całkowitych (np. `int`) wymaga
 r-wartości jako operandów.  W poniższym przykładzie operator `+`
@@ -185,11 +185,10 @@ standardowej:
 {% include_relative conversion2.cc %}
 {% endhighlight %}
 
-Nie ma niejawnej czy standardowej konwersji z r-wartości na l-wartość.
-Na przykład, operator pobrania adresu (czyli jednoargumentowy operator
-`&`) wymaga l-wartości.  Jeżeli przekażemy mu r-wartość, to nie będzie
-ona poddana niejawnej konwersji do l-wartości, jak pokazuje przykład
-niżej:
+Nie ma niejawnej konwersji z r-wartości na l-wartość.  Na przykład,
+operator pobrania adresu (czyli jednoargumentowy operator `&`) wymaga
+l-wartości.  Jeżeli przekażemy mu r-wartość, to nie będzie ona poddana
+niejawnej konwersji do l-wartości, jak pokazuje przykład niżej:
 
 {% highlight c++ %}
 {% include_relative conversion3.cc %}
@@ -210,12 +209,12 @@ Wyrażenie operatora inkrementacji jest:
 * **l-wartością** w przypadku wersji prefiksowej, czyli wyrażenie
   `++<expr>` jest l-wartością, bo zwracana jest referencja na daną,
   która została przekazana operatorowi, i która właśnie została
-  zwiększona,
+  zinkrementowana,
 
 * **r-wartością** w przypadku wersji sufiksowej, czyli wyrażenie
   `<expr>++` jest r-wartością, bo operator sufiksowy zwraca daną
-  tymczasową (a ta jest r-wartością), która jest kopią danej
-  przekazanej operatorowi.
+  tymczasową (a ta jest r-wartością), która jest zdekrementowaną kopią
+  danej przekazanej operatorowi.
 
 Dlatego `++++x` kompiluje się, a `x++++` nie.
 
@@ -287,7 +286,7 @@ rzucania wyjątku.  Jeżeli blok obsługi wyjątku przechwyci wyjątek
 przez referencję stałą, to parametr bloku będzie aliasem danej
 tymczasowej.
 
-I tu zwrot akcji: dana tymczasowa została stworzona w r-wartości, a
+Podobny zwrot akcji: dana tymczasowa została stworzona w r-wartości, a
 wyrażenie odwołujące się do niej przez nazwę (referencję) to już
 l-wartość.
 
@@ -367,7 +366,7 @@ stworzyć, bo:
 * został zdefiniowany jako klasa abstrakcyjna (czyli ma funkcję czysto
   wirtualną).
 
-Wyrażenia typów inkompletnych mogą być tylko l-wartością (czyli nie
+Wyrażenia typów niekompletnych mogą być tylko l-wartością (czyli nie
 mogą być r-wartością).
 
 W przykładzie niżej używamy typu, który nie został zdefiniowany:
