@@ -8,11 +8,10 @@ Kategorie wyrażeń to podstawa, ale trudno je zrozumieć, bo chodzi o
 wiele szczegółów **l-wartości** i **r-wartości**, które w codziennym
 programowaniu uchodzą naszej uwadze.
 
-Żeby łatwiej zrozumieć znaczenie terminów l-wartości i r-wartości
-proponuję szczegółowo przyswoić ten materiał, bez poszukiwania
-głębszego sensu na tym etapie.  Podobną radę otrzymała Alicja od
-Humpty Dumpty w powieści "Po drugiej strony lustra" autorstwa Lewisa
-Carrolla:
+Żeby łatwiej zrozumieć l-wartości i r-wartości, proponuję szczegółowo
+przyswoić ten materiał, bez poszukiwania głębszego sensu na tym
+etapie.  Podobną radę otrzymała Alicja od Humpty Dumpty w powieści "Po
+drugiej strony lustra" autorstwa Lewisa Carrolla:
 
 > “Must a name mean something?” Alice asks Humpty Dumpty, only to get
 > this answer: “When I use a word... it means just what I choose it to
@@ -33,12 +32,13 @@ Wartość wyrażenia ma:
 
 * typ (np. `int`, `bool`, `class A`) znany w czasie kompilacji,
 
-* wartość typu (np. `5`, `false`, `A()`) znaną w czasie uruchomienia,
+* wartość typu (np. `5`, `false`, `A()`) znaną w czasie kompilacji lub
+  uruchomienia,
 
 * kategorię (np. l-wartość, r-wartość) znaną w czasie kompilacji.
 
-Możemy mówić o **kategorii wartości wyrażenia**, albo lepiej w skrócie
-o **kategorii wyrażenia**.
+Możemy mówić o **kategorii wartości wyrażenia**, albo w skrócie o
+**kategorii wyrażenia**.
 
 ## Historia: CPL, C, C++98
 
@@ -61,7 +61,7 @@ W języku C, wyrażenie jest albo l-wartością, gdzie "l" pochodzi od
 wyrażenia.  W języku C, **non-lvalue** jest wyrażeniem, które nie jest
 kategorii l-wartość.  W języku C nie ma pojęcia r-wartości!
 
-C++98 przyjął termin i definicję l-wartości z języka C, a wyrażenie,
+C++98 przyjął termin i znaczenie l-wartości z języka C, a wyrażenie,
 które nie jest l-wartością, nazwał **r-wartością**.
 
 # Szczegóły
@@ -91,7 +91,8 @@ Przykładowe operacje na wyrażeniu `<expr>`:
 
 Na próżno szukać w standarcie C++ zwięzłej i poprawnej definicji
 l-wartości i r-wartości.  Standard C++, który ma około 1500 stron,
-definiuje po trochu te kategorie w różnych miejscach, według potrzeby.
+definiuje po trochu te kategorie w różnych miejscach, według potrzeby,
+co utrudnia zrozumienie kategorii wartości.
 
 Na domiar tych trudności, w C++17 wprowadzono kolejne kategorie:
 pr-wartość, gl-wartość i x-wartość.  Jednak dwiema podstawowymi
