@@ -8,11 +8,10 @@ Kategorie wyrażeń to podstawa, ale trudno je zrozumieć, bo chodzi o
 wiele szczegółów **l-wartości** i **r-wartości**, które w codziennym
 programowaniu uchodzą naszej uwadze.
 
-Żeby łatwiej zrozumieć znaczenie terminów l-wartości i r-wartości
-proponuję szczegółowo przyswoić ten materiał, bez poszukiwania
-głębszego sensu na tym etapie.  Podobną radę otrzymała Alicja od
-Humpty Dumpty w powieści "Po drugiej strony lustra" autorstwa Lewisa
-Carrolla:
+Żeby łatwiej zrozumieć l-wartości i r-wartości, proponuję szczegółowo
+przyswoić ten materiał, bez poszukiwania głębszego sensu na tym
+etapie.  Podobną radę otrzymała Alicja od Humpty Dumpty w powieści "Po
+drugiej strony lustra" autorstwa Lewisa Carrolla:
 
 > “Must a name mean something?” Alice asks Humpty Dumpty, only to get
 > this answer: “When I use a word... it means just what I choose it to
@@ -33,12 +32,13 @@ Wartość wyrażenia ma:
 
 * typ (np. `int`, `bool`, `class A`) znany w czasie kompilacji,
 
-* wartość typu (np. `5`, `false`, `A()`) znaną w czasie uruchomienia,
+* wartość typu (np. `5`, `false`, `A()`) znaną w czasie kompilacji lub
+  uruchomienia,
 
 * kategorię (np. l-wartość, r-wartość) znaną w czasie kompilacji.
 
-Możemy mówić o **kategorii wartości wyrażenia**, albo lepiej w skrócie
-o **kategorii wyrażenia**.
+Możemy mówić o **kategorii wartości wyrażenia**, albo w skrócie o
+**kategorii wyrażenia**.
 
 ## Historia: CPL, C, C++98
 
@@ -61,7 +61,7 @@ W języku C, wyrażenie jest albo l-wartością, gdzie "l" pochodzi od
 wyrażenia.  W języku C, **non-lvalue** jest wyrażeniem, które nie jest
 kategorii l-wartość.  W języku C nie ma pojęcia r-wartości!
 
-C++98 przyjął termin i definicję l-wartości z języka C, a wyrażenie,
+C++98 przyjął termin i znaczenie l-wartości z języka C, a wyrażenie,
 które nie jest l-wartością, nazwał **r-wartością**.
 
 # Szczegóły
@@ -91,7 +91,8 @@ Przykładowe operacje na wyrażeniu `<expr>`:
 
 Na próżno szukać w standarcie C++ zwięzłej i poprawnej definicji
 l-wartości i r-wartości.  Standard C++, który ma około 1500 stron,
-definiuje po trochu te kategorie w różnych miejscach, według potrzeby.
+definiuje po trochu te kategorie w różnych miejscach, według potrzeby,
+co utrudnia zrozumienie kategorii wartości.
 
 Na domiar tych trudności, w C++17 wprowadzono kolejne kategorie:
 pr-wartość, gl-wartość i x-wartość.  Jednak dwiema podstawowymi
@@ -152,9 +153,9 @@ Przykładami r-wartości są:
 Definicja r-wartości jako wyrażenia, które nie może znaleźć się po
 lewej stronie operatora przypisania (czyli musi po prawej), nie ma
 zastosowania w C++.  R-wartości możemy coś przypisać, jak pokazuje
-poniższy przykład. `A()` jest wartością (bo tworzy obiekt tymczasowy)
-i możemy mu przypisać `1`, bo zdefiniowaliśmy taki operator
-przypisania w strukturze `A`:
+poniższy przykład. `A()` jest r-wartością (bo tworzy obiekt
+tymczasowy) i możemy mu przypisać `1`, bo zdefiniowaliśmy taki
+operator przypisania w strukturze `A`:
 
 {% highlight c++ %}
 {% include_relative left-rvalue.cc %}
@@ -164,7 +165,7 @@ przypisania w strukturze `A`:
 
 Standard C++ definiuje taką *konwersję standardową*: l-wartość może
 zostać niejawnie poddana konwersji do r-wartości.  Niejawnie, czyli
-programista nie musi o to prosić.
+programista nie musi rzutować.
 
 Na przykład, operator `+` dla typów całkowitych (np. `int`) wymaga
 r-wartości jako operandów.  W poniższym przykładzie operator `+`
@@ -184,11 +185,10 @@ standardowej:
 {% include_relative conversion2.cc %}
 {% endhighlight %}
 
-Nie ma niejawnej czy standardowej konwersji z r-wartości na l-wartość.
-Na przykład, operator pobrania adresu (czyli jednoargumentowy operator
-`&`) wymaga l-wartości.  Jeżeli przekażemy mu r-wartość, to nie będzie
-ona poddana niejawnej konwersji do l-wartości, jak pokazuje przykład
-niżej:
+Nie ma niejawnej konwersji z r-wartości na l-wartość.  Na przykład,
+operator pobrania adresu (czyli jednoargumentowy operator `&`) wymaga
+l-wartości.  Jeżeli przekażemy mu r-wartość, to nie będzie ona poddana
+niejawnej konwersji do l-wartości, jak pokazuje przykład niżej:
 
 {% highlight c++ %}
 {% include_relative conversion3.cc %}
@@ -209,12 +209,12 @@ Wyrażenie operatora inkrementacji jest:
 * **l-wartością** w przypadku wersji prefiksowej, czyli wyrażenie
   `++<expr>` jest l-wartością, bo zwracana jest referencja na daną,
   która została przekazana operatorowi, i która właśnie została
-  zwiększona,
+  zinkrementowana,
 
 * **r-wartością** w przypadku wersji sufiksowej, czyli wyrażenie
   `<expr>++` jest r-wartością, bo operator sufiksowy zwraca daną
-  tymczasową (a ta jest r-wartością), która jest kopią danej
-  przekazanej operatorowi.
+  tymczasową (a ta jest r-wartością), która jest zdekrementowaną kopią
+  danej przekazanej operatorowi.
 
 Dlatego `++++x` kompiluje się, a `x++++` nie.
 
@@ -286,7 +286,7 @@ rzucania wyjątku.  Jeżeli blok obsługi wyjątku przechwyci wyjątek
 przez referencję stałą, to parametr bloku będzie aliasem danej
 tymczasowej.
 
-I tu zwrot akcji: dana tymczasowa została stworzona w r-wartości, a
+Podobny zwrot akcji: dana tymczasowa została stworzona w r-wartości, a
 wyrażenie odwołujące się do niej przez nazwę (referencję) to już
 l-wartość.
 
@@ -366,7 +366,7 @@ stworzyć, bo:
 * został zdefiniowany jako klasa abstrakcyjna (czyli ma funkcję czysto
   wirtualną).
 
-Wyrażenia typów inkompletnych mogą być tylko l-wartością (czyli nie
+Wyrażenia typów niekompletnych mogą być tylko l-wartością (czyli nie
 mogą być r-wartością).
 
 W przykładzie niżej używamy typu, który nie został zdefiniowany:

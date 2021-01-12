@@ -36,3 +36,6 @@ samej nazwie, bo byłoby to przeciążanie klasy, na co C++ nie pozwala.
 # Przeciążenia a specjalizacja
 
 Różnica między specjalizacją szablonu, a przeciążeniem szablonu.
+
+Jak wybrany jest szablon podstawowy, to potem wybierana jest najlepiej
+pasująca specjalizacja szablonu.

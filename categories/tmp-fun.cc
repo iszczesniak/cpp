@@ -8,7 +8,7 @@ struct A
   }
 };
 
-// "a" is a paremeter of a const reference type.
+// "a" is a parameter of a const reference type.
 void
 foo(const A &a)
 {

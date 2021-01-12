@@ -40,7 +40,7 @@ C++ references are like no references of other languages: in C++ a
 reference might not exists at run-time, because it was optimized out
 at compile-time.
 
-In languages like Java or C#, references are pointers with
+In languages like Java or C#, references are pointers with the
 shared-ownership semantics (i.e., a reference can be copied, and the
 object exists as long as at least one reference exists), and with the
 object member selection syntax.  In these languages references must
