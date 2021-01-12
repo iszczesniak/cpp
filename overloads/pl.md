@@ -9,7 +9,11 @@ funkcji mogą być przeciążone.  Kiedy wywołujemy funkcję, kompilator
 musi wybrać funkcję spośród zbioru przeciążeń.
 
 Już dla prostych funkcji możemy mieć problem określić które
-przeciążenie zostanie wywołane.
+przeciążenie zostanie wywołane.  Na przykład:
+
+{% highlight c++ %}
+{% include_relative constructors.cc %}
+{% endhighlight %}
 
 Wybór przeciążenia (ang. overload resolution) ma kilka składowych:
 
