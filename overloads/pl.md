@@ -12,7 +12,7 @@ Już dla prostych funkcji możemy mieć problem określić które
 przeciążenie zostanie wywołane.  Na przykład:
 
 {% highlight c++ %}
-{% include_relative constructors.cc %}
+{% include_relative spec-vs-over.cc %}
 {% endhighlight %}
 
 Wybór przeciążenia (ang. overload resolution) ma kilka składowych:
