@@ -18,19 +18,19 @@ albo *zdefiniowanych przez użytkownika* (np., `struct A`, `struct B`,
 C++ musi spełniać podstawowe wymagania systemu operacyjnego dotyczące
 organizacji pamięci, a reszta zależy do C++.
 
-## The basic requirements of an operating system
+## Podstawowe wymagania systemu operacyjnego
 
-When we run a *program*, it becomes a *process* of an operating
-system, and a *task* a processor is executing.  A process manages its
-memory within the limits imposed by the operating system.  An
-operating system offers a process two types of memory: *read-only*,
-and *read-write*.
+Uruchomiony *program* jest *procesem* w systemie operacyjnym i
+*zadaniem* wykonywanym przez procesor.  Proces zarządza swoją pamięcią
+zgodnie z ograniczeniami systemu operacyjnego.  System operacyjny daje
+procesowi do dyspozycji dwa rodzaje pamięci: *tylko do odczytu* oraz
+*do zapisu i odczytu*.
 
-The read-only memory stores the code of the program (i.e., the
-processor instructions), and the static data (e.g., string literals).
-This memory is shared by all processes of the same program, which can
-be a substantial saving for a large program run in a large number
-(e.g., a web server).
+Pamięć tylko do odczytu przechowuje kod programu (rozkazy procesora) i
+dane statyczne programu (np. literały łańcuchowe).  Ta pamięć jest
+współdzielona przez wszystkie procesy programu, co znacząco oszczędza
+pamięć w przypadku dużych programów uruchamianych w dużej liczbie,
+np. przglądarek czy serwerów internetowych.
 
 An *unprivileged* task (a *privileged* task is a kernel task, i.e., a
 task of an operating system) cannot do anything that could disturb the
