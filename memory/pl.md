@@ -32,15 +32,16 @@ współdzielona przez wszystkie procesy programu, co znacząco oszczędza
 pamięć w przypadku dużych programów uruchamianych w dużej liczbie,
 np. przglądarek czy serwerów internetowych.
 
-An *unprivileged* task (a *privileged* task is a kernel task, i.e., a
-task of an operating system) cannot do anything that could disturb the
-operating system and other processes.  For instance, an unprivileged
-task cannot write to its read-only memory.  Every process is an
-unprivileged task.
+Zadanie może być uprzywilejowane albo nieuprzywilejowane.  Tylko
+zadania jądra systemu operacyjnego są uprzywilejowane.  Procesy są
+zadaniami nieuprzywilejowanymi.  *Zadanie nieuprzywilejowane* nie może
+naruszyć danych innych zadań, w szczególności nie może pisać do swojej
+pamięci tylko do odczytu.
 
-In the following example we try to write to the read-only memory.  The
-code compiles, but is killed by the operating system with the SIGSEGV
-(segment violation) signal.
+W poniższym przykładzie próbujemy pisać do literału łańcuchowego,
+który jest znajduje się w pamięci tylko do odczytu.  Program się
+kompiluje, ale proces jest unicestwiony przez system operacyjny
+sygnałem SIGSEGV (segment violation).
 
 {% highlight c++ %}
 {% include_relative sigsegv.cc %}
