@@ -27,10 +27,11 @@ procesowi do dyspozycji dwa rodzaje pamięci: *tylko do odczytu* oraz
 *do zapisu i odczytu*.
 
 Pamięć tylko do odczytu przechowuje kod programu (rozkazy procesora) i
-dane statyczne programu (np. literały łańcuchowe).  Ta pamięć jest
-współdzielona przez wszystkie procesy programu, co znacząco oszczędza
-pamięć w przypadku dużych programów uruchamianych w dużej liczbie,
-np. przglądarek czy serwerów internetowych.
+dane stałe programu znane w czasie kompilacji, np. literały
+łańcuchowe.  Ta pamięć jest współdzielona przez wszystkie procesy
+programu, co znacząco oszczędza pamięć w przypadku dużych programów
+uruchamianych w dużej liczbie, np. przglądarek czy serwerów
+internetowych.
 
 Zadanie może być uprzywilejowane albo nieuprzywilejowane.  Tylko
 zadania jądra systemu operacyjnego są uprzywilejowane.  Procesy są

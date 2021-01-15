@@ -27,10 +27,10 @@ operating system offers a process two types of memory: *read-only*,
 and *read-write*.
 
 The read-only memory stores the code of the program (i.e., the
-processor instructions), and the static data (e.g., string literals).
-This memory is shared by all processes of the same program, which can
-be a substantial saving for a large program run in a large number
-(e.g., a web server).
+processor instructions), and the const data known at compile time,
+e.g., string literals.  This memory is shared by all processes of the
+same program, which can be a substantial saving for a large program
+run in a large number (e.g., a web server).
 
 An *unprivileged* task (a *privileged* task is a kernel task, i.e., a
 task of an operating system) cannot do anything that could disturb the
