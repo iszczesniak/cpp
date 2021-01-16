@@ -53,16 +53,15 @@ w pamięci do odczytu i zapisu, bo na tych danych program wykonuje
 obliczenia.  Każd proces tego samego programu ma osobną pamięć do
 odczytu i zapisu.
 
-## What is up to C++
+## Co zależy od C++
 
-C++ strives for time and memory performance, and that is reflected in
-the memory organization by, e.g., using pointers (C++ keeps close to
-hardware).  Furthermore, C++ also strives for a flexible control over
-data management by, e.g., allowing a programmer to allocate an object
-statically, globally, locally or dynamically.  Finally, the C++ memory
-organization is also *deterministic*: we know exactly when and where
-the data are *destroyed* (so that they are destroyed as soon as no
-longer needed).
+C++ jest wydajny czasowo i pamięciowo, co wynika głównie z organizacji
+pamięci i użycia wskaźników, czyli niskopoziomowego mechanizmu.  Co
+więcej, C++ zapewnia swobodne zarządzanie danymi: np., programista
+może alokować dane statycznie, globalnie, lokalnie, albo dynamicznie.
+Organizacja pamięci jest także *deterministyczna*: możemy dokładnie
+wskazać które dane i gdzie są niszczone, bo C++ niszczy je dokładnie
+wtedy, kiedy nie są już potrzebne.
 
 C++ is in stark contrast with other languages, such as Java or C#,
 where object management is simplified at the cost of performance, and
