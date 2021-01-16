@@ -55,16 +55,16 @@ even when there are many processes of the same program.
 C++ strives for time and memory performance, and that is reflected in
 the memory organization by, e.g., using pointers (C++ keeps close to
 hardware).  Furthermore, C++ also strives for a flexible control over
-data management by, e.g., allowing a programmer to allocate an object
+data management by, e.g., allowing a programmer to allocate data
 statically, globally, locally or dynamically.  Finally, the C++ memory
 organization is also *deterministic*: we know exactly when and where
 the data are *destroyed* (so that they are destroyed as soon as no
 longer needed).
 
 C++ is in stark contrast with other languages, such as Java or C#,
-where object management is simplified at the cost of performance, and
+where data management is simplified at the cost of performance, and
 the lack of flexible control.  For instance, such languages allow
-allocation of objects on the heap only, which deteriorates performance
+allocation of data on the heap only, which deteriorates performance
 and flexibility, but enables easy implementation of garbage
 collection.  Some garbage collectors are even further inefficient,
 because they are *nondeterministic*, i.e., it is undefined when data
