@@ -48,9 +48,10 @@ sygnałem SIGSEGV (segment violation).
 {% include_relative sigsegv.cc %}
 {% endhighlight %}
 
-All other data is located in the read-write memory, because it can be
-changed by a process.  Every process has its own read-write memory,
-even when there are many processes of the same program.
+Wszystkie inne dane programu (poza tymi w pamięci tylko do odczytu) są
+w pamięci do odczytu i zapisu, bo na tych danych program wykonuje
+obliczenia.  Każd proces tego samego programu ma osobną pamięć do
+odczytu i zapisu.
 
 ## What is up to C++
 
