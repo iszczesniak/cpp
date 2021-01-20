@@ -7,6 +7,13 @@ struct A
   void foo() &&;
 };
 
+**********************************************************************
+
+Show that member references are a problem for the assignment operator,
+because a reference cannot be made to refer to some other data.
+
+**********************************************************************
+
 callable vs invokable
 
 type traits
