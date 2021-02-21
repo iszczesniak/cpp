@@ -11,6 +11,8 @@ struct A
 
 ordering types, lower_bound, upper_bound in std::map
 
+std::map::Compare::is_transparent
+
 **********************************************************************
 
 Show that member references are a problem for the assignment operator,
