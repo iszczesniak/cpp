@@ -89,17 +89,17 @@ ways:
 Here's an example:
 
 {% highlight c++ %}
-{% include_relative basic.cc %}
+{% include_relative snatch.cc %}
 {% endhighlight %}
 
 ## How it works
 
-The managing data structure of the shared pointer group is also used
-by the weak pointers, which also belong to the group, but without
+The control data structure of the shared pointer group is also used by
+the weak pointers, which also belong to the group, but without
 claiming ownership.
 
 Just as a shared pointer, a weak pointer has a raw pointer to the
-managing data structure.
+control data structure.
 
 A managing structure not only has a reference count, but also a *weak
 count*, which keeps the number of weak pointers.
@@ -107,7 +107,7 @@ count*, which keeps the number of weak pointers.
 We know that the managed data is destroyed, when the reference count
 reaches zero.
 
-The managing data structure is destroyed when both the reference count
+The control data structure is destroyed when both the reference count
 and the weak count reach zero.
 
 # The implementation of the motivating example
@@ -125,14 +125,14 @@ has:
 
 * the raw pointer to the managed data,
 
-* the raw pointer to the managing data structure.
+* the raw pointer to the control data structure.
 
 What do we need the raw pointer to the managed data for if we cannot
 access it directly?  Beause it will be needed to produce a shared
 pointer.
 
 As for a shared pointer, the same applies to a raw pointer: the raw
-pointer to the managed data could be a part of the managing data
+pointer to the managed data could be a part of the control data
 structure, but getting to the managed data would be slower, because an
 extra indirect access would be needed.
 
@@ -147,6 +147,17 @@ extra indirect access would be needed.
   i.e., if the managed data exist.
 
 * A weak pointer never destroys the managed data.
+
+# Quiz
+
+* What do we need type `weak_ptr` for?
+
+* What's the difference between `shared_ptr` and `weak_ptr`?
+
+* Can we create an object of type `weak_ptr` based on an object of
+  type `unique_ptr`?
+
+{% include rid %}
 
 <!-- LocalWords: inlined multithreaded -->
 <!-- LocalWords: performant rvalue suboptimal -->

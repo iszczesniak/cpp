@@ -1,70 +1,72 @@
 ---
-title: Memory organization
+title: Organizacja pamięci
 ---
 
-# Introduction
+# Wprowadzenie
 
-C++ processes *data* of *built-in* types (e.g., `int`, `long double`)
-or *user-defined* types (e.g., `struct A`, `class B`, `enum C`, `union
-D`).  The C++ standard describes:
+C++ przetwarza dane typów *wbudowanych* (np. `int`, `long double`)
+albo *zdefiniowanych przez użytkownika* (np., `struct A`, `struct B`,
+`enum C`, `union D`).  Standard C++ opisuje:
 
-* when data is created and destroyed,
+* kiedy dane są tworzone i niszczone,
 
-* where (i.e., what part of memory, what data structure) data is
-  located,
+* gdzie (w którym miejscu pamięci, w jakiej strukturze danych) dane
+  się znajdują,
 
-* how data is passed to and returned from a function.
+* jak dane są przekazywane do funkcji i jak są zwracane przez funkcję.
 
-The C++ memory organization has to respect the basic requirements of
-an operating system, but the rest is up to C++.
+C++ musi spełniać podstawowe wymagania systemu operacyjnego dotyczące
+organizacji pamięci, a reszta zależy do C++.
 
-## The basic requirements of an operating system
+## Podstawowe wymagania systemu operacyjnego
 
-When we run a *program*, it becomes a *process* of an operating
-system, and a *task* a processor is executing.  A process manages its
-memory within the limits imposed by the operating system.  An
-operating system offers a process two types of memory: *read-only*,
-and *read-write*.
+Uruchomiony *program* jest *procesem* w systemie operacyjnym i
+*zadaniem* wykonywanym przez procesor.  Proces zarządza swoją pamięcią
+zgodnie z ograniczeniami systemu operacyjnego.  System operacyjny daje
+procesowi do dyspozycji dwa rodzaje pamięci: *tylko do odczytu* oraz
+*do zapisu i odczytu*.
 
-The read-only memory stores the code of the program (i.e., the
-processor instructions), and the const data known at compile time,
-e.g., string literals.  This memory is shared by all processes of the
-same program, which can be a substantial saving for a large program
-run in a large number (e.g., a web server).
+Pamięć tylko do odczytu przechowuje kod programu (rozkazy procesora) i
+dane stałe programu znane w czasie kompilacji, np. literały
+łańcuchowe.  Ta pamięć jest współdzielona przez wszystkie procesy
+programu, co znacząco oszczędza pamięć w przypadku dużych programów
+uruchamianych w dużej liczbie, np. przglądarek czy serwerów
+internetowych.
 
-An *unprivileged* task (a *privileged* task is a kernel task, i.e., a
-task of an operating system) cannot do anything that could disturb the
-operating system and other processes.  For instance, an unprivileged
-task cannot write to its read-only memory.  Every process is an
-unprivileged task.
+Zadanie może być uprzywilejowane albo nieuprzywilejowane.  Tylko
+zadania jądra systemu operacyjnego są uprzywilejowane.  Procesy są
+zadaniami nieuprzywilejowanymi.  *Zadanie nieuprzywilejowane* nie może
+naruszyć danych innych zadań, w szczególności nie może pisać do swojej
+pamięci tylko do odczytu.
 
-In the following example we try to write to the read-only memory.  The
-code compiles, but is killed by the operating system with the SIGSEGV
-(segment violation) signal.
+W poniższym przykładzie próbujemy pisać do literału łańcuchowego,
+który jest znajduje się w pamięci tylko do odczytu.  Program się
+kompiluje, ale proces jest unicestwiony przez system operacyjny
+sygnałem SIGSEGV (segment violation).
 
 {% highlight c++ %}
 {% include_relative sigsegv.cc %}
 {% endhighlight %}
 
-All other data is located in the read-write memory, because it can be
-changed by a process.  Every process has its own read-write memory,
-even when there are many processes of the same program.
+Wszystkie inne dane programu (poza tymi w pamięci tylko do odczytu) są
+w pamięci do odczytu i zapisu, bo na tych danych program wykonuje
+obliczenia.  Każd proces tego samego programu ma osobną pamięć do
+odczytu i zapisu.
 
-## What is up to C++
+## Co zależy od C++
 
-C++ strives for time and memory performance, and that is reflected in
-the memory organization by, e.g., using pointers (C++ keeps close to
-hardware).  Furthermore, C++ also strives for a flexible control over
-data management by, e.g., allowing a programmer to allocate data
-statically, globally, locally or dynamically.  Finally, the C++ memory
-organization is also *deterministic*: we know exactly when and where
-the data are *destroyed* (so that they are destroyed as soon as no
-longer needed).
+C++ jest wydajny czasowo i pamięciowo, co wynika głównie z organizacji
+pamięci i użycia wskaźników, czyli niskopoziomowego mechanizmu.  Co
+więcej, C++ zapewnia swobodne zarządzanie danymi: np., programista
+może alokować dane statycznie, globalnie, lokalnie, albo dynamicznie.
+Organizacja pamięci jest także *deterministyczna*: możemy dokładnie
+wskazać które dane i gdzie są niszczone, bo C++ niszczy je dokładnie
+wtedy, kiedy nie są już potrzebne.
 
 C++ is in stark contrast with other languages, such as Java or C#,
-where data management is simplified at the cost of performance, and
+where object management is simplified at the cost of performance, and
 the lack of flexible control.  For instance, such languages allow
-allocation of data on the heap only, which deteriorates performance
+allocation of objects on the heap only, which deteriorates performance
 and flexibility, but enables easy implementation of garbage
 collection.  Some garbage collectors are even further inefficient,
 because they are *nondeterministic*, i.e., it is undefined when data

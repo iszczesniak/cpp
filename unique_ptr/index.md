@@ -407,4 +407,14 @@ problems gone.
 
 * Go for the smart pointers!
 
+# Quiz
+
+* Why should we use smart pointers instead of raw pointers?
+
+* What is the exclusive ownership?
+
+* What do we need the `make_uniqe` function for?
+
+{% include rid %}
+
 <!-- LocalWords:  -->

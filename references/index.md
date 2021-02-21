@@ -40,7 +40,7 @@ C++ references are like no references of other languages: in C++ a
 reference might not exists at run-time, because it was optimized out
 at compile-time.
 
-In languages like Java or C#, references are pointers with
+In languages like Java or C#, references are pointers with the
 shared-ownership semantics (i.e., a reference can be copied, and the
 object exists as long as at least one reference exists), and with the
 object member selection syntax.  In these languages references must
@@ -286,5 +286,15 @@ temporary will be destroyed, when the object is destroyed:
   * an rvalue reference, which can bind to an rvalue only.
 
 * A reference extends the lifetime of a temporary it's bound to.
+
+# Quiz
+
+* What are the reference types, and what are their hallmarks?
+
+* What can we initialize a const reference with?
+
+* Can we get an rvalue reference to a non-const lvalue?
+
+{% include rid %}
 
 <!-- LocalWords: lvalue lvalues rvalue -->

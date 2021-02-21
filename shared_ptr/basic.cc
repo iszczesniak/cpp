@@ -58,7 +58,8 @@ int main (void)
     assert(!sp2);
     assert(sp3);
 
-    // A2 is destroyed, because sp3 goes out of scope.
+    // A2 is destroyed, because sp3 (the sole managing object o A2)
+    // goes out of scope.
   }
 
   // We can't release the managed data from being managed, as we are

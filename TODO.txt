@@ -7,11 +7,16 @@ struct A
   void foo() &&;
 };
 
-********************************************************************
+**********************************************************************
 
 ordering types, lower_bound, upper_bound in std::map
 
-********************************************************************
+**********************************************************************
+
+Show that member references are a problem for the assignment operator,
+because a reference cannot be made to refer to some other data.
+
+**********************************************************************
 
 callable vs invokable
 
@@ -29,4 +34,21 @@ Partial specialization
 
 auto - more details
 
+<<<<<<< HEAD
 Tag dispatching - maybe?
+=======
+Tag dispatching
+
+**********************************************************************
+
+We can't store a reference in a container (e.g., a vector), but we can
+store pairs of references.  Why?
+
+We can't have:
+
+map<string &, int>
+
+But we can have:
+
+map<int, string &>
+>>>>>>> 07f4297de1b48d4f6ae49c02d814fa3c070af08b

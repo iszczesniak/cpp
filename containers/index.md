@@ -66,7 +66,7 @@ Sequence containers:
 * `std::deque<T>` - the deque, amalgamation of the vector and the
   doubly-linked list,
 
-* `std::forward_list<T>` - the sinlgy-linked list,
+* `std::forward_list<T>` - the singly-linked list,
 
 Associative containers:
 
@@ -79,7 +79,7 @@ Associative containers:
 
 * `std::multiset<T>` - the set with duplicate elements allowed,
 
-The adaptors:
+The adapters:
 
 * `std::stack` - the stack,
 
@@ -210,18 +210,18 @@ that we do not care about the type of a container (the container type
 was abstracted away).
 
 An iterator is a generalization of a pointer.  We could say that a
-pointer in the iterator of a C-style array.  We can initialize the
+pointer is the iterator of a C-style array.  We can initialize the
 pointer, compare it to some other pointer, dereference it to get to
-the element it points to, and also to increment a pointer.
-Furthermore, we can random access any element in the C-style array if
-we increase (with the + operator) the pointer to the element number 0
-by the value of the index as in here:
+the element it points to, and also increment it.  Furthermore, we can
+random access any element in the C-style array if we increase (with
+the + operator) the pointer to the element number 0 by the value of
+the index as in here:
 
 {% highlight c++ %}
 {% include_relative pointer.cc %}
 {% endhighlight %}
 
-Iterator types are user-defined, e.g., of the struct type.  Iterators
+Iterator types are user-defined, e.g., of a structure type.  Iterators
 are wrappers around pointers, where the operators (defined for that
 type) implement the required functionality.  For instance, if in the
 example above we replace the C-style array with a deque, the rest of
@@ -234,7 +234,7 @@ the code can remain untouched:
 Iterators of the standard library are very small and very efficient.
 They typically store only a single pointer.  Therefore we are free to
 use them by value, and copy them.  We could use iterators by reference
-too, but that would be just akward, just as akward would be using
+too, but that would be just awkward, just as awkward would be using
 pointers by reference.
 
 For a given container type `T`, there are always at least two iterator
@@ -252,12 +252,12 @@ elements.
 
 We know where the elements of a container are with the `begin`, and
 `end` functions.  The `begin` function returns an iterator to the
-first element.  The `end` function returns an iterator which you would
-get if you incremented an iterator to the last element: we could say
-the `end` function returns an iterator to an **imaginary** element
-(imaginary, because that element does not exist) that would follow the
-last element.  If a container has no elements, the iterators returned
-by `begin` and `end` equal.
+first element.  The `end` function returns a *past-the-end* iterator
+which you would get if you incremented an iterator to the last
+element: we could say the `end` function returns an iterator to an
+**imaginary** element (imaginary, because that element does not exist)
+that would follow the last element.  If a container has no elements,
+the iterators returned by `begin` and `end` equal.
 
 The `begin` and `end` functions return non-const iterators for a
 non-const container, and const iterators for a const container.  If we
@@ -266,7 +266,7 @@ can use the `cbegin` and `cend` functions, which return const
 iterators.
 
 The `cbegin` and `cend` are for convenience only, because they are
-despensible.  We can achieve the same functionality by calling the
+dispensable.  We can achieve the same functionality by calling the
 `begin` and `end` functions for a non-const container when we
 reference the container with a const reference, which we can do with
 the `std::as_const` function.
@@ -361,7 +361,7 @@ An example:
 ## How iteration the new way works
 
 The new range-based loop is translated by a compiler to a regular
-loop, where the iteration variable is of an interator type.  The
+loop, where the iteration variable is of an iterator type.  The
 iteration variable is initialized with a value returned by the `begin`
 function.  The loop continues if the value of the iterator is not
 equal to the value returned by the `end` function.  In every iteration
@@ -391,7 +391,7 @@ Here is an example how we can use that functionality:
 
 # Containers and element management
 
-We can copy or move an element into a container.  We can albo move it
+We can copy or move an element into a container.  We can also move it
 from a container, except for the associative containers, for which we
 can extract an element.  We can also **emplace** an element in a
 container.
@@ -450,20 +450,36 @@ An example:
 ## Emplace
 
 An element can be copied, moved, or *emplaced* into a container.
-Copying is needed when we want to need the source element.  Moving is
-faster, and so prefered over copying, if the source won't be needed.
+Copying is needed when we want to keep the source element intact.
+Moving is faster, and so preferred over copying, if the source won't be
+needed later.  In both copying and moving, we create an object
+ourselves, and then pass it to a container.  Emplacing creates an
+object based on the arguments we provide.
 
-Emplacing is the fastest: an element is created directly in a
-container.  No copying or moving is needed.  The element is created
-in-place, i.e., in the place (memory location) pointed out by the
-container, and not in a newly allocated memory at the heap.
+Emplacing is the fastest: a container tries to create the element in
+the required place: the element is created *in-place*, i.e., in the
+place (memory location) required by the container.  No copying, no
+moving... if all goes well.
 
-We emplace by calling an `emplace` function of a container.  Some
-containers have other functions for emplacing, e.g., `std::list` has
-`emplace_front` to emplace at the front of the list.
+An emplace function takes the arguments of an element constructor, and
+passes them (forwards, technically speaking) to the constructor when
+it's known where (i.e., the place is known) the element should be
+constructed.
 
-The emplace functions take the arguments that are then passed
-(forwarded, technically speaking) to constructor of the element.
+We emplace by calling an `emplace` function of a container.
+Containers have other functions for emplacing with slight semantic
+differences, e.g., `std::list` has `emplace_front`, and
+`std::forward_list` has `emplace_after`.
+
+Emplacement works similar to insertion in that the elements that
+follow are "pushed to the right".  Therefore emplacement entails the
+same performance issues as the insertion does.
+
+A container **tries** to emplace the element.  Tries, because the
+place for the element might be already taken by some other element,
+e.g., when we emplace at the front of a non-empty vector.  If that
+happens, the new element is created in a different memory location,
+and then moved into the required place.
 
 {% highlight c++ %}
 {% include_relative emplace.cc %}
@@ -482,4 +498,30 @@ The emplace functions take the arguments that are then passed
 * With the containers use the standard algorithms, because your own
   algorithm implementations will most likely perform far worse.
 
-<!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
+# Quiz
+
+* What are the prominent differences between container types?
+
+* Why can't we modify the set elements?
+
+* How does emplacement work?
+
+{% include rid %}
+
+<!-- LocalWords: cbegin -->
+<!-- LocalWords: cend -->
+<!-- LocalWords: const -->
+<!-- LocalWords: deque -->
+<!-- LocalWords: dereference -->
+<!-- LocalWords: dereferenced -->
+<!-- LocalWords: dereferencing -->
+<!-- LocalWords: emplace -->
+<!-- LocalWords: emplaced -->
+<!-- LocalWords: emplacing -->
+<!-- LocalWords: rvalue -->
+<!-- LocalWords: multiset -->
+<!-- LocalWords: performant -->
+<!-- LocalWords: Stepanov -->
+<!-- LocalWords: STL -->
+<!-- LocalWords: templated -->
+<!-- LocalWords: unlinking -->

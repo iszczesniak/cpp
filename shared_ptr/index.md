@@ -44,8 +44,8 @@ In Java or C#, a reference has the shared-ownership semantics.
 * The objects of this type are the **managing objects**, and the data
   allocated dynamically is the **managed data**.
 
-* It's a template class that implements the shared-ownership
-  semantics.  The template argument is the type of the manged data.
+* It's a template class: the template argument is the type of the
+  manged data.
 
 * The opposite of `std::unique_ptr`.
 
@@ -83,14 +83,14 @@ The example below shows the basic usage.
 
 ## How it works
 
-* The group of managing objects share **a managing data structure**,
+* The group of managing objects share **a control data structure**,
   which is allocated dynamically by the first object in the group.
 
-* A managing object has a pointer to the managing data structure of
-  its group.
+* A managing object has a pointer to the control data structure of its
+  group.
 
 * A reference count (i.e., the size of the group) is a field in the
-  managing data structure.
+  control data structure.
 
 * When a managing object is copied, the reference count is
   incremented.
@@ -116,7 +116,8 @@ But it's downright better done this way:
 {% endhighlight %}
 
 We can move the ownership from an rvalue of type `unique_ptr`, because
-`shared_ptr` has the right constructor.  Therefore, we can create a
+`shared_ptr` has the constructor which takes by rvalue reference an
+object of type `std::unique_ptr`.  Therefore, we can create a
 `shared_ptr` object from a temporary object of type `unique_ptr`,
 e.g., returned by a function like this:
 
@@ -131,12 +132,13 @@ because it has two fields:
 
 * a pointer to the managed data,
 
-* a pointer to the managing data structure.
+* a pointer to the control data structure.
 
-On top of this, there is the managing data structure allocated, but
-it's shared among the managing objects.
+On top of this, there is the memory taken by the control data
+structure allocated, but it's not a big deal, because it's shared
+among the managing objects.
 
-A pointer to the managed data could be kept in the managing data
+A pointer to the managed data could be kept in the control data
 structure, but then getting to the managed data would involve an extra
 indirect access, thwarting performance.
 
@@ -166,11 +168,11 @@ most likely be inlined, and the constructors elided when returning the
 managing object.
 
 Interestingly, `make_shared` allocates *in one piece* (i.e., with one
-memory allocation) the memory for the managed data and the managing
+memory allocation) the memory for the managed data and the control
 data structure, and then creates *in place* (i.e., without allocating
-memory) the managed data and the managing data structure, which is
+memory) the managed data and the control data structure, which is
 faster than allocating memory separately for the managed data and the
-managing data structure.
+control data structure.
 
 # Conclusion
 
@@ -185,6 +187,17 @@ managing data structure.
 
 * We can easily pass the ownership from `unique_ptr` to `shared_ptr`,
   but not the other way around.
+
+# Quiz
+
+* What's the difference between `unique_ptr` and `shared_ptr`?
+
+* What do we need a control data structure for?
+
+* Does the type of the managed data need to have some properties in
+  order to be managed?
+
+{% include rid %}
 
 <!-- LocalWords: inlined multithreaded -->
 <!-- LocalWords: performant rvalue suboptimal -->

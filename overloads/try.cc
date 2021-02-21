@@ -2,13 +2,14 @@
 
 using namespace std;
 
-void f(int *)
+template <typename T>
+void f(T)
 {
   cout << __PRETTY_FUNCTION__ << endl;
 }
 
 template <typename T>
-void f(T)
+void f(int, T, double)
 {
   cout << __PRETTY_FUNCTION__ << endl;
 }
@@ -19,8 +20,13 @@ void f(T *)
   cout << __PRETTY_FUNCTION__ << endl;
 }
 
-template <>
-void f(int *)
+template<>
+void f(int)
+{
+  cout << __PRETTY_FUNCTION__ << endl;
+}
+
+void f(double)
 {
   cout << __PRETTY_FUNCTION__ << endl;
 }
@@ -28,6 +34,11 @@ void f(int *)
 int
 main()
 {
-  int *i;
-  f(i);
+  bool b;
+  int i;
+  double d;
+
+  f(b);
+  f(&i);
+  f(d);
 }

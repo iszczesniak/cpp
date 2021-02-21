@@ -1,7 +1,7 @@
 int &
 loo()
 {
-  // It compiles even without the return statement!
+  // FYI: It compiles even if we remove the return statement below!
   return *static_cast<int *>(0);
 }
 

@@ -387,4 +387,14 @@ what's going on:
 * A programmer doesn't have to know about the move semantics, but it
   will be used by a compiler anyway.
 
+# Quiz
+
+* What do we need the move semantics for?
+
+* How does the move sementics work?
+
+* What's a move-only type?
+
+{% include rid %}
+
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->

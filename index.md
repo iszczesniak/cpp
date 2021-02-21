@@ -16,3 +16,5 @@ interesting and important for efficient code.
 * [`std::unique_ptr`](unique_ptr)
 * [`std::shared_ptr`](shared_ptr)
 * [`std::weak_ptr`](weak_ptr)
+
+{% include rid %}
