@@ -62,13 +62,13 @@ the data are *destroyed* (so that they are destroyed as soon as no
 longer needed).
 
 C++ is in stark contrast with other languages, such as Java or C#,
-where data management is simplified at the cost of performance, and
-the lack of flexible control.  For instance, such languages allow
-allocation of data on the heap only, which deteriorates performance
-and flexibility, but enables easy implementation of garbage
-collection.  Some garbage collectors are even further inefficient,
-because they are *nondeterministic*, i.e., it is undefined when data
-are destroyed.
+where data management is simplified at the cost of degraded
+performance, and constrained management of data.  For instance, such
+languages allow allocation of data on the heap only, which
+deteriorates performance and flexibility, but enables easy
+implementation of garbage collection.  Some garbage collectors are
+even further inefficient, because they are *nondeterministic*, i.e.,
+it is undefined when data are destroyed.
 
 In the past, the C++ Standard Committee considered the garbage
 collection support, but dropped it for performance reasons.  Nowadays,

@@ -60,17 +60,18 @@ pamięci i użycia wskaźników, czyli niskopoziomowego mechanizmu.  Co
 więcej, C++ zapewnia swobodne zarządzanie danymi: np., programista
 może alokować dane statycznie, globalnie, lokalnie, albo dynamicznie.
 Organizacja pamięci jest także *deterministyczna*: możemy dokładnie
-wskazać które dane i gdzie są niszczone, bo C++ niszczy je dokładnie
+wskazać, które dane i gdzie są niszczone, bo C++ niszczy je dokładnie
 wtedy, kiedy nie są już potrzebne.
 
-C++ is in stark contrast with other languages, such as Java or C#,
-where object management is simplified at the cost of performance, and
-the lack of flexible control.  For instance, such languages allow
-allocation of objects on the heap only, which deteriorates performance
-and flexibility, but enables easy implementation of garbage
-collection.  Some garbage collectors are even further inefficient,
-because they are *nondeterministic*, i.e., it is undefined when data
-are destroyed.
+Pod tym względem C++ znacznie różni się od innych języków, takich jak
+Java czy C#, gdzie zarządzanie pamięcią jest uproszczone, ale kosztem
+spadku wydajności i ograniczonej swobody zarządzania danym.  Na
+przykład, te języki pozwalają na alokację obiektów wyłącznie na
+stercie, co pogarsza wydajność i swobodę zarządzania danymi, ale
+pozwala na łatwą implementację odśmiecania pamięci (ang. garbage
+collection).  Odśmiecanie pamięci może być *niedeterministyczne*: nie
+ma gwarancji, kiedy dane będą niszczone, a to powoduje dalsze
+pogorszenie wydajności programu.
 
 In the past, the C++ Standard Committee considered the garbage
 collection support, but dropped it for performance reasons.  Nowadays,
