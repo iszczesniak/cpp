@@ -70,10 +70,10 @@ implementation of garbage collection.  Some garbage collectors are
 even further inefficient, because they are *nondeterministic*, i.e.,
 it is undefined when data are destroyed.
 
-In the past, the C++ Standard Committee considered the garbage
-collection support, but dropped it for performance reasons.  Nowadays,
-C++ requires no garbage collection since it offers advanced container
-and smart pointer support, which could be considered a form of garbage
+The C++ Standard Committee considered the garbage collection support,
+but dropped it for performance reasons.  Nowadays, C++ requires no
+garbage collection since it offers advanced container and smart
+pointer support, which could be considered a form of garbage
 collection.
 
 # Data and their location

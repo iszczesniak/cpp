@@ -73,11 +73,12 @@ collection).  Odśmiecanie pamięci może być *niedeterministyczne*: nie
 ma gwarancji, kiedy dane będą niszczone, a to powoduje dalsze
 pogorszenie wydajności programu.
 
-In the past, the C++ Standard Committee considered the garbage
-collection support, but dropped it for performance reasons.  Nowadays,
-C++ requires no garbage collection since it offers advanced container
-and smart pointer support, which could be considered a form of garbage
-collection.
+Komitet Standaryzacyjny C++ rozważał wprowadzenie odśmiecania pamięci,
+ale zaniechał tego z powodu oczekiwanego spadku wydajności programów.
+Dzisiaj programy pisane w C++ nie wymagają odśmiecania pamięci,
+ponieważ jest dostępna bogada funkcjonalność kontenerów i
+inteligentnych wskaźników, które mogą być uznane za rodzaj odśmiecania
+pamięci.
 
 # Data and their location
 
