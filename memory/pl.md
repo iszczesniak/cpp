@@ -82,15 +82,17 @@ pamięci.
 
 # Data and their location
 
-The read-write memory stores:
+Pamięć do zapisu i odczytu przechowuje:
 
-* global and static data in a location of fixed size,
+* globalne i statyczne dane w obszarze pamięci o ustalonym rozmiarze,
 
-* local data on a stack (more specifically, a stack per thread of the
-  process); a stack can be of fixed size or can grow (i.e., the
-  operating system can allocate more memory for it),
+* dane lokalne odłożone na stosie (a dokładnie na stosie dla każdego w
+  wątków osobno); stos może mieć ustalony rozmiar albo jego rozmiar
+  może rosnąć (czyli system operacyjny może zwiększyć jego rozmiar,
+  kiedy miałby się przepełnić),
 
-* dynamic data on the heap (a.k.a a free-store); a heap can grow.
+* dane dynamiczne na stercie; rozmiar sterty jest zwiększany w razie
+  potrzeby.
 
 ## The global and static data
 
