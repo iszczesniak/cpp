@@ -172,9 +172,17 @@ automatically allocates more memory for the stack.
 Allocation on the heap is slow, because it's a complex data structure
 which not only allocates and deallocates memory of an arbitrary size,
 but also deals with defragmentation, and so several memory reads and
-writes are necessary for an allocation.  An operating system allocates
-more memory for the heap, when the process (i.e., the library, which
-allocates memory) requests it.
+writes are necessary for an allocation.
+
+An operating system allocates more memory for the heap, when the
+process (i.e., the library which allocates memory) requests it.  A
+heap can grow to any size, only limited by an operating system.  When
+finally an operating system refuses to allocate more memory, the `new`
+operator throws `std::bad_alloc`.  Here's an example:
+
+{% highlight c++ %}
+{% include_relative heap_test.cc %}
+{% endhighlight %}
 
 Data located on the stack is packed together according to when the
 data was created, and so data that are related are close to each
