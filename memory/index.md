@@ -83,10 +83,9 @@ The read-write memory stores:
 * global and static data in a location of fixed size,
 
 * local data on a stack (more specifically, a stack per thread of the
-  process); a stack can be of fixed size or can grow (i.e., the
-  operating system can allocate more memory for it),
+  process),
 
-* dynamic data on the heap (a.k.a a free-store); a heap can grow.
+* dynamic data on the heap (a.k.a the free-store).
 
 ## The global and static data
 
@@ -147,12 +146,15 @@ allocation.
 
 ## Local vs dynamic data
 
-Allocation on the stack is fast: it's only necessary to increase (or
-decrease, depending on the system architecture) the stack pointer
-(a.k.a. the stack register) by the size of the data needed.  *No
-memory allocation is faster.* If an operating system supports it, the
-stack can have more memory allocated automatically when needed, i.e.,
-without the process requesting is explicitly.
+Allocation on the stack is the fastest: it's only necessary to
+increase (or decrease, depending on the processor architecture) the
+stack pointer (a.k.a. the stack register) by the size of the memory
+needed.
+
+A stack can be of fixed size or it can grow automatically: more memory
+can be allocated for the stack without the process requesting it
+explicitly, if an operating system can do this.  If not, the process
+is killed with an error in the case of stack overflow.
 
 The following code tests how big a stack is, and whether an operating
 system automatically allocates more memory for the stack.  A function

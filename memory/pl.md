@@ -58,7 +58,7 @@ odczytu i zapisu.
 C++ jest wydajny czasowo i pamięciowo, co wynika głównie z organizacji
 pamięci i użycia wskaźników, czyli niskopoziomowego mechanizmu.  Co
 więcej, C++ zapewnia swobodne zarządzanie danymi: np., programista
-może alokować dane statycznie, globalnie, lokalnie, albo dynamicznie.
+może alokować dane statycznie, globalnie, lokalnie lub dynamicznie.
 Organizacja pamięci jest także *deterministyczna*: możemy dokładnie
 wskazać, które dane i gdzie są niszczone, bo C++ niszczy je dokładnie
 wtedy, kiedy nie są już potrzebne.
@@ -87,12 +87,9 @@ Pamięć do zapisu i odczytu przechowuje:
 * globalne i statyczne dane w obszarze pamięci o ustalonym rozmiarze,
 
 * dane lokalne odłożone na stosie (a dokładnie na stosie dla każdego w
-  wątków osobno); stos może mieć ustalony rozmiar albo jego rozmiar
-  może rosnąć (czyli system operacyjny może zwiększyć jego rozmiar,
-  kiedy miałby się przepełnić),
+  wątków osobno),
 
-* dane dynamiczne na stercie; rozmiar sterty jest zwiększany w razie
-  potrzeby.
+* dane dynamiczne na stercie.
 
 ## Dane globalne i statyczne
 
@@ -155,14 +152,18 @@ dynamicznych.
 {% include_relative dynamic.cc %}
 {% endhighlight %}
 
-## Local vs dynamic data
+## Lokalne a dynamiczne dane
 
-Allocation on the stack is fast: it's only necessary to increase (or
-decrease, depending on the system architecture) the stack pointer
-(a.k.a. the stack register) by the size of the data needed.  *No
-memory allocation is faster.* If an operating system supports it, the
-stack can have more memory allocated automatically when needed, i.e.,
-without the process requesting is explicitly.
+Alokacja pamięci dla danych na stosie jest najszybsza: wystarczy
+zwiększyć (albo zmniejszyć, w zależności od architektury procesora)
+wskaźnik stosu (zwany także rejestrem stosu) o wielkość potrzebnej
+pamięci.
+
+Stos może mieć ustalony rozmiar albo jego rozmiar może rosnąć
+automatycznie: dodatkowa pamięć dla stosu może być alokowana bez
+potrzeby żądania tego przez proces, jeżeli system operacyjny to
+potrafi.  Jeżeli nie, to proces zostanie zakończony z błędem, kiedy
+dojdzie do przepełnienia stosu.
 
 The following code tests how big a stack is, and whether an operating
 system automatically allocates more memory for the stack.  A function
