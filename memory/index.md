@@ -107,11 +107,11 @@ program output.
 
 ## The local data
 
-All data local to a function or a block scope is allocated on the
-stack.  The local data is automatically destroyed when it goes out of
-scope.  It's not only a great property you can rely on to have your
-data destroyed, but also a necessity since the stack has to be cleaned
-up when the scope ends.
+Data local to a function or a block scope are created on the stack.
+The local data is automatically destroyed when it goes out of scope.
+It's not only a great property you can rely on to have your data
+destroyed, but also a necessity since the stack has to grow smaller
+when a scope ends.
 
 Data created locally are destroyed in the reverse order of their
 creation, because the stack is a FILO (first in, last out) structure.

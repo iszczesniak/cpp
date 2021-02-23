@@ -80,7 +80,7 @@ ponieważ jest dostępna bogada funkcjonalność kontenerów i
 inteligentnych wskaźników, które mogą być uznane za rodzaj odśmiecania
 pamięci.
 
-# Data and their location
+# Dane i ich miejsce w pamięci
 
 Pamięć do zapisu i odczytu przechowuje:
 
@@ -94,13 +94,15 @@ Pamięć do zapisu i odczytu przechowuje:
 * dane dynamiczne na stercie; rozmiar sterty jest zwiększany w razie
   potrzeby.
 
-## The global and static data
+## Dane globalne i statyczne
 
-Global data are initialized before entering the main function:
+Dane globalne są zainicjalizowane przed wywołaniem funkcji `main`:
 
 {% highlight c++ %}
 {% include_relative global.cc %}
 {% endhighlight %}
+
+Dane statyczne są zainicjalizowane przed ich pierwszym użyciem:
 
 Static data are initialized before its first use:
 
@@ -108,16 +110,15 @@ Static data are initialized before its first use:
 {% include_relative static.cc %}
 {% endhighlight %}
 
-In the example above remove `static`, and notice the changes in the
-program output.
+W przykładzie wyżej, proszę usunąć `static` i zauważyć zmianę w
+zachowaniu programu.
 
 ## The local data
 
-All data local to a function or a block scope is allocated on the
-stack.  The local data is automatically destroyed when it goes out of
-scope.  It's not only a great property you can rely on to have your
-data destroyed, but also a necessity since the stack has to be cleaned
-up when the scope ends.
+Dane lokalne funkcji albo bloku są tworzone na stosie.  Dane lokalne
+są automatycznie niszczone, kiedy wychodzą poza zakres (funkcji albo
+bloku) -- to nie tylko poręczna własność danych lokalnych, ale także
+konieczność, bo stos musi się zmniejszyć, kiedy zakres się kończy.
 
 Data created locally are destroyed in the reverse order of their
 creation, because the stack is a FILO (first in, last out) structure.
