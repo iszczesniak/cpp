@@ -113,40 +113,43 @@ Static data are initialized before its first use:
 W przykładzie wyżej, proszę usunąć `static` i zauważyć zmianę w
 zachowaniu programu.
 
-## The local data
+## Lokalne dane
 
 Dane lokalne funkcji albo bloku są tworzone na stosie.  Dane lokalne
 są automatycznie niszczone, kiedy wychodzą poza zakres (funkcji albo
 bloku) -- to nie tylko poręczna własność danych lokalnych, ale także
 konieczność, bo stos musi się zmniejszyć, kiedy zakres się kończy.
 
-Data created locally are destroyed in the reverse order of their
-creation, because the stack is a FILO (first in, last out) structure.
+Lokalne dane są niszczone w kolejności odwrotnej do kolejności ich
+tworzenia, bo stos jest strukturą FILO (ang. first in, last out).
 
 {% highlight c++ %}
 {% include_relative local.cc %}
 {% endhighlight %}
 
-## The dynamic data
+## Dynamiczne dane
 
-Dynamic data are created on the heap, and should be managed by *smart
-pointers*, which in turn use the low-level functionality of the `new`
-and `delete` operators provided for *raw pointers*.
+Dynamiczne dane (albo precyzyjniej: dane alokowane dynamicznie) są
+tworzone na stercie i powinny być zarządzane przez *inteligentny
+wskaźnik*, który to z kolei jest zaimplementowany z użyciem
+nisko-poziomowej funkcjonalności surowych wskaźników, w szczególności
+operatorów `new` and `delete`.
 
-Data created with the `new` operator has to be eventually destroyed by
-the `delete` operator, otherwise we get a memory leak.  We cannot
-destroy the same data twice, otherwise we get undefined behavior
-(e.g., a segmentation fault, bugs).
+Dane stworzone przez operator `new` muszą być potem zniszczone przez
+operator `delete`, żeby uniknąć wycieku pamięci.  Próba zniszczenia
+tych samych danych dwa razy skutkuje niezdefiniowanym zachowaniem
+(np., naruszenie ochrony pamięci, bugi).
 
-A programmer should use the smart pointers, which is error-safe but
-hard.  In contrast, using raw pointers is error-prone (often resulting
-in vexing heisenbugs) but easy.  Since smart pointers are the C++11
-functionality, modern code uses the smart pointers, and the legacy
-code the raw pointers.
+Powinniśmy używać inteligentnych wskaźników, bo chronią przed błędami
+i upraszczają kod, ale są trudniejsze w użyciu niż surowe wskaźniki.
+Użycie surowych wskaźników jest narażone na błędy (ang. error-prone),
+które powracają jako uciążliwe heisenbugi.  Ponieważ inteligentne
+wskaźniki zostały wprowadzone w C++11, to nowy kod zazwyczaj używa
+inteligentnych wskaźników, a stary kod surowych wskaźników.
 
-The following example uses the low-level `new` and `delete` operators,
-which is not recommended, but suitable to demonstrate the dynamic
-allocation.
+W poniższym przykładzie użyliśmy operatorów `new` i `delete`, czego
+już lepiej nie robić, ale jest to najprostszy przykład użycia danych
+dynamicznych.
 
 {% highlight c++ %}
 {% include_relative dynamic.cc %}

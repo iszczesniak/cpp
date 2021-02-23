@@ -123,13 +123,13 @@ creation, because the stack is a FILO (first in, last out) structure.
 ## The dynamic data
 
 Dynamic data are created on the heap, and should be managed by *smart
-pointers*, which in turn use the low-level functionality of the `new`
-and `delete` operators provided for *raw pointers*.
+pointers*, which in turn use the low-level functionality of *raw
+pointers*, most notably the `new` and `delete` operators.
 
 Data created with the `new` operator has to be eventually destroyed by
-the `delete` operator, otherwise we get a memory leak.  We cannot
-destroy the same data twice, otherwise we get undefined behavior
-(e.g., a segmentation fault, bugs).
+the `delete` operator to avoid a memory leak.  We cannot destroy the
+same data twice, otherwise we get undefined behavior (e.g., a
+segmentation fault, bugs).
 
 A programmer should use the smart pointers, which is error-safe but
 hard.  In contrast, using raw pointers is error-prone (often resulting
