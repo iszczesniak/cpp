@@ -11,6 +11,8 @@ struct A
 
 ordering types, lower_bound, upper_bound in std::map
 
+<=>, and how others are synthesized from <=>
+
 std::map::Compare::is_transparent
 
 **********************************************************************
