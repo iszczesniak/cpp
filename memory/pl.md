@@ -165,25 +165,38 @@ potrzeby żądania tego przez proces, jeżeli system operacyjny to
 potrafi.  Jeżeli nie, to proces zostanie zakończony z błędem, kiedy
 dojdzie do przepełnienia stosu.
 
-The following code tests how big a stack is, and whether an operating
-system automatically allocates more memory for the stack.  A function
-calls itself and prints the number of how many times the function was
-recursively called.  If we see small numbers (below a million) when
-the process is terminated, the operating system does not automatically
-allocate more memory for the stack.  If we see large numbers (above a
-million or far more), then the operating system most likely
-automatically allocates more memory for the stack.
+Poniższy kod testuje, jak duży jest stos i czy system operacyjny
+potrafi automatycznie przydzielać więcej pamięci dla stosu.  Funcja
+wywołuje siebie (rekursywnie) i wypisuje na standardowe wyjście, ile
+razy była wywołana.  Jeżeli widzimy małe liczby (poniżej miliona),
+kiedy proces był zakończony, to system nie jest w stanie automatycznie
+zwiększać rozmiaru stosu.  Jeżeli widzimy duże liczby (znacznie
+powyżej miliona), to najprawdopodobniej system automatycznie zwiększał
+rozmiar stosu.
 
 {% highlight c++ %}
 {% include_relative stack_test.cc %}
 {% endhighlight %}
 
-Allocation on the heap is slow, because it's a complex data structure
-which not only allocates and deallocates memory of an arbitrary size,
-but also deals with defragmentation, and so several memory reads and
-writes are necessary for an allocation.  An operating system allocates
-more memory for the heap, when the process (i.e., the library, which
-allocates memory) requests it.
+Alokacja pamięci na stercie jest wolna, bo sterta jest złożoną
+stukturą danych, która nie tylko alokuje i dealokuje pamięć dowolnego
+rozmiaru, ale także defragmentuje pamięć.  Taka funkcjonalność wymaga
+kilku zapisów i odczytów pamięci dla jednej alokacji.
+
+System operacyjny alokuje więcej pamięci dla sterty, kiedy proces tego
+żąda, a dokładnie żąda tego bilioteka, która dostarcza funkcjonalność
+dynamicznej alokacji pamięci (na Linuxie to libstdc++).  Bilioteka
+prosi system o przydzielenie pamięci do zapisu i odczytu, ale system
+nie wie, że ma to być dla sterty.
+
+Sterta może być zwiększana do dowolnego rozmiaru, ograniczonego
+jedynie przez system operacyjny.  Kiedy system w końcu odmawia
+przydzielenia więcej pamięci, operator `new` rzuca wyjątek
+`std::bad_alloc`.  Oto przykład:
+
+{% highlight c++ %}
+{% include_relative heap_test.cc %}
+{% endhighlight %}
 
 Data located on the stack is packed together according to when the
 data was created, and so data that are related are close to each
