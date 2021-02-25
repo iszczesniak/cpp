@@ -204,7 +204,7 @@ pamięci.  Nazywamy to *kolokacją danych*.  Lokalizacja jest korzystna,
 ponieważ dane potrzebne procesowi (a dokładniej jakiejś funkcji
 procesu) w pewnym momencie najprawdopodobniej znajdują się w pamięci
 podręcznej procesora (która przechowuje strony pamięci),
-przyspieszając dostęp do danych kilkakrotnie.
+przyspieszając kilkakrotnie dostęp do danych.
 
 Powiązane ze sobą dane są mniej kolokowane na stercie (w porównaniu ze
 stosem): prawdopodobnie są rozrzucone po różnych miejscach sterty, co
