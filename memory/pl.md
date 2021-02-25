@@ -211,22 +211,20 @@ stosem): prawdopodobnie są rozrzucone po różnych miejscach sterty, co
 spowolnia do nich dostęp, bo prawdopodobnie nie znajdują się w pamięci
 podręcznej procesora.
 
-# Function calls
+# Wywołania funkcji
 
-When calling a function we pass an argument by either value or
-reference.  Also, a function can return its result by either value or
-reference.
+Wywołując funkcję możemy przekazać argument przez wartość albo przez
+referencję.  Funkcja może wrócić wynik także przez wartość albo
+referencję.  Nie ma innych sposobów przekazywania argumentów i
+zwracania wartości.
 
-## Passing arguments
+## Przekazywanie argumentów
 
-In C++ arguments are always passed either *by value* or *by
-reference*.
-
-If a parameter of a function is of a non-reference type, we say that a
-function takes an argument by value, or that we pass an argument to a
-function by value.  The argument (i.e., the argument expression) is
-used to initialize the parameter, which in the legacy C++ always
-entailed copying the data from the argument to the parameter.
+Jeżeli parametr funkcji jest typu niereferencyjnego, to mówimy, że
+funkcja przyjmuje argument przez wartość albo że przekazujemy argument
+do funkcji przez wartość.  Argument (a dokładnie wyrażenie, które jest
+argumentem) jest użyty do inicjalizacji parametru, co w starszym C++
+oznaczało zawsze kopiowanie danych argumentu do parametru.
 
 If a parameter of a function is of a reference type, we say that a
 function takes an argument by reference, or that we pass an argument

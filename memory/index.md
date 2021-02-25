@@ -200,12 +200,10 @@ processor memory cache.
 
 When calling a function we pass an argument by either value or
 reference.  Also, a function can return its result by either value or
-reference.
+reference.  There are no other ways of passing an argument or
+returning a value.
 
 ## Passing arguments
-
-In C++ arguments are always passed either *by value* or *by
-reference*.
 
 If a parameter of a function is of a non-reference type, we say that a
 function takes an argument by value, or that we pass an argument to a
