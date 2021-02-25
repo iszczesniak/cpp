@@ -198,15 +198,18 @@ przydzielenia więcej pamięci, operator `new` rzuca wyjątek
 {% include_relative heap_test.cc %}
 {% endhighlight %}
 
-Data located on the stack is packed together according to when the
-data was created, and so data that are related are close to each
-other.  This is called *localization*.  And localization is good,
-because the data that a process needs is most likely already in the
-processor memory cache (which caches memory pages), speeding up the
-memory access manyfold.  Data allocated on the heap are less
-localized, i.e., they are more likely to be spread all over the heap
-memory, which slows down the memory access, as quite likely the data
-is not in the processor memory cache.
+Dane na stosie są upakowane razem w zależności od tego, kiedy były
+tworzone, tak więc dane powiązane ze sobą znajdują się blisko siebie w
+pamięci.  Nazywamy to *kolokacją danych*.  Lokalizacja jest korzystna,
+ponieważ dane potrzebne procesowi (a dokładniej jakiejś funkcji
+procesu) w pewnym momencie najprawdopodobniej znajdują się w pamięci
+podręcznej procesora (która przechowuje strony pamięci),
+przyspieszając dostęp do danych kilkakrotnie.
+
+Powiązane ze sobą dane są mniej kolokowane na stercie (w porównaniu ze
+stosem): prawdopodobnie są rozrzucone po różnych miejscach sterty, co
+spowolnia do nich dostęp, bo prawdopodobnie nie znajdują się w pamięci
+podręcznej procesora.
 
 # Function calls
 

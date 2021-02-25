@@ -190,9 +190,11 @@ is called *data colocation*.  And colocation is good, because the data
 that a process (more specifically, some function of the process) needs
 at a given time is most likely already in the processor memory cache
 (which caches memory pages), speeding up the memory access manyfold.
-Data allocated on the heap are less colocated, i.e., they are more
-likely to be spread all over the heap memory, which slows down memory
-access, as quite likely the data is not in the processor memory cache.
+
+Data allocated on the heap are less colocated (in comparison with the
+stack): they are more likely to be spread all over the heap memory,
+which slows down memory access, as quite likely the data is not in the
+processor memory cache.
 
 # Function calls
 
