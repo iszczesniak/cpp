@@ -230,18 +230,21 @@ compiler does not elide constructors.
 {% include_relative args.cc %}
 {% endhighlight %}
 
-## Returning values
-
-A function can return a result either by value or reference.
+## Returning a result
 
 If the return type is of a non-reference type, we say that a function
-returns the result by value.  In the deep past (before C++ was
-standardized) that always entailed copying the result (i.e., the data
-local to the function) from one location on the stack to a temporary
-on the stack, and then to its final location, e.g., a variable.
+returns the result by value.  In modern C++ returing by value is fast,
+does not impose any unnecessary overhead, and therefore is
+recommended.  It's not what it used to be in the deep past, before C++
+was standardized.
+
+Back then returning by value always copied the result twice.  First,
+from a local variable of the function to a temporary place on the
+stack for the return value.  Second, from the temporary place to the
+final place, e.g., a variable to which the result was assigned.
 
 If the return type is of a reference type, we say that a function
-returns the results by reference.  The reference should be bound to
+returns the result by reference.  The reference should be bound to
 data that will exist when the function returns (i.e., the data should
 outlive the function).  Containers (e.g., `std::vector`), for
 instance, return a reference to dynamically-allocated data in, for
@@ -276,7 +279,7 @@ returned in a register, e.g., EAX for x86, Linux, and GCC.
 
 Legacy call conventions required the memory for the return value be
 the last data on the stack before a function was called, so that it
-could located with the pointer register.  This, however, entailed
+can be located with the stack register.  This, however, entailed
 copying of the return value from that temporary (the last on the
 stack) location to its final destination, e.g., a local variable.
 

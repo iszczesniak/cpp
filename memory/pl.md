@@ -245,18 +245,21 @@ unikał konstruktorów.
 {% include_relative args.cc %}
 {% endhighlight %}
 
-## Returning values
+## Zwracanie wyniku
 
-A function can return a result either by value or reference.
+Jeżeli typ zwracanego wyniku jest niereferencyjny, to mówimy, że
+funkcja zwraca wynik przez wartość.  W nowoczesnym C++ zwracanie przez
+wartość jest bardzo szybkie, nie wprowadza żadnego niepożądanego
+narzutu i dlatego jest zalecane.  To nie to, co kiedyś w dalekiej
+przeszłości, kiedy C++ nie był jeszcze ustandaryzowany.
 
-If the return type is of a non-reference type, we say that a function
-returns the result by value.  In the deep past (before C++ was
-standardized) that always entailed copying the result (i.e., the data
-local to the function) from one location on the stack to a temporary
-on the stack, and then to its final location, e.g., a variable.
+Ongiś zwracanie przez wartość zawsze kopiowało wynik dwa razy.  Raz ze
+zmiennej lokalnej funkcji do tymczasowego miejsca na stosie dla
+zwracanego wyniku.  Drugi raz z tymczasowego miejsca do miejsca
+docelowego, np. zmiennej, której wynik przypisywano.
 
 If the return type is of a reference type, we say that a function
-returns the results by reference.  The reference should be bound to
+returns the result by reference.  The reference should be bound to
 data that will exist when the function returns (i.e., the data should
 outlive the function).  Containers (e.g., `std::vector`), for
 instance, return a reference to dynamically-allocated data in, for
@@ -291,7 +294,7 @@ returned in a register, e.g., EAX for x86, Linux, and GCC.
 
 Legacy call conventions required the memory for the return value be
 the last data on the stack before a function was called, so that it
-could located with the pointer register.  This, however, entailed
+could located with the stack register.  This, however, entailed
 copying of the return value from that temporary (the last on the
 stack) location to its final destination, e.g., a local variable.
 
@@ -343,6 +346,13 @@ of the function parameter.
 When a result is returned by value from a function, it can be created
 directly (i.e., with the constructor elided) in the location for the
 return value.  This is known as the return value optimization (RVO).
+
+W dalekiej przeszłości (kiedy C++ nie był jeszcze ustandaryzowany)
+zwracanie przez wartość zawsze kopiowało wynik dwa razy: z jednego
+miejsca na stosie (gdzie zmienna lokalna funkcji przowywała wynik) do
+drugiego miejsca na stosie (gdzie było miejsce dla zwracanego wyniki),
+a następnie to trzeciego miejsca, kiedy wynik miał się ostatecznie
+znaleźć (gdzie było miejsce zmiennej, której wynik przypisywano).
 
 RVO not always can take place, because of technical reasons.  First,
 because we return data, which has to be created prior to deciding
