@@ -221,8 +221,10 @@ takes an argument by reference, or that we pass an argument to a
 function by reference.  Initialization makes the parameter a name (an
 alias) for the argument data.
 
-This example shows how we pass arguments by value and by reference.
-Compile the example with the flag `-fno-elide-constructors`.
+The example below shows how we pass arguments by value and by
+reference.  Compile the example with the flag
+`-fno-elide-constructors` (a flag of the GCC compiler), so that the
+compiler does not elide constructors.
 
 {% highlight c++ %}
 {% include_relative args.cc %}

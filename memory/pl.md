@@ -236,8 +236,10 @@ funkcja przyjmuje argument przez referencję albo że przekazujemy
 argument do funkcji przez referencję.  Inicjalizacja czyni parametr
 nazwą (aliasem) danych argumentu.
 
-This example shows how we pass arguments by value and by reference.
-Compile the example with the flag `-fno-elide-constructors`.
+Przykład niżej pokazuje jak przekazujemy argumenty przez wartość i
+przez referencję.  Proszę skompilować przykład z flagą
+`-fno-elide-constructors` (flaga kompilatora GCC), żeby kompilator nie
+unikał konstruktorów.
 
 {% highlight c++ %}
 {% include_relative args.cc %}
