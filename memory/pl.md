@@ -228,15 +228,13 @@ inicjalizowany z użyciem argumentu.
 
 Jeżeli parametr funkcji jest typu niereferencyjnego, to mówimy, że
 funkcja przyjmuje argument przez wartość albo że przekazujemy argument
-do funkcji przez wartość.  Argument (a dokładnie wyrażenie, które jest
-argumentem) jest użyty do inicjalizacji parametru, co w starszym C++
-oznaczało zawsze kopiowanie danych argumentu do parametru.
+do funkcji przez wartość.  W starszym C++ parametr niereferencyjny był
+inicjalizowany przez skopiowanie wartości argumentu do parametru.
 
-If a parameter of a function is of a reference type, we say that a
-function takes an argument by reference, or that we pass an argument
-to a function by reference.  The reference parameter is initialized by
-the argument expression.  The parameter becomes a name (an alias) for
-the data of the argument expression.
+Jeżeli parametr funkcji jest typu referencyjnego, to mówimy, że
+funkcja przyjmuje argument przez referencję albo że przekazujemy
+argument do funkcji przez referencję.  Inicjalizacja czyni parametr
+nazwą (aliasem) danych argumentu.
 
 This example shows how we pass arguments by value and by reference.
 Compile the example with the flag `-fno-elide-constructors`.
