@@ -203,6 +203,12 @@ reference.  Also, a function can return its result by either value or
 reference.  There are no other ways of passing an argument or
 returning a value.
 
+A function has *parameters*, and we call a function with *arguments*.
+A parameter is available inside the function.  A parameter has a type
+and a name given in the function declaration or definition.  An
+argument is an expression that is part of a call expression.  A
+parameter is initialized using an argument.
+
 ## Passing arguments
 
 If a parameter of a function is of a non-reference type, we say that a

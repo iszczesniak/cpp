@@ -218,6 +218,12 @@ referencję.  Funkcja może wrócić wynik także przez wartość albo
 referencję.  Nie ma innych sposobów przekazywania argumentów i
 zwracania wartości.
 
+Funkcja ma *parametry*, a funkcję wywołujemy z *argumentami*.
+Parametr funkcji jest dostępny wewnątrz funkcji.  Parametr ma typ i
+nazwę podawane przy deklaracji lub definicji funkcji.  Argument jest
+wyrażeniem, które jest częścią wyrażenia wywołania.  Parametr jest
+inicjalizowany z użyciem argumentu.
+
 ## Przekazywanie argumentów
 
 Jeżeli parametr funkcji jest typu niereferencyjnego, to mówimy, że
