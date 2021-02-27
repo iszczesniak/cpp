@@ -258,12 +258,12 @@ zmiennej lokalnej funkcji do tymczasowego miejsca na stosie dla
 zwracanego wyniku.  Drugi raz z tymczasowego miejsca do miejsca
 docelowego, np. zmiennej, której wynik przypisywano.
 
-If the return type is of a reference type, we say that a function
-returns the result by reference.  The reference should be bound to
-data that will exist when the function returns (i.e., the data should
-outlive the function).  Containers (e.g., `std::vector`), for
-instance, return a reference to dynamically-allocated data in, for
-instance, `operator[]` or `front` functions.
+Jeżeli typ zwracanego wyniku jest referencyjny, to mówimy, że funkcja
+zwraca wynik przez referencję.  Referencja powinna odnosić się do
+danych, które będą istnieć po wyjściu z funkcji (czyli dane powinny
+przeżyć funkcję).  Na przykład, kontenery (np. `std::vector`) zwracają
+referencję do dynamicznie zaalokowanych danych z użyciem operatora
+indeksowania (czyli `operator[]`) albo funkcji `front`.
 
 This example shows how to return results by value and by reference.
 Compile the example with the flag `-fno-elide-constructors`.
