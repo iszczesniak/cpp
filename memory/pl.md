@@ -296,18 +296,18 @@ Małe dane mogą być przekazywane i zwracane w rejestrach procesora.  Na
 przykład, funkcja może przyjąć jako argument albo zwrócić jako wynik
 liczbę całkowitą w rejestrze, np. EAX dla x86, Linuxa i GCC.
 
-W starej konwencji wynik funkcji był zwracany w tyczasowym miejscu na
+W starej konwencji funkcja zwracała wynik w tyczasowym miejscu na
 szczycie stosu, które można było łatwo zlokalizować z użyciem rejestru
 stosu -- to była zaleta.  Wadą jednak była konieczność kopiowania
 wyniku z miejsca tymczasowego do miejsca docelowego, np. zmiennej,
 której wynik przypisywano.
 
-Modern call conventions allow the memory for the return value be
-allocated anywhere in memory (on the stack, on the heap, or in the
-fixed-size memory for the static and global data), and the address be
-passed to a function in a processor register (e.g., RDI for x86,
-Linux, and GCC), so that the function can create the return value in
-the pointed location.
+Nowoczesna konwencja wywołania funkcji pozwala na alokację miejsca dla
+zwracanej wartości gdziekolwiek w pamięci (nie tylko na stosie, ale
+także na stercie czy pamięci dla danych statycznych i globalnych) i
+przekazanie adresu tego miejsca w rejestrze procesora (np. RDI dla
+x86, Linuxa i GCC), żeby funkcja zwróciła wynik pod wskazanym adresem.
+Nie potrzebujemy tymczasowego miejsca, a jedynie dodatkowy rejestr.
 
 The following example demonstrates that the return value can be
 created anywhere (as the modern call convention allows), and not only

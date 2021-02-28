@@ -281,18 +281,19 @@ Small data may be passed or returned in processor registers.  For
 instance, a function can take an argument or return as a result an
 integer in a register, e.g., EAX for x86, Linux, and GCC.
 
-In the legacy call convention, a function result was returned in a
-temporary place at the top of a stack, which was easy to locate with
+In the legacy call convention, a function returned its result was in a
+temporary place at the top of the stack, which was easy to locate with
 the stack register -- that was an advantage.  A disadvantage it was to
 copy the result from the temporary place to its destination, e.g., a
 variable that was assigned the result.
 
-Modern call conventions allow the memory for the return value be
-allocated anywhere in memory (on the stack, on the heap, or in the
-fixed-size memory for the static and global data), and the address be
-passed to a function in a processor register (e.g., RDI for x86,
-Linux, and GCC), so that the function can create the return value in
-the pointed location.
+The modern call convention allows the place for the return value be
+allocated anywhere in memory (not only on the stack, but also on the
+heap, or in the memory for the static and global data), and passing to
+a function the address of the place in a processor register (e.g., RDI
+for x86, Linux, and GCC), so that the function can create the return
+value at the pointed address.  We don't need a temporary place, but
+only an extra register.
 
 The following example demonstrates that the return value can be
 created anywhere (as the modern call convention allows), and not only
