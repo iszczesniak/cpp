@@ -277,25 +277,24 @@ optymalizacji wartości powrotu.
 {% include_relative return.cc %}
 {% endhighlight %}
 
-# Function call convention
+# Konwencja wywołania funkcji
 
-The technical details on how exactly a function is called is known as
-the *call convention*, which depends on the system architecture, the
-operating system, and the compiler.  C++ does not specify a call
-convention, but some C++ functionality (like the constructor elision
-and the return value optimization) follows from a typical call
-convention.
+*Konwencja wywołania funkcji* to szczegóły techniczne dotyczące
+wywołania funkcji, które zależą od architektury systemu, systemu
+operacyjnego i kompilatora.  C++ nie definiuje konwencji wywołania
+funkcji, ale pewne funkcjonalności (jak unikanie konstruktorów czy
+optymalizacja wartości powrotu) wynikają z typowej konwencji wywołania
+funkcji.
 
-Typically, a call convention requires that the caller of the function
-(i.e., the code that calls the function):
+Typowa konwencja wywołania funkcji wymaga od kodu wywołującego:
 
-* creates the function parameters on the stack,
+* utworzenia parametrów na stosie,
 
-* allocates memory for the return value on the stack.
+* alokacji pamięci dla zwracanej wartości.
 
-Small data may be passed or returned in processor registers.  For
-instance, if a function returns an integer, the return value can be
-returned in a register, e.g., EAX for x86, Linux, and GCC.
+Małe dane mogą być przekazywane i zwracane w rejestrach procesora.  Na
+przykład, funkcja może zwrócić liczbę całkowitą w rejestrze, np. EAX
+dla x86, Linuxa i GCC.
 
 Legacy call conventions required the memory for the return value be
 the last data on the stack before a function was called, so that it

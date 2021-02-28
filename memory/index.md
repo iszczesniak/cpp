@@ -263,8 +263,8 @@ convention, constructor elision, and return value optimization.
 
 # Function call convention
 
-The technical details on how exactly a function is called is known as
-the *call convention*, which depends on the system architecture, the
+The *call convention* are the technical details on how exactly a
+function is called, which depend on the system architecture, the
 operating system, and the compiler.  C++ does not specify a call
 convention, but some C++ functionality (like the constructor elision
 and the return value optimization) follows from a typical call
@@ -275,11 +275,11 @@ Typically, a call convention requires that the caller of the function
 
 * creates the function parameters on the stack,
 
-* allocates memory for the return value on the stack.
+* allocates memory for the return value.
 
 Small data may be passed or returned in processor registers.  For
-instance, if a function returns an integer, the return value can be
-returned in a register, e.g., EAX for x86, Linux, and GCC.
+instance, a function can take an argument or return as a result an
+integer in a register, e.g., EAX for x86, Linux, and GCC.
 
 Legacy call conventions required the memory for the return value be
 the last data on the stack before a function was called, so that it
