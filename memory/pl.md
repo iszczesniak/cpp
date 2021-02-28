@@ -296,11 +296,11 @@ Małe dane mogą być przekazywane i zwracane w rejestrach procesora.  Na
 przykład, funkcja może przyjąć jako argument albo zwrócić jako wynik
 liczbę całkowitą w rejestrze, np. EAX dla x86, Linuxa i GCC.
 
-Legacy call conventions required the memory for the return value be
-the last data on the stack before a function was called, so that it
-could located with the stack register.  This, however, entailed
-copying of the return value from that temporary (the last on the
-stack) location to its final destination, e.g., a local variable.
+W starej konwencji wynik funkcji był zwracany w tyczasowym miejscu na
+szczycie stosu, które można było łatwo zlokalizować z użyciem rejestru
+stosu -- to była zaleta.  Wadą jednak była konieczność kopiowania
+wyniku z miejsca tymczasowego do miejsca docelowego, np. zmiennej,
+której wynik przypisywano.
 
 Modern call conventions allow the memory for the return value be
 allocated anywhere in memory (on the stack, on the heap, or in the
