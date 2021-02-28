@@ -281,7 +281,7 @@ Small data may be passed or returned in processor registers.  For
 instance, a function can take an argument or return as a result an
 integer in a register, e.g., EAX for x86, Linux, and GCC.
 
-In the legacy call convention, a function returned its result was in a
+In the legacy call convention, a function returned its result in a
 temporary place at the top of the stack, which was easy to locate with
 the stack register -- that was an advantage.  A disadvantage it was to
 copy the result from the temporary place to its destination, e.g., a
