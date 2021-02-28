@@ -265,8 +265,13 @@ przeżyć funkcję).  Na przykład, kontenery (np. `std::vector`) zwracają
 referencję do dynamicznie zaalokowanych danych z użyciem operatora
 indeksowania (czyli `operator[]`) albo funkcji `front`.
 
-This example shows how to return results by value and by reference.
-Compile the example with the flag `-fno-elide-constructors`.
+Poniższy przykład pokazuje jak zwrócić wynik przez wartość i przez
+referencję.  Na nowoczesnym systemie i z nowoczesnym kompilatorem,
+wynik zwracany przez wartość nie jest kopiowany.  Żeby zobaczyć pewne
+stare zachowanie C++, proszę skompilować przykład z flagą
+`-fno-elide-constructors`.  Gdzie i dlaczego obiekty są kopiowane?  To
+zależy od konwencji wywołania funkcji, unikania konstruktorów i
+optymalizacji wartości powrotu.
 
 {% highlight c++ %}
 {% include_relative return.cc %}
@@ -346,13 +351,6 @@ of the function parameter.
 When a result is returned by value from a function, it can be created
 directly (i.e., with the constructor elided) in the location for the
 return value.  This is known as the return value optimization (RVO).
-
-W dalekiej przeszłości (kiedy C++ nie był jeszcze ustandaryzowany)
-zwracanie przez wartość zawsze kopiowało wynik dwa razy: z jednego
-miejsca na stosie (gdzie zmienna lokalna funkcji przowywała wynik) do
-drugiego miejsca na stosie (gdzie było miejsce dla zwracanego wyniki),
-a następnie to trzeciego miejsca, kiedy wynik miał się ostatecznie
-znaleźć (gdzie było miejsce zmiennej, której wynik przypisywano).
 
 RVO not always can take place, because of technical reasons.  First,
 because we return data, which has to be created prior to deciding

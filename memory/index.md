@@ -250,8 +250,12 @@ outlive the function).  Containers (e.g., `std::vector`), for
 instance, return a reference to dynamically-allocated data in, for
 instance, `operator[]` or `front` functions.
 
-This example shows how to return results by value and by reference.
-Compile the example with the flag `-fno-elide-constructors`.
+The example below shows how to return a result by value and by
+reference.  On a modern system with a modern compiler, a result
+returned by value is not copied.  To see some legacy C++ behviour,
+compile the example with the flag `-fno-elide-constructors`.  Where
+and why are objects copied?  That depends on the function call
+convention, constructor elision, and return value optimization.
 
 {% highlight c++ %}
 {% include_relative return.cc %}
