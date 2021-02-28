@@ -56,7 +56,7 @@ C++ strives for time and memory performance, and that is reflected in
 the memory organization by, e.g., using pointers (C++ keeps close to
 hardware).  Furthermore, C++ also strives for a flexible control over
 data management by, e.g., allowing a programmer to allocate data
-statically, globally, locally or dynamically.  Finally, the C++ memory
+globally, statically, locally or dynamically.  Finally, the C++ memory
 organization is also *deterministic*: we know exactly when and where
 the data are *destroyed* (so that they are destroyed as soon as no
 longer needed).
@@ -289,18 +289,18 @@ variable that was assigned the result.
 
 The modern call convention allows the place for the return value be
 allocated anywhere in memory (not only on the stack, but also on the
-heap, or in the memory for the static and global data), and passing to
+heap, or in the memory for the global and static data), and passing to
 a function the address of the place in a processor register (e.g., RDI
 for x86, Linux, and GCC), so that the function can create the return
 value at the pointed address.  We don't need a temporary place, but
 only an extra register.
 
-The following example demonstrates that the return value can be
-created anywhere (as the modern call convention allows), and not only
-on the stack (as the legacy call convention stipulated).  In the
-example a function returns an object which is created directly in the
-memory location for global and static data, without copying the object
-from the stack as the legacy call convention would require.
+The following example demonstrates that a result can be returned
+anywhere (as the modern call convention allows), and not only on the
+stack (as the legacy convention stipulated).  In the example the
+function returns an object directly in the place of memory for global
+and static data, without copying the object using a temporary place
+required by the legacy call convention.
 
 {% highlight c++ %}
 {% include_relative mcc.cc %}
@@ -353,9 +353,9 @@ create the parameter in the location for the return value:
 {% include_relative rvo_no2.cc %}
 {% endhighlight %}
 
-Finally, because we try to return static or global data, which has to
+Finally, because we try to return global or static data, which has to
 be available after the function returns, and so the function can only
-copy the result from the static or global data:
+copy the result from the global or static data:
 
 {% highlight c++ %}
 {% include_relative rvo_no3.cc %}
@@ -363,7 +363,7 @@ copy the result from the static or global data:
 
 # Conclusion
 
-Data can be allocated statically, globally, locally or dynamically.
+Data can be allocated globally, statically, locally or dynamically.
 
 Allocating memory for local data (on the stack) is ultra fast, while
 for dynamic data (on the heap) is much slower.

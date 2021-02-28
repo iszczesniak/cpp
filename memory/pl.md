@@ -58,7 +58,7 @@ odczytu i zapisu.
 C++ jest wydajny czasowo i pamięciowo, co wynika głównie z organizacji
 pamięci i użycia wskaźników, czyli niskopoziomowego mechanizmu.  Co
 więcej, C++ zapewnia swobodne zarządzanie danymi: np., programista
-może alokować dane statycznie, globalnie, lokalnie lub dynamicznie.
+może alokować dane globalnie, statycznie, lokalnie lub dynamicznie.
 Organizacja pamięci jest także *deterministyczna*: możemy dokładnie
 wskazać, które dane i gdzie są niszczone, bo C++ niszczy je dokładnie
 wtedy, kiedy nie są już potrzebne.
@@ -304,17 +304,17 @@ której wynik przypisywano.
 
 Nowoczesna konwencja wywołania funkcji pozwala na alokację miejsca dla
 zwracanej wartości gdziekolwiek w pamięci (nie tylko na stosie, ale
-także na stercie czy pamięci dla danych statycznych i globalnych) i
+także na stercie czy pamięci dla danych globalnych i statycznych) i
 przekazanie adresu tego miejsca w rejestrze procesora (np. RDI dla
 x86, Linuxa i GCC), żeby funkcja zwróciła wynik pod wskazanym adresem.
 Nie potrzebujemy tymczasowego miejsca, a jedynie dodatkowy rejestr.
 
-The following example demonstrates that the return value can be
-created anywhere (as the modern call convention allows), and not only
-on the stack (as the legacy call convention stipulated).  In the
-example a function returns an object which is created directly in the
-memory location for global and static data, without copying the object
-from the stack as the legacy call convention would require.
+Przykład niżej pokazuje, że wynik może być zwracany gdziekolwiek (na
+co pozwala nowoczesna konwencja wywołania), a nie tylko na stosie (jak
+narzucała to stara konwencja).  W przykładzie funkcja zwraca obiekt
+bezpośrednio w miejscu pamięci dla danych globalnych i statycznych,
+bez kopiowania obiektu z udziałem tymczasowego miejsca wymaganego
+przez starą konwencję.
 
 {% highlight c++ %}
 {% include_relative mcc.cc %}
