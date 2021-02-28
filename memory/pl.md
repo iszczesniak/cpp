@@ -293,8 +293,8 @@ Typowa konwencja wywołania funkcji wymaga od kodu wywołującego:
 * alokacji pamięci dla zwracanej wartości.
 
 Małe dane mogą być przekazywane i zwracane w rejestrach procesora.  Na
-przykład, funkcja może zwrócić liczbę całkowitą w rejestrze, np. EAX
-dla x86, Linuxa i GCC.
+przykład, funkcja może przyjąć jako argument albo zwrócić jako wynik
+liczbę całkowitą w rejestrze, np. EAX dla x86, Linuxa i GCC.
 
 Legacy call conventions required the memory for the return value be
 the last data on the stack before a function was called, so that it
