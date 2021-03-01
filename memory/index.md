@@ -333,9 +333,12 @@ of the function parameter.
 
 # Return value optimization
 
-When a result is returned by value from a function, it can be created
-directly (i.e., with the constructor elided) in the location for the
-return value.  This is known as the return value optimization (RVO).
+A result can be returned by a function directly in its destination,
+e.g., a variable to which the result is assigned.  The idea is to
+create the result in its destination, so that it doesn't have to be
+copied or moved there.  This is known as the return value optimization
+(RVO).  RVO tries to elide constructors when returning a result by
+value.
 
 RVO not always can take place, because of technical reasons.  First,
 because we return data, which has to be created prior to deciding

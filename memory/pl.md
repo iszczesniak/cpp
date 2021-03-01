@@ -345,11 +345,14 @@ Kiedy obiekt tymczasowy jest przekazywany przez wartość do funkcji, to
 pominięcie konstruktora powoduje stworzenie tego obiektu bezpośrednio
 w miejscu na stosie dla tego parametru.
 
-# Return value optimization
+# Optymalizacja wartości powrotu
 
-When a result is returned by value from a function, it can be created
-directly (i.e., with the constructor elided) in the location for the
-return value.  This is known as the return value optimization (RVO).
+Wynik może być zwrócony przez funkcję bezpośrednio w miejscu
+docelowym, np. w zmiennej, której wynik przypisujemy.  Chodzi o to,
+żeby wynik sworzyć w miejscu docelowym, żeby go nie kopiować ani
+przenosić.  Nazywamy to optymalizacją wartości powrotu (ang. return
+value optimization, RVO).  RVO stara się pominąć konstruktory przy
+zwracaniu wyniku przez wartość.
 
 RVO not always can take place, because of technical reasons.  First,
 because we return data, which has to be created prior to deciding
