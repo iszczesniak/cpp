@@ -366,16 +366,16 @@ copy the result from the global or static data:
 
 # Conclusion
 
-Data can be allocated globally, statically, locally or dynamically.
+* Data can be allocated globally, statically, locally or dynamically.
 
-Allocating memory for local data (on the stack) is ultra fast, while
-for dynamic data (on the heap) is much slower.
+* Allocating memory on the stack is ultra fast, while on the heap is
+  much slower.
 
-Don't use the dynamically-allocated data, if local data is good
-enough.
+* Don't use the dynamically-allocated data, if local data is good
+  enough.
 
-Passing parameters or return results by value is not that bad, because
-most likely their copying or moving will be elided.
+* Nowadays passing parameters or returning results by value is
+  efficient, because the value is not copied or moved unnecessarily.
 
 # Quiz
 

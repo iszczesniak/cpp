@@ -84,7 +84,7 @@ pamięci.
 
 Pamięć do zapisu i odczytu przechowuje:
 
-* globalne i statyczne dane w obszarze pamięci o ustalonym rozmiarze,
+* globalne i statyczne dane w miejscu pamięci o ustalonym rozmiarze,
 
 * dane lokalne odłożone na stosie (a dokładnie na stosie dla każdego w
   wątków osobno),
@@ -100,8 +100,6 @@ Dane globalne są zainicjalizowane przed wywołaniem funkcji `main`:
 {% endhighlight %}
 
 Dane statyczne są zainicjalizowane przed ich pierwszym użyciem:
-
-Static data are initialized before its first use:
 
 {% highlight c++ %}
 {% include_relative static.cc %}
@@ -379,26 +377,27 @@ wtedy jedynie skopiować wynik:
 {% include_relative rvo_no3.cc %}
 {% endhighlight %}
 
-# Conclusion
+# Podsumowanie
 
-Data can be allocated statically, globally, locally or dynamically.
+* Dane mogą być alokowane statycznie, globalnie, lokalnie i
+  dynamicznie.
 
-Allocating memory for local data (on the stack) is ultra fast, while
-for dynamic data (on the heap) is much slower.
+* Alokacja pamięci na stosie jest super szybka, a na stosie znacznie
+  wolniejsza.
 
-Don't use the dynamically-allocated data, if local data is good
-enough.
+* Nie używaj danych dynamicznych, jeżeli wystarczą dane lokalne.
 
-Passing parameters or return results by value is not that bad, because
-most likely their copying or moving will be elided.
+* Obecnie przekazywanie parametru i zwracanie wyniku przez wartość
+  jest wydajne, bo wartość nie jest już niepotrzebnie kopiowana czy
+  przenoszona.
 
 # Quiz
 
-* Is memory allocation on the stack faster than on the heap?
+* Czy alokacja pamięci na stosie jest szybsza niż na stercie?
 
-* Where can we allocate objects?
+* W jakich miejscach pamięci możemy tworzyć obiekty?
 
-* What is the return value optimization?
+* Czym jest optymalizacja wartości powrotu?
 
 {% include rid %}
 
