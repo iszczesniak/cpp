@@ -308,11 +308,11 @@ required by the legacy call convention.
 
 # Constructor elision
 
-C++ elides (avoids) constructors (specifically, two constructors: the
-copy constructor, and the *move* constructor) for temporary or local
-objects that would soon be destroyed.  Instead of creating a
-temporary, the object is created in the final location where it would
-end up.
+C++ elides (avoids) the copy constructor, and the *move* constructor
+for temporary or local objects that will soon be destroyed.
+Constructor elision (for the copy and move constructors only) is
+possible, because the temporary and the local object is created in its
+destination.
 
 This example that demonstrates the constructor elision.  Compile the
 example with, then without the flag `-fno-elide-constructors`.  Notice

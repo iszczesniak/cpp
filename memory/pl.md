@@ -322,11 +322,11 @@ przez starą konwencję.
 
 # Pomijanie konstruktorów
 
-C++ pomija wywołanie konstruktorów (kopiującego albo przenoszącego)
-dla obiektów (np. tymczasowych albo lokalnych), które wkrótce zostaną
-zniszczone.  Zamiast tworzyć obiekt tymczasowy albo lokalny na stosie,
-obiekt jest tworzony w miejscu docelowym, w ten sposób zostanie
-pominięte wywołanie konstruktora kopiującego albo przenoszącego.
+C++ pomija wywołanie konstruktora kopiującego i przenoszącego dla
+obiektów (np. tymczasowych albo lokalnych), które wkrótce zostaną
+zniszczone.  Pominięcie wywołanie konstruktora (ale tylko kopiującego
+i przenoszącego) jest możliwe, ponieważ obiekt tymczasowy albo lokalny
+jest tworzony w miejscu docelowym.
 
 Przykład niżej demonstruje pomijanie konstruktorów.  Przykład proszę
 skompilować z flagą `-fno-elide-constructors`, a potem bez niej.
