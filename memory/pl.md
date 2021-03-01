@@ -354,25 +354,26 @@ przenosić.  Nazywamy to optymalizacją wartości powrotu (ang. return
 value optimization, RVO).  RVO stara się pominąć konstruktory przy
 zwracaniu wyniku przez wartość.
 
-RVO not always can take place, because of technical reasons.  First,
-because we return data, which has to be created prior to deciding
-which data exactly to return:
+RVO nie zawsze może być zastosowana z powodów technicznych.  Przede
+wszystkim dlatego, że pewne obiekty muszą być pierwsze stworzone, a
+dopiero potem jest podejmowana decyzja, który obiekt zwrócić:
 
 {% highlight c++ %}
 {% include_relative rvo_no1.cc %}
 {% endhighlight %}
 
-Second, because we try to return a function parameter, which was
-created by the caller, not the function, and so the function cannot
-create the parameter in the location for the return value:
+Także dlatego, że próbujemy zwrócić przez wartość parametr funkcji,
+który już został stworzony przez kod wywołujący, nie funkcję.  Funkcja
+może jedynie skopiować wartość parametru do miejsca, gdzie ma być
+zwrócony wynik:
 
 {% highlight c++ %}
 {% include_relative rvo_no2.cc %}
 {% endhighlight %}
 
-Finally, because we try to return static or global data, which has to
-be available after the function returns, and so the function can only
-copy the result from the static or global data:
+I także dlatego, że próbujemy zwrócić przez wartość dane globalne albo
+statyczne, które muszą istnieć po powrocie z funkcji.  Funkcja może
+wtedy jedynie skopiować wynik:
 
 {% highlight c++ %}
 {% include_relative rvo_no3.cc %}
