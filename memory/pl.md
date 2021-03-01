@@ -320,30 +320,30 @@ przez starą konwencję.
 {% include_relative mcc.cc %}
 {% endhighlight %}
 
-# Constructor elision
+# Pomijanie konstruktorów
 
-C++ elides (avoids) constructors (specifically, two constructors: the
-copy constructor, and the *move* constructor) for temporary or local
-objects that would soon be destroyed.  Instead of creating a
-temporary, the object is created in the final location where it would
-end up.
+C++ pomija wywołanie konstruktorów (kopiującego albo przenoszącego)
+dla obiektów (np. tymczasowych albo lokalnych), które wkrótce zostaną
+zniszczone.  Zamiast tworzyć obiekt tymczasowy albo lokalny na stosie,
+obiekt jest tworzony w miejscu docelowym, w ten sposób zostanie
+pominięte wywołanie konstruktora kopiującego albo przenoszącego.
 
-This example that demonstrates the constructor elision.  Compile the
-example with, then without the flag `-fno-elide-constructors`.  Notice
-the differences at run-time.
+Przykład niżej demonstruje pomijanie konstruktorów.  Przykład proszę
+skompilować z flagą `-fno-elide-constructors`, a potem bez niej.
+Proszę zwrócić uwagę na różnice w czasie uruchomienia.
 
 {% highlight c++ %}
 {% include_relative elide.cc %}
 {% endhighlight %}
 
-Compile the previous examples of passing arguments to and returning
-results from functions but without disabling the constructor elision.
-Notice that with constructor elision, objects are not copied
-unnecessarily.
+Proszę skompilować różne poprzednie przykłady przekazywania argumentów
+i zwracania wartości z włączonym i wyłączonym pomijaniem
+konstruktorów.  Proszę zwrócić uwagę, że pomijanie konstruktorów
+eliminuje zbędne kopiowanie obiektów.
 
-When a temporary is passed by value as an argument, that temporary is
-created directly (i.e., with the constructor elided) in the location
-of the function parameter.
+Kiedy obiekt tymczasowy jest przekazywany przez wartość do funkcji, to
+pominięcie konstruktora powoduje stworzenie tego obiektu bezpośrednio
+w miejscu na stosie dla tego parametru.
 
 # Return value optimization
 

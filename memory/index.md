@@ -322,9 +322,9 @@ the differences at run-time.
 {% include_relative elide.cc %}
 {% endhighlight %}
 
-Compile the previous examples of passing arguments to and returning
-results from functions but without disabling the constructor elision.
-Notice that with constructor elision, objects are not copied
+Compile the various previous examples of passing arguments to and
+returning results from functions but without disabling the constructor
+elision.  Notice that with constructor elision, objects are not copied
 unnecessarily.
 
 When a temporary is passed by value as an argument, that temporary is
