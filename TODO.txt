@@ -38,10 +38,7 @@ Partial specialization
 
 auto - more details
 
-<<<<<<< HEAD
-Tag dispatching - maybe?
-=======
-Tag dispatching
+Tag dispatching - is it still needed?
 
 **********************************************************************
 
@@ -55,4 +52,10 @@ map<string &, int>
 But we can have:
 
 map<int, string &>
->>>>>>> 07f4297de1b48d4f6ae49c02d814fa3c070af08b
+
+**********************************************************************
+
+pair, tuple, get, structured bindings
+
+get<0>(p) instead of p.first
+get<1>(p) instead of p.second
