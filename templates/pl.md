@@ -376,4 +376,22 @@ Podstawienie to skopiowanie tekstu argumentu do parametru ze
 sprawdzeniem rodzaju argumentu (czy jest typem, wartością, czy typem
 szablonowym).  Wniosek: **podstawienie to nie inicjalizacja**.
 
+# Podsumowanie
+
+* Szablony są podstawą programowania uogólnionego w C++.
+
+* Parametry szablonów są typowe, wartościowa albo szablonowe.
+
+* Programowanie uogólnione jest powszechnie stosowane w bibliotece
+  standardowej C++.
+
+# Quiz
+
+* Czy programowanie uogólnione wprowadza narzut czasowy i pamięciowy
+  do programu?
+
+* Co to jest typowy parametr szablonu?
+
+* Polimorfizm statyczny a dynamiczny.
+
 <!-- LocalWords: lvalue lvalues rvalue -->
