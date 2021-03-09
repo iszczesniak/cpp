@@ -382,7 +382,7 @@ wtedy jedynie skopiować wynik:
 * Dane mogą być alokowane statycznie, globalnie, lokalnie i
   dynamicznie.
 
-* Alokacja pamięci na stosie jest super szybka, a na stosie znacznie
+* Alokacja pamięci na stosie jest super szybka, a na stercie znacznie
   wolniejsza.
 
 * Nie używaj danych dynamicznych, jeżeli wystarczą dane lokalne.
