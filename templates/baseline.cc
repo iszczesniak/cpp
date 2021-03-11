@@ -3,6 +3,7 @@
 int
 main()
 {
-  std::cout << "A\n";
-  std::cout << "B\n";
+  std::cout << "Function foo: " << 1 << std::endl;
+  std::cout << "Function foo: " << "A" << std::endl;
+  std::cout << "Function foo: " << "B" << std::endl;
 }

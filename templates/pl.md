@@ -181,7 +181,8 @@ przejdzie).
 
 Przykład implementacji polimorfizmu statycznego z użyciem przeciążeń
 funkcji znajduje się niżej.  Te przeciążenia mają kod wspólny
-(`std::cout << "Function foo:";`) i kod zależny od typu parametru.
+(`std::cout << "Function foo:";` i `std::cout << std::endl`) i kod
+zależny od typu parametru.
 
 {% highlight c++ %}
 {% include_relative generic1.cc %}

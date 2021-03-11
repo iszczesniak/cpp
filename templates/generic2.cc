@@ -27,7 +27,8 @@ template <typename T>
 void foo(const T &t)
 {
   std::cout << "Function foo: ";
-  std::cout << t << std::endl;
+  std::cout << t;
+  std::cout << std::endl;
 }
 
 int

@@ -12,19 +12,22 @@ struct B
 void foo(const int &i)
 {
   std::cout << "Function foo: ";
-  std::cout << i << '\n';
+  std::cout << i;
+  std::cout << std::endl;
 }
 
 void foo(const A &)
 {
   std::cout << "Function foo: ";
-  std::cout << "A\n";
+  std::cout << "A";
+  std::cout << std::endl;
 }
 
 void foo(const B &)
 {
   std::cout << "Function foo: ";
-  std::cout << "B\n";
+  std::cout << "B";
+  std::cout << std::endl;
 }
 
 int
