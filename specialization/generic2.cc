@@ -9,28 +9,32 @@ struct B
 {
 };
 
+// A primary template
+template <typename T>
+void foo(const T &);
+
+template <>
 void foo(const int &i)
 {
-  std::cout << "Function foo: ";
-  std::cout << i << '\n';
+  std::cout << i;
 }
 
+template <>
 void foo(const A &)
 {
-  std::cout << "Function foo: ";
   std::cout << "A\n";
 }
 
+template <>
 void foo(const B &)
 {
-  std::cout << "Function foo: ";
   std::cout << "B\n";
 }
 
 int
 main()
 {
-  foo(1);
+  // foo(1);
   foo(A());
   foo(B());
 }

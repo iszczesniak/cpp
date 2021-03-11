@@ -180,14 +180,20 @@ przejdzie).
 ## Przykład polimorfizmu statycznego
 
 Przykład implementacji polimorfizmu statycznego z użyciem przeciążeń
-funkcji:
+funkcji znajduje się niżej.  Te przeciążenia mają kod wspólny
+(`std::cout << "Function foo:";`) i kod zależny od typu parametru.
 
 {% highlight c++ %}
 {% include_relative generic1.cc %}
 {% endhighlight %}
 
-To samo zadanie rozwiązane z użyciem szablonów i ich
-**specjalizacji**:
+Niżej znajduje się rozwiązanie z użyciem szablonu, gdzie wspólny kod
+(`std::cout << "Function foo:";`) pojawia się tylko raz.  Funkcja
+szablonowa korzysta z operatora `<<`, który jest przeciążony dla
+różnych typów.  Ciągle korzystamy z przeciążania, jak w poprzednim
+przykładzie, ale już dla bardziej okrojonej funkcjonalności, czyli
+tylko operatora '<<', który możemy użyć także gdzie indziej.  Możemy
+powiedzieć, że uogólniliśmy kod funkcji `foo`.
 
 {% highlight c++ %}
 {% include_relative generic2.cc %}
