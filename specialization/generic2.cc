@@ -13,25 +13,22 @@ struct B
 template <typename T>
 void foo(const T &t)
 {
-  std::cout << "Function foo: ";
-  std::cout << t;
-  std::cout << std::endl;
+  std::cout << __PRETTY_FUNCTION__ << ": ";
+  std::cout << t << std::endl;
 }
 
 template <>
 void foo<A>(const A &)
 {
-  std::cout << "Function foo: ";
-  std::cout << "A";
-  std::cout << std::endl;
+  std::cout << __PRETTY_FUNCTION__ << ": ";
+  std::cout << "A" << std::endl;
 }
 
 template <>
 void foo(const B &)
 {
-  std::cout << "Function foo: ";
-  std::cout << "B";
-  std::cout << std::endl;
+  std::cout << __PRETTY_FUNCTION__ << ": ";
+  std::cout << "B" << std::endl;
 }
 
 int
