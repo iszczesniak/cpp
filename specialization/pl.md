@@ -6,10 +6,10 @@ Wprowadzenie
 ============
 
 Możemy **specjalizować** szablon funkcji czy klasy.  Szablon, który
-specjalizujemy nazywamy **szablonem podstawowy**, żeby odróżnić go od
-specjalizacji, która też jest szablonem.  Specjalizacja nadpisuje
-definicję szablonu podstawowego.  Nie da się specjalizować dalej
-specjalizacji.
+specjalizujemy nazywamy **szablonem podstawowy** (ang. primary
+template), żeby odróżnić go od specjalizacji, która też jest
+szablonem.  Specjalizacja nadpisuje definicję szablonu podstawowego.
+Nie można dalej specjalizować specjalizacji.
 
 Szablon podstawowy deklaruje albo definiuje funkcję albo klasę oraz
 parametry szablonu (liczbę i rodzaj parametrów).  Specjalizacja musi
@@ -28,16 +28,16 @@ Specjalizacja szablonu klasy może być częściowa albo pełna.
 
 # Specjalizacja szablonu funkcji
 
-Szablon funkcji może być tylko całkowicie specjalizowany, dlatego
-szablon specjalizacji nie ma parametrów: lista jest pusta.
-
-Deklaracje i definicje szablonów rozpoczynają się słowem kluczowym
-`template` z taką składnią:
+Szablon funkcji może być specjalizowany tylko całkowicie, czyli dla
+ustalonych wszystkich argumentów szablonu podstawowego: szablon
+specjalizacji nie ma już parametrów, więc jego lista parametrów jest
+pusta.  Tak więc deklaracje i definicje specjalizacji szablonów
+funkcji rozpoczynają się słowem kluczowym `template` i pustą listą
+parametrów:
 
 ```
 template <>
 ```
-
 
 W przykładzie niżej różne funkcjonalności funkcji `foo` w zależności
 od typu parametru zostały osiągnięte przez przeciążenia funkcji:
@@ -62,8 +62,6 @@ parametru `T`, czyli `int`.
 {% highlight c++ %}
 {% include_relative print4.cc %}
 {% endhighlight %}
-
-# Składnia
 
 # Podsumowanie
 
