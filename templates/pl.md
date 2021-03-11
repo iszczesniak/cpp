@@ -308,20 +308,11 @@ parametr szablonu `T`, którego *argument* może być wywnioskowany:
 {% endhighlight %}
 
 Przykład niżej ilustruje rekurencyjny szablon funkcji, gdzie
-rekurencja jest przerwana przez specjalizację szablonu dla `N = 0`.
-Nie ma *częściowej specjalizacji* szablonu funkcji, jest tylko *pełna
-specjalizacja*, więc musimy jawnie podać także argument szablonu dla
-parametru `T`, czyli `int`.
+rekurencja jest przerwana przez instrukcję warunkową czasu kompilacji
+`if constexpr`:
 
 {% highlight c++ %}
 {% include_relative print4.cc %}
-{% endhighlight %}
-
-Innym rozwiązaniem jest użycie statycznej instrukcji warunkowej `if
-constexpr`, żeby przerwać rekurencję:
-
-{% highlight c++ %}
-{% include_relative print5.cc %}
 {% endhighlight %}
 
 ### Rodzaj parametru: szablon
