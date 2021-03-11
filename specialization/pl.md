@@ -249,10 +249,9 @@ template <typename T, int N, template<typename> typename C>
 
 Nazwijmy to prosto: **typowy parametr szablonu**.  I typowy on jest
 też dlatego, że tego rodzaju parametr jest najczęstszy.  Typowy
-parametr deklarujemy pisząc `typename T`.  Słowo kluczowe `typename`
-mówi, że chodzi o typowy parametr, a `T` jest nazwą parametru.  Możemy
-również równoważnie napisać `class T`, ale nowocześniej jest `typename
-T`.
+parametr deklarujemy pisząc `typename T`: `typename` mówi, że chodzi o
+typowy parametr, a `T` jest nazwą parametru.  Możemy również
+równoważnie napisać `class T`, ale nowocześniej jest `typename T`.
 
 Podczas kompilacji za `T` może być podstawiony dowolny typ: wbudowany
 (np. `int`), użytkownika (np. `myclass`), a nawet `void`.  `T` nie
