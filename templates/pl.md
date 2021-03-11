@@ -192,7 +192,7 @@ Niżej znajduje się rozwiązanie z użyciem szablonu, gdzie wspólny kod
 pojawia się tylko raz.  Funkcja szablonowa korzysta z operatora `<<`,
 który jest przeciążony dla różnych typów.  Ciągle korzystamy z
 przeciążania, jak w poprzednim przykładzie, ale już dla bardziej
-okrojonej funkcjonalności, czyli tylko operatora '<<', który możemy
+okrojonej funkcjonalności, czyli tylko operatora `<<`, który możemy
 użyć także gdzie indziej.  Możemy powiedzieć, że uogólniliśmy kod
 funkcji `foo`.
 
