@@ -200,14 +200,6 @@ powiedzieć, że uogólniliśmy kod funkcji `foo`.
 {% include_relative generic2.cc %}
 {% endhighlight %}
 
-Dla obu przykładów wyżej uzyskujemy ten sam kod wynikowy dla funkcji
-`main`, jak dla tego kodu źródłowego, czyli najprostszy możliwy kod
-wynikowy:
-
-{% highlight c++ %}
-{% include_relative baseline.cc %}
-{% endhighlight %}
-
 ## Przykład polimorfizmu dynamicznego
 
 To samo zadanie możemy zaimplementować z użyciem polimorfizmu
