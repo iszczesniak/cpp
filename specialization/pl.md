@@ -8,7 +8,9 @@ Wprowadzenie
 Szablon funkcji czy klasy może być **specjalizowany**.  Specjalizujemy
 **szablon podstawowy**.  Szablon podstawowy deklaruje albo definiuje
 funkcję albo klasę oraz parametry szablonu (liczbę i rodzaj
-parametrów).  Specjalizacja szablonu też jest szablonem, ale już dla
+parametrów).
+
+Specjalizacja szablonu też jest szablonem, ale już dla
 argumentów określonych częściowo albo całkowicie.  Specjalizację
 możemy poznać po nieco innej składni szablonu, ale ciągle występuje
 słowo kluczowe `template`.
@@ -18,6 +20,10 @@ albo **całkowita** (ang. complete specialization).  Specjalizacja
 szablonu funkcji nie może być częściowa, może być tylko całkowita.
 Specjalizacja szablonu klasy może być częściowa albo pełna.
 
+# Specjalizacja szablonu funkcji
+
+
+
 W przykładzie niżej różne funkcjonalności funkcji `foo` w zależności
 od typu parametru zostały osiągnięte przez przeciążenia funkcji:
 
@@ -26,7 +32,7 @@ od typu parametru zostały osiągnięte przez przeciążenia funkcji:
 {% endhighlight %}
 
 To samo zadanie możemy rozwiązać z użyciem szablonu i specjalizacji
-dla typów `A` i `B`:
+dla typów `A` i `B`, jak w przykładzie niżej.  
 
 {% highlight c++ %}
 {% include_relative generic2.cc %}

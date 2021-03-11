@@ -9,7 +9,11 @@ struct B
 {
 };
 
-// A primary template
+// A declaration of the primary function template.
+template <typename T>
+void foo(const T &t);
+
+// The definition of the primary function template.
 template <typename T>
 void foo(const T &t)
 {
@@ -17,6 +21,7 @@ void foo(const T &t)
   std::cout << t << std::endl;
 }
 
+// A function template specialization.
 template <>
 void foo<A>(const A &)
 {
@@ -24,6 +29,7 @@ void foo<A>(const A &)
   std::cout << "A" << std::endl;
 }
 
+// A function template specialization.
 template <>
 void foo(const B &)
 {
