@@ -11,30 +11,33 @@ struct B
 
 // A primary template
 template <typename T>
-void foo(const T &);
-
-template <>
-void foo(const int &i)
+void foo(const T &t)
 {
-  std::cout << i;
+  std::cout << "Function foo: ";
+  std::cout << t;
+  std::cout << std::endl;
 }
 
 template <>
-void foo(const A &)
+void foo<A>(const A &)
 {
-  std::cout << "A\n";
+  std::cout << "Function foo: ";
+  std::cout << "A";
+  std::cout << std::endl;
 }
 
 template <>
 void foo(const B &)
 {
-  std::cout << "B\n";
+  std::cout << "Function foo: ";
+  std::cout << "B";
+  std::cout << std::endl;
 }
 
 int
 main()
 {
-  // foo(1);
+  foo(1);
   foo(A());
   foo(B());
 }
