@@ -4,7 +4,6 @@ struct A
 {
 };
 
-// B doesn't have to derive from a base class.
 struct B
 {
 };
@@ -21,7 +20,7 @@ void foo(const T &t)
   std::cout << t << std::endl;
 }
 
-// A function template specialization.
+// A complete specialization of a function template.
 template <>
 void foo<A>(const A &)
 {
@@ -41,6 +40,7 @@ int
 main()
 {
   foo(1);
+  foo(.2);
+  foo("Hello!");
   foo(A());
-  foo(B());
 }

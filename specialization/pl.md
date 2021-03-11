@@ -5,15 +5,21 @@ title: Specjalizacja szablonów
 Wprowadzenie
 ============
 
-Szablon funkcji czy klasy może być **specjalizowany**.  Specjalizujemy
-**szablon podstawowy**.  Szablon podstawowy deklaruje albo definiuje
-funkcję albo klasę oraz parametry szablonu (liczbę i rodzaj
-parametrów).
+Możemy **specjalizować** szablon funkcji czy klasy.  Szablon, który
+specjalizujemy nazywamy **szablonem podstawowy**, żeby odróżnić go od
+specjalizacji, która też jest szablonem.  Specjalizacja nadpisuje
+definicję szablonu podstawowego.  Nie da się specjalizować dalej
+specjalizacji.
 
-Specjalizacja szablonu też jest szablonem, ale już dla
-argumentów określonych częściowo albo całkowicie.  Specjalizację
-możemy poznać po nieco innej składni szablonu, ale ciągle występuje
-słowo kluczowe `template`.
+Szablon podstawowy deklaruje albo definiuje funkcję albo klasę oraz
+parametry szablonu (liczbę i rodzaj parametrów).  Specjalizacja musi
+mieć tę samą nazwę (klasy albo funkcji) i dostarczyć argumentów dla
+specjalizowanego szablonu podstawowego.
+
+Specjalizacja szablonu też jest szablonem, ale już dla częściowo albo
+całkowicie określonych argumentów.  Specjalizację możemy poznać po
+nieco innej składni szablonu, ale ciągle występuje słowo kluczowe
+`template`.
 
 Specjalizacja może być **częściowa** (ang. partial specialization)
 albo **całkowita** (ang. complete specialization).  Specjalizacja
@@ -22,6 +28,15 @@ Specjalizacja szablonu klasy może być częściowa albo pełna.
 
 # Specjalizacja szablonu funkcji
 
+Szablon funkcji może być tylko całkowicie specjalizowany, dlatego
+szablon specjalizacji nie ma parametrów: lista jest pusta.
+
+Deklaracje i definicje szablonów rozpoczynają się słowem kluczowym
+`template` z taką składnią:
+
+```
+template <>
+```
 
 
 W przykładzie niżej różne funkcjonalności funkcji `foo` w zależności
