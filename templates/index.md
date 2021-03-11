@@ -123,21 +123,10 @@ where `N` has to be *given explicitely* by a programmer, and `T` is
 {% endhighlight %}
 
 This is an example of a recursive function template.  The recursion is
-terminated by the function specialization for `N = 0`.  There is no
-*partial specialization* of function templates, only the *full
-specialization*, which means that we also have to specialize the
-terminating function for the type, i.e., `int`.
+terminated by the compile-time conditional statement `if constexpr`
 
 {% highlight c++ %}
 {% include_relative print4.cc %}
-{% endhighlight %}
-
-We can also terminate the recursion with a compile-time conditional
-statement `if constexpr`, and so we do not have to provide a full
-specialization:
-
-{% highlight c++ %}
-{% include_relative print5.cc %}
 {% endhighlight %}
 
 ### Template parameter
