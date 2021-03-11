@@ -1,31 +1,6 @@
 ---
-title: Szablony
+title: Specjalizacja szablonów
 ---
-
-# Wprowadzenie
-
-*Alexander Stepanov*, jeden z twórców programowania uogólnionego,
-napisał w swojej książce "From Mathematics to Generic Programming":
-
-> Generic programming is an approach to programming that focuses on
-> designing algorithms and data structures so that they work in the
-> *most general setting without the loss of efficiency*.
-
-Kluczowe są:
-
-* **the most general setting**, czyli najbardziej ogólny przypadek:
-  nie chodzi tylko o możliwość uogólnienia typu danych (czyli nasza
-  funkcja może działać na `int` albo `double`), ale też struktury
-  danych (czyli nasza funkcja może działać na `std::vector` albo
-  `std::list`),
-
-* **no loss of efficiency**, czyli bez utraty wydajności: nie chcemy,
-  żeby nasz program działał wolniej, albo używał więcej pamięci, bo
-  korzystał z programowania uogólnionego.  Chcemy, żeby program był
-  tak wydajny, jak w przypadku, kiedy jest starannie dopracowany.
-
-## Najbardziej ogólny przypadek
-
 Programowanie uogólnione jest wspierane przez język C++ z użyciem
 szablonów, przy użyciu których zaimplementowane są:
 
