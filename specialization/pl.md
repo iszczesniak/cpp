@@ -13,7 +13,7 @@ Nie można dalej specjalizować specjalizacji.
 
 Szablon podstawowy deklaruje albo definiuje funkcję albo klasę oraz
 parametry szablonu (liczbę i rodzaj parametrów).  Specjalizacja musi
-mieć tę samą nazwę (klasy albo funkcji) i dostarczyć argumentów dla
+mieć tą samą nazwę (funkcji albo klasy) i dostarczyć argumenty dla
 specjalizowanego szablonu podstawowego.
 
 Specjalizacja szablonu też jest szablonem, ale już dla częściowo albo
@@ -24,7 +24,7 @@ nieco innej składni szablonu, ale ciągle występuje słowo kluczowe
 Specjalizacja może być **częściowa** (ang. partial specialization)
 albo **całkowita** (ang. complete specialization).  Specjalizacja
 szablonu funkcji nie może być częściowa, może być tylko całkowita.
-Specjalizacja szablonu klasy może być częściowa albo pełna.
+Specjalizacja szablonu klasy może być częściowa albo całkowita.
 
 # Specjalizacja szablonu funkcji
 
@@ -39,18 +39,57 @@ parametrów:
 template <>
 ```
 
-W przykładzie niżej różne funkcjonalności funkcji `foo` w zależności
-od typu parametru zostały osiągnięte przez przeciążenia funkcji:
+Potem następuje definicja szablonu funkcji, która wygląda jak
+definicja zwykłej funkcji, bo nie używamy w niej (czyli w liscie
+parametrów funkcji i ciele funkcji) nazw parametrów szablonu
+podstawowego, a jedynie ich ustalonych wartości (np. `int`, `1` czy
+`std::list`).  Ale jest pewna różnica.
+
+Różnica dotyczy nazwy funkcji.  W specjalizacji podajemy listę
+argumentów szablonu podstawowego po nazwie funkcji, czego w definicji
+zwykłej funkcji nie robimy.
+
+Oto przykład:
 
 {% highlight c++ %}
-{% include_relative generic1.cc %}
+{% include_relative foo1.cc %}
 {% endhighlight %}
 
-To samo zadanie możemy rozwiązać z użyciem szablonu i specjalizacji
-dla typów `A` i `B`, jak w przykładzie niżej.  
+Szablon podstawowy i specjalizację możemy także deklarować.  Jeżeli
+zadeklarujemy szablon podstawowy, ale go nie zdefiniujemy, to nie
+będzie podstawowej implementacji tego szablonu funkcji.  Będziemy
+mogli specjalizować szablon i używać go wyłącznie dla tych
+specjalizacji.  Pokazuje to przykład niżej.
+
+Listę argumentów szablonu podstawowego możemy pominąć, jeżeli
+kompilator jest w stanie wywnioskować te argumenty na podstawie listy
+parametrów funkcji.  W przykładzie niżej pominęliśmy listę argumentów
+(`<A>`) szablonu podstawowego po nazwie funkcji `foo` w deklaracji i
+definicji specjalizacji.
 
 {% highlight c++ %}
-{% include_relative generic2.cc %}
+{% include_relative foo2.cc %}
+{% endhighlight %}
+
+Nie możemy częściowo specializować szablonów funkcji.  Specjalizacja
+częściowa polegałaby na wprowadzeniu parametru dla specjalizacji, ale
+nie jest to dozwolone, jak pokazuje przykład niżej.
+
+{% highlight c++ %}
+{% include_relative complete.cc %}
+{% endhighlight %}
+
+## Przeciążanie funkcji a szablony
+
+W przykładzie niżej różne funkcjonalności funkcji `foo` w zależności
+od typu parametru zostały osiągnięte przez przeciążenia funkcji, bez
+użycia szablonów.  Różnica w tym, że nie mamy szablonu, który mógłby
+być zastosowany dla dowolnego typu i dlatego w programie wyżej liczba
+argument `.2` typu `double` jest użyty do wywołania przeciążenia dla
+typu `int`:
+
+{% highlight c++ %}
+{% include_relative overloads.cc %}
 {% endhighlight %}
 
 Przykład niżej ilustruje rekurencyjny szablon funkcji, gdzie
