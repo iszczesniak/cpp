@@ -79,6 +79,16 @@ nie jest to dozwolone, jak pokazuje przykład niżej.
 {% include_relative complete.cc %}
 {% endhighlight %}
 
+Przykład niżej ilustruje rekurencyjny szablon funkcji, gdzie
+rekurencja jest przerwana przez specjalizację szablonu.  W
+specjalizacji szablonu musimy podać argument `0` parametru `N`, bo
+kompilator nie jest w stanie go wywnioskować.  Argument `int`
+parametru `T` może być wywnioskowany, więc nie jest podany.
+
+{% highlight c++ %}
+{% include_relative print.cc %}
+{% endhighlight %}
+
 ## Przeciążanie funkcji a szablony
 
 W przykładzie niżej różne funkcjonalności funkcji `foo` w zależności
@@ -90,16 +100,6 @@ typu `int`:
 
 {% highlight c++ %}
 {% include_relative overloads.cc %}
-{% endhighlight %}
-
-Przykład niżej ilustruje rekurencyjny szablon funkcji, gdzie
-rekurencja jest przerwana przez specjalizację szablonu dla `N = 0`.
-Nie ma *częściowej specjalizacji* szablonu funkcji, jest tylko *pełna
-specjalizacja*, więc musimy jawnie podać także argument szablonu dla
-parametru `T`, czyli `int`.
-
-{% highlight c++ %}
-{% include_relative print4.cc %}
 {% endhighlight %}
 
 # Podsumowanie
