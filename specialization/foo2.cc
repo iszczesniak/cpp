@@ -8,13 +8,13 @@ struct A
 template <typename T>
 void foo(const T &t);
 
-// A declaration of a function template specialization.  The compiler
-// deduces the arguments of the primary template.
+// A declaration of a complete specialization of a function template.
+// The compiler deduces the arguments of the primary template.
 template <>
 void foo(const A &);
 
-// A complete specialization of a function template.  The compiler
-// deduces the arguments of the primary template.
+// A definition of a complete specialization of a function template.
+// The compiler deduces the arguments of the primary template.
 template <>
 void foo(const A &)
 {
@@ -25,6 +25,6 @@ void foo(const A &)
 int
 main()
 {
-  //  foo(1);
+  // foo(1);
   foo(A());
 }
