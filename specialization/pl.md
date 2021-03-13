@@ -104,28 +104,33 @@ wywołane przeciążenia dla typu `int`.
 {% endhighlight %}
 
 Możemy dołożyć szablon podstawowy do przykładu, jak pokazano niżej.
-Mamy wtedy szablon dla dowolnego typu i przeciążenie dla typu `A`.
-Czy dla argumentu `A()` będzie użyty szablon czy przeciążenie?  A
-dokładnie mówiąc przeciążenie szablonowej funkcji (funkcji, która
-została skonkretyzowana na podstawie szablonu funkcji) czy
-przeciążenie zwykłej funkcji?  **Przeciążenie zwykłej funkcji zawsze
-ma pierwszeństwo.**
+Mamy szablon dla dowolnego typu i przeciążenie dla typu `A`.  Czy dla
+wywołania funkcji `foo` z argumentem `A()` będzie użyty szablon czy
+przeciążenie?  A dokładnie mówiąc przeciążenie funkcji szablonowej
+(czyli funkcji, która otrzymaliśmy po konkretyzacji podstawowego
+szablonu funkcji dla `T = A`) czy przeciążenie zwykłej funkcji?
+**Przeciążenie zwykłej funkcji zawsze ma pierwszeństwo.**
 
 {% highlight c++ %}
 {% include_relative mix1.cc %}
 {% endhighlight %}
 
-Możemy dodać także specjalizację, ale i tak zostanie wybrane
-przeciążenie zwykłej funkcji.  Podczas wyboru przeciążenia, kompilator
-nie rozważa specjalizacji, a jedynie przeciążenia zwykłych funkcji i
-przeciążenia funkcji szablonowych.  Tak więc dodanie specjalizacji i
-tak nie namówi kompilator do jej użycia.
+Możemy dodać także specjalizację dla `T = A`, ale i tak zostanie
+wybrane przeciążenie zwykłej funkcji.  Podczas wyboru przeciążenia,
+kompilator nie rozważa specjalizacji, a jedynie przeciążenia zwykłych
+funkcji i przeciążenia funkcji szablonowych.  Tak więc dodanie
+specjalizacji i tak nie namówi kompilator na jej użycie.
 
 {% highlight c++ %}
 {% include_relative mix2.cc %}
 {% endhighlight %}
 
 # Kiedy potrzebujemy specjalizacji
+
+Wydaje się, że specjalizacja szablonu jest zbędna, bo, jak się wydaje,
+tą samą funkcjonalność możemy uzyskać przeciążając zwykłą funkcję.
+Jest jednak funkcjonalność specjalizacji, której nie osiągniemy przez
+przeciążenia.
 
 {% highlight c++ %}
 {% include_relative need.cc %}
