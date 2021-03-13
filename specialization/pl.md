@@ -125,6 +125,12 @@ tak nie namówi kompilator do jej użycia.
 {% include_relative mix2.cc %}
 {% endhighlight %}
 
+# Kiedy potrzebujemy specjalizacji
+
+{% highlight c++ %}
+{% include_relative need.cc %}
+{% endhighlight %}
+
 # Podsumowanie
 
 # Quiz
