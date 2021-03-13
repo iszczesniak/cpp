@@ -118,8 +118,8 @@ ma pierwszeństwo.**
 Możemy dodać także specjalizację, ale i tak zostanie wybrane
 przeciążenie zwykłej funkcji.  Podczas wyboru przeciążenia, kompilator
 nie rozważa specjalizacji, a jedynie przeciążenia zwykłych funkcji i
-funkcje szablonowe.  Tak więc dodanie specjalizacji i tak nie namówi
-kompilator do jej użycia.
+przeciążenia funkcji szablonowych.  Tak więc dodanie specjalizacji i
+tak nie namówi kompilator do jej użycia.
 
 {% highlight c++ %}
 {% include_relative mix2.cc %}
