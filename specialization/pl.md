@@ -91,15 +91,22 @@ parametru `T` może być wywnioskowany, więc nie jest podany.
 
 ## Przeciążanie funkcji a szablony
 
-W przykładzie niżej różne funkcjonalności funkcji `foo` w zależności
-od typu parametru zostały osiągnięte przez przeciążenia funkcji, bez
-użycia szablonów.  Różnica w tym, że nie mamy szablonu, który mógłby
-być zastosowany dla dowolnego typu i dlatego w programie wyżej liczba
-argument `.2` typu `double` jest użyty do wywołania przeciążenia dla
-typu `int`:
+Czy możemy się obyć bez szablonów?  W przykładzie niżej funkcja `foo`
+jest przeciążona, żeby w zależności od argumentu wywołania funkcji
+dostarczyć inną implementację.
+
+Problem w tym, że nie mamy szablonu, który mógłby być zastosowany dla
+dowolnego typu i dlatego dla argumentu `.2` typu `double` jest
+wywołane przeciążenia dla typu `int`.
 
 {% highlight c++ %}
 {% include_relative overloads.cc %}
+{% endhighlight %}
+
+Jeżeli
+
+{% highlight c++ %}
+{% include_relative mix.cc %}
 {% endhighlight %}
 
 # Podsumowanie
