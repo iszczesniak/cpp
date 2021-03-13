@@ -12,19 +12,12 @@ void foo(const T &t)
   std::cout << t << std::endl;
 }
 
-// A definition of a complete specialization of a function template.
-template <>
+// A function overload.
 void foo(const A &)
 {
   std::cout << __PRETTY_FUNCTION__ << ": ";
   std::cout << "A" << std::endl;
 }
-
-// void foo(const A &)
-// {
-//   std::cout << __PRETTY_FUNCTION__ << ": ";
-//   std::cout << "A" << std::endl;
-// }
 
 int
 main()

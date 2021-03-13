@@ -103,10 +103,26 @@ wywołane przeciążenia dla typu `int`.
 {% include_relative overloads.cc %}
 {% endhighlight %}
 
-Jeżeli
+Możemy dołożyć szablon podstawowy do przykładu, jak pokazano niżej.
+Mamy wtedy szablon dla dowolnego typu i przeciążenie dla typu `A`.
+Czy dla argumentu `A()` będzie użyty szablon czy przeciążenie?  A
+dokładnie mówiąc przeciążenie szablonowej funkcji (funkcji, która
+została skonkretyzowana na podstawie szablonu funkcji) czy
+przeciążenie zwykłej funkcji?  **Przeciążenie zwykłej funkcji zawsze
+ma pierwszeństwo.**
 
 {% highlight c++ %}
-{% include_relative mix.cc %}
+{% include_relative mix1.cc %}
+{% endhighlight %}
+
+Możemy dodać także specjalizację, ale i tak zostanie wybrane
+przeciążenie zwykłej funkcji.  Podczas wyboru przeciążenia, kompilator
+nie rozważa specjalizacji, a jedynie przeciążenia zwykłych funkcji i
+funkcje szablonowe.  Tak więc dodanie specjalizacji i tak nie namówi
+kompilator do jej użycia.
+
+{% highlight c++ %}
+{% include_relative mix2.cc %}
 {% endhighlight %}
 
 # Podsumowanie
