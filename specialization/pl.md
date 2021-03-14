@@ -127,10 +127,12 @@ specjalizacji i tak nie namówi kompilator na jej użycie.
 
 # Kiedy potrzebujemy specjalizacji
 
-Wydaje się, że specjalizacja szablonu jest zbędna, bo, jak się wydaje,
-tą samą funkcjonalność możemy uzyskać przeciążając zwykłą funkcję.
-Jest jednak funkcjonalność specjalizacji, której nie osiągniemy przez
+Wydaje się, że specjalizacja szablonu jest zbędna, bo tą samą
+funkcjonalność uzyskaliśmy przeciążając zwykłą funkcję.  Jest jednak
+funkcjonalność specjalizacji, której nie osiągniemy przez
 przeciążenia.
+
+Kod szablonowy, np. biblioteka standardowa, 
 
 {% highlight c++ %}
 {% include_relative need.cc %}
