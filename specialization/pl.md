@@ -2,8 +2,7 @@
 title: Specjalizacja szablonów
 ---
 
-Wprowadzenie
-============
+# Wprowadzenie
 
 Możemy **specjalizować** szablon funkcji czy klasy.  Szablon, który
 specjalizujemy nazywamy **szablonem podstawowy** (ang. primary
@@ -125,7 +124,7 @@ specjalizacji i tak nie namówi kompilator na jej użycie.
 {% include_relative mix2.cc %}
 {% endhighlight %}
 
-# Kiedy potrzebujemy specjalizacji
+## Kiedy potrzebujemy specjalizacji
 
 Wydaje się, że specjalizacja szablonu jest zbędna, bo tą samą
 funkcjonalność uzyskaliśmy przeciążając zwykłą funkcję.  Jest jednak
@@ -156,7 +155,9 @@ podstawowy został zadeklarowany.
 
 Możemy też przenieść definicję przeciążenia funkcji `foo` przed
 dyrektywę `#include`, żeby funkcja `goo` mogła skorzystać z
-przeciążenia, ale nie zaleca się wprowadzania takiego nieporządku.
+przeciążenia, ale lepiej nie wprowadzać takiego nieporządku.
+
+# Specjalizacja szablonu funkcji
 
 # Podsumowanie
 
