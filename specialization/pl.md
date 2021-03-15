@@ -137,10 +137,10 @@ funkcji dla kodu, który został już dołączony w pliku nagłówkowym,
 np. biblioteki szablonowej.  Biblioteka deklaruje szablon funkcji,
 którą potrzebuje, a definicję specjalizacji czy nawet szablonu
 podstawowego można pozostawić użytkownikowi.  Tak może wyglądać plik
-nagłówkowy:
+nagłówkowy `library.hpp`:
 
 {% highlight c++ %}
-{% include_relative library.cc %}
+{% include_relative library.hpp %}
 {% endhighlight %}
 
 Tak może wyglądać użycie biblioteki:
