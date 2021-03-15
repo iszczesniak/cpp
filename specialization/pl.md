@@ -132,11 +132,31 @@ funkcjonalność uzyskaliśmy przeciążając zwykłą funkcję.  Jest jednak
 funkcjonalność specjalizacji, której nie osiągniemy przez
 przeciążenia.
 
-Kod szablonowy, np. biblioteka standardowa, 
+Specjalizacja szablonów pozwala na zdefiniowanie przez użytkownika
+funkcji dla kodu, który został już dołączony w pliku nagłówkowym,
+np. biblioteki szablonowej.  Biblioteka deklaruje szablon funkcji,
+którą potrzebuje, a definicję specjalizacji czy nawet szablonu
+podstawowego można pozostawić użytkownikowi.  Tak może wyglądać plik
+nagłówkowy:
+
+{% highlight c++ %}
+{% include_relative library.cc %}
+{% endhighlight %}
+
+Tak może wyglądać użycie biblioteki:
 
 {% highlight c++ %}
 {% include_relative need.cc %}
 {% endhighlight %}
+
+Jeżeli przeciążenie funkcji zdefiniujemy po dołączeniu biblioteki, to
+funkcja `goo` nie będzie go znała i nie użyje go.  Funkcja wie
+natomiast, że może użyć szablonu funkcji `foo`, bo jej szablon
+podstawowy został zadeklarowany.
+
+Możemy też przenieść definicję przeciążenia funkcji `foo` przed
+dyrektywę `#include`, żeby funkcja `goo` mogła skorzystać z
+przeciążenia, ale nie zaleca się wprowadzania takiego nieporządku.
 
 # Podsumowanie
 

@@ -1,15 +1,12 @@
-#include <iostream>
+#include "library.hpp"
 
-// The definition of the primary function template.
-template <typename T>
-void foo(const T &t);
-
-template <typename T>
-void goo(const T &t)
+// A regular function overload won't cut it.
+void
+foo(const int &)
 {
-  foo(t);
 }
 
+// We need specialization of the primary template.
 template <>
 void
 foo(const int &)
