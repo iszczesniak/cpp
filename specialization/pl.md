@@ -159,7 +159,7 @@ przeciążenia, ale lepiej nie wprowadzać takiego nieporządku.
 
 # Specjalizacja szablonów typów użytkownika
 
-Możemy zadeklarować albo zdefiniować szablon typu użytkownika, czyli
+Możemy zadeklarować lub zdefiniować szablon typu użytkownika, czyli
 struktury, klasy i unii.  Ten szablon podstawowy możemy specjalizować.
 
 Szablon podstawowy i jej specjalizacje mają jedynie wspólną nazwę
@@ -168,12 +168,12 @@ implementacje i wielkości w pamięci mogą się całkowicie różnić.
 
 Przykładem specjalizacji typu w bibliotece standardowej jest
 specjalizacja `std::vector<bool>`, czyli kontenera `std::vector` dla
-typu `bool`.  Ta specjalizacja ma podobny interfejs, ale zupełnie inną
-implementację.
+typu `bool`.  Ta specjalizacja ma podobny interfejs jak szablon
+podstawowy `std::vector`, ale zupełnie inną implementację.
 
 W przykładzie niżej definiujemy szablon podstawowy typu `A` z jedną
 funkcją składową `foo`.  Specjalizacja dla argumentu `double` nie ma
-funkcji `foo`, a dziedziczy po std::pair i ma funkcję `goo`.
+funkcji `foo`, a ma funkcję `goo` i dziedziczy po `std::pair`.
 
 {% highlight c++ %}
 {% include_relative struct.cc %}

@@ -34,4 +34,7 @@ main()
 
   // But we can call "goo" alright.
   A<double>().goo();
+
+  // We compare with the < operator inherited from std::pair.
+  A<double>() < A<double>();
 }
