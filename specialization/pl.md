@@ -160,24 +160,30 @@ przeciążenia, ale lepiej nie wprowadzać takiego nieporządku.
 # Specjalizacja szablonów typów użytkownika
 
 Możemy zadeklarować lub zdefiniować szablon typu użytkownika, czyli
-struktury, klasy i unii.  Ten szablon podstawowy możemy specjalizować.
-
-Szablon podstawowy i jej specjalizacje mają jedynie wspólną nazwę
-typu, a ich interfejsy (składowe dostępne użytkownikowi),
-implementacje i wielkości w pamięci mogą się całkowicie różnić.
+struktury, klasy i unii.  Ten szablon podstawowy możemy specjalizować
+całkowicie lub częściowo.  Szablon podstawowy i jej specjalizacje mają
+jedynie wspólną nazwę typu, a ich interfejsy (składowe dostępne
+użytkownikowi), implementacje i wielkości w pamięci mogą się
+całkowicie różnić.  Specjalizacja całkowita typu ma identyczną
+składnię, jak specjalizacja całkowita funkcji.
 
 Przykładem specjalizacji typu w bibliotece standardowej jest
-specjalizacja `std::vector<bool>`, czyli kontenera `std::vector` dla
-typu `bool`.  Ta specjalizacja ma podobny interfejs jak szablon
-podstawowy `std::vector`, ale zupełnie inną implementację.
+`std::vector<bool>`, czyli kontenera `std::vector` dla typu `bool`.
+Ta specjalizacja ma podobny interfejs jak szablon podstawowy
+`std::vector`, ale zupełnie inną implementację.
 
-W przykładzie niżej definiujemy szablon podstawowy typu `A` z jedną
-funkcją składową `foo`.  Specjalizacja dla argumentu `double` nie ma
-funkcji `foo`, a ma funkcję `goo` i dziedziczy po `std::pair`.
+## Przykład całkowitej specjalizacji
+
+Niżej definiujemy szablon podstawowy typu `A` z jedną funkcją składową
+`foo`.  Całkowita specjalizacja dla argumentu `double` nie ma funkcji
+`foo`, a ma funkcję `goo` i dziedziczy po `std::pair`.
 
 {% highlight c++ %}
 {% include_relative struct.cc %}
 {% endhighlight %}
+
+## Całkowita specjalizacja i przykład
+
 
 
 # Podsumowanie
