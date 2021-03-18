@@ -13,7 +13,7 @@ struct A
 
 // A complete specialization.
 template<>
-struct A<double>
+struct A<double>: std::pair<double, double>
 {
   void
   goo()

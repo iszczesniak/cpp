@@ -157,7 +157,28 @@ Możemy też przenieść definicję przeciążenia funkcji `foo` przed
 dyrektywę `#include`, żeby funkcja `goo` mogła skorzystać z
 przeciążenia, ale lepiej nie wprowadzać takiego nieporządku.
 
-# Specjalizacja szablonu funkcji
+# Specjalizacja szablonów typów użytkownika
+
+Możemy zadeklarować albo zdefiniować szablon typu użytkownika, czyli
+struktury, klasy i unii.  Ten szablon podstawowy możemy specjalizować.
+
+Szablon podstawowy i jej specjalizacje mają jedynie wspólną nazwę
+typu, a ich interfejsy (składowe dostępne użytkownikowi),
+implementacje i wielkości w pamięci mogą się całkowicie różnić.
+
+Przykładem specjalizacji typu w bibliotece standardowej jest
+specjalizacja `std::vector<bool>`, czyli kontenera `std::vector` dla
+typu `bool`.  Ta specjalizacja ma podobny interfejs, ale zupełnie inną
+implementację.
+
+W przykładzie niżej definiujemy szablon podstawowy typu `A` z jedną
+funkcją składową `foo`.  Specjalizacja dla argumentu `double` nie ma
+funkcji `foo`, a dziedziczy po std::pair i ma funkcję `goo`.
+
+{% highlight c++ %}
+{% include_relative struct.cc %}
+{% endhighlight %}
+
 
 # Podsumowanie
 
