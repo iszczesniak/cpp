@@ -1,6 +1,7 @@
 #include <iostream>
 #include <list>
 #include <vector>
+#include <tuple>
 
 // Definition of a primary template.
 template <typename T>
@@ -17,7 +18,8 @@ struct A<std::vector<T>>
   }  
 };
 
-// A partial specialization for a container of integer elements.
+// A partial specialization for any template type of the integer
+// argument.
 template <template<typename> typename T>
 struct A<T<int>>
 {
@@ -33,6 +35,7 @@ main()
 {
   A<std::vector<double>>().foo();
   A<std::list<int>>().goo();
+  A<std::tuple<int>>().goo();
 
   // Ambiguous instantiation: the first or the second specialization?
   // A<std::vector<int>>() a;
