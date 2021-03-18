@@ -35,5 +35,5 @@ main()
   A<std::list<int>>().goo();
 
   // Ambiguous instantiation: the first or the second specialization?
-  A<std::vector<int>>() a;
+  // A<std::vector<int>>() a;
 }
