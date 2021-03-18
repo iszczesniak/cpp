@@ -164,8 +164,7 @@ struktury, klasy i unii.  Ten szablon podstawowy możemy specjalizować
 całkowicie lub częściowo.  Szablon podstawowy i jej specjalizacje mają
 jedynie wspólną nazwę typu, a ich interfejsy (składowe dostępne
 użytkownikowi), implementacje i wielkości w pamięci mogą się
-całkowicie różnić.  Specjalizacja całkowita typu ma identyczną
-składnię, jak specjalizacja całkowita funkcji.
+całkowicie różnić.
 
 Przykładem specjalizacji typu w bibliotece standardowej jest
 `std::vector<bool>`, czyli kontenera `std::vector` dla typu `bool`.
@@ -176,15 +175,19 @@ Ta specjalizacja ma podobny interfejs jak szablon podstawowy
 
 Niżej definiujemy szablon podstawowy typu `A` z jedną funkcją składową
 `foo`.  Całkowita specjalizacja dla argumentu `double` nie ma funkcji
-`foo`, a ma funkcję `goo` i dziedziczy po `std::pair`.
+`foo`, a ma funkcję `goo` i dziedziczy po `std::pair`.  Całkowita
+specjalizacja typu ma identyczną składnię, jak całkowita specjalizacja
+funkcji.
 
 {% highlight c++ %}
-{% include_relative struct.cc %}
+{% include_relative struct_complete.cc %}
 {% endhighlight %}
 
-## Całkowita specjalizacja i przykład
+## Częściowa specjalizacja i przykład
 
-
+{% highlight c++ %}
+{% include_relative struct_partial.cc %}
+{% endhighlight %}
 
 # Podsumowanie
 
