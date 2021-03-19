@@ -226,8 +226,8 @@ specjalizacji użyć.
 
 * Czy szablon funkcji może być częściowo specjalizowany?
 
-* Przeciążenie funkcji czy funkcja szablonowa ma pierwszeństwo w
-  wyborze przeciążenia?
+* Czy w wyborze przeciążenia pierwszeństwo ma funkcja szablonowa czy
+  przeciążenie funkcji?
 
 * Czy specjalizacja szablonu typu dziedziczy po szablonie podstawowym
   typu?
