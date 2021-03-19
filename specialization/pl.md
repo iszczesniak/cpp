@@ -229,7 +229,7 @@ specjalizacji użyć.
 * Czy w wyborze przeciążenia pierwszeństwo ma funkcja szablonowa czy
   przeciążenie funkcji?
 
-* Czy specjalizacja szablonu typu dziedziczy po szablonie podstawowym
+* Czy specjalizacja szablonu typu dziedziczy po podstawowym szablonie
   typu?
 
 <!-- LocalWords: lvalue lvalues rvalue -->
