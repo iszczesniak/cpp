@@ -185,15 +185,15 @@ funkcji.
 
 ## Częściowa specjalizacja i przykład
 
-Częściowa specjalizacja szablonu typu polega na zdefiniowaniu
-parametru szablonu dla typu, który jest argumentem szablonu
-podstawowego.  Lista parametrów specjalizacji nie jest już pusta, jak
-w przypadku całkowitej specjalizacji.
+W częściowej specjalizacji szablonu typu wprowadzamy parametr, który
+używamy w definicji argumentu szablonu podstawowego.  Lista parametrów
+specjalizacji nie jest już pusta, jak w przypadku całkowitej
+specjalizacji.
 
 W przykładzie niżej deklarujemy szablon podstawowy typu `A` z typowym
-parametrem `T`, a następnie definiujemy dwie specjalizacje.  Obie
-specjalizacje definiują parametry `T`.  Parametry `T` trzech szablonów
-nie mają ze sobą nic wspólnego, ponieważ mają lokalny zakres.
+parametrem `T`, a następnie definiujemy dwie specjalizacje, obie z
+parametrem `T`.  Parametry `T` trzech szablonów nie mają ze sobą nic
+wspólnego, ponieważ mają lokalny zakres.
 
 Pierwsza specjalizacja definiuje implementację typu `A` dla
 przypadków, kiedy argumentem szablonu podstawowego jest `std::vector`.
