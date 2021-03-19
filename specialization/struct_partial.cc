@@ -33,6 +33,7 @@ struct A<T<int>>
 int
 main()
 {
+  A<std::vector<bool>>().foo();
   A<std::vector<double>>().foo();
   A<std::list<int>>().goo();
   A<std::tuple<int>>().goo();

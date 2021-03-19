@@ -39,7 +39,7 @@ template <>
 ```
 
 Potem następuje definicja szablonu funkcji, która wygląda jak
-definicja zwykłej funkcji, bo nie używamy w niej (czyli w liscie
+definicja zwykłej funkcji, bo nie używamy w niej (czyli w liście
 parametrów funkcji i ciele funkcji) nazw parametrów szablonu
 podstawowego, a jedynie ich ustalonych wartości (np. `int`, `1` czy
 `std::list`).  Ale jest pewna różnica.
@@ -70,7 +70,7 @@ definicji specjalizacji.
 {% include_relative foo2.cc %}
 {% endhighlight %}
 
-Nie możemy częściowo specializować szablonów funkcji.  Specjalizacja
+Nie możemy częściowo specjalizować szablonów funkcji.  Specjalizacja
 częściowa polegałaby na wprowadzeniu parametru dla specjalizacji, ale
 nie jest to dozwolone, jak pokazuje przykład niżej.
 
@@ -185,12 +185,51 @@ funkcji.
 
 ## Częściowa specjalizacja i przykład
 
+Częściowa specjalizacja szablonu typu polega na zdefiniowaniu
+parametru szablonu dla typu, który jest argumentem szablonu
+podstawowego.  Lista parametrów specjalizacji nie jest już pusta, jak
+w przypadku całkowitej specjalizacji.
+
+W przykładzie niżej deklarujemy szablon podstawowy typu `A` z typowym
+parametrem `T`, a następnie definiujemy dwie specjalizacje.  Obie
+specjalizacje definiują parametry `T`.  Parametry `T` trzech szablonów
+nie mają ze sobą nic wspólnego, ponieważ mają lokalny zakres.
+
+Pierwsza specjalizacja definiuje implementację typu `A` dla
+przypadków, kiedy argumentem szablonu podstawowego jest `std::vector`.
+Pozwalamy na dowolny typ elementów wektora poprzez użycie parametru
+`T` specjalizacji.
+
+Druga specjalizacja definiuje implementację typu `A` dla przypadków,
+kiedy argumentem szablonu podstawowego jest typ szablonowy, który może
+być skonkretyzowany z jednym argumentem `int`.
+
+W funkcji `main` typ `A` został użyty z różnymi specjalizacjami.
+Najciekawszy jest ostatni przypadek, który jest zakomentowany, bo nie
+może się kompilować: kompilator nie jest w stanie zdecydować, której
+specjalizacji użyć.
+
 {% highlight c++ %}
 {% include_relative struct_partial.cc %}
 {% endhighlight %}
 
 # Podsumowanie
 
+* Specjalizować można szablony funkcji i typy szablonowe.
+
+* Specjalizacja może być częściowa albo całkowita.
+
+* Specjalizacja pozwala na nadpisanie implementacji szablonu
+  podstawowego dla wybranych kombinacji jego argumentów.
+
 # Quiz
+
+* Czy szablon funkcji może być częściowo specjalizowany?
+
+* Przeciążenie funkcji czy funkcja szablonowa ma pierwszeństwo w
+  wyborze przeciążenia?
+
+* Czy specjalizacja szablonu typu dziedziczy po szablonie podstawowym
+  typu?
 
 <!-- LocalWords: lvalue lvalues rvalue -->
