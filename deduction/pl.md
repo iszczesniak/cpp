@@ -450,17 +450,20 @@ W poniższym przykładzie wnioskowanie nie udaje się:
 {% include_relative fail.cc %}
 {% endhighlight %}
 
-# Typ `auto`
+# Podsumowanie
 
-Wnioskowanie typu `auto` odbywa się tak, jak wnioskowanie argumentów
-szablonu.  Jeżeli typem jest `auto &&`, to kompilator wywnioskuje, czy
-referencja powinna być typu l-wartość czy r-wartość w zależności od
-kategorii wartości wyrażenia inicjalizującego referencję.
+* Argumenty szablonu mogą być jawnie podawane, wnioskowane, albo domyślne.
 
-Żeby zobaczyć wywnioskowany typ w czasie kompilacji, w kodzie
-wprowadzono błąd, o którym kompilator informuje jednocześnie wypisując
-interesujący nas typ.
+* Wnioskowanie argumentów szablonu zależy od typu parametru funkcji i
+  typu argumentu wywołania funkcji.
 
-{% highlight c++ %}
-{% include_relative auto.cc %}
-{% endhighlight %}
+* Wnioskowany może być typ wskaźnikowy, referencyjny, stały, a nawet
+  tablicowy.
+
+# Quiz
+
+* Na podstawie czego wnioskowane są argumenty szablonu?
+
+* Co to jest rozpad tablicy?
+
+* Czy może być wywnioskowany szablonowy typ szablonu?
