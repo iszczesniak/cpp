@@ -65,8 +65,9 @@ argument.
 
 Jeżeli w powyższym przykładzie z fabryką zmienimy kolejność
 argumentów, to typ argumentu wywołania konstruktora będziemy musieli
-także podać jawnie, chociaż mógłby być wywnioskowany.  A musimy jawnie
-podać pierwszy argument, bo musimy podać drugi argument.
+także podać jawnie, chociaż mógłby być wywnioskowany.  Po zmianie
+kolejności musimy jawnie podać pierwszy argument, bo musimy podać
+drugi argument:
 
 {% highlight c++ %}
 {% include_relative explicit3.cc %}
@@ -75,9 +76,10 @@ podać pierwszy argument, bo musimy podać drugi argument.
 ## Domyślne argumenty szablonu
 
 Parametr szablonu (każdego rodzaju: typowy, wartościowy i szablonowy)
-może mieć zdefiniowany domyślny argument, które będzie użyty, jeżeli
-kompilator nie jest w stanie wywnioskować argumentu.  Może mieć, więc
-domyślny argument jest opcjonalny.
+może mieć zdefiniowany domyślny argument, który będzie użyty, jeżeli
+kompilator nie jest w stanie wywnioskować argumentu i jeżeli nie
+podaliśmy argumentu jawnie.  Może mieć, więc domyślny argument jest
+opcjonalny.
 
 Domyślny argument podajemy po nazwie parametru z użyciem `=`.  Oto
 przykład:
