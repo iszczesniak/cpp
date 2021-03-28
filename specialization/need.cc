@@ -9,7 +9,7 @@ foo(const int &)
   std::cout << "overload\n";
 }
 
-// We need specialization of the primary template.
+// We need a specialization of the primary template.
 template <>
 void
 foo(const int &)
