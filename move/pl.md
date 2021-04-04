@@ -1,20 +1,18 @@
 ---
-title: Move semantics
+title: Semantyka przeniesienia
 ---
 
-# Introduction
+# Wprowadzenie
 
-The move semantics applies only to the data of class types, so I'll
-talk about *objects*, and not *data* as I do elsewhere.  An object is
-an instance of a class type (i.e., a piece of memory interpreted
-according to how a class or a structure was defined).  The state of
-the object is called the *value*.
+Semantyka przeniesienia dotyczy wyłącznie danych typów obiektowych,
+więc będziemy mówić o przenoszeniu obiektów, a nie danych.  Obiekt
+jest daną typu klasowego, czyli danymi interpretowanymi zgodnie z
+definicją klasy.  Stan obiektu nazywamy **wartością obiektu**.
 
-The definition of the value of an object depends on the implementation
-of the class.  Usually the value of an object is the state of its base
-and member objects.  However, there might be some supporting data in
-an object (e.g., some cache data) that do not have to be part of the
-object value.
+Definicja wartości obiektu zależy od implementacji klasy.  Zwykle
+wartością obiektu jest stan obiektów bazowych i składowych.  Jednak na
+stan obiektu nie muszą składać się niektóre dane, np. dane podręczne
+(ang. cache data).
 
 The value of an object can be copied when the object is:
 
