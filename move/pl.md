@@ -87,17 +87,17 @@ Semantyka przeniesienia jest implementowana przez:
   być określony (np. jakiś pusty).  Obiekt musi być spójny, bo obiekt
   będzie niszczony.
 
-## The copy and move constructors
+## Konstruktory: kopiujący i przenoszący
 
-A class can have either the copy constructor or the move constructor,
-both or none.
+Klasa może mieć konstruktor kopiujący lub przenoszący.  Może mieć oba
+albo żadnego.  Konstruktor kopiujący i przenoszący możemy nazwać
+przeciążeniami konstruktora.
 
-The move constructor of class `T` has a single parameter of type `T
-&&`.
+Konstruktor przenoszący klasy `T` ma jeden parametr typu `T &&`.
 
-### A simple example
+### Prosty przykład
 
-In the example below the class has both constructors defined:
+W przykładzie niżej klasa ma zdefiniowane oba konstruktory:
 
 {% highlight c++ %}
 {% include_relative constructors.cc %}
