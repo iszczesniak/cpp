@@ -75,19 +75,17 @@ Semantyka przeniesienia jest implementowana przez:
 
 * **przenoszący konstruktor przypisania** (dla przypisania).
 
-## How it works
+## Jak to działa
 
-* There is no magic!  An object is not moved bit-by-bit to some other
-  place.  The programmer knows every detail and remains in total
-  control.
+* To nie magia.  Obiekt nie jest przenoszony bit po bicie do innego
+  miejsca.  Użytkownik zna każdy szczegół i ma pełną kontrolę.
 
-* Only the value is moved.  The source, and the target objects remain
-  in memory where they are, and they will be destroyed in a normal
-  way.
+* Tylko wartość jest przenoszona.  Obiekt źródłowy i obiekt docelowy
+  pozostają tam, gdzie były, bo będą one niszczone tak jak zwykle.
 
-* After moving, the source must be *consistent*, but its state can be
-  *undefined*.  It must be consistent, because it will be destroyed as
-  usual.
+* Po przeniesieniu obiekt źródłowy musi być spójny, ale stan nie musi
+  być określony (np. jakiś pusty).  Obiekt musi być spójny, bo obiekt
+  będzie niszczony.
 
 ## The copy and move constructors
 
