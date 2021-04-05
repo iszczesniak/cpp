@@ -4,63 +4,52 @@ title: Semantyka przeniesienia
 
 # Wprowadzenie
 
-Semantyka przeniesienia dotyczy wyłącznie danych typów obiektowych,
-więc będziemy mówić o przenoszeniu obiektów, a nie danych.  Obiekt
-jest daną typu klasowego, czyli danymi interpretowanymi zgodnie z
-definicją klasy.  Stan obiektu nazywamy **wartością obiektu**.
+Semantyka przeniesienia dotyczy wyłącznie danych typów klasowych (do
+tego zaliczają się także struktury i unie), więc będziemy mówić o
+przenoszeniu obiektów, a nie danych.  Obiekt jest daną typu klasowego,
+czyli danymi interpretowanymi zgodnie z definicją klasy.  Stan obiektu
+nazywamy **wartością obiektu**.
 
 Definicja wartości obiektu zależy od implementacji klasy.  Zwykle
 wartością obiektu jest stan obiektów bazowych i składowych.  Jednak na
 stan obiektu nie muszą składać się niektóre dane, np. dane podręczne
 (ang. cache data).
 
-The value of an object can be copied when the object is:
+Wartość obiektu może być kopiowana podczas:
 
-* used to initialize an object,
+* inicjalizacji: `T t(<expr>);`
 
-* used in an assignment expression,
+* przypisania: `t = <expr>;`
 
-* passed by value as an argument to a function,
+W inicjalizacji i przypisaniu rozróżniamy obiekt źródłowy (wyrażeń
+`<expr>` wyżej) i docelowy (zmiennych `t` wyżej).  Obiekt docelowy
+jest inicjalizowany obiektem źródłowym.  Obiekt docelowy jest po lewej
+stronie operatora przypisania, a źródłowy po prawej.
 
-* returned by value from a function,
+Fakty o kopiowaniu obiektów:
 
-all of which involve:
+* Kopiowanie jest czasochłonne, kiedy obiekty są duże.
 
-* either the initialization: `T t(<expr>);`,
+* Kopiowanie obiektów jest implementowane przez:
 
-* or the assignment: `t = <expr>;`.
+  * *konstruktor kopiujący* podczas inicjalizacji,
+  
+  * *kopiujący operator przypisania* podczas przypisania.
 
-We're interested in the case where the source expression `<expr>` is
-of a class type, i.e., it has an object, which we call the source
-object, or just a source.  Object `t` is the target object, or just a
-target.
+Obiekty źródłowe i docelowe mogą być gdziekolwiek, czyli w dowolnym
+obszarze pamięci, nie tylko na stosie czy stercie.  Na przykład,
+obiekt źródłowy może być na stosie, a obiekt docelowy w obszarze
+pamięci dla danych statycznych i globalnych.  Obiekt nie powinien
+wiedzieć, w jakim obszarze pamięci się znajduje.
 
-Important facts about copying:
+Kopiowanie może być problemem w zależności od tego czy jest potrzebne
+czy nie.  Nie jest problemem, jeżeli jest potrzebne, np. kiedy musimy
+wykonać kopię obiektu do zmian, bo oryginału nie możemy zmieniać.
 
-* Copying takes time when the value to copy is big.
-
-* Copying is implemented by:
-
-  * the *copy constructor* (to initialize an object),
-
-  * the *copy assignment operator* (to assign to an object).
-
-* The source and the target can be *anywhere*.
-
-By anywhere I mean different memory locations, i.e., copying is not
-limited to objects on the stack or the heap only.  For instance, the
-source can be on the stack, and the target in the fixed-size memory
-for static and global data.  Objects should have no clue where they
-live.
-
-Copying might be a problem depending on whether it's necessary or not.
-It's not a problem, when it's necessary, e.g., when we need to modify
-a copy, and leave the original intact.
-
-Copying is a problem when it's unnecessary.  Copying is unnecessary,
-when the source is not needed after copying.  Unnecessary copying is a
-*performance* problem: the code will work alright, but we wish it was
-faster.
+Kopiowanie jest problemem, kiedy jest zbędne, czyli wtedy, kiedy
+obiekt źródłowy po kopiowaniu nie jest potrzebny.  Zbędne kopiowanie
+pogarsza wydajność: kod będzie działał poprawnie, ale mógłby być
+szybszy.
 
 # The move semantics
 
