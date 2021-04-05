@@ -51,28 +51,29 @@ obiekt źródłowy po kopiowaniu nie jest potrzebny.  Zbędne kopiowanie
 pogarsza wydajność: kod będzie działał poprawnie, ale mógłby być
 szybszy.
 
-# The move semantics
+# Semantyka przeniesienia
 
-The move semantics allows for moving the value from a source
-expression to a target, when copying is unnecessary.  It was
-introduced in C++11, but its need was already recognized in the
-1990's.  Moving is like salvaging goods (the value) from a sinking
-ship (the object that soon will not be needed).
+Semantyka przeniesienia pozwala na przeniesienie wartości z obiektu
+źródłowego do docelowego kiedy kopiowanie nie jest potrzebne.  Została
+ona wprowadzona w C++11, ale jej potrzeba była zauważona w latach
+dziewięćdziesiątych.  Przenoszenie jest jak ratowanie ładunku
+(wartości) z tonącego statku (obiektu, który wkrótce zostanie
+zniszczony).
 
-The move semantics takes effect when:
+Semantyka przeniesienia jest stosowana:
 
-  * an object is initialized, or an object is assigned to,
+* podczas inicjalizacji i przypisania,
 
-  * the source expression is an rvalue (e.g., the source is a
-    temporary),
+* kiedy wyrażenie obiektu źródłowego jest r-wartością,
 
-  * the type of the target has the move semantics implemented.
+* kiedy typ obiektu docelowego ma zaimplementowaną semantykę
+  przeniesienia.
 
-The move semantics is implemented by:
+Semantyka przeniesienia jest implementowana przez:
 
-  * the **move constructor** (to initialize an object),
+* **konstruktor przenoszący** (dla inicjalizacji),
 
-  * the **move assignment operator** (to assign to an object).
+* **przenoszący konstruktor przypisania** (dla przypisania).
 
 ## How it works
 
