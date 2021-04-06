@@ -103,14 +103,16 @@ W przykładzie niżej klasa ma zdefiniowane oba konstruktory:
 {% include_relative constructors.cc %}
 {% endhighlight %}
 
-### Implementation of the constructor overloads
+### Implementacja przeciążeń konstruktora
 
-In the implementation of the move constructor, in the initialization
-list of the base and member objects, the initializing arguments should
-be rvalues, so that the compiler can choose the move constructors for
-the base and member objects.  To this end we can use the `std::move`
-function, as shown in the example below, where the copy constructor is
-also implemented for comparison.
+Konstruktor przenoszący powinien inicjalizować obiekty bazowe i
+składowe z użyciem konstruktorów przenoszących.  Dlatego w liście
+inicjalizacyjnej obiektów bazowych i składowych, implementacja
+konstruktora przenoszącego powinna przekazywać r-wartości jako
+wyrażenia inicjalizacyjne, żeby w ten sposób wpłynąć na wybór
+przeciążenia konstruktora obiektów bazowych i składowych.  Do tego
+celu używamy funkcji `std::move`, jak pokazano w przykładzie niżej, w
+którym dla porównania zaimplementowano także konstruktor kopiujący.
 
 {% highlight c++ %}
 {% include_relative ctor-impl.cc %}
