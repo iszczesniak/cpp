@@ -154,14 +154,15 @@ przypisania jest r-wartością (ponieważ zwraca l-referencję), to możemy
 go użyć do inicjalizacji l-referencji: `T &l = T() = T();`, mimo że `T
 &l = T();` się nie kompiluje.
 
-### Implementation of the assignment operator overloads
+### Implementacja przeciążeń operatora przypisania
 
-In the implementation of the move assignment operator, the argument
-expressions for the assignment operators of the base and member
-objects should be rvalues, so that the compiler can choose the move
-assignment operators for the base and member objects.  To this end we
-can use the `std::move` function, as shown in the example below, where
-the copy assignment operator is also implemented for comparison.
+Przenoszący operator przypisania powinien przypisywać obiektom bazowym
+i składowym z użyciem przenoszących operatorów przypisania.  Dlatego
+wyrażeniami źródłowymi operatorów przypisania dla obiektów bazowych i
+składowym powinny być r-wartości, żeby wpłynąć na wybór przeciążeń
+operatorów przypisania.  Do tego celu używamy funkcji `std::move`, jak
+pokazano w przykładzie niżej, w którym dla porównania zaimplementowano
+także kopiujący operator przypisania.
 
 {% highlight c++ %}
 {% include_relative assign-impl.cc %}
