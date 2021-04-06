@@ -107,12 +107,12 @@ W przykładzie niżej klasa ma zdefiniowane oba konstruktory:
 
 Konstruktor przenoszący powinien inicjalizować obiekty bazowe i
 składowe z użyciem konstruktorów przenoszących.  Dlatego w liście
-inicjalizacyjnej obiektów bazowych i składowych, implementacja
-konstruktora przenoszącego powinna przekazywać r-wartości jako
-wyrażenia inicjalizacyjne, żeby w ten sposób wpłynąć na wybór
-przeciążenia konstruktora obiektów bazowych i składowych.  Do tego
-celu używamy funkcji `std::move`, jak pokazano w przykładzie niżej, w
-którym dla porównania zaimplementowano także konstruktor kopiujący.
+inicjalizacyjnej obiektów bazowych i składowych konstruktora
+przenoszącego powinny być przekazywane r-wartości jako wyrażenia
+inicjalizacyjne, żeby wpłynąć na wybór przeciążeń konstruktorów
+obiektów bazowych i składowych.  Do tego celu używamy funkcji
+`std::move`, jak pokazano w przykładzie niżej, w którym dla porównania
+zaimplementowano także konstruktor kopiujący.
 
 {% highlight c++ %}
 {% include_relative ctor-impl.cc %}
