@@ -135,24 +135,24 @@ przypisania:
 {% include_relative operators.cc %}
 {% endhighlight %}
 
-### The return type of the move assignment operator
+### Typ wyniku przenoszącego operatora przypisania
 
-If `a` and `b` are of type `T`, then expression `a = b = T()` should
-move the value of the temporary object `T()` to `b`, and then should
-copy the value from `b` to `a`.  That expression is evaluated
-right-to-left, because the assignment operator has the right-to-left
-associativity.
+Jeżeli `a` i `b` są typu `T`, to wyrażenie `a = b = T()` powinno
+przenieść wartość z obiektu tymczasowego `T()` do `b`, a następnie
+powinno skopiować wartość z `b` do `a`.  To wyrażenie jest
+opracowywane od prawej do lewej strony, ponieważ operator przypisania
+ma wiązanie prawostronne.
 
-Therefore, the move assignment operator should return an lvalue
-reference, and not an rvalue reference.  If the move assignment
-operator returned an rvalue reference, then that expression would move
-the value from the temporary object `T()` to `b`, and then move (not
-copy) the value of `b` to `a`.
+Dlatego przenoszący operator przypisania powinien zwracać
+l-referencję, a nie r-referencję.  Jeżeli operator zwracałby
+r-referencję, to wtedy to wyrażenie przenosiłoby wartość z obiektu
+tymczasowego `T()` do `b` (tak jak należy), ale potem przenosiłoby
+wartość z `b` do `a`, a nie kopiowało, czego byśmy oczekiwali.
 
-Interestingly, because the move assignment operator returns an lvalue
-reference, we can initialize an lvalue reference with the return value
-of the operator: `T &l = T() = T();` even though `T &l = T();` would
-fail to compile.
+Co ciekawe, ponieważ wyrażenie z wywołaniem przenoszącego operatora
+przypisania jest r-wartością (ponieważ zwraca l-referencję), to możemy
+go użyć do inicjalizacji l-referencji: `T &l = T() = T();`, mimo że `T
+&l = T();` się nie kompiluje.
 
 ### Implementation of the assignment operator overloads
 
