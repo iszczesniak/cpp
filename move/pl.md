@@ -87,9 +87,9 @@ Semantyka przeniesienia jest implementowana przez:
   być określony (np. jakiś pusty).  Obiekt musi być spójny, bo obiekt
   będzie niszczony.
 
-## Konstruktory: kopiujący i przenoszący
+## Konstruktor: kopiujący i przenoszący
 
-Klasa może mieć konstruktor kopiujący lub przenoszący.  Może mieć oba
+Klasa może mieć kopiujący lub przenoszący konstruktor.  Może mieć oba
 albo żadnego.  Konstruktor kopiujący i przenoszący możemy nazwać
 przeciążeniami konstruktora.
 
@@ -118,17 +118,18 @@ zaimplementowano także konstruktor kopiujący.
 {% include_relative ctor-impl.cc %}
 {% endhighlight %}
   
-## The copy and move assignment operators
+## Operator przypisania: kopiujący i przenoszący
 
-A class can have either the copy assignment operator or the move
-assignment operator, both or none.
+Klasa może mieć kopiujący lub przenoszący operator przypisania.  Może
+mieć oba albo żadnego.  Operator kopiujący i przenoszący możemy nazwać
+przeciążeniami operatora.
 
-The move assignment operator of class `T` has a single parameter of
-type `T &&`.
+Przenoszący operator przypisa klasy `T` ma jeden parametr typu `T &&`.
 
-### A simple example
+### Prosty przykład:
 
-In the example below the class has both operators defined:
+W przykładzie niżej klasa ma zdefiniowane dwa przeciążenia operatora
+przypisania:
 
 {% highlight c++ %}
 {% include_relative operators.cc %}
