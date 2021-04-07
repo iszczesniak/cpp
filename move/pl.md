@@ -196,16 +196,16 @@ zadeklarowana (ang. declared).  Funkcja może być zadeklarowana:
   * *dostarczona przez użytkownika* (ang. user-defined): programista
      dostarcza implementację,
 
-  * *domyślna* (ang. defaulted): programista żądą domyślnej
-     implementacji,
+  * *domyślnie zaimplementowana* (ang. defaulted): programista żądą
+     domyślnej implementacji,
 
   * *usunięta* (ang. deleted): programista deklaruje składową jako
      usuniętą.
 
 * **niejawnie przez kompilator** (ang. implicitely) jako:
 
-  * *domyślna* (ang. defaulted): kompilator dołącza domyślą
-     implementację bez żądania programisty,
+  * *domyślnie zaimplementowana* (ang. defaulted): kompilator dołącza
+     domyślą implementację bez żądania programisty,
 
   * *usunięta* (ang. deleted): kompilator deklaruje składową jako
      usuniątą bez żądania programisty.
@@ -242,37 +242,41 @@ Wszystkie obiekty bazowe i składowe w domyślnej implementacji:
 
 ### Jawnie usunięta składowa
 
-A programmer can explicitly request a special member function be
-deleted with `= delete`, like this:
+Programista może jawnie usunąć składową z użyciem `= delete`:
 
 {% highlight c++ %}
 {% include_relative delete.cc %}
 {% endhighlight %}
 
-### Rules for special member functions
+### Zasady dla składowych specjalnych
 
-All special member functions are implicitly defaulted, but:
+Wszystkie składowe specjalne są niejawnie domyślnie zaimplementowane,
+ale:
 
-* the default constructor will be **undeclared**, if any other
-  constructor is *explicitly declared*,
+* konstruktor bezargumentowy będzie niezadeklarowany, jeżeli
+  którykolwiek konstruktor będzie jawnie zadeklarowany,
 
-* the copy constructor and the copy assignment operator will be
-  **implicitly deleted**, if the move constructor or the move
-  assignment operator is *explicitly declared* (so that a programmer
-  has to implement, if needed, the copy constructor and the copy
-  assignment operators),
+* konstruktor kopiujący i kopiujący operator przypisania będą
+  **niejawnie usunięte** (więc będą brały udział w wyborze
+  przeciążenia), jeżeli konstruktor przenoszący lub przenoszący operator
+  przypisania został **jawnie zadeklarowany**: programista będzie musiał
+  jawnie zadeklarować kopiujące składowe specjalne, jeżeli są wymagane,
 
-* the move constructor and the move assignment operator will be
-  **undeclared**, if the copy constructor, the copy assignment
-  operator or the destructor is *explicitly declared* (so that the
-  legacy code continues to work and doesn't have the move semantics
-  stuffed in).
+* konstruktor przenoszący i przenoszący operator przypisania będą
+  **niezadeklarowane** (więc nie będą brały udziału w wyborze
+  przeciążenia), jeżeli konstruktor kopiujący, kopiujący operator
+  przypisania lub destruktor będą **jawnie zadeklarowane**: stary kod
+  będzie nadal działał i nie będzie miał niejawnie dostarczonej domyślnej
+  implementacji semantyki przeniesienia (czyli przenoszących składowych
+  specjalnych).
 
-These rules ensure the seamless integration of the move semantics into
-the legacy and modern code.  For instance, the legacy code (such as
-`std::pair`) that doesn't do any special resource management (in the
-copy constructor, the copy assignment operator, and the destructor),
-will have the move semantics implemented by default.
+Te zasady mają na celu bezproblemową integrację semantyki
+przeniesienia zarówno w starym, jak i nowym kodzie.  Na przykład,
+stary kod (np. `std::pair`), który nie zarządza swoimi zasobami w
+jakiś nietypowy sposób (który wymagałby implementacji konstruktora
+kopiującego, kopiującego operatora przypisania lub destruktora),
+będzie miał dostarczoną domyślną implementację semantyki
+przeniesienia.
 
 ## Move-only types
 
