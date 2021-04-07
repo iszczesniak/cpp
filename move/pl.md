@@ -214,16 +214,16 @@ Jeżeli składowa jest zadeklarowana jako usunięta (nieważne, czy jawnie
 czy niejawnie), to jest brana pod uwagę w wyborze przeciążenia, ale
 kiedy jest wybrana, to kompilacja kończy się błędem.
 
-### Explicitly defaulted
+### Jawnie domyślna
 
-A programmer can explicitly request the default implementation of a
-special member function with `= default`, like this:
+Programista może jawnie zażądać domyślnej implementacji składowej
+specjalnej z użyciem `= default`:
 
 {% highlight c++ %}
 {% include_relative default.cc %}
 {% endhighlight %}
 
-### Default implementation
+### Domyślna implementacja
 
 All base and member objects in a defaulted (regardless of whether
 implicitly or explicitly):
