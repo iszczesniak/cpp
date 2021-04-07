@@ -278,10 +278,10 @@ kopiującego, kopiującego operatora przypisania lub destruktora),
 będzie miał dostarczoną domyślną implementację semantyki
 przeniesienia.
 
-## Move-only types
+## Typ tylko do przenoszenia
 
-A move-only type can only be moved: it cannot be copied.  This is an
-example of a move-only type:
+Obiekty typu tylko do przenoszenia mogą być tylko przenoszone i nie
+mogą być kopiowane.  Oto przykład typu tylko do przenoszenia:
 
 {% highlight c++ %}
 {% include_relative move-only.cc %}
