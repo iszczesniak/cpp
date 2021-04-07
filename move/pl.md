@@ -168,26 +168,25 @@ także kopiujący operator przypisania.
 {% include_relative assign-impl.cc %}
 {% endhighlight %}
 
-## Overload resolution
+## Wybór przeciążenia
 
-The overload resolution of a constructor or an assignment operator
-(i.e., whether the copy or the move version is chosen) depends on the
-category of the source expression, and the availability of the copy
-and move overloads.  The same rules apply as in the overload
-resolution for [a function overloaded with reference
-types](../references#reference-type-and-function-overload-resolution).
+Wybór przeciążenia (kopiującego albo przenoszącego) konstruktora czy
+operatora przypisania zależy od kategorii wartości wyrażenia
+źródłowego i dostępności przeciążeń.  Stosowane są tu zasady wyboru
+przeciążenia funkcji w zależności od referencyjnego typu parametru
+przeciążenia.
 
-## Special member functions
+## Składowe specjalne
 
-The special member functions are:
+Składowymi specjalnymi są:
 
-* the default constructor,
+* konstruktor domyślny (bezargumentowy),
 
-* the copy constructor, the copy assignment operator,
+* konstruktor kopiujący i kopiujący operator przypisania,
 
-* the move constructor, the move assignment operator,
+* konstruktor przenoszący i przenoszący operator przypisania,
 
-* the destructor.
+* destruktor.
 
 A special member function can be either undeclared or declared.  A
 function can be declared:
