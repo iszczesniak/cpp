@@ -188,29 +188,31 @@ Składowymi specjalnymi są:
 
 * destruktor.
 
-A special member function can be either undeclared or declared.  A
-function can be declared:
+Składowa specjalna może być niezadeklarowana (ang. undeclared) albo
+zadeklarowana (ang. declared).  Funkcja może być zadeklarowana:
 
-* *explicitly* as:
+* **jawnie przez programistę** (ang. explicitely) jako:
 
-  * *user-defined*: a programmer provides the function definition,
+  * *dostarczona przez użytkownika* (ang. user-defined): programista
+     dostarcza implementację,
 
-  * *defaulted*: a programmer requests a default implementation,
+  * *domyślna* (ang. defaulted): programista żądą domyślnej
+     implementacji,
 
-  * *deleted*: a programmer declares the function as deleted,
+  * *usunięta* (ang. deleted): programista deklaruje składową jako
+     usuniętą.
 
-* *implicitly* as:
+* **niejawnie przez kompilator** (ang. implicitely) jako:
 
-  * *defaulted*: a compiler provides a default definition without the
-     user requesting it,
+  * *domyślna* (ang. defaulted): kompilator dołącza domyślą
+     implementację bez żądania programisty,
 
-  * *deleted*: a compiler declares the function as deleted without the
-     programmer requesting it.
+  * *usunięta* (ang. deleted): kompilator deklaruje składową jako
+     usuniątą bez żądania programisty.
 
-When a function is declared as *deleted* (regardless of whether
-implicitly or explicitly), the function is considered in overload
-resolution, but when the function is chosen, an error message reports
-the function is deleted.
+Jeżeli składowa jest zadeklarowana jako usunięta (nieważne, czy jawnie
+czy niejawnie), to jest brana pod uwagę w wyborze przeciążenia, ale
+kiedy jest wybrana, to kompilacja kończy się błędem.
 
 ### Explicitly defaulted
 
