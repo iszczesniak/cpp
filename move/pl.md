@@ -214,7 +214,7 @@ Jeżeli składowa jest zadeklarowana jako usunięta (nieważne, czy jawnie
 czy niejawnie), to jest brana pod uwagę w wyborze przeciążenia, ale
 kiedy jest wybrana, to kompilacja kończy się błędem.
 
-### Jawnie domyślna
+### Jawnie domyślna składowa
 
 Programista może jawnie zażądać domyślnej implementacji składowej
 specjalnej z użyciem `= default`:
@@ -225,22 +225,22 @@ specjalnej z użyciem `= default`:
 
 ### Domyślna implementacja
 
-All base and member objects in a defaulted (regardless of whether
-implicitly or explicitly):
+Wszystkie obiekty bazowe i składowe w domyślnej implementacji:
 
-* default constructor are default constructed,
+* konstruktora bezargumentowego są inicjalizowane bezargumentowo,
 
-* copy constructor are copy initialized,
+* konstruktora kopiującego są inicjalizowane przez kopiowanie,
 
-* copy assignment operator are copy assigned,
+* kopiującego operatora przypisania są przypisywane przez kopiowanie,
 
-* move constructor are move initialized,
+* konstruktora przenoszącego są inicjalizowane przez przenoszenie,
 
-* move assignment operator are move assigned,
+* przenoszącego operatora przypisania są przypisywane przez
+  przenoszenie,
 
-* destructor are destroyed.
+* destruktora są niszczone.
 
-### Deleted
+### Jawnie usunięta składowa
 
 A programmer can explicitly request a special member function be
 deleted with `= delete`, like this:
