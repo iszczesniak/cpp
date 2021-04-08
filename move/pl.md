@@ -358,16 +358,17 @@ Jeżeli obiekt lokalny byłby statyczny (czyli nie byłby niszczony po
 wyjściu z funkcji), to wartość nie mogłaby zostać niejawnie
 przeniesiona, a jedynie skopiowana.
 
-## The `std::swap` function
+## Funkcja `std::swap`
 
-Let's end with how it all began.  Function `std::swap` is the reason
-for the work on the move semantics that started in the 1990's.  This
-function showed that it's more efficient to move than to copy.
+Zakończmy tym, od czego semantyka przeniesienia się zaczęła, funkcją
+`std::swap`.  W latach dziewięćdziesiątych zauważono, że ta funkcja
+będzie działała szybciej bez kopiowania.  Ale jak, skoro wówczas było
+tylko kopiowanie?  Takie jest źródło semantyki przeniesienia.
 
-Function `std::swap` takes by reference two arguments, and swaps their
-values.  This function is implemented in the standard library, but in
-the example below we also have an example implementation to show
-what's going on:
+Funkcja `std::swap` przyjmuje przez referencję dwa argumenty i
+zamienia ich wartości.  Ta funkcja jest częścią biblioteki
+standardowej, ale w przykładowa implementacja niżej ilustruje problem
+wydajnej zamiany wartości:
 
 {% highlight c++ %}
 {% include_relative swap.cc %}
