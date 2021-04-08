@@ -374,28 +374,27 @@ wydajnej zamiany wartości:
 {% include_relative swap.cc %}
 {% endhighlight %}
 
-# Conclusion
+# Podsumowanie
 
-* The move semantics was introduced in C++11.
+Semantyka przeniesienia:
 
-* The move semantics is used when copying is unnecessary.
+* została wprowadzona w C++11,
 
-* The move semantics is a performance boost.
+* jest używana, kiedy kopiowanie jest zbędne,
 
-* Only the values of rvalues can be moved.
+* poprawia wydajność czasową programu,
 
-* A compiler can ship the default implementation of the move semantics.
+* dotyczy tylko r-wartości,
 
-* A programmer doesn't have to know about the move semantics, but it
-  will be used by a compiler anyway.
+* jest używana, nawet jeżeli programista tego nie żąda.
 
 # Quiz
 
-* What do we need the move semantics for?
+* Dlaczego semantyka przeniesienia jest ważna?
 
-* How does the move sementics work?
+* Jak działa semantyka przeniesienia?
 
-* What's a move-only type?
+* Czy jest typ tylko do przenoszenia?
 
 {% include rid %}
 
