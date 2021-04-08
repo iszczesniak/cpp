@@ -302,7 +302,7 @@ konstruktor przenoszący nie będzie wywołany, a pominięty.
 ## Niejawne przeniesienie zwracanej wartości
 
 Jeżeli optymalizacja wartości powrotu nie może być zastosowana, a
-zwracany obiekt będzie niszczony przy powrocie z funkcji, to wartość
+zwracany obiekt będzie niszczony po powrocie z funkcji, to wartość
 zwracanego obiektu może być niejawnie przeniesiona: instrukcja `return
 t;` będzie niejawnie zamieniana na `std::move(t);`.  Tylko wyrażenia
 będące nazwą zmiennej są tak konwertowane (z l-wartości na r-wartość),
@@ -316,40 +316,48 @@ Poniżej omówione są dwa przypadki, w których optymalizacja wartości
 powrotu jest niemożliwa, ale w których zwracana wartość jest niejawnie
 przenoszona.
 
-#### Case 1
+#### Przypadek 1
 
-When we return a function parameter.  A function parameter is
-allocated and initialized in a location on the stack that is different
-from the location for the return value.  A function parameter is
-destroyed when returning from the function, so we can move the value
-from it to the location for the return value.  The return expression
-is the name of the parameter only, so the implicit move can take
-place.
+Kiedy zwracamy parametr funkcji, nie można zastosować optymalizacji
+wartości powrotu (bo parametr nie może być stworzony w miejscu dla
+zwracanej wartości), ale będzie zastosowanie niejawne przeniesienie
+wartości, bo:
+
+* parametr będzie niszczony po wyjściu z funkcji,
+
+* wyrażenie instrukcji powrotu to tylko nazwa parametru.
+
+Oto przykład:
 
 {% highlight c++ %}
 {% include_relative implicit1.cc %}
 {% endhighlight %}
 
+#### Przypadek 2
 
-#### Case 2
+Kiedy zwracamy obiekt bazowy lokalnego obiektu, nie można zostosować
+optymalizacji wartości powrotu, bo lokalny obiekt nie może być
+stworzony w miejscu dla wracanej wartości.  Wartość obiektu bazowego
+może być jednak przeniesiona, bo:
 
-When we return a base object of a local object.  The local object is
-too big to be initialized in the location for the return value, which
-is of the size of the base object.  The local object is destroyed when
-returning from the function, so we can move the value from its base
-object to the location for the return value.  Only the value of the
-base object will be moved, which is called *object slicing*, because
-we slice off the value of the base object.  The return expression is
-the name of the local object only, so the implicit move can take
-place.
+* obiekt lokalny będzie zniszczony po wyjściu z funkcji,
+
+* wyrażenie instrukcji powrotu to tylko nazwa parametru, która nie
+  tylko będzie niejawnie konwertowana do r-wartości, ale też niejawnie
+  rzutowana do typu bazowego.
+
+Będzie przenoszona tylko wartość obiektu bazowego, a nie całego
+obiektu, co nazywamy cięciem obiektu (ang. object slicing), bo
+wycinamy wartość obiektu bazowego, żeby ją przenieść.
 
 {% highlight c++ %}
 {% include_relative implicit2.cc %}
 {% endhighlight %}
 
-If the local object was static, the value would have to be copied, not
-moved.
-  
+Jeżeli obiekt lokalny byłby statyczny (czyli nie byłby niszczony po
+wyjściu z funkcji), to wartość nie mogłaby zostać niejawnie
+przeniesiona, a jedynie skopiowana.
+
 ## The `std::swap` function
 
 Let's end with how it all began.  Function `std::swap` is the reason
