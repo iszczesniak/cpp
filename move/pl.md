@@ -299,18 +299,14 @@ przeciążeń.
 Jeżeli będzie przekazywany obiekt tymczasowy do funkcji, to
 konstruktor przenoszący nie będzie wywołany, a pominięty.
 
-## Implicit move of returned values
+## Niejawne przeniesienie zwracanej wartości
 
-If [the return value optimization
-(RVO)](../memory/#return-value-optimization) cannot be used, then the
-value of the returned object will be *implicitly moved*, if the
-returned object is destroyed when returning from the function.  The
-return instruction `return t;` is implicitly converted to `return
-std::move(t);`.
-
-Only the return expression consisting of a variable name is implicitly
-moved (converted from an lvalue to an rvalue), and other expressions
-are not.
+Jeżeli optymalizacja wartości powrotu nie może być zastosowana, a
+zwracany obiekt będzie niszczony przy powrocie z funkcji, to wartość
+zwracanego obiektu może być niejawnie przeniesiona: instrukcja `return
+t;` będzie niejawnie zamieniana na `std::move(t);`.  Tylko wyrażenia
+(instrukcji return) będące nazwą zmiennej są tak zamieniamia (z
+l-wartości na r-wartość), inne wyrażenia nie.
 
 We shouldn't explicitly use the `std::move` function (e.g., `return
 std::move(t);`) in the return statement whenever we can, because it
