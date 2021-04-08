@@ -287,16 +287,17 @@ mogą być kopiowane.  Oto przykład typu tylko do przenoszenia:
 {% include_relative move-only.cc %}
 {% endhighlight %}
 
-# Implications of the move semantics
+# Konsekwencje semantyki przeniesienia
 
-## Initialization of function parameters
+## Inicjalizacja parametrów funkcji
 
-A function parameter is initialized with the argument expression.  For
-a parameter of a non-reference (i.e., we pass the argument by value)
-class type, the constructor overload resolution will depend on the
-category of the argument expression and the overload availability, as
-usual for [a function overloaded with reference
-types](../references#reference-type-and-function-overload-resolution).
+Parametr funkcji jest inicjalizowany z użyciem argumentu wywołania.
+Dla parametru klasowego typu niereferencyjnego, wybór przeciążenia
+konstruktora będzie zależał od kategorii argumentu i dostępności
+przeciążeń.
+
+Jeżeli będzie przekazywany obiekt tymczasowy do funkcji, to
+konstruktor przenoszący nie będzie wywołany, a pominięty.
 
 ## Implicit move of returned values
 
