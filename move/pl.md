@@ -305,15 +305,16 @@ Jeżeli optymalizacja wartości powrotu nie może być zastosowana, a
 zwracany obiekt będzie niszczony przy powrocie z funkcji, to wartość
 zwracanego obiektu może być niejawnie przeniesiona: instrukcja `return
 t;` będzie niejawnie zamieniana na `std::move(t);`.  Tylko wyrażenia
-(instrukcji return) będące nazwą zmiennej są tak zamieniamia (z
-l-wartości na r-wartość), inne wyrażenia nie.
+będące nazwą zmiennej są tak konwertowane (z l-wartości na r-wartość),
+inne wyrażenia nie.
 
-We shouldn't explicitly use the `std::move` function (e.g., `return
-std::move(t);`) in the return statement whenever we can, because it
-disables the RVO.
+Nie powinniśmy zawsze jawnie konwertować kategorii wartości wyrażenia
+(np. z użyciem funkcji `std::move`) instrukcji powrotu, bo możemy w
+ten sposób uniemożliwić optymalizację wartości powrotu.
 
-There are two cases described below in which the RVO cannot be used,
-but the returned value will be implicitly moved.
+Poniżej omówione są dwa przypadki, w których optymalizacja wartości
+powrotu jest niemożliwa, ale w których zwracana wartość jest niejawnie
+przenoszona.
 
 #### Case 1
 
