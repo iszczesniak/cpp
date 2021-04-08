@@ -18,7 +18,7 @@ D`).  The C++ standard describes:
 The C++ memory organization has to respect the basic requirements of
 an operating system, but the rest is up to C++.
 
-## The basic requirements of an operating system [system]
+## The basic requirements of an operating system
 
 When we run a *program*, it becomes a *process* of an operating
 system, and a *task* a processor is executing.  A process manages its
