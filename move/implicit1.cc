@@ -8,7 +8,7 @@ struct A
 
   A(A &&t)
   {
-    cout << "move ctor\n";
+    cout << "move-ctor\n";
   }
 
 };

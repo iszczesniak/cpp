@@ -13,14 +13,14 @@ struct A
   A(const A &)
   {
     // Copy the data from object a to *this.
-    cout << "copy ctor\n";
+    cout << "copy-ctor\n";
   }
 
   // The move constructor has a single parameter of type A &&.
   A(A &&)
   {
     // Move the data from object a to *this.
-    cout << "move ctor\n";
+    cout << "move-ctor\n";
   }
 };
 
