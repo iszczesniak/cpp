@@ -399,6 +399,6 @@ Semantyka przeniesienia:
 
 * Czy jest typ tylko do przenoszenia?
 
-{% include rid %}
+{% include rid_pl %}
 
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
