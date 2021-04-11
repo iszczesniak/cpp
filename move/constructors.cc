@@ -10,14 +10,14 @@ struct A
   }
 
   // The copy constructor has a single parameter of type const A &.
-  A(const A &a)
+  A(const A &)
   {
     // Copy the data from object a to *this.
     cout << "copy ctor\n";
   }
 
   // The move constructor has a single parameter of type A &&.
-  A(A &&a)
+  A(A &&)
   {
     // Move the data from object a to *this.
     cout << "move ctor\n";

@@ -13,9 +13,8 @@ struct A
   // * has a single parameter of type const A &,
   // * returns A &.
   A &
-  operator=(const A &source)
+  operator=(const A &)
   {
-    // Copy the data from object t to *this.
     cout << "copy assign\n";
     return *this;
   }
@@ -24,9 +23,8 @@ struct A
   // * has a single parameter of type A &&,
   // * returns A &.
   A &
-  operator=(A &&t)
+  operator=(A &&)
   {
-    // Move the data from object t to *this.
     cout << "move assign\n";
     return *this;
   }
