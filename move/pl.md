@@ -11,9 +11,9 @@ czyli danymi interpretowanymi zgodnie z definicją klasy.  Stan obiektu
 nazywamy **wartością obiektu**.
 
 Definicja wartości obiektu zależy od implementacji klasy.  Zwykle
-wartością obiektu jest stan obiektów bazowych i składowych.  Jednak na
-stan obiektu nie muszą składać się niektóre dane, np. dane podręczne
-(ang. cache data).
+wartością obiektu jest stan obiektów bazowych i pól składowych.
+Jednak na stan obiektu nie muszą składać się niektóre dane, np. dane
+podręczne (ang. cache data).
 
 Wartość obiektu może być kopiowana podczas:
 
@@ -27,6 +27,8 @@ jest inicjalizowany obiektem źródłowym.  Obiekt docelowy jest po lewej
 stronie operatora przypisania, a źródłowy po prawej.
 
 Fakty o kopiowaniu obiektów:
+
+* Kopiowanie nie zawsze jest konieczne.
 
 * Kopiowanie jest czasochłonne, kiedy obiekty są duże.
 
@@ -73,7 +75,7 @@ Semantyka przeniesienia jest implementowana przez:
 
 * **konstruktor przenoszący** (dla inicjalizacji),
 
-* **przenoszący konstruktor przypisania** (dla przypisania).
+* **przenoszący operator przypisania** (dla przypisania).
 
 ## Jak to działa
 
@@ -81,23 +83,23 @@ Semantyka przeniesienia jest implementowana przez:
   miejsca.  Użytkownik zna każdy szczegół i ma pełną kontrolę.
 
 * Tylko wartość jest przenoszona.  Obiekt źródłowy i obiekt docelowy
-  pozostają tam, gdzie były, bo będą one niszczone tak jak zwykle.
+  pozostają tam, gdzie były, bo będą one niszczone tak, jak zwykle.
 
 * Po przeniesieniu obiekt źródłowy musi być spójny, ale stan nie musi
-  być określony (np. jakiś pusty).  Obiekt musi być spójny, bo obiekt
-  będzie niszczony.
+  być określony (np. jakiś pusty).  Obiekt musi być spójny, bo będzie
+  niszczony.
 
 ## Konstruktor: kopiujący i przenoszący
 
 Klasa może mieć kopiujący lub przenoszący konstruktor.  Może mieć oba
-albo żadnego.  Konstruktor kopiujący i przenoszący możemy nazwać
-przeciążeniami konstruktora.
+albo żadnego.  Konstruktor kopiujący i przenoszący są przeciążeniami
+konstruktora.
 
 Konstruktor przenoszący klasy `T` ma jeden parametr typu `T &&`.
 
 ### Prosty przykład
 
-W przykładzie niżej klasa ma zdefiniowane oba konstruktory:
+W przykładzie niżej klasa ma zdefiniowane trzy konstruktory:
 
 {% highlight c++ %}
 {% include_relative constructors.cc %}
@@ -121,10 +123,11 @@ zaimplementowano także konstruktor kopiujący.
 ## Operator przypisania: kopiujący i przenoszący
 
 Klasa może mieć kopiujący lub przenoszący operator przypisania.  Może
-mieć oba albo żadnego.  Operator kopiujący i przenoszący możemy nazwać
-przeciążeniami operatora.
+mieć oba albo żadnego.  Operator kopiujący i przenoszący są
+przeciążeniami operatora przypisania.
 
-Przenoszący operator przypisa klasy `T` ma jeden parametr typu `T &&`.
+Przenoszący operator przypisania klasy `T` ma jeden parametr typu `T
+&&`.
 
 ### Prosty przykład:
 
@@ -304,9 +307,9 @@ konstruktor przenoszący nie będzie wywołany, a pominięty.
 Jeżeli optymalizacja wartości powrotu nie może być zastosowana, a
 zwracany obiekt będzie niszczony po powrocie z funkcji, to wartość
 zwracanego obiektu może być niejawnie przeniesiona: instrukcja `return
-t;` będzie niejawnie zamieniana na `std::move(t);`.  Tylko wyrażenia
-będące nazwą zmiennej są tak konwertowane (z l-wartości na r-wartość),
-inne wyrażenia nie.
+t;` będzie niejawnie zamieniana na `return std::move(t);`.  Tylko
+wyrażenia będące nazwą zmiennej są tak konwertowane (z l-wartości na
+r-wartość), inne wyrażenia nie.
 
 Nie powinniśmy zawsze jawnie konwertować kategorii wartości wyrażenia
 (np. z użyciem funkcji `std::move`) instrukcji powrotu, bo możemy w
@@ -320,7 +323,7 @@ przenoszona.
 
 Kiedy zwracamy parametr funkcji, nie można zastosować optymalizacji
 wartości powrotu (bo parametr nie może być stworzony w miejscu dla
-zwracanej wartości), ale będzie zastosowanie niejawne przeniesienie
+zwracanej wartości), ale będzie zastosowane niejawne przeniesienie
 wartości, bo:
 
 * parametr będzie niszczony po wyjściu z funkcji,
@@ -336,9 +339,9 @@ Oto przykład:
 #### Przypadek 2
 
 Kiedy zwracamy obiekt bazowy lokalnego obiektu, nie można zostosować
-optymalizacji wartości powrotu, bo lokalny obiekt nie może być
-stworzony w miejscu dla wracanej wartości.  Wartość obiektu bazowego
-może być jednak przeniesiona, bo:
+optymalizacji wartości powrotu, bo miejsce dla wracanej wartości jest
+przewidziane dla typu bazowego.  Wartość obiektu bazowego może być
+jednak przeniesiona, bo:
 
 * obiekt lokalny będzie zniszczony po wyjściu z funkcji,
 
@@ -367,7 +370,7 @@ tylko kopiowanie?  Takie jest źródło semantyki przeniesienia.
 
 Funkcja `std::swap` przyjmuje przez referencję dwa argumenty i
 zamienia ich wartości.  Ta funkcja jest częścią biblioteki
-standardowej, ale w przykładowa implementacja niżej ilustruje problem
+standardowej, ale przykładowa implementacja niżej ilustruje problem
 wydajnej zamiany wartości:
 
 {% highlight c++ %}
