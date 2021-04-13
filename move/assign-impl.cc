@@ -11,14 +11,14 @@ struct B: A
 
   // The copy assignment operator ------------------------------------
 
-  // The copy assignment operator has to copy the base object of class
-  // A of object b, and the string of object b.
-  B & operator=(const B &b)
+  // The copy assignment operator has to copy the base and the member
+  // objects of the source object.
+  B & operator=(const B &source)
   {
-    A::operator=(b);
+    A::operator=(source);
     // We can assign (as above) to the base object this way too:
-    // static_cast<A>(*this) = b;
-    m_s = b.m_s;
+    // static_cast<A>(*this) = source;
+    m_s = source.m_s;
     return *this;
   }
 
@@ -28,14 +28,14 @@ struct B: A
   // The move assignment operator ------------------------------------
 
   // The implementation of the move assignment operator has to use the
-  // std::move function to move the base object of class A of object
-  // b, and the string of object b, otherwise they would be copied.
-  B & operator=(B &&b)
+  // std::move function to move the base and the member objects of the
+  // source object, otherwise they would be copied.
+  B & operator=(B &&source)
   {
-    A::operator=(std::move(b));
+    A::operator=(std::move(source));
     // We can assign (as above) to the base object this way too:
-    // static_cast<A>(*this) = std::move(b);
-    m_s = std::move(b.m_s);
+    // static_cast<A>(*this) = std::move(source);
+    m_s = std::move(source.m_s);
     return *this;
   }
 

@@ -12,8 +12,8 @@ struct B: A
   // The copy constructor ------------------------------------------
 
   // The implementation of the copy constructor has to copy the base
-  // and member objects.
-  B(const B &b): A(b), m_s(b.m_s)
+  // and member objects of the source object.
+  B(const B &source): A(source), m_s(source.m_s)
   {
   }
 
@@ -23,9 +23,9 @@ struct B: A
   // The move constructor ------------------------------------------
 
   // The implementation of the move constructor has to use the
-  // std::move function to move the base object of class A of object
-  // b, and the string of object b, otherwise they would be copied.
-  B(B &&b): A(std::move(b)), m_s(std::move(b.m_s))
+  // std::move function to move the base and member objects of the
+  // source object, otherwise they would be copied.
+  B(B &&source): A(std::move(source)), m_s(std::move(source.m_s))
   {
   }
 

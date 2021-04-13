@@ -4,9 +4,14 @@ struct A
 {
   A() = default;
 
+  A(const A &)
+  {
+    std::cout << "copy-ctor\n";
+  }
+
   A(A &&)
   {
-    std::cout << "move ctor\n";
+    std::cout << "move-ctor\n";
   }
 };
 
