@@ -18,12 +18,11 @@ main()
   using rt = int &&;
 
   using typ1 = lt &&;
-  cout << is_same<int &, typ1>::value << endl;
+  cout << is_same_v<int &, typ1> << endl;
 
   using typ2 = rt &&;
-  cout << is_same<int &&, typ2>::value << endl;
+  cout << is_same_v<int &&, typ2> << endl;
 
-  cout << is_same<int &&, typename A<int>::type>::value << endl;
-  cout << is_same<int &, typename A<int &>::type>::value << endl;
-  cout << is_same<int &&, typename A<int &&>::type>::value << endl;
+  cout << is_same_v<int &, typename A<lt>::type> << endl;
+  cout << is_same_v<int &&, typename A<rt>::type> << endl;
 }
