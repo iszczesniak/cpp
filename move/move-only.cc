@@ -1,7 +1,7 @@
 #include <utility>
 
 // A move-only type.  We do not have to explicitely delete the copy
-// constructor, and the move assignment operator, because they will be
+// constructor, and the copy assignment operator, because they will be
 // implicitely deleted, since the move constructor and the move
 // assignment operator are explicitely defaulted.
 struct A
