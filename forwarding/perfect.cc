@@ -28,16 +28,11 @@ g(int &&, const string &s)
   test(s, "int &&");
 }
 
-void
-g(const int &&, const string &s)
-{
-  test(s, "const int &&");
-}
-
 template<typename T>
 void
 f(T &&t, const string &s)
 {
+  // g(t, s);
   g(forward<T>(t), s);
 }
 
