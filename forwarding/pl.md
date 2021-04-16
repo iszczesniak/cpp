@@ -49,7 +49,7 @@ Problemem jest utrata kategorii argumentu.  W ciele funkcji, wyrażenie
 z nazwą parametru funkcji jest zawsze l-wartością, nawet jeżeli
 parametr jest r-referencją (która została zainicjalizowana
 r-wartością).  Zachowanie kategorii argumentu funkcji `f` podczas
-przekazywania go do funkcji `g` ma znaczenie, bo też kategoria (nie
+przekazywania go do funkcji `g` ma znaczenie, bo też kategoria (a nie
 tylko typ) argumentu ma wpływ na wybór przeciążenia funkcji `g`.
 
 ## Motywacja: fabryki obiektów
@@ -76,8 +76,8 @@ make_unique(qualifiers_a1 type_a1 a1,
 * Parametr to zmienna dostępna w ciele funkcji.
 * Argument to wyrażenie w wywołaniu funkcji.
 * Parametry są *inicjalizowane* na podstawie argumentów.
-* `foo(int x)`, gdzie `x` jest parametrem funkcji
-* `foo(a)`, gdzie `a` jest argumentem wywołania funkcji
+* `void foo(int x);`, gdzie `x` jest parametrem funkcji
+* `foo(a);`, gdzie `a` jest argumentem wywołania funkcji
 
 Argument może być l-wartością albo r-wartością, a parametr zawsze jest
 l-wartością, bo ma nazwę (możemy pobrać jego adres).
@@ -230,8 +230,8 @@ argumentu, co jest dalej wyjaśnione.
 Problem w tym, że parametr `t` jest l-wartością (bo ma nazwę `t`),
 nawet jeżeli argumentem wywołania funkcji `f` była r-wartość.  W ten
 sposób tracimy informację o kategorii wartości wyrażenia, które było
-argumentem funkcji `f`.  Funkcja `std::forward` odzyskuje tę kategorię
-wartości, czego szczegóły są wyjaśnione niżej.
+argumentem wywołania funkcji `f`.  Funkcja `std::forward` odzyskuje tę
+kategorię wartości, czego szczegóły są wyjaśnione niżej.
 
 **Podproblem #1 został rozwiązany referencją przekazującą.**
 
@@ -283,8 +283,8 @@ Jeżeli argumentem funkcji `f` jest:
 Funkcja szablonowa `std::forward` przyjmuje l-wartość `t` typu `T` i w
 zależności od argumentu szablonu zwraca:
 
-* r-referencję na `t` dla `std::forward<T>(t)`
-* l-referencję na `t` dla `std::forward<T &>(t)`
+* r-wartość dla `std::forward<T>(t)`
+* l-wartość dla `std::forward<T &>(t)`
 
 Funkcji `std::forward` używamy w definicji funkcji szablonowej, kiedy
 trzeba odzyskać kategorię argumentu wywołania funkcji.
@@ -321,6 +321,14 @@ będą przekazywane zawsze l-wartości do funkcji `g`.  Można sprawdzić.
 
 * Żeby doskonale przekazać argument wywołania funkcji, używamy
   referencji przekazującej i funkcji `std::forward`.
+
+# Quiz
+
+* Jakie są dwa podproblemy doskonałego przekazywania argumentów?
+
+* Do czego służy funkcja `std::forward`?
+
+* Co to jest referencja przekazująca?
 
 <!-- LocalWords: inicjalizowane -->
 
