@@ -10,7 +10,7 @@ kodu (np. funkcję sortującą) jest dostarczenie wskaźnika na funkcję do
 wywołania.  W C++ uogólnieniem wskaźnika na funkcję jest "coś", co
 możemy wywołać, co z angielskiego jest nazywane *callable*.  Wywołanie
 callable ma ustaloną składnię (czyli składnię wyrażenia wywołania) i
-określony interfejs, czyli jakiego typu są argumenty i wynik callable.
+określony interfejs, czyli jakiego typu są parametry i wynik callable.
 
 Uogólnienie ma na celu:
 
@@ -42,45 +42,52 @@ jest ustalony porządek (liniowy) z użyciem operatora `<`:
 
 W przykładzie niżej sortujemy obiekty typu klasowego.  Żeby kompilacja
 powiodła się, musimy zdefiniować porządek z użyciem **operatora
-porównania**, czyli **operatora `<`**.  Operator zdefiniowaliśmy jako
-funkcję składową, która drugi operand operatora `<` przyjmuje jako
-argument wywołania funkcji (pierwszym operandem jest obiekt `*this`).
-Składowy operator porównania powinien być stały (bo nie powinien
-zmieniać pierwszego operandu) i powinien pobierać drugi operand przez
-referenceję stałą (bo nie powinien zmieniać drugiego operandu).
+porównania**, czyli **operatora `<`**.  Jest kilka operatorów
+porównania, które mogą być zdefiniowane dla typu klasowego: `==`,
+`!=`, `<`, `<=`, `>`, `=>`, `<=>`, ale dla ustalenia porządku miedzy
+elementami najważniejszy jest operator `mniejszy od`, czyli `<`.
+
+Operator `<` zdefiniowaliśmy jako funkcję składową, dla której
+pierwszym operandem jest obiekt `*this`, a drugim jest parametr
+składowej.  Składowy operator porównania powinien być stały (bo nie
+powinien zmieniać pierwszego operandu) i powinien pobierać drugi
+operand przez referenceję stałą (bo nie powinien zmieniać drugiego
+operandu).
 
 {% highlight c++ %}
 {% include_relative motivation2.cc %}
 {% endhighlight %}
 
 Funkcja `std::sort` używa operatora `<`, jeżeli nie przakażemy jej
-callable porównania jako ostatni argument wywołania.  Możemy uzyskać
-identyczny efekt jak w przykładzie wyżej, jeżeli przekażemy jako
-callable obiekt struktury `std::less<A>`, która używa operatora `<`.
+callable porównania jako ostatni argument wywołania.  Tak naprawdę
+funkcja `std::sort` używa obiektu typu `std::less`, która to z kolei
+używa operatora `<`.  Dla porównania sortowanych elementów,
+implementacja funkcji `std::sort` nie używa bezpośrednio `<`, bo to
+ograniczałoby możliwość adaptacji sortowania przez programistę.
+Zamiast tego używa callable.
+
+Możemy uzyskać identyczny efekt jak w przykładzie wyżej, jeżeli
+przekażemy jako callable obiekt struktury `std::less<A>`.  Jeżeli tego
+nie zrobimy, zostanie on domyślnie użyty.
 
 {% highlight c++ %}
 {% include_relative motivation3.cc %}
 {% endhighlight %}
 
-Możemy sortować w kolejności rosnącej, jeżeli użyjemy *funktora*
-struktury `std::greater`.  Struktura `std::greater` używa operatora
+Funkcja `std::sort` nie musi zawsze używać operatora `<`.  Możemy użyć
+dowolnego callable.  Możemy sortować w kolejności rosnącej, jeżeli
+użyjemy obiektu struktury `std::greater`.  Ten typ używa operatora
 `>`, więc musimy go zdefiniować, zamiast operatora `<`.
 
 {% highlight c++ %}
 {% include_relative motivation4.cc %}
 {% endhighlight %}
 
-Nie musimy jednak polegać na operatorze `<`.  Funkcji `std::sort`
-możemy przekazać callable, na czym możemy wykonać operator wywołania
-`()`.  Callable może być przekazywane przez wartość albo referencję.
-
 Callable może być przekazywany nie tylko funkcji, ale też
 konstruktorowi, który może przechować callable w polu składowym.  Tak
 robi, na przykład, kolejka priorytetowa biblioteki standardowej
-(`std::priority_queue`).
-
-Poniżej jest nasz roboczy przykład z kolejką priorytetową, który
-będziemy dalej zmieniać.
+(`std::priority_queue`).  Poniżej jest nasz roboczy przykład z kolejką
+priorytetową, który będziemy dalej zmieniać.
 
 {% highlight c++ %}
 {% include_relative pq.cc %}
@@ -90,17 +97,22 @@ będziemy dalej zmieniać.
 
 Callable może być:
 
-* funkcją przekazaną przez wskaźnik albo referencję,
+* funkcją (użytą przez wskaźnik albo referencję),
 
-* funktorem przekazanym przez wartość, referencję albo wskaźnik.
+* funktorem (użytą przez wartość, referencję albo wskaźnik).
 
 ## Funkcja
 
 Wyrażenie, które jest tylko nazwą funkcji (bez operatora wywołania)
 może być potraktowane jako adres tej funkcji, co nazywam rozpadem
-funkcji na wskaźnik.  Używając tego adresu możemy wywołać funkcję.
-Jedyne operacje możliwe na wskaźniku do funkcji to: pobranie adresu
-funkcji i wywołanie funkcji.
+funkcji na wskaźnik.  Możemy pobrać adres funkcji z użyciem operatora
+adresowania, np. `&foo`.  Te dwa sposoby pobrania adresu są
+równoważne, co jest trochę niespójne, bo powinien być tylko jeden
+sposób.
+
+Używając tego adresu możemy wywołać funkcję.  Jedyne operacje możliwe
+na wskaźniku do funkcji to: pobranie adresu funkcji i wywołanie
+funkcji.
 
 W przykładzie niżej posługujemy się funkcją przez wskaźnik i
 referencję.
@@ -109,9 +121,16 @@ referencję.
 {% include_relative function.cc %}
 {% endhighlight %}
 
-Domyślnie kolejka priorytetowa zwraca największy element.  W
-przykładzie niżej przekazujemy wskaźnik na funkcję porównującą, żeby
-ustalić porządek rosnący w kolejce priorytetowej.
+Tutaj sortujemy malejąco z użyciem wskaźnika na funkcję:
+
+{% highlight c++ %}
+{% include_relative sort_foo.cc %}
+{% endhighlight %}
+
+Domyślnie kolejka priorytetowa sortuje malejąco, czyli zwraca
+największe elementy.  W przykładzie niżej przekazujemy wskaźnik na
+funkcję porównującą, żeby ustalić porządek rosnący w kolejce
+priorytetowej.
 
 {% highlight c++ %}
 {% include_relative pq_foo.cc %}

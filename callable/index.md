@@ -10,7 +10,7 @@ a sorting function).  In C++ a generalization of a function is
 something that we can call.  We call it a **callable**.  Calling a
 callable has the syntax of calling a function (i.e., applying the `()`
 operator), and the function interface: we know the types of the
-arguments and the return value.
+parameters and the return value.
 
 The goal of that generalization is to:
 
@@ -101,35 +101,39 @@ an example, which we'll be modifying later:
 
 A callable is either:
 
-* a pointer to a function,
+* a function (used by pointer or reference),
 
-* a functor.
+* a functor (used by value, reference or pointer).
 
-## A pointer to a function
+## A function
 
 An expression that is only the name of a function, e.g., `foo`,
-(without the `()` operator) is treated as the address of that
-function.  We can also take the address of a function by preceeding
-the name of the function with the `&` operator, e.g., `&foo`.  These
-ways of taking a function address are equivalent, which is
-inconsistent, because there should be just one way.
+(without the `()` operator) can be treated as the address of that
+function, which is called the decay of a function to a pointer.  We
+can also take the address of a function by preceeding the name of the
+function with the `&` operator, e.g., `&foo`.  These ways of taking a
+function address are equivalent, which is inconsistent, because there
+should be just one way.
 
 Having this address, we can call the function.  The only operations we
 can do with a function pointer is: take a function address, call the
 function.
 
+In the example below we use a function by pointer and by reference.
+
 {% highlight c++ %}
 {% include_relative function.cc %}
 {% endhighlight %}
 
-Here we sort descendingly by passing a callable, which is a function
-pointer:
+Here we sort descendingly by passing a function pointer:
 
 {% highlight c++ %}
 {% include_relative sort_foo.cc %}
 {% endhighlight %}
 
-In the example below, we pass a pointer to a comparison function.
+By default, the priority queue sorts descendlingly, i.e., the returns
+the largest elemenets.  In the example below, we pass a pointer to a
+comparison function, so that the queue sorts ascendingly.
 
 {% highlight c++ %}
 {% include_relative pq_foo.cc %}
