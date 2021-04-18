@@ -23,17 +23,22 @@ main()
   // A reference cannot be initialized with a pointer.
   // bool (&f2b)(const int &, const int &) = &foo;
   f2a(10, 20);
-  // The following is wierd, but it compiles. f1a is an alias for foo.
-  // So f1a is replaced with foo, and foo decays into a pointer, which
+  // The following is wierd, but it compiles. f2a is an alias for foo.
+  // So f2a is replaced with foo, and foo decays into a pointer, which
   // we dereference to get a function to call.
   (*f2a)(10, 20);
   
-  // That's better.
+  // That the C++ syntax for a function type.
   using foo_type = bool(const int &a, const int &b);
+  // These are pointers to a function type.
   foo_type *f3a = foo;
   foo_type *f3b = &foo;
+  // That's a reference to a function type.
+  foo_type &f3c = foo;
   f3a(10, 20);
   (*f3a)(10, 20);
   f3b(10, 20);
   (*f3b)(10, 20);
+  f3c(10, 20);
+  (*f3c)(10, 20);
 }

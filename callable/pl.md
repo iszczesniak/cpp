@@ -90,16 +90,20 @@ będziemy dalej zmieniać.
 
 Callable może być:
 
-* wskaźnikiem na funkcję,
+* funkcją przekazaną przez wskaźnik albo referencję,
 
-* funktorem.
+* funktorem przekazanym przez wartość, referencję albo wskaźnik.
 
-## Wskaźnik na funkcję
+## Funkcja
 
 Wyrażenie, które jest tylko nazwą funkcji (bez operatora wywołania)
-traktowane jest jako adres tej funkcji.  Używając tego adresu możemy
-wywołać funkcję.  Jedyne operacje możliwe na wskaźniku do funkcji to:
-pobranie adresu funkcji i wywołanie funkcji.
+może być potraktowane jako adres tej funkcji, co nazywam rozpadem
+funkcji na wskaźnik.  Używając tego adresu możemy wywołać funkcję.
+Jedyne operacje możliwe na wskaźniku do funkcji to: pobranie adresu
+funkcji i wywołanie funkcji.
+
+W przykładzie niżej posługujemy się funkcją przez wskaźnik i
+referencję.
 
 {% highlight c++ %}
 {% include_relative function.cc %}
