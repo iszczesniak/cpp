@@ -187,20 +187,214 @@ funktora argument (dodatkową daną do obliczeń), który mówi o porządku
 {% include_relative pq_fo2.cc %}
 {% endhighlight %}
 
-### Domknięcie
+# Domknięcie
 
-Domknięcie (ang. closure) jest funktorem, który jest wynikiem
-opracowania wyrażenia lambda.
+A **closure** is a functor which is the result of a **lambda
+expression**.  A lambda (in short for a lambda expression) is
+*syntactic sugar* for conveniently creating functors: they help us
+create functors with less fuss in comparison with creating a functor.
+We could do away with lambda expressions, and achieve the same
+functionality with functors.  Lambdas are just handy.
+
+Since a closure is an object, it must have some type, but we usually
+do not need it, and so we say that a closure is of an *anonymous
+type*.  We can get the type of a closure with the `decltype` operator.
+
+## Syntax
+
+Lambda expressions can be nuanced, and we'll not cover all the
+nuances.  However, most lambdas are of this syntax:
+
+`[capture list](parameter list) mutable {body}`
+
+The capture list and the parameter list are comma-separated.  If the
+parameter list is empty, the `()` can be dropped.  Even if the capture
+list and the body are empty, `[]` and `{}` cannot be dropped.
+
+The capture list can have:
+
+* either `=` or `&`, but not both, e.g., `[=]`, or `[&]`, but not `[&,
+  =]`,
+
+* captured variable names that can, but do not have to be, preceded by
+  `&`, e.g., `[&x]`,
+
+* declaration of the form `name-in-closure = variable-name` that can,
+  but do not have to be, preceded by `&`, e.g., `[&x = y]`.
+
+The parameter list is the list of function parameters, just like for a
+regular function.
+
+The `mutable` specifier is optional.  By default the member `()`
+operator function is defined constant, but we can make it non-const
+with the `mutable` specifier.
+
+Therefore the simplest lambda is `[]{}`.  Here we create a closure and
+call it in one go (in one expression):
+
+{% highlight c++ %}
+{% include_relative capture1.cc %}
+{% endhighlight %}
+
+Expression `[]{}()` is simply translated into this code:
+
+{% highlight c++ %}
+{% include_relative capture1a.cc %}
+{% endhighlight %}
+
+## Semantics
+
+A lambda creates a functor type (a structure or a class), and an
+object of this type.  These are the basic facts:
+
+* The captured variables are stored as fields in the functor, and are
+  initialized by the constructor.
+
+* The parameter list becomes the parameter list of the member `()`
+  operator function.
+
+* The member `()` operator function is const unless `mutable` is
+  specified.
+
+* The body becomes the body of the member () operator function.  The
+  return type of that function is deduced based on the expression of
+  the return statement in the body.  If there is no return statement,
+  the return type is `void`.
+
+The capture list describes how to capture variables from the scope of
+the lambda expression, so that they are available in the body.  The
+scope is the fragment of code where variables are accessible: the
+global scope, the class scope, the function scope, and the block
+scope.
+
+The capture list can be empty.  In that case only the parameters of
+the parameter list are available in the body.  Example:
+
+{% highlight c++ %}
+{% include_relative capture2.cc %}
+{% endhighlight %}
+
+The code above is equivalent to this code:
+
+{% highlight c++ %}
+{% include_relative capture2a.cc %}
+{% endhighlight %}
+
+## Ways of capturing variables
+
+A variable can be captured by value or by reference.  When a variable
+is captured by value, the closure keeps in its member field a copy of
+the value of the captured variable, i.e., the member field was
+initialized by copying the value of the captured variable.  To capture
+a variable by value, put its name in the capture list.
+
+When a variable is captured by reference, the closure keeps in its
+member field a reference to the captured variable, i.e., the member
+reference was initialized with the captured variable.  To capture a
+variable by reference, put its name in the capture list, and preceeded
+it by an ampersand.
+
+For example:
+
+{% highlight c++ %}
+{% include_relative capture3.cc %}
+{% endhighlight %}
+
+The code above is equivalent to this code:
+
+{% highlight c++ %}
+{% include_relative capture3a.cc %}
+{% endhighlight %}
+
+### Default capture policy
+
+The capture list can begin with the default policy of capturing
+variables either by value or by reference.  If a default capture
+policy is given, *all variables* used in the body are captured, and we
+do not have to list them.
+
+We set the default capture-by-value policy with `=`.  For example:
+
+{% highlight c++ %}
+{% include_relative capture4.cc %}
+{% endhighlight %}
+
+The code above is equivalent to this code:
+
+{% highlight c++ %}
+{% include_relative capture4a.cc %}
+{% endhighlight %}
+
+We set the default capture-by-reference policy with `&`.  Please note
+that in the example below, and the next example too, the call operator
+can be const, because we are not modifying a member reference, but a
+variable to which the member reference is bound.
+
+{% highlight c++ %}
+{% include_relative capture5.cc %}
+{% endhighlight %}
+
+The code above is equivalent to this code:
+
+{% highlight c++ %}
+{% include_relative capture5a.cc %}
+{% endhighlight %}
+
+We can specify the default capture policy, and then list those
+variables that should be captured differently.  Also, for the member
+fields, we do not have to use the names of the captured variables, but
+we can give any name.
+
+{% highlight c++ %}
+{% include_relative capture6.cc %}
+{% endhighlight %}
+
+## Closure Examples
+
+Since a closure has some type, but we just don't care about it, we
+write:
+
+`auto c = closure expression;`
+
+By using the `auto` type, we let the compiler deduce (this process is
+called *type deduction*) the type of `c` based on the type of the
+closure expression.  Even though there is the `=` sign, the line above
+is not an *assignment expression*, but an *initialization statement*.
+That entails that the closure is not copied, but created directly in
+the memory location of `c` with copy elision.
+
+Here's an example of using a lambda with a priority queue:
 
 {% highlight c++ %}
 {% include_relative pq_lambda1.cc %}
 {% endhighlight %}
 
-A tu wersja z dodatkowym argumentem domknięcia przekazywanym w czasie
-uruchomienia:
+Here we pass an argument to a closure:
 
 {% highlight c++ %}
 {% include_relative pq_lambda2.cc %}
 {% endhighlight %}
+
+# Conclusion
+
+A callable is a generalization of a function.  A callable can be:
+
+* a function pointer,
+
+* a functor.
+
+Lambdas are nifty and succinct: we can create closures with little
+writing, and with less room for mistakes (lambdas are less
+error-prone).
+
+# Quiz
+
+* In what way are functors more capable than functions?
+
+* What's the difference between a functor and a closure?
+
+* Are lambdas indispensable?
+
+{% include rid_pl %}
 
 <!-- LocalWords: callable inlined -->
