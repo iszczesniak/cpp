@@ -143,17 +143,37 @@ Funktor to obiekt, który ma zdefiniowany operator wywołania `()`
 możliwość przekazania dodatkowych danych, która są przechowywane w
 polach składowych funktora.
 
-W najprostszym przypadku, funktor może pełnić rolę funkcji.  Na
-przykład, domyślnie kolejka priorytetowa zwraca największy element, bo
-do porównania używa klasy funktora \code{std::less<T>}.  Poniżej
-użyjemy funktora klasy \code{std::greater<T>}, żeby kolejka zwracała
-najmniejszy element.
+W przykładzie niżej definiujemy prosty typ funktora, tworzymy funktor
+i wywołujemy go.  Funktor jest callable, bo możemy go wywołać.
+Ponieważ operator `()` został zdefiniowany jako stały, to możemy go
+wywołać także na rzecz obiektów stałych.
+
+{% highlight c++ %}
+{% include_relative functor1.cc %}
+{% endhighlight %}
+
+W funktorze możemy przechowywać dane:
+
+{% highlight c++ %}
+{% include_relative functor2.cc %}
+{% endhighlight %}
+
+Funktor działa jak funkcja, kiedy nie przechowuje danych.  Na
+przykład, typy `std::less` i `std::greater` zachowują się jak funkcje,
+bo nie przechowują danych.  Takie typy funktora nie spowalniają
+programu: konstruktor i destruktor są puste, a operator porównania
+jest wkompilowywany w miejsce wywołania.  Szybciej się nie da.
+
+Domyślnie kolejka priorytetowa zwraca największy element, bo do
+porównania używa klasy funktora `std::less`.  Poniżej użyjemy funktora
+klasy `std::greater`, żeby kolejka zwracała najmniejszy element.
 
 {% highlight c++ %}
 {% include_relative pq_ro.cc %}
 {% endhighlight %}
 
-Możemy także zdefiniować własny typ funktora:
+Możemy także zdefiniować własny typ funktora, który działa jak
+funkcja:
 
 {% highlight c++ %}
 {% include_relative pq_fo1.cc %}
