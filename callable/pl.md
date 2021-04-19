@@ -201,43 +201,44 @@ potrzebujemy, więc możemy powiedzieć, że domknięcie jest typu
 anonimowego.  Możemy pozyskać typ domknięcia z użyciem operatora
 `decltype`.
 
-## Syntax
+## Składnia
 
-Lambda expressions can be nuanced, and we'll not cover all the
-nuances.  However, most lambdas are of this syntax:
+Wyrażenia lambda mają wiele szczegółów, których nie omówimy.  Jednak
+większość lambd ma taką składnię:
 
-`[capture list](parameter list) mutable {body}`
+`[lista przechwytywania](lista parametrów) mutable {ciało}`
 
-The capture list and the parameter list are comma-separated.  If the
-parameter list is empty, the `()` can be dropped.  Even if the capture
-list and the body are empty, `[]` and `{}` cannot be dropped.
+Listy przechwytywania i parametrów używają przecinków do oddzielenia
+pozycji.  Jeżeli lista parametrów jest pusta, to `()` można pominąc.
+Nawet jeżeli lista przechwytywania i ciało są puste, to `[]` i `{}`
+nie mogą być pominięte.
 
-The capture list can have:
+Lista przechwytywania może zawierać:
 
-* either `=` or `&`, but not both, e.g., `[=]`, or `[&]`, but not `[&,
-  =]`,
+* deklarator domyślnego przechwytywania: `=` albo `&` (czyli nie oba
+  znaki), np. `[=]`, `[&]`, ale nie `[&, =]`,
 
-* captured variable names that can, but do not have to be, preceded by
-  `&`, e.g., `[&x]`,
+* nazwy przechwytywanych zmiennych, które mogą być opcjonalnie
+  poprzedzone deklaratorem `&`, np. `[&x]`,
 
-* declaration of the form `name-in-closure = variable-name` that can,
-  but do not have to be, preceded by `&`, e.g., `[&x = y]`.
+* deklaracje zmiennych `name-in-closure = variable-name`, które mogą,
+  ale nie muszą być poprzedzone deklaratorem `&`, e.g., `[&x = y]`.
 
-The parameter list is the list of function parameters, just like for a
-regular function.
+Lista parametrów jest listą parametrów funkcji, tak jak dla zwykłej
+funkcji.
 
-The `mutable` specifier is optional.  By default the member `()`
-operator function is defined constant, but we can make it non-const
-with the `mutable` specifier.
+Specyfikator `mutable` jest opcjonalny.  Domyślnie składowa funkcja
+operatorowa `()` domknięcia jest stała, ale możemy ją zadeklarować
+jako niestałą z użyciem specyfikatora `mutable`.
 
-Therefore the simplest lambda is `[]{}`.  Here we create a closure and
-call it in one go (in one expression):
+Dlatego najprostszą lambdą jest `[]{}`.  Tutaj tworzymy domknięcie i
+wywołujemy je w jednym wyrażeniu:
 
 {% highlight c++ %}
 {% include_relative capture1.cc %}
 {% endhighlight %}
 
-Expression `[]{}()` is simply translated into this code:
+Wyrażenie `[]{}` jest równoważne temu kodowi:
 
 {% highlight c++ %}
 {% include_relative capture1a.cc %}

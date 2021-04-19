@@ -216,13 +216,13 @@ list and the body are empty, `[]` and `{}` cannot be dropped.
 
 The capture list can have:
 
-* either `=` or `&`, but not both, e.g., `[=]`, or `[&]`, but not `[&,
-  =]`,
+* a declarator of the default capture policy: either `=` or `&`, but
+  not both, e.g., `[=]`, or `[&]`, but not `[&, =]`,
 
 * captured variable names that can, but do not have to be, preceded by
-  `&`, e.g., `[&x]`,
+  declarator `&`, e.g., `[&x]`,
 
-* declaration of the form `name-in-closure = variable-name` that can,
+* variable initializations `name-in-closure = variable-name` that can,
   but do not have to be, preceded by `&`, e.g., `[&x = y]`.
 
 The parameter list is the list of function parameters, just like for a
@@ -239,7 +239,7 @@ call it in one go (in one expression):
 {% include_relative capture1.cc %}
 {% endhighlight %}
 
-Expression `[]{}()` is simply translated into this code:
+Expression `[]{}` is equivalent to this code:
 
 {% highlight c++ %}
 {% include_relative capture1a.cc %}
