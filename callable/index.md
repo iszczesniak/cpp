@@ -332,7 +332,7 @@ The code above is equivalent to this code:
 We set the default capture-by-reference policy with `&`.  Please note
 that in the example below, and the next example too, the call operator
 can be const, because we are not modifying a member reference, but a
-variable to which the member reference is bound.
+variable to which the member reference is bound.  Here's an example:
 
 {% highlight c++ %}
 {% include_relative capture5.cc %}
@@ -345,7 +345,7 @@ The code above is equivalent to this code:
 {% endhighlight %}
 
 We can specify the default capture policy, and then list those
-variables that should be captured differently.  Also, for the member
+variables that should be captured the other way.  Also, for the member
 fields, we do not have to use the names of the captured variables, but
 we can give any name.
 

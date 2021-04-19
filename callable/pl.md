@@ -348,10 +348,10 @@ Powyższy kod jest równoważny poniższemu:
 {% include_relative capture5a.cc %}
 {% endhighlight %}
 
-We can specify the default capture policy, and then list those
-variables that should be captured differently.  Also, for the member
-fields, we do not have to use the names of the captured variables, but
-we can give any name.
+Możemy zażądać domyślnej polityki, a następnie podać te zmienne, które
+powinny być przechwycone odwrotnie.  Możemy także użyć innych nazw dla
+pól składowych, innych od nazw przechwytywanych zmiennych.  Oto
+przykład:
 
 {% highlight c++ %}
 {% include_relative capture6.cc %}
