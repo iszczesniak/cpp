@@ -267,9 +267,9 @@ object of this type.  These are the basic facts:
 
 The capture list describes how to capture variables from the scope of
 the lambda expression, so that they are available in the body.  The
-scope is the fragment of code where variables are accessible: the
-global scope, the class scope, the function scope, and the block
-scope.
+scope is the fragment of code where variables are accessible, which
+can be the global scope, the class scope, the function scope, and the
+block scope.
 
 The capture list can be empty.  In that case only the parameters of
 the parameter list are available in the body.  Example:
@@ -296,7 +296,7 @@ When a variable is captured by reference, the closure keeps in its
 member field a reference to the captured variable, i.e., the member
 reference was initialized with the captured variable.  To capture a
 variable by reference, put its name in the capture list, and preceeded
-it by an ampersand.
+it by declarator `&`.
 
 For example:
 

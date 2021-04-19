@@ -285,27 +285,29 @@ Powyższy kod jest równoważny poniższemu:
 {% include_relative capture2a.cc %}
 {% endhighlight %}
 
-## Ways of capturing variables
+## Sposoby przechwytywania zmiennych
 
-A variable can be captured by value or by reference.  When a variable
-is captured by value, the closure keeps in its member field a copy of
-the value of the captured variable, i.e., the member field was
-initialized by copying the value of the captured variable.  To capture
-a variable by value, put its name in the capture list.
+Zmienna może być przechwycona przez wartość albo referencję.  Kiedy
+zmienna jest przechwycona przez wartość, domknięcie przechowuje w
+swoim polu składowym kopię wartości przechwyconej zmiennej, czyli pole
+składowe jest inicjalizowane przez skopiowanie wartości z
+przechwytywanej zmiennej.  Żeby przechwycić zmienną przez wartość,
+należy podać nazwę zmiennej w liście przechwytywania.
 
-When a variable is captured by reference, the closure keeps in its
-member field a reference to the captured variable, i.e., the member
-reference was initialized with the captured variable.  To capture a
-variable by reference, put its name in the capture list, and preceeded
-it by an ampersand.
+Kiedy zmienna jest przechwycona przez referencję, domknięcie
+przechowuje jako swoje pole składowe referencję do przechwyconej
+zmiennej, czyli składowa referencja jest inicjalizowana z użyciem
+przechwytywanej zmiennej.  Any przechwycić zmienną przez referencję,
+należy podać nazwę zmiennej w liście przechwytywania i poprzedzić ją
+deklaratorem `&`.
 
-For example:
+Na przykład:
 
 {% highlight c++ %}
 {% include_relative capture3.cc %}
 {% endhighlight %}
 
-The code above is equivalent to this code:
+Powyższy kod jest równoważny poniższemu:
 
 {% highlight c++ %}
 {% include_relative capture3a.cc %}
