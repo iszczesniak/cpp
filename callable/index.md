@@ -239,7 +239,8 @@ call it in one go (in one expression):
 {% include_relative capture1.cc %}
 {% endhighlight %}
 
-Expression `[]{}` is equivalent to this code:
+Expression `[]{}()`, which creates and calls a closure, is equivalent
+to this code:
 
 {% highlight c++ %}
 {% include_relative capture1a.cc %}

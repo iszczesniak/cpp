@@ -238,45 +238,48 @@ wywołujemy je w jednym wyrażeniu:
 {% include_relative capture1.cc %}
 {% endhighlight %}
 
-Wyrażenie `[]{}` jest równoważne temu kodowi:
+Wyrażenie `[]{}()`, które tworzy i wywołuje domknięcie, jest
+równoważne temu kodowi:
 
 {% highlight c++ %}
 {% include_relative capture1a.cc %}
 {% endhighlight %}
 
-## Semantics
+## Semantyka
 
-A lambda creates a functor type (a structure or a class), and an
-object of this type.  These are the basic facts:
+Lambda tworzy typ funktora (strukturę albo klasę) i obiekt tej klasy.
+Podstawowe fakty:
 
-* The captured variables are stored as fields in the functor, and are
-  initialized by the constructor.
+* Przechwycone zmienne są tworzone jako pola składowe funktora i są
+  inicjalizowane przez konstruktor domknięcia.
 
-* The parameter list becomes the parameter list of the member `()`
-  operator function.
+* Lista parametrów wyrażenia lambda staje się listą parametrów
+  składowego operatora `()` domknięcia.
 
-* The member `()` operator function is const unless `mutable` is
-  specified.
+* Składowy operator `()` domknięcia jest stały, chyba że użyto
+  specyfikatora `mutable`.
 
-* The body becomes the body of the member () operator function.  The
-  return type of that function is deduced based on the expression of
-  the return statement in the body.  If there is no return statement,
-  the return type is `void`.
+* Ciało wyrażenia lambda staje się ciałem składowego operatora `()`
+  domknięcia.
 
-The capture list describes how to capture variables from the scope of
-the lambda expression, so that they are available in the body.  The
-scope is the fragment of code where variables are accessible: the
-global scope, the class scope, the function scope, and the block
-scope.
+* Typ zwracanej wartości składowego operatora `()` domknięcia jest
+  wnioskowany na podstawie wyrażenia, które jest argumentem instrukcji
+  powrotu użytego w ciele.  Jeżeli nie użytko instrukcji powrotu, to
+  typem zwracanej wartości jest `void`.
 
-The capture list can be empty.  In that case only the parameters of
-the parameter list are available in the body.  Example:
+Lista przechwytywania określa, jak w ciele funkcji zapewnić dostęp do
+wartości zmiennych z zakresu wyrażenia lambda.  Zakres jest fragmentem
+kodu, w którym dostępne są zmienne.  Zakres może być globalny, klasy,
+funkcji, czy bloku.
+
+Lista przechwytywania może być pusta.  W takim przypadku w ciele
+dostępne są jedynie parametry z listy parametrów.  Oto przykład:
 
 {% highlight c++ %}
 {% include_relative capture2.cc %}
 {% endhighlight %}
 
-The code above is equivalent to this code:
+Powyższy kod jest równoważny poniższemu:
 
 {% highlight c++ %}
 {% include_relative capture2a.cc %}
