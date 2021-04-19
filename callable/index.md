@@ -358,7 +358,7 @@ we can give any name.
 Since a closure has some type, but we just don't care about it, we
 write:
 
-`auto c = closure expression;`
+`auto c = lambda expression;`
 
 By using the `auto` type, we let the compiler deduce (this process is
 called *type deduction*) the type of `c` based on the type of the

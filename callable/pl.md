@@ -357,33 +357,33 @@ przykład:
 {% include_relative capture6.cc %}
 {% endhighlight %}
 
-## Closure Examples
+## Przykłady domknięć
 
-Since a closure has some type, but we just don't care about it, we
-write:
+Ponieważ domknięcie ma typ, który najczęściej nas nie interesuje, to
+możemy napisać:
 
-`auto c = closure expression;`
+`auto c = wyrażenie lambda;`
 
-By using the `auto` type, we let the compiler deduce (this process is
-called *type deduction*) the type of `c` based on the type of the
-closure expression.  Even though there is the `=` sign, the line above
-is not an *assignment expression*, but an *initialization statement*.
-That entails that the closure is not copied, but created directly in
-the memory location of `c` with copy elision.
+Przez użycie typu `auto` pozwalamy kompilatorowi na wywnioskowanie
+typu zmiennej `c` na podstawie wyrażenia lambda.  Mimo że jest użyty
+znak `=`, to powyższa linia nie jest wyrażeniem przypisania, a
+inicjalizacją zmiennej: domknięcie nie jest kopiowane, a
+inicjalizowane bezpośrednio w miejscu zmiennej `c` z pominięciem
+konstruktora.
 
-Here's an example of using a lambda with a priority queue:
+Tutaj jest przykład użycia lambdy z kolejką priorytetową:
 
 {% highlight c++ %}
 {% include_relative pq_lambda1.cc %}
 {% endhighlight %}
 
-Here we pass an argument to a closure:
+Tutaj przekazujemy argument do domknięcia:
 
 {% highlight c++ %}
 {% include_relative pq_lambda2.cc %}
 {% endhighlight %}
 
-# Conclusion
+# Podsumowanie
 
 A callable is a generalization of a function.  A callable can be:
 
