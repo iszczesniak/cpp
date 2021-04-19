@@ -196,9 +196,10 @@ pisaniem klasy funktora.  Moglibyśmy się obejść bez lambd, bo tą
 samą funkcjonalność mają klasy funktora.  Lambdy są po prostu
 wygodne.
 
-Since a closure is an object, it must have some type, but we usually
-do not need it, and so we say that a closure is of an *anonymous
-type*.  We can get the type of a closure with the `decltype` operator.
+Ponieważ domknięcie jest obiektem, to musi mieć typ, ale zwykle go nie
+potrzebujemy, więc możemy powiedzieć, że domknięcie jest typu
+anonimowego.  Możemy pozyskać typ domknięcia z użyciem operatora
+`decltype`.
 
 ## Syntax
 
