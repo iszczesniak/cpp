@@ -313,35 +313,36 @@ Powyższy kod jest równoważny poniższemu:
 {% include_relative capture3a.cc %}
 {% endhighlight %}
 
-### Default capture policy
+### Domyślna polityka przechwytywania
 
-The capture list can begin with the default policy of capturing
-variables either by value or by reference.  If a default capture
-policy is given, *all variables* used in the body are captured, and we
-do not have to list them.
+Możemy zażądać domyślnej polityki przechwytywania przez podanie na
+początku listy przechwytywania deklaratora polityki.  Jeżeli domyślna
+polityka jest podana, to wszystkie zmienne użyte w ciele są
+przechwytywane i nie musimy ich podawać w liście.
 
-We set the default capture-by-value policy with `=`.  For example:
+Domyślnej polityki przechwytywania przez wartość żądamy z użyciem
+deklaratora `=`.  Na przykład:
 
 {% highlight c++ %}
 {% include_relative capture4.cc %}
 {% endhighlight %}
 
-The code above is equivalent to this code:
+Powyższy kod jest równoważny poniższemu:
 
 {% highlight c++ %}
 {% include_relative capture4a.cc %}
 {% endhighlight %}
 
-We set the default capture-by-reference policy with `&`.  Please note
-that in the example below, and the next example too, the call operator
-can be const, because we are not modifying a member reference, but a
-variable to which the member reference is bound.
+Domyślnej polityki przechwytywania przez referencję żądamy z użyciem
+deklaratora `&`.  W dwóch przykładach niżej, funkcja operatora `()`
+może być stała, bo nie zmieniamy referencji składowej, a jedynie
+zmienną, do której referencja się odnosi.
 
 {% highlight c++ %}
 {% include_relative capture5.cc %}
 {% endhighlight %}
 
-The code above is equivalent to this code:
+Powyższy kod jest równoważny poniższemu:
 
 {% highlight c++ %}
 {% include_relative capture5a.cc %}
