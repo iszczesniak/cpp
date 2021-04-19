@@ -381,24 +381,23 @@ Here we pass an argument to a closure:
 
 # Conclusion
 
-A callable is a generalization of a function.  A callable can be:
+* A callable is a generalization of a function.  A function and a
+functor are callables.
 
-* a function pointer,
+* Unlike a function, a functor can store data.
 
-* a functor.
-
-Lambdas are nifty and succinct: we can create closures with little
+* Lambdas are nifty and succinct: we can create closures with little
 writing, and with less room for mistakes (lambdas are less
 error-prone).
 
 # Quiz
 
-* In what way are functors more capable than functions?
+* In what way can we pass a callable?
 
 * What's the difference between a functor and a closure?
 
 * Are lambdas indispensable?
 
-{% include rid %}
+{% include rid_pl %}
 
 <!-- LocalWords: callable callables constructor inlined -->

@@ -385,23 +385,20 @@ Tutaj przekazujemy argument do domknięcia:
 
 # Podsumowanie
 
-A callable is a generalization of a function.  A callable can be:
+* Callable jest uogólnieniem funkcji.  Funkcja i funktor to callable.
 
-* a function pointer,
+* W odróżnieniu od funkcji, funktor może przechowywać dane.
 
-* a functor.
-
-Lambdas are nifty and succinct: we can create closures with little
-writing, and with less room for mistakes (lambdas are less
-error-prone).
+* Lambdy są poręczne i zwięzłe: możemy tworzyć domknięcia, pisać mało
+i popełniać mniej błędów.
 
 # Quiz
 
-* In what way are functors more capable than functions?
+* W jaki sposób możemy przekazać callable?
 
-* What's the difference between a functor and a closure?
+* Jaka jest różnica między funktorem a domknięciem?
 
-* Are lambdas indispensable?
+* Czy wyrażenia lambda są nieodzowne?
 
 {% include rid_pl %}
 
