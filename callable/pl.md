@@ -189,12 +189,12 @@ funktora argument (dodatkową daną do obliczeń), który mówi o porządku
 
 # Domknięcie
 
-A **closure** is a functor which is the result of a **lambda
-expression**.  A lambda (in short for a lambda expression) is
-*syntactic sugar* for conveniently creating functors: they help us
-create functors with less fuss in comparison with creating a functor.
-We could do away with lambda expressions, and achieve the same
-functionality with functors.  Lambdas are just handy.
+**Domknięcie** jest funktorem, który jest wynikiem opracowania
+**wyrażenia lambda**.  Lambda (w skrócie od wyrażenia lambda) jest
+*syntaktycznym skrótem* wygodnego tworzenia funktorów w porównaniu z
+pisaniem klasy funktora.  Moglibyśmy się obejść bez lambd, bo tą
+samą funkcjonalność mają klasy funktora.  Lambdy są po prostu
+wygodne.
 
 Since a closure is an object, it must have some type, but we usually
 do not need it, and so we say that a closure is of an *anonymous

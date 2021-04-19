@@ -195,9 +195,9 @@ functionality couldn't be achieved with a function.
 A **closure** is a functor which is the result of a **lambda
 expression**.  A lambda (in short for a lambda expression) is
 *syntactic sugar* for conveniently creating functors: they help us
-create functors with less fuss in comparison with creating a functor.
-We could do away with lambda expressions, and achieve the same
-functionality with functors.  Lambdas are just handy.
+create functors with less fuss in comparison with creating a functor
+class.  We could do away with lambda expressions, because functor
+classes have the same functionality.  Lambdas are just handy.
 
 Since a closure is an object, it must have some type, but we usually
 do not need it, and so we say that a closure is of an *anonymous
