@@ -79,11 +79,13 @@ Dwie ważne funkcjonalności `std::function`:
   niezależny od typu przechowywanego callable.
 
 * Obiekt klasy `std::function` może mieć zmieniany callable w czasie
-  uruchomienia, a te callable mogą mieć różne typy.
+  uruchomienia; te callable mogą mieć różne typy, ale muszą mieć ten
+  sam interfejs.
 
 Ta funkcjonalność `std::function` niestety jest okupiona narzutem
 wydajnościowym pośredniego wywołania i kopiowania callable.  Jeżeli
-tej funkcjonalności nie potrzebujemy, to nie używamy `std::function`.
+tej funkcjonalności nie potrzebujemy, to nie powinniśmy używać
+`std::function`.
 
 {% highlight c++ %}
 {% include_relative passing3.cc %}
