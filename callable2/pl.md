@@ -109,7 +109,7 @@ prostu argumentem szablonu.
 
 Przykład niżej demonstruje wydajność użycia różnego rodzaju callable
 dla kolejki priorytetowej i sortowania.  Proszę skompilować program z
-opcją `-O3`.
+opcją `-O3` i porównać wyniki.
 
 {% highlight c++ %}
 {% include_relative timing.cc %}
