@@ -4,8 +4,16 @@ using namespace std;
 
 using callable = void();
 
+// Here we accept a pointer to a callable.
 void
-f(callable c)
+f1(callable *c)
+{
+  c();
+}
+
+// I'm not sure what we accept here, but it compiles.
+void
+f2(callable c)
 {
   c();
 }
@@ -30,10 +38,12 @@ int
 main()
 {
   // Here we pass a regular pointer to a function.
-  f(g);
+  f1(g);
+  f2(g);
 
   // Here we implicitly get a pointer to the closure function.
-  f([]{cout << "World!\n";});
+  f1([]{cout << "World!\n";});
+  f2([]{cout << "World!\n";});
 
   // This would not compile, because a functor does not convert to a
   // function pointer.  A functor is an object, which we

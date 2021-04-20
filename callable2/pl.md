@@ -4,8 +4,8 @@ title: Uogólnienie callable
 
 # Callable a czas kompilacji czy uruchomienia
 
-Callable może być określone (o który callable dokładnie chodzi) w
-czasie **uruchomienia**, albo **kompilacji**.
+Callable może być określone (przez podanie referencji, wskaźnika czy
+obiektu) w czasie **uruchomienia**, albo **kompilacji**.
 
 ## Callable w czasie uruchomienia
 
@@ -31,7 +31,8 @@ przykład:
 {% endhighlight %}
 
 Przykład niżej pokazuje wkompilowanie domknięcia.  Przykład pokazuje
-też brak narzutu wydajnościowego użycia domknięcia.
+też brak narzutu wydajnościowego użycia domknięcia, co można sprawdzić
+z użyciem Code Explorer lub narzędziem `objdump`.
 
 {% highlight c++ %}
 {% include_relative compile2.cc %}
@@ -39,17 +40,18 @@ też brak narzutu wydajnościowego użycia domknięcia.
 
 # Typ przyjmowanego callable
 
-Typ przyjmowanego callable określamy jako typ parametru funkcji czy
-konstruktora.  Ten typ możemy zdefiniować *dokładnie*, z użyciem
-*`std::function`*, lub *szablonowo*.
+Typ przyjmowanego (przez funkcję czy konstruktor) callable określamy
+jako typ parametru funkcji czy konstruktora.  Ten typ możemy
+zdefiniować na trzy sposoby: *dokładnie*, z użyciem *`std::function`*,
+lub *szablonowo*.
 
 ## Dokładnie zdefiniowany typ callable
 
 Możemy dokładnie określić typ przyjmowanego callable jako typ
-wskaźnika na funkcję, jak w przykładzie niżej.  Co ciekawe, wyrażenie
-z domknięciem (w przykładzie jest to `[]{cout << "World!\n";}`) może
-być niejawnie rzutowane na wskaźnik na funkcję domknięcia, dlatego ten
-przykład się kompiluje.
+wskaźnika lub referencji na funkcję, jak w przykładzie niżej.  Co
+ciekawe, wyrażenie z domknięciem (w przykładzie jest to `[]{cout <<
+"World!\n";}`) może być niejawnie rzutowane na wskaźnik na funkcję
+domknięcia, dlatego ten przykład się kompiluje.
 
 {% highlight c++ %}
 {% include_relative passing1.cc %}
