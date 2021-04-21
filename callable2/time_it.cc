@@ -1,5 +1,9 @@
 #include <chrono>
+#include <iostream>
 #include <functional>
+#include <string>
+
+using namespace std;
 
 template <typename F, typename ... Args>
 auto
@@ -25,21 +29,36 @@ foo(T x)
 
 struct A
 {
+  string m_name;
+
+  A(string name): m_name(std::move(name))
+  {
+  }
+
   void foo()
   {
-    std::cout << __PRETTY_FUNCTION__ << ": ";
-
+    cout << __PRETTY_FUNCTION__ << ": " << m_name << endl;
   }
 
   void goo()
   {
-    std::cout << __PRETTY_FUNCTION__ << ": ";
-
+    cout << __PRETTY_FUNCTION__ << ": " << m_name << endl;
   }
 };
 
 int
 main()
 {
+  A a("a"), b("b");
+
+  void (A::* p1)() = &A::foo;
+  auto p2 = &A::goo;
+
+  (a.*p1)();
+  (b.*p1)();
+
+  (a.*p2)();
+  (b.*p2)();
+
   time_it(foo<int>, 1);
 }
