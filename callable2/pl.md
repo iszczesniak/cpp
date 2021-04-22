@@ -134,9 +134,8 @@ np. `&A::foo`.
 Składnia wywołania funkcji składowej przez wskaźnik nieco się różni od
 składni wywołania funkcji.  Składnia jest taka: `(o.*p)(lista
 argumentów)`, gdzie `o` jest obiektem, a `p` wskaźnikiem na funkcję
-składową.  Ta różnica to dodatkowe nawiasy wokół `o.*p`, które są
-potrzebne, bo `o.*p(lista argumentów)` mogłoby sugerować też znaczyć
-wywołania funkcji przez wskaźnik
+składową.  Ważne są nawiasy wokół `o.*p` i miejsce operatora
+wyłuskania.
 
 Użycie wkaźnika na funkcję składową jest zaawansowaną
 funkcjonalnością, którą raczej rzadko się stosuje i tylko w
