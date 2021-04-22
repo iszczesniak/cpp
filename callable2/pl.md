@@ -123,9 +123,9 @@ wywołana.  Funkcję składową `f` możemy wywołać przez nazwę tak:
 `o.f(lista argumentów)`, gdzie `o` jest nazwą obiektu, albo
 `p->f(lista argumentów)`, gdzie `p` jest wskaźnikiem na obiekt.
 
-Używając wskaźnika możemy przekazać funkcję składową jako callable.  W
-odróżnieniu od zwykłych funkcji, nie ma referencji na funkcję
-składową.  Typ wskaźnika na funkcję składową jest podobny do typu
+Funkcję składową możemy przekazać, ale tylko przez wskaźnik, bo nie ma
+referencji na funkcję składową, chociaż referencja do zwykłej funkcji
+jest.  Typ wskaźnika na funkcję składową jest podobny do typu
 wskaźnika na funkcję, ale deklarator `*` poprzedzamy zakresem klasy,
 np. `A::`.  Adres funkcji składowej pobieramy operatorem adresowania,
 np. `&A::foo`, bo nazwa funkcji składowej nie rozpadnie się
@@ -154,7 +154,5 @@ programowaniu obiektowym, ale którą także uwzględniono w programowaniu
 uogólnionym, w funkcji `std::invoke`.
 
 # `std::invoke`
-
-
 
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
