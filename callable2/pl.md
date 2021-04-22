@@ -119,17 +119,17 @@ opcją `-O3` i porównać wyniki.
 
 Funkcja składowa klasy też jest callable, ale do jej wywołania
 potrzebujemy dodatkowo **obiektu**, na rzecz którego funkcja będzie
-wywołana.  Funkcję składową możemy wywołać przez nazwę tak: `o.f()`
-albo `p->f()`, gdzie `o` jest nazwą obiektu, `p` jest wskaźnikiem na
-obiekt, a `f` jest nazwą funkcji składowej, którą możemy wywołać bez
-argumentów.
+wywołana.  Funkcję składową `f` możemy wywołać przez nazwę tak:
+`o.f(lista argumentów)`, gdzie `o` jest nazwą obiektu, albo
+`p->f(lista argumentów)`, gdzie `p` jest wskaźnikiem na obiekt.
 
 Używając wskaźnika możemy przekazać funkcję składową jako callable.  W
 odróżnieniu od zwykłych funkcji, nie ma referencji na funkcję
 składową.  Typ wskaźnika na funkcję składową jest podobny do typu
 wskaźnika na funkcję, ale deklarator `*` poprzedzamy zakresem klasy,
 np. `A::`.  Adres funkcji składowej pobieramy operatorem adresowania,
-np. `&A::foo`.
+np. `&A::foo`, bo nazwa funkcji składowej nie rozpadnie się
+(ang. decay) na wskaźnik do niej (takiego rozpadu nie ma).
 
 Składnia wywołania funkcji składowej przez wskaźnik nieco się różni od
 składni wywołania funkcji.  Składnia jest taka: `(o.*p)(lista
@@ -137,12 +137,24 @@ argumentów)`, gdzie `o` jest obiektem, a `p` wskaźnikiem na funkcję
 składową.  Ważne są nawiasy wokół `o.*p` i miejsce operatora
 wyłuskania.
 
-Użycie wkaźnika na funkcję składową jest zaawansowaną
-funkcjonalnością, którą raczej rzadko się stosuje i tylko w
-programowaniu obiektowym.
+{% highlight c++ %}
+{% include_relative pointer-to-member.cc %}
+{% endhighlight %}
+
+Tę składnię łatwo pomylić ze składnią wywołania funkcji, do której
+wskaźnik jest przechowywany jako pole składowe obiektu.  Oto przykład:
 
 {% highlight c++ %}
-{% include_relative member.cc %}
+{% include_relative member-pointer.cc %}
 {% endhighlight %}
+
+Użycie wkaźnika na funkcję składową jest zaawansowaną
+funkcjonalnością, którą oczywiście stosuje się wyłącznie w
+programowaniu obiektowym, ale którą także uwzględniono w programowaniu
+uogólnionym, w funkcji `std::invoke`.
+
+# `std::invoke`
+
+
 
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
