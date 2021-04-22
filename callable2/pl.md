@@ -105,7 +105,7 @@ prostu argumentem szablonu.
 {% include_relative passing4.cc %}
 {% endhighlight %}
 
-# Wydajność
+## Wydajność
 
 Przykład niżej demonstruje wydajność użycia różnego rodzaju callable
 dla kolejki priorytetowej i sortowania.  Proszę skompilować program z
@@ -113,6 +113,37 @@ opcją `-O3` i porównać wyniki.
 
 {% highlight c++ %}
 {% include_relative timing.cc %}
+{% endhighlight %}
+
+# Funkcja składowa klasy
+
+Funkcja składowa klasy też jest callable, ale do jej wywołania
+potrzebujemy dodatkowo **obiektu**, na rzecz którego funkcja będzie
+wywołana.  Funkcję składową możemy wywołać przez nazwę tak: `o.f()`
+albo `p->f()`, gdzie `o` jest nazwą obiektu, `p` jest wskaźnikiem na
+obiekt, a `f` jest nazwą funkcji składowej, którą możemy wywołać bez
+argumentów.
+
+Używając wskaźnika możemy przekazać funkcję składową jako callable.  W
+odróżnieniu od zwykłych funkcji, nie ma referencji na funkcję
+składową.  Typ wskaźnika na funkcję składową jest podobny do typu
+wskaźnika na funkcję, ale deklarator `*` poprzedzamy zakresem klasy,
+np. `A::`.  Adres funkcji składowej pobieramy operatorem adresowania,
+np. `&A::foo`.
+
+Składnia wywołania funkcji składowej przez wskaźnik nieco się różni od
+składni wywołania funkcji.  Składnia jest taka: `(o.*p)(lista
+argumentów)`, gdzie `o` jest obiektem, a `p` wskaźnikiem na funkcję
+składową.  Ta różnica to dodatkowe nawiasy wokół `o.*p`, które są
+potrzebne, bo `o.*p(lista argumentów)` mogłoby sugerować też znaczyć
+wywołania funkcji przez wskaźnik
+
+Użycie wkaźnika na funkcję składową jest zaawansowaną
+funkcjonalnością, którą raczej rzadko się stosuje i tylko w
+programowaniu obiektowym.
+
+{% highlight c++ %}
+{% include_relative member.cc %}
 {% endhighlight %}
 
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
