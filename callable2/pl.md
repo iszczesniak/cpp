@@ -155,4 +155,31 @@ uogólnionym, w funkcji `std::invoke`.
 
 # `std::invoke`
 
+Funkcja `std::invoke` wywołuje callable z użyciem podanych argumentów.
+Wszystkie argumenty `std::invoke` są doskonale przekazywane.  Na
+pierwszy rzut oka ta funkcja robi to samo, co zwykłe wywołanie
+callable.  Oto przykład:
+
+{% highlight c++ %}
+{% include_relative invoke.cc %}
+{% endhighlight %}
+
+Dlaczego więc wprowadzono tę funkcję?  Bo pozwala także na wywołanie
+składowej klasy.  Funkcja wprowadza ujednolicony sposób wywołania
+dowolnego callable.
+
+Argumentami `std::invoke` przy wywołaniu funkcji składowej kolejno są:
+
+* wskaźnik na funkcję składową,
+
+* obiekt na rzecz którego wywoływana jest funkcja składowa,
+
+* argumenty dla funkcji składowej.
+
+Oto przykład:
+
+{% highlight c++ %}
+{% include_relative invoke2.cc %}
+{% endhighlight %}
+
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->

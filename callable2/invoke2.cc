@@ -1,3 +1,4 @@
+#include <functional>
 #include <iostream>
 #include <string>
 
@@ -25,15 +26,9 @@ struct A
 int
 main()
 {
-  A a("a"), b("b");
-
-  // A pointer to a member function.
-  void (A::* p1)(int) = &A::foo;
-  // It's better to let the compiler deduce the type.
-  auto p2 = &A::goo;
-
-  (a.*p1)(1);
-  (b.*p1)(2);
-  (a.*p2)(3);
-  (b.*p2)(4);
+  A a("a"), b("b");  
+  invoke(&A::foo, a, 1);
+  invoke(&A::foo, a, 2);
+  invoke(&A::foo, a, 3);
+  invoke(&A::foo, a, 4);
 }
