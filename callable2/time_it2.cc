@@ -2,16 +2,19 @@
 #include <iostream>
 #include <functional>
 #include <string>
+#include <tuple>
 
 using namespace std;
 
-template <typename F, typename ... Args>
+template <typename F, typename T, typename E>
 auto
-time_it(F &&f, Args &&... args)
+time_it(F &&f, T &&t, E && e)
 {
+  cout << e << ": ";
+
   auto t0 = std::chrono::system_clock::now();
 
-  std::invoke(std::forward<F>(f), std::forward<Args>(args)...);
+  std::apply(std::forward<F>(f), std::forward<T>(t));
 
   auto t1 = std::chrono::system_clock::now();
   std::chrono::nanoseconds dt = t1 - t0;
@@ -54,11 +57,11 @@ struct A
 int
 main()
 {
-  A a("a"), b("b");
+  A a("a");
 
   cout << "Results:\n";
-  cout << time_it(foo) << " ns\n";
-  cout << time_it(goo<int>, 1) << " ns\n";
-  cout << time_it(&A::foo, a, 1) << " ns\n";
-  cout << time_it(&A::goo, b, 1) << " ns\n";
+  cout << time_it(foo, make_tuple(), "Hello") << " ns\n";
+  cout << time_it(goo<int>, make_tuple(1), 3.14159) << " ns\n";
+  cout << time_it(&A::foo, forward_as_tuple(a, 1), .1) << " ns\n";
+  cout << time_it(&A::goo, forward_as_tuple(A("t"), 1), 1) << " ns\n";
 }

@@ -192,6 +192,37 @@ my to osiągnęliśmy jedynie korzystając z funkcji `std::invoke.`
 {% include_relative time_it.cc %}
 {% endhighlight %}
 
-W przykładzie wyżej, żeby móc pozwolić na
+W przykładzie wyżej użyliśmy **szablonu wariadycznego**, żeby funkcja
+`time_it` mogła przyjąć dowolną (także zerową) liczbę argumentów dla
+wywoływanego callable.  Szablony wariadyczne, które jedynie wspominamy
+tutaj, posiadają wiele szczegółów, ale najważniejszą cechą jest
+posiadanie **dowolnej liczby parametrów**.
+
+Są dwa problemy powyższego przykładu związane z użyciem `std::invoke`:
+
+* konieczność użycia szablonu wariadycznego, co jest trudne i dlatego
+  niewygodne,
+
+* po argumentach dla callable nie można przekazać innych argumentów,
+  bo wszysto do końca jest traktowane jako argumenty dla callable.
+
+# `std::apply`
+
+Funkcja `std::apply` pozwala wywołanie dowolnego callable:
+
+* bez użycia szablonu wariadycznego,
+
+* z możliwością podania dodatkowych argumentów po argumentach dla
+  callable.
+
+Rozwiązanie jest proste: argumenty są przekazywane w krotce.  Krotkę
+tworzymy z użyciem funkcji `std::forward_as_tuple`, żeby zachować
+kategorię wartości wyrażeń elementów krotki.
+
+{% highlight c++ %}
+{% include_relative time_it2.cc %}
+{% endhighlight %}
+
+A co jeżeli callable przyjmuje krotkę jako argument?
 
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
