@@ -28,7 +28,7 @@ main()
 {
   A a("a"), b("b");  
   invoke(&A::foo, a, 1);
-  invoke(&A::foo, a, 2);
-  invoke(&A::foo, a, 3);
-  invoke(&A::foo, a, 4);
+  invoke(&A::foo, b, 2);
+  invoke(&A::goo, a, 3);
+  invoke(&A::goo, b, 4);
 }
