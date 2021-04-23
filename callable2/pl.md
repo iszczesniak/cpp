@@ -182,4 +182,16 @@ Oto przykład:
 {% include_relative invoke2.cc %}
 {% endhighlight %}
 
+Funkcja `std::invoke` pozwala na pisanie uogólnionego kodu, który może
+przyjmować dowolny callable.  W przykładzie niżej, funkcja `time_it`
+mierzy czas wykowania callable, którym może też być funkcja składowa.
+Zaimplementowanie takiej funkcjonalności samemu byłoby dosyć trudne, a
+my to osiągnęliśmy jedynie korzystając z funkcji `std::invoke.`
+
+{% highlight c++ %}
+{% include_relative time_it.cc %}
+{% endhighlight %}
+
+W przykładzie wyżej, żeby móc pozwolić na
+
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->

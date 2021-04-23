@@ -19,9 +19,15 @@ time_it(F f, Args &&... args)
   return dt.count();
 }
 
+void
+foo()
+{
+  cout << __PRETTY_FUNCTION__ << " took ";
+}
+
 template <typename T>
 void
-foo(T x)
+goo(T x)
 {
   cout << __PRETTY_FUNCTION__ << " took ";
 }
@@ -50,17 +56,9 @@ main()
 {
   A a("a"), b("b");
 
-  void (A::* p1)(int) = &A::foo;
-  auto p2 = &A::goo;
-
-  //  (a.*p1)(1);
-  //  (b.*p1)(1);
-
-  //  (a.*p2)(1);
-  //  (b.*p2)(1);
-
+  cout << "Results:\n";
+  cout << time_it(goo) << " ns\n";
   cout << time_it(foo<int>, 1) << " ns\n";
-  cout << time_it(p1, a, 1) << " ns\n";
-  cout << time_it(foo<int>, 1) << " ns\n";
-  cout << time_it(p1, a, 1) << " ns\n";
+  cout << time_it(&A::foo, a, 1) << " ns\n";
+  cout << time_it(&A::goo, b, 1) << " ns\n";
 }
