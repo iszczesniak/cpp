@@ -208,7 +208,7 @@ Są dwa problemy powyższego przykładu związane z użyciem `std::invoke`:
 
 # `std::apply`
 
-Funkcja `std::apply` pozwala wywołanie dowolnego callable:
+Funkcja `std::apply` pozwala na wywołanie dowolnego callable:
 
 * bez użycia szablonu wariadycznego,
 
@@ -217,12 +217,30 @@ Funkcja `std::apply` pozwala wywołanie dowolnego callable:
 
 Rozwiązanie jest proste: argumenty są przekazywane w krotce.  Krotkę
 tworzymy z użyciem funkcji `std::forward_as_tuple`, żeby zachować
-kategorię wartości wyrażeń elementów krotki.
+kategorię wartości wyrażeń elementów krotki.  Jeżeli wywołujemy
+funkcję składową, to pierwszym elementem krotki powinien być obiekt,
+na rzecz którego callable będzie wywołana.
 
 {% highlight c++ %}
 {% include_relative time_it2.cc %}
 {% endhighlight %}
 
-A co jeżeli callable przyjmuje krotkę jako argument?
+# Podsumowanie
+
+* Callable może być określane w czasie kompilacji albo uruchomienia.
+
+* Do wywołania otrzymanego callable najlepiej jest użyć `std::invoke`.
+
+* Typ `std::function` wprowadza narzut czasowy, a `std::invoke` i
+  `std::apply` nie.
+
+# Quiz
+
+* Do czego służy `std::function`?
+
+* Jaka jest różnica między zwykłym wywołaniem funkcji, a wywołaniem z
+  użyciem funkcji `std::invoke`?
+
+* Jaka jest różnica między funkcjami `std::invoke` and `std::apply`?
 
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
