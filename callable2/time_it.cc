@@ -57,8 +57,8 @@ main()
   A a("a"), b("b");
 
   cout << "Results:\n";
-  cout << time_it(goo) << " ns\n";
-  cout << time_it(foo<int>, 1) << " ns\n";
+  cout << time_it(foo) << " ns\n";
+  cout << time_it(goo<int>, 1) << " ns\n";
   cout << time_it(&A::foo, a, 1) << " ns\n";
   cout << time_it(&A::goo, b, 1) << " ns\n";
 }
