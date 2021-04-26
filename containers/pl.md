@@ -55,39 +55,39 @@ Teraz kontenery są:
 
 **Nie ma wymówki, trzeba używać.**
 
-## Basic container types
+## Typy podstawowych kontenerów
 
-Sequence containers:
+Kontenery sekwencji:
 
-* `std::vector<T>` - the vector,
+* `std::vector<T>` - wektor,
 
-* `std::list<T>` - the doubly-linked list,
+* `std::list<T>` - lista dwukierunkowa,
 
-* `std::deque<T>` - the deque, amalgamation of the vector and the
-  doubly-linked list,
+* `std::deque<T>` - połączenie wektora i listy dwukierunkowej,
 
-* `std::forward_list<T>` - the singly-linked list,
+* `std::forward_list<T>` - lista jednokierunkowa,
 
-Associative containers:
+Kontenery asocjacyjne:
 
-* `std::map<K, V>` - the associative array (aka dictionary),
+* `std::map<K, V>` - tablica asocjacyjna (aka słownik),
 
-* `std::multimap<K, V>` - the associative array with duplicate keys
-  allowed,
+* `std::multimap<K, V>` - tablica asocjacyjna z możliwymi równymi
+  kluczami,
 
-* `std::set<T>` - the set,
+* `std::set<T>` - zbiór,
 
-* `std::multiset<T>` - the set with duplicate elements allowed,
+* `std::multiset<T>` - zbiór z możliwymi równymi elementami.
 
-The adapters:
+Adaptery:
 
-* `std::stack` - the stack,
+* `std::stack` - stos,
 
-* `std::queue` - the queue,
+* `std::queue` - kolejka,
 
-* `std::priority_queue<T>` - the priority queue.
+* `std::priority_queue<T>` - kolejka priorytetowa.
 
-Container types can be nested, i.e., `T` can be a container type too.
+Typy kontenerów mogą być zagnieżdżone, czyli `T` też może być
+kontenerem.
 
 ## Comparison of basic types of containers
 
