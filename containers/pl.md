@@ -131,16 +131,16 @@ wartościami, a następnie jedynie odwołujemy się do elementów.
 
 ### `std::list<T>`
 
-The list does not store its elements contiguously in memory, but
-stores them in different locations at the heap, which were allocated
-separately.  Then the elements are doubly-linked, which implies:
+Lista nie przechowuje elementów w ciągłej pamięci, ale w różnych
+miejscach na stercie, które były osobno alokowane.  Lista jest
+dwukierunkowa (ang. doubly-linked), więc:
 
-* **fast insertion and removal**, because elements do not have to be
-  reallocated, and neither the elements that follow have to be moved
-  one-by-one,
+* **wstawianie i usuwanie elementów jest szybkie**, ponieważ elementy
+  nie muszą być realokowane, kopiowane czy przenoszone,
 
-* **iterative access only**, because to access some element, we have
-  to get to it through the elements that proceed or follow it.
+* **dostęp do elementów jest tylko iteracyjny**: żeby dostać się
+  elementy, to musimy przejść przez elementy poprzedzające albo
+  następujące.
 
 The list does not offer element random access, even though it could
 with a more elaborate implementation.  However, C++ aims at providing
