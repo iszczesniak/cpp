@@ -1,42 +1,42 @@
 ---
-title: Containers
+title: Kontenery
 ---
 
-# Introduction
+# Wprowadzenie
 
-A list, an associative map, a set, and other data structures, are
-called **containers** in C++.  A container:
+Lista, tablica asocjacyjna, zbiór i inne typy danych są nazywane
+**kontenerami** w C++.  Kontener:
 
-* is a *generic* data structure,
+* jest *uogólnioną* strukturą danych,
 
-* stores elements of *any type*,
+* przechowuje elementy *dowolnego typu*,
 
-* stores elements only of a *single type*,
+* przechowuje elementy tylko *jednego typu*,
 
-* stores elements *by value*, not by reference,
+* przechowuje elementy przez wartość, nie referencję,
 
-* stores elements at the *heap*,
+* przechowuje elementy na stercie,
 
-* can grow or shrink dynamically (i.e., at run-time).
+* może zmieniać rozmiar dynamiczne, czyli w czasie uruchomienia.
 
-A container is generic, because it can store data of any type `T`.  A
-container type (e.g., `std::vector<T>`) is **templated**, because we
-have to give a *template argument* `T` at compile-type.
+Kontener jest uogólniony, bo może przechowywać elementy dowolnego typu
+`T`.  Typ kontenera (np. `std::vector<T>`) jest **szablonowy**, więc
+możemy przekazać mu *argument szablonu* `T` w czasie kompilacji.
 
-While the container itself (i.e., the object of the container type)
-can be anywhere in memory, the elements have to be stored at the heap,
-because the size of the container can change at run-time.
+Podczas gdy kontener (obiekt typu kontenera) może być gdziekolwiek w
+pamięci, to jego elementy są przechowywane na stercie, bo rozmiar
+kontenera może się zmieniać w czasie uruchomienia.
 
-Containers are complemented by iterators and algorithms.  The iterator
-is a generalization of a pointer.  Algorithms, such as `std::sort`,
-are generalized in that they can be used with various containers,
-because access to the container elements is provided with iterators.
+Kontenery są uzupełniane przez iteratory i algorytmy.  Iterator jest
+uogólnieniem wskaźnika.  Algorytmy, np. `std::sort`, są uogólnione,
+czyli można ich użyć z różnymi konteneramim, ponieważ dostęp do ich
+elementów jest zapewniony przez iteratory.
 
-Standard containers, iterators, and algorithms fit together because of
-the naming and semantic convention.  As for the naming convention, for
-instance, every container has the `begin`, and `end`, `size`, and
-other functions.  As for the semantic convention, for instance, we get
-the data of iterator `i` by dereferencing: `*i`.
+Standardowe kontenery, iteratory i algorytmy pasują do siebie,
+ponieważ stosują te same konwencje nazw i semantyki.  Jeżeli chodzi o
+konwencję nazw, to na przykład każdy kontener ma funkcje `begin`,
+`end`, `size`.  Jeżeli chodzi o konwencję semantyki, to na przykład
+otrzymujemy dane iteratora `i` przez wyłuskanie `*i`.
 
 ## History
 
