@@ -110,12 +110,12 @@ The vector offers:
 
   - **slow insertion and removal**.
 
-The vector may have to reallocate the elements when the currently
-allocated memory for elements is not enough, as when, e.g., we insert
-an element into a vector.  First, new memory has to be allocated.
-Next, the elements are copied or moved, depending on whether the type
-of the elements has the move semantics implemented.  Finally, the old
-memory is released.
+The vector may have to reallocate its elements when the currently
+allocated memory is not enough, when we insert a new element at the
+end of the vector.  First, new memory has to be allocated.  Next, the
+elements are copied or moved, depending on whether the type of the
+elements has the move semantics implemented, and then a new element is
+added (copied or moved).  Finally, the old memory is released.
 
 The performance of the vector drops not only when elements are
 frequently reallocated, but also when elements are frequently inserted

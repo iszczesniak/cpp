@@ -89,44 +89,45 @@ Adaptery:
 Typy kontenerów mogą być zagnieżdżone, czyli `T` też może być
 kontenerem.
 
-## Comparison of basic types of containers
+## Porównanie typów podstawowych kontenerów
 
 ### `std::vector<T>`
 
-The vector offers:
+Wektor zapewnia:
 
-* **random access** with the random access operator, i.e., the `[]`
-  operator, aka the index operator, or the subscript operator,
+* **swobodny dostęp** do elementów z użyciem operatora swobodnego
+  dostępu, czyli operatora `[]` zwanego także operatorem indeksowania,
 
-* **memory contiguity**: all elements are stored contiguous in memory,
-  which implies:
+* **ciągłość pamięci**: wszystkie elementy są przechowywane w pamięci
+    obok siebie, z czego wynika że:
 
-  - the random access operator is as fast as can be, because it only
-    has to increase a pointer,
+  - operator swobodnego dostępu jest maksymalnie szybki, ponieważ
+    jedynie zwiększa wskaźnik
 
-  - the memory access is faster: the elements of the vector are all
-    stored compactly together, and so the processor cache is used the
-    most effectively,
+  - dostęp do pamięci jest maksymalnie szyki: elementy są
+    przechowywane obok siecie, co zwiększa efektywność pamięci
+    podręcznej procesora,
 
-  - **slow insertion and removal**.
+  - **usuwanie i wstawianie elementów jest wolne**.
 
-The vector may have to reallocate the elements when the currently
-allocated memory for elements is not enough, as when, e.g., we insert
-an element into a vector.  First, new memory has to be allocated.
-Next, the elements are copied or moved, depending on whether the type
-of the elements has the move semantics implemented.  Finally, the old
-memory is released.
+Wektor realokuje elementy, kiedy aktualnie zaalokowana pamięć jest
+niewystarczająca, żeby wstawić nowy element na koniec wektora.  Na
+początku nowy obszar pamięci jest alokowany.  Następnie elementy
+wektora są kopiowane (albo przenoszone, jeżeli typ elementów ma
+zaimplementowaną semantykę przeniesiena), a potem nowy element jest
+dodawany (przez kopiowanie albo przeniesienie).  Na końcu jest
+zwalniana stara pamięć.
 
-The performance of the vector drops not only when elements are
-frequently reallocated, but also when elements are frequently inserted
-or removed.  When an element is inserted or removed, the elements that
-follow have to be moved (or copied) one-by-one, because the vector has
-to guarantee the memory contiguity.
+Wydajność wektora spada nie tylko wtedy, kiedy elementy są często
+dodawane na koniec wektora, ale także wtedy, kiedy elementy są często
+wstawiane albo usuwane.  Kiedy element jest wstawiany albo usuwany, to
+elementy następujące muszą być kopiowane (albo przenoszone), ponieważ
+wektor gwarantuje ciągłość pamięci.
 
-In comparison with other containers, the vector performs very well if
-the reallocation, insertion and removal do not frequently happen, for
-instance, if we build a vector, fill it in, and then random-access the
-elements frequently.
+W porównaniu z innymi kontenerami, wektor jest bardzo szybki, jeżeli
+realokacja, dodawanie, wstawianie i usuwanie nie są często wykonywane,
+np. kiedy tworzymy wektor o zadanym rozmiarze, wypełniamy go
+wartościami, a następnie jedynie odwołujemy się do elementów.
 
 ### `std::list<T>`
 
