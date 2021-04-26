@@ -38,22 +38,22 @@ konwencję nazw, to na przykład każdy kontener ma funkcje `begin`,
 `end`, `size`.  Jeżeli chodzi o konwencję semantyki, to na przykład
 otrzymujemy dane iteratora `i` przez wyłuskanie `*i`.
 
-## History
+## Historia
 
-In the early 90's, containers were:
+Na początku lat dziewięćdziesiątych kontenery były:
 
-* a cutting-edge technology, and a hot research topic,
+* najnowszą technologią, tematem badań naukowych,
 
-* originally implemented as the STL, the seminal work by Alexander
-  Stepanov.
+* zaimplementowane jako Standard Template Library (STL), przełomowa
+  biblioteka Alexandra Stepanova.
 
-Now containers are:
+Teraz kontenery są:
 
-* an indispensable tool of every-day use,
+* nieodzownym narzędziem codziennego użycia,
 
-* a part of the standard library.
+* częścią biblioteki standardowej.
 
-**There is no excuse, put them to use.**
+**Nie ma wymówki, trzeba używać.**
 
 ## Basic container types
 
