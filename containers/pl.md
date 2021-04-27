@@ -248,22 +248,21 @@ Nie możemy zmieniać elementów kontenera, jeżeli odnosimy się do nich z
 użyciem iteratora stałego.  Dla lepszego kodu, jeżeli nie zmieniamy
 elementów, powinniśmy zawsze używać iteratorów stałych.
 
-## Functions `begin`, `end`
+## Funkcje `begin`, `end`
 
-We know where the elements of a container are with the `begin`, and
-`end` functions.  The `begin` function returns an iterator to the
-first element.  The `end` function returns a *past-the-end* iterator
-which you would get if you incremented an iterator to the last
-element: we could say the `end` function returns an iterator to an
-**imaginary** element (imaginary, because that element does not exist)
-that would follow the last element.  If a container has no elements,
-the iterators returned by `begin` and `end` equal.
+Wiemy, gdzie są elementy kontenera dzięki funkcjom `begin` i `end`.
+Funkcja `begin` zwraca iterator na pierwszy element.  Funkcja `end`
+zwraca **iterator końcowy** (ang. past-the-end iterator), który
+otrzymamy, jeżeli zinkrementujemy iterator na ostatni element; możemy
+powiedzieć, że funkcja `end` zwraca iterator na **urojony** element
+(urojony, bo on nie istnieje), który następowałby po ostatnim
+elemencie.  Jeżeli kontener nie ma elementów, to iteratory zwrócone
+przez `begin` i `end` są sobie równe.
 
-The `begin` and `end` functions return non-const iterators for a
-non-const container, and const iterators for a const container.  If we
-want to iterate with a const iterator over a non-const container, we
-can use the `cbegin` and `cend` functions, which return const
-iterators.
+Funkcje `begin` i `end` zwracają iteratory niestałe dla kontenerów
+niestałych i iteratory stałe dla kontenerów stałych.  Jeżeli otrzymać
+iteratory stałe dla kontenerów niestałych, to możemy użyć funkcji
+`cbegin` i `cend`.
 
 The `cbegin` and `cend` are for convenience only, because they are
 dispensable.  We can achieve the same functionality by calling the
