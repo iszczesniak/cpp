@@ -220,32 +220,33 @@ wskaźnika na element numer 0 o indeks elementu:
 {% include_relative pointer.cc %}
 {% endhighlight %}
 
-Iterator types are user-defined, e.g., of a structure type.  Iterators
-are wrappers around pointers, where the operators (defined for that
-type) implement the required functionality.  For instance, if in the
-example above we replace the C-style array with a deque, the rest of
-the code can remain untouched:
+Typy iteratorów mogą być definiowane przez programistę, czyli
+programista może zaimplementować swój typ kontenera i typ jego
+iteratora.  Iteratory są obudowanymi wskaźnikami, których operatory
+implementują wymaganą funkcjonalność.  Na przykład, jeżeli w
+przykładzie wyżej zamienimy tablicę języka C z `std::deque`, to reszta
+kodu pozostaje bez zmian:
 
 {% highlight c++ %}
 {% include_relative iterator_intro.cc %}
 {% endhighlight %}
 
-Iterators of the standard library are very small and very efficient.
-They typically store only a single pointer.  Therefore we are free to
-use them by value, and copy them.  We could use iterators by reference
-too, but that would be just awkward, just as awkward would be using
-pointers by reference.
+Iteratory biblioteki standardowej są małe i wydajne.  Najczęściej
+przechowują jeden wskaźnik, więc możemy je kopiować i używać przez
+wartość.  Możemy także używać iteratorów przez referencję, ale to
+byłoby dosyć dziwne, jak podobnie dziwne byłoby używanie wskaźników
+przez referencję.
 
-For a given container type `T`, there are always at least two iterator
-types defined:
+Standardowy kontener typu `T` ma zawsze zdefiniowane dwa typy
+iteratorów:
 
-* non-const iterator type: `T::iterator`,
+* niestały iterator typu `T::iterator`,
 
-* const iterator type: `T::const_iterator`.
+* stały iterator typu `T::const_iterator`.
 
-You cannot modify elements of a container with a const iterator.  For
-better code, always use the const iterator if you do not modify the
-elements.
+Nie możemy zmieniać elementów kontenera, jeżeli odnosimy się do nich z
+użyciem iteratora stałego.  Dla lepszego kodu, jeżeli nie zmieniamy
+elementów, powinniśmy zawsze używać iteratorów stałych.
 
 ## Functions `begin`, `end`
 
