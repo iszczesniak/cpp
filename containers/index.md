@@ -192,7 +192,7 @@ establish any order with a callable.
 Interestingly, we cannot modify the elements, because that would
 destroy the order of elements, and make the container inconsistent.
 For this reason, the type of the elements stored is made const, even
-if the template parameter was non-const.
+if the template argument was non-const.
 
 If we want to modify an element, then we have to remove the element
 first, and insert a new element with a different value next.

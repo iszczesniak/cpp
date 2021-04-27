@@ -184,18 +184,19 @@ możemy iterować do przodu, ale nie do tyłu.
 
 ### `std::set`, and `std::multiset`
 
-The set stores **unique** elements, and the multiset allows for
-multiple elements of an equal value.  Both container types store the
-elements **sorted**.  By default the order is ascending, but we can
-establish any order with a callable.
+Zbiór (kontener `std::set`) przechowuje unikalne elementy, a
+wielozbiór (kontener `std::multiset`) pozwala na przechowywanie
+elementów, które mają równe wartości.  Oba kontenery przechowują
+elementy w sposób **posortowany**.  Domyślnie porządek jest rosnący,
+ale możemy ustalić dowolny porządek z użyciem callable.
 
-Interestingly, we cannot modify the elements, because that would
-destroy the order of elements, and make the container inconsistent.
-For this reason, the type of the elements stored is made const, even
-if the template parameter was non-const.
+Co ciekawe, nie można zmieniać wartości elementów w kontenerach
+posortowanych, ponieważ to zaburzyłoby porządek w kontenerze i
+uczyniło go niespójnym.  Z tego powodu elementy mają typ stały, nawet
+jeżeli argumentem szablonu jest typ niestały.
 
-If we want to modify an element, then we have to remove the element
-first, and insert a new element with a different value next.
+Jeżeli chcemy zmienić wartość elementu, to pierwsze musimy usunąć
+element, a następnie wstawić nowy element o nowej wartości.
 
 {% highlight c++ %}
 {% include_relative set.cc %}
