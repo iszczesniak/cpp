@@ -202,21 +202,19 @@ element, a następnie wstawić nowy element o nowej wartości.
 {% include_relative set.cc %}
 {% endhighlight %}
 
-# Iterators
+# Iteratory
 
-Iterators are the glue between the containers, and the algorithms.
-Function `std::sort` can be used with various containers through
-iterators.  Iterators provide access to the container elements, so
-that we do not care about the type of a container (the container type
-was abstracted away).
+Iteratory są spoiwem, które łączy kontenery i algorytmy.  Na przykład,
+funkcja `std::sort` może być zastosowana dla różnych kontenerów
+właśnie dzięki iteratorom.  Iteratory zapewniają dostęp do elementów
+kontenera, żeby typ kontenera nie był dla nas istotny.
 
-An iterator is a generalization of a pointer.  We could say that a
-pointer is the iterator of a C-style array.  We can initialize the
-pointer, compare it to some other pointer, dereference it to get to
-the element it points to, and also increment it.  Furthermore, we can
-random access any element in the C-style array if we increase (with
-the + operator) the pointer to the element number 0 by the value of
-the index as in here:
+Iterator jest uogólnieniem wskaźnika.  Możemy powiedzieć, że wskaźnik
+jest iteratorem tablicy języka C.  Wskaźnik możemy zainicjalizować,
+porównać z innym wskaźnikiem, wyłuskać (żeby dostać się do elementu) i
+także inkrementować.  Co więcej, możemy mieć swobodny dostęp do
+dowolnego elementu tablicy języka C przez zwiększenie (operatorem `+`)
+wskaźnika na element numer 0 o indeks elementu:
 
 {% highlight c++ %}
 {% include_relative pointer.cc %}
