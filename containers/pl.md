@@ -142,12 +142,11 @@ dwukierunkowa (ang. doubly-linked), więc:
   elementy, to musimy przejść przez elementy poprzedzające albo
   następujące.
 
-The list does not offer element random access, even though it could
-with a more elaborate implementation.  However, C++ aims at providing
-fast and lean tools, and such a bloated list would decrease
-performance.  The list of type `std::list` offers the minimal
-functionality required, but with superior (time and memory)
-performance.
+Lista nie zapewnia swobodnego dostępu do elementów, chociaż mogłaby z
+bardziej rozbudowaną implementacją.  Jednak celem C++ jest zapewnienie
+wydajnej funkcjonalności, a taka rozbudowana lista miałaby gorszą
+wydajność.  Lista typu `std::list` ma ograniczoną funkcjonalność, ale
+maksymalną wydajność.
 
 ### `std::deque<T>`
 
