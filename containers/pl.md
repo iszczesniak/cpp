@@ -270,41 +270,41 @@ funkcjonalność przez wywołanie `begin` i `end`, jeżeli odwołamy się do
 tych kontenerów z użyciem funkcji `std::as_const`, która zwraca nam
 referencję stałą do przekazanego argumentu.
 
-Iterators can be categorized into a few basic categories (concepts,
-technically speaking), depending on the provided functionality:
+Iteratory mogą być podzielone na kilka kategorii (spełniających
+koncepty) w zależności od oferowanej funkcjonalności:
 
-* a forward iterator,
+* iterator jednokierunkowy,
 
-* a bidirectional iterator,
+* iterator dwukierunkowy,
 
-* a random-access iterator.
+* iterator swobodnego dostępu.
 
-## A forward iterator
+## Iterator jednokierunkowy
 
-A forward iterator provides only the two most basic operations: `*i`,
-`++i`.  The iterator of `std::forward_list` is a forward iterator.
-Here's an example:
+Iterator jednokierunkowy oferuje tylko najbardziej podstawowe
+operacje: `*i` i `++i`.  Przykładem operatora jednokierunkowego jest
+iterator listy jednokierunkowej.  Oto przykład:
 
 {% highlight c++ %}
 {% include_relative iterator_forward.cc %}
 {% endhighlight %}
 
-## A bidirectional iterator
+## Iterator dwukierunkowy
 
-A bidirectional iterator is a forward iterator with an extra operation
-defined: `--i`, i.e., move back by one element.  The iterator of
-`std::list` is a bidirectional iterator.  For example:
+Iterator dwukierunkowy to iterator jednokierunkowy z dodatkowym
+definiowanym operatorem: `--i`, czyli może cofnąć się o jeden element.
+Lista ma iterator dwukierunkowy.  Na przykład:
 
 {% highlight c++ %}
 {% include_relative iterator_bidirectional.cc %}
 {% endhighlight %}
 
-## A random-access iterator
+## Iterator swobodnego dostępu
 
-A random-access iterator allows for increasing or decreasing the
-iterator value by any integer, as we've done in the example above with
-the deque.  The iterator of the vector is a random-access iterator.  A
-pointer is a random-access iterator too.
+Iterator swobodnego dostępu pozwala na poruszanie się po kontenerze w
+obu kierunkach o dowolną liczbę elementów, jak robiliśmy to w
+przykładzie wyżej z `std::deque`.  Wektor ma iterator swobodnego
+dostępu.  Wskaźnik też jest iteratorem swobodnego dostępu.
 
 # Forward-iterating over the elements of a container
 
