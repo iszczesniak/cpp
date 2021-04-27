@@ -306,25 +306,24 @@ obu kierunkach o dowolną liczbę elementów, jak robiliśmy to w
 przykładzie wyżej z `std::deque`.  Wektor ma iterator swobodnego
 dostępu.  Wskaźnik też jest iteratorem swobodnego dostępu.
 
-# Forward-iterating over the elements of a container
+# Pętla `for`
 
-We can forward-iterate over the elements of a container (or, more
-broadly, a range) in two ways: the old, and the new.
+Możemy iterować po elementach kontenera (albo ogólniej po zakresie) z
+użyciem pętli `for` na dwa sposoby: stary i nowy.
 
-## Iterating the old way
+## Stary sposób
 
-As shown in the example below, you can forward-iterate over the
-elements of a container the old way, which is a bit tedious, because
-we have to initialize the *iteration variable* `i`, write the loop
-condition, and then increment the variable.  This loop is also
-error-prone, as it's easy to mistakenly write '--i' instead of '++i',
-or `begin` instead of `end`.
+Jak pokazano w przykładzie niżej, możemy iterować po elementach
+kontenera w stary sposób, ale jest to trochę uciążliwe, ponieważ
+pierwsze musimy zainicjalizować *zmienną iteracyjną* `i`, napisać
+warunek pętli, a potem zwiększyć zmienną.  Łatwo się pomylić i napisać
+`--i` zamiast `++i` albo `begin` zamiast `end`.
 
 {% highlight c++ %}
 {% include_relative iterate_old.cc %}
 {% endhighlight %}
 
-## Iterating the new way
+## Nowy sposób
 
 Since C++11, we can iterate the new way, using the *range-based* (aka
 for-each) syntax of the for loop.  The semantics is the same as for
