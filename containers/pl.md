@@ -264,11 +264,11 @@ niestałych i iteratory stałe dla kontenerów stałych.  Jeżeli otrzymać
 iteratory stałe dla kontenerów niestałych, to możemy użyć funkcji
 `cbegin` i `cend`.
 
-The `cbegin` and `cend` are for convenience only, because they are
-dispensable.  We can achieve the same functionality by calling the
-`begin` and `end` functions for a non-const container when we
-reference the container with a const reference, which we can do with
-the `std::as_const` function.
+Funkcje `cbegin` i `cend` są tylko dla naszej wygody, poradzilibyśmy
+sobie bez nich.  Dla kontenerów niestałych możemy osiągnąć tą samą
+funkcjonalność przez wywołanie `begin` i `end`, jeżeli odwołamy się do
+tych kontenerów z użyciem funkcji `std::as_const`, która zwraca nam
+referencję stałą do przekazanego argumentu.
 
 Iterators can be categorized into a few basic categories (concepts,
 technically speaking), depending on the provided functionality:
