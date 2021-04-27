@@ -173,14 +173,14 @@ Use the deque only when the vector and the list won't do.
 
 ### `std::forward_list<T>`
 
-Sometimes `std::list` is more than we need from a list.  Sometimes we
-need to forward-iterate only, and can do without the capability to
-backward-iterate that is offered by `std::list`, the capability that
-we pay for with performance.
+Czasami `std::list` oferuje więcej, niż potrzebujemy.  Czasamy
+potrzebujemy iterować po elementach tylko do przodu i nie potrzebujemy
+funkcjonalności iterowania do tyłu, którą zapewnia `std::list` i za
+którą płacimy spadkiem wydajności.
 
-Type `std::forward_list` is even leaner and more performant than
-`std::list`, because it is a singly linked list: we can iterate
-forward, but not backward.
+Typ `std::forward_list` jest mniej funkcjonalny, ale za to bardziej
+wydajny, niż `std::list`, ponieważ jest to lista jednokierunkowa:
+możemy iterować do przodu, ale nie do tyłu.
 
 ### `std::set`, and `std::multiset`
 
