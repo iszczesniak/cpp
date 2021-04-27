@@ -325,32 +325,31 @@ warunek pętli, a potem zwiększyć zmienną.  Łatwo się pomylić i napisać
 
 ## Nowy sposób
 
-Since C++11, we can iterate the new way, using the *range-based* (aka
-for-each) syntax of the for loop.  The semantics is the same as for
-the old way.  The range-based loop is less error-prone, because we
-have to write less.
+Od C++11 możemy iterować w nowy sposób, używając nowej składni pętli
+`for` dla zakresów, zwanej także pętlą foreach.  Semantyka jest taka
+sama jak dla starego sposobu.  Pisać musimy mniej, więc ryzyko
+popełnienia błędu jest mniejsze.
 
-The syntax is:
+Taka jest składnia:
 
 {% highlight c++ %}
-for(declaration: expression) statement
+for(deklaracja: wyrażenie) zdanie
 {% endhighlight %}
 
-Where:
+Gdzie:
 
-* `declaration` declares the variable that is initialized with the
-  container elements (or more precisely, the range elements) in every
-  iteration of the loop.  We refer to this variable as the *declared
-  variable*.
+* `deklaracja` deklaruje zmienną, która jest inicjalizowana elementami
+  kontenera (a dokładniej elementami zakresu) w każdej iteracji pętli.
+  Tę zmienną nazywamy *zadeklarowaną zmienną*.
 
-* `expression` is the *range expression*.  Most often, we put the
-  container here.  Having the range expression, we can get the values
-  of the begin and end iterators.
+* `wyrażenie` jest *wyrażeniem zakresu*.  Najczęściej jest nim
+  kontener.  Dla wyrażenia zakresu możemy wywołać funkcje `begin` i
+  `end`.
 
-* `statement` is the statement executed in every iteration of the
-  loop.  In that statement we use the declared variable.
+* `zdanie` jest zdaniem wykonywanym w każdej iteracji pętli.  W tym
+  zdaniu używamy zadeklarowanej zmiennej.
 
-An example:
+Przykład:
 
 {% highlight c++ %}
 {% include_relative iterate_new.cc %}
