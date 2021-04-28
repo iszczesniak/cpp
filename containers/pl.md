@@ -383,14 +383,16 @@ Oto przykład implementacji własnego typu zakresu:
 {% include_relative range.cc %}
 {% endhighlight %}
 
-# Containers and element management
+# Zarządzanie elementami kontenera
 
-We can copy or move an element into a container.  We can also move it
-from a container, except for the associative containers, for which we
-can extract an element.  We can also **emplace** an element in a
-container.
+Element możemy skopiować albo przenieść do kontenera, albo możemy go
+usunąć z kontenera.  Możemy także przenieść element z kontenera za
+wyjątkiem kontenerów asocjacyjnych, w przypadku których element możemy
+**wyciągnąć** (ang. extract).  Element możemy także **umieścić**
+(ang. emplace) w kontenerze.
 
-Containers have the move semantics implemented.  An example:
+Kontenery mają zaimplementowaną semantykę przeniesienia.  Oto
+przykład:
 
 {% highlight c++ %}
 {% include_relative container_move.cc %}
