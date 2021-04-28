@@ -446,12 +446,13 @@ obiekt, którego wartość przenieśliśmy.  Oto przykład:
 
 ## Umieszczanie
 
-An element can be copied, moved, or *emplaced* into a container.
-Copying is needed when we want to keep the source element intact.
-Moving is faster, and so preferred over copying, if the source won't be
-needed later.  In both copying and moving, we create an object
-ourselves, and then pass it to a container.  Emplacing creates an
-object based on the arguments we provide.
+Element może być wstawiony do kontenera albo w nim *umieszczony*.
+Kopiowanie jest potrzebne, kiedy chcemy, żeby element źródłowy
+pozostał nietknięty.  Przenoszenie jest szybsze i w ten sposób lepsze
+od kopiowania, jeżeli element źródłowy nie będzie później potrzebny.
+We wstawianiu przekazujemy obiekt, który sami stworzyliśmy.
+Umieszczanie samo tworzy obiekt z użyciem argumentów, które
+przekazujemy.
 
 Emplacing is the fastest: a container tries to create the element in
 the required place: the element is created *in-place*, i.e., in the
