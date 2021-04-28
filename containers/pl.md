@@ -468,15 +468,17 @@ także inne funkcje dla umieszczania z drobnymi różnicami
 semantycznymi, np. `std::list` ma funkcję `emplace_front`, a
 `std::forward_list` ma `emplace_after`.
 
-Emplacement works similar to insertion in that the elements that
-follow are "pushed to the right".  Therefore emplacement entails the
-same performance issues as the insertion does.
+W niektórych kontenerach sekwencyjnych, podczas umieszczania, tak jak
+podczas wstawiania, elementy następujące są "przesuwane w prawo".
+Dlatego umieszczanie pociąga za sobą te same problemy z wydajnością
+jak wstawianie.
 
-A container **tries** to emplace the element.  Tries, because the
-place for the element might be already taken by some other element,
-e.g., when we emplace at the front of a non-empty vector.  If that
-happens, the new element is created in a different memory location,
-and then moved into the required place.
+Kontener *stara się* umieścić element, ale może zawieść, jeżeli
+docelowe miejsce już jest zajęte przez inny element, na przykład kiedy
+umieszczamy element na początku niepustego wektora.  W takim przypadku
+nowy element jest tworzony w jakimś innymi miejscu (na przykład w
+zmiennej lokalnej), a następnie jego wartość jest przenoszona do
+miejsca docelowego.
 
 {% highlight c++ %}
 {% include_relative emplace.cc %}
