@@ -463,10 +463,10 @@ Funkcja umieszczająca przyjmuje argumenty dla konstruktora elementu i
 przekazuje mu je wtedy, kiedy wiadomo, gdzie (czyli w którym miejscu
 pamięci) element powinien być stworzony.
 
-We emplace by calling an `emplace` function of a container.
-Containers have other functions for emplacing with slight semantic
-differences, e.g., `std::list` has `emplace_front`, and
-`std::forward_list` has `emplace_after`.
+Umieszczamy wywołując funkcję `emplace` kontenera.  Kontenery mają
+także inne funkcje dla umieszczania z drobnymi różnicami
+semantycznymi, np. `std::list` ma funkcję `emplace_front`, a
+`std::forward_list` ma `emplace_after`.
 
 Emplacement works similar to insertion in that the elements that
 follow are "pushed to the right".  Therefore emplacement entails the
