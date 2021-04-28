@@ -408,22 +408,25 @@ kontenera sekwencyjnego.  Przykład:
 {% include_relative element_move.cc %}
 {% endhighlight %}
 
-## Extract
+## Wyciąganie elementów
 
-We cannot move an element from an *associative container*, because we
-cannot modify that element, even if we are using a non-const iterator,
-as the type of the element is const.  We shouldn't even move, because
-the object we would move from would not be part of the container any
-longer, as it would have to be in the case of, e.g., a vector.  We
-should **extract** the element.  Extraction is supported only by the
-associative containers, because it's needed only there.
+Nie możemy przenieść wartości obiektu z *kontenera asocjacyjnego*,
+ponieważ nie możemy modyfikować tego elementu, nawet jeżeli używamy
+iteratora niestałego, bo typ elementu w kontenerze jest stały.  Nawet
+nie powinniśmy przenosić, bo obiekt w kontenerze po przeniesieniu jego
+wartości pozostałby w kontenerze, ale w stanie niezdefiniowanym, co
+doprowadziłoby do niespójności kontenera.  Zamiast przenosić wartość
+obiektu, to powinniśmy obiekt **wyciągnąć**.  Wyciąganie jest
+zaimplementowane tylko dla kontenerów asocjacyjnych, bo tylko tam jest
+potrzebne.
 
-Extraction is implemented by *unlinking* the element from the
-container.  As the result of the extraction, we get a *node handle*
-(an object of a move-only type) which owns the extracted element: when
-a node handle is destroyed while still holding the element, that
-element is destroyed too.  The node handle can be implemented with the
-unique smart pointer, i.e., `std::unique_ptr`.
+Wyciąganie jest zaimplementowane przez odlinkowanie elementu z
+kontenera.  Jako wynik wyciągnięcia otrzymujemy *uchywt węzła* (objekt
+typu tylko do przenoszenia), który posiada wyciągnięty element: kiedy
+uchwyt węzła jest niszczony, to element też jest niszczony, jeżeli
+ciągle był w posiadaniu uchwytu.  Uchwyt węzła może być
+zaimplementowany z użyciem inteligentnego wskaźnika o semantyce
+wyłącznej własności, czyli `std::unique_ptr`.
 
 Having a node handle, we can insert the element into a different
 container of the same type as the container from which the element was

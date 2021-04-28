@@ -415,10 +415,11 @@ element of a sequence container.  Example:
 We cannot move an element from an *associative container*, because we
 cannot modify that element, even if we are using a non-const iterator,
 as the type of the element is const.  We shouldn't even move, because
-the object we would move from would not be part of the container any
-longer, as it would have to be in the case of, e.g., a vector.  We
-should **extract** the element.  Extraction is supported only by the
-associative containers, because it's needed only there.
+the object after moving its value would remain in the container, but
+in an undefined state, which would make the container inconsistent.
+Instead of moving the value of an object, we should **extract** the
+object.  Extraction is supported only by the associative containers,
+because it's needed only there.
 
 Extraction is implemented by *unlinking* the element from the
 container.  As the result of the extraction, we get a *node handle*
