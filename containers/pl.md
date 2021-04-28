@@ -9,9 +9,7 @@ Lista, tablica asocjacyjna, zbiór i inne typy danych są nazywane
 
 * jest *uogólnioną* strukturą danych,
 
-* przechowuje elementy *dowolnego typu*,
-
-* przechowuje elementy tylko *jednego typu*,
+* przechowuje elementy *dowolnego, ale tylko jednego typu*, 
 
 * przechowuje elementy przez wartość, nie referencję,
 

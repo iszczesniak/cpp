@@ -9,9 +9,7 @@ called **containers** in C++.  A container:
 
 * is a *generic* data structure,
 
-* stores elements of *any type*,
-
-* stores elements only of a *single type*,
+* stores elements of *any, but only one type*,
 
 * stores elements *by value*, not by reference,
 
