@@ -355,16 +355,16 @@ Przykład:
 {% include_relative iterate_new.cc %}
 {% endhighlight %}
 
-## How iteration the new way works
+## Jak działa iterowanie po nowemu?
 
-The new range-based loop is translated by a compiler to a regular
-loop, where the iteration variable is of an iterator type.  The
-iteration variable is initialized with a value returned by the `begin`
-function.  The loop continues if the value of the iterator is not
-equal to the value returned by the `end` function.  In every iteration
-of the loop, the **declared variable** is initialized by the
-dereferenced **iteration variable**.  After an iteration, the iterator
-is incremented.
+Pętla `for` dla zakresu jest tłumaczona przez kompilator do zwykłej
+pętli `for`, której zmienna iteracyjna jest typu iteratora.  Zmienna
+iteracyjna jest inicjalizowana wartością zwracaną przez funkcję
+`begin`.  Pętla iteruje do momentu, w którym wartość iteratora jest
+równa wartości zwracanej przez funkcję `end`.  W każdej iteracji
+pętli, **zmienna deklarowana** jest inicjalizowana przez **wyrażenie
+wyłuskania zmiennej iteracyjnej**.  Po iteracji, iterator jest
+inkrementowany.
 
 To use the range-based loops, we need to make sure that:
 
