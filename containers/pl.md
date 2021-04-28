@@ -428,12 +428,12 @@ ciągle był w posiadaniu uchwytu.  Uchwyt węzła może być
 zaimplementowany z użyciem inteligentnego wskaźnika o semantyce
 wyłącznej własności, czyli `std::unique_ptr`.
 
-Having a node handle, we can insert the element into a different
-container of the same type as the container from which the element was
-extracted.  The element remains untouched (still in the same place
-with the same value) when it's extracted and inserted; the ownership
-of the element changes from one container to the other passing through
-a node handle.
+Mając uchwyt węzła, możemy wstawić element do innego kontenera tego
+samego typu, co typ kontenera, z którego element wyciągnęliśmy.
+Podczas wyciągania i wstawiania, element pozostaje nietknięty (ciągle
+w tym samym miejscu i z tą samą wartością), tylko jego właściciel się
+zmienia z kontenera źródłowego na kontener docelowy, przechodząc przez
+uchwyt.
 
 Having a node handle, we can access the owned element with the `value`
 function, and move it (move its value) somewhere, e.g., to a different
