@@ -420,13 +420,13 @@ obiektu, to powinniśmy obiekt **wyciągnąć**.  Wyciąganie jest
 zaimplementowane tylko dla kontenerów asocjacyjnych, bo tylko tam jest
 potrzebne.
 
-Wyciąganie jest zaimplementowane przez odlinkowanie elementu z
-kontenera.  Jako wynik wyciągnięcia otrzymujemy *uchywt węzła* (objekt
-typu tylko do przenoszenia), który posiada wyciągnięty element: kiedy
-uchwyt węzła jest niszczony, to element też jest niszczony, jeżeli
-ciągle był w posiadaniu uchwytu.  Uchwyt węzła może być
-zaimplementowany z użyciem inteligentnego wskaźnika o semantyce
-wyłącznej własności, czyli `std::unique_ptr`.
+Wyciąganie jest zaimplementowane przez odlinkowanie (operacje na
+wskaźnikach) elementu z kontenera.  Jako wynik wyciągnięcia
+otrzymujemy *uchywt węzła* (objekt typu tylko do przenoszenia), który
+posiada wyciągnięty element: kiedy uchwyt węzła jest niszczony, to
+element też jest niszczony, jeżeli ciągle był w posiadaniu uchwytu.
+Uchwyt węzła może być zaimplementowany z użyciem inteligentnego
+wskaźnika o semantyce wyłącznej własności, czyli `std::unique_ptr`.
 
 Mając uchwyt węzła, możemy wstawić element do innego kontenera tego
 samego typu, co typ kontenera, z którego element wyciągnęliśmy.
@@ -446,23 +446,22 @@ obiekt, którego wartość przenieśliśmy.  Oto przykład:
 
 ## Umieszczanie
 
-Element może być wstawiony do kontenera albo w nim *umieszczony*.
-Kopiowanie jest potrzebne, kiedy chcemy, żeby element źródłowy
-pozostał nietknięty.  Przenoszenie jest szybsze i w ten sposób lepsze
-od kopiowania, jeżeli element źródłowy nie będzie później potrzebny.
-We wstawianiu przekazujemy obiekt, który sami stworzyliśmy.
-Umieszczanie samo tworzy obiekt z użyciem argumentów, które
-przekazujemy.
+Element może być wstawiony (przez kopiowanie albo przenoszenie) do
+kontenera albo w nim *umieszczony*.  Kopiowanie jest potrzebne, kiedy
+chcemy, żeby element źródłowy pozostał nietknięty.  Przenoszenie jest
+szybsze i w ten sposób lepsze od kopiowania, jeżeli element źródłowy
+nie będzie później potrzebny.  We wstawianiu przekazujemy obiekt,
+który sami stworzyliśmy.  **Umieszczanie samo tworzy obiekt** z
+użyciem argumentów, które przekazujemy.
 
-Emplacing is the fastest: a container tries to create the element in
-the required place: the element is created *in-place*, i.e., in the
-place (memory location) required by the container.  No copying, no
-moving... if all goes well.
+Umieszczanie jest najszybsze, bo kontener próbuje stworzyć element we
+wymaganym miejscu: element jest **tworzyony w miejscu**
+(ang. in-place), czyli w miejscu pamięci wymaganym przez kontener.
+Bez kopiowania czy przenoszenia, jeżeli wszystko pójdzie dobrze.
 
-An emplace function takes the arguments of an element constructor, and
-passes them (forwards, technically speaking) to the constructor when
-it's known where (i.e., the place is known) the element should be
-constructed.
+Funkcja umieszczająca przyjmuje argumenty dla konstruktora elementu i
+przekazuje mu je wtedy, kiedy wiadomo, gdzie (czyli w którym miejscu
+pamięci) element powinien być stworzony.
 
 We emplace by calling an `emplace` function of a container.
 Containers have other functions for emplacing with slight semantic
