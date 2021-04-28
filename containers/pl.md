@@ -55,7 +55,7 @@ Teraz kontenery są:
 
 ## Typy podstawowych kontenerów
 
-Kontenery sekwencji:
+Kontenery sekwencyjne:
 
 * `std::vector<T>` - wektor,
 
@@ -385,11 +385,11 @@ Oto przykład implementacji własnego typu zakresu:
 
 # Zarządzanie elementami kontenera
 
-Element możemy skopiować albo przenieść do kontenera, albo możemy go
-usunąć z kontenera.  Możemy także przenieść element z kontenera za
-wyjątkiem kontenerów asocjacyjnych, w przypadku których element możemy
-**wyciągnąć** (ang. extract).  Element możemy także **umieścić**
-(ang. emplace) w kontenerze.
+Element możemy wstawić (przez skopiowanie albo przenoszenie) do
+kontenera, albo możemy go usunąć z kontenera.  Możemy także przenieść
+element z kontenera za wyjątkiem kontenerów asocjacyjnych, w przypadku
+których element możemy **wyciągnąć** (ang. extract).  Element możemy
+także **umieścić** (ang. emplace) w kontenerze.
 
 Kontenery mają zaimplementowaną semantykę przeniesienia.  Oto
 przykład:
@@ -398,11 +398,11 @@ przykład:
 {% include_relative container_move.cc %}
 {% endhighlight %}
 
-## Move semantics for element types
+## Semantyka przeniesiena dla typów elementów
 
-We can move elements into containers: it's enough to make sure that
-the element we insert is used in an rvalue.  We can also move from an
-element of a sequence container.  Example:
+Elementy mogą być przenoszone do kontenerów: wystarczy, że wstawiany
+element będzie użyty w r-wartości.  Możemy także przenieść element z
+kontenera sekwencyjnego.  Przykład:
 
 {% highlight c++ %}
 {% include_relative element_move.cc %}
