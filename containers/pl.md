@@ -364,21 +364,20 @@ pętli, **zmienna deklarowana** jest inicjalizowana przez **wyrażenie
 wyłuskania zmiennej iteracyjnej**.  Po iteracji, iterator jest
 inkrementowany.
 
-To use the range-based loops, we need to make sure that:
+Żeby użyć nowej składni pętli `for`, to powinniśmy się upewnić, że:
 
-* we can call the `begin` and `end` functions for the range
-  expression,
+* możemy wywołać funkcję `begin` i `end` dla wyrażenia zakresu,
 
-* the type of the values returned by the `begin` and `end` functions
-  should have the following defined:
+* typ wartości zwracanych przez funkcje `begin` i `end` powinny mieć
+  zdefiniowane następujące operatory:
+  
+  - porównania `!=`,
 
-  - the `!=` comparison operator,
+  - wyłuskania `*`,
 
-  - the dereference operator, i.e., `*`,
+  - inkrementacji prefiksowej `++`.
 
-  - the prefix increment operator, i.e., `++`.
-
-Here is an example how we can use that functionality:
+Oto przykład implementacji własnego typu zakresu:
 
 {% highlight c++ %}
 {% include_relative range.cc %}
