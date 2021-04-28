@@ -444,7 +444,7 @@ obiekt, którego wartość przenieśliśmy.  Oto przykład:
 {% include_relative extract.cc %}
 {% endhighlight %}
 
-## Emplace
+## Umieszczanie
 
 An element can be copied, moved, or *emplaced* into a container.
 Copying is needed when we want to keep the source element intact.
@@ -482,26 +482,26 @@ and then moved into the required place.
 {% include_relative emplace.cc %}
 {% endhighlight %}
 
-# Conclusion
+# Podsumowanie
 
-* Don't implement the basic data structures, because they are already
-  there.
+* Nie należy implementować podstawowych struktur danych, bo to już
+  zostało zrobione.
 
-* Use the containers, and get better at using them.  Their
-  functionality is quite rich.
+* Należy używać kontenerów i robić to coraz lepiej.  Ich
+  funkcjonalność jest całkiem bogata.
 
-* With the containers, you can build complex data structures.
+* Używając kontenerów można budować złożone struktury danych.
 
-* With the containers use the standard algorithms, because your own
-  algorithm implementations will most likely perform far worse.
+* Razem z kontenerami warto używać standardowych algorytmów, bo własne
+  implementacje najprawdopodobniej będą znacznie gorsze.
 
 # Quiz
 
-* What are the prominent differences between container types?
+* Jakie są najważniejsze różnice między kontenerami?
 
-* Why can't we modify the set elements?
+* Dlaczego nie można zmieniać wartości elementu zbioru?
 
-* How does emplacement work?
+* Jak działa umieszczanie?
 
 {% include rid %}
 
