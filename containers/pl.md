@@ -435,12 +435,10 @@ w tym samym miejscu i z tą samą wartością), tylko jego właściciel się
 zmienia z kontenera źródłowego na kontener docelowy, przechodząc przez
 uchwyt.
 
-Having a node handle, we can access the owned element with the `value`
-function, and move it (move its value) somewhere, e.g., to a different
-container of a different type.  When the node handle is destroyed, it
-will destroy the element from which we moved.
-
-An example:
+Mając uchwyt węzła, możemy uzyskać dostęp do posiadanego obiektu przez
+użycie funkcji `value`, a potem przenieść jego wartość do, np.,
+kontenera innego typu.  Kiedy uchwyt będzie niszczony, to zniszczy on
+obiekt, którego wartość przenieśliśmy.  Oto przykład:
 
 {% highlight c++ %}
 {% include_relative extract.cc %}
