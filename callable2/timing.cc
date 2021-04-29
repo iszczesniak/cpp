@@ -7,7 +7,7 @@
 
 using namespace std;
 
-const int N = 100000000;
+const int N = 1000000;
 
 template <typename C>
 void
@@ -60,6 +60,15 @@ cmp(const int &a, const int &b)
   return a < b;
 }
 
+struct A
+{
+  bool
+  cmp(const int &a, const int &b)
+  {
+    return a < b;
+  }
+};
+
 using callable = bool(const int &, const int &);
 
 int
@@ -74,6 +83,9 @@ main()
   time_pq(function<callable>(functor));
   time_pq(function<callable>(cmp));
   time_pq(function<callable>(closure));
+  time_pq(function<callable>(std::bind(&A::cmp, A(),
+                                       std::placeholders::_1,
+                                       std::placeholders::_2)));
 
   time_sort(functor);
   time_sort(cmp);
@@ -81,4 +93,7 @@ main()
   time_sort(function<callable>(functor));
   time_sort(function<callable>(cmp));
   time_sort(function<callable>(closure));
+  time_sort(function<callable>(std::bind(&A::cmp, A(),
+                                         std::placeholders::_1,
+                                         std::placeholders::_2)));
 }
