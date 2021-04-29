@@ -11,12 +11,12 @@ struct A
   {
   }
 
-  void foo(int x)
+  void foo()
   {
     cout << __PRETTY_FUNCTION__ << " for " << m_name << endl;
   }
 
-  void goo(int x)
+  void goo()
   {
     cout << __PRETTY_FUNCTION__ << " for " << m_name << endl;
   }
@@ -32,8 +32,8 @@ main()
   // It's better to let the compiler deduce the type.
   auto p2 = &A::goo;
 
-  (a.*p1)(1);
-  (b.*p1)(2);
-  (a.*p2)(3);
-  (b.*p2)(4);
+  (a.*p1)();
+  (b.*p1)();
+  (a.*p2)();
+  (b.*p2)();
 }
