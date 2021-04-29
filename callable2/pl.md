@@ -105,16 +105,6 @@ prostu argumentem szablonu.
 {% include_relative passing4.cc %}
 {% endhighlight %}
 
-## Wydajność
-
-Przykład niżej demonstruje wydajność użycia różnego rodzaju callable
-dla kolejki priorytetowej i sortowania.  Proszę skompilować program z
-opcją `-O3` i porównać wyniki.
-
-{% highlight c++ %}
-{% include_relative timing.cc %}
-{% endhighlight %}
-
 # Funkcja składowa klasy
 
 Funkcja składowa klasy też jest callable, ale do jej wywołania
@@ -226,6 +216,16 @@ wprowadzają żadnego narzutu czasowego i pamięciowego.
 
 {% highlight c++ %}
 {% include_relative time_it2.cc %}
+{% endhighlight %}
+
+# Wydajność
+
+Przykład niżej demonstruje wydajność użycia różnego rodzaju callable
+dla kolejki priorytetowej i sortowania.  Proszę skompilować program z
+opcją `-O3` i porównać wyniki.
+
+{% highlight c++ %}
+{% include_relative timing.cc %}
 {% endhighlight %}
 
 # Podsumowanie
