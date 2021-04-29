@@ -186,7 +186,9 @@ Funkcja `std::invoke` pozwala na pisanie uogólnionego kodu, który może
 przyjmować dowolny callable.  W przykładzie niżej, funkcja `time_it`
 mierzy czas wykowania callable, którym może też być funkcja składowa.
 Zaimplementowanie takiej funkcjonalności samemu byłoby dosyć trudne, a
-my to osiągnęliśmy jedynie korzystając z funkcji `std::invoke.`
+my to osiągnęliśmy jedynie korzystając z funkcji `std::invoke.` Ta
+funkcja jest mechanizmem czasu kompilacji i nie wprowadza żadnego
+narzutu czasowego i pamięciowego.
 
 {% highlight c++ %}
 {% include_relative time_it.cc %}
@@ -219,7 +221,8 @@ Rozwiązanie jest proste: argumenty są przekazywane w krotce.  Krotkę
 tworzymy z użyciem funkcji `std::forward_as_tuple`, żeby zachować
 kategorię wartości wyrażeń elementów krotki.  Jeżeli wywołujemy
 funkcję składową, to pierwszym elementem krotki powinien być obiekt,
-na rzecz którego callable będzie wywołana.
+na rzecz którego callable będzie wywołana.  Ta funkcja i krotki są nie
+wprowadzają żadnego narzutu czasowego i pamięciowego.
 
 {% highlight c++ %}
 {% include_relative time_it2.cc %}
