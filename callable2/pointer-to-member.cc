@@ -1,4 +1,5 @@
 #include <iostream>
+#include <functional>
 #include <string>
 
 using namespace std;
@@ -28,7 +29,7 @@ main()
   A a("a"), b("b");
 
   // A pointer to a member function.
-  void (A::* p1)(int) = &A::foo;
+  void (A::* p1)() = &A::foo;
   // It's better to let the compiler deduce the type.
   auto p2 = &A::goo;
 
@@ -36,4 +37,11 @@ main()
   (b.*p1)();
   (a.*p2)();
   (b.*p2)();
+
+  // We can also store a pointer to a member function with an object
+  // to call.
+  std::function<void ()> f = std::bind(p1, a);
+  f();
+  f = std::bind(p2, b);
+  f();
 }

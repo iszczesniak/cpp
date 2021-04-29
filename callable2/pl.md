@@ -127,6 +127,10 @@ argumentów)`, gdzie `o` jest obiektem, a `p` wskaźnikiem na funkcję
 składową.  Ważne są nawiasy wokół `o.*p` i miejsce operatora
 wyłuskania.
 
+Przykład niżej pokazuje także użycie `std::function` razem ze
+wskaźnikiem na funkcję składową.  Musimy użyć funkcji `std::bind`,
+żeby przekazać obiekt, na rzecz którego funkcja będzie wywoływana.
+
 {% highlight c++ %}
 {% include_relative pointer-to-member.cc %}
 {% endhighlight %}
@@ -211,7 +215,7 @@ Rozwiązanie jest proste: argumenty są przekazywane w krotce.  Krotkę
 tworzymy z użyciem funkcji `std::forward_as_tuple`, żeby zachować
 kategorię wartości wyrażeń elementów krotki.  Jeżeli wywołujemy
 funkcję składową, to pierwszym elementem krotki powinien być obiekt,
-na rzecz którego callable będzie wywołana.  Ta funkcja i krotki są nie
+na rzecz którego callable będzie wywołana.  Ta funkcja i krotki nie
 wprowadzają żadnego narzutu czasowego i pamięciowego.
 
 {% highlight c++ %}
