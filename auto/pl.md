@@ -4,6 +4,16 @@ title: Typ auto
 
 # Typ `auto`
 
+Specyfikator typy `auto` oznacza, że kompilator ma wywnioskować typ na
+podstawie typu wyrażenia inicjalizującego.  Specyfikator można użyć w
+deklaracji typu:
+
+* zmiennej,
+
+* parametru funkcji,
+
+* wartości zwracanej przez funkcję.
+
 Wnioskowanie typu `auto` odbywa się tak, jak wnioskowanie argumentów
 szablonu.  Jeżeli typem jest `auto &&`, to kompilator wywnioskuje, czy
 referencja powinna być typu l-wartość czy r-wartość w zależności od
