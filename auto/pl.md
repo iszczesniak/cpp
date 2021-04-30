@@ -10,7 +10,7 @@ deklaracji typu:
 
 * zmiennej,
 
-* parametru funkcji,
+* parametru wyrażenia lambda,
 
 * wartości zwracanej przez funkcję.
 
