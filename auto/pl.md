@@ -48,9 +48,13 @@ Na przykład:
 {% include_relative motivation3.cc %}
 {% endhighlight %}
 
-* closure
+Czasami nie jesteśmy w stanie podać typu, bo go nie znamy, jak w
+przypadku *domknięć*, czyli funktorów typów anonimowych, które są
+wynikiem opracowania wyrażenia lambda.
 
-* wymuszona inicjalizacja
+{% highlight c++ %}
+{% include_relative closure.cc %}
+{% endhighlight %}
 
 # Wnioskowanie typu zmiennej
 
