@@ -17,7 +17,7 @@ main()
   for(auto i = d.begin(); i != d.end(); ++i)
     for(auto j = i->begin(); j != i->end(); ++j);
 
-  // Iterating the new way.
+  // Iterating the new way: we don't need the iterators here.
   for(auto &e: d)
     for(auto &f: e);
 }

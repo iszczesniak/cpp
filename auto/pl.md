@@ -15,13 +15,32 @@ w deklaracji typu:
 
 * wartości zwracanej przez funkcję.
 
+Specyfikator typu `auto` pozwala na pisanie uogólnionego kodu, bo nie
+musimy podawać konkretnego typu, a prosimy kompilator o
+wywniowskowanie go na podstawie kodu.
+
 # Motywacja
+
+Pisanie typów w starym C++ było niewygodne, pracochłonne, a przy tym
+łatwo można było popełnić błędy, których kompilator czasami nie był w
+stanie wychwycić.  Typowym przykładem była konieczność podawania typów
+iteratorów do złożonych struktur danych.  Teraz łatwo używać
+iteratorów deklarując ich typ jako `auto`.  Oto przykład:
+
+{% highlight c++ %}
+{% include_relative motivation1.cc %}
+{% endhighlight %}
+
+Łatwiej jest pozwolić kompilatorowi wywnioskować typ, zamiast domyślać
+się (często błędnie) czy sprawdzać w dokumentacji.
+
+
+* auto i = v.size();
 
 * closure
 
 * wymuszona inicjalizacja
 
-* auto i = v.size();
 
 # Wnioskowanie typu zmiennej
 
