@@ -9,11 +9,11 @@ main()
   vector<int> v = {1, 2, 3};
   auto size = v.size();
 
-  // We can iterate backwards with an index.
+  // We can iterate backward with an index.
   for(auto i = v.size(); i--;)
     cout << v[i] << endl;
 
-  // We can iterate forwards with an index.  We can ask the comiler to
+  // We can iterate forward with an index.  We can ask the comiler to
   // deduce the type from 0, but we cannot be sure it will be the same
   // as vector<int>::size_type.
   for(auto i = 0; i < v.size(); ++i)
