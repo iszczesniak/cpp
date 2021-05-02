@@ -32,15 +32,25 @@ iteratorów deklarując ich typ jako `auto`.  Oto przykład:
 {% endhighlight %}
 
 Łatwiej jest pozwolić kompilatorowi wywnioskować typ, zamiast domyślać
-się (często błędnie) czy sprawdzać w dokumentacji.
+się (często błędnie) czy sprawdzać w dokumentacji.  Oto przykład:
 
+{% highlight c++ %}
+{% include_relative motivation2.cc %}
+{% endhighlight %}
 
-* auto i = v.size();
+Możemy podsumować, że jeżeli nie wiemy (i nie chcemy wiedzieć albo nie
+chcemy użyć), jakiego typu funkcja zwraca wartość, to możemy użyć
+specyfikatora typu `auto`.  Na przykład, funkcja `size` kontenerów
+zwraca wartość typu `T::size_type`, ale łatwiej jest nam użyć `auto`.
+Na przykład:
+
+{% highlight c++ %}
+{% include_relative motivation3.cc %}
+{% endhighlight %}
 
 * closure
 
 * wymuszona inicjalizacja
-
 
 # Wnioskowanie typu zmiennej
 
