@@ -9,7 +9,7 @@ main()
   std::set<int> s = {1};
 
   // We can initialize a non-const reference to a vector element.
-  int &a = *v.begin();
+  int &a = *vi.begin();
 
   // We cannot initialize a non-const reference to a set element.
   // int &b = *s.begin();
@@ -19,10 +19,10 @@ main()
 
   // It's best to let the compiler figure out the right type.  As part
   // of the type deduction, e becomes a const reference.
-  auto &d = *v.begin();
+  auto &d = *vi.begin();
   auto &e = *s.begin();
 
   std::vector<bool> vb = {true};
-  auto &f = *v2.begin();
-
+  // auto &f = *vb.begin();
+  auto &&f = *vb.begin();
 }
