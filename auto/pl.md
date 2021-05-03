@@ -86,6 +86,27 @@ Zadaniem kompilatora jest wywnioskowanie argumentu takiego urojonego
 szablonu (urojonego, bo nie jest zapisany w kodzie, a jedynie go sobie
 wyobrażamy) i podstawienie go w miejsce `auto`.
 
+## Przykłady
+
+W podanych przykładach stosowane są znane zasady, ale warto omówić ich
+następstwa.
+
+## Typ referencyjny lub wskaźnikowy
+
+Możemy zadeklarować typ referencyjny do danej typu, który kompilator
+ma sam wywnioskować.
+
+```cpp
+{% include_relative refs.cc %}
+```
+
+Łatwiej jest pozwolić kompilatorowi wywnioskować typ, zamiast domyślać
+się (często błędnie) czy sprawdzać w dokumentacji.  Oto przykład:
+
+```cpp
+{% include_relative forwarding_reference.cc %}
+```
+
 Oto przykłady:
 
 ```cpp
@@ -96,23 +117,11 @@ Jeżeli typem jest `auto &&`, to kompilator wywnioskuje, czy referencja
 powinna być typu l-wartość czy r-wartość w zależności od kategorii
 wartości wyrażenia inicjalizującego referencję.
 
+## Zwykły typ
+
 Żeby zobaczyć wywnioskowany typ w czasie kompilacji, w kodzie
 wprowadzono błąd, o którym kompilator informuje jednocześnie wypisując
 interesujący nas typ.
-
-## Przykłady
-
-W podanych przykładach stosowane są znane zasady, ale warto omówić
-kilka przypadków.
-
-### Wnioskowanie typów referencyjnych
-
-Łatwiej jest pozwolić kompilatorowi wywnioskować typ, zamiast domyślać
-się (często błędnie) czy sprawdzać w dokumentacji.  Oto przykład:
-
-```cpp
-{% include_relative refs.cc %}
-```
 
 # Wnioskowanie typu parametru wyrażenia lambda
 
