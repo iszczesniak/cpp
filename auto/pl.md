@@ -84,6 +84,12 @@ parametru funkcji szablonowej, gdzie:
 
 * argument wywołania funkcji jest wyrażeniem inicjalizującym.
 
+Zadaniem kompilatora jest wywnioskowanie argumentu takiego urojonego
+szablonu (urojonego, bo nie jest zapisany w kodzie, a jedynie go sobie
+wyobrażamy) i podstawienie go w miejsce `auto`.
+
+Oto przykłady:
+
 ```cpp
 {% include_relative auto.cc %}
 ```
@@ -91,7 +97,6 @@ parametru funkcji szablonowej, gdzie:
 Jeżeli typem jest `auto &&`, to kompilator wywnioskuje, czy referencja
 powinna być typu l-wartość czy r-wartość w zależności od kategorii
 wartości wyrażenia inicjalizującego referencję.
-
 
 Żeby zobaczyć wywnioskowany typ w czasie kompilacji, w kodzie
 wprowadzono błąd, o którym kompilator informuje jednocześnie wypisując
