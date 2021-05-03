@@ -139,6 +139,10 @@ Używając typu zwykłego (niereferencyjnego i niewskaźnikowego), możemy
 inicjalizować zmienne bez podawania ich typu.  W ten sposób możemy
 upewnić się, że zmienna będzie zawsze zainicjalizowana.
 
+Jeżeli wyrażenie inicjalizujące jest typu wskaźnikowego, to
+wywnioskowany typ będzie wskaźnikowy.  Tak będzie w przypadku rozpadu
+nazwy funkcji i nazwy tablicy języka C.
+
 ```cpp
 {% include_relative normal.cc %}
 ```
