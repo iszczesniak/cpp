@@ -39,14 +39,14 @@ kontenerów, która zwraca wartość typu `T::size_type`, ale łatwiej jest
 nam użyć `auto`.  Na przykład:
 
 ```cpp
-{% include_relative motivation3.cc %}
+{% include_relative motivation_size.cc %}
 ```
 
 Łatwiej jest pozwolić kompilatorowi wywnioskować typ, zamiast domyślać
 się (często błędnie) czy sprawdzać w dokumentacji.  Oto przykład:
 
 ```cpp
-{% include_relative motivation2.cc %}
+{% include_relative motivation_refs.cc %}
 ```
 
 Czasami nie jesteśmy w stanie podać typu, bo go nie znamy, jak w
