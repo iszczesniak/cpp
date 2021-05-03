@@ -50,6 +50,10 @@ wynikiem opracowania wyrażenia lambda.
 {% include_relative closure.cc %}
 ```
 
+Na razie sprawa wydaje się prosta, bo deklarowanym typem jest tylko
+`auto`, ale typ może zawierać dodatkowo także specyfikatory i
+deklaratory.
+
 # Wnioskowanie typu zmiennej
 
 Wnioskowanie typu `auto` odbywa się zgodnie z zasadami wnioskowania
