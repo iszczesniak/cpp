@@ -91,6 +91,15 @@ wyobrażamy) i podstawienie go w miejsce `auto`.
 W podanych przykładach stosowane są znane zasady wnioskowania
 argumentów szablonów, ale warto przytoczyć kilka przykładów.
 
+Żeby przekonać się, że rzeczywiście typy są wnioskowane, jak się
+spodziewamy, możemy w przykładach wykorzystać poniższą sztuczkę.
+Kompilacja zakończy się błędem, w który będzie podany wywnioskowany
+typ.
+
+```cpp
+{% include_relative show.cc %}
+```
+
 ## Typ referencyjny lub wskaźnikowy
 
 Możemy zadeklarować typ referencyjny do danej typu, który kompilator
@@ -123,16 +132,6 @@ nie znamy zarówno typu jak i kategorii zwracanej wartości:
 ```cpp
 {% include_relative forwarding_reference2.cc %}
 ```
-
-Oto przykłady:
-
-```cpp
-{% include_relative auto.cc %}
-```
-
-Jeżeli typem jest `auto &&`, to kompilator wywnioskuje, czy referencja
-powinna być typu l-wartość czy r-wartość w zależności od kategorii
-wartości wyrażenia inicjalizującego referencję.
 
 ## Zwykły typ
 

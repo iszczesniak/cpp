@@ -7,6 +7,6 @@ main()
   // auto = int
   auto x = 1;
 
-  //
-  // auto &x = 1;
+  // Uncomment the line to see the type of x.
+  // ER<decltype(x)> er;
 }
