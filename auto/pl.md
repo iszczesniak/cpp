@@ -27,16 +27,16 @@ stanie wychwycić.  Typowym przykładem była konieczność podawania typów
 iteratorów do złożonych struktur danych.  Teraz łatwo używać
 iteratorów deklarując ich typ jako `auto`.  Oto przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative motivation1.cc %}
-{% endhighlight %}
+```
 
 Łatwiej jest pozwolić kompilatorowi wywnioskować typ, zamiast domyślać
 się (często błędnie) czy sprawdzać w dokumentacji.  Oto przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative motivation2.cc %}
-{% endhighlight %}
+```
 
 Możemy podsumować, że jeżeli nie wiemy (i nie chcemy wiedzieć albo nie
 chcemy użyć), jakiego typu funkcja zwraca wartość, to możemy użyć
@@ -44,30 +44,54 @@ specyfikatora typu `auto`.  Na przykład, funkcja `size` kontenerów
 zwraca wartość typu `T::size_type`, ale łatwiej jest nam użyć `auto`.
 Na przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative motivation3.cc %}
-{% endhighlight %}
+```
 
 Czasami nie jesteśmy w stanie podać typu, bo go nie znamy, jak w
 przypadku *domknięć*, czyli funktorów typów anonimowych, które są
 wynikiem opracowania wyrażenia lambda.
 
-{% highlight c++ %}
+```cpp
 {% include_relative closure.cc %}
-{% endhighlight %}
+```
 
 # Wnioskowanie typu zmiennej
 
-Wnioskowanie typu `auto` odbywa się tak, jak wnioskowanie typowych
-argumentów szablonu.
+Wnioskowanie typu `auto` odbywa się zgodnie z zasadami wnioskowania
+**typowych** argumentów szablonu.  Zasady dla wartościowych i
+szablonowych argumentów szablonu nie obowiązują.
+
+Inicjalizacja zmiennej wygląda tak:
+
+```cpp
+<typ zmiennej> <nazwa zmiennej> = <wyrażenie inicjalizujące>;
+```
+
+Typ zmiennej może zawierać specyfikatory `const` i `volatile`.
+Dodatkowo może zawierać deklarator `&` typu referencyjnego i
+deklarator `*` typu wskaźnikowego.  Interesuje nas sytuacja, kiedy typ
+zmiennej zawiera specyfikator `auto`.  Na przykład:
+
+```cpp
+const auto &t = 1;
+```
+
+Kompilator traktuje taką inicjalizację zmiennej, jak inicjalizację
+parametru funkcji szablonowej, gdzie:
+
+* `auto` jest traktowane jak nazwa typowego parametru szablonu,
+
+* argument wywołania funkcji jest wyrażeniem inicjalizującym.
+
+```cpp
+{% include_relative auto.cc %}
+```
 
 Jeżeli typem jest `auto &&`, to kompilator wywnioskuje, czy referencja
 powinna być typu l-wartość czy r-wartość w zależności od kategorii
 wartości wyrażenia inicjalizującego referencję.
 
-{% highlight c++ %}
-{% include_relative auto.cc %}
-{% endhighlight %}
 
 Żeby zobaczyć wywnioskowany typ w czasie kompilacji, w kodzie
 wprowadzono błąd, o którym kompilator informuje jednocześnie wypisując
@@ -81,4 +105,3 @@ interesujący nas typ.
   dostępem do elementów std::map
 
 # `decltype`
-
