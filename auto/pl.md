@@ -28,7 +28,18 @@ iteratorów do złożonych struktur danych.  Teraz łatwo używać
 iteratorów deklarując ich typ jako `auto`.  Oto przykład:
 
 ```cpp
-{% include_relative motivation1.cc %}
+{% include_relative motivation_iter.cc %}
+```
+
+Możemy powiedzieć, że jeżeli nie wiemy (i nie chcemy wiedzieć albo nie
+chcemy użyć), jakiego typu funkcja zwraca wartość, to możemy użyć
+specyfikatora typu `auto`, tak jak zrobiliśmy wyżej używając funkcji
+`begin`.  Kolejnym częstym przypadkiem jest użycie funkcji `size`
+kontenerów, która zwraca wartość typu `T::size_type`, ale łatwiej jest
+nam użyć `auto`.  Na przykład:
+
+```cpp
+{% include_relative motivation3.cc %}
 ```
 
 Łatwiej jest pozwolić kompilatorowi wywnioskować typ, zamiast domyślać
@@ -36,16 +47,6 @@ się (często błędnie) czy sprawdzać w dokumentacji.  Oto przykład:
 
 ```cpp
 {% include_relative motivation2.cc %}
-```
-
-Możemy podsumować, że jeżeli nie wiemy (i nie chcemy wiedzieć albo nie
-chcemy użyć), jakiego typu funkcja zwraca wartość, to możemy użyć
-specyfikatora typu `auto`.  Na przykład, funkcja `size` kontenerów
-zwraca wartość typu `T::size_type`, ale łatwiej jest nam użyć `auto`.
-Na przykład:
-
-```cpp
-{% include_relative motivation3.cc %}
 ```
 
 Czasami nie jesteśmy w stanie podać typu, bo go nie znamy, jak w

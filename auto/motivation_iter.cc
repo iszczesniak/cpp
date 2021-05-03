@@ -7,17 +7,13 @@ main()
 {
   std::deque<std::vector<int>> d;
 
-  // Iterating the old way: we have to explicitly declare the types.
+  // We iterate using iterators with an explicitely declared type.
   for(std::deque<std::vector<int>>::iterator i = d.begin();
       i != d.end(); ++i)
     for(std::vector<int>::iterator j = i->begin();
         j != i->end(); ++j);
 
-  // Iterating the old way: we ask the compiler to deduce the types.
+  // We iterate using iterators, but let the compiler deduce the type.
   for(auto i = d.begin(); i != d.end(); ++i)
     for(auto j = i->begin(); j != i->end(); ++j);
-
-  // Iterating the new way: we don't need the iterators here.
-  for(auto &e: d)
-    for(auto &f: e);
 }

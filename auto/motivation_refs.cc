@@ -5,7 +5,7 @@
 int
 main()
 {
-  std::vector<int> v = {1};
+  std::vector<int> vi = {1};
   std::set<int> s = {1};
 
   // We can initialize a non-const reference to a vector element.
@@ -17,17 +17,12 @@ main()
   // The reference has to be const.
   const int &c = *s.begin();
 
-  // It's best to let the compiler figure out the right type.
+  // It's best to let the compiler figure out the right type.  As part
+  // of the type deduction, e becomes a const reference.
   auto &d = *v.begin();
   auto &e = *s.begin();
 
-  std::vector<bool> v2 = {true};
-  // This, however, doesn't compile.
-  // auto &f = *v2.begin();
+  std::vector<bool> vb = {true};
+  auto &f = *v2.begin();
 
-  // This compiles, and works, but it's overcomplicated.
-  auto &&f = *v2.begin();
-  // decltype(*v2.begin()) f = *v2.begin();
-  f = false;
-  assert(f == false);
 }
