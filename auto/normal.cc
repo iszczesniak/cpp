@@ -24,4 +24,11 @@ main()
   auto a = foo();
   // auto = int *
   auto b = goo();
+
+  // auto = double (*)()
+  auto fp = foo;
+
+  int t[] = {1, 2, 3};
+  // auto = int *;
+  auto tp = t;
 }
