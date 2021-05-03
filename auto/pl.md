@@ -47,7 +47,7 @@ przypadku *domknięć*, czyli funktorów typów anonimowych, które są
 wynikiem opracowania wyrażenia lambda.
 
 ```cpp
-{% include_relative closure.cc %}
+{% include_relative motivation_closure.cc %}
 ```
 
 Na razie sprawa wydaje się prosta, bo deklarowanym typem jest tylko
