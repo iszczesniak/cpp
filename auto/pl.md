@@ -42,13 +42,6 @@ nam użyć `auto`.  Na przykład:
 {% include_relative motivation_size.cc %}
 ```
 
-Łatwiej jest pozwolić kompilatorowi wywnioskować typ, zamiast domyślać
-się (często błędnie) czy sprawdzać w dokumentacji.  Oto przykład:
-
-```cpp
-{% include_relative motivation_refs.cc %}
-```
-
 Czasami nie jesteśmy w stanie podać typu, bo go nie znamy, jak w
 przypadku *domknięć*, czyli funktorów typów anonimowych, które są
 wynikiem opracowania wyrażenia lambda.
@@ -102,6 +95,20 @@ wartości wyrażenia inicjalizującego referencję.
 Żeby zobaczyć wywnioskowany typ w czasie kompilacji, w kodzie
 wprowadzono błąd, o którym kompilator informuje jednocześnie wypisując
 interesujący nas typ.
+
+## Przykłady
+
+W podanych przykładach stosowane są znane zasady, ale warto omówić
+kilka przypadków.
+
+### Wnioskowanie typów referencyjnych
+
+Łatwiej jest pozwolić kompilatorowi wywnioskować typ, zamiast domyślać
+się (często błędnie) czy sprawdzać w dokumentacji.  Oto przykład:
+
+```cpp
+{% include_relative refs.cc %}
+```
 
 # Wnioskowanie typu parametru wyrażenia lambda
 
