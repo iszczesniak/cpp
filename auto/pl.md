@@ -135,9 +135,7 @@ nie znamy zarówno typu jak i kategorii zwracanej wartości:
 
 ## Zwykły typ
 
-Żeby zobaczyć wywnioskowany typ w czasie kompilacji, w kodzie
-wprowadzono błąd, o którym kompilator informuje jednocześnie wypisując
-interesujący nas typ.
+
 
 # Wnioskowanie typu parametru wyrażenia lambda
 
