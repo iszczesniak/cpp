@@ -1,3 +1,4 @@
+#include <cassert>
 #include <set>
 #include <vector>
 
@@ -23,4 +24,9 @@ main()
   std::vector<bool> v2 = {true};
   // This, however, doesn't compile, and I don't know why.
   // auto &f = *v2.begin();
+
+  // This compiles, and works, but it's overcomplicated.
+  decltype(*v2.begin()) f = *v2.begin();
+  f = false;
+  assert(f == false);
 }
