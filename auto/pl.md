@@ -88,16 +88,23 @@ wyobrażamy) i podstawienie go w miejsce `auto`.
 
 ## Przykłady
 
-W podanych przykładach stosowane są znane zasady, ale warto omówić ich
-następstwa.
+W podanych przykładach stosowane są znane zasady wnioskowania
+argumentów szablonów, ale warto przytoczyć kilka przykładów.
 
 ## Typ referencyjny lub wskaźnikowy
 
 Możemy zadeklarować typ referencyjny do danej typu, który kompilator
-ma sam wywnioskować.
+ma sam wywnioskować.  Może to być zmienna, funkcja czy tablica języka
+C.  Oto przykład:
 
 ```cpp
 {% include_relative refs.cc %}
+```
+
+Podobnie dla wskaźników:
+
+```cpp
+{% include_relative pointers.cc %}
 ```
 
 Łatwiej jest pozwolić kompilatorowi wywnioskować typ, zamiast domyślać
