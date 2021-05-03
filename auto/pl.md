@@ -64,7 +64,7 @@ szablonowych argumentów szablonu nie obowiązują.
 
 Inicjalizacja zmiennej wygląda tak:
 
-```cpp
+```
 <typ zmiennej> <nazwa zmiennej> = <wyrażenie inicjalizujące>;
 ```
 
