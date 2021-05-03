@@ -135,7 +135,13 @@ nie znamy zarówno typu jak i kategorii zwracanej wartości:
 
 ## Zwykły typ
 
+Używając typu zwykłego (niereferencyjnego i niewskaźnikowego), możemy
+inicjalizować zmienne bez podawania ich typu.  W ten sposób możemy
+upewnić się, że zmienna będzie zawsze zainicjalizowana.
 
+```cpp
+{% include_relative normal.cc %}
+```
 
 # Wnioskowanie typu parametru wyrażenia lambda
 
