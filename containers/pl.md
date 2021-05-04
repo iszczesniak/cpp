@@ -78,9 +78,9 @@ Kontenery asocjacyjne:
 
 Adaptery:
 
-* `std::stack` - stos,
+* `std::stack<T>` - stos,
 
-* `std::queue` - kolejka,
+* `std::queue<T>` - kolejka,
 
 * `std::priority_queue<T>` - kolejka priorytetowa.
 
@@ -180,7 +180,7 @@ Typ `std::forward_list` jest mniej funkcjonalny, ale za to bardziej
 wydajny, niż `std::list`, ponieważ jest to lista jednokierunkowa:
 możemy iterować do przodu, ale nie do tyłu.
 
-### `std::set`, and `std::multiset`
+### `std::set<T>`, and `std::multiset<T>`
 
 Zbiór (kontener `std::set`) przechowuje unikalne elementy, a
 wielozbiór (kontener `std::multiset`) pozwala na przechowywanie
