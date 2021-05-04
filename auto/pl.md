@@ -150,9 +150,16 @@ nazwy funkcji i nazwy tablicy języka C.
 # Wnioskowanie typu parametru wyrażenia lambda
 
 W wyrażeniu lambda możemy podać parametry dla operatora wywołania.  I
-możemy użyć `auto`.  Oto podstawowy przykład, który doświadczonemu
-programiście C++ potrafi zachwiać światopoglądem i pewnością siebie:
+tam możemy użyć `auto`.  Wtedy składowa operatora wywołania jest
+szablonowa, gdzie `auto` służy jako typowy parametr szablonu funkcji.
+Wywołanie tej funkcji składowej z argumentami różnych typów powoduje
+konkretyzację szablonu i generowanie nowych przeciążeń dla tego samego
+domknięcia.  Oto przykład to ilustrujący, po którym doświadczony
+programista C++ potrafi zwątpić:
 
+```cpp
+{% include_relative lambda.cc %}
+```
 # Wnioskowanie typu wartości zwracanej przez funkcję
 
 # `auto` jako typ zmiennej deklarowanej w pętli for: przykład z
