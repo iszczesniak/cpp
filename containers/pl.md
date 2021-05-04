@@ -148,26 +148,27 @@ maksymalną wydajność.
 
 ### `std::deque<T>`
 
-The deque (pronounced as "deck", as in deck of cards) offers:
+Ten kontener zapewnia:
 
-* **random access**,
+* **swobodny dostęp**,
 
-* **fast insertion and removal**.
+* **szybkie wstawianie i usuwanie**.
 
-How come?  Well, insertion and removal are not as fast as in
-`std::list`, and random access is not as fast as in `std::vector`.
-The deque offers a trade-off between functionality, and efficiency.
-Use the deque if you frequently need to random-access, insert and
-remove elements.
+Jak to możliwe?  Trzeba wspomnieć, że swobodny dostęp nie jest taki
+szybki, jak w przypadku `std::vector`, a wstawianie i usuwanie
+elementów nie jest takie szybkie, jak w przypadku `std::list`.  Ten
+kontener jest kompromisem między funkcjonalnością a wydajnością.
+Kontener jest przydatny, jeżeli potrzebujemy swobodnego dostępu i
+jednocześnie często wstawiamy i usuwamy elementy.
 
-The deque is implemented with small vectors organized one after
-another, but without guaranteeing memory contiguity.  If element
-reallocation, insertion or removal is required, then it's limited to
-one small vector.  However, random access is less efficient in
-comparison with vector, because finding an address of an element
-requires more arithmetic.
+Kontener jest zaimplementowany jako dużo małych wektorów,
+uporządkowanych jeden po drugim, ale bez gwarancji ciągłości w
+pamięci.  Jeżeli realokacja, wstawianie albo usuwanie jest wymagane,
+to ogranicza się wyłącznie do jednego małego wektora, a nie całego
+kontenera.  Swobodny dostęp jest mniej wydajny w porównaniu z
+wektorem, ponieważ znalezienie adresu elementu wymaga więcej obliczeń.
 
-Use the deque only when the vector and the list won't do.
+Używamy `std::deque` tylko wtedy, kiedy wektor czy lista to za mało.
 
 ### `std::forward_list<T>`
 
@@ -317,9 +318,9 @@ pierwsze musimy zainicjalizować *zmienną iteracyjną* `i`, napisać
 warunek pętli, a potem zwiększyć zmienną.  Łatwo się pomylić i napisać
 `--i` zamiast `++i` albo `begin` zamiast `end`.
 
-{% highlight c++ %}
+```cpp
 {% include_relative iterate_old.cc %}
-{% endhighlight %}
+```
 
 ## Nowy sposób
 
@@ -330,9 +331,9 @@ popełnienia błędu jest mniejsze.
 
 Taka jest składnia:
 
-{% highlight c++ %}
+```
 for(deklaracja: wyrażenie) zdanie
-{% endhighlight %}
+```
 
 Gdzie:
 
