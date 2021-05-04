@@ -149,6 +149,10 @@ nazwy funkcji i nazwy tablicy języka C.
 
 # Wnioskowanie typu parametru wyrażenia lambda
 
+W wyrażeniu lambda możemy podać parametry dla operatora wywołania.  I
+możemy użyć `auto`.  Oto podstawowy przykład, który doświadczonemu
+programiście C++ potrafi zachwiać światopoglądem i pewnością siebie:
+
 # Wnioskowanie typu wartości zwracanej przez funkcję
 
 # `auto` jako typ zmiennej deklarowanej w pętli for: przykład z
