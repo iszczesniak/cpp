@@ -1,3 +1,5 @@
+#include <cassert>
+
 int &foo()
 {
   static int i = 1;
@@ -13,4 +15,6 @@ int main()
   int &x = i;
 
   decltype(x) y = j;
+  y = 2;
+  assert(j == 2);
 }
