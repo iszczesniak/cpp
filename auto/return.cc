@@ -14,8 +14,15 @@ auto *f2()
   return foo;
 }
 
+// The return type is the forwarding reference.
+auto &&f3()
+{
+  static int i = 0;
+  return i;
+}
+
 // auto = const int *
-auto f3()
+auto f4()
 {
   static const int i = 0;
   return &i;
@@ -33,6 +40,9 @@ int main()
   // We get a pointer to a function.
   void (*f)() = f2();
 
+  // Function f3 returns an lvalue reference.
+  int &r3 = f3();
+
   // Here we just get a pointer to a const int.
-  const int *r3 = f3();
+  const int *r4 = f4();
 }
