@@ -163,6 +163,17 @@ programista C++ potrafi zwątpić:
 
 # Wnioskowanie typu wartości zwracanej przez funkcję
 
+Funkcja (zwykła albo szablonowa) może mieć zadeklarowany typ zwracanej
+wartości z użyciem specyfikatora `auto`.  W definicji tego typu mogą
+być także użyte specyfikatory `const` i `volatile` oraz deklaratory
+`&` i `*`.
+
+Typ `auto` jest wnioskowany zgodnie z zasadami wnioskowania
+**typowego** argumentu szablonu na podstawie wyrażenia instrukcji
+powrotu, które pełni rolę wyrażenia inicjalizującego dla zwracanej
+wartości.  Sytuacja jest analogiczna do inicjalizacji parametru
+funkcji szablonowej, z tą różnicą, że zwracana wartość nie ma nazwy.
+
 ```cpp
 {% include_relative return.cc %}
 ```
