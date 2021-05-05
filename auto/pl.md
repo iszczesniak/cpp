@@ -149,6 +149,9 @@ nazwy funkcji i nazwy tablicy języka C.
 
 ## `decltype`
 
+Specyfikator typu `decltype` pozwala nam na użycie typu zmiennej czy
+wyrażenia, włącznie z typami referencyjnymi.
+
 ```cpp
 {% include_relative decltype.cc %}
 ```
