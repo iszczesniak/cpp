@@ -174,6 +174,8 @@ powrotu, które pełni rolę wyrażenia inicjalizującego dla zwracanej
 wartości.  Sytuacja jest analogiczna do inicjalizacji parametru
 funkcji szablonowej, z tą różnicą, że zwracana wartość nie ma nazwy.
 
+Oto kilka przykładów:
+
 ```cpp
 {% include_relative return.cc %}
 ```
