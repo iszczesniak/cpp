@@ -147,7 +147,7 @@ nazwy funkcji i nazwy tablicy języka C.
 {% include_relative normal.cc %}
 ```
 
-# Wnioskowanie typu parametru wyrażenia lambda
+# Wnioskowanie typu parametru w wyrażeniu lambda
 
 W wyrażeniu lambda możemy podać parametry dla operatora wywołania.  I
 tam możemy użyć `auto`.  Wtedy składowa operatora wywołania jest
@@ -160,7 +160,12 @@ programista C++ potrafi zwątpić:
 ```cpp
 {% include_relative lambda.cc %}
 ```
+
 # Wnioskowanie typu wartości zwracanej przez funkcję
+
+```cpp
+{% include_relative return.cc %}
+```
 
 # `auto` jako typ zmiennej deklarowanej w pętli for: przykład z
   dostępem do elementów std::map

@@ -9,9 +9,9 @@ auto f2()
   return i;
 }
 
-decltype(auto) f3()
+auto &f3()
 {
-  static int i = 0;
+  static const int i = 0;
   return i;
 }
 
@@ -19,8 +19,11 @@ int main()
 {
   f1();
 
-  // This will not compile, because f2 returns int.
+  // This will not compile, because f2 returns int, an rvalue.
   // ++f2();
-  
-  ++(f3());
+  int &&r2 = f2();
+
+  // This will not compile, because f3 returns an lvalue reference of
+  // the const int type.  
+  const int &r3 = f3();
 }
