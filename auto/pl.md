@@ -147,6 +147,11 @@ nazwy funkcji i nazwy tablicy języka C.
 {% include_relative normal.cc %}
 ```
 
+# Typ `auto` w pętli `for`
+
+jako typ zmiennej deklarowanej w pętli for: przykład z dostępem do
+elementów std::map
+
 # Wnioskowanie typu parametru w wyrażeniu lambda
 
 W wyrażeniu lambda możemy podać parametry dla operatora wywołania.  I
@@ -179,8 +184,5 @@ Oto kilka przykładów:
 ```cpp
 {% include_relative return.cc %}
 ```
-
-# `auto` jako typ zmiennej deklarowanej w pętli for: przykład z
-  dostępem do elementów std::map
 
 # `decltype`
