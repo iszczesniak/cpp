@@ -147,6 +147,12 @@ nazwy funkcji i nazwy tablicy języka C.
 {% include_relative normal.cc %}
 ```
 
+## `decltype`
+
+```cpp
+{% include_relative decltype.cc %}
+```
+
 # Typ `auto` w pętli `for`
 
 jako typ zmiennej deklarowanej w pętli for: przykład z dostępem do
@@ -184,5 +190,3 @@ Oto kilka przykładów:
 ```cpp
 {% include_relative return.cc %}
 ```
-
-# `decltype`
