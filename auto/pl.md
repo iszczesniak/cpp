@@ -157,6 +157,15 @@ Dostarczony typ może być dowolny, także referencyjny.
 {% include_relative decltype.cc %}
 ```
 
+Jeżeli chcemy, żeby `decltype` dostarczył dla zmiennej typ jej
+wyrażenia inicjalizacyjnego, to używamy `decltype(auto)`.  To nie to
+samo, co `auto`, w którym stosowane są zasady wnioskowania typowych
+argumentów szablonu.  Oto przykłady:
+
+```cpp
+{% include_relative decltype_auto.cc %}
+```
+
 # Typ `auto` w pętli `for`
 
 jako typ zmiennej deklarowanej w pętli for: przykład z dostępem do
@@ -169,8 +178,8 @@ tam możemy użyć `auto`.  Wtedy składowa operatora wywołania jest
 szablonowa, gdzie `auto` służy jako typowy parametr szablonu funkcji.
 Wywołanie tej funkcji składowej z argumentami różnych typów powoduje
 konkretyzację szablonu i generowanie nowych przeciążeń dla tego samego
-domknięcia.  Oto przykład to ilustrujący, po którym doświadczony
-programista C++ potrafi zwątpić:
+domknięcia.  Oto przykład to ilustrujący, po którym weteran
+programowania w C++ może zwątpić:
 
 ```cpp
 {% include_relative lambda.cc %}
