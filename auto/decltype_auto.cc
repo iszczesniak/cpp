@@ -1,7 +1,19 @@
 #include <cassert>
-#include <utility>
+
+int &
+singleton()
+{
+  static int i = 0;
+  return i;
+}
 
 int main()
 {
-  decltype(auto) r = foo();
+  auto i = singleton();
+  i = 1;
+  assert(singleton() == 0);
+  
+  decltype(auto) r = singleton();
+  r = 1;
+  assert(singleton() == 1);
 }
