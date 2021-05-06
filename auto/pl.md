@@ -166,11 +166,6 @@ argumentów szablonu.  Oto przykłady:
 {% include_relative decltype_auto.cc %}
 ```
 
-# Typ `auto` w pętli `for`
-
-jako typ zmiennej deklarowanej w pętli for: przykład z dostępem do
-elementów std::map
-
 # Wnioskowanie typu parametru w wyrażeniu lambda
 
 W wyrażeniu lambda możemy podać parametry dla operatora wywołania.  I
