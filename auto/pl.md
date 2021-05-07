@@ -175,12 +175,13 @@ podać typ jawnie.  Ale trzeba uważać, żeby nie popełnić błędu.
 
 Przykład niżej pokazuje, jak można popełnić błąd, który jest trudny do
 wychwycenia.  To jest błąd, który sam popełniłem, a którego nie
-rozumiałem przez lata.  W przykładzie błędnie napisany jest typ
-zmiennej: `const pair<int, string> &`.  Wydaje się, że jest OK, bo
-chcemy iterować używając referencji stałej do elementów kontenera.
-Gdzie jest błąd?
+rozumiałem przez długi czas.  W przykładzie błędnie napisany jest typ
+zmiennej: `const pair<int, string> &`.  Wydaje się, że jest dobrze, bo
+chcemy iterować używając referencji stałej do elementów kontenera, a
+wiemy, że elementem kontenera jest para klucza i wartości.  Program
+jednak nie działa prawidłowo.  Gdzie jest błąd?
 
-Błąd jest w pierwszy elemencie pary, typ powinien być `const
+Błąd jest w pierwszym elemencie pary, typ powinien być `const
 pair<const int, string> &` `std::map` przechowuje pary klucza i
 wartości, ale typem jest `pair`
 
