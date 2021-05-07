@@ -1,18 +1,33 @@
 #include <iostream>
+#include <functional>
 #include <map>
 #include <string>
+#include <vector>
 
 using namespace std;
 
 int
 main()
 {
-  map<int, string> m = {{1, "Hello"}, {2, "World"}};
-  map<int, const string &> mr;
+  map<int, string> m = {{1, "Alice"}, {2, "Bob"}};
 
-  for(pair<const int, string> &e: m)
-    mr.insert(make_pair(e.first, e.second));
+  {
+    vector<std::reference_wrapper<const string>> names;
 
-  for(auto &e: mr)
-    cout << e.first << ", " << e.second << endl;
+    for(const pair<int, string> &e: m)
+      names.push_back(std::ref(e.second));
+
+    for(const auto &e: names)
+      cout << e.get() << endl;
+  }
+
+  {
+    vector<std::reference_wrapper<const string>> names;
+
+    for(auto &e: m)
+      names.push_back(std::ref(e.second));
+
+    for(const auto &e: names)
+      cout << e.get() << endl;
+  }
 }
