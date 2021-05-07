@@ -10,7 +10,7 @@ main()
   map<int, string> m = {{1, "Hello"}, {2, "World"}};
   map<int, const string &> mr;
 
-  for(const pair<int, string> &e: m)
+  for(pair<const int, string> &e: m)
     mr.insert(make_pair(e.first, e.second));
 
   for(auto &e: mr)

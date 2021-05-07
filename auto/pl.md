@@ -166,6 +166,28 @@ argumentów szablonu.  Oto przykłady:
 {% include_relative decltype_auto.cc %}
 ```
 
+# Specyfikator `auto` w pętli `for`
+
+Specyfikator `auto` możemy użyć w pętli `for` dla określenia typu
+elementu, którym będziemy się posługiwać w ciele pętli.  Chociaż jest
+to częsty i wygodny sposób, to nie musimy z niego korzystać i możemy
+podać typ jawnie.  Ale trzeba uważać, żeby nie popełnić błędu.
+
+Przykład niżej pokazuje, jak można popełnić błąd, który jest trudny do
+wychwycenia.  To jest błąd, który sam popełniłem, a którego nie
+rozumiałem przez lata.  W przykładzie błędnie napisany jest typ
+zmiennej: `const pair<int, string> &`.  Wydaje się, że jest OK, bo
+chcemy iterować używając referencji stałej do elementów kontenera.
+Gdzie jest błąd?
+
+Błąd jest w pierwszy elemencie pary, typ powinien być `const
+pair<const int, string> &` `std::map` przechowuje pary klucza i
+wartości, ale typem jest `pair`
+
+```cpp
+{% include_relative for_auto.cc %}
+```
+
 # Wnioskowanie typu parametru w wyrażeniu lambda
 
 W wyrażeniu lambda możemy podać parametry dla operatora wywołania.  I
