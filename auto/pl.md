@@ -193,7 +193,7 @@ Problem w tym, że ta para wkrótce wyparuje, bo jest alokowana na
 stosie jako zmienna lokalna ciała pętli.
 
 ```cpp
-{% include_relative lambda.cc %}
+{% include_relative for_auto.cc %}
 ```
 
 # Wnioskowanie typu parametru w wyrażeniu lambda

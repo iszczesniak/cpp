@@ -9,7 +9,7 @@ using namespace std;
 int
 main()
 {
-  map<int, string> m = {{1, "Alice"}, {2, "Bob"}};
+  map<int, string> m = { {1, "Alice"}, {2, "Bob"} };
   vector<std::reference_wrapper<const string>> names;
 
   for(const pair<int, string> &e: m)
