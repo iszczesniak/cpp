@@ -196,7 +196,7 @@ stosie jako zmienna lokalna ciała pętli.
 {% include_relative for_auto.cc %}
 ```
 
-# Wnioskowanie typu parametru w wyrażeniu lambda
+# Wyrażenia lambda i `auto`
 
 W wyrażeniu lambda możemy podać parametry dla operatora wywołania.  I
 tam możemy użyć `auto`.  Wtedy składowa operatora wywołania jest
@@ -210,7 +210,7 @@ programowania w C++ może zwątpić:
 {% include_relative lambda.cc %}
 ```
 
-# Wnioskowanie typu wartości zwracanej przez funkcję
+# Typ wyniku funkcji i `auto`
 
 Funkcja (zwykła albo szablonowa) może mieć zadeklarowany typ zwracanej
 wartości z użyciem specyfikatora `auto`.  W definicji tego typu mogą
