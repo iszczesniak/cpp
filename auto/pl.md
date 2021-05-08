@@ -181,9 +181,16 @@ chcemy iterować używając referencji stałej do elementów kontenera, a
 wiemy, że elementem kontenera jest para klucza i wartości.  Program
 jednak nie działa prawidłowo.  Gdzie jest błąd?
 
-Błąd jest w pierwszym elemencie pary, typ powinien być `const
-pair<const int, string> &` `std::map` przechowuje pary klucza i
-wartości, ale typem jest `pair`
+Błąd jest w typie pierwszego elementu pary: klucze w kontenerzą są
+typu stałego, a my zażądaliśmy typu niestałego.  Zatem typ zmiennej
+pętli powinien być `const pair<const int, string> &`.  Ten drobny błąd
+powoduje, że kompilator tworzy tymczasową parę elementów typu `int`
+oraz `string` i inicjalizuje ją przez kopiowanie wartości z pary w
+kontenerze.  W ten sposób mamy, co chcieliśmy, czyli referencję stałą
+do pary takiego typu, jak żądaliśmy.
+
+Problem w tym, że ta para wkrótce wyparuje, bo jest alokowana na
+stosie jako zmienna lokalna ciała pętli.
 
 ```cpp
 {% include_relative for_auto.cc %}
