@@ -187,10 +187,19 @@ pętli powinien być `const pair<const int, string> &`.  Ten drobny błąd
 powoduje, że kompilator tworzy tymczasową parę elementów typu `int`
 oraz `string` i inicjalizuje ją przez kopiowanie wartości z pary w
 kontenerze.  W ten sposób mamy, co chcieliśmy, czyli referencję stałą
-do pary takiego typu, jak żądaliśmy.
+do pary żądanego typu.
 
 Problem w tym, że ta para wkrótce wyparuje, bo jest alokowana na
-stosie jako zmienna lokalna ciała pętli.
+stosie jako zmienna lokalna ciała pętli.  Problem, bo w wektorze
+zapisujemy referencję do ciągu znaków w parze, która już po
+zakończeniu iteracji odnosi się do nieistniejącego obiektu.  Wypisując
+zawartość wektora widzimy tą samą wartość, bo obiekty były tworzone na
+stosie w tym samym miejscu, a my widzimy ostatnią wartość.
+
+Ponieważ w kontenerach nie możemy przechowywać referencji (`const
+string &`), to użyliśmy `std::reference_wrapper<const string>`.
+Moglibyśmy użyć po prostu wskaźników, ale `std::reference_wrapper`
+daje nam semantykę referencji.
 
 ```cpp
 {% include_relative for_auto.cc %}
