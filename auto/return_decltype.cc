@@ -1,18 +1,24 @@
-#include <iostream>
+#include <tuple>
 
-template <typename T>
-decltype(auto) foo()
+int &f1()
 {
-  return 0;
+  static int i = 1;
+  return i;
 }
 
-template <>
-decltype(auto) foo<int>()
+int f2()
 {
-  return "Hello!";
+  return 1;
+}
+
+template <typename F>
+decltype(auto) foo(F &&f)
+{
+  return std::forward<F>(f)();
 }
 
 int main()
 {
-  foo<int>();
+  auto &&r1 = foo(f1);
+  auto &&r2 = foo(f2);
 }
