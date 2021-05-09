@@ -1,24 +1,24 @@
 #include <tuple>
 
-int &f1()
+int &g1()
 {
   static int i = 1;
   return i;
 }
 
-int f2()
+int g2()
 {
   return 1;
 }
 
-template <typename F>
-decltype(auto) foo(F &&f)
+template <typename G>
+decltype(auto) f(G &&g)
 {
-  return std::forward<F>(f)();
+  return std::forward<G>(g)();
 }
 
 int main()
 {
-  auto &&r1 = foo(f1);
-  auto &&r2 = foo(f2);
+  auto &&r1 = f(g1);
+  auto &&r2 = f(g2);
 }
