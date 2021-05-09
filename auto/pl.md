@@ -191,7 +191,7 @@ do pary żądanego typu.
 
 Problem w tym, że ta para wkrótce wyparuje, bo jest alokowana na
 stosie jako zmienna lokalna ciała pętli.  Problem, bo w wektorze
-zapisujemy referencję do ciągu znaków w parze, która już po
+zapisujemy referencję do ciągu znaków w parze, a ta referencja już po
 zakończeniu iteracji odnosi się do nieistniejącego obiektu.  Wypisując
 zawartość wektora widzimy tą samą wartość, bo obiekty były tworzone na
 stosie w tym samym miejscu, a my widzimy ostatnią wartość.
