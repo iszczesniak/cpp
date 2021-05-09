@@ -237,3 +237,9 @@ Oto kilka przykładów:
 ```cpp
 {% include_relative return.cc %}
 ```
+
+
+```cpp
+{% include_relative return_decltype.cc %}
+```
+
