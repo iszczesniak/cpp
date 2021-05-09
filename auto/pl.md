@@ -262,3 +262,18 @@ Oto przykład:
 ```cpp
 {% include_relative return_decltype.cc %}
 ```
+# Podsumowanie
+
+* Specyfikator `auto` pozwala na wnioskowanie typu.
+
+* W pętli `for` warto używać specyfikatora `auto`.
+
+* W wyrażeniu lambda można użyć typu `auto` dla parametru.
+
+# Quiz
+
+* Gdzie możemy użyć specyfikatora `auto`?
+
+* Jaka jest różnica między specyfikatorami `auto` i `decltype(auto)`?
+
+* Na czym polega doskonałe zwracanie wartości?
