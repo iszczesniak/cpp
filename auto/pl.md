@@ -238,6 +238,26 @@ Oto kilka przykładów:
 {% include_relative return.cc %}
 ```
 
+## Doskonałe zwracanie wyniku funkcji
+
+Piszemy funkcję `f`, która wywołuje jakąś inną funkcję albo callable
+`g`.  Nie znamy typu wyniku zwracanego przez `g`, ale chcemy, żeby
+funkcja `f` zwracała tą samą wartość.
+
+Ważnej jest wtedy, żeby funkcja `f` zwracała wartość tego samego typu,
+co funkcja `g`.  Jeżeli `g` zwraca wynik przez referencję, to `f` ma
+zwracać też przez referencję i to tego samego typu (l-referencę,
+referencję stałą i r-referencję).  Jeżeli wynik będzie zwracany przez
+wartość, to optymalizacja wartości powrotu nie dopuści do kopiowania
+wartości.
+
+W tym przypadku funkcja `f` powinna mieć zwracany typ zadeklarowany
+jako `decltype(auto)`, a wyrażenie wywołania funkcji `g` powinno być
+argumentem instrukcji powrotu.  Specyfikator `decltype(auto)`
+gwarantuje nam identyczny typ.  Specyfikator `auto` wnioskowałby typ,
+a tego nie chcemy.
+
+To przykład:
 
 ```cpp
 {% include_relative return_decltype.cc %}
