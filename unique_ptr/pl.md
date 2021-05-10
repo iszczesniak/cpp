@@ -94,44 +94,43 @@ ostrzeżeń przy kompilowaniu tego błędnego kodu.
 {% include_relative problems.cc %}
 {% endhighlight %}
 
-# The smart pointer solution
+# Rozwiązanie: inteligentny wskaźnik
 
-A smart pointer manages dynamically-allocated data, and so we call a
-smart pointer the **managing object**, and the dynamically-allocated
-data the **managed data**.
+Inteligentny wskaźnik zarządza dynamicznie zaalokowanymi danymi, więc
+objekt inteligentnego wskaźnika nazywamy **obiektem zarządzającym**, a
+dynamicznie zaalokowane dane nazywamy **danymi zarządzanymi**.
 
-A smart pointer doesn't copy or move the managed data, it can only
-destroy the data.
+Inteligentny wskaźnik nie kopiuje czy przenosi zarządzanych danych,
+może je tylko zniszczyć.
 
-The type of the managed data doesn't have to be prepared in some
-special way in order to be managed by smart pointers, e.g., the type
-doesn't have to be derived from some special type with the required
-functionality implemented.
+Typ zarządzanych danych nie musi być przygotowany w jakiś specjalny
+sposób, żeby można było użyć inteligentnych wskaźników, np. typ nie
+musi dziedziczyć z jakiegoś typu bazowego (interfejsu) i go
+implementować go.
 
-The smart pointers solve:
+Inteligentne wskaźniki rozwiązują:
 
-* the type problem: a smart pointer knows the type of the object, so
-  that it can be automatically (i.e., without a programmer requesting
-  it explicitely) destroyed in the proper way,
+* problem typu: inteligentny wskaźnik zna typ zarządzanych danych,
+  więc niszczy je we właściwy sposób, bez ingerencji programisty,
 
-* the ownership problem: a smart pointer automatically manages the
-  dynamically-allocated data, i.e., takes care of their destruction,
-  and implements either the exclusive or shared ownership,
+* problem własności: inteligentne wskaźniki implementują semantykę
+  wyłącznej albo współdzielonej własności.
 
-* the exception handling problem: a smart pointer is automatically
-  destroyed (and so is the managed data) when an exception is handled.
+* problem obsługi wyjątków: obiekt inteligentnego wskaźnika jest
+  automatycznie niszczony przy obsłudze wyjątków (a dane surowego
+  wskaźnika nie).
 
-Every flexible language should support raw pointers, because this
-low-level functionality is needed to implement high-level
-functionality, such as smart pointers.
+Każdy wszechstronny język powinien wspierać surowe wskaźniki, ponieważ
+ta niskopoziomowa funkcjonalność jest wymagana do implementacji
+wysokopoziomowej funkcjonalności, takiej jak inteligentne wskaźniki.
 
-A programmer should have a choice between the raw pointers (perhaps
-for implementing an intricate functionality) and smart pointers (just
-for every day use).
+Programista powinien mieć wybór pomiędzy surowymi wskaźnikami (na
+przykład do implementacji jakiejś wyrafinowanej funkcjonalności) i
+inteligentnymi wskaźnikami do codziennego użytku.
 
-In C++, for every day use, a programmer should not resort to the raw
-pointers, let alone to the `void *` trickery -- these times are long
-gone.
+Za wyjątkiem specjalnych przypadków, obecnie programista C++ nie
+powinien używać surowych wskaźników, nie mówiąc już o `void *` -- te
+czasy już dawno minęły.
 
 ## Smart pointer types
 
