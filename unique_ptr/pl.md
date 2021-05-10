@@ -49,19 +49,19 @@ stworzone dane, to mamy następujące problemy:
 * **problem obsługi wyjątków**: obsługa wyjątków ze surowymi
     wskaźnikami jest trudna, pracochłonna i podatna na błędy.
 
-### The type problem
+### Problem typu
 
-The new and delete operators come in many versions, most notably:
+Operatory `new` i `delete` mają wiele wersji, ale ważnymi są:
 
-* the *single version* for allocating a single piece of data,
+* wersja pojedyncza dla jednej danej,
 
-* the *array version* for allocating an array of data.
+* wersja tablicowa dla tablicy danych.
 
-If we allocate data with either the single or array version of the new
-operator, we should destroy the data with the same version of the
-delete operator.  However, the type of the pointer used is the same
-for both version, so it's easy to mismatch the versions, which results
-in an undefined behaviour.
+Jeżeli tworzymy dane z użyciem wersji pojedynczej albo tablicowej
+operatora `new`, to powinniśmy zniszczyć dane tą samą wersją operatora
+`delete`.  Pomieszanie dwóch wersji skutkuje niezdefiniowanym
+działaniem.  Kompilator nie jest w stanie wychycić błędu, bo operatory
+`new` i `delete` posługują się tym samym typem danych: `T *`.
 
 ### The ownership problem
 
