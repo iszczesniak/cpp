@@ -77,17 +77,18 @@ Problem własności może skutkować:
 * **podwójnym usunięciem**, kiedy próbujemy zniszczyć dane, które już
     zostały zniszczone.
 
-### The exception handling problem
+### Problem obsługi wyjątków
 
-If we manage the dynamically-allocated data with raw pointers, the
-exception handling becomes a boring and error-prone task, espacially
-if the data is complex.  It's doable, but who really wants to do it?
+Jeżeli zarządamy dynamicznie zaalokowanymi danymi z użyciem surowych
+wskaźników, to obsługa wyjątków staje się nudnym i podatnym na błędy
+programowaniem, szczególnie gdy dane są złożone.  Da się, ale kto chce
+to robić?
 
-## An example
+## Przykład
 
-The example below shows how easily we can run into the type,
-ownership, and exception handling problems.  The compiler does not
-report problems with this broken code.
+Przykład niżej pokazuje jak łatwo możemy się natknąć na problemy typu,
+własności i obsługi wyjątków.  Kompilator nie zgłasza błędów ani
+ostrzeżeń przy kompilowaniu tego błędnego kodu.
 
 {% highlight c++ %}
 {% include_relative problems.cc %}
