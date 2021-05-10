@@ -63,18 +63,19 @@ operatora `new`, to powinniśmy zniszczyć dane tą samą wersją operatora
 działaniem.  Kompilator nie jest w stanie wychycić błędu, bo operatory
 `new` i `delete` posługują się tym samym typem danych: `T *`.
 
-### The ownership problem
+### Problem własności
 
-The ownership problem can result in:
+Problem własności może skutkować:
 
-* **a memory leak**, when the dynamically-allocated data is never
-  destroyed,
+* **przeciekiem pamięci**, kiedy dynamicznie zaalokowane dane nie są
+    nigdy zniszczone, mimo że nie są już potrzebne,
 
-* **a dangling pointer**, when we keep using a memory location, but
-  the data that used to be there was already destroyed,
+* **dyndającym wskaźnikiem**, kiedy odwołujemy się do miejsca w
+    pamięci, ale dane, które tam się znajdowały, zostały już
+    zniszczone,
 
-* **a double deletion**, when we try to destroy again the data that
-  was already destroyed.
+* **podwójnym usunięciem**, kiedy próbujemy zniszczyć dane, które już
+    zostały zniszczone.
 
 ### The exception handling problem
 
