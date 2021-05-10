@@ -111,14 +111,14 @@ implementować go.
 Inteligentne wskaźniki rozwiązują:
 
 * problem typu: inteligentny wskaźnik zna typ zarządzanych danych,
-  więc niszczy je we właściwy sposób, bez ingerencji programisty,
+  więc niszczy je we właściwy sposób,
 
 * problem własności: inteligentne wskaźniki implementują semantykę
-  wyłącznej albo współdzielonej własności.
+  wyłącznej albo współdzielonej własności,
 
 * problem obsługi wyjątków: obiekt inteligentnego wskaźnika jest
-  automatycznie niszczony przy obsłudze wyjątków (a dane surowego
-  wskaźnika nie).
+  automatycznie niszczony przy obsłudze wyjątków, więc jego dane też
+  (a dane surowego wskaźnika nie).
 
 Każdy wszechstronny język powinien wspierać surowe wskaźniki, ponieważ
 ta niskopoziomowa funkcjonalność jest wymagana do implementacji
@@ -132,16 +132,18 @@ Za wyjątkiem specjalnych przypadków, obecnie programista C++ nie
 powinien używać surowych wskaźników, nie mówiąc już o `void *` -- te
 czasy już dawno minęły.
 
-## Smart pointer types
+## Typy inteligentnych wskaźników
 
-There are three smart pointer types defined in the `memory` header
-file:
+Są trzy typy inteligentnych wskaźników zdefiniowanych w pliku
+nagłówkowym `memory`:
 
-* `std::unique_ptr` - used to exclusively own the managed data,
+* `std::unique_ptr` - implementuje semantykę wyłącznej własności,
 
-* `std::shared_ptr` - used to share the managed data,
+* `std::shared_ptr` - implementuje semantykę współdzielonej własności,
 
-* `std::weak_ptr` - used to track, but not share, the managed data.
+* `std::weak_ptr` - śledzi dane, ale nimi nie zarządza.
+
+Inteligentne wskaźniki obudowują surowe wskaźniki (używają ich)
 
 Smart pointer types are wrappers around raw pointers, which are used
 at compile-time only, and so at run-time they should not degrade the
