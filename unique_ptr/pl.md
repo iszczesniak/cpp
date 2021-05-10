@@ -30,25 +30,24 @@ użyciem operatora `.` (czyli `object.member`), a nie `->` (czyli
 `pointer->member`).  W C++ referencja jest aliasem, która w czasie
 kompilacji będzie wyoptymalizowana albo zmieniona na surowy wskaźnik.
 
-# Motivation: the problems of raw pointers
+# Motywacja: problemy surowych wskaźników
 
-Raw pointers are easy to use, but their use is very error-prone, i.e.,
-it's easy to make mistakes.
+Surowe wskaźniki łatwo używać, ale też łatwo popełniać błędy.
 
-## The problems
+## Problemy
 
-When we have a pointer of type `T *` which points to a
-dynamically-allocated memory location, we face these problems:
+Kiedy mamy wskaźnik typu `T *`, który wskazuje na dynamicznie
+stworzone dane, to mamy następujące problemy:
 
-* **the type problem**: we don't know whether a pointer points to a
-  single piece of data or to an array of data,
+* **problem typu**: nie wiemy, czy wskaźnik wskazuje na jedną daną,
+    czy może na tablicę danych,
 
-* **the ownership problem**: we don't know whether *we* or *someone
-  else* (i.e., some other programmer who implemented some other part
-  of code) should destroy the allocated data,
+* **problem własności**: nie wiemy, czy *my* czy może *ktoś inny*
+    (czyli inny programista, który napisał inny fragment kodu)
+    powinien zniszczyć dane,
 
-* **the exception handling problem**: exception handling with raw
-  pointers is difficult, arduous, and error-prone.
+* **problem obsługi wyjątków**: obsługa wyjątków ze surowymi
+    wskaźnikami jest trudna, pracochłonna i podatna na błędy.
 
 ### The type problem
 
