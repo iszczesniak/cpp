@@ -2,31 +2,33 @@
 title: std::unique_ptr
 ---
 
-# Introduction
+# Wprowadzenie
 
-Pointers are indispensible.  Pointers:
+Wskaźniki są nieodzowne.  Wskaźniki:
 
-* point to memory locations, usually dynamically-allocated,
+* wskazują miejsce w pamięci, zwykle zaalokowane dynamicznie,
 
-* are used in every programming language: C, C++, Java, C#,
+* są używane w każdym języku programowania: C, C++, Java, C#,
 
-* can be used in the form of a reference, e.g., in Java or C#.
+* mogą być użyte w formie referencji, np. w Javie czy C#.
 
-The pointer support can be:
+Wsparcie wskaźników może być:
 
-* wrapped in a reference, e.g., in Java or C#,
+* opakowane w referencję, np. w Javie czy C#,
 
-* raw or advanced, as in C++,
+* surowe albo zaawansowane, jak w C++,
 
-* raw only, as in C.
+* tylko surowe, jak w C.
 
-In C++, it's best to avoid the raw pointers, and go for the advanced
-pointer support in the form of standard smart pointers.
+W C++ najlepiej unikać surowych wskaźników i korzystać z
+zaawansowanego wsparcia w postaci standardowych wskaźników
+inteligentnych.
 
-A reference in Java or C# is a shared pointer with the object member
-selection syntax (i.e., `object.member`).  A C++ reference is an
-alias, which at compile time will be either optimized out or turned
-into a raw pointer.
+Referencja w Javie czy C# jest inteligentnym wskaźnikiem o semantyce
+współdzielonej własności, gdzie dostęp do składowej uzyskujemy z
+użyciem operatora `.` (czyli `object.member`), a nie `->` (czyli
+`pointer->member`).  W C++ referencja jest aliasem, która w czasie
+kompilacji będzie wyoptymalizowana albo zmieniona na surowy wskaźnik.
 
 # Motivation: the problems of raw pointers
 
