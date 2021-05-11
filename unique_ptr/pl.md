@@ -190,17 +190,18 @@ obiekt zarządzający:
 Kiedy nie chcemy już używać surowych wskaźników, to najczęściej
 powinniśmy stosować ten typ inteligentnego wskaźnika.
 
-## An example
+## Przykład
 
-Type `std::unique_ptr` is a templated type: you need to pass the type
-of managed data as an argument to the template type.  We pass the
-template arguments in the angle brackets, i.e., `<>`, like this:
+Typ `std::unique_ptr` jest szablonowy: typ zarządzanych danych
+przekazujemy jako argument szablonu.  Przekazujemy argumenty szablonu
+w nawiasach kontowych `<>` w ten sposób:
 
-`std::unique_ptr<managed_data_type> p;`
+```p
+std::unique_ptr<typ> p;
+```
 
-In the example below, the managing object `p` manages the data of type
-`int`, which will be automatically destroyed by `p` when it goes out
-of scope.
+W przykładzie niżej, obiekt zarządzający `p` zarządza daną typu `int`,
+która będzie automatycznie zniszczona, kiedy `p` wyjdzie poza zakres.
 
 {% highlight c++ %}
 {% include_relative simple.cc %}
@@ -415,7 +416,5 @@ problems gone.
 * What is the exclusive ownership?
 
 * What do we need the `make_uniqe` function for?
-
-{% include rid %}
 
 <!-- LocalWords:  -->
