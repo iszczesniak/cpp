@@ -105,8 +105,8 @@ może je tylko zniszczyć.
 
 Typ zarządzanych danych nie musi być przygotowany w jakiś specjalny
 sposób, żeby można było użyć inteligentnych wskaźników, np. typ nie
-musi dziedziczyć z jakiegoś typu bazowego (interfejsu) i go
-implementować go.
+musi dziedziczyć z jakiegoś typu bazowego (interfejsu) i implementować
+go.
 
 Inteligentne wskaźniki rozwiązują:
 
@@ -143,13 +143,14 @@ nagłówkowym `memory`:
 
 * `std::weak_ptr` - śledzi dane, ale nimi nie zarządza.
 
-Inteligentne wskaźniki obudowują surowe wskaźniki, więc używają je w
-implementacji.  Na przykład, semantyka przeniesienia jest elementem
-tej obudowy, która jest niezbęda do wygodnej i poprawnej
-implementacji, ale nie wprowadza żadnego narzutu czasowego w czasie
-uruchomienia.  Inteligentne wskaźniki są tak szybkie i używają tak
-mało pamięci, jak to jest tylko możliwe, czyli tak, jakbyśmy ręcznie
-(ale ciągle poprawnie) wyrzeźbili ten kod.
+Inteligentne wskaźniki używają surowych wskaźników w swojej
+implementacji, więc można powiedzieć, że obudowują je.  Na przykład,
+semantyka przeniesienia jest elementem tej obudowy, która jest
+niezbęda do wygodnej i poprawnej implementacji, ale nie wprowadza
+żadnego narzutu czasowego w czasie uruchomienia.  Inteligentne
+wskaźniki są tak szybkie i używają tak mało pamięci, jak to jest tylko
+możliwe, czyli tak, jakbyśmy ręcznie (ale ciągle poprawnie) wyrzeźbili
+ten kod.
 
 Inteligentne wskaźniki są:
 
