@@ -151,15 +151,16 @@ uruchomienia.  Inteligentne wskaźniki są tak szybkie i używają tak
 mało pamięci, jak to jest tylko możliwe, czyli tak, jakbyśmy ręcznie
 (ale ciągle poprawnie) wyrzeźbili ten kod.
 
-Smart pointer types are:
+Inteligentne wskaźniki są:
 
-* *exception-safe*: they can be used without problems when throwing or
-   catching exceptions,
+* *bezpieczne w użyciu z wyjątkami*: mogą być użyte bez problemów
+   kiedy wyjątki są rzucane lub przechwytywane,
 
-* *not thread-safe*: they should be carefully used in a multithreaded
-   program.
+* *nie są bezpieczne w użyciu z wątkami*: mogą być używane w
+   programowaniu wielowątkowym, ale z zachowaniem ostrożności.
 
-There is also deprecated type `std::auto_ptr` -- don't use it.
+Jest jeszcze przestarzały inteligentny wskaźnik `std::auto_ptr`, ale
+nie należy już go stosować.
 
 # `std::unique_ptr`
 
