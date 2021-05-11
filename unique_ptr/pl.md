@@ -143,13 +143,13 @@ nagłówkowym `memory`:
 
 * `std::weak_ptr` - śledzi dane, ale nimi nie zarządza.
 
-Inteligentne wskaźniki obudowują surowe wskaźniki (używają ich)
-
-Smart pointer types are wrappers around raw pointers, which are used
-at compile-time only, and so at run-time they should not degrade the
-memory or time performance.  They should be as fast and take as little
-memory as the code of the same functionality manually crafted with raw
-pointers.
+Inteligentne wskaźniki obudowują surowe wskaźniki, więc używają je w
+implementacji.  Na przykład, semantyka przeniesienia jest elementem
+tej obudowy, która jest niezbęda do wygodnej i poprawnej
+implementacji, ale nie wprowadza żadnego narzutu czasowego w czasie
+uruchomienia.  Inteligentne wskaźniki są tak szybkie i używają tak
+mało pamięci, jak to jest tylko możliwe, czyli tak, jakbyśmy ręcznie
+(ale ciągle poprawnie) wyrzeźbili ten kod.
 
 Smart pointer types are:
 
