@@ -172,25 +172,23 @@ Typ `std::unique_ptr` implementuje semantykę wyłącznej własności:
 * *własności*, ponieważ obiekt zarządzający jest odpowiedzialny za
    zniszczenie danych, którymi zarządza.
 
-The exclusivity implies that `std::unique_ptr` is a move-only type,
-and so:
+Wyłączność pociąga za sobą to, że `std::unique_ptr` jest typem tylko
+do przenoszenia, więc:
 
-* you cannot copy-initialize or copy-assign objects of this type, and
-  for this reason this type has the copy constructor, and the copy
-  assignment operator explicitly deleted,
+* nie możemy inicjalizować ani przypisywać przez kopiowanie; te
+  kopiujące składowe specjalne są usunięte,
 
-* you can transfer the ownership between the managing objects by
-  move-initializing, and move-assigning.
+* możemy inicjalizować i przypisywać przez przenoszenie.
 
-The ownership means that the managed data should be destroyed when the
-managing object is:
+Własność pociąga za sobą to, że zarządzane dane są niszczone, kiedy
+obiekt zarządzający:
 
-* destroyed, e.g., goes out of scope,
+* jest niszczony, np. wychodzi poza zakres,
 
-* assigned new data to manage.
+* ma przypisane nowe dane do zarządzania.
 
-Most likely you need this smart pointer when you want to switch from
-raw pointers to smart pointers.
+Kiedy nie chcemy już używać surowych wskaźników, to najczęściej
+powinniśmy stosować ten typ inteligentnego wskaźnika.
 
 ## An example
 
