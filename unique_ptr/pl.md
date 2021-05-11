@@ -236,12 +236,11 @@ inicjalizującego, czyli wyrażenia wywołania funkcji
 
 `unique_ptr<A> up = make_unique<A>("A1");`
 
-To use function `std::make_unique`, you need to pass the template
-argument, which is the type of the managed data to create, and manage.
-The arguments (none, one or more) of the function are passed to the
-constructor of the managed data (a feat accomplished with the variadic
-templates).  In the example above `"A1"` is the argument passed to the
-constructor of type `A`.
+Szablonowi funkcji `std::make_unique` przekazujemy jako jego argument
+typ danych do stworzenia i zarządzania.  Argumenty (w dowolnej
+liczbie, także zero) wywołania funkcji są przekazywane do konstruktora
+zarządzanych danych.  W przykładzie wyżej, `"A1"` jest argumentem
+przekazywanym do konstruktora typu `A`.
 
 ## No performance overhead
 
