@@ -207,31 +207,32 @@ która będzie automatycznie zniszczona, kiedy `p` wyjdzie poza zakres.
 {% include_relative simple.cc %}
 {% endhighlight %}
 
-## Function `std::make_unique`
+## Funkcja `std::make_unique`
 
-Function template `std::make_unique` was introduced for convenience
-(we could do without it): it creates both the managing object, and the
-managed data.
+Szablon funkcji `std::make_unique` został wprowadzony dla wygody
+(dalibyśmy radę bez niego): funkcja tworzy dane zarządzane i
+zarządzający obiekt.
 
-We can create the managed data yourself with the new operator, and
-pass its raw pointer to the managing object like this:
+Możemy sami stworzyć dane i przekazać ich surowy wskaźnik obiektowi
+zarządzającemu w ten sposób:
 
 `unique_ptr<A> up(new A("A1"));`
 
-Instead, we can write the equivalent code like this, without typing
-type `A` twice:
+Zamiast tego możemy napisać równoważny kod bez dwukrotnego pisania
+`A`:
 
 `auto up = make_unique<A>("A1");`
 
-Function `std::make_unique` introduces no overhead: the move
-constructor will be elided, the return value optimization will take
-place, and so the managing object will be created directly in the
-location of `up`.
+Funkcja `std::make_unique` nie wprowadza narzutu wydajnościowego:
+konstruktor przenoszący będzie pominięty, zostanie zastosowana
+optymalizacja wartości powrotu, więc obiekt zarządzający będzie
+stworzony bezpośrednio w miejscu zmiennej `up`.
 
-By type `auto` above we ask the compiler to make the type of `up` the
-same type as the type of the initializing expression
-`make_unique<A>("A1")`, which is `std::unique_ptr<A>`.  We could have
-equivallently written:
+Używający specyfikatora typu `auto` prosimy kompilator o
+wywnioskowanie typu dla zmiennej `up` na podstawie wyrażenia
+inicjalizującego, czyli wyrażenia wywołania funkcji
+`make_unique<A>("A1")`, której zwracana wartość jest typu
+`std::unique_ptr<A>`.  Moglibyśmy równoważnie napisać:
 
 `unique_ptr<A> up = make_unique<A>("A1");`
 
