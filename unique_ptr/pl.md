@@ -164,15 +164,13 @@ nie należy już go stosować.
 
 # `std::unique_ptr`
 
-An object of type `std::unique_ptr` has the **exclusive ownership
-semantics**:
+Typ `std::unique_ptr` implementuje semantykę wyłącznej własności:
 
-* *exclusive*, because the managing object is the sole owner of the
-  managed data, i.e., there can be only a single object that owns the
-  managed data,
+* *wyłącznej*, ponieważ obiekt zarządzający jest jedynym właścicielem
+  zarządzanych danych, czyli tylko jeden obiekt może zarządzać danymi,
 
-* *ownership*, because the managing object is responsible for
-   destroying the managed data.
+* *własności*, ponieważ obiekt zarządzający jest odpowiedzialny za
+   zniszczenie danych, którymi zarządza.
 
 The exclusivity implies that `std::unique_ptr` is a move-only type,
 and so:
