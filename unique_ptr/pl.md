@@ -346,21 +346,22 @@ argument do funkcji, albo zwracając wynik z funkcji.  Oto przykład:
 {% include_relative solved_ownership.cc %}
 {% endhighlight %}
 
-## The exception handling problem
+## Problem obsługi wyjątków
 
-When an exception is thrown, the data previously allocated (or any
-other resource acquired) and not required any longer because of the
-exception, should be deleted (or released).  When programming with raw
-pointers, we can release the memory in the catch block, as shown in
-the example below.  We have to declare `p` before the try block, so
-that it's accessible in the catch block, and that complicates the
-code.
+Kiedy rzucany jest wyjątek, to dane (albo jakikolwiek inny zasób),
+które wcześniej były stworzone, ale nie są już potrzebne, powinny być
+zniszczone (albo zasób zwolniony).  Programując z użyciem surowych
+wskaźników możemy zwolnić pamięć w bloku obsługi wyjątku (ang. a catch
+block), jak pokazano w przykładzie niżej.  Musimy zadeklarować
+wskaźnik `p` przed blokiem przechwytywania wyjątku (ang. a try block),
+żeby był dostępny w bloku obsługi wyjątku, a to komplikuje kod.
 
 {% highlight c++ %}
 {% include_relative except_raw1.cc %}
 {% endhighlight %}
 
-The same can be accomplished with smart pointers better:
+To samo, ale bezpieczniej, możemy osiągnąć z użyciem inteligentnych
+wskaźników:
 
 {% highlight c++ %}
 {% include_relative except_smart1.cc %}
