@@ -67,7 +67,7 @@ działaniem.  Kompilator nie jest w stanie wychycić błędu, bo operatory
 
 Problem własności może skutkować:
 
-* **przeciekiem pamięci** (ang. a memory leak), kiedy dynamicznie
+* **wyciek pamięci** (ang. a memory leak), kiedy dynamicznie
     zaalokowane dane nie są nigdy zniszczone, mimo że nie są już
     potrzebne,
 
@@ -367,26 +367,29 @@ wskaźników:
 {% include_relative except_smart1.cc %}
 {% endhighlight %}
 
-### Raw pointers not so easy, rather error-prone.
+### Surowe wskaźniki nie takie łatwe
 
-Because function arguments are not guaranteed to be evalued in the
-order they are listed, in the example below we've got a memory leak.
-At least I've got it with GCC, and if you don't, try to swap the
-arguments in the call to `foo`.  The object of class `A` is:
+W poniższym przykładzie mamy wyciek pamięci, ponieważ standard nie
+gwarantuje, że argumenty wywołania funkcji będą opracowane w
+kolejności ich podania.  Wyciek da się zaobserwować (brak wywołania
+destruktora) kompilując program z GCC.  Jeżeli używamy innego
+kompilatora i nie widzimy wycieku, to powinien się on pojawić po
+zamianie miejscami parametrów funkcji `foo`.
 
-* created, because the second argument of the call to function `foo`
-  is evaluated first, before function `index` is called,
+Obiekt klasy `A`:
 
-* not destroyed, because function `foo` is not called, because a call
-  to function `index` throws an exception.
+* jest tworzony, ponieważ drugi argument wywołania funkcji `foo` jest
+  opracowywany jako pierwszy, przed wywołaniem funkcji `index`,
+
+* nie jest niszczony, ponieważ funkcja `index` rzuca wyjątek, więc
+  funkcja `foo` nie jest wywołana.
 
 {% highlight c++ %}
 {% include_relative except_raw2.cc %}
 {% endhighlight %}
 
-The same can be accomplished the safe way with smart pointers.  This
-code works correctly regardless of whether an exception is thrown or
-not.
+To samo, ale bezpieczniej, możemy osiągnąć z użyciem inteligentnych
+wskaźników.  Ten kod działa poprawnie z wyjątkami.
 
 {% highlight c++ %}
 {% include_relative except_smart2.cc %}
