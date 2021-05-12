@@ -422,6 +422,6 @@ brak.
 
 * Czym jest semantyka wyłącznej własności?
 
-* Dlaczego warto używać funkcji `make_uniqe`?
+* Dlaczego warto używać funkcji `make_unique`?
 
 <!-- LocalWords:  -->
