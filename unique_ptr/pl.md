@@ -67,15 +67,16 @@ działaniem.  Kompilator nie jest w stanie wychycić błędu, bo operatory
 
 Problem własności może skutkować:
 
-* **przeciekiem pamięci**, kiedy dynamicznie zaalokowane dane nie są
-    nigdy zniszczone, mimo że nie są już potrzebne,
+* **przeciekiem pamięci** (ang. a memory leak), kiedy dynamicznie
+    zaalokowane dane nie są nigdy zniszczone, mimo że nie są już
+    potrzebne,
 
-* **dyndającym wskaźnikiem**, kiedy odwołujemy się do miejsca w
-    pamięci, ale dane, które tam się znajdowały, zostały już
-    zniszczone,
+* **dyndającym wskaźnikiem** (ang. a dangling pointer), kiedy
+    odwołujemy się do zwolnionego miejsca w pamięci, a dane, które tam
+    się znajdowały, zostały już zniszczone,
 
-* **podwójnym usunięciem**, kiedy próbujemy zniszczyć dane, które już
-    zostały zniszczone.
+* **podwójnym usunięciem** (ang. a double deletion), kiedy próbujemy
+    zniszczyć dane, które już zostały zniszczone.
 
 ### Problem obsługi wyjątków
 
