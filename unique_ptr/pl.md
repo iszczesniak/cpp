@@ -395,34 +395,33 @@ wskaźników.  Ten kod działa poprawnie z wyjątkami.
 {% include_relative except_smart2.cc %}
 {% endhighlight %}
 
-## The first example revisited
+## A na koniec pierwszy przykład
 
-Below there is the first example fixed with raw pointers.  All
-problems gone.
+Niżej jest przykład z samego początku, ale naprawiony.  Problemów
+brak.
 
 {% highlight c++ %}
 {% include_relative problems_solved.cc %}
 {% endhighlight %}
 
-# Conclusion
+# Podsumowanie
 
-* Don't use raw pointers, unless you really have to.
+* Nie używamy już surowych wskaźników, chyba że naprawdę musimy.
 
-* Start using `std::unique_ptr`, the most useful smart pointer type.
+* Używajmy `std::unique_ptr`, najczęściej potrzebnego inteligentnego
+  wskaźnika.
 
-* Smart pointers solve the type, ownership and exception handling
-  problems.
+* Inteligentne wskaźniki rozwiązują problemy typu, własności i obsługi
+  wyjątków.
 
-* Smart pointers introduce no, or little, performance overhead.
-
-* Go for the smart pointers!
+* Inteligentne wskaźniki nie wprowadzają narzutu wydajnościowego.
 
 # Quiz
 
-* Why should we use smart pointers instead of raw pointers?
+* Dlaczego warto używać inteligentnych wskaźników?
 
-* What is the exclusive ownership?
+* Czym jest semantyka wyłącznej własności?
 
-* What do we need the `make_uniqe` function for?
+* Dlaczego warto używać funkcji `make_uniqe`?
 
 <!-- LocalWords:  -->
