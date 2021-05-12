@@ -48,7 +48,7 @@ main()
   assert(p2);
   assert(p2 != nullptr);
 
-  // We can assign an new object to manage, but not this way.
+  // We can assign a new object to manage, but not this way.
   // p1 = new A("A1'");
 
   // That's the correct way.  The previously managed object is

@@ -67,7 +67,7 @@ działaniem.  Kompilator nie jest w stanie wychycić błędu, bo operatory
 
 Problem własności może skutkować:
 
-* **wyciek pamięci** (ang. a memory leak), kiedy dynamicznie
+* **wyciekiem pamięci** (ang. a memory leak), kiedy dynamicznie
     zaalokowane dane nie są nigdy zniszczone, mimo że nie są już
     potrzebne,
 
@@ -348,13 +348,13 @@ argument do funkcji, albo zwracając wynik z funkcji.  Oto przykład:
 
 ## Problem obsługi wyjątków
 
-Kiedy rzucany jest wyjątek, to dane (albo jakikolwiek inny zasób),
-które wcześniej były stworzone, ale nie są już potrzebne, powinny być
-zniszczone (albo zasób zwolniony).  Programując z użyciem surowych
-wskaźników możemy zwolnić pamięć w bloku obsługi wyjątku (ang. a catch
-block), jak pokazano w przykładzie niżej.  Musimy zadeklarować
-wskaźnik `p` przed blokiem przechwytywania wyjątku (ang. a try block),
-żeby był dostępny w bloku obsługi wyjątku, a to komplikuje kod.
+Kiedy rzucany jest wyjątek, to dane, które wcześniej były stworzone, a
+nie są już potrzebne, powinny być zniszczone.  Programując z użyciem
+surowych wskaźników możemy zwolnić pamięć w bloku obsługi wyjątku
+(ang. a catch block), jak pokazano w przykładzie niżej.  Musimy
+zadeklarować wskaźnik `p` przed blokiem przechwytywania wyjątku
+(ang. a try block), żeby był dostępny w bloku obsługi wyjątku, a to
+komplikuje kod.
 
 {% highlight c++ %}
 {% include_relative except_raw1.cc %}
