@@ -333,12 +333,13 @@ inteligentnymi wskaźnikami w ten sposób:
 {% include_relative array.cc %}
 {% endhighlight %}
 
-## The ownership problem
+## Problem własności
 
-The ownership problem is solved: you just move the ownership where you
-need to, e.g., a function or some structure.  You can move the
-ownership when you pass or return a unique pointer by value in a
-function call, as shown in the example below.
+Problem własności jest rozwiązany: po prostu przenosimy własność przez
+przenoszenie wartości inteligentnego wskaźnika, np. do funkcji czy
+jakiejś struktury danych.  Możemy także przenieść własność przekazując
+obiekt inteligentnego wskaźnika przez wartość, np. przekazując
+argument do funkcji, albo zwracając wynik z funkcji.  Oto przykład:
 
 {% highlight c++ %}
 {% include_relative solved_ownership.cc %}
