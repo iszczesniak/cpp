@@ -243,39 +243,39 @@ liczbie, także zero) wywołania funkcji są przekazywane do konstruktora
 zarządzanych danych.  W przykładzie wyżej, `"A1"` jest argumentem
 przekazywanym do konstruktora typu `A`.
 
-## No performance overhead
+## Bez narzutu wydajnościowego
 
-This example demonstrates that there is no performance overhead of
-using smart pointers.  In more complicated examples there might be
-some small overhead, which should go away as compilers get better at
-optimization.
+Poniższy przykład pokazuje, że inteligentne wskaźniki nie wprowadzają
+narzutu wydajnościowego.  W bardziej skomplikowanych przykładach być
+może będzie drobny narzut, ale można oczekiwać, że wraz z kolejnymi
+standardami C++ i nowszymi kompilatorami, ten narzut będzie mniejszy.
 
-The following example uses both the `std::unique_ptr` and
-`std::make_unique`.  Save this file as `test1.cc`:
+Przykład używa `std::unique_ptr` i `std::make_unique`.  Plik
+`test1.cc`:
 
 {% highlight c++ %}
 {% include_relative test1.cc %}
 {% endhighlight %}
 
-The following example of the same functionality uses raw pointers.
-Save this file as `test2.cc`:
+Poniższy przykład implementuje tą samą funkcjonalność z surowymi
+wskaźnikami.  Plik `test2.cc`:
 
 {% highlight c++ %}
 {% include_relative test2.cc %}
 {% endhighlight %}
 
-Now compile them to the assembly code with:
+Kompilujemy do asemblera:
 
 `g++ -S -O3 test1.cc test2.cc`
 
-Now there are two files with the assembly code: `test1.s`, and
-`test2.s`.  Take a look at one of them:
+Otrzymaliśmy dwa pliki w asemblerze: `test1.s` i `test2.s`.  Spójrzymy
+na jeden z nich:
 
 `c++filt < test1.s | less`
 
-Compare them to see that they are instruction-to-instruction the same
-(almost, there is one small difference), which shows there is no
-overhead of using `std::unique_ptr` and `std::make_unique`:
+Porównajmy te pliki, żeby się przekonać, że są takie same.  Porównanie
+pokazuje, że `std::unique_ptr` i `std::make_unique` nie wprowadzają
+narzutu:
 
 `diff test1.s test2.s`
 
