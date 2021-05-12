@@ -279,54 +279,55 @@ narzutu:
 
 `diff test1.s test2.s`
 
-## How to use `std::unique_ptr`
+## Jak używać `std::unique_ptr`
 
-The example below demonstrates the basic usage of `std::unique_ptr`.
+Przykład niżej pokazuje, jak używać `std::unique_ptr`.
 
 {% highlight c++ %}
 {% include_relative usage.cc %}
 {% endhighlight %}
 
-# The solutions to the problems
+# Rozwiązanie problemów
 
-## The type problem
+## Problem typu
 
-The type problem, more specifically the problem of mismatching the
-single and array versions of the new and delete operators, is solved
-by two versions (two template overloads) of smart pointers:
+Problem typu, czyli niespasowania wersji pojedynczej i tablicowej
+operatorów `new` and `delete`, jest rozwiązany przez dwie wersje
+inteligentnych wskaźników:
 
-* `std::unique_ptr<A>`: the managed data will be destroyed with the
-  single version of the delete operator,
+* dla pojedynczej danej: `std::unique_ptr<A>` zniszczy zarządzane dane
+  z użyciem pojedynczej wersji operatora `delete`,
 
-* `std::unique_ptr<A[]>`: the managed data will be destroyed with the
-  array version of the delete operator.
+* dla tablicy danych: `std::unique_ptr<A[]>` zniszczy zarządzane dane
+  z użyciem tablicowej wersji operatora `delete`.
 
-By using the right version of the smart pointer, you don't have to
-remember to destroy the managed data with the matching version of the
-delete operator.
+Używając odpowiedniej wersji inteligentnego wskaźnika nie musimy
+pamiętać o niszczeniu zarządzanych danych z użyciem odpowiedniego
+operatora `delete`.
 
-### Lurking problems, and how to deal with them.
+### Czychające problemy i jak sobie z nimi radzić.
 
-However, we still can introduce bugs like in the example below, where
-we:
+Ciągle jednak możemy popełnić błędy, jak w przykładzie niżej, gdzie:
 
-* declare to allocate a single integer, but allocate an array of
-  integers,
+* używamy inteligentnego wskaźnika do zarządzania jedną daną, a
+  alokujemy tablicę danych,
 
-* declare to allocate an array of integers, but allocate a single
-  integer.
+* używamy inteligentnego wskaźnika do zarządzania tablicą danych, a
+  alokujemy jedną daną.
 
-Use `std::make_unique` to get the same done safer, as shown below.
+Szablon funkcji `std::make_unique` pozwala nam bezpieczne osiągnąć
+poprawną implementację:
 
 {% highlight c++ %}
 {% include_relative solved_type.cc %}
 {% endhighlight %}
 
-### Use `std::array` instead!
+### Lepiej użyć `std::array`!
 
-If you really have to have an array of static size (i.e., the size
-doesn't change at run-time), it's better to use `std::array` instead
-of the C-style array.  You can use it with smart pointers like this:
+Jeżeli potrzebujemy tablicy statycznego rozmiaru (czyli rozmiaru,
+który nie zmienia się w czasie uruchomienia), to lepiej użyć
+`std::array` zamiast tablicy języka C.  Możemy jej użyc z
+inteligentnymi wskaźnikami w ten sposób:
 
 {% highlight c++ %}
 {% include_relative array.cc %}
