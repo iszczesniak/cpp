@@ -31,44 +31,41 @@ Rozwiązaniem problemu jest *semantyka współdzielonej własności*:
 
 * własności, ponieważ dane są niszczone, kiedy grupa staje się pusta.
 
-W Javie i C#, referencja ma semantykę współdzielonej własności.
+Referencja w Javie i C# ma semantykę współdzielonej własności.
 
 # `std::shared_ptr`
 
 * `#include <memory>`
 
-* The smart pointer type that implements the shared-ownership
-  semantics.
+* Inteligentny wskaźnik o semantyce wspołdzielonej własności.
 
-* The objects of this type are the **managing objects**, and the data
-  allocated dynamically is the **managed data**.
+* Jest to typ szablonowy: argumentem szablonu jest typ zarządzanych
+  danych.
 
-* It's a template class: the template argument is the type of the
-  manged data.
+* Przeciwstawność `std::unique_ptr`.
 
-* The opposite of `std::unique_ptr`.
+* Obiekt tego typu może być kopiowany i przenoszony.
 
-* Objects of this class can be copied and moved.
+* Obiekt, który przyjmuje dane do zarządzania, tworzy grupę obiektów
+  zarządzających.  Na początku grupa ma tylko jeden obiekt
+  zarządzający.
 
-* A managing object that takes the ownership of the managed data
-  creates a group of managing objects.  Initially, this group has only
-  one managing object.
+* Kiedy kopiujemy obiekt zarządzający, tworzymy kolejny obiekt
+  zarządzający, który należy do tej samej grupy obiektów
+  zarządzających.
 
-* When we copy a managing object, we create another managing object,
-  which belongs to the same group of managing objects.
+* Zarządzane dane są niszczone, kiedy ostatni z obiektów
+  zarządzających jest niszczony.
 
-* The managed data is destroyed, when the last managing object is
-  destroyed.
+* Dane nie wiedzą, że są zarządzane, ich typ nie musi być przygotowany
+  w specjalny sposób, np. nie musi być wyprowadzony z jakiegoś typu
+  bazowego.
 
-* The managed data don't know they are managed: the type of the data
-  doesn't have to be prepared to be managed, e.g., derived from some
-  base class.
+* Tak wydajny czasowo i pamięciowo, jak ta sama funkcjonalność
+  poprawnie zaimplementowana z użyciem surowych wskaźników.
 
-* As performant in terms of memory and time, as the same functionality
-  implemented "manually" with raw pointers.
-
-* An object of this class takes twice as much memory as the raw
-  pointer.
+* Obiekt tej klasy zabiera dwa razy więcej pamięci w porównaniu do
+  surowego wskaźnika.
 
 # Details
 
