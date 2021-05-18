@@ -2,37 +2,36 @@
 title: std::shared_ptr
 ---
 
-# Introduction
+# Wprowadzenie
 
-When we dynamically create some data (or any other resource) and use
-them in other threads or parts of code, we run into the problem when
-to destroy the data.  If we:
+Kiedy dynamicznie tworzymy dane (albo jakikolwiek inne zasoby) i
+używamy ich w innych wątkach albo częściach kodu, to pojawia się
+problem kiedy zniszczyć dane.  Jeżeli:
 
-* don't destroy the data, we get a memory leak,
+* nie zniszczymy danych, to mamy wyciek pamięci,
 
-* destroy the data too soon, we get a race condition: a dangling
-  pointer and undefined behavior, because other threads or parts of
-  code still use the data,
+* zniszczymy dane zbyt wcześnie, to mamy zjawisko hazardu: dyndający
+  wskaźnik i niezdefiniowane zachowanie, bo inne wątki czy części
+  pamięci ciągle używają danych,
 
-* destroy the data too late, we get suboptimal performance, because we
-  let the dispensable data linger in memory.
+* zniszczymy dane zbyt późno, to mamy spadek wydajności, ponieważ
+  pozwalamy niepotrzebnym danym tkwić w pamięci.
 
-Therefore we should destroy the data at the right time, i.e., when
-they are no longer needed.  However, this right time is hard to
-pinpoint with raw pointers, because it may depend on:
+Dlatego powinniśmy niszczyć dane we właściwym momencie, czyli wtedy,
+kiedy nie są one już potrzebne.  Niestety, ten właściwy moment jest
+trudny do określenia, ponieważ może on zależeć od:
 
-* the data (i.e., their specific values),
+* danych (ich pewnych wartości),
 
-* the timing of other threads.
+* przebiegu w czasie innych wątków (tego co i kiedy robią).
 
-The solution to the problem is the *shared-ownership semantics*:
+Rozwiązaniem problemu jest *semantyka współdzielonej własności*:
 
-* shared, because the data are managed by a group,
+* współdzielonej, ponieważ dane są zarządzane przez grupę,
 
-* ownership, because the data are destroyed when the group becomes
-  empty.
+* własności, ponieważ dane są niszczone, kiedy grupa staje się pusta.
 
-In Java or C#, a reference has the shared-ownership semantics.
+W Javie i C#, referencja ma semantykę współdzielonej własności.
 
 # `std::shared_ptr`
 
