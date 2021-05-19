@@ -12,16 +12,16 @@ problem kiedy zniszczyć dane.  Jeżeli:
 
 * zniszczymy dane zbyt wcześnie, to mamy zjawisko hazardu: dyndający
   wskaźnik i niezdefiniowane zachowanie, bo inne wątki czy części
-  pamięci ciągle używają danych,
+  programu ciągle używają danych,
 
 * zniszczymy dane zbyt późno, to mamy spadek wydajności, ponieważ
   pozwalamy niepotrzebnym danym tkwić w pamięci.
 
 Dlatego powinniśmy niszczyć dane we właściwym momencie, czyli wtedy,
-kiedy nie są one już potrzebne.  Niestety, ten właściwy moment jest
-trudny do określenia, ponieważ może on zależeć od:
+kiedy nie są już potrzebne.  Niestety, ten właściwy moment jest trudny
+do określenia, ponieważ może on zależeć od:
 
-* danych (ich pewnych wartości),
+* danych (ich wartości),
 
 * przebiegu w czasie innych wątków (tego co i kiedy robią).
 
@@ -57,9 +57,9 @@ Referencja w Javie i C# ma semantykę współdzielonej własności.
 * Zarządzane dane są niszczone, kiedy ostatni z obiektów
   zarządzających jest niszczony.
 
-* Dane nie wiedzą, że są zarządzane, ich typ nie musi być przygotowany
-  w specjalny sposób, np. nie musi być wyprowadzony z jakiegoś typu
-  bazowego.
+* Dane nie wiedzą, że są zarządzane, a ich typ nie musi być
+  przygotowany w specjalny sposób, np. nie musi być wyprowadzony z
+  jakiegoś typu bazowego.
 
 * Tak wydajny czasowo i pamięciowo, jak ta sama funkcjonalność
   poprawnie zaimplementowana z użyciem surowych wskaźników.
@@ -67,34 +67,35 @@ Referencja w Javie i C# ma semantykę współdzielonej własności.
 * Obiekt tej klasy zabiera dwa razy więcej pamięci w porównaniu do
   surowego wskaźnika.
 
-# Details
+# Szczegóły
 
-## Usage
+## Użycie
 
-The example below shows the basic usage.
+Przykład niżej pokazuje podstawowe użycie.
 
 {% highlight c++ %}
 {% include_relative basic.cc %}
 {% endhighlight %}
 
-## How it works
+## Jak to działa.
 
-* The group of managing objects share **a control data structure**,
-  which is allocated dynamically by the first object in the group.
+* Grupa obiektów zarządzających posiada jedną **strukturę
+  sterującą**.  Struktura jest alokowana dynamicznie przez obiekt,
+  który przyjął dane do zarządzania.
 
-* A managing object has a pointer to the control data structure of its
-  group.
+* Obiekt zarządzający posiada wskaźnik do struktury sterującej swojej
+  grupy.
 
-* A reference count (i.e., the size of the group) is a field in the
-  control data structure.
+* Licznik odwołań (ang. a reference count), czyli rozmiar grupy, jest
+  polem w strukturze sterującej.
 
-* When a managing object is copied, the reference count is
-  incremented.
+* Licznik odwołań jest inkrementowany, kiedy obiekt zarządzający jest
+  kopiowany.
 
-* When a managing object is destroyed, the reference count is
-  decremented.
+* Licznik odwołań jest dekrementowany, kiedy obiekt zarządzający jest
+  niszczony.
 
-* When the reference count reaches 0, the managed data is destroyed.
+* Dane zarządzane są niszczone, kiedy licznik odwołań osiąga 0.
 
 ## From `unique_ptr` to `shared_ptr`
 
