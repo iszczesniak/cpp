@@ -122,22 +122,21 @@ tymczasowego typu `unique_ptr` zwracanego przez funkcję:
 {% include_relative u2s_example.cc %}
 {% endhighlight %}
 
-## Performance
+## Wydajność
 
-A `shared_ptr` object takes twice as much memory as a raw pointer,
-because it has two fields:
+Obiekt typu `shared_ptr` zabiera dwa razy więcej pamięci jak surowy
+wskaźnik, ponieważ zawiera dwa pola składowe:
 
-* a pointer to the managed data,
+* wskaźnik do zarządzanych danych,
 
-* a pointer to the control data structure.
+* wskaźnik do struktury sterującej.
 
-On top of this, there is the memory taken by the control data
-structure allocated, but it's not a big deal, because it's shared
-among the managing objects.
+Dochodzi do tego jeszcze pamięć dla struktury sterującej, ale to nic
+wielkiego, bo jest ona współdzielona przez obiekty zarządzające.
 
-A pointer to the managed data could be kept in the control data
-structure, but then getting to the managed data would involve an extra
-indirect access, thwarting performance.
+Wskaźnik do zarządzanych danych mógłby być przechowywany w strukturze
+sterującej, ale wtedy dostęp do zarządzanych danych byłby wolniejszy,
+bo wymagałby dodatkowego odwołania pośredniego (przez wskaźnik).
 
 ## `std::make_shared`
 
