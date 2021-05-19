@@ -140,35 +140,35 @@ bo wymagałby dodatkowego odwołania pośredniego (przez wskaźnik).
 
 ## `std::make_shared`
 
-When creating the managed data and the managing object, we can write
-the type of the managed data twice (and perhaps introduce bugs):
+Kiedy tworzymy dane zarządzane i obiekt zarządzający, możemy podać typ
+zarządzanych danych dwa razy (i być może się pomylić):
 
 {% highlight c++ %}
 {% include_relative make_shared.cc %}
 {% endhighlight %}
 
-But we can use function `make_shared` and write the type only once
-like this (which is less error-prone):
+Ale możemy użyć szablonu funkcji `make_shared` i podać typ tylko raz,
+co jest mniej podatne na błędy:
 
 {% highlight c++ %}
 {% include_relative make_shared2.cc %}
 {% endhighlight %}
 
-Function template `make_shared` takes the type of the data to manage
-as its template argument.
+Szablon funkcji `make_shared` przyjmuje typ zarządzanych danych jako
+argument szablonu.
 
-Similar to function `make_unique`, function `make_shared` creates the
-managed data and the managing object, and then returns the managing
-object.  There is no performance overhead, since the function will
-most likely be inlined, and the constructors elided when returning the
-managing object.
+Podobnie do funkcji `make_unique`, funkcja `make_shared` tworzy dane
+zarządzane i obiekt zarządzający, a następnie zwraca obiekt
+zarządzający.  Nie będzie narzutu wydajnościowego, ponieważ funkcja
+najprawdopodobniej będzie wkompilowana, będzie zastosowana
+optymalizacja wartości powrotu, a konstruktor przenoszący zostanie
+pominięty.
 
-Interestingly, `make_shared` allocates *in one piece* (i.e., with one
-memory allocation) the memory for the managed data and the control
-data structure, and then creates *in place* (i.e., without allocating
-memory) the managed data and the control data structure, which is
-faster than allocating memory separately for the managed data and the
-control data structure.
+Co ciekawe, `make_shared` alokuje *w jednym kawałku* (czyli z jedną
+alokacją pamięci) pamięć dla zarządzanych danych i struktury
+sterującej, a następnie *tworzy w miejscu* (ang. to create in place,
+czyli pod wskazanym adresem, bez alokacji pamięci) dane zarządzane i
+strukturę sterującą, co jest szybsze niż dwie osobne alokacje pamięci.
 
 # Conclusion
 
