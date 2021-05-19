@@ -172,28 +172,22 @@ strukturę sterującą, co jest szybsze niż dwie osobne alokacje pamięci.
 
 # Podsumowanie
 
-* An object of class `shared_ptr<T>` allows for sharing data of type
-  `T` that were dynamically allocated.
+* Obiekt klasy `shared_ptr<A>` pozwala na współdzielenie danych typu
+  `A`, które były zaalokowane dynamicznie.
 
-* The objective: destroy the managed data exactly at the time the data
-  is no longer needed.
+* Cel: zniszczyć zarządzane dane wtedy, kiedy nie są już potrzebne.
 
-* A managing object of type `shared_ptr` is twice as large as a raw
-  pointer.
+* Obiekt zarządzający typu `shared_ptr` jest dwa razy większy niż
+  surowy wskaźnik.
 
-* We can easily pass the ownership from `unique_ptr` to `shared_ptr`,
-  but not the other way around.
+* Możemy łatwo przekazać własność z `unique_ptr` to `shared_ptr`, ale
+  nie odwrotnie.
 
 # Quiz
 
-* What's the difference between `unique_ptr` and `shared_ptr`?
+* Jaka jest różnica między `unique_ptr` i `shared_ptr`?
 
-* What do we need a control data structure for?
+* W jaki sposób należy przygotować typ danych, żeby `shared_ptr` mógł
+  nim zarządzac?
 
-* Does the type of the managed data need to have some properties in
-  order to be managed?
-
-{% include rid %}
-
-<!-- LocalWords: inlined multithreaded -->
-<!-- LocalWords: performant rvalue suboptimal -->
+* Dlaczego `shared_ptr` potrzebuje struktury sterującej?
