@@ -170,7 +170,7 @@ sterującej, a następnie *tworzy w miejscu* (ang. to create in place,
 czyli pod wskazanym adresem, bez alokacji pamięci) dane zarządzane i
 strukturę sterującą, co jest szybsze niż dwie osobne alokacje pamięci.
 
-# Conclusion
+# Podsumowanie
 
 * An object of class `shared_ptr<T>` allows for sharing data of type
   `T` that were dynamically allocated.
