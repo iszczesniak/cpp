@@ -97,26 +97,26 @@ Przykład niżej pokazuje podstawowe użycie.
 
 * Dane zarządzane są niszczone, kiedy licznik odwołań osiąga 0.
 
-## From `unique_ptr` to `shared_ptr`
+## Z `unique_ptr` do `shared_ptr`
 
-We can move the ownership from `unique_ptr` to `shared_ptr` like that
-alright:
+Możemy przenieść własność z obiektu typu `unique_ptr` do obiektu typu
+`shared_ptr` w ten sposób:
 
 {% highlight c++ %}
 {% include_relative u2s.cc %}
 {% endhighlight %}
 
-But it's downright better done this way:
+Ale lepiej jest tak:
 
 {% highlight c++ %}
 {% include_relative u2s_better.cc %}
 {% endhighlight %}
 
-We can move the ownership from an rvalue of type `unique_ptr`, because
-`shared_ptr` has the constructor which takes by rvalue reference an
-object of type `std::unique_ptr`.  Therefore, we can create a
-`shared_ptr` object from a temporary object of type `unique_ptr`,
-e.g., returned by a function like this:
+Możemy przenieść własność z r-wartości typu `unique_ptr` do obiektu
+typu `shared_ptr`, ponieważ typ `shared_ptr` ma konstruktor, który
+przyjmuje przez r-referencję obiekt typu `unique_ptr`.  W przykładzie
+niżej, tworzymy obiekt typu `shared_ptr` za podstawie obiektu
+tymczasowego typu `unique_ptr` zwracanego przez funkcję:
 
 {% highlight c++ %}
 {% include_relative u2s_example.cc %}
