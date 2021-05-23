@@ -1,4 +1,3 @@
-#include <concepts>
 #include <iostream>
 
 using namespace std;
