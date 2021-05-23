@@ -4,10 +4,10 @@ title: Ograniczenia
 
 # Wprowadzenie
 
-Szablony nie wprowadzają ograniczeń na argumenty szablonu.  Jeżeli
-argument jest niedozwolony, to dopiero na etapie konkretyzacji
-szablonu otrzymamy błąd, że **ciało funkcji** nie kompiluje się, ze
-wskazaniem w której linii jest błąd.
+Do C++20 szablony nie pozwalały na wprowadzenie ograniczeń dotyczących
+argumentów szablonu.  Jeżeli argument jest niedozwolony, to dopiero na
+etapie konkretyzacji szablonu otrzymamy błąd, że **ciało funkcji** nie
+kompiluje się, ze wskazaniem w której linii jest błąd.
 
 W przypadku prostego kodu łatwo zorientujemy się o co chodzi, jak na
 przykład tu:
@@ -129,8 +129,8 @@ prostu dwa różne, chociaż pokrewne, zastosowania.
 Lista parametrów w wyrażeniu ograniczenia jest opcjonalna i możemy ją
 pominąć, na przykład wtedy, kiedy w ciele wyrażenia ograniczenia
 użyjemy parametrów funkcji.  Żeby jednak użyć parametrów funkcji, to
-klauzulę ograniczenia musimy podać po liście parametrów funkcji, jak w
-tym przykładzie:
+klauzulę ograniczenia musimy podać po liście parametrów funkcji, a nie
+po liście argumentów szablonu, jak wcześniej.  Oto przykład:
 
 ```cpp
 {% include_relative requires2.cc %}
@@ -221,3 +221,12 @@ błędem dla niespełnionego warunku.
 * Ograniczenia pozwalają na definicję warunków szablonu.
 
 * Ograniczenia pozwalają na przeciążanie szablonów.
+
+# Quiz
+
+* Dlaczego ograniczenia są lepsze od statycznych asercji?
+
+* Dlaczego "requires requires" to nie błąd?
+
+* W jaki sposób możemy dostarczyć różne implementacje szablonu funkcji
+  w zależności od wymagań dotyczących argumentów szablonu?
