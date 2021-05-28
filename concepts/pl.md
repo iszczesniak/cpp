@@ -63,8 +63,9 @@ szablonem.  Tak więc w C++ szablony są nie tylko struktur danych,
 funkcji, czy typów, ale też konceptów.
 
 W bibliotece standardowej C++, główną biblioteką konceptów jest
-`concepts`, ale koncepty są zdefiniowane też w innym bibliotekach.  Na
-przykład w bibliotece `iterator` zdefiniowano koncept `incrementable`.
+`concepts`, ale koncepty są zdefiniowane też w innych bibliotekach.
+Na przykład w bibliotece `iterator` zdefiniowano koncept
+`incrementable`.
 
 Koncept definiujemy tak:
 
@@ -85,7 +86,8 @@ Oto prosty przykład:
 Raz zdefiniowany koncept możemy użyć w różnych miejscach.  Gdybyśmy
 nie chcieli używać konceptów, a jedynie ograniczeń, to musielibyśmy te
 ograniczenia (często rozbudowane) kopiować w każde miejsce użycia.
-Wiemy z autopsji, że copy-paste to najlepszy sposób na bugi.
+Wiemy z autopsji, że kopiowanie i wklejanie to najlepszy sposób na
+wprowadzenie błędów.
 
 **Koncepty wprowadzają porządek**.  Biblioteka standardowa definiuje
 standardowe koncepty.  Jak użyjemy standardowego konceptu, to każdy
@@ -104,7 +106,7 @@ przykład:
 {% include_relative short.cc %}
 ```
 
-Pozwolono nam jeszcze bardziej skrócić definicję szablonu.  Już nie
+C++ pozwala nam jeszcze bardziej skrócić definicję szablonu.  Już nie
 musimy pisać, że chodzi o szablon, którego parametr spełnia jakiś
 koncept.  Teraz możemy zdefiniować szablon funkcji używając nazwy
 konceptu jako typu parametru funkcji, po której podajemy typ `auto`.
@@ -114,9 +116,12 @@ Użyty koncept musi być jednoargumentowy.  Oto przykład:
 {% include_relative shorter.cc %}
 ```
 
-Nazwę konceptu możemy nawet pominąć, pozostawiając typ `auto`.  W
-przykładzie niżej definiujemy dwa przeciążenia szablonu funkcji:
-wygląda prosto, ale wiemy, że skomplikowane.
+Przy deklaracji typu parametru funkcji, nazwę konceptu możemy nawet
+pominiąć, pozostawiając typ `auto` -- tak możemy zdefiniować w sposób
+skrócony szablon funkcji.  W przykładzie niżej definiujemy dwa
+przeciążenia szablonu funkcji `print`: jedno bez ograniczeń, a drugie
+dla typu spełniającego koncept `integral`.  Wygląda prosto, ale wiemy,
+że skomplikowane.
 
 ```cpp
 {% include_relative auto.cc %}
@@ -141,11 +146,10 @@ Ograniczenia i koncepty mogą dotyczyć także callable.  W ten sposób
 możemy określić ograniczenia na callable dotyczące przyjmowanych
 argumentów czy zwracanego typu.
 
-W przykładzie niżej używamy szablonów wariadycznych (o dowolnej
-liczbie parametrów) do zdefiniowania ograniczenia `Callable`.
-Definiujemy także typ `EmptyCallable`, który jest domyślnym argumentem
-szablonu.  Zdefiniowaliśmy także domyślny `{}` argument wywołania
-funkcji `f`.
+W przykładzie niżej używamy szablonu wariadycznego do zdefiniowania
+konceptu `Callable`.  Definiujemy także typ `EmptyCallable`, który
+jest domyślnym argumentem szablonu funkcji `f`.  Zdefiniowaliśmy także
+domyślny `{}` argument wywołania funkcji `f`.
 
 Oto przykład:
 
@@ -164,10 +168,19 @@ Jeżeli chcielibyśmy skrócić dalej definicję szablonu funkcji `f`,
 czyli chcielibyśmy usunąć listę parametrów szablonu, to tracimy
 możliwość podania domyślengo argumentu `EmptyCallable` szablonu.
 
-# Podsumowanie.
+# Podsumowanie
 
 * Koncept to nazwane ograniczenie.
 
 * Koncept z idei stał się funkcjonalnością C++20.
 
 * Podstawowe koncepty zostały zdefiniowane w bibliotece standardowej.
+
+# Quiz
+
+* Kiedy warto używać konceptów a nie ograniczeń?
+
+* Na czym polega skrócony zapis szablonu funkcji?
+
+* Jak doskonale przekazać argument wywołania funkcji, kiedy jej
+  szablon jest zadeklarowany w skrócony sposób?
