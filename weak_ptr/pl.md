@@ -12,11 +12,12 @@ dane istnieją i, jeżeli trzeba, bezpiecznego użycia ich.  Można
 powiedzieć, że chcemy *śledzić dane* bez posiadania własności, czyli
 bez wymagania, że dane istnieją.
 
-In C++, this functionality is provided by the **weak pointer**,
-implemented by class template `std::weak_ptr`.  The weak pointer
-functionality is coupled with the shared pointer, because the weak
-pointer kind of shares the data, but not fully.  It's best to
-illustrate this functionality with an example.
+W C++ tę funkcjonalność dostarcza **słaby inteligentny wskaźnik**,
+który jest zaimplementowany przez szablon klasy `std::weak_ptr`.
+Funkcjonalność słabego wskaźnika jest powiązana ze wskaźnikiem typu
+`share_ptr`, ponieważ słaby wskaźnik w pewien niepełny sposób
+współdzieli zarządzane dane.  Poniższy przykład ilustruje i motywuje
+potrzebę słabego wskaźnika.
 
 # Motivating example
 
