@@ -6,11 +6,11 @@ title: std::weak_ptr
 
 Mamy gwarancję, że zarządzane dane istnieją tak długo, jak długo
 przynajmniej jeden wskaźnik inteligentny `shared_ptr` nimi
-zarządzadza.  Tej gwarancji jednak może czasem nie potrzebujemy.  Być
-może chcielibyśmy czegoś mniej: możliwości sprawdzenia czy zarządzane
-dane istnieją i, jeżeli trzeba, bezpiecznego użycia ich.  Można
-powiedzieć, że chcemy *śledzić dane* bez posiadania własności, czyli
-bez wymagania, że dane istnieją.
+zarządzadza.  Tej gwarancji jednak nie zawsze potrzebujemy.  Czasami
+wystarczy nam możliwości sprawdzenia czy zarządzane dane istnieją i,
+jeżeli trzeba, bezpiecznego użycia ich.  Można powiedzieć, że
+wystarczy nam *śledzenie danych* bez posiadania własności, czyli nie
+wymagamy, aby dane istniały.
 
 W C++ tę funkcjonalność dostarcza **słaby inteligentny wskaźnik**,
 który jest zaimplementowany przez szablon klasy `std::weak_ptr`.
@@ -19,22 +19,23 @@ Funkcjonalność słabego wskaźnika jest powiązana ze wskaźnikiem typu
 współdzieli zarządzane dane.  Poniższy przykład ilustruje i motywuje
 potrzebę słabego wskaźnika.
 
-# Motivating example
+# Motywacja
 
-We need a factory function, which returns a shared pointer to some
-(possibly large) data.  The function should:
+Implementujemy fabrykę, która zwraca `shared_ptr` do pewnych danych,
+które mogą być bardzo duże.  Fabryka powinna:
 
-* create the data anew if they do not exist,
+* stworzyć nowe dane, jeżeli nie istnieją,
 
-* reuse the already created data if they exist.
+* użyć wcześniej stworzone dane, jeżeli jeszcze istnieją.
 
-The factory function should track the created data without claiming
-the ownership, and reuse them if needed.  Whether the data still
-exists depends on the callers of the function, i.e., whether they keep
-or destroy their shared pointers.
+Fabryka powinna śledzić stworzone dane (bez posiadania ich) i
+ewentualnie ich użyć.  Istnienie danych zależy od sposobu ich użycia
+przez kod wywołujący fabrykę, czyli od tego, czy kiedy obiekty
+`shared_ptr` są niszczone.
 
-For this job we need weak pointers.  We cover some basics before we
-give the implementation.
+Fabrykę najlepiej zaimplementować z użyciem słabych wskaźników.  Zanim
+przedstawimy implementację fabryki, pierwsze omówimy podstawy słabych
+wskaźników.
 
 # Details
 
