@@ -2,14 +2,15 @@
 title: std::weak_ptr
 ---
 
-# Introduction
+# Wprowadzenie
 
-We are guaranteed that the managed data exist as long as at least one
-shared pointer to them exists.  This guarantee, however, might be more
-than we need.  We might want something less: the ability to check
-whether the managed data still exist, and use them safely if needed.
-We might say that we want to *track the managed data* without claiming
-an ownership, i.e., without requiring them to exist.
+Mamy gwarancję, że zarządzane dane istnieją tak długo, jak długo
+przynajmniej jeden wskaźnik inteligentny `shared_ptr` nimi
+zarządzadza.  Tej gwarancji jednak może czasem nie potrzebujemy.  Być
+może chcielibyśmy czegoś mniej: możliwości sprawdzenia czy zarządzane
+dane istnieją i, jeżeli trzeba, bezpiecznego użycia ich.  Można
+powiedzieć, że chcemy *śledzić dane* bez posiadania własności, czyli
+bez wymagania, że dane istnieją.
 
 In C++, this functionality is provided by the **weak pointer**,
 implemented by class template `std::weak_ptr`.  The weak pointer
