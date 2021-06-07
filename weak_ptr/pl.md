@@ -81,17 +81,18 @@ surowego wskaźnika, tak jak pozwalają na to `unique_ptr` i
 operatora dostępu do składowej przez wskaźnik (`operator ->`) czy
 funkcji `get`.
 
-Rozwiązanie. Zabezpiecz zarządzane dane (pozyskaj spółdzieloną
+Rozwiązanie.  Zabezpiecz zarządzane dane (pozyskaj spółdzieloną
 własność) poprzez stworzenie współdzielonego wskaźnika ze słabego
 wskaźnika.  Możemy to zrobić na dwa sposoby:
 
-* call the constructor of `shared_ptr` with a weak pointer, which
-  throws an exception if the weak pointer has expired,
+* wywołać konstruktor `shared_ptr` ze słabym wskaźnikiem; konstruktor
+  rzuci wyjątek, jeżeli dane słabego wskaźnika już nie istnieją,
 
-* call the `lock` function of the weak pointer, which returns a null
-  shared pointer if the weak pointer has expired.
+* wywołać funkcję (składową słabego wskaźnika) `lock`, która zwróci
+  współdzielony wskaźnik; współdzielony wskaźnik będzie pusty, jeżeli
+  zarządzane dane już nie istnieją.
 
-Here's an example:
+Oto przykład:
 
 {% highlight c++ %}
 {% include_relative snatch.cc %}
