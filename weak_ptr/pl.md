@@ -21,17 +21,17 @@ potrzebę słabego wskaźnika.
 
 # Motywacja
 
-Implementujemy fabrykę, która zwraca `shared_ptr` do pewnych danych,
-które mogą być bardzo duże.  Fabryka powinna:
+Implementujemy fabrykę zwracającą dane, które mogą być bardzo duże.
+Fabryka powinna:
 
 * stworzyć nowe dane, jeżeli nie istnieją,
 
-* użyć wcześniej stworzone dane, jeżeli jeszcze istnieją.
+* użyć wcześniej stworzonych danych, jeżeli jeszcze istnieją.
 
 Fabryka powinna śledzić stworzone dane (bez posiadania ich) i
 ewentualnie ich użyć.  Istnienie danych zależy od sposobu ich użycia
-przez kod wywołujący fabrykę, czyli od tego, czy kiedy obiekty
-`shared_ptr` są niszczone.
+przez kod wywołujący fabrykę, czyli od tego, kiedy współdzielone
+wskaźniki są niszczone.
 
 Fabrykę najlepiej zaimplementować z użyciem słabych wskaźników.  Zanim
 przedstawimy implementację fabryki, pierwsze omówimy podstawy słabych
@@ -110,7 +110,7 @@ słabych odwołań**, który przechowuje liczbę słabych wskaźników.
 
 Wiemy, że dane zarządzane są niszczone, kiedy licznik odwołań osiągnie
 zero.  Z kolei struktura sterująca jest niszczona, kiedy licznik
-odwołań i licznik słabych odwołań osiągnie zero.
+odwołań i licznik słabych odwołań osiągną zero.
 
 # Implementacja przykładu motywującego
 
@@ -158,7 +158,4 @@ wskaźnik jako swoje pole składowe.
 * Czy możemy stworzyć wskaźnik `weak_ptr` na podstawie wskaźnika
   `unique_ptr`?
 
-{% include rid %}
-
-<!-- LocalWords: inlined multithreaded -->
-<!-- LocalWords: performant rvalue suboptimal -->
+<!-- LocalWords: -->
