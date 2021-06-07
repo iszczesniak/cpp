@@ -10,7 +10,7 @@ problem kiedy zniszczyć dane.  Jeżeli:
 
 * nie zniszczymy danych, to mamy wyciek pamięci,
 
-* zniszczymy dane zbyt wcześnie, to mamy zjawisko hazardu: dyndający
+* zniszczymy dane zbyt wcześnie, to mamy zjawisko hazardu: nieaktualny
   wskaźnik i niezdefiniowane zachowanie, bo inne wątki czy części
   programu ciągle używają danych,
 

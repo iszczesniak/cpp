@@ -71,9 +71,9 @@ Problem własności może skutkować:
     zaalokowane dane nie są nigdy zniszczone, mimo że nie są już
     potrzebne,
 
-* **dyndającym wskaźnikiem** (ang. a dangling pointer), kiedy
-    odwołujemy się do zwolnionego miejsca w pamięci, do danych, które
-    zostały już zniszczone,
+* **nieaktualnym wskaźnikiem** (ang. an invalid pointer, aka a dangling
+    pointer), kiedy odwołujemy się do zwolnionego miejsca w pamięci,
+    do danych, które zostały już zniszczone,
 
 * **podwójnym usunięciem** (ang. a double deletion), kiedy próbujemy
     zniszczyć dane, które już zostały zniszczone.
