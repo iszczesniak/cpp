@@ -37,32 +37,33 @@ Fabrykę najlepiej zaimplementować z użyciem słabych wskaźników.  Zanim
 przedstawimy implementację fabryki, pierwsze omówimy podstawy słabych
 wskaźników.
 
-# Details
+# Szczegóły
 
 ## `std::weak_ptr`
 
 * `#include <memory>`
 
-* A C++11 class template, where the template argument is the type of
-  the tracked data.
+* Od C++11
 
-* A weak pointer can be copied and moved, but it's not that important
-  as for the unique and shared pointers.
+* Szablon klasy, którego argumentem jest typ śledzonych danych.
 
-* A weak pointer is created from a shared pointer.
+* Słaby wskaźnik może być kopiowany i przenoszony, ale nie jest to
+  takie ważne, jak przy `unique_ptr` i `shared_ptr`.
 
-* A weak pointer never destroys its managed data.
+* Słaby wskaźnik jest tworzony od współdzielonego wskaźnika.
 
-* We can produce a shared pointer from a weak pointer, if the managed
-  data still exist.
+* Słaby wskaźnik nigdy nie niszczy zarządzanych danych.
 
-* The managed data do not know they are managed, i.e., the type of the
-  managed data doesn't have to be prepared in some special way, like
-  deriving from some base class.
+* Żeby odwołać się do danych słabego wskaźnika, musimy stworzyć
+  współdzielony wskaźnik.  Uda się, jeżeli dane istnieją.
 
-## Usage
+* Zarządzane dane nie wiedzą, że są zarządzane, czyli typ zarządzanych
+  danych nie musi być przygotowany w jakiś specjalny sposób, na
+  przykład nie musi być wyprowadzony z jakiejś klasy bazowej.
 
-The example below shows the basic usage:
+## Użycie
+
+Przykład niżej demonstruje użycie wskaźnika:
 
 {% highlight c++ %}
 {% include_relative basic.cc %}
