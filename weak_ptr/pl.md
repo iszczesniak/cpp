@@ -69,20 +69,21 @@ Przykład niżej demonstruje użycie wskaźnika:
 {% include_relative basic.cc %}
 {% endhighlight %}
 
-## Producing the shared poiner from a weak pointer
+## Tworzenie współdzielonego wskaźnika ze słabego wskaźnika
 
-The problem: how to safely (i.e., without the race condition) use the
-managed data if, using a weak pointer, we know the data exist.  Even
-if we make sure that a weak poiner has not expired yet, we cannot use
-a raw pointer, because that raw pointer might dangle just a while
-later.  Luckily, `weak_ptr` does not offer a way of getting a raw
-pointer with the dereference operator (`operator *`), the member
-access through poiner operator (`operator ->`), or the `get` function
-just as the unique and shared pointers do.
+Problem.  W jaki sposób bezpiecznie (czyli bez zjawiska hazardu) użyć
+dane słabego wskaźnika, jeżeli one istnieją?  Nawet jeżeli
+sprawdziliśmy, że dane ciągle istnieją (używając funkcji `expired`),
+to nie możemy użyć surowego wskaźnika, ponieważ może on już być
+nieaktualny.  Na szczęście, `weak_ptr` nie pozwala na dostęp do
+surowego wskaźnika, tak jak pozwalają na to `unique_ptr` i
+`shared_ptr`, czyli z użyciem operatora wyłuskania (`operator *`),
+operatora dostępu do składowej przez wskaźnik (`operator ->`) czy
+funkcji `get`.
 
-The solution: *lock* the managed data (snatch the ownership) by
-creating a shared pointer from the weak pointer.  We can do it in two
-ways:
+Rozwiązanie. Zabezpiecz zarządzane dane (pozyskaj spółdzieloną
+własność) poprzez stworzenie współdzielonego wskaźnika ze słabego
+wskaźnika.  Możemy to zrobić na dwa sposoby:
 
 * call the constructor of `shared_ptr` with a weak pointer, which
   throws an exception if the weak pointer has expired,
