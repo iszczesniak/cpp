@@ -98,70 +98,65 @@ Oto przykład:
 {% include_relative snatch.cc %}
 {% endhighlight %}
 
-## How it works
+## Jak to działa
 
-The control data structure of the shared pointer group is also used by
-the weak pointers, which also belong to the group, but without
-claiming ownership.
+Struktura sterująca grupy współdzielonych wskaźników jest także
+używana przez słabe wskaźniki, które także należą do grupy, ale bez
+posiadania własności.
 
-Just as a shared pointer, a weak pointer has a raw pointer to the
-control data structure.
+Struktura sterująca posiada nie tylko licznik odwołań (który
+przechowuje liczbę współdzielonych wskaźników), ale także **licznik
+słabych odwołań**, który przechowuje liczbę słabych wskaźników.
 
-A managing structure not only has a reference count, but also a *weak
-count*, which keeps the number of weak pointers.
+Wiemy, że dane zarządzane są niszczone, kiedy licznik odwołań osiągnie
+zero.  Z kolei struktura sterująca jest niszczona, kiedy licznik
+odwołań i licznik słabych odwołań osiągnie zero.
 
-We know that the managed data is destroyed, when the reference count
-reaches zero.
+# Implementacja przykładu motywującego
 
-The control data structure is destroyed when both the reference count
-and the weak count reach zero.
-
-# The implementation of the motivating example
-
-Here's the implementation:
+Oto implementacja:
 
 {% highlight c++ %}
 {% include_relative factory.cc %}
 {% endhighlight %}
 
-## Performance
+## Wydajność
 
-A weak pointer takes twice as much memory as a raw pointer, because it
-has:
+Słaby wskaźnik zabiera dwa razy więcej pamięci, niż surowy wskaźnik,
+ponieważ słaby wskaźnik posiada jako pola składowe:
 
-* the raw pointer to the managed data,
+* surowy wskaźnik do zarządzanych danych,
 
-* the raw pointer to the control data structure.
+* surowy wskaźnik do struktury sterującej.
 
-What do we need the raw pointer to the managed data for if we cannot
-access it directly?  Beause it will be needed to produce a shared
-pointer.
+Dlaczego przechowywany jest surowy wskaźnik do zarządzanych danych,
+skoro i tak nie mamy do niego dostępu?  Ponieważ jest potrzebny przy
+tworzeniu współdzielonego wskaźnika.
 
-As for a shared pointer, the same applies to a raw pointer: the raw
-pointer to the managed data could be a part of the control data
-structure, but getting to the managed data would be slower, because an
-extra indirect access would be needed.
+Wiemy, że z powodu wydajności współdzielonych wskaźników, surowy
+wskaźnik do zarządzanych danych nie może być częścią struktury
+sterującej.  Tak więc słaby wskaźnik musi przechowywać ten surowy
+wskaźnik jako swoje pole składowe.
 
-# Conclusion
+# Podsumowanie
 
-* A weak pointer tracks the managed data without claiming the
-  ownership.
+* Słaby wskaźnik śledzi zarządzane dane, ale ich nie posiada.
 
-* We *always* produce a weak pointer from a shared pointer.
+* Słaby wskaźnik zawsze tworzymy ze współdzielonego wskaźnika.
 
-* We can produce a shared pointer from a weak pointer if possible,
-  i.e., if the managed data exist.
+* Możemy stworzyć współdzielony wskaźnik ze słabego wskaźnika, jeżeli
+  zarządzane dane ciągle istnieją.
 
-* A weak pointer never destroys the managed data.
+* Słaby wskaźnik nigdy nie niszczy danych.
 
 # Quiz
 
-* What do we need type `weak_ptr` for?
+* Dlaczego potrzebujemy `weak_ptr`?
 
-* What's the difference between `shared_ptr` and `weak_ptr`?
+* Jaka jest różnica między `shared_ptr` i `weak_ptr`?
 
-* Can we create an object of type `weak_ptr` based on an object of
-  type `unique_ptr`?
+* Czy możemy stworzyć wskaźnik `weak_ptr` na podstawie wskaźnika
+  `unique_ptr`?
 
 {% include rid %}
 
