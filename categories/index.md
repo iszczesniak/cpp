@@ -137,7 +137,7 @@ address of an rvalue.
 The examples of rvalues are:
 
 * a numeric literal: `1`
-* a temporary object: `std::string("Hello World!")`
+* an expression that creates a temporary object: `std::string("Hello World!")`
 * the result of the sufffix incrementation: `i++`
 * a function call: `foo()`, if `int foo();`
 
