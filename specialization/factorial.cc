@@ -3,21 +3,21 @@
 using namespace std;
 
 template<int N>
-int factorial()
+constexpr int factorial()
 {
   return N * factorial<N - 1>();
 }
 
 template<>
-int factorial<0>()
+constexpr int factorial<0>()
 {
   return 1;
 }
 
 template<typename T, T N>
-T factorial()
+constexpr T factorial()
 {
-  if (N)
+  if constexpr (N)
     return N * factorial<N - 1>();
   else
     return 1;
