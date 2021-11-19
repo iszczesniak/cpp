@@ -148,7 +148,7 @@ Tak może wyglądać użycie biblioteki:
 {% include_relative need.cc %}
 {% endhighlight %}
 
-Jeżeli przeciążenie funkcji zdefiniujemy po dołączeniu biblioteki, to
+Jeżeli przeciążenie funkcji zadeklarujemy po dołączeniu biblioteki, to
 funkcja `goo` nie będzie go znała i nie użyje go.  Funkcja wie
 natomiast, że może użyć szablonu funkcji `foo`, bo jej szablon
 podstawowy został zadeklarowany.
