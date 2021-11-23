@@ -1,3 +1,10 @@
+**********************************************************************
+
+Show that member references are a problem for the assignment operator,
+because a reference cannot be made to refer to some other data.
+
+**********************************************************************
+
 In references, mention how to overload a member function based on the
 category of the expression for which the member function was called,
 like here, where foo can be called only for rvalues:
@@ -9,16 +16,16 @@ struct A
 
 **********************************************************************
 
+Overload resolution chooses a more specialized overload.  What does it
+exactly mean?  Specialized?
+
+**********************************************************************
+
 ordering types, lower_bound, upper_bound in std::map
 
 <=>, and how others are synthesized from <=>
 
 std::map::Compare::is_transparent
-
-**********************************************************************
-
-Show that member references are a problem for the assignment operator,
-because a reference cannot be made to refer to some other data.
 
 **********************************************************************
 
