@@ -18,9 +18,9 @@ void foo(const T &)
 }
 
 template<typename T>
-void foo(initializer_list<T> &)
+void foo(const initializer_list<T> &)
 {
-  cout << "Overload #1: const reference\n";
+  cout << "Overload #3: const initializer_list\n";
   cout << __PRETTY_FUNCTION__ << "\n\n";
 }
 
@@ -28,8 +28,11 @@ int main()
 {
   int a[] = {1, 2, 3};
   foo(a); // Overload #1
+
   const int b[] = {1, 2, 3};
   foo(b); // Overload #2
-  
-  //  foo({1, 2, 3});
+
+  foo({1, 2, 3}); // Overload #3
+
+  foo((int[3]){1, 2, 3}); // Overload #2
 }
