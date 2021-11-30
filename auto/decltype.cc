@@ -10,7 +10,7 @@ int &foo()
 int main()
 {
   double a = 0.1;
-  // Variable b is of the integer type.
+  // Variable b is of the double type.
   decltype(a) b = 1;
 
   int i, j = 1;
