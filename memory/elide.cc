@@ -40,10 +40,12 @@ int main()
     A b{};
     A c = A();
     A d = A{};
+    A e(A{});
+    A f{A()};
 
     // Acceptable and interesting, but we don't code like that.
-    A e = A(A());
-    A f = A{A{}};
+    A g = A(A());
+    A h = A{A{}};
   }
 
   // The equivalent ways of direct (with arguments) initialization.
@@ -52,9 +54,11 @@ int main()
     A b{"b"};
     A c = A("c");
     A d = A{"d"};
+    A e(A{"e"});
+    A f{A("f")};
 
     // Acceptable and interesting, but we don't code like that.
-    A e = A(A("e"));
-    A f = A{A{"f"}};
+    A g = A(A("e"));
+    A h = A{A{"f"}};
   }
 }
