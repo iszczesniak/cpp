@@ -316,7 +316,10 @@ destination.
 
 This example that demonstrates the constructor elision.  Compile the
 example with, then without the flag `-fno-elide-constructors`.  Notice
-the differences at run-time.
+the differences at run-time.  If you compile your code with C++17
+(e.g., with `-std=c++17` in GCC) or higher, your request to disable
+constructor elision may be ignored by the compiler, because
+constructor elision in some cases is mandatory since C++17.
 
 {% highlight c++ %}
 {% include_relative elide.cc %}
@@ -325,7 +328,7 @@ the differences at run-time.
 Compile the various previous examples of passing arguments to and
 returning results from functions but without disabling the constructor
 elision.  Notice that with constructor elision, objects are not copied
-unnecessarily.
+(nor moved) unnecessarily.
 
 When a temporary is passed by value as an argument, that temporary is
 created directly (i.e., with the constructor elided) in the location
@@ -375,7 +378,8 @@ copy the result from the global or static data:
   enough.
 
 * Nowadays passing parameters or returning results by value is
-  efficient, because the value is not copied or moved unnecessarily.
+  efficient, because the value is not copied (nor moved)
+  unnecessarily.
 
 # Quiz
 
