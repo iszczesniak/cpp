@@ -7,6 +7,8 @@ title: Materiały z C++
 Tu są moje materiały dotyczące C++, które uważam za interesujące i
 ważne dla wydajnego kodu.
 
+## Zaawansowane programowanie obiektowe
+
 * [Organizacja pamięci](memory/pl)
 * [Kategorie wyrażeń](categories/pl)
 * [Referencje](references/pl)
@@ -16,3 +18,16 @@ ważne dla wydajnego kodu.
 * [`std::unique_ptr`](unique_ptr/pl)
 * [`std::shared_ptr`](shared_ptr/pl)
 * [`std::weak_ptr`](weak_ptr/pl)
+
+## Programowanie uogólnione
+
+* [Szablony](templates/pl)
+* [Wnioskowanie](deduction/pl)
+* [Specjalizacja](specialization/pl)
+* [Specyfikator `auto`](auto/pl)
+* [Doskonałe przekazywanie argumentów](forwarding/pl)
+* [Uogólnione wyrażenia wywołania](callable2/pl)
+* [Ograniczenia](constraints/pl)
+* [Koncepty](concepts/pl)
+
+{% include rid_pl %}

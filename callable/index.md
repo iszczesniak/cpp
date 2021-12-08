@@ -398,6 +398,6 @@ error-prone).
 
 * Are lambdas indispensable?
 
-{% include rid_pl %}
+{% include rid %}
 
 <!-- LocalWords: callable callables constructor inlined -->
