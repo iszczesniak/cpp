@@ -277,3 +277,5 @@ Oto przykład:
 * Jaka jest różnica między specyfikatorami `auto` i `decltype(auto)`?
 
 * Na czym polega doskonałe zwracanie wartości?
+
+{% include rid_pl %}

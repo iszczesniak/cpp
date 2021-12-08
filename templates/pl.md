@@ -384,4 +384,6 @@ szablonowym).  Wniosek: **podstawienie to nie inicjalizacja**.
 
 * Polimorfizm statyczny a dynamiczny.
 
+{% include rid_pl %}
+
 <!-- LocalWords: lvalue lvalues rvalue -->

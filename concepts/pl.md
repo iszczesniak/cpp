@@ -184,3 +184,5 @@ możliwość podania domyślengo argumentu `EmptyCallable` szablonu.
 
 * Jak doskonale przekazać argument wywołania funkcji, kiedy jej
   szablon jest zadeklarowany w skrócony sposób?
+
+{% include rid_pl %}

@@ -230,3 +230,5 @@ błędem dla niespełnionego warunku.
 
 * W jaki sposób możemy dostarczyć różne implementacje szablonu funkcji
   w zależności od wymagań dotyczących argumentów szablonu?
+
+{% include rid_pl %}
