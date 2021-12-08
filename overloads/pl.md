@@ -43,3 +43,5 @@ Różnica między specjalizacją szablonu, a przeciążeniem szablonu.
 
 Jak wybrany jest szablon podstawowy, to potem wybierana jest najlepiej
 pasująca specjalizacja szablonu.
+
+{% include rid_pl %}

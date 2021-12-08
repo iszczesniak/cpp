@@ -424,4 +424,6 @@ brak.
 
 * Dlaczego warto używać funkcji `make_unique`?
 
+{% include rid_pl %}
+
 <!-- LocalWords:  -->

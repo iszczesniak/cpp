@@ -158,4 +158,6 @@ wskaźnik jako swoje pole składowe.
 * Czy możemy stworzyć wskaźnik `weak_ptr` na podstawie wskaźnika
   `unique_ptr`?
 
+{% include rid_pl %}
+
 <!-- LocalWords: -->

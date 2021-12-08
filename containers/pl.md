@@ -506,7 +506,7 @@ miejsca docelowego.
 
 * Jak działa umieszczanie?
 
-{% include rid %}
+{% include rid_pl %}
 
 <!-- LocalWords: cbegin -->
 <!-- LocalWords: cend -->
