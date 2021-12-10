@@ -400,6 +400,4 @@ i popełniać mniej błędów.
 
 * Czy wyrażenia lambda są nieodzowne?
 
-{% include rid_pl %}
-
 <!-- LocalWords: callable inlined -->

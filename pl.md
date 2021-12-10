@@ -29,5 +29,3 @@ ważne dla wydajnego kodu.
 * [Uogólnione wyrażenia wywołania](callable2/pl)
 * [Ograniczenia](constraints/pl)
 * [Koncepty](concepts/pl)
-
-{% include rid_pl %}

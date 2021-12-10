@@ -250,6 +250,4 @@ opcją `-O3` i porównać wyniki.
 
 * Jaka jest różnica między funkcjami `std::invoke` and `std::apply`?
 
-{% include rid_pl %}
-
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->

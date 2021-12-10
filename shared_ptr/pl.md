@@ -191,5 +191,3 @@ strukturę sterującą, co jest szybsze niż dwie osobne alokacje pamięci.
   nim zarządzac?
 
 * Dlaczego `shared_ptr` potrzebuje struktury sterującej?
-
-{% include rid_pl %}

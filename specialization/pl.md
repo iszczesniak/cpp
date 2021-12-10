@@ -232,6 +232,4 @@ specjalizacji użyć.
 * Czy specjalizacja szablonu typu dziedziczy po podstawowym szablonie
   typu?
 
-{% include rid_pl %}
-
 <!-- LocalWords: lvalue lvalues rvalue -->

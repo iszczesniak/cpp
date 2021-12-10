@@ -469,5 +469,3 @@ W poniższym przykładzie wnioskowanie nie udaje się:
 * Co to jest rozpad tablicy?
 
 * Czy może być wywnioskowany szablonowy typ szablonu?
-
-{% include rid_pl %}

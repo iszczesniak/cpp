@@ -330,8 +330,6 @@ będą przekazywane zawsze l-wartości do funkcji `g`.  Można sprawdzić.
 
 * Co to jest referencja przekazująca?
 
-{% include rid_pl %}
-
 <!-- LocalWords: inicjalizowane -->
 
 <!-- LocalWords: podproblem -->

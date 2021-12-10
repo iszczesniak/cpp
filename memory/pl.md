@@ -399,8 +399,6 @@ wtedy jedynie skopiować wynik:
 
 * Czym jest optymalizacja wartości powrotu?
 
-{% include rid_pl %}
-
 <!-- LocalWords: enum  sigsegv endhighlight heisenbugs -->
 <!-- LocalWords: deallocates defragmentation manyfold args -->
 <!-- LocalWords: EAX RDI RVO SIGSEGV -->
