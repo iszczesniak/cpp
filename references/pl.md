@@ -302,8 +302,6 @@ niszczona podczas niszczenia obiektu:
 
 * Referencja przedłuża istnienie danej tymczasowej.
 
-{% include rid_pl %}
-
 <!-- LocalWords: expr -->
 <!-- LocalWords: lvalue lvalues rvalue -->
 <!-- LocalWords: rvalue -->
