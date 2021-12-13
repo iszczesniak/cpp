@@ -31,7 +31,7 @@ być kwalifikatory `qualifiers_a` i jaki typ `type_a`?  Czy
 kwalifikatorem może, czy musi być `const`?  Czy typem ma być `T`, `T
 &`, czy `T &&`?
 
-**ODPOWIEDŹ**: Można, ale tylko z C++11.  O tym później.
+**ODPOWIEDŹ**: Można, ale tylko od C++11.  O tym później.
 
 ## Dlaczego to problem?
 
