@@ -11,9 +11,18 @@ f1(callable *c)
   c();
 }
 
-// I'm not sure what we accept here, but it compiles.
+// The parameter type is the same as above.  It's a pointer to a
+// function.  We could say that the function type decays into the
+// function pointer type, because a function cannot be passed by
+// value.
 void
 f2(callable c)
+{
+  c();
+}
+
+void
+f3(callable &c)
 {
   c();
 }
@@ -40,10 +49,13 @@ main()
   // Here we pass a regular pointer to a function.
   f1(g);
   f2(g);
+  f3(g);
 
   // Here we implicitly get a pointer to the closure function.
   f1([]{cout << "World!\n";});
   f2([]{cout << "World!\n";});
+  // Doesn't work for the function reference type.
+  // f3([]{cout << "World!\n";});
 
   // This would not compile, because a functor does not convert to a
   // function pointer.  A functor is an object, which we
