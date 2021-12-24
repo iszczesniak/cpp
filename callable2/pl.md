@@ -238,8 +238,10 @@ opcją `-O3` i porównać wyniki.
 
 * Do wywołania otrzymanego callable najlepiej jest użyć `std::invoke`.
 
-* Typ `std::function` wprowadza narzut czasowy, a `std::invoke` i
-  `std::apply` nie.
+* Typ `std::function` jest narzędziem czasu uruchomienia.
+
+* Szablony funkcji `std::invoke` i `std::apply` są narzędziami czasu
+  kompilacji.
 
 # Quiz
 
