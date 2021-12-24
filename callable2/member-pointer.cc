@@ -17,4 +17,5 @@ main()
   A a;
   a.p = foo;
   (*a.p)();
+  a.p();
 }
