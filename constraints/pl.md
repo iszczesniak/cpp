@@ -202,8 +202,8 @@ error).
 
 Tutaj jest kolejny przykład, który nie kompiluje się w całości,
 chociaż nie rozumiem dlaczego.  Problem jest z wyborem przeciążenia
-dla zakomentowanego wywołania funkcji.  Albo to bug w kompilatorze,
-albo moja niewiedza.
+dla zakomentowanego wywołania funkcji.  GCC 9 kompiluje, ale GCC 10
+już nie.
 
 ```cpp
 {% include_relative overload2.cc %}
