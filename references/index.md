@@ -92,7 +92,7 @@ There are three reference types:
 The reference types we use only in the definition of a variable type
 or of a function return type.  An expression is never of a reference
 type, because a reference is replaced with the data the reference
-refers to.
+refers to. [expr.type]
 
 ## Terms lvalue and rvalue in type names
 

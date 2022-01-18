@@ -107,7 +107,8 @@ albo referencją do r-wartości.
 Typy referencyjne używamy w definicji typu, np. typu zmiennej czy typu
 zwracanego przez funkcję.  Wyrażenie nigdy nie jest typu
 referencyjnego, ponieważ w miejsce referencji (np. zmiennej
-referencyjnej) podstawiana jest dana, do której referencja się odnosi.
+referencyjnej) podstawiana jest dana, do której referencja się
+odnosi. [expr.type]
 
 ## Terminy l-wartość i r-wartość w nazwach typów
 
