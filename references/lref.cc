@@ -51,8 +51,9 @@ main()
   // Now x has 2.
   std::cout << "x = " << x << std::endl;
 
-  // Initialize an lvalue reference with an lvalue reference.
+  // Initialize an lvalue reference with an expression that z is an
+  // alias of.  Expression z is simply treated as x.
   int &zz = z;
-  // The above has the same effect as this one.
+  // Therefore the above has the same effect as this one.
   int &zx = x;
 }
