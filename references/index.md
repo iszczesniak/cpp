@@ -89,6 +89,11 @@ There are three reference types:
 * `T &&` - *an rvalue reference*: binds to data that we can both
   modify and move (because they soon will not be needed).
 
+The reference types we use only in the definition of a variable type
+or of a function return type.  An expression is never of a reference
+type, because a reference is replaced with the data the reference
+refers to.
+
 ## Terms lvalue and rvalue in type names
 
 Expressions are called an lvalue or an rvalue, e.g.:

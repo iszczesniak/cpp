@@ -104,6 +104,11 @@ L-referencja jest też nazywana referencją l-wartości, albo referencją
 do l-wartości.  R-referencja jest też nazywana referencją r-wartości,
 albo referencją do r-wartości.
 
+Typy referencyjne używamy w definicji typu, np. typu zmiennej czy typu
+zwracanego przez funkcję.  Wyrażenie nigdy nie jest typu
+referencyjnego, ponieważ w miejsce referencji (np. zmiennej
+referencyjnej) podstawiana jest dana, do której referencja się odnosi.
+
 ## Terminy l-wartość i r-wartość w nazwach typów
 
 Wyrażenia nazywamy l-wartością lub r-wartością, np.:
