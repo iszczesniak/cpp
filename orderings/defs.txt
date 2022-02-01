@@ -1,0 +1,19 @@
+# Equivalent vs unordered vs incomparable
+
+Equivalence is a binary relation that is reflexive, symmetric and
+transitive.
+
+# Strict weak ordering
+
+It's a partial ordering in which incomparability is transitive.
+
+* irreflexiv: x R x is false
+
+* antisymmetric: if x R y is true, then y R x is false
+
+* transitive: if x R y and y R z are true, then x R z is true
+
+* transitive incomparability: if x and y are incomparable
+  (R-incomparable), and so y and z are, then so x and z are
+
+
