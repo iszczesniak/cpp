@@ -222,7 +222,9 @@ Szablonowe mogą być:
 
 * typy (czyli aliasy typów),
 
-* zmienne.
+* zmienne,
+
+* koncepty.
 
 Deklaracje i definicje szablonów rozpoczynają się słowem kluczowym
 `template` z taką składnią:
