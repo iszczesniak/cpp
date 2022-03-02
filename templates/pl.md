@@ -301,8 +301,8 @@ w stanie go wywnioskować:
 {% endhighlight %}
 
 W przykładzie niżej też mamy wartościowy parametr szablonu `N`,
-którego argument musi być jawnie podany.  Ale mamy też wartościowy
-parametr szablonu `T`, którego *argument* może być wywnioskowany:
+którego argument musi być jawnie podany.  Ale mamy też typowy parametr
+szablonu `T`, którego *argument* może być wywnioskowany:
 
 {% highlight c++ %}
 {% include_relative print3.cc %}
