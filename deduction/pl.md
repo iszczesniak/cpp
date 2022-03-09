@@ -446,7 +446,10 @@ wywnioskowany więcej niż raz (czyli dla różnych par), to musiał on
 zostać wywnioskowany zawsze tak samo, w przeciwnym razie wnioskowanie
 nie udaje się.
 
-W poniższym przykładzie wnioskowanie nie udaje się:
+Podczas wnioskowania nie jest dopuszczalna konwersja typów.  W
+przykładzie niżej wnioskowane są różne argumenty, bo nie jest
+dopuszczalna konwersja różnych typów argumentów wywołania funkcji.
+Zatem w poniższym przykładzie wnioskowanie nie udaje się:
 
 {% highlight c++ %}
 {% include_relative fail.cc %}
