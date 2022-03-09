@@ -1,6 +1,13 @@
 template <typename T>
 T
-max(const T &a, const T &b)
+max_ref(const T &a, const T &b)
+{
+  return b < a ? a : b;
+}
+
+template <typename T>
+T
+max_val(T a, T b)
 {
   return b < a ? a : b;
 }
@@ -24,5 +31,12 @@ main()
   // 
   // * T is first deduced int, then double, so deduction fails.
 
-  // max(1, .1);
+  // max_ref(1, .1);
+  // max_val(1, .1);
+  
+  // No deduction takes place.
+  max_ref<int>(1, .1);
+  max_ref<double>(1, .1);
+  max_val<int>(1, .1);
+  max_val<double>(1, .1);
 }
