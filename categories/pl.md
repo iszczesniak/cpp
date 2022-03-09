@@ -94,10 +94,10 @@ l-wartości i r-wartości.  Standard C++, który ma około 1500 stron,
 definiuje po trochu te kategorie w różnych miejscach, według potrzeby,
 co utrudnia zrozumienie kategorii wartości.
 
-Na domiar tych trudności, w C++17 wprowadzono kolejne kategorie:
-pr-wartość, gl-wartość i x-wartość.  Jednak dwiema podstawowymi
-kategoriami są l-wartość i r-wartość i tylko nimi będziemy się
-zajmować.
+Na domiar tych trudności, w C++11 wprowadzono kolejne kategorie:
+pr-wartość, gl-wartość i x-wartość, które w C++17 uszczegółowiono.
+Jednak dwiema podstawowymi kategoriami są l-wartość i r-wartość i
+tylko nimi będziemy się zajmować.
 
 Trzeba poznać szczegóły l-wartości i r-wartości, żeby zrozumieć i
 wydajnie używać nowoczesny C++ (chociaż też bez nich można jakoś się
