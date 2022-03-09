@@ -146,7 +146,7 @@ pobrać adresu r-wartości.
 Przykładami r-wartości są:
 
 * literał numeryczny: `1`
-* obiekt tymczasowy: `std::string("Hello World!")`
+* wyrażenie tworzące obiekt tymczasowy: `std::string("Hello World!")`
 * wynik sufiksowego operatora inkrementacji: `i++`
 * wywołanie funkcji: `foo()`, jeżeli `int foo();`
 
