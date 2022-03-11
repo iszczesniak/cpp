@@ -4,6 +4,8 @@
 
 using namespace std;
 
+// We have to define the function as non-member, because we cannot
+// modify type std::string.
 string
 operator++(string &s, int)
 {
