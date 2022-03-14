@@ -5,7 +5,7 @@ title: Organizacja pamięci
 # Wprowadzenie
 
 C++ przetwarza dane typów *wbudowanych* (np. `int`, `long double`)
-albo *zdefiniowanych przez użytkownika* (np., `struct A`, `struct B`,
+albo *zdefiniowanych przez użytkownika* (np., `struct A`, `class B`,
 `enum C`, `union D`).  Standard C++ opisuje:
 
 * kiedy dane są tworzone i niszczone,
