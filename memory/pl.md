@@ -408,7 +408,8 @@ wtedy jedynie skopiować wynik:
 
 * W jakich miejscach pamięci możemy tworzyć obiekty?
 
-* Czym jest optymalizacja wartości powrotu?
+* Na czym polega pomijanie konstruktorów przy zwracaniu wyniku przez
+  wartość?
 
 <!-- LocalWords: enum  sigsegv endhighlight heisenbugs -->
 <!-- LocalWords: deallocates defragmentation manyfold args -->
