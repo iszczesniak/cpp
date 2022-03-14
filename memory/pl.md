@@ -266,8 +266,8 @@ referencję.  Na nowoczesnym systemie i z nowoczesnym kompilatorem,
 wynik zwracany przez wartość nie jest kopiowany.  Żeby zobaczyć pewne
 stare zachowanie C++, proszę skompilować przykład z flagą
 `-fno-elide-constructors`.  Gdzie i dlaczego obiekty są kopiowane?  To
-zależy od konwencji wywołania funkcji, unikania konstruktorów i
-optymalizacji wartości powrotu.
+zależy od konwencji wywołania funkcji, optymalizacji wartości powrotu
+czy unikania konstruktorów.
 
 {% highlight c++ %}
 {% include_relative return.cc %}
