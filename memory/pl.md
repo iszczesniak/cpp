@@ -350,12 +350,13 @@ wywołanie konstruktora.  **Pominięcie konstruktora dla zwracanej
 wartości wymaga zastosowania nowoczesnej konwencji wywołania
 funkcji.**
 
-Kiedyś ta funkcjonalność była nazywana optymalizacją wartości powrotu
-(ang. return value optimization, RVO), bo była opcjonalną cechą
-optymalizatora kompilatora, a od C++17 jest cechą języka.  C++17 nie
-wymaga, żeby konstruktory były dostępne, jeżeli są pomijane, więc
-poniższy kod jest poprawny w myśl C++17 (opcja `-std=c++17` GCC), ale
-nie C++14 (opcja `-std=c++14` GCC):
+Ta funkcjonalność jest cechą języka od C++17, ale wcześniej była
+nazywana optymalizacją wartości powrotu (ang. return value
+optimization, RVO), bo była opcjonalną cechą optymalizatora
+kompilatora.  Od C++17 nie wymaga się, żeby konstruktory były
+dostępne, jeżeli są pomijane, więc poniższy kod jest poprawny w myśl
+C++17 (opcja `-std=c++17` GCC), ale nie C++14 (opcja `-std=c++14`
+GCC):
 
 {% highlight c++ %}
 {% include_relative rvo_or_not.cc %}
