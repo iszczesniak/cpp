@@ -11,9 +11,7 @@ albo *zdefiniowanych przez użytkownika* (np., `struct A`, `struct B`,
 * kiedy dane są tworzone i niszczone,
 
 * gdzie (w którym miejscu pamięci, w jakiej strukturze danych) dane
-  się znajdują,
-
-* jak dane są przekazywane do funkcji i jak są zwracane przez funkcję.
+  się znajdują.
 
 C++ musi spełniać podstawowe wymagania systemu operacyjnego dotyczące
 organizacji pamięci, a reszta zależy do C++.
@@ -251,8 +249,8 @@ wartość jest bardzo szybkie, nie wprowadza żadnego niepożądanego
 narzutu i dlatego jest zalecane.  To nie to, co kiedyś w dalekiej
 przeszłości, kiedy C++ nie był jeszcze ustandaryzowany.
 
-Ongiś zwracanie przez wartość zawsze kopiowało wynik dwa razy.  Raz ze
-zmiennej lokalnej funkcji do tymczasowego miejsca na stosie dla
+Niegdyś zwracanie przez wartość zawsze kopiowało wynik dwa razy.  Raz
+ze zmiennej lokalnej funkcji do tymczasowego miejsca na stosie dla
 zwracanego wyniku.  Drugi raz z tymczasowego miejsca do miejsca
 docelowego, np. zmiennej, której wynik przypisywano.
 
@@ -343,18 +341,29 @@ Kiedy obiekt tymczasowy jest przekazywany przez wartość do funkcji, to
 pominięcie konstruktora powoduje stworzenie tego obiektu bezpośrednio
 w miejscu na stosie dla tego parametru.
 
-# Optymalizacja wartości powrotu
+# Zwracanie wyniku przez wartość
 
-Wynik może być zwrócony przez funkcję bezpośrednio w miejscu
-docelowym, np. w zmiennej, której wynik przypisujemy.  Chodzi o to,
-żeby wynik sworzyć w miejscu docelowym, żeby go nie kopiować ani
-przenosić.  Nazywamy to optymalizacją wartości powrotu (ang. return
-value optimization, RVO).  RVO stara się pominąć konstruktory przy
-zwracaniu wyniku przez wartość.
+Funkcja może zwrócić wynik bezpośrednio w miejscu docelowym, np. w
+zmiennej, której wynik przypisujemy.  Chodzi o to, żeby wyniku nie
+kopiować ani nie przenosić, czyli żeby pominąć zbędne wywołanie
+konstruktora.  *Pominięcie konstruktora dla zwracanej wartości wymaga
+zastosowania nowoczesnej konwencji wywołania funkcji.*
 
-RVO nie zawsze może być zastosowana z powodów technicznych.  Przede
-wszystkim dlatego, że pewne obiekty muszą być pierwsze stworzone, a
-dopiero potem jest podejmowana decyzja, który obiekt zwrócić:
+Kiedyś ta funkcjonalność była nazywana optymalizacją wartości powrotu
+(ang. return value optimization, RVO), bo była opcjonalną cechą
+optymalizatora kompilatora.  C++17 nie wymaga, żeby konstruktory były
+dostępne, jeżeli są pomijane, więc poniższy kod jest poprawny w myśl
+C++17 (opcja `-std=c++17` GCC), ale nie C++14 (opcja `-std=c++14`
+GCC):
+
+{% highlight c++ %}
+{% include_relative rvo_or_not.cc %}
+{% endhighlight %}
+
+Pomijanie konstruktorów dla zwracanej wartości nie zawsze może być
+zastosowane z powodów technicznych.  Przede wszystkim dlatego, że
+pewne obiekty muszą być pierwsze stworzone, a dopiero potem jest
+podejmowana decyzja, który obiekt zwrócić:
 
 {% highlight c++ %}
 {% include_relative rvo_no1.cc %}
@@ -388,7 +397,7 @@ wtedy jedynie skopiować wynik:
 * Nie używaj danych dynamicznych, jeżeli wystarczą dane lokalne.
 
 * Obecnie przekazywanie parametru i zwracanie wyniku przez wartość
-  jest wydajne, bo wartość nie jest już niepotrzebnie kopiowana czy
+  są wydajne, bo wartość nie jest już niepotrzebnie kopiowana czy
   przenoszona.
 
 # Quiz
