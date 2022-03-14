@@ -346,8 +346,9 @@ w miejscu na stosie dla tego parametru.
 Funkcja może zwrócić wynik przez wartość bezpośrednio w miejscu
 docelowym, np. w zmiennej, której wynik przypisujemy.  Chodzi o to,
 żeby wyniku nie kopiować ani nie przenosić, czyli żeby pominąć zbędne
-wywołanie konstruktora.  *Pominięcie konstruktora dla zwracanej
-wartości wymaga zastosowania nowoczesnej konwencji wywołania funkcji.*
+wywołanie konstruktora.  **Pominięcie konstruktora dla zwracanej
+wartości wymaga zastosowania nowoczesnej konwencji wywołania
+funkcji.**
 
 Kiedyś ta funkcjonalność była nazywana optymalizacją wartości powrotu
 (ang. return value optimization, RVO), bo była opcjonalną cechą
