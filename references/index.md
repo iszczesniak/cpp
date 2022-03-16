@@ -192,7 +192,7 @@ Here are some examples:
 
 Every reference (not only the const reference) cannot rebind to a new
 expression.  A reference can only be initialized, i.e., bound to an
-expression.  Such rebinding would be required in the assignment
+expression once.  Such rebinding would be required in the assignment
 operator of a class-type, which has a reference member field, as in
 this example:
 
