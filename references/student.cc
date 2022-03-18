@@ -9,30 +9,29 @@ using namespace std;
 struct student
 {
   unsigned m_age;
-  string m_firstname;
-  string m_surname;
+  string m_fn;
+  string m_ln;
 
-  student(unsigned age, string firstname, string surname):
-    m_age(age), m_firstname(move(firstname)), m_surname(move(surname))
+  student(unsigned age, string fn, string ln):
+    m_age(age), m_fn(move(fn)), m_ln(move(ln))
   {
   }
 
   bool
   operator <(const student &a) const
   {
-    return tie(m_age, m_firstname, m_surname) <
-      tie(a.m_age, a.m_firstname, a.m_surname);
+    // Function std::tie returns a tuple of const references.  We use
+    // the < operator defined for a tuple, which compares
+    // lexicographically.  There is no overhead of std::tie, because
+    // it's optimized out.
+    return tie(m_age, m_fn, m_ln) < tie(a.m_age, a.m_fn, a.m_ln);
   }
 };
 
 ostream &
 operator << (ostream &out, const student &a)
 {
-  out << "("
-      << a.m_age << ", "
-      << a.m_firstname << ", "
-      << a.m_surname
-      << ")";
+  out << "(" << a.m_age << ", " << a.m_fn << ", " << a.m_ln << ")";
   return out;
 }
 
@@ -40,9 +39,9 @@ int
 main()
 {
   set<student> s;
-  s.emplace(20, "Betty", "O'Barley");
-  s.emplace(19, "Harry", "O'Hay");
-  s.emplace(19, "Harry", "Potter");
+  s.emplace(19, "Betty", "O'Barley");
+  s.emplace(20, "Harry", "O'Hay");
+  s.emplace(20, "Harry", "Potter");
   for(const auto &e: s)
     cout << e << endl;
 }
