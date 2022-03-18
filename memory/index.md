@@ -11,9 +11,7 @@ D`).  The C++ standard describes:
 * when data is created and destroyed,
 
 * where (i.e., what part of memory, what data structure) data is
-  located,
-
-* how data is passed to and returned from a function.
+  located.
 
 The C++ memory organization has to respect the basic requirements of
 an operating system, but the rest is up to C++.
@@ -334,18 +332,28 @@ When a temporary is passed by value as an argument, that temporary is
 created directly (i.e., with the constructor elided) in the location
 of the function parameter.
 
-# Return value optimization
+# Return by value
 
 A result can be returned by a function directly in its destination,
 e.g., a variable to which the result is assigned.  The idea is to
 create the result in its destination, so that it doesn't have to be
-copied or moved there.  This is known as the return value optimization
-(RVO).  RVO tries to elide constructors when returning a result by
-value.
+copied or moved there, i.e., to elide constructors.  **When returning
+by value, constructor elision requires the modern call convention.**
 
-RVO not always can take place, because of technical reasons.  First,
-because we return data, which has to be created prior to deciding
-which data exactly to return:
+This functionality is a C++17 feature, but prior to C++17 it was known
+as the return value optimization (RVO), because it was an optional
+feature of a compiler optimizer.  Since C++17, the copy and move
+constructors can be unavailable if they are elided, and therefore the
+following code is valid for C++17 (GCC option `-std=c++17`), but not
+for C++14 (GCC option `-std=c++14`):
+
+{% highlight c++ %}
+{% include_relative rvo_or_not.cc %}
+{% endhighlight %}
+
+This functionality not always can take place, because of technical
+reasons.  First, because we return data, which has to be created prior
+to deciding which data exactly to return:
 
 {% highlight c++ %}
 {% include_relative rvo_no1.cc %}
