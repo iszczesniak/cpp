@@ -212,7 +212,8 @@ bardziej skomplikowany.
 
 # Podsumowanie
 
-*
+* Programowanie uogólnione jest powszechnie stosowane w bibliotece
+  standardowej C++.
 
 *
 
