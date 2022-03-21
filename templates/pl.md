@@ -166,16 +166,14 @@ szablonowym).  Wniosek: **podstawienie to nie inicjalizacja**.
 
 * Parametry szablonów są typowe, wartościowa albo szablonowe.
 
-* Programowanie uogólnione jest powszechnie stosowane w bibliotece
-  standardowej C++.
+*
 
 # Quiz
 
-* Czy programowanie uogólnione wprowadza narzut czasowy i pamięciowy
-  do programu?
-
 * Co to jest typowy parametr szablonu?
 
-* Polimorfizm statyczny a dynamiczny.
+*
+
+*
 
 <!-- LocalWords: lvalue lvalues rvalue -->
