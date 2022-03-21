@@ -21,6 +21,7 @@ ważne dla wydajnego kodu.
 
 ## Programowanie uogólnione
 
+* [Programowanie uogólnione](generic/pl)
 * [Szablony](templates/pl)
 * [Wnioskowanie](deduction/pl)
 * [Specjalizacja](specialization/pl)
