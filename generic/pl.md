@@ -212,20 +212,22 @@ bardziej skomplikowany.
 
 # Podsumowanie
 
-* Programowanie uogólnione jest powszechnie stosowane w bibliotece
-  standardowej C++.
+Programowanie uogólnione:
 
-*
+* pozwala na skrócenie i uporządkowanie kodu źródłowego,
 
-*
+* używa polimorfizmu statycznego,
+
+* jest powszechnie stosowane w bibliotece standardowej C++.
 
 # Quiz
 
-* Czy programowanie uogólnione wprowadza narzut czasowy i pamięciowy
-  do programu?
+* Czy programowanie uogólnione w C++ wprowadza narzut czasowy i
+  pamięciowy?
 
 * Polimorfizm statyczny a dynamiczny.
 
-* 
+* Jakimi typami danych można się posługiwać w programowaniu
+  uogólnionym?
 
 <!-- LocalWords: lvalue lvalues rvalue -->

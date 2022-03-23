@@ -1,0 +1,18 @@
+uporządkowanie (ordering), porządek (order)
+
+strict weak order
+
+irreflexive: for all x, x R x is false
+
+transitive: for all a, b and c, if r(a, b) and r(b, c) are both true then r(a, c) is true;
+
+let e(a, b) be !r(a, b) && !r(b, a), then e is transitive: e(a, b) && e(b, c) implies e(a, c).
+Under these conditions, it can be shown that e is an equivalence relation, and r induces a strict total ordering on the equivalence classes determined by e.
+
+
+Irreflexivity	f(x, x) must be false.
+Antisymmetry	f(x, y) implies !f(y, x)
+Transitivity	f(x, y) and f(y, z) imply f(x, z).
+Transitivity of equivalence	Equivalence (as defined above) is transitive: if x is equivalent to y and y is equivalent to z, then x is equivalent to z. (This implies that equivalence does in fact satisfy the mathematical definition of an equivalence relation.) [1]
+
+Two objects x and y are equivalent if both f(x, y) and f(y, x) are false. Note that an object is always (by the irreflexivity invariant) equivalent to itself.
