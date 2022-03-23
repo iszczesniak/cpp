@@ -164,16 +164,16 @@ szablonowym).  Wniosek: **podstawienie to nie inicjalizacja**.
 
 * Szablony są podstawą programowania uogólnionego w C++.
 
-* Parametry szablonów są typowe, wartościowa albo szablonowe.
+* Parametry szablonów są typowe, wartościowe albo szablonowe.
 
-*
+* Szablony funkcji są najciekawsze i najtrudniejsze pośród szablonów.
 
 # Quiz
 
 * Co to jest typowy parametr szablonu?
 
-*
+* Czego może być szablon?
 
-*
+* Argument a parametr szablonu.
 
 <!-- LocalWords: lvalue lvalues rvalue -->
