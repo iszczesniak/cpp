@@ -75,10 +75,13 @@ zmiennej zawiera specyfikator `auto`.  Na przykład:
 const auto &t = 1;
 ```
 
-Kompilator traktuje taką inicjalizację zmiennej, jak inicjalizację
+Kompilator traktuje taką inicjalizację zmiennej jak inicjalizację
 parametru funkcji szablonowej, gdzie:
 
 * `auto` jest traktowane jak nazwa typowego parametru szablonu,
+
+* wyrażenie inicjalizujące jest traktowane jak argument wywołania
+  funkcji.
 
 * argument wywołania funkcji jest wyrażeniem inicjalizującym.
 
