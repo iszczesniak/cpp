@@ -3,6 +3,11 @@
 Equivalence is a binary relation that is reflexive, symmetric and
 transitive.
 
+# Weak ordering
+
+The weak ordering weakens the axiom of equality, i.e., equality is
+replaced with equivalence.
+
 # Strict weak ordering
 
 It's a partial ordering in which incomparability is transitive.
