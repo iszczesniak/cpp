@@ -385,6 +385,10 @@ W przykładzie niżej używamy typu, który nie został zdefiniowany:
 
 * To tylko początek.  Jest więcej: gl-wartość, pr-wartość i x-wartość.
 
+# Quiz
+
+* Dlaczego `int i; ++i++;` się nie kompiluje?
+
 <!-- LocalWords: lvalue lvalues rvalue rvalues -->
 <!-- LocalWords: decrementation incrementation -->
 <!-- LocalWords: dereference expr unary -->

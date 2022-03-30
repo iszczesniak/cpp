@@ -366,6 +366,8 @@ We covered only the basics, there is more: glvalue, prvalue, xvalue.
 
 * What does the category of the function-call expression depend on?
 
+* Why does `int i; ++i++;` not compile?
+
 {% include rid %}
 
 <!-- LocalWords: lvalue lvalues rvalue rvalues -->
