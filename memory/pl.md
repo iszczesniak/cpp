@@ -233,9 +233,12 @@ argument do funkcji przez referencję.  Inicjalizacja czyni parametr
 nazwą (aliasem) danych argumentu.
 
 Przykład niżej pokazuje jak przekazujemy argumenty przez wartość i
-przez referencję.  Proszę skompilować przykład z flagą
-`-fno-elide-constructors` (flaga kompilatora GCC), żeby kompilator nie
-unikał konstruktorów.
+przez referencję.  Proszę skompilować przykład z flagami
+`-fno-elide-constructors -std=c++14` (flagi kompilatora GCC), żeby
+kompilator nie unikał konstruktorów.  Jeżeli kompilujemy z użyciem
+C++17 lub nowszego (np. użyliśmy flagi `-std=c++17`), to kompilator
+zignoruje flagę `-fno-elide-constructors` w przypadkach, kiedy
+pomijanie konstruktorów jest wymagane począwszy od C++17.
 
 {% highlight c++ %}
 {% include_relative args.cc %}
@@ -263,11 +266,11 @@ indeksowania (czyli `operator[]`) albo funkcji `front`.
 
 Poniższy przykład pokazuje jak zwrócić wynik przez wartość i przez
 referencję.  Na nowoczesnym systemie i z nowoczesnym kompilatorem,
-wynik zwracany przez wartość nie jest kopiowany.  Żeby zobaczyć pewne
-stare zachowanie C++, proszę skompilować przykład z flagą
-`-fno-elide-constructors`.  Gdzie i dlaczego obiekty są kopiowane?  To
-zależy od konwencji wywołania funkcji, optymalizacji wartości powrotu
-czy unikania konstruktorów.
+wynik zwracany przez wartość nie jest kopiowany.  Żeby zobaczyć stare
+zachowanie C++, proszę skompilować przykład z flagami
+`-fno-elide-constructors -std=c++14`.  Gdzie i dlaczego obiekty są
+kopiowane?  To zależy od konwencji wywołania funkcji, optymalizacji
+wartości powrotu czy unikania konstruktorów.
 
 {% highlight c++ %}
 {% include_relative return.cc %}
@@ -325,8 +328,8 @@ i przenoszącego) jest możliwe, ponieważ obiekt tymczasowy albo lokalny
 jest tworzony w miejscu docelowym.
 
 Przykład niżej demonstruje pomijanie konstruktorów.  Przykład proszę
-skompilować z flagą `-fno-elide-constructors`, a potem bez niej.
-Proszę zwrócić uwagę na różnice w czasie uruchomienia.
+skompilować z flagami `-fno-elide-constructors -std=c++14`, a potem
+bez nich i zwrócić uwagę na różnice.
 
 {% highlight c++ %}
 {% include_relative elide.cc %}

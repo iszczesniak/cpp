@@ -220,9 +220,12 @@ function by reference.  Initialization makes the parameter a name (an
 alias) for the argument data.
 
 The example below shows how we pass arguments by value and by
-reference.  Compile the example with the flag
-`-fno-elide-constructors` (a flag of the GCC compiler), so that the
-compiler does not elide constructors.
+reference.  Compile the example with the flags
+`-fno-elide-constructors -std=c++14` (a flag of the GCC compiler), so
+that the compiler does not elide constructors.  If you compile your
+code with C++17 (e.g., with `-std=c++17` in GCC) or higher, your
+request to disable constructor elision may be ignored by the compiler,
+because constructor elision in some cases is mandatory since C++17.
 
 {% highlight c++ %}
 {% include_relative args.cc %}
@@ -250,10 +253,11 @@ instance, `operator[]` or `front` functions.
 
 The example below shows how to return a result by value and by
 reference.  On a modern system with a modern compiler, a result
-returned by value is not copied.  To see some legacy C++ behviour,
-compile the example with the flag `-fno-elide-constructors`.  Where
-and why are objects copied?  That depends on the function call
-convention, constructor elision, and return value optimization.
+returned by value is not copied.  To see the legacy C++ behviour,
+compile the example with the flag `-fno-elide-constructors
+-std=c++14`.  Where and why are objects copied?  That depends on the
+function call convention, constructor elision, and return value
+optimization.
 
 {% highlight c++ %}
 {% include_relative return.cc %}
@@ -314,10 +318,7 @@ destination.
 
 This example that demonstrates the constructor elision.  Compile the
 example with, then without the flag `-fno-elide-constructors`.  Notice
-the differences at run-time.  If you compile your code with C++17
-(e.g., with `-std=c++17` in GCC) or higher, your request to disable
-constructor elision may be ignored by the compiler, because
-constructor elision in some cases is mandatory since C++17.
+the differences at run-time.
 
 {% highlight c++ %}
 {% include_relative elide.cc %}
