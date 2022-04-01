@@ -304,16 +304,17 @@ konstruktor przenoszący nie będzie wywołany, a pominięty.
 
 ## Niejawne przeniesienie zwracanej wartości
 
-Jeżeli optymalizacja wartości powrotu nie może być zastosowana, a
-zwracany obiekt będzie niszczony po powrocie z funkcji, to wartość
-zwracanego obiektu może być niejawnie przeniesiona: instrukcja `return
-t;` będzie niejawnie zamieniana na `return std::move(t);`.  Tylko
-wyrażenia będące nazwą zmiennej są tak konwertowane (z l-wartości na
-r-wartość), inne wyrażenia nie.
+Jeżeli unikanie konstruktorów (albo optymalizacja wartości powrotu)
+nie może być zastosowana, a zwracany obiekt będzie niszczony po
+powrocie z funkcji, to wartość zwracanego obiektu może być niejawnie
+przeniesiona: instrukcja `return t;` będzie niejawnie zamieniana na
+`return std::move(t);`.  Tylko wyrażenia będące nazwą zmiennej są tak
+konwertowane (z l-wartości na r-wartość), inne wyrażenia nie.
 
 Nie powinniśmy zawsze jawnie konwertować kategorii wartości wyrażenia
-(np. z użyciem funkcji `std::move`) instrukcji powrotu, bo możemy w
-ten sposób uniemożliwić optymalizację wartości powrotu.
+(np. z użyciem funkcji `std::move`) instrukcji powrotu, bo wtedy
+uniemożliwimy unikanie konstruktorów (albo optymalizację wartości
+powrotu).
 
 Poniżej omówione są dwa przypadki, w których optymalizacja wartości
 powrotu jest niemożliwa, ale w których zwracana wartość jest niejawnie
