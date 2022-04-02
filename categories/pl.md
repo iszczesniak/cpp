@@ -226,8 +226,9 @@ Tak przy okazji:
 
 * wersja prefiksowa na priorytet niższy od sufiksowej,
 
-* wersja prefiksowa ma wiązanie od prawej do lewej, a wersja sufiksowa
-od lewej do prawej.
+* wersja prefiksowa ma wiązanie od prawej do lewej,
+
+* wersja sufiksowa ma wiązanie od lewej do prawej.
 
 Przykład poniżej pokazuje implementację sufiksowego operatora
 inkrementacji dla `std::string`.
