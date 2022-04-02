@@ -198,13 +198,13 @@ niejawnej konwersji do l-wartości, jak pokazuje przykład niżej:
 
 Operator inkrementacji (czyli `++`) dla typów całkowitych wymaga
 l-wartości jako operandu.  Wymóg ten dotyczy wersji prefiksowej i
-sufiksowej operatora.
+sufiksowej operatora.  To samo dotyczy operatora dekrementacji.
 
 {% highlight c++ %}
 {% include_relative increment1.cc %}
 {% endhighlight %}
 
-Wyrażenie operatora inkrementacji jest:
+Wyrażenie operatora inkrementacji dla typów wbudowanych jest:
 
 * **l-wartością** w przypadku wersji prefiksowej, czyli wyrażenie
   `++<expr>` jest l-wartością, bo zwracana jest referencja na daną,
@@ -222,10 +222,19 @@ Dlatego `++++x` kompiluje się, a `x++++` nie.
 {% include_relative increment2.cc %}
 {% endhighlight %}
 
-Tak przy okazji, wersja prefiksowa ma wiązanie od prawej do lewej, a
-wersja sufiksowa od lewej do prawej.
+Tak przy okazji:
 
-To samo dotyczy operatora dekrementacji.
+* wersja prefiksowa na priorytet niższy od sufiksowej,
+
+* wersja prefiksowa ma wiązanie od prawej do lewej, a wersja sufiksowa
+od lewej do prawej.
+
+Przykład poniżej pokazuje implementację sufiksowego operatora
+inkrementacji dla `std::string`.
+
+{% highlight c++ %}
+{% include_relative string.cc %}
+{% endhighlight %}
 
 ## Dana tymczasowa
 
