@@ -23,8 +23,9 @@ main()
   for(vector<int>::size_type i = 0; i < v.size(); ++i)
     cout << v[i] << endl;
 
-  // We ask the compiler to deduce the type from an expression.  This
-  // is correct, and the most general, but somehow I don't like it.
+  // We ask the compiler to take the type of an expression without
+  // deduction.  This is correct, and the most general, but somehow I
+  // don't like it.
   for(decltype(v.size()) i = 0; i < v.size(); ++i)
     cout << v[i] << endl;
 }

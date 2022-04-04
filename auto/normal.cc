@@ -3,9 +3,15 @@ double foo()
   return .0;
 }
 
-int * goo()
+int *goo()
 {
   return static_cast<int *>(0);
+}
+
+int &loo()
+{
+  static int l;
+  return l;
 }
 
 int
@@ -29,6 +35,12 @@ main()
   auto fp = foo;
 
   int t[] = {1, 2, 3};
-  // auto = int *;
+  // auto = int *
   auto tp = t;
+
+  // auto = const char *
+  auto hw = "Hello World!";
+
+  // auto = int
+  auto l = loo();
 }

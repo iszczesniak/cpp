@@ -17,14 +17,14 @@ main()
   // auto = int
   const volatile auto *r4 = &x;
 
-  // A reference to a function.
+  // A pointer to a function.
   // auto = void()
   auto *f1 = foo;
   // The above is equivalent to this.
   using ft = void();
   ft *f2 = foo;
 
-  // A reference to a C-style table.
+  // A pointer to a C-style table.
   int t[] = {1, 2, 3};
   // auto = int[3]
   auto *t1 = &t;

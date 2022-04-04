@@ -96,7 +96,7 @@ argumentów szablonów, ale warto przytoczyć kilka przykładów.
 
 Żeby przekonać się, że rzeczywiście typy są wnioskowane, jak się
 spodziewamy, możemy w przykładach wykorzystać poniższą sztuczkę.
-Kompilacja zakończy się błędem, w który będzie podany wywnioskowany
+Kompilacja zakończy się błędem, w którym będzie podany wywnioskowany
 typ.
 
 ```cpp
@@ -144,7 +144,11 @@ upewnić się, że zmienna będzie zawsze zainicjalizowana.
 
 Jeżeli wyrażenie inicjalizujące jest typu wskaźnikowego, to
 wywnioskowany typ będzie wskaźnikowy.  Tak będzie w przypadku rozpadu
-nazwy funkcji i nazwy tablicy języka C.
+nazwy funkcji i nazwy tablicy języka C, czy literału łańcuchowego.
+
+Dla zwykłego typu inicjalizowanej zmiennej nigdy nie będzie
+wywnioskowany typ referencyjny, bo wyrażenie inicjalizujące nigdy nie
+jest typu referencyjnego.
 
 ```cpp
 {% include_relative normal.cc %}
@@ -202,7 +206,7 @@ stosie w tym samym miejscu, a my widzimy ostatnią wartość.
 Ponieważ w kontenerach nie możemy przechowywać referencji (`const
 string &`), to użyliśmy `std::reference_wrapper<const string>`.
 Moglibyśmy użyć po prostu wskaźników, ale `std::reference_wrapper`
-daje nam semantykę referencji.
+możemy używać jak referencji (chodzi o składnię i semantykę).
 
 ```cpp
 {% include_relative for_auto.cc %}
