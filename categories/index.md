@@ -191,13 +191,14 @@ The rvalue that you try to pass will not be converted to an lvalue.
 
 The increment operator (i.e., the `++` operator) requires an lvalue as
 its operand.  This requirement applies to both the prefix and the
-suffix versions of the operator.
+suffix versions of the operator.  The same applies to the decrement
+operator.
 
 {% highlight c++ %}
 {% include_relative increment1.cc %}
 {% endhighlight %}
 
-The expression of the increment operator is:
+The expression of the increment operator for built-in types is:
 
 * an **lvalue** for the **prefix** version of the operator, i.e., the
   `++<expr>` is an lvalue, because the prefix increment operator
@@ -215,11 +216,20 @@ Therefore `++++x` compiles, and `x++++` doesn't.
 {% include_relative increment2.cc %}
 {% endhighlight %}
 
-As a side note, the prefix increment operator has the right-to-left
-associativity, while the suffix increment operator has the
-left-to-right associativity.
+As a side note:
 
-The same applies to the decrement operator.
+* the prefix version has lower precedence than the suffix version,
+
+* the prefix version has the right-to-left associativity,
+
+* the suffix version has the left-to-right associativity.
+
+In the example below, `std::string` has the suffix increment operator
+defined.
+
+{% highlight c++ %}
+{% include_relative string.cc %}
+{% endhighlight %}
 
 ## Temporary objects
 
