@@ -140,10 +140,13 @@ Kompilator wnioskuje argumenty szablonu funkcji na podstawie:
 
 * **typów** argumentów wywołania funkcji szablonowej.
 
+Typ wyrażenia (czyli także argumentu funkcji) nigdy nie jest
+referencyjny, nawet jeżeli wyrażeniem jest nazwa referencji (zmiennej
+typu referencyjnego). [expr.type]
+
 ## Najprostszy przypadek
 
-W najprostszym przypadku kompilator kompiluje wywołanie funkcji z
-jednym parametrem:
+W najprostszym przypadku wywołujemy funkcję z jednym parametrem:
 
 ```cpp
 template <parameter list>
@@ -232,7 +235,8 @@ stosuje różne zasady wnioskowania typowego argumentu.
 
 *Zasada: wnioskowany argument szablonu jest typem argumentu wywołania
  z pominięciem kwalifikatorów typu (`const` czy `volatile`) jeżeli te
- kwalifikatory zostały podane w definicji typu parametru funkcji.*
+ kwalifikatory zostały podane w definicji typu parametru funkcji.
+ Pamiętajmy, że typ argumentu funkcji nigdy nie jest referencyjny.*
 
 Chodzi o to, żeby referencyjny (albo wskaźnikowy) typ parametru
 funkcji rzeczywiście mógł być zainicjalizowany: jeżeli typ argumentu
@@ -256,7 +260,9 @@ Oto przykład dla typów wskaźnikowych:
 ### Zwykły typ parametru funkcji
 
 *Zasada: wnioskowany argument szablonu jest typem argumentu wywołania
- z pominięciem kwalifikatorów `const` i `volatile`.*
+ z pominięciem kwalifikatorów `const` i `volatile`.  Wnioskowanym
+ typem nigdy nie będzie typ referencyjny, ale może być wskaźnikowy.
+ Dla typu wskaźnikowego nie są pomijane kwalifikatory.*
 
 Chodzi o to, że inicjalizacja parametrów funkcji (przy przekazywaniu
 argumentów wywołania przez wartość) kopiuje wartość argumentu
