@@ -196,7 +196,7 @@ przydzielenia więcej pamięci, operator `new` rzuca wyjątek
 
 Dane na stosie są upakowane razem w zależności od tego, kiedy były
 tworzone, tak więc dane powiązane ze sobą znajdują się blisko siebie w
-pamięci.  Nazywamy to *kolokacją danych*.  Lokalizacja jest korzystna,
+pamięci.  Nazywamy to *kolokacją danych*.  Kolokacja jest korzystna,
 ponieważ dane potrzebne procesowi (a dokładniej jakiejś funkcji
 procesu) w pewnym momencie najprawdopodobniej znajdują się w pamięci
 podręcznej procesora (która przechowuje strony pamięci),
