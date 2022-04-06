@@ -183,7 +183,7 @@ przeciążenia.
 
 Składowymi specjalnymi są:
 
-* konstruktor domyślny (bezargumentowy),
+* konstruktor domyślny (z pustą listą parametrów),
 
 * konstruktor kopiujący i kopiujący operator przypisania,
 
@@ -230,7 +230,7 @@ specjalnej z użyciem `= default`:
 
 Wszystkie obiekty bazowe i składowe w domyślnej implementacji:
 
-* konstruktora bezargumentowego są inicjalizowane bezargumentowo,
+* konstruktora domyślnego są inicjalizowane domyślnie,
 
 * konstruktora kopiującego są inicjalizowane przez kopiowanie,
 
@@ -256,8 +256,8 @@ Programista może jawnie usunąć składową z użyciem `= delete`:
 Wszystkie składowe specjalne są niejawnie domyślnie zaimplementowane,
 ale:
 
-* konstruktor bezargumentowy będzie niezadeklarowany, jeżeli
-  którykolwiek konstruktor będzie jawnie zadeklarowany,
+* konstruktor domyślny będzie niezadeklarowany, jeżeli którykolwiek
+  konstruktor będzie jawnie zadeklarowany,
 
 * konstruktor kopiujący i kopiujący operator przypisania będą
   **niejawnie usunięte** (więc będą brały udział w wyborze
