@@ -161,9 +161,9 @@ the value from the temporary object `T()` to `b`, and then move (not
 copy) the value of `b` to `a`.
 
 Interestingly, because the move assignment operator returns an lvalue
-reference, we can initialize an lvalue reference with the return value
-of the operator: `T &l = T() = T();` even though `T &l = T();` would
-fail to compile.
+reference (when it is declared as `T &operator=(T &&);`), we can
+initialize an lvalue reference with the return value of the operator:
+`T &l = T() = T();` even though `T &l = T();` would fail to compile.
 
 ### Implementation of the assignment operator overloads
 
