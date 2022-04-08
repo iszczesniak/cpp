@@ -260,7 +260,8 @@ deleted with `= delete`, like this:
 
 ### Rules for special member functions
 
-All special member functions are implicitly defaulted, but:
+All special member functions are implicitly defaulted (if they are
+needed), but:
 
 * the default constructor will be **undeclared**, if any other
   constructor is *explicitly declared*,

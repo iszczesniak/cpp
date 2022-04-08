@@ -254,8 +254,8 @@ Programista może jawnie usunąć składową z użyciem `= delete`:
 
 ### Zasady dla składowych specjalnych
 
-Wszystkie składowe specjalne są niejawnie domyślnie zaimplementowane,
-ale:
+Wszystkie składowe specjalne są niejawnie domyślnie zaimplementowane
+(jeżeli są potrzebne), ale:
 
 * konstruktor domyślny będzie niezadeklarowany, jeżeli którykolwiek
   konstruktor będzie jawnie zadeklarowany,
