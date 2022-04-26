@@ -28,6 +28,7 @@ template<typename C, typename T>
 void
 f(T &&t)
 {
+  cout << __PRETTY_FUNCTION__ << endl;
   // g<C>(t);
   g<C>(forward<T>(t));
 }
