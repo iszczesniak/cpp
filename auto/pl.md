@@ -269,6 +269,15 @@ Oto przykład:
 ```cpp
 {% include_relative return_decltype.cc %}
 ```
+
+W wyrażeniu lambda typ zwracanej wartości jest wnioskowany na
+podstawie wyrażenia instrukcji powrotu, ale możemy zażądać tego samego
+typu:
+
+```cpp
+{% include_relative return_decltype2.cc %}
+```
+
 # Podsumowanie
 
 * Specyfikator `auto` pozwala na wnioskowanie typu.
