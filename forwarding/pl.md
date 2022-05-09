@@ -243,19 +243,19 @@ W C++ nie ma typu *referencji do referencji*, ale takie typy mogą się
 pojawić, jako efekt deklaracji referencji przekazującej, albo
 definicji typów szablonowych z użyciem `using` czy `typedef`.
 
-Jeżeli argumentem parametru szablonu `T` będzie `T &`, to wtedy typem
+Jeżeli argumentem parametru szablonu `T` będzie `A &`, to wtedy typem
 parametru funkcji, który został zadeklarowana jako referencja
-przekazująca, będzie typ `T & &&`.  Co wtedy?
+przekazująca, będzie typ `A & &&`.  Co wtedy?
 
 ## Spłaszczanie typów referencji
 
 Jeżeli pojawi się typ referencji do referencji, to kompilator zamieni
 taki typ na referencję według zasady:
 
-* `cv1 T & cv2 T &` na `cv12 T &`
-* `cv1 T & cv2 T &&` na `cv12 T &`
-* `cv1 T && cv2 T &` na `cv12 T &`
-* `cv1 T && cv2 T &&` na `cv12 T &&`
+* `cv1 A & cv2 A &` na `cv12 A &`
+* `cv1 A & cv2 A &&` na `cv12 A &`
+* `cv1 A && cv2 A &` na `cv12 A &`
+* `cv1 A && cv2 A &&` na `cv12 A &&`
 
 Zbiory `cv1`, `cv2`, `cv12` oznaczają zbiory kwalifikatorów, do
 których mogą należeć `const` i `volatile`.  Zbiór `cv12` jest sumą
