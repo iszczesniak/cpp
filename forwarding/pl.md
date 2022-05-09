@@ -311,6 +311,14 @@ Przykład:
 {% include_relative perfect.cc %}
 {% endhighlight %}
 
+Tutaj ten sam przykład, ale sprawdzający argument funkcji (ten drugi)
+zamieniliśmy na sprawdzający argument szablonu.  Teraz sprawdzamy typ
+w czasie kompilacji z użyciem `static_assert`:
+
+{% highlight c++ %}
+{% include_relative perfect2.cc %}
+{% endhighlight %}
+
 Co się stanie, jeżeli usuniemy funkcję `forward` z funkcji `f`?  Wtedy
 będą przekazywane zawsze l-wartości do funkcji `g`.  Można sprawdzić.
 

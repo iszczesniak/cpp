@@ -13,18 +13,21 @@ test(const string &s1, const string &s2)
 void
 g(int &, const string &s)
 {
+  cout << __PRETTY_FUNCTION__ << endl;
   test(s, "int &");
 }
 
 void
 g(const int &, const string &s)
 {
+  cout << __PRETTY_FUNCTION__ << endl;
   test(s, "const int &");
 }
 
 void
 g(int &&, const string &s)
 {
+  cout << __PRETTY_FUNCTION__ << endl;
   test(s, "int &&");
 }
 
@@ -32,6 +35,7 @@ template<typename T>
 void
 f(T &&t, const string &s)
 {
+  cout << __PRETTY_FUNCTION__ << endl;
   // g(t, s);
   g(forward<T>(t), s);
 }

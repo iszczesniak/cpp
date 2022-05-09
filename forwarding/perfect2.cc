@@ -7,6 +7,7 @@ template <typename T>
 void
 g(int &)
 {
+  cout << __PRETTY_FUNCTION__ << endl;
   static_assert(std::is_same_v<T, int &>);
 }
 
@@ -14,6 +15,7 @@ template <typename T>
 void
 g(const int &)
 {
+  cout << __PRETTY_FUNCTION__ << endl;
   static_assert(std::is_same_v<T, const int &>);
 }
 
@@ -21,6 +23,7 @@ template <typename T>
 void
 g(int &&)
 {
+  cout << __PRETTY_FUNCTION__ << endl;
   static_assert(std::is_same_v<T, int &&>);
 }
 
