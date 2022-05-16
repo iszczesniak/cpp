@@ -98,7 +98,7 @@ funkcja jest konkretyzowana dla tego konkretnego callable, co
 przekłada się na maksymalną wydajnośc, bo kod wynikowy generowany jest
 "na miarę".
 
-Użycie szablonu nie wyklucza użycie `std::function`, która może być po
+Użycie szablonu nie wyklucza użycia `std::function`, która może być po
 prostu argumentem szablonu.
 
 {% highlight c++ %}
