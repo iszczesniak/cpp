@@ -5,9 +5,11 @@
 
 using namespace std;
 
+typedef std::chrono::duration<long long, pico> picoseconds;
+
 volatile int x;
 
-constexpr int N = 1000000000;
+constexpr long N = 100000000;
 
 template <typename F, typename ... Args>
 void
@@ -21,9 +23,9 @@ time_normal1(F &&f, Args &&... args)
     std::forward<F>(f)(std::forward<Args>(args)...);
 
   auto t1 = std::chrono::system_clock::now();
-  std::chrono::nanoseconds dt = t1 - t0;
+  auto dt = duration_cast<picoseconds>(t1 - t0);
 
-  cout << dt.count() / N << " ns\n";;
+  cout << dt.count() / N << " ps\n";;
 }
 
 template <typename F, typename O, typename ... Args>
@@ -38,9 +40,9 @@ time_normal2(F &&f, O &&o, Args &&... args)
     (o.*std::forward<F>(f))(std::forward<Args>(args)...);
 
   auto t1 = std::chrono::system_clock::now();
-  std::chrono::nanoseconds dt = t1 - t0;
+  auto dt = duration_cast<picoseconds>(t1 - t0);
 
-  cout << dt.count() / N << " ns\n";;
+  cout << dt.count() / N << " ps\n";;
 }
 
 template <typename F, typename ... Args>
@@ -55,9 +57,9 @@ time_invoke(F &&f, Args &&... args)
     std::invoke(std::forward<F>(f), std::forward<Args>(args)...);
 
   auto t1 = std::chrono::system_clock::now();
-  std::chrono::nanoseconds dt = t1 - t0;
+  auto dt = duration_cast<picoseconds>(t1 - t0);
 
-  cout << dt.count() / N << " ns\n";;
+  cout << dt.count() / N << " ps\n";;
 }
 
 template <typename F, typename Args>
@@ -72,9 +74,9 @@ time_apply(F &&f, Args args)
     std::apply(std::forward<F>(f), std::forward<Args>(args));
 
   auto t1 = std::chrono::system_clock::now();
-  std::chrono::nanoseconds dt = t1 - t0;
+  auto dt = duration_cast<picoseconds>(t1 - t0);
 
-  cout << dt.count() / N << " ns\n";
+  cout << dt.count() / N << " ps\n";;
 }
 
 void
