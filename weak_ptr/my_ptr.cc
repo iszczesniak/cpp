@@ -1,3 +1,4 @@
+#include <cassert>
 #include <iostream>
 
 using namespace std;
@@ -54,6 +55,8 @@ class my_weak_ptr;
 template <typename T>
 class my_shared_ptr
 {
+  friend my_weak_ptr<T>;
+
   struct control
   {
     unsigned ref_count = 1;
@@ -69,8 +72,6 @@ class my_shared_ptr
       cout << "control-dtor\n";
     }
   };
-
-  friend my_weak_ptr<T>;
 
   control *m_ctrl_ptr = nullptr;
   T *m_data_ptr;
@@ -96,7 +97,11 @@ public:
   my_shared_ptr(T *ptr): m_ctrl_ptr(new control), m_data_ptr(ptr)
   {
   }
-    
+
+  // Here I can only declare this constructor.  The implementation has
+  // to come after the definition of my_weak_ptr.
+  my_shared_ptr(const my_weak_ptr<T> &);
+
   ~my_shared_ptr()
   {
     clean();
@@ -147,6 +152,8 @@ public:
 template <typename T>
 class my_weak_ptr
 {
+  friend my_shared_ptr<T>;
+
   typename my_shared_ptr<T>::control *m_ctrl_ptr = nullptr;
   T *m_data_ptr;
 
@@ -212,6 +219,15 @@ public:
   }
 };
 
+template <typename T>
+my_shared_ptr<T>::my_shared_ptr(const my_weak_ptr<T> &a):
+  m_ctrl_ptr(a.m_ctrl_ptr), m_data_ptr(a.m_data_ptr)
+{
+  assert(m_ctrl_ptr);
+  assert(m_ctrl_ptr->ref_count != 0);
+  ++m_ctrl_ptr->ref_count;
+}
+
 int
 main()
 {
@@ -238,6 +254,8 @@ main()
     my_weak_ptr<A> wp3(move(wp));
     my_weak_ptr<A> wp4;
     wp4 = wp2;
+
+    my_shared_ptr<A> sp5 = wp4;
   }
 
   std::cout << "Bye!\n";
