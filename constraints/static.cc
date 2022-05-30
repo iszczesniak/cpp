@@ -8,7 +8,7 @@ struct A
   void
   hello() const
   {
-    cout << "Hello World!\n";
+    cout << "Hello ";
   }
 };
 
@@ -20,11 +20,25 @@ struct C
 {
 };
 
+void
+goo(const A &)
+{
+  cout << "A\n";
+}
+
+void
+goo(const B &)
+{
+  cout << "B\n";
+}
+
 // For objects of any class derived from A.
 void
 foo1(const A &a)
 {
+  cout << __PRETTY_FUNCTION__ << endl;
   a.hello();
+  goo(a);
 }
 
 // For objects of any class that has the hello function.
@@ -32,7 +46,9 @@ template <typename T>
 void
 foo2(const T &t)
 {
+  cout << __PRETTY_FUNCTION__ << endl;
   t.hello();
+  goo(t);
 }
 
 // For objects of any class derived from A.
@@ -42,6 +58,7 @@ foo3(const T &t)
 {
   cout << __PRETTY_FUNCTION__ << endl;
   t.hello();
+  goo(t);
 }
 
 int
