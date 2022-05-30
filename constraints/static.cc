@@ -70,16 +70,16 @@ main()
 
   foo1(a);
   foo1(b);
-  // Error, but with a clear error message from the interface.
+  // Error with a clear message from the interface.
   // foo1(c);
 
   foo2(a);
   foo2(b);
-  // Error, but with an ugly error message from the implementation.
+  // Error with an ugly message from the implementation.
   // foo2(c);
 
   foo3(a);
   foo3(b);
-  // Error, but with a clear error message from the interface.
-  // foo3(c);    
+  // Error with a clear message from the interface.
+  // foo3(c);
 }
