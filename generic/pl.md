@@ -102,8 +102,8 @@ To jest kod z użyciem szablonu funkcji `test_template.cc`:
 {% include_relative test_template.cc %}
 {% endhighlight %}
 
-Kompilujemy oba przykłady do asemblera (możemy też użyć Code Explorer)
-i patrzymy na różnice (możemy też użyć `c++filt`):
+Kompilujemy oba przykłady do asemblera (możemy też użyć Compiler
+Explorer) i patrzymy na różnice (możemy też użyć `c++filt`):
 
 ```
 g++ -O2 -std=c++17 -S test_baseline.cc test_template.cc
