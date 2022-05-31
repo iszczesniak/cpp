@@ -200,13 +200,12 @@ error).
 {% include_relative overload1.cc %}
 ```
 
-Tutaj jest kolejny przykład, który nie kompiluje się w całości,
-chociaż nie rozumiem dlaczego.  Problem jest z wyborem przeciążenia
-dla zakomentowanego wywołania funkcji.  GCC 9 kompiluje, ale GCC 10
-już nie.
+Tutaj jest kolejny przykład, który nie kompiluje się w całości: jest
+problem z wyborem przeciążenia dla zakomentowanego wywołania funkcji.
+Problem może być rozwiązany wyłącznie z użyciem konceptów.
 
 ```cpp
-{% include_relative overload2.cc %}
+{% include_relative toys.cc %}
 ```
 
 Przeciążeń szablonów pod względem spełniania warunków nie
