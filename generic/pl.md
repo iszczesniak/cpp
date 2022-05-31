@@ -144,6 +144,12 @@ Nawet iterowanie po elementach tablicy `std::array` nie wprowadza
 {% include_relative test_foray.cc %}
 {% endhighlight %}
 
+Konkretyzacja pozwala też na lepszą kompilację kodu:
+
+{% highlight c++ %}
+{% include_relative divide.cc %}
+{% endhighlight %}
+
 # Programowanie uogólnione a obiektowe
 
 Programowanie uogólnione i obiektowe są komplementarne, nie wykluczają
