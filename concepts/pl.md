@@ -109,8 +109,10 @@ przykład:
 C++ pozwala nam jeszcze bardziej skrócić definicję szablonu.  Już nie
 musimy pisać, że chodzi o szablon, którego parametr spełnia jakiś
 koncept.  Teraz możemy zdefiniować szablon funkcji używając nazwy
-konceptu jako typu parametru funkcji, po której podajemy typ `auto`.
-Użyty koncept musi być jednoargumentowy.  Oto przykład:
+konceptu jako typu parametru funkcji, po której podajemy specyfikator
+typu `auto`.  Jako pierwszy argument konceptu będzie przekazany
+wywnioskowany typ, ten który jest podstawiany w miejsce `auto`.  Oto
+przykład:
 
 ```cpp
 {% include_relative shorter.cc %}
@@ -163,10 +165,6 @@ Ale biblioteka standardowa ma już koncept podobny do naszego
 ```cpp
 {% include_relative invocable.cc %}
 ```
-
-Jeżeli chcielibyśmy skrócić dalej definicję szablonu funkcji `f`,
-czyli chcielibyśmy usunąć listę parametrów szablonu, to tracimy
-możliwość podania domyślengo argumentu `EmptyCallable` szablonu.
 
 # Podsumowanie
 
