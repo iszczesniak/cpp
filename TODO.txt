@@ -1,10 +1,5 @@
 **********************************************************************
 
-Show that member references are a problem for the assignment operator,
-because a reference cannot be made to refer to some other data.
-
-**********************************************************************
-
 In references, mention how to overload a member function based on the
 category of the expression for which the member function was called,
 like here, where foo can be called only for rvalues:
@@ -33,8 +28,6 @@ callable vs invokable
 
 type traits
 
-Containers, iterators and algorithms
-
 Variadic templates
 
 Type aliases cannot be specialized.  Use type traits.
@@ -42,8 +35,6 @@ Type aliases cannot be specialized.  Use type traits.
 Injected class names in class templates.
 
 Partial specialization
-
-auto - more details
 
 Tag dispatching - is it still needed?
 
