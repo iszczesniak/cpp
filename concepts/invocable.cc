@@ -39,7 +39,7 @@ int main()
 
   // The following should compile, I reckon, because the variable t
   // below (which is just like the parameter of function f3) compiles
-  // fine.  Yet, the function call doesn't with GCC 12.1.0.
+  // fine.  Yet, it doesn't with GCC 12.1.0.
 
   // f3();
 
