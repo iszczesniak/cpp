@@ -257,8 +257,9 @@ Programista może jawnie usunąć składową z użyciem `= delete`:
 Wszystkie składowe specjalne są niejawnie domyślnie zaimplementowane
 (jeżeli są potrzebne), ale:
 
-* konstruktor domyślny będzie niezadeklarowany, jeżeli którykolwiek
-  konstruktor będzie jawnie zadeklarowany,
+* konstruktor domyślny (ten z pustą listą parametrów) będzie
+  niezadeklarowany, jeżeli którykolwiek konstruktor będzie jawnie
+  zadeklarowany,
 
 * konstruktor kopiujący i kopiujący operator przypisania będą
   **niejawnie usunięte** (więc będą brały udział w wyborze
