@@ -323,7 +323,7 @@ przez starą konwencję.
 
 C++ pomija wywołanie konstruktora kopiującego i przenoszącego dla
 obiektów (np. tymczasowych albo lokalnych), które wkrótce zostaną
-zniszczone.  Pominięcie wywołanie konstruktora (ale tylko kopiującego
+zniszczone.  Pominięcie wywołania konstruktora (ale tylko kopiującego
 i przenoszącego) jest możliwe, ponieważ obiekt tymczasowy albo lokalny
 jest tworzony w miejscu docelowym.
 
