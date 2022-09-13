@@ -1,11 +1,10 @@
 struct A
 {
   A() = default;
-  A(const A &) = delete;
   A(A &&) = delete;
 };
 
-A foo(A a)
+A foo(A)
 {
   return A();
 }
