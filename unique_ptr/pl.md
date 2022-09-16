@@ -226,9 +226,8 @@ Zamiast tego możemy napisać równoważny kod bez dwukrotnego pisania
 `auto up = make_unique<A>("A1");`
 
 Funkcja `std::make_unique` nie wprowadza narzutu wydajnościowego:
-konstruktor przenoszący będzie pominięty, zostanie zastosowana
-optymalizacja wartości powrotu, więc obiekt zarządzający będzie
-stworzony bezpośrednio w miejscu zmiennej `up`.
+konstruktor przenoszący będzie pominięty, więc obiekt zarządzający
+będzie stworzony bezpośrednio w miejscu zmiennej `up`.
 
 Używający specyfikatora typu `auto` prosimy kompilator o
 wywnioskowanie typu dla zmiennej `up` na podstawie wyrażenia
