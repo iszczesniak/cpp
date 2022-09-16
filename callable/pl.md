@@ -104,7 +104,7 @@ Callable może być:
 ## Funkcja
 
 Wyrażenie, które jest tylko nazwą funkcji (bez operatora wywołania)
-może być potraktowane jako adres tej funkcji, co nazywam rozpadem
+może być potraktowane jako adres tej funkcji, co nazywamy rozpadem
 funkcji na wskaźnik.  Możemy pobrać adres funkcji z użyciem operatora
 adresowania, np. `&foo`.  Te dwa sposoby pobrania adresu są
 równoważne, co jest trochę niespójne, bo powinien być tylko jeden
