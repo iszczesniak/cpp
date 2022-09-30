@@ -19,6 +19,6 @@ int main()
   int x = 1;
   foo(x);
 
-  const cx = 1;
+  const int cx = 1;
   foo(cx);  
 }
