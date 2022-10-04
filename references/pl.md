@@ -21,7 +21,7 @@ Najważniejsze fakty o referencjach:
 * W przeciwieństwie do wskaźnika, referencji nie można zmienić, żeby
   była aliasem innej danej.
 
-* Typ referencyjny nie może mieć kwalifikatorów typuq.
+* Typ referencyjny nie może mieć kwalifikatorów typu.
 
 * Istnieje referencja do wskaźnika, ale nie wskaźnik do referencji.
 

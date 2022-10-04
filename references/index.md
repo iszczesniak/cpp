@@ -160,13 +160,12 @@ We define a const reference like this:
 
 `const T &name = <expr>;`
 
-While we call it the const reference, more precisely it is called an
-lvalue reference that binds to the const data of type `T`, i.e., the
-`const` qualifies the type of the data and not the reference.  The
-reference itself is not really const, because we can't change what the
-reference is bound to anyway.  Nonetheless, it's called the const
-reference for short; no need to say it's an lvalue reference to const
-data.
+Precisely, it is called an lvalue reference that binds to the const
+data of type `T`, i.e., the `const` qualifies the type of the data and
+not the reference.  The reference itself is not really const, because
+we can't change what the reference is bound to anyway.  Nonetheless,
+it's called the const reference for short; no need to say it's an
+lvalue reference to const data.
 
 Here are some examples:
 
