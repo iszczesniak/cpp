@@ -169,20 +169,24 @@ Przykłady dla `std::pair` i `std::tuple`:
 
 ## Referencja stała
 
-**Referencja stała może być zainicjalizowana l-wartością lub
-r-wartością.** Ta funkcjonalność została wprowadzona w C++98, żeby
-można przekazać przez referencję obiekt tymczasowy jako argument
-wywołania funkcji.
-
 Tak definiujemy referencję stałą:
 
 `const T &name = <expr>;`
 
-To jest l-referencja, która odwołuje się do danej typu `const T`,
+Jest to l-referencja, która odwołuje się do danej typu `const T`,
 czyli kwalifikator `const` doprecyzowuje typ danej, a nie typ
 referencji.  Referencji i tak nie możemy zmienić, ale nazywamy ją
 referencją stałą w skrócie (myślowym), żeby nie mówić o l-referencji
 do stałej danej.
+
+Referencja stała została wprowadzona, żeby dane można było używać
+tylko do odczytu.  Na przykład, funkcja może przyjmować argument przez
+referencję stałą, żeby zapewnić brak modyfikacji argumentu.  Co
+więcej, aby funkcja mogła przyjąć daną tymczasową (czyli r-wartość), w
+C++98 napisano:
+
+**Referencja stała może być zainicjalizowana l-wartością lub
+r-wartością.**
 
 Przykłady:
 
