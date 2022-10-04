@@ -32,7 +32,7 @@ callable vs invokable
 
 type traits
 
-Variadic templates
+variadic templates
 
 Type aliases cannot be specialized.  Use type traits.
 

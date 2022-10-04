@@ -19,6 +19,11 @@ These are the most important facts about references:
 * Unlike a pointer, a reference cannot be changed to be an alias for
   some other data.
 
+* A reference type cannot have the `const` and `volatile` type
+  qualifiers.
+
+* There is a reference to a pointer, but not a pointer to a reference.
+
 * A reference can be an element of `std::pair` and `std::tuple`, but not
   of a container or an array.
 
@@ -28,7 +33,9 @@ The main uses of references:
 
 * returning a result from a function by reference,
 
-* referencing data in an object member field.
+* referencing data in an object member field,
+
+* accessing data read-only (a const reference).
 
 We say that a reference *binds to* data, which means something like
 *points to*, though "points to" is used when talking about pointers.
@@ -153,12 +160,13 @@ We define a const reference like this:
 
 `const T &name = <expr>;`
 
-This is exactly an lvalue reference that binds to the const data of
-type `T`, i.e., the const qualifier refers to the type of data the
-reference binds to.  The reference itself is not really const, because
-we can't change what the reference is bound to anyway.  Nonetheless,
-it's called the const reference for short; no need to say it's an
-lvalue reference to const data.
+While we call it the const reference, more precisely it is called an
+lvalue reference that binds to the const data of type `T`, i.e., the
+`const` qualifies the type of the data and not the reference.  The
+reference itself is not really const, because we can't change what the
+reference is bound to anyway.  Nonetheless, it's called the const
+reference for short; no need to say it's an lvalue reference to const
+data.
 
 Here are some examples:
 
@@ -198,6 +206,32 @@ this example:
 
 {% highlight c++ %}
 {% include_relative members.cc %}
+{% endhighlight %}
+
+## Qualifiers
+
+A pointer type can be cv-qualified, i.e., can have the `const` or
+`volatile` qualifiers, while a reference type cannot (i.e., can only
+be cv-unqualified).
+
+A pointer example:
+
+{% highlight c++ %}
+{% include_relative qualifiers_ptr.cc %}
+{% endhighlight %}
+
+A reference example:
+
+{% highlight c++ %}
+{% include_relative qualifiers_ref.cc %}
+{% endhighlight %}
+
+## A reference to a pointer, but not the other way around.
+
+A reference to a pointer exists, but a pointer to a reference doesn't.
+
+{% highlight c++ %}
+{% include_relative r2p.cc %}
 {% endhighlight %}
 
 # Reference tricks

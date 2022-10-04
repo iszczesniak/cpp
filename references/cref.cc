@@ -12,11 +12,17 @@ foo(const string &)
 int
 main()
 {
+  // The data we bind references to.
   int x = 1;
+  const int cx = 1;
+
   // The const reference binds to an lvalue.  The type of the
   // initializing expression `x` is automatically augmented with the
   // const qualifier.
   const int &l1 = x;
+
+  // The reference to a const int is initialized with a const int.
+  const int &cr = cx;
 
   // Error: an lvalue reference cannot bind to an rvalue.
   // int &l2 = 1;

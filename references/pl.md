@@ -21,6 +21,10 @@ Najważniejsze fakty o referencjach:
 * W przeciwieństwie do wskaźnika, referencji nie można zmienić, żeby
   była aliasem innej danej.
 
+* Typ referencyjny nie może mieć kwalifikatorów typuq.
+
+* Istnieje referencja do wskaźnika, ale nie wskaźnik do referencji.
+
 * Referencja może być przechowywana w `std::pair` i `std::tuple`, ale
   nie w kontenerze czy tablicy.
 
@@ -30,7 +34,9 @@ Główne zastosowania referencji:
 
 * zwracanie wartości z funkcji przez referencję,
 
-* użycie danych przez referencję w polach składowych obiektów.
+* użycie danych przez referencję w polach składowych obiektów,
+
+* dostęp do danych tylko do odczytu (referencja stała).
 
 **Referencja jest inicjalizowana na podstawie wyrażenia
 inicjalizującego**.  Mając daną, która jest wartością wyrażenia
@@ -52,8 +58,8 @@ C++ referencja może nie istnieć w czasie uruchomienia, bo została
 
 W Javie czy C# referencja jest wskaźnikiem o semantyce współdzielonej
 własności: referencje mogą być kopiowane, a dana będzie tak długo
-istnieć, jak istnieje przynajmniej jeden taki wskaźnik.  W tych języka
-wskaźnik (i to nie taki zwykły jak w C, tylko implementujący
+istnieć, jak istnieje przynajmniej jeden taki wskaźnik.  W tych
+językach wskaźnik (i to nie taki zwykły jak w C, tylko implementujący
 współdzielenie obiektu) zawsze istnieje w czasie uruchomienia.
 
 Poniższy przykład pokazuje wyoptymalizowanie referencji w czasie
@@ -173,9 +179,10 @@ Tak definiujemy referencję stałą:
 `const T &name = <expr>;`
 
 To jest l-referencja, która odwołuje się do danej typu `const T`,
-czyli kwalifikator `const` odnosi się do danej, a nie referencji.
-Referencji i tak nie możemy zmienić, ale nazywamy ją referencją stałą
-w skrócie (myślowym), żeby nie mówić o l-referencji do stałej danej.
+czyli kwalifikator `const` doprecyzowuje typ danej, a nie typ
+referencji.  Referencji i tak nie możemy zmienić, ale nazywamy ją
+referencją stałą w skrócie (myślowym), żeby nie mówić o l-referencji
+do stałej danej.
 
 Przykłady:
 
@@ -213,6 +220,31 @@ jak w przykładzie niżej:
 
 {% highlight c++ %}
 {% include_relative members.cc %}
+{% endhighlight %}
+
+## Kwalifikatory
+
+Typ wskaźnikowy może mieć kwalifikatory `const` lub `volatile`
+(ang. cv-qualified), a typ referencyjny nie (ang. cv-unqualified).
+
+Przykłady dla wskaźnika:
+
+{% highlight c++ %}
+{% include_relative qualifiers_ptr.cc %}
+{% endhighlight %}
+
+Przykłady dla referencji:
+
+{% highlight c++ %}
+{% include_relative qualifiers_ref.cc %}
+{% endhighlight %}
+
+## Referencja do wskaźnika, ale nie na odwrót.
+
+Referencja do wskaźnika istnieje, ale nie wskaźnik do referencji.
+
+{% highlight c++ %}
+{% include_relative r2p.cc %}
 {% endhighlight %}
 
 # Sztuczki referencyjne
