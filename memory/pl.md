@@ -37,14 +37,22 @@ zadaniami nieuprzywilejowanymi.  *Zadanie nieuprzywilejowane* nie może
 naruszyć danych innych zadań, w szczególności nie może pisać do swojej
 pamięci tylko do odczytu.
 
-W poniższym przykładzie próbujemy pisać do literału łańcuchowego,
-który jest znajduje się w pamięci tylko do odczytu.  Program się
-kompiluje, ale proces jest unicestwiony przez system operacyjny
-sygnałem SIGSEGV (segment violation).
+W poniższym przykładzie próbujemy pisać do pamięci tylko do odczytu --
+proszę odkomentować niektóre linie.  Program się kompiluje, ale proces
+jest unicestwiony przez system operacyjny sygnałem SIGSEGV (segment
+violation).
 
 {% highlight c++ %}
 {% include_relative sigsegv.cc %}
 {% endhighlight %}
+
+Możemy sprawdzić miejsce zmiennych poniższą komendą.  Proszę zwrócić
+uwagę na literę 'r' na wyjściu, która symbolizuje pamięć tylko do
+odczytu:
+
+```
+nm ./sigsegv | c++filt | grep test
+```
 
 Wszystkie inne dane programu (poza tymi w pamięci tylko do odczytu) są
 w pamięci do odczytu i zapisu, bo na tych danych program wykonuje
