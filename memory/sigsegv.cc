@@ -6,7 +6,7 @@ const int test1 = 1;
 
 int main()
 {
-  // Is the i1 global variable in the read-only memory?
+  // Is the global variable in the read-only memory?
   // *const_cast<int *>(&test1) = 10;
   // const_cast<int &>(test1) = 10;
 
