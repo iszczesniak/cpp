@@ -36,13 +36,20 @@ operating system and other processes.  For instance, an unprivileged
 task cannot write to its read-only memory.  Every process is an
 unprivileged task.
 
-In the following example we try to write to the read-only memory.  The
-code compiles, but is killed by the operating system with the SIGSEGV
-(segment violation) signal.
+In the following example we try to write to the read-only memory --
+please uncomment some lines.  The code compiles, but is killed by the
+operating system with the SIGSEGV (segment violation) signal.
 
 {% highlight c++ %}
 {% include_relative sigsegv.cc %}
 {% endhighlight %}
+
+We can check the location of the variables with the command below.
+Notice the 'r' in the output for the read-only memory:
+
+```
+nm ./sigsegv | c++filt | grep test
+```
 
 All other data is located in the read-write memory, because it can be
 changed by a process.  Every process has its own read-write memory,
