@@ -99,13 +99,15 @@ Pamięć do zapisu i odczytu przechowuje:
 
 ## Dane globalne i statyczne
 
-Dane globalne są zainicjalizowane przed wywołaniem funkcji `main`:
+Dane globalne są zainicjalizowane przed wywołaniem funkcji `main` i są
+dostępne wszędzie w programie:
 
 {% highlight c++ %}
 {% include_relative global.cc %}
 {% endhighlight %}
 
-Dane statyczne są zainicjalizowane przed ich pierwszym użyciem:
+Dane statyczne są zainicjalizowane przed ich pierwszym użyciem i są
+lokalne (czyli niedostępne poza funkcją):
 
 {% highlight c++ %}
 {% include_relative static.cc %}
@@ -113,6 +115,17 @@ Dane statyczne są zainicjalizowane przed ich pierwszym użyciem:
 
 W przykładzie wyżej, proszę usunąć `static` i zauważyć zmianę w
 zachowaniu programu.
+
+Zmienne globalne i statyczne wydają się podobne, ponieważ utrzymują
+dane między wywołaniami funkcji.  Jednak są dwa powody, aby użyć
+zmiennej statycznej zamiast globalnej:
+
+* statyczna zmienna jest inicjalizowane tylko wtedy, kiedy trzeba
+  (kiedy wywołujemy funkcję), a zmienna globalna jest zawsze
+  inicjalizowana, co może pogorszyć wydajność, jeżeli zmienna nie jest
+  używana,
+
+* utrzymanie kodu w porządku i zapobieganie błędom.
 
 ## Lokalne dane
 

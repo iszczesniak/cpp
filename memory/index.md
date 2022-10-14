@@ -94,13 +94,15 @@ The read-write memory stores:
 
 ## The global and static data
 
-Global data are initialized before entering the main function:
+Global data are initialized before entering the `main` function, and
+are available everywhere in the program:
 
 {% highlight c++ %}
 {% include_relative global.cc %}
 {% endhighlight %}
 
-Static data are initialized before its first use:
+Static data are initialized before its first use, and are local to a
+function (i.e., unavailable elsewhere):
 
 {% highlight c++ %}
 {% include_relative static.cc %}
@@ -108,6 +110,16 @@ Static data are initialized before its first use:
 
 In the example above remove `static`, and notice the changes in the
 program output.
+
+The global and static variables seem very similar in that they keep
+data between calls to a function.  However, there are two reasons for
+using a static over a global variable:
+
+* a static variable is initialized only when needed (when we call a
+  function), while a global variable is always initialized, which may
+  be a performance hit if the variable is unused,
+
+* keep the code tidy and less error-prone.
 
 ## The local data
 
