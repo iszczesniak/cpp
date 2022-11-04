@@ -16,6 +16,7 @@ struct B
 int
 main()
 {
-  B();
+  const B &b = B();
+  std::cout << "&b   = " << &b << '\n';
+  std::cout << "&b.a = " << &b.a << '\n';
 }
-
