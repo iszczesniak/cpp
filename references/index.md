@@ -27,6 +27,8 @@ These are the most important facts about references:
 * A reference can be an element of `std::pair` and `std::tuple`, but not
   of a container or an array.
 
+* There is type `void *`, but not `void &` (thank goodness).
+
 The main uses of references:
 
 * passing an argument to a function by reference,
@@ -128,9 +130,9 @@ We define an lvalue reference like this:
 
 `T &name = <expr>;`
 
-Reference `name` binds to data of type T.  `&` is called the lvalue
-reference declarator.  The reference is initialized with expression
-`<expr>`.
+Reference `name` binds to data of type T.  That thingy `&` is called
+the lvalue reference **declarator**.  The reference is initialized
+with expression `<expr>`.
 
 Here are some examples:
 
@@ -158,10 +160,10 @@ We define a const reference like this:
 
 Precisely, it is called an lvalue reference that binds to the const
 data of type `T`, i.e., the `const` qualifies the type of the data and
-not the reference.  The reference itself is not really const, because
-we can't change what the reference is bound to anyway.  Nonetheless,
-it's called the const reference for short; no need to say it's an
-lvalue reference to const data.
+not the reference.  The reference itself is not really const because
+we can't change the reference to bind to something else anyway.
+Nonetheless, it's called the const reference for short; no need to say
+it's an lvalue reference to const data.
 
 The const reference was introduced so that the data can be referenced
 read-only.  For instance, a function can accept an argument by const
@@ -186,7 +188,7 @@ We define an rvalue reference like this:
 
 `T &&name = <expr>;`
 
-`&&` is called the rvalue reference declarator.
+The rvalue reference declarator is `&&`.
 
 The rvalue reference was introduced in C++11 to enable:
 
