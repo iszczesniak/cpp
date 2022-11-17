@@ -28,6 +28,8 @@ Najważniejsze fakty o referencjach:
 * Referencja może być przechowywana w `std::pair` i `std::tuple`, ale
   nie w kontenerze czy tablicy.
 
+* Istnieje typ `void *`, ale nie `void &` (na szczęście).
+
 Główne zastosowania referencji:
 
 * przekazywanie argumentu do funkcji przez referencję,
