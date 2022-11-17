@@ -232,6 +232,11 @@ A reference example:
 {% include_relative qualifiers_ref.cc %}
 {% endhighlight %}
 
+In the above example we used the qualifiers in reference declarations
+but not at the **top level**.  A top-level qualifier for a reference
+type would be on the right of the `&` declarator but is disallowed
+there.
+
 ## A reference to a pointer, but not the other way around.
 
 A reference to a pointer exists, but a pointer to a reference doesn't.

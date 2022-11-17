@@ -245,6 +245,11 @@ Przykłady dla referencji:
 {% include_relative qualifiers_ref.cc %}
 {% endhighlight %}
 
+W przykładzie wyżej użyliśmy kwalifikatorów w deklaracjach referencji,
+ale nie na **najwyższym poziomie** (ang. top-level).  Kwalifikator
+najwyższego poziomu dla typu referencyjnego byłby na prawo od
+deklaratora `&`, ale tam jest zabroniony.
+
 ## Referencja do wskaźnika, ale nie na odwrót.
 
 Referencja do wskaźnika istnieje, ale nie wskaźnik do referencji.

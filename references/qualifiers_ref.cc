@@ -11,6 +11,10 @@ int main()
 
   // A reference to a const integer.
   const int &r2ci = x;
+  // A reference to a volatile integer.
+  volatile int &r2vi = x;
+  // A reference to a const volatile integer.
+  const volatile int &r2cvi = x;
 
   // A const-qualified reference type to an integer does not exist.
   // int & const cr2i = x;
