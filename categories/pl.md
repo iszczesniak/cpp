@@ -11,7 +11,7 @@ programowaniu uchodzą naszej uwadze.
 Żeby łatwiej zrozumieć l-wartości i r-wartości, proponuję szczegółowo
 przyswoić ten materiał, bez poszukiwania głębszego sensu na tym
 etapie.  Podobną radę otrzymała Alicja od Humpty Dumpty w powieści "Po
-drugiej strony lustra" autorstwa Lewisa Carrolla:
+drugiej stronie lustra" autorstwa Lewisa Carrolla:
 
 > “Must a name mean something?” Alice asks Humpty Dumpty, only to get
 > this answer: “When I use a word... it means just what I choose it to
@@ -334,6 +334,17 @@ przykład, możemy zamienić `{++i;}` na `++i;`.  Jednak bloki
 przechwytywania wyjątku (`try`) i obsługi wyjątku (`catch`) ciągle
 muszą być blokami i nie można usunąć `{}`, nawet jeżeli zawierają
 jedną instrukcję.  Taka nieścisłość.
+
+## Przeciążanie funkcji składowych
+
+Funkcja składowa może być wywołana dla l-wartości lub r-wartości.
+Możemy jednak zadeklarować funkcję z kwalifikatorem referencji `&`
+albo `&&`, żeby można ją było wywołać albo dla l-wartości, albo
+r-wartości.  Na przykład:
+
+{% highlight c++ %}
+{% include_relative overloading.cc %}
+{% endhighlight %}
 
 ## Funkcje a kategorie wyrażeń
 

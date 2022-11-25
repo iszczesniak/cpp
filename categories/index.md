@@ -312,6 +312,17 @@ Interestingly, and as a side note, a statement block (i.e.,
 blocks always have to be blocks, and you cannot remote `{}` even if it
 has a single statement.  Wierd.
 
+## Overloading member functions
+
+A member function can be called for both an lvalue or an rvalue.
+However, a member function can be declared with a reference qualifier
+`&` or `&&` (and therefore be ref-qualified), so that it can be called
+for either an lvalue or an rvalue.  Example:
+
+{% highlight c++ %}
+{% include_relative overloading.cc %}
+{% endhighlight %}
+
 ## Functions and categories of expressions
 
 Function `foo`, (e.g., `void foo(<params>)`) can be used in an
