@@ -129,6 +129,14 @@ will not compile:
 {% include_relative wrong-lvalue.cc %}
 {% endhighlight %}
 
+The assignment operator for the integral types expects an lvalue on
+the left, so we cannot write `1 = 1`.  Here is a more elaborate
+example:
+
+{% highlight c++ %}
+{% include_relative assignment.cc %}
+{% endhighlight %}
+
 ## The rvalue category
 
 An expression is an rvalue, if it's not an lvalue.  We can't take the

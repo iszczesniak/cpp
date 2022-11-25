@@ -138,6 +138,14 @@ móc zgodnie z definicją), bo jest ona stała:
 {% include_relative wrong-lvalue.cc %}
 {% endhighlight %}
 
+Operator przypisania dla typów całkowitych wymaga l-wartości po lewej
+stronie, więc nie możemy napisać `1 = 1`.  Oto bardziej rozbudowany
+przykład:
+
+{% highlight c++ %}
+{% include_relative assignment.cc %}
+{% endhighlight %}
+
 ## R-wartość
 
 Wyrażenie jest r-wartością, jeżeli nie jest l-wartością.  Nie możemy
