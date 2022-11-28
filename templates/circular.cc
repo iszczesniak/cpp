@@ -9,7 +9,8 @@ struct A
 };
 
 // But those elements want to have a reference to the object that owns
-// them.  And that's a problem.
+// them.  And that's a problem, because this creates a circular
+// dependency.
 template <typename T>
 struct B
 {
@@ -20,8 +21,8 @@ struct B
   }
 };
 
-// But those elements want to have a reference to the object that owns
-// them.  And that's a problem.
+// We can break the circular dependency with the template-kind
+// parameter of a template.
 template <template <typename> typename T>
 struct C
 {
