@@ -13,17 +13,17 @@ struct A
   }
 };
 
-// Uncomment to see the ambiguity error.
-// bool
-// operator < (const A &a1, const A &a2)
-// {
-//   return a1.m_a < a2.m_a;
-// }
+bool
+operator < (const A &a1, const A &a2)
+{
+  return a1.m_a < a2.m_a;
+}
 
 int
 main()
 {
   A a1(1), a2(2);
 
-  a1 < a2;
+  // Uncomment to see the ambiguity error.
+  // a1 < a2;
 }
