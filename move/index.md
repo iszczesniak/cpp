@@ -7,14 +7,14 @@ title: Move semantics
 The move semantics applies only to the data of class types, so I'll
 talk about *objects*, and not *data* as I do elsewhere.  An object is
 an instance of a class type (i.e., a piece of memory interpreted
-according to how a class or a structure was defined).  The state of
-the object is called the *value*.
+according to how a class or a structure was defined).  Usually the
+state of the object is called the *value*.
 
 The definition of the value of an object depends on the implementation
 of the class.  Usually the value of an object is the state of its base
 and member objects.  However, there might be some supporting data in
-an object (e.g., some cache data) that do not have to be part of the
-object value.
+an object (e.g., some cache data that are part of the object state)
+that do not have to be part of the object value.
 
 The value of an object can be copied when the object is:
 

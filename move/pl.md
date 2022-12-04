@@ -7,13 +7,13 @@ title: Semantyka przeniesienia
 Semantyka przeniesienia dotyczy wyłącznie danych typów klasowych (do
 tego zaliczają się także struktury i unie), więc będziemy mówić o
 przenoszeniu obiektów, a nie danych.  Obiekt jest daną typu klasowego,
-czyli danymi interpretowanymi zgodnie z definicją klasy.  Stan obiektu
-nazywamy **wartością obiektu**.
+czyli danymi interpretowanymi zgodnie z definicją klasy.  Najczęściej
+stan obiektu jest jego **wartością**.
 
 Definicja wartości obiektu zależy od implementacji klasy.  Zwykle
-wartością obiektu jest stan obiektów bazowych i pól składowych.
-Jednak na stan obiektu nie muszą składać się niektóre dane, np. dane
-podręczne (ang. cache data).
+wartością obiektu jest stan obiektów bazowych i składowych.  Jednak na
+wartość obiektu nie muszą składać się niektóre dane, np. dane
+podręczne (ang. cache data), które składają się na jego stan.
 
 Wartość obiektu może być kopiowana podczas:
 
