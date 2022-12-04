@@ -1,11 +1,24 @@
 **********************************************************************
 
+For the move semantics, whether this compiles:
+
+A &a = A() = A();
+
+depends on declaration of the assignment operator:
+
+A & operator=(const A &) = default;
+A & operator=(const A &) &;
+A & operator=(A &&) &&;
+A && operator=(A &&) &&;
+
+**********************************************************************
+
 Add std::bind to generalized call expressions.
 
 **********************************************************************
 
-Overload resolution chooses a more specialized overload.  What does it
-exactly mean?  Specialized?
+Overload resolution chooses a more specialized overload.  Explain what
+that exactly means.
 
 **********************************************************************
 
