@@ -239,7 +239,8 @@ Tak przy okazji:
 * wersja sufiksowa ma wiązanie od lewej do prawej.
 
 Przykład poniżej pokazuje implementację sufiksowego operatora
-inkrementacji dla `std::string`.
+inkrementacji dla `std::string`.  Pętla z prefiksowym operatorem
+byłaby bardziej skomplikowana.
 
 {% highlight c++ %}
 {% include_relative string.cc %}

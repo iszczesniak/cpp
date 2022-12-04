@@ -233,7 +233,7 @@ As a side note:
 * the suffix version has the left-to-right associativity.
 
 In the example below, `std::string` has the suffix increment operator
-defined.
+defined.  The loop with the prefix operator would be more complicated.
 
 {% highlight c++ %}
 {% include_relative string.cc %}
