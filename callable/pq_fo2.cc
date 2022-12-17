@@ -26,8 +26,10 @@ main(void)
 
   cout << "Enter 0 or 1:";
   cin >> order;
-  
-  priority_queue<int, vector<int>, CMP> q(order);
+
+  priority_queue<int, vector<int>, CMP> q(CMP{order});
+  // The same as above.
+  // priority_queue<int, vector<int>, CMP> q(order);
 
   q.push(2);
   q.push(1);
@@ -38,6 +40,6 @@ main(void)
       cout << q.top() << endl;
       q.pop();
     }
-  
+
   return 0;
 }

@@ -10,6 +10,10 @@ main(void)
   // HERE'S THE DIFFERENCE!
   priority_queue<int, vector<int>, greater<int>> q;
 
+  // I was hoping the third template argument would be deduced from
+  // the constructor argument, but, alas, not.
+  // priority_queue<int> q(std::greater<int>{});
+  
   q.push(2);
   q.push(1);
   q.push(3);

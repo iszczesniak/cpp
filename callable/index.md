@@ -5,8 +5,8 @@ title: Callable, sth to call
 # Introduction
 
 In C we use a function pointer to ship a piece of code (e.g., that
-establishes order between objects) to some other piece of code (e.g.,
-a sorting function).  In C++ a generalization of a function is
+establishes ordering between objects) to some other piece of code
+(e.g., a sorting function).  In C++ a generalization of a function is
 something that we can call.  We call it a **callable**.  Calling a
 callable has the syntax of calling a function (i.e., applying the `()`
 operator), and the function interface: we know the types of the
@@ -41,34 +41,35 @@ built-in operator `<` defined:
 {% endhighlight %}
 
 Below we sort data of a user-defined type, and to this end we need to
-define the ordering (we could also say to induce order or to establish
-order) between the objects with the **comparison operator**, i.e.,
-**the `<` operator**.  There are a number of comparison operators that
-we can define for a user-defined type: `==`, `!=`, `<`, `<=`, `>`,
-`=>`, `<=>`, but for inducing order between elements (the objects of
-the user-defined type) the most important operator is the **less-than
+define the ordering (we could also say to establish ordering) between
+the objects with the **comparison operator**, i.e., **the `<`
+operator**.  There are a number of comparison operators that we can
+define for a user-defined type: `==`, `!=`, `<`, `<=`, `>`, `=>`,
+`<=>`, but for the ordering between elements (the objects of the
+user-defined type), the most important operator is the **less-than
 operator**, i.e., the `<` operator.  We could refer to the less-than
-operator as *the comparison operator*, but the avoid confusion, we
+operator as *the comparison operator*, but to avoid confusion, we
 refer to it as the `<` operator.
 
 We defined the `<` operator as a member function: `this` is the first
-object to compare, and the function parameter is the second object to
-compare.  The member comparison operator should be declared as `const`
-(because it should not modify its object, i.e., `this`), and it should
-take the other operand by a const reference (because it should not
-change that operand).
+object to compare, and the function parameter is the second.  The
+member comparison operator should be declared as `const` (because it
+should not modify its object, i.e., `this`), and it should take the
+other operand by a const reference (because it should not change that
+operand).
 
 {% highlight c++ %}
 {% include_relative motivation2.cc %}
 {% endhighlight %}
 
-Function `std::sort` is using the `<` operator if we do not provide a
-comparison callable as the last call argument.  Well, `std::sort` is
-actually using an object of type `std::less` which in turn uses the
-`<` operator.  For comparing the sorted elements, the implementation
-of `std::sort` does not use the `<` directly, because it would be
-stuck with it, and be unfit for customization.  Instead, the
-implementation uses a callable for comparison.
+Function `std::sort` is using the `<` operator by default, i.e., if we
+do not provide a comparison callable as the last call argument.  Well,
+by default, `std::sort` is actually using an object of type
+`std::less` which in turn uses the `<` operator.  For comparing the
+sorted elements, the implementation of `std::sort` does not use the
+`<` directly, because it would be stuck with it, and be unfit for
+customization.  Instead, the implementation uses a callable for
+comparison.
 
 No wonder that we can get the same effect as in the example above if
 we pass as the last argument an object of type `std::less<A>` (that's
@@ -79,7 +80,7 @@ a callable), because if we didn't, it would be used anyway:
 {% endhighlight %}
 
 With `std::sort`, we do not always have to use the `<` operator, and
-instead we can pass a callable to induce ordering.  We can sort in
+instead we can pass a callable to establish ordering.  We can sort in
 ascending order if we pass an object of the `std::greater` type.  That
 type is using the `>` operator, and so we have to define it instead of
 the `<` operator.

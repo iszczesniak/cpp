@@ -10,7 +10,7 @@ foo(const int &a, const int &b)
 int
 main()
 {
-  // I don't like C syntax of the pointer to a function.
+  // I don't like the C syntax of the pointer to a function.
   bool (*f1a)(const int &, const int &) = foo;
   bool (*f1b)(const int &, const int &) = &foo;
   f1a(10, 20);
@@ -28,12 +28,12 @@ main()
   // we dereference to get a function to call.
   (*f2a)(10, 20);
   
-  // That the C++ syntax for a function type.
+  // The C++ syntax for a function type.
   using foo_type = bool(const int &a, const int &b);
-  // These are pointers to a function type.
+  // Pointers to a function.
   foo_type *f3a = foo;
   foo_type *f3b = &foo;
-  // That's a reference to a function type.
+  // A reference to a function.
   foo_type &f3c = foo;
   f3a(10, 20);
   (*f3a)(10, 20);
