@@ -179,8 +179,8 @@ and so:
 * you can transfer the ownership between the managing objects by
   move-initializing, and move-assigning.
 
-The ownership means that the managed data should be destroyed when the
-managing object is:
+The ownership implies that the managed data should be destroyed when
+the managing object is:
 
 * destroyed, e.g., goes out of scope,
 
@@ -222,9 +222,8 @@ type `A` twice:
 `auto up = make_unique<A>("A1");`
 
 Function `std::make_unique` introduces no overhead: the move
-constructor will be elided, the return value optimization will take
-place, and so the managing object will be created directly in the
-location of `up`.
+constructor will be elided for the return value, and so the managing
+object will be created directly in the location of `up`.
 
 By type `auto` above we ask the compiler to make the type of `up` the
 same type as the type of the initializing expression
