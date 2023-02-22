@@ -152,10 +152,19 @@ Konkretyzacja pozwala też na lepszą kompilację kodu:
 
 # Programowanie uogólnione a obiektowe
 
-Programowanie uogólnione i obiektowe są komplementarne, nie wykluczają
-się.  Język C++ jest językiem wieloparadygmatowym, bo można w nim
+Język C++ jest językiem wieloparadygmatowym, bo można w nim
 programować obiektowo, strukturalnie, proceduralnie, funkcyjnie i w
-sposób uogólniony.
+sposób uogólniony.  Programowanie uogólnione i obiektowe są
+komplementarne, nie wykluczają się.
+
+Złożone typy danych implementujemy jako struktura, a operacje
+specyficzne dla tych typów implementujemy jako funkcje składowe
+(ang. member functions) -- oto typowy przykład programowania
+obiektowego.  Operacje (algorytmy) najlepiej implementować jako
+funkcje nieskładowe (ang. non-member functions, aka free-standing,
+global or namespace functions), żeby można było je przeciążać dla
+dowolnych typów, nie tylko obiektowych -- a to typowy przykład
+programowania uogólnionego.
 
 Częstym problemem programowania jest potrzeba dostarczenia różnych
 fragmentów kodu (operacji czy algorytmów) w zależności od typów
