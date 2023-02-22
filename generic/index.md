@@ -55,10 +55,19 @@ programming (that works with objects only).  We can change the above
 example, so that it works not only with containers (which are
 objects), but on with C-style arrays too: we replace the calls to
 member functions `begin` and `end` with non-member function templates
-`std::begin` and `std::end`.
+`std::begin` and `std::end`:
 
 {% highlight c++ %}
 {% include_relative motivation2.cc %}
 {% endhighlight %}
+
+But that example doesn't work for type `list`.  The compiler produces
+a lengthy error message hard to decipher.  The problem is the list
+iterator is not random access, i.e., we cannot increase the iterator
+by an arbitrary number: `list{3, 2, 1}.end() - 2` does not compile.
+Iterator is random access if the structure has the random access
+operator `operator[]`, and `list` doesn't have it.
+
+
 
 <!-- LocalWords: lvalue lvalues rvalue -->

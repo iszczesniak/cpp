@@ -68,9 +68,9 @@ błędów, z których trudno się zorientować, gdzie jest problem.  A
 problem w tym, że iterator struktury `list` nie jest *iteratorem
 swobodnego dostępu* (ang. random access operator), czyli nie możemy
 zmniejszyć albo zwiększyć iteratora o dowolną liczbę elementów,
-np. `list{3, 2, 1}.end() - 2` nie kompiluje się.  Jeżeli struktura
-posiada operator swobodnego dostępu `operator []`, to jej iterator
-jest swobodnego dostępu.
+np. `list{3, 2, 1}.end() - 2` nie kompiluje się.  Iterator jest
+swobodnego dostępu, jeżeli struktura posiada operator swobodnego
+dostępu `operator []`, a `list` go nie ma.
 
 Problemem przede wszystkim jest obecna słaba diagnostyka.  Powinniśmy
 otrzymać komunikat, że funkcja `sort` wymaga iteratora swobodnego
