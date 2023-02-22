@@ -19,6 +19,8 @@ interesting and important for efficient code.
 * [`std::shared_ptr`](shared_ptr)
 * [`std::weak_ptr`](weak_ptr)
 
+{% include rid %}
+
 ## Generic programming
 
 * [Introduction](generic)
