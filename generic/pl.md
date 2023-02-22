@@ -76,7 +76,7 @@ Problemem przede wszystkim jest obecna słaba diagnostyka.  Powinniśmy
 otrzymać komunikat, że funkcja `sort` wymaga iteratora swobodnego
 dostępu.  C++20 wprowadza koncepty, które pozwolą na klarowną
 diagnostykę błędów, ale to wymaga zmian (użycia konceptów) w
-implementacji biblioteki standardowej.
+implementacji biblioteki standardowej (np., GCC).
 
 ## Bez utraty wydajności
 

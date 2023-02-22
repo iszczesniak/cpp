@@ -62,12 +62,16 @@ member functions `begin` and `end` with non-member function templates
 {% endhighlight %}
 
 But that example doesn't work for type `list`.  The compiler produces
-a lengthy error message hard to decipher.  The problem is the list
-iterator is not random access, i.e., we cannot increase the iterator
-by an arbitrary number: `list{3, 2, 1}.end() - 2` does not compile.
-Iterator is random access if the structure has the random access
-operator `operator[]`, and `list` doesn't have it.
+a lengthy error message that's hard to decipher.  The problem is the
+list iterator is not random access, i.e., we cannot increase the
+iterator by an arbitrary number: `list{3, 2, 1}.end() - 2` does not
+compile.  Iterator is random access if the structure has the random
+access operator `operator[]`, and `list` doesn't have it.
 
-
+The real problem is the poor diagnostics.  We should have received an
+error message that function `sort` expects random access iterators.
+C++20 introduced concepts that would allow for proper error messages,
+but that functionality has yet to be implemented in the standard
+library implementations (e.g., GCC).
 
 <!-- LocalWords: lvalue lvalues rvalue -->
