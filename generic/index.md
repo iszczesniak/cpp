@@ -74,4 +74,6 @@ C++20 introduced concepts that would allow for proper error messages,
 but that functionality has yet to be implemented in the standard
 library implementations (e.g., GCC).
 
+## No loss of efficiency
+
 <!-- LocalWords: lvalue lvalues rvalue -->
