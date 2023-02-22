@@ -49,6 +49,16 @@ compile-time, the `sort` function template is instantiated
 (compile-tailored) for the type of the structure, and the type of the
 strcture elements used.
 
+**Generic programming** can operate on data that are not objects,
+e.g., C-style arrays, and so it is more general than object-oriented
+programming (that works with objects only).  We can change the above
+example, so that it works not only with containers (which are
+objects), but on with C-style arrays too: we replace the calls to
+member functions `begin` and `end` with non-member function templates
+`std::begin` and `std::end`.
 
+{% highlight c++ %}
+{% include_relative motivation2.cc %}
+{% endhighlight %}
 
 <!-- LocalWords: lvalue lvalues rvalue -->

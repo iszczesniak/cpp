@@ -51,13 +51,13 @@ typ z `vector` na `array` (trzeba też dodać `#include <array>`) czy
 szablon funkcji `sort` jest *konkretyzowany* (kompilowany "na miarę")
 dla użytej struktury danych i typów elementów struktury.
 
-**Programowanie uogólnione** może też działać na strukturach danych,
-które **nie są obiektowe**, na przykład na tablicach z języka C, przez
-co jest bardziej ogólne niż programowanie obiektowe, które działa
-wyłącznie na typach obiektowych.  Możemy przerobić przykład wyżej,
-żeby działał nie tylko na kontenerach (które są obiektowe), ale też na
-tablicy z języka C: zamieniamy wywołania funkcji składowych `begin` i
-`end`, na wywołania funkcji szablonowych `std::begin` i `std::end`:
+**Programowanie uogólnione** może też działać na danych, które **nie
+są obiektowe**, na przykład na tablicach z języka C, przez co jest
+bardziej ogólne niż programowanie obiektowe, które działa wyłącznie na
+typach obiektowych.  Możemy przerobić przykład wyżej, żeby działał nie
+tylko na kontenerach (które są obiektowe), ale też na tablicy z języka
+C: zamieniamy wywołania funkcji składowych `begin` i `end`, na
+wywołania funkcji szablonowych `std::begin` i `std::end`:
 
 {% highlight c++ %}
 {% include_relative motivation2.cc %}
