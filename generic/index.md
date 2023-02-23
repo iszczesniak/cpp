@@ -198,6 +198,39 @@ i;` for integers).
 {% include_relative generic1.cc %}
 {% endhighlight %}
 
+Below we use a function template, where the identical code from the
+example above appears once.  The function template uses operator `<<`
+that is overloaded for various types.  We still rely on overloading,
+as in the example above, but for the `operator <<` only, which we
+could use in other parts of code.  We could say that function `foo`
+now is generic.
 
+{% highlight c++ %}
+{% include_relative generic2.cc %}
+{% endhighlight %}
+
+## An example of object-oriented programming
+
+The same functionality we could implement using dynamic programming.
+However, the assembly code is much more complicated, because of the
+call to a virtual function.
+
+# Conclusion
+
+Generic programming:
+
+* shortens and better organizes the source code,
+
+* offers static polymorphism,
+
+* rules in the standard library.
+
+# Quiz
+
+* Does the generic programming in C++ suffers from performance loss?
+
+* What's the difference between the static and dynamic polymorphism?
+
+* What data types can we use in generic programming?
 
 <!-- LocalWords: lvalue lvalues rvalue -->
