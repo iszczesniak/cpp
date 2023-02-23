@@ -76,4 +76,43 @@ library implementations (e.g., GCC).
 
 ## No loss of efficiency
 
+For the C++ Standard Committee, the time and memory efficiency is the
+priority, and the ease of language use comes second.  Therefore the
+program that uses the abstraction mechanisms (e.g., templates) must
+work as fast as possible (i.e., as fast as the hand-crafted code),
+albeit the code might be difficult to write.
+
+In the simple examples below we check whether the abstraction
+mechanisms introduced any performance overhead.  Each of these
+programs writes to the standard output numbers 1 and 2.  We are
+interested in the assembly code.
+
+This is the baseline code, i.e., to this code we compare the others
+(`test_baseline.cc`):
+
+{% highlight c++ %}
+{% include_relative test_baseline.cc %}
+{% endhighlight %}
+
+This example uses templates (`test_template.cc`):
+
+{% highlight c++ %}
+{% include_relative test_template.cc %}
+{% endhighlight %}
+
+We compile both examples to the assembly code (we can use the Compiler
+Explorer too) and we look for differences (`c++filt` can come useful
+too):
+
+```
+g++ -O2 -std=c++17 -S test_baseline.cc test_template.cc
+meld test_baseline.s test_template.s
+```
+
+There are no differences.  Using a function template does not
+deteriorate performance: the second example is as fast as the baseline
+example.
+
+
+
 <!-- LocalWords: lvalue lvalues rvalue -->
