@@ -43,8 +43,8 @@ the standard library.  This example needs a C++17 compiler.
 In the above example we can change the type of the sorted numbers from
 `int` to `double`: it's enough to change type `vector` to
 `vector<double>` (i.e., to give argument `double` to template type
-`vector`).  We can change type `vector` to `array` (with `#include
-<array>` added) or `deque` (with `#include <deque>` added).  At
+`vector`).  We can change type `vector` to `array`
+(with `#include <array>` added) or `deque` (with `#include <deque>` added).  At
 compile-time, the `sort` function template is instantiated
 (compile-tailored) for the type of the structure, and the type of the
 strcture elements used.
@@ -112,7 +112,5 @@ meld test_baseline.s test_template.s
 There are no differences.  Using a function template does not
 deteriorate performance: the second example is as fast as the baseline
 example.
-
-
 
 <!-- LocalWords: lvalue lvalues rvalue -->
