@@ -148,4 +148,30 @@ Instantiation allows for better optimization:
 {% include_relative divide.cc %}
 {% endhighlight %}
 
+# Object vs generic programming
+
+C++ is multiparadigm: object-oriented, structural, procedural,
+functional and generic.  Generic and object programming are
+complementary, not mutually exclusive.
+
+We implement complex types as a structure, and their specific
+operations as member functions -- that's a typical example of
+object-oriented programming.  Operations (algorithms) are best
+implemented as non-member functions (aka free-standing, global or
+namespace functions), so that they can be overloaded for any type, not
+only class types -- and that's a typical example of generic
+programming.
+
+We often need to implement different functionality for different
+types.  Generic programming and object-oriented programming use
+polymorphism to this end, but of different kind:
+
+* In **generic programming** we use non-member functions and their
+  abstraction mechanisms: overloading and templates.  In
+  *compile-time*, for the given call expression, the compiler choses a
+  function template or an overload depending on the type and category
+  of call arguments.  This way of chosing an implementation is called
+  **static polymorphism** (aka *compile-time polymorphism*).  *Static
+  polymorphism does not introduce overhead at run-time.*
+
 <!-- LocalWords: lvalue lvalues rvalue -->

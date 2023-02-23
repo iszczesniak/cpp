@@ -175,10 +175,10 @@ rozwiązują problem z użyciem polimorfizmu, ale różnych rodzajów:
 * W **programowaniu uogólnionym** używamy wywołania funkcji i
   mechanizmów ich uogólnienia: przeciążeń lub szablonów.  W *czasie
   kompilacji* dla danego wyrażenia wywołania funkcji wybierany jest
-  szablon lub przeciążenie w zależności od typów przekazywanych
-  argumentów.  Ten mechanizm nazywamy **polimorfizmem statycznym**
-  (aka *polimorfizm czasu kompilacji*).  *Polimorfizm statyczny nie
-  wprowadza narzutu czasowego w czasie uruchomienia.*
+  szablon lub przeciążenie w zależności od typów i kategorii
+  przekazywanych argumentów.  Ten mechanizm nazywamy **polimorfizmem
+  statycznym** (aka *polimorfizm czasu kompilacji*).  *Polimorfizm
+  statyczny nie wprowadza narzutu czasowego w czasie uruchomienia.*
 
 * W **programowaniu obiektowym** używamy interfejsu klasy bazowej i
   funkcji wirtualnych.  W *czasie uruchomienia* dla wywołania funkcji
