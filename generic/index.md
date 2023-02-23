@@ -183,4 +183,21 @@ polymorphism to this end, but of different kind:
   overhead because calling a virtual function requires an indirect
   call using a virtual function table.*
 
+Generic programming works with any types, while object-oriented
+programming for class types only, e.g., `1.foo()` would not compile.
+
+## An example of static polymorphism
+
+In the example below we use static polymorphism implemented with
+function overloading.  These overloads have some identical code
+(`std::cout << "Function foo:";` and `std::cout << std::endl`), and
+some extra code depending on the parameter type (e.g., `std::cout <<
+i;` for integers).
+
+{% highlight c++ %}
+{% include_relative generic1.cc %}
+{% endhighlight %}
+
+
+
 <!-- LocalWords: lvalue lvalues rvalue -->
