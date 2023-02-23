@@ -168,10 +168,19 @@ polymorphism to this end, but of different kind:
 
 * In **generic programming** we use non-member functions and their
   abstraction mechanisms: overloading and templates.  In
-  *compile-time*, for the given call expression, the compiler choses a
-  function template or an overload depending on the type and category
-  of call arguments.  This way of chosing an implementation is called
-  **static polymorphism** (aka *compile-time polymorphism*).  *Static
-  polymorphism does not introduce overhead at run-time.*
+  *compile-time*, for the given call expression, the compiler chooses
+  a function template or an overload depending on the type and
+  category of call arguments.  This way of choosing an implementation
+  is called **static polymorphism** (aka *compile-time polymorphism*).
+  *Static polymorphism does not introduce overhead at run-time.*
+
+* In **object-oriented programming** we use the interface of a base
+  class and virtual functions.  In *run-time*, when calling a virtual
+  function for a given object, an implementation of a virtual function
+  is chosen depending on the type of the object.  This way of choosing
+  an implementation is called **dynamic polymorphism** (aka *run-time
+  polymorphism*). *Dynamic polymorphism introduces performance
+  overhead because calling a virtual function requires an indirect
+  call using a virtual function table.*
 
 <!-- LocalWords: lvalue lvalues rvalue -->
