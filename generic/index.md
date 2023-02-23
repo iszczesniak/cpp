@@ -113,4 +113,39 @@ There are no differences.  Using a function template does not
 deteriorate performance: the second example is as fast as the baseline
 example.
 
+In that example, as the assembly language shows, the parameters of a
+template function are not initialized (copied, specifically) based on
+the call arguments, even though they are passed by value.  In the C
+language, a function that accepts arguments by value (neither by
+pointer, nor by reference as it doesn't exist in C) always has its
+parameters initialized based on call arguments, and that brings
+performance down.
+
+A regular (non-template) function can be inlined too:
+
+{% highlight c++ %}
+{% include_relative test_function.cc %}
+{% endhighlight %}
+
+A tuple (`std::tuple`) also doesn't introduce overhead.  Type `tuple`
+is a templated structure, so it has a constructor and destructor but
+they are empty.  Here's an example:
+
+{% highlight c++ %}
+{% include_relative test_tuple.cc %}
+{% endhighlight %}
+
+Even iterating over the elements of `std::array` doesn't introduce any
+overhead:
+
+{% highlight c++ %}
+{% include_relative test_foray.cc %}
+{% endhighlight %}
+
+Instantiation allows for better optimization:
+
+{% highlight c++ %}
+{% include_relative divide.cc %}
+{% endhighlight %}
+
 <!-- LocalWords: lvalue lvalues rvalue -->
