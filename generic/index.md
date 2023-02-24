@@ -114,4 +114,124 @@ There are no differences.  Using a function template does not
 deteriorate performance: the second example is as fast as the baseline
 example.
 
+In that example, as the assembly language shows, the parameters of a
+template function are not initialized (copied, specifically) based on
+the call arguments, even though they are passed by value.  In the C
+language, a function that accepts arguments by value (neither by
+pointer, nor by reference as it doesn't exist in C) always has its
+parameters initialized based on call arguments, and that brings
+performance down.
+
+A regular (non-template) function can be inlined too:
+
+{% highlight c++ %}
+{% include_relative test_function.cc %}
+{% endhighlight %}
+
+A tuple (`std::tuple`) also doesn't introduce overhead.  Type `tuple`
+is a templated structure, so it has a constructor and destructor but
+they are empty.  Here's an example:
+
+{% highlight c++ %}
+{% include_relative test_tuple.cc %}
+{% endhighlight %}
+
+Even iterating over the elements of `std::array` doesn't introduce any
+overhead:
+
+{% highlight c++ %}
+{% include_relative test_foray.cc %}
+{% endhighlight %}
+
+Instantiation allows for better optimization:
+
+{% highlight c++ %}
+{% include_relative divide.cc %}
+{% endhighlight %}
+
+# Object vs generic programming
+
+C++ is multiparadigm: object-oriented, structural, procedural,
+functional and generic.  Generic and object programming are
+complementary, not mutually exclusive.
+
+We implement complex types as a structure, and their specific
+operations as member functions -- that's a typical example of
+object-oriented programming.  Operations (algorithms) are best
+implemented as non-member functions (aka free-standing, global or
+namespace functions), so that they can be overloaded for any type, not
+only class types -- and that's a typical example of generic
+programming.
+
+We often need to implement different functionality for different
+types.  Generic programming and object-oriented programming use
+polymorphism to this end, but of different kind:
+
+* In **generic programming** we use non-member functions and their
+  abstraction mechanisms: overloading and templates.  In
+  *compile-time*, for the given call expression, the compiler chooses
+  a function template or an overload depending on the type and
+  category of call arguments.  This way of choosing an implementation
+  is called **static polymorphism** (aka *compile-time polymorphism*).
+  *Static polymorphism does not introduce overhead at run-time.*
+
+* In **object-oriented programming** we use the interface of a base
+  class and virtual functions.  In *run-time*, when calling a virtual
+  function for a given object, an implementation of a virtual function
+  is chosen depending on the type of the object.  This way of choosing
+  an implementation is called **dynamic polymorphism** (aka *run-time
+  polymorphism*). *Dynamic polymorphism introduces performance
+  overhead because calling a virtual function requires an indirect
+  call using a virtual function table.*
+
+Generic programming works with any types, while object-oriented
+programming for class types only, e.g., `1.foo()` would not compile.
+
+## An example of static polymorphism
+
+In the example below we use static polymorphism implemented with
+function overloading.  These overloads have some identical code
+(`std::cout << "Function foo:";` and `std::cout << std::endl`), and
+some extra code depending on the parameter type (e.g., `std::cout <<
+i;` for integers).
+
+{% highlight c++ %}
+{% include_relative generic1.cc %}
+{% endhighlight %}
+
+Below we use a function template, where the identical code from the
+example above appears once.  The function template uses operator `<<`
+that is overloaded for various types.  We still rely on overloading,
+as in the example above, but for the `operator <<` only, which we
+could use in other parts of code.  We could say that function `foo`
+now is generic.
+
+{% highlight c++ %}
+{% include_relative generic2.cc %}
+{% endhighlight %}
+
+## An example of object-oriented programming
+
+The same functionality we could implement using dynamic programming.
+However, the assembly code is much more complicated, because of the
+call to a virtual function.
+
+# Conclusion
+
+Generic programming:
+
+* shortens and better organizes the source code,
+
+* offers static polymorphism,
+
+* rules in the standard library.
+
+# Quiz
+
+* Does the generic programming in C++ suffers from performance loss?
+
+* What's the difference between the static and dynamic polymorphism?
+
+* What data types can we use in generic programming?
+
 <!-- LocalWords: lvalue lvalues rvalue -->
