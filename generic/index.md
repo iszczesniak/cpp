@@ -24,8 +24,9 @@ Key are:
 
 ## The most general setting
 
-Generic programming in C++ is supported by templates.  With templates
-we can use and implement without the loss of efficiency:
+Generic programming in C++ is supported by templates and overloading.
+With templates we can use and implement without the loss of
+efficiency:
 
 * generic data structures, most notably the containers of the standard
   library, e.g., `std::vector`,
@@ -44,17 +45,17 @@ In the above example we can change the type of the sorted numbers from
 `int` to `double`: it's enough to change type `vector` to
 `vector<double>` (i.e., to give argument `double` to template type
 `vector`).  We can change type `vector` to `array` (with
-`#include <array>` added) or `deque` (with `#include <deque>` added).  At
-compile-time, the `sort` function template is instantiated
+`#include <array>` added) or `deque` (with `#include <deque>` added).
+At compile-time, the `sort` function template is instantiated
 (compile-tailored) for the type of the structure, and the type of the
-strcture elements used.
+structure elements used.
 
 **Generic programming** can operate on data that are not objects,
 e.g., C-style arrays, and so it is more general than object-oriented
 programming (that works with objects only).  We can change the above
 example, so that it works not only with containers (which are
-objects), but on with C-style arrays too: we replace the calls to
-member functions `begin` and `end` with non-member function templates
+objects), but with C-style arrays too: we replace the calls to member
+functions `begin` and `end` with non-member function templates
 `std::begin` and `std::end`:
 
 {% highlight c++ %}
@@ -64,7 +65,7 @@ member functions `begin` and `end` with non-member function templates
 But that example doesn't work for type `list`.  The compiler produces
 a lengthy error message that's hard to decipher.  The problem is the
 list iterator is not random access, i.e., we cannot increase the
-iterator by an arbitrary number: `list{3, 2, 1}.end() - 2` does not
+iterator by an arbitrary number: `list{3, 2, 1}.end() + 2` does not
 compile.  Iterator is random access if the structure has the random
 access operator `operator[]`, and `list` doesn't have it.
 
@@ -80,12 +81,12 @@ For the C++ Standard Committee, the time and memory efficiency is the
 priority, and the ease of language use comes second.  Therefore the
 program that uses the abstraction mechanisms (e.g., templates) must
 work as fast as possible (i.e., as fast as the hand-crafted code),
-albeit the code might be difficult to write.
+albeit the code might be harder to write.
 
 In the simple examples below we check whether the abstraction
-mechanisms introduced any performance overhead.  Each of these
-programs writes to the standard output numbers 1 and 2.  We are
-interested in the assembly code.
+mechanisms introduce any performance overhead.  Each of these programs
+writes to the standard output numbers 1 and 2.  We are interested in
+the assembly code.
 
 This is the baseline code, i.e., to this code we compare the others
 (`test_baseline.cc`):
