@@ -129,7 +129,7 @@ A regular (non-template) function can be inlined too:
 {% endhighlight %}
 
 A tuple (`std::tuple`) also doesn't introduce overhead.  Type `tuple`
-is a templated structure, so it has a constructor and destructor but
+is a templated structure, so it has a constructor and a destructor but
 they are empty.  Here's an example:
 
 {% highlight c++ %}
@@ -149,13 +149,13 @@ Instantiation allows for better optimization:
 {% include_relative divide.cc %}
 {% endhighlight %}
 
-# Object vs generic programming
+# Generic vs object-oriented programming
 
 C++ is multiparadigm: object-oriented, structural, procedural,
-functional and generic.  Generic and object programming are
+functional and generic.  Generic and object-oriented programming are
 complementary, not mutually exclusive.
 
-We implement complex types as a structure, and their specific
+We implement a complex type as a structure, and its specific
 operations as member functions -- that's a typical example of
 object-oriented programming.  Operations (algorithms) are best
 implemented as non-member functions (aka free-standing, global or
@@ -168,7 +168,7 @@ types.  Generic programming and object-oriented programming use
 polymorphism to this end, but of different kind:
 
 * In **generic programming** we use non-member functions and their
-  abstraction mechanisms: overloading and templates.  In
+  abstraction mechanisms: templates and overloading.  At
   *compile-time*, for the given call expression, the compiler chooses
   a function template or an overload depending on the type and
   category of call arguments.  This way of choosing an implementation
@@ -176,7 +176,7 @@ polymorphism to this end, but of different kind:
   *Static polymorphism does not introduce overhead at run-time.*
 
 * In **object-oriented programming** we use the interface of a base
-  class and virtual functions.  In *run-time*, when calling a virtual
+  class and virtual functions.  At *run-time*, when calling a virtual
   function for a given object, an implementation of a virtual function
   is chosen depending on the type of the object.  This way of choosing
   an implementation is called **dynamic polymorphism** (aka *run-time
@@ -184,8 +184,9 @@ polymorphism to this end, but of different kind:
   overhead because calling a virtual function requires an indirect
   call using a virtual function table.*
 
-Generic programming works with any types, while object-oriented
-programming for class types only, e.g., `1.foo()` would not compile.
+Bottom line, generic programming is super fast and works with any
+type, while object-oriented programming is slower and works with class
+types only, e.g., `1.foo()` would not compile.
 
 ## An example of static polymorphism
 
@@ -215,6 +216,10 @@ now is generic.
 The same functionality we could implement using dynamic programming.
 However, the assembly code is much more complicated, because of the
 call to a virtual function.
+
+{% highlight c++ %}
+{% include_relative object.cc %}
+{% endhighlight %}
 
 # Conclusion
 
