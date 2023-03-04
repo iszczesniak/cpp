@@ -21,7 +21,7 @@ main()
 {
   cout << boolalpha;
   
-  vector c = {8, 3, 7, 9, 2, 4, 8, 5};
+  vector c = {5, 8, 3, 7, 9, 2, 4, 8};
 
   battery(5, c);
   battery(5, c, greater<int>{});
