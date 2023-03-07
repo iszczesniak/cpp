@@ -261,8 +261,10 @@ Oto przykład dla typów wskaźnikowych:
 
 *Zasada: wnioskowany argument szablonu jest typem argumentu wywołania
  z pominięciem kwalifikatorów `const` i `volatile`.  Wnioskowanym
- typem nigdy nie będzie typ referencyjny, ale może być wskaźnikowy.
- Dla typu wskaźnikowego nie są pomijane kwalifikatory.*
+ typem nigdy nie będzie typ referencyjny (bo wyrażenie nigdy nie jest
+ typu referencyjnego), ale może być wskaźnikowy.  Dla typu
+ wskaźnikowego są pomijane kwalifikatory najwyższego rzędu
+ (ang. top-level qualifiers).*
 
 Chodzi o to, że inicjalizacja parametrów funkcji (przy przekazywaniu
 argumentów wywołania przez wartość) kopiuje wartość argumentu
@@ -275,14 +277,15 @@ Przykład:
 {% include_relative arg_type_val.cc %}
 {% endhighlight %}
 
-Każda z funkcji w powyższym przykładzie została skonkretyzowana tylko
-raz - wydaje się, że kwalifikatory typu (`const` i `volatile`) podane
-w definicji szablonu nie miały znaczenia.  Kwalifikatory typu dla
-parametrów zwykłych typów (niereferencyjnych i niewskaźnikowych) mają
-jedynie znaczenie na etapie kompilacji: kompilator ma nie pozwolić na
-modyfikację parametru i nie optymalizować odwołań do parametru w ciele
-funkcji.  Typy tych funkcji nie mają zachowanych kwalifikatorów typu,
-bo nie mają one znaczenia dla kodu wywołującego te funkcje.
+W powyższym przykładnie, na podstawie skonkretyzowanych funkcji wydaje
+się, że kwalifikatory typu (`const` i `volatile`) podane w definicji
+szablonu nie miały znaczenia.  Kwalifikatory typu dla parametrów
+zwykłych typów (niereferencyjnych i niewskaźnikowych) mają jedynie
+znaczenie na etapie kompilacji (nie konsolidacji): kompilator nie może
+pozwolić na modyfikację parametru (`const`) i optymalizację odwołań
+(`volatile`) do parametru w ciele funkcji.  Typy tych funkcji nie mają
+zachowanych kwalifikatorów typu, bo nie mają one znaczenia dla kodu
+wywołującego te funkcje.
 
 ### Przekazywanie funkcji
 
