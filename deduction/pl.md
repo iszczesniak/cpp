@@ -174,8 +174,8 @@ jest wiele, a my omówimy najważniejsze.
 ## Inicjalizacja parametrów funkcji szablonowej: bez konwersji
 
 Ponieważ parametr funkcji jest inicjalizowany na podstawie argumentu
-wywołania funkcji, to wnioskowanie argumentów szablonu ma pozwolić na
-tę inicjalizację.  Wnioskowanie wprowadza ważne ograniczenie:
+wywołania funkcji, to wywnioskowane argumenty szablonu mają pozwolić
+na tę inicjalizację.  Wnioskowanie wprowadza ważne ograniczenie:
 **inicjalizacja ma się odbyć bez konwersji typu** (z typu argumentu
 wywołania funkcji do typu parametru funkcji).  Tego warunku nie ma
 przy wywołaniu zwykłej (nieszablonowej) funkcji, gdzie konwersje są
@@ -280,9 +280,9 @@ raz - wydaje się, że kwalifikatory typu (`const` i `volatile`) podane
 w definicji szablonu nie miały znaczenia.  Kwalifikatory typu dla
 parametrów zwykłych typów (niereferencyjnych i niewskaźnikowych) mają
 jedynie znaczenie na etapie kompilacji: kompilator ma nie pozwolić na
-modyfikację parametru i nie optymalizować odwołań do parametru.  Typy
-tych funkcji nie mają zachowanych kwalifikatorów typu, bo nie mają one
-znaczenia dla kodu wywołującego te funkcje.
+modyfikację parametru i nie optymalizować odwołań do parametru w ciele
+funkcji.  Typy tych funkcji nie mają zachowanych kwalifikatorów typu,
+bo nie mają one znaczenia dla kodu wywołującego te funkcje.
 
 ### Przekazywanie funkcji
 
