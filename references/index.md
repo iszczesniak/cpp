@@ -314,8 +314,9 @@ was evaluated.
 {% include_relative tmp.cc %}
 {% endhighlight %}
 
-We can even make a member reference bind to a temporary.  The
-temporary will be destroyed, when the object is destroyed:
+A reference field has to be initialized by a constructor but not with
+a temporary expression [class.base.init#8].  The following example is
+ill-formed:
 
 {% highlight c++ %}
 {% include_relative tmp2.cc %}

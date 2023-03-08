@@ -10,7 +10,10 @@ struct A
 
 struct B
 {
+  // ACHTUNG!
+  // These initializations are ill-formed! Does the compiler complain?
   const A &a = A();
+  const int &i = 1;
 };
 
 int

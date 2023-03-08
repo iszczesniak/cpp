@@ -327,9 +327,9 @@ byłaby niszczona po opracowaniu wyrażenia.
 {% include_relative tmp.cc %}
 {% endhighlight %}
 
-Referencyjne pole składowe może odwoływać się do danej tymczasowej.
-Referencja musi być zainicjalizowana przez konstruktor.  Dana będzie
-niszczona podczas niszczenia obiektu:
+Referencyjne pole składowe musi być zainicjalizowane przez
+konstruktor, ale nie wyrażeniem tymczasowym [class.base.init#8].
+Poniższy przykład jest błędny:
 
 {% highlight c++ %}
 {% include_relative tmp2.cc %}
