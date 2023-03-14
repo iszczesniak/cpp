@@ -5,7 +5,9 @@
 
 using namespace std;
 
-// The bubble sort requires only a forward iterator.
+// The bubble sort requires only a forward iterator, but our
+// implementation requires a random access operator.  We could improve
+// the implementation not to require the random access operator.
 template <typename I, typename F>
 void bubble(I i1, I i2, F f)
 {
