@@ -20,6 +20,19 @@ foo(A a)
   cout << a[2] << endl;
 }
 
+// This parameter type doesn't mean passing an array by value.  It
+// just means: A *a.
+template <typename A>
+void
+foo(A a[])
+{
+  std::cout << "A a[]: " << __PRETTY_FUNCTION__ << std::endl;
+
+  // This compiles without an error or a warning, because the compiler
+  // has no clue we're using a table of three elements.
+  cout << a[3] << endl;
+}
+
 void
 goo(int *a)
 {
