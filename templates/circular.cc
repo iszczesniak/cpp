@@ -1,14 +1,8 @@
 #include <vector>
 
-// Here we have a structure that has a vector of elements of type T.
-// No biggie.
-template <typename T>
-struct A
-{
-  std::vector<T> m_t;
-};
+using namespace std;
 
-// But those elements want to have a reference to the object that owns
+// Those elements want to have a reference to the object that owns
 // them.  And that's a problem, because this creates a circular
 // dependency.
 template <typename T>
@@ -22,7 +16,9 @@ struct B
 };
 
 // We can break the circular dependency with the template-kind
-// parameter of a template and injected class names.
+// parameter of a template and injected class names.  This is not a
+// perfect solution, because we require the owning type T to be
+// templated with a single argument.
 template <template <typename> typename T>
 struct C
 {
@@ -38,6 +34,6 @@ struct C
 int
 main()
 {
-  // A<B<A<B<...>>>> a;
-  A<C<A>> a;
+  // vector<B<vector<B<...>>>> a;
+  vector<C<vector>> a;
 }
