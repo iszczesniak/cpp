@@ -26,7 +26,7 @@ struct C
   // "C<T>".
   T<C> &m_t;
 
-  C(T<C> &t): m_t(&t)
+  C(T<C> &t): m_t(t)
   {
   }
 };
@@ -34,6 +34,11 @@ struct C
 int
 main()
 {
+  // We can't possibliy define a type using B.
   // vector<B<vector<B<...>>>> a;
-  vector<C<vector>> a;
+
+  // Is the initialization ill-formed?  Note we use uninitialized "a".
+  vector<C<vector>> a = {C(a)};
+  a.emplace_back(a);
+  a.push_back(C(a));
 }
