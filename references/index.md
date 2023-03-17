@@ -275,7 +275,7 @@ Here's a complete example:
 {% include_relative overloading.cc %}
 {% endhighlight %}
 
-## Rvalue reference to an lvalue
+## Explicit conversion from an lvalue to an rvalue
 
 We can explicitely get an rvalue reference to an lvalue with
 `static_cast<T &&>(<expr>)`, where `<expr>` can be an lvalue or an

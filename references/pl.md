@@ -289,7 +289,7 @@ Oto przykład:
 {% include_relative overloading.cc %}
 {% endhighlight %}
 
-## Konwersja l-wartości do r-wartości
+## Jawna konwersja l-wartości do r-wartości
 
 Możemy jawnie konwertować l-wartość do r-wartości przez użycie
 `static_cast<T &&>(<expr>)`, gdzie `<expr>` może być l-wartością albo
