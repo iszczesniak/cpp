@@ -6,7 +6,7 @@ void print(const T &t)
   std::cout << t << '\n';
 }
 
-template <int N, typename T>
+template <unsigned N, typename T>
 void print(const T &t)
 {
   print(t);
