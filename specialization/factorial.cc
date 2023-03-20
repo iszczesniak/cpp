@@ -18,7 +18,7 @@ template<typename T, T N>
 constexpr T factorial()
 {
   if constexpr (N)
-    return N * factorial<N - 1>();
+    return N * factorial<T, N - 1>();
   else
     return 1;
 }
