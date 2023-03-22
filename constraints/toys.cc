@@ -2,7 +2,7 @@
 
 using namespace std;
 
-enum sex:bool {male, female};
+enum class sex:bool {male, female};
 
 template <sex S, unsigned I> requires (I >= 18)
 void
