@@ -247,16 +247,27 @@ Oto kilka przykładów:
 
 ## Doskonałe zwracanie wyniku funkcji
 
-Piszemy funkcję `f`, która wywołuje jakąś inną funkcję albo callable
-`g`.  Nie znamy typu wyniku zwracanego przez `g`, ale chcemy, żeby
-funkcja `f` zwracała tą samą wartość.
+Piszemy callable `f`, które wywołuje jakiś inny callable `g`.  Nie
+znamy typu wyniku zwracanego przez `g`, ale chcemy, żeby `f` zwracała
+tą samą daną, jaką otrzymała od funkcji `g`.  Jest to problem
+doskonałego zwracania wyniku funkcji, a którym chodzi o:
 
-Ważnej jest wtedy, żeby funkcja `f` zwracała wartość tego samego typu,
-co funkcja `g`.  Jeżeli `g` zwraca wynik przez referencję, to `f` ma
-zwracać też przez referencję i to tego samego typu (l-referencę,
-referencję stałą i r-referencję).  Jeżeli wynik będzie zwracany przez
-wartość, to optymalizacja wartości powrotu zapobiegnie kopiowaniu
-wartości.
+* zapobiegnięcie kopiowaniu albo przenoszeniu danej,
+
+* zachowanie kategorii wartości wyrażenia wywołania funkcji `g`, czyli
+  wyrażenie wywołania funkcji `f` ma mieć tę samą kategorię.
+
+Problem sprowadza się do tego, żeby zadeklarowany typ wyniku `f` był
+taki sam jak dla `g`.  Konstruktor (kopiujący albo przenoszący) dla
+zwracanej danej nie będzie wywołany, bo:
+
+* jeżeli `g` zwraca wynik przez referencję, to `f` ma zwracać też
+  przez referencję tego samego typu (l-referencję, referencję stałą
+  czy r-referencję), a wtedy do kopiowania czy przenoszenia nie
+  dochodzi,
+
+* jeżeli wynik zwracany jest przez wartość, to konstruktor zostanie
+  unikniony.
 
 W poprawnej implementacji, funkcja `f` powinna mieć zadeklarowany typ
 wracanej wartości jako `decltype(auto)`, a wyrażenie wywołania funkcji
