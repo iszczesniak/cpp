@@ -15,4 +15,7 @@ main()
 
   // The assemby code just multiplies d by itself.
   std::cout << power<2>(d) << std::endl;
+
+  std::cout << power<int, 2, 10>() << std::endl;
+  std::cout << power<unsigned long long, 2, 64>() << std::endl;
 }

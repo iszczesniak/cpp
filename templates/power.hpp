@@ -11,4 +11,13 @@ power(T t)
   return 1;
 }
 
+template <typename T, T M, T N>
+T power()
+{
+  if constexpr (N)
+    return M * power<T, M, N - 1>();
+
+  return 1;
+}
+
 #endif // POWER_HPP
