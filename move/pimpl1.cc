@@ -12,8 +12,8 @@
 // that is no longer part of C++17.
 
 // Here is a sample implementation without the move semantics, but
-// with the nullptr of C++11.  We implement the functionality in the
-// special copying member functions.
+// with some C++11, C++14, and C++17 functionalities.  We implement
+// the functionality in the special copying member functions.
 
 #include <iostream>
 
@@ -36,7 +36,7 @@ struct auto_ptr
   operator=(const auto_ptr &src) const
   {
     m_ptr = src.m_ptr;
-    m_ptr = nullptr;
+    src.m_ptr = nullptr;
     return *this;
   }
 
