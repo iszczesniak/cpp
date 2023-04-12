@@ -78,4 +78,7 @@ main()
 {
   volatile bool flag = false;
   auto ptr = foo(flag);
+  // This is problematic: it looks like copying, but it has a special
+  // semantics.  It's just a pitfall for the oblivious.
+  auto ptr2 = ptr;
 }
