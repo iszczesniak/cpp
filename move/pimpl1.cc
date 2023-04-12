@@ -5,7 +5,8 @@
 //   to remember to delete the data,
 //
 // * the ownership can be passed when, e.g., returning by value in
-//   cases when the return value optimization could not be used.
+//   cases when the constructor elision (or return value optimization)
+//   could not be used.
 
 // That functionality is called pointer to implementation (PIMPL), aka
 // the bridge pattern.  It used to be implemented in std::auto_ptr
