@@ -33,10 +33,11 @@ struct auto_ptr
   }
 
   auto_ptr &
-  operator=(const auto_ptr &src)
+  operator=(const auto_ptr &src) const
   {
     m_ptr = src.m_ptr;
     m_ptr = nullptr;
+    return *this;
   }
 
   ~auto_ptr()
@@ -75,6 +76,6 @@ auto foo(bool flag)
 int
 main()
 {
-  volatile bool flag = true;
+  volatile bool flag = false;
   auto ptr = foo(flag);
 }
