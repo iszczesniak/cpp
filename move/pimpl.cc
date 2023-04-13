@@ -20,6 +20,7 @@ struct A
   }
 };
 
+ // C++14: returning by value with the auto type specifier.
 auto foo1(bool flag)
 {
   // C++17: deducing the template argument of pimpl1.
