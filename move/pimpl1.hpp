@@ -15,9 +15,12 @@
 // std::unique_ptr.
 
 // Here is a sample implementation without the move semantics, but
-// with some C++11, C++14, and C++17 functionalities, so this example
-// only poses to be legacy.  We implement the functionality in the
-// special copying member functions.
+// with modern C++ functionalities, so this example only poses to be
+// legacy.  We implement the functionality in the special copying
+// member functions.
+
+#ifndef PIMPL1
+#define PIMPL1
 
 #include <iostream>
 
@@ -39,7 +42,7 @@ struct pimpl1
     src.m_ptr = nullptr;
   }
 
-  // The auto type specifier for return type is C++14.
+  // C++14: returning by reference with the auto type specifier.
   auto &operator=(const pimpl1 &src) const
   {
     m_ptr = src.m_ptr;
@@ -55,35 +58,4 @@ struct pimpl1
   mutable T *m_ptr;
 };
 
-struct A
-{
-  int m_id;
-
-  A(int id): m_id(id)
-  {
-    cout << "ctor: " << m_id << '\n';
-  }
-
-  ~A()
-  {
-    cout << "dtor: " << m_id << '\n';
-  }
-};
-
-// The auto type specifier again, but returning by value.
-auto foo(bool flag)
-{
-  // Requires C++17.
-  pimpl1 a(new A(1));
-  pimpl1 b(new A(2));
-
-  return flag ? a : b;
-}
-
-int
-main()
-{
-  volatile bool flag = false;
-  auto a = foo(flag);
-  auto b = move(a);
-}
+#endif // PIMPL1
