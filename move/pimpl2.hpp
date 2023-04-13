@@ -1,6 +1,11 @@
+// When we implement the PIMPL (pointer to implementation) idiom with
+// the move semantics, we get the exclusive ownership semantics,
+// available since C++11 as std::unique_ptr. 
+
 #ifndef PIMPL2
 #define PIMPL2
 
+// Differs from pimpl1 only by two details.  Find them.
 template <typename T>
 struct pimpl2
 {
