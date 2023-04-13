@@ -5,43 +5,49 @@
 //   to remember to delete the data,
 //
 // * the ownership can be passed when, e.g., returning by value in
-//   cases when the constructor elision (or return value optimization)
-//   could not be used.
+//   cases when the constructor elision (or the return value
+//   optimization in the past) could not be used.
 
-// That functionality is called pointer to implementation (PIMPL), aka
-// the bridge pattern.  It used to be implemented in std::auto_ptr
-// that is no longer part of C++17.
+// That functionality used to be called pointer to implementation
+// (PIMPL), aka the bridge pattern.  It used to be implemented in
+// std::auto_ptr that no longer is part of C++17.  It used to, because
+// in C++11 it was replaced by the exclusive ownership semantics and
+// std::unique_ptr.
 
 // Here is a sample implementation without the move semantics, but
-// with some C++11, C++14, and C++17 functionalities.  We implement
-// the functionality in the special copying member functions.
+// with some C++11, C++14, and C++17 functionalities, so this example
+// only poses to be legacy.  We implement the functionality in the
+// special copying member functions.
 
 #include <iostream>
 
+using namespace std;
+
 template <typename T>
-struct auto_ptr
+struct pimpl1
 {
-  auto_ptr(): m_ptr(nullptr)
+  // The nullptr literal is C++11.
+  pimpl1(): m_ptr(nullptr)
   {}
 
-  auto_ptr(T *ptr): m_ptr(ptr)
+  pimpl1(T *ptr): m_ptr(ptr)
   {
   }
 
-  auto_ptr(const auto_ptr &src): m_ptr(src.m_ptr)
+  pimpl1(const pimpl1 &src): m_ptr(src.m_ptr)
   {
     src.m_ptr = nullptr;
   }
 
-  auto_ptr &
-  operator=(const auto_ptr &src) const
+  // The auto type specifier for return type is C++14.
+  auto &operator=(const pimpl1 &src) const
   {
     m_ptr = src.m_ptr;
     src.m_ptr = nullptr;
     return *this;
   }
 
-  ~auto_ptr()
+  ~pimpl1()
   {
     delete m_ptr;
   }
@@ -55,21 +61,21 @@ struct A
 
   A(int id): m_id(id)
   {
-    std::cout << "ctor: " << m_id << '\n';
+    cout << "ctor: " << m_id << '\n';
   }
 
   ~A()
   {
-    std::cout << "dtor: " << m_id << '\n';
+    cout << "dtor: " << m_id << '\n';
   }
 };
 
-// C++14.
+// The auto type specifier again, but returning by value.
 auto foo(bool flag)
 {
   // Requires C++17.
-  auto_ptr a(new A(1));
-  auto_ptr b(new A(2));
+  pimpl1 a(new A(1));
+  pimpl1 b(new A(2));
 
   return flag ? a : b;
 }
@@ -78,8 +84,6 @@ int
 main()
 {
   volatile bool flag = false;
-  auto ptr = foo(flag);
-  // This is problematic: it looks like copying, but it has a special
-  // semantics.  It's just a pitfall for the oblivious.
-  auto ptr2 = ptr;
+  auto a = foo(flag);
+  auto b = move(a);
 }
