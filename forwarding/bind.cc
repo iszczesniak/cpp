@@ -39,6 +39,17 @@ struct F
 int
 main()
 {
-  F f(make_unique<C, A, B>, A{});
-  auto up = f(B{});
+  cout << "Test #1:\n";
+  {
+    F f(make_unique<C, A, B>, A{});
+    auto up = f(B{});
+  }
+
+  cout << "Test #2:\n";
+  {
+    F f([](auto &&a, auto &&b)
+    {return make_unique<C>(forward<decltype(a)>(a),
+			   forward<decltype(b)>(b));}, A{});
+    auto up = f(B{});
+  }
 }
