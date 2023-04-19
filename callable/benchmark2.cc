@@ -54,7 +54,7 @@ doit(Q &&q)
 	int index = distr(gen);
 	int year = index % 5 + 1;
 
-	q.push(student(index, year, name));
+	q.push(student{index, year, name});
 
 	next_permutation(name.begin(), name.end());
       }
