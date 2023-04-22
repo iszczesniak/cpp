@@ -25,12 +25,14 @@ struct F
   F(Callable &&c, FirstArg &&a): m_c(forward<Callable>(c)),
 				 m_a(forward<FirstArg>(a))
   {
+    cout << __PRETTY_FUNCTION__ << endl;
   }
 
   template <typename SecondArg>
   auto
   operator()(SecondArg &&b)
   {
+    cout << __PRETTY_FUNCTION__ << endl;
     return forward<Callable>(m_c)(forward<FirstArg>(m_a),
 				  forward<SecondArg>(b));
   }
