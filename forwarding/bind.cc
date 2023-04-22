@@ -36,6 +36,16 @@ struct F
   }
 };
 
+// A deduction guide.
+template <typename Callable, typename FirstArg>
+F(Callable &&, FirstArg &&) -> F<Callable, FirstArg>;
+
+auto
+loo(A &a, B &b)
+{
+  return make_unique<C>(a, b);
+}
+
 int
 main()
 {
@@ -50,6 +60,23 @@ main()
     F f([](auto &&a, auto &&b)
     {return make_unique<C>(forward<decltype(a)>(a),
 			   forward<decltype(b)>(b));}, A{});
-    auto up = f(B{});
+    auto up1 = f(B{});
+    B b;
+    auto up2 = f(b);
+  }
+
+  cout << "Test #3:\n";
+  {
+    A a;
+    F f(make_unique<C, A &, B>, a);
+    auto up1 = f(B{});
+  }
+
+  cout << "Test #4:\n";
+  {
+    A a;
+    B b;
+    F f(loo, a);
+    auto up = f(b);
   }
 }
