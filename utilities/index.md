@@ -31,3 +31,14 @@
 # `std::any`
 
 # std::exchange
+
+# Returning tuple with:
+
+  auto foo()
+  {
+    return {1, 0.2, false};
+  }
+
+# Structured bindings
+
+  
