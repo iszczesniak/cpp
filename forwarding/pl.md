@@ -10,8 +10,22 @@ funkcji `g` bez kopiowania i z *zachowaniem kategorii* tego argumentu.
 Ten problem nazywamy **doskonałym przekazywaniem argumentu**
 (ang. perfect argument forwarding).
 
-O kwalifikatorach (const, volatile) i typie parametru funkcji `g` nic
-nie wiemy.  Chcemy napisać tylko jedną implementację funkcji `f`
+Jest to ujęcie problemu w nowoczesnym C++ (od C++11), ponieważ trzeba
+zachować kategorię argumentu: jeżeli funckja `f` otrzymała r-wartość
+(albo l-wartość), to powinna przekazać do funkcji `g` też r-wartość
+(albo l-wartość).  Należy zachować kategorię, ponieważ r-wartość może
+być przenoszona.
+
+Problem też istniał w starym C++ (przed C+11), ale kategoria wartości
+nie miała szczególnego znaczenia.  Wówczas chodziło o wywołanie
+złaściwego przeciążenia funkcji `g`, gdzie parametrem jest albo
+niestała l-referencja (kiedy argumentem jest l-wartości typu
+niestałego), albo stała l-referencja (kiedy argumentem jest zwrówno
+l-wartość jak i r-wartość).
+
+O typie parametru (w tym kwalifikatorach `const` i `volatile`) funkcji
+`g` nic nie wiemy: może być dowolny.  Funkcja `g` może mieć też
+przeciążenia.  Chcemy napisać tylko jedną implementację funkcji `f`
 (czyli szablon funkcji), która nie kopiowałaby argumentu i
 zachowywałaby jego kategorię wartości.
 
@@ -31,7 +45,8 @@ być kwalifikatory `qualifiers_a` i jaki typ `type_a`?  Czy
 kwalifikatorem może, czy musi być `const`?  Czy typem ma być `T`, `T
 &`, czy `T &&`?
 
-**ODPOWIEDŹ**: Można, ale tylko od C++11.  O tym później.
+**ODPOWIEDŹ**: Można, ale tylko od C++11, ponieważ tylko od C++11
+  zachowanie kategorii ma znaczenie.
 
 ## Dlaczego to problem?
 
