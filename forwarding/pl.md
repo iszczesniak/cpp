@@ -188,9 +188,8 @@ Przykład:
 
 ## Rozwiązanie: `T &` razem z `const T &`
 
-Możemy mieć dwa szablony: jeden dla `T &`, a drugi dla `const T &`.
-Czyli mamy dwie definicje szablonu funkcji (dwa przeciążenia szablonu)
-dla jednego parametru:
+Możemy mieć dwa przciążenia szablonów podstawowych: jeden dla `T &`, a
+drugi dla `const T &`:
 
 {% highlight c++ %}
 template<typename T>
