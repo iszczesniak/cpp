@@ -5,29 +5,40 @@ title: Doskonałe przekazywanie argumentów
 # Wprowadzenie
 
 Problemem do rozwiązania jest napisanie funkcji `f`, która wywołuje
-funkcję `g`.  Argument przekazany funkcji `f` ma zostać przekazany
-funkcji `g` bez kopiowania i z *zachowaniem kategorii* tego argumentu.
-Ten problem nazywamy **doskonałym przekazywaniem argumentu**
-(ang. perfect argument forwarding).
+funkcję `g` i **doskonale przekazuje** jej swój argument.  Doskonale,
+czyli:
 
-Jest to ujęcie problemu w nowoczesnym C++ (od C++11), ponieważ trzeba
-zachować kategorię argumentu: jeżeli funckja `f` otrzymała r-wartość
+* bez kopiowania argumentu,
+
+* z zachowaniem własności argumentu.
+
+O typie parametru (w tym kwalifikatorach `const` i `volatile`) funkcji
+`g` nic nie wiemy: może być dowolny.  Funkcja `g` może mieć też
+przeciążenia.  Chcemy napisać tylko jedną implementację funkcji `f`, a
+więc musi to być szablon funkcji.  Ten problem nazywamy **doskonałym
+przekazywaniem argumentu** (ang. perfect argument forwarding).
+
+Musimy zachować własności argumentu, żeby wyrażenie `f(<expr>)`
+wywołało to samo przeciążenie funkcji `g` co wyrażenie `g(<expr>)`.
+Problem sprowadza się do zachowaniem *kategorii i typu* przekazywanego
+argumentu.
+
+Jest to ujęcie problemu w nowoczesnym C++ (od C++11), ponieważ mowa o
+zachowaniu kategorii argumentu: jeżeli funckja `f` otrzymała r-wartość
 (albo l-wartość), to powinna przekazać do funkcji `g` też r-wartość
 (albo l-wartość).  Należy zachować kategorię, ponieważ r-wartość może
 być przenoszona.
 
 Problem też istniał w starym C++ (przed C+11), ale kategoria wartości
-nie miała szczególnego znaczenia.  Wówczas chodziło o wywołanie
-złaściwego przeciążenia funkcji `g`, gdzie parametrem jest albo
-niestała l-referencja (kiedy argumentem jest l-wartości typu
-niestałego), albo stała l-referencja (kiedy argumentem jest zwrówno
-l-wartość jak i r-wartość).
+nie miała szczególnego znaczenia.  Wówczas chodziło o wybór właściwego
+przeciążenia funkcji `g`, gdzie parametrem jest:
 
-O typie parametru (w tym kwalifikatorach `const` i `volatile`) funkcji
-`g` nic nie wiemy: może być dowolny.  Funkcja `g` może mieć też
-przeciążenia.  Chcemy napisać tylko jedną implementację funkcji `f`
-(czyli szablon funkcji), która nie kopiowałaby argumentu i
-zachowywałaby jego kategorię wartości.
+* albo niestała l-referencja (przeciążenie dla argumentu typu
+niestałego i kategorii l-wartość),
+
+* albo stała l-referencja (przeciążenia zarówno dla argumentu typu
+stałego i kategorii l-wartość, jak i dla argumentu kategorii
+r-wartość).
 
 Zadaniem jest napisanie takiego szablonu funkcji:
 
