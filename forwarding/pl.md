@@ -36,7 +36,7 @@ dwóch przeciążeń funkcji `g` dla parametru typu l-referencja:
 
 * stała, np. `void g(A &);`,
 
-* niestała, np. `void(const A &);`.
+* niestała, np. `void g(const A &);`.
 
 Zadaniem jest napisanie takiego szablonu funkcji:
 
