@@ -208,7 +208,15 @@ f(const T &t)
 {% endhighlight %}
 
 Ta implementacja rozwiąże podproblem #1, ale dla `n` parametrów
-potrzebujemy `2^n` definicji funkcji!  **Złe rozwiązanie.**
+potrzebujemy `2^n` przeciążeń szablonów podstawowych!  W starym C++
+było to jedyne możliwe rozwiązanie, więc wówczas było zaakceptowane.
+Kompatybilność wstecz jest zachowana: powyższe rozwiązaniem (czyli w
+starym C++) będzie działało bez zmian z nowoczesnym C++.
+
+Jednak w C++11 to rozwiązanie nie jest w stanie doskonale przekazać
+r-wartości, bo nie uwzględnia ono przeciążenia z r-referencją.  Na
+przykład, powyższe rozwiązanie dla `f(A());` nie wywoła `void g(A
+&&)`.  **Od C++11 jest to złe rozwiązanie.**
 
 Przykład:
 
