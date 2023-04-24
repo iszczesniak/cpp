@@ -23,22 +23,20 @@ wywołało to samo przeciążenie funkcji `g` co wyrażenie `g(<expr>)`.
 Problem sprowadza się do zachowaniem *kategorii i typu* przekazywanego
 argumentu.
 
-Jest to ujęcie problemu w nowoczesnym C++ (od C++11), ponieważ mowa o
-zachowaniu kategorii argumentu: jeżeli funckja `f` otrzymała r-wartość
-(albo l-wartość), to powinna przekazać do funkcji `g` też r-wartość
-(albo l-wartość).  Należy zachować kategorię, ponieważ r-wartość może
-być przenoszona.
+Jest to ujęcie problemu od C++11, ponieważ mowa o zachowaniu kategorii
+argumentu: jeżeli funckja `f` otrzymała r-wartość (albo l-wartość), to
+powinna przekazać do funkcji `g` też r-wartość (albo l-wartość).
+Należy zachować kategorię, ponieważ r-wartość może wymagać specjalnego
+traktowania (chodzi o przenoszenie wartości).
 
-Problem też istniał w starym C++ (przed C+11), ale kategoria wartości
-nie miała szczególnego znaczenia.  Wówczas chodziło o wybór właściwego
-przeciążenia funkcji `g`, gdzie parametrem jest:
+Problem też istniał w starym C++ (przed C++11), ale kategoria wartości
+nie miała szczególnego znaczenia, bo nie można jej było zachować
+podczas przekazywania.  Wówczas chodziło o zachowanie wyboru jednego z
+dwóch przeciążeń funkcji `g` dla parametru typu l-referencja:
 
-* albo niestała l-referencja (przeciążenie dla argumentu typu
-niestałego i kategorii l-wartość),
+* stała, np. `void g(A &);`,
 
-* albo stała l-referencja (przeciążenia zarówno dla argumentu typu
-stałego i kategorii l-wartość, jak i dla argumentu kategorii
-r-wartość).
+* niestała, np. `void(const A &);`.
 
 Zadaniem jest napisanie takiego szablonu funkcji:
 
@@ -220,14 +218,13 @@ f(const T &t)
 
 Ta implementacja rozwiąże podproblem #1, ale dla `n` parametrów
 potrzebujemy `2^n` przeciążeń szablonów podstawowych!  W starym C++
-było to jedyne możliwe rozwiązanie, więc wówczas było zaakceptowane.
-Kompatybilność wstecz jest zachowana: powyższe rozwiązaniem (czyli w
-starym C++) będzie działało bez zmian z nowoczesnym C++.
+było to jedyne możliwe rozwiązanie, więc wówczas było akceptowalne.
+Kompatybilność wstecz jest zachowana: kompilator C++11 będą poprawnie
+kompilowały stary kod (bez r-referencji).
 
 Jednak w C++11 to rozwiązanie nie jest w stanie doskonale przekazać
-r-wartości, bo nie uwzględnia ono przeciążenia z r-referencją.  Na
-przykład, powyższe rozwiązanie dla `f(A());` nie wywoła `void g(A
-&&)`.  **Od C++11 jest to złe rozwiązanie.**
+r-wartości, bo nie uwzględnia ono przeciążenia z r-referencją.  **Od
+C++11 jest to złe rozwiązanie.**
 
 Przykład:
 
@@ -237,7 +234,7 @@ Przykład:
 
 # Prawidłowe rozwiązanie: T &&
 
-Żeby rozwiązać podproblem #1 z C++11, typ parametru powinien być
+Od C++1, żeby rozwiązać podproblem #1, typ parametru powinien być
 zadeklarowany jako r-referencja bez kwalifikatorów.
 
 Prawda objawiona:
