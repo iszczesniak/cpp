@@ -251,7 +251,7 @@ f(T &&t)
 Jeżeli `T` jest parametrem szablonu, to parametr funkcji typu `T &&`
 nazywamy **referencją przekazującą** (ang. forwarding reference).
 Mimo, że deklarowanym typem jest r-referencja, to na etapie kompilacji
-parametr może otrzymać typ l-referencji albo r-referencji.
+typ r-referencji może zostać przekształcony do typu l-referencji.
 
 Prawda objawiona, bo dla referencji przekazującej wprowadzono w C++11
 specjalne zasady wnioskowania typu `T` w zależności od kategorii
@@ -267,6 +267,40 @@ kategorię wartości, czego szczegóły są wyjaśnione niżej.
 
 **Podproblem #2 został rozwiązany funkcją `std::forward`.**
 
+## Wnioskowanie dla referencji przekazującej
+
+Jaki będzie wywnioskowany argument dla parametru `T` szablonu, jeżeli
+jest on użyty w deklaracji referencji przekazującej?
+
+Jeżeli argumentem funkcji `f` jest:
+
+* l-wartość typu A, to `T = A &`,
+
+* r-wartość typu A, to `T = A`.
+
+### Konstruktor a referencja przekazująca
+
+Wnioskowanie argumentów szablonu jest stosowane nie tylko przy
+wywołaniu szablonów funkcji, ale także przy wywołaniu konstruktora
+typu szablonowego.  Konstruktor dla typu szablonowego może mieć
+parametr `T &&`, gdzie `T` jest parametrem szablonu, dla którego mogą
+być użyte zasady wnioskowania dla referencji przekazującej.
+
+Ale jest tu pewien niuans, który jest zdefiniowany w standardzie ([]),
+jednak którego nie potrafię uzasadnić.  Parametr konstruktora
+
+* będzie referencją przekazującą, jeżeli `T` jest parametrem szablonu
+  konstruktora,
+
+* nie będzie referencją przekazującą, jeżeli `T` jest parametrem
+  szablonu typu.
+
+Oto przykład:
+
+{% highlight c++ %}
+{% include_relative constructor.cc %}
+{% endhighlight %}
+    
 ## Referencja do referencji
 
 W C++ nie ma typu *referencji do referencji*, ale takie typy mogą się
@@ -296,17 +330,6 @@ Przykład spłaszczania referencji:
 {% highlight c++ %}
 {% include_relative collapse.cc %}
 {% endhighlight %}
-
-## Wnioskowanie
-
-Jaki będzie wywnioskowany argument dla parametru `T` szablonu, jeżeli
-jest on użyty w deklaracji referencji przekazującej?
-
-Jeżeli argumentem funkcji `f` jest:
-
-* l-wartość typu A, to `T = A &`,
-
-* r-wartość typu A, to `T = A`.
 
 ## Funkcja `std::forward`
 
