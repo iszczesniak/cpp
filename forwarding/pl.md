@@ -286,8 +286,8 @@ typu szablonowego.  Konstruktor dla typu szablonowego może mieć
 parametr `T &&`, gdzie `T` jest parametrem szablonu, dla którego mogą
 być użyte zasady wnioskowania dla referencji przekazującej.
 
-Ale jest tu pewien niuans, który jest zdefiniowany w standardzie ([]),
-jednak którego nie potrafię uzasadnić.  Parametr konstruktora
+Ale jest tu pewien niuans, którego nie potrafię uzasadnić
+([[temp.deduct.call]]).  Parametr konstruktora:
 
 * będzie referencją przekazującą, jeżeli `T` jest parametrem szablonu
   konstruktora,
@@ -311,7 +311,7 @@ Jeżeli argumentem parametru szablonu `T` będzie `A &`, to wtedy typem
 parametru funkcji, który został zadeklarowana jako referencja
 przekazująca, będzie typ `A & &&`.  Co wtedy?
 
-## Spłaszczanie typów referencji
+### Spłaszczanie typów referencyjnych
 
 Jeżeli pojawi się typ referencji do referencji, to kompilator zamieni
 taki typ na referencję według zasady:
