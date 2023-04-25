@@ -287,7 +287,7 @@ parametr `T &&`, gdzie `T` jest parametrem szablonu, dla którego mogą
 być użyte zasady wnioskowania dla referencji przekazującej.
 
 Ale jest tu pewien niuans, którego nie potrafię uzasadnić
-([[temp.deduct.call#3]]).  Parametr konstruktora:
+([temp.deduct.call#3]).  Parametr konstruktora:
 
 * będzie referencją przekazującą, jeżeli `T` jest parametrem szablonu
   konstruktora,
