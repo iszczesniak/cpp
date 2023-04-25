@@ -14,14 +14,15 @@ czyli:
 
 O typie parametru (w tym kwalifikatorach `const` i `volatile`) funkcji
 `g` nic nie wiemy: może być dowolny.  Funkcja `g` może mieć też
-przeciążenia.  Chcemy napisać tylko jedną implementację funkcji `f`, a
-więc musi to być szablon funkcji.  Ten problem nazywamy **doskonałym
-przekazywaniem argumentu** (ang. perfect argument forwarding).
+przeciążenia i przeciążone szablony.  Chcemy napisać tylko jedną
+implementację funkcji `f`, a więc musimy zaimplementować szablon
+funkcji.  Ten problem nazywamy **doskonałym przekazywaniem argumentu**
+(ang. perfect argument forwarding).
 
 Musimy zachować własności argumentu, żeby wyrażenie `f(<expr>)`
 wywołało to samo przeciążenie funkcji `g` co wyrażenie `g(<expr>)`.
-Problem sprowadza się do zachowania *kategorii i typu* przekazywanego
-argumentu.
+Problem sprowadza się do zachowania *kategorii* i *typu*
+przekazywanego argumentu.
 
 Jest to ujęcie problemu od C++11, ponieważ mowa o zachowaniu kategorii
 argumentu: jeżeli funckja `f` otrzymała r-wartość (albo l-wartość), to
