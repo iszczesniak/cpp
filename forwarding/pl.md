@@ -20,7 +20,7 @@ przekazywaniem argumentu** (ang. perfect argument forwarding).
 
 Musimy zachować własności argumentu, żeby wyrażenie `f(<expr>)`
 wywołało to samo przeciążenie funkcji `g` co wyrażenie `g(<expr>)`.
-Problem sprowadza się do zachowaniem *kategorii i typu* przekazywanego
+Problem sprowadza się do zachowania *kategorii i typu* przekazywanego
 argumentu.
 
 Jest to ujęcie problemu od C++11, ponieważ mowa o zachowaniu kategorii
@@ -45,7 +45,7 @@ template<typename T>
 void
 f(qualifiers_a type_a a)
 {
-  g(a);
+  g(a); // Is calling like this enough?
 }
 {% endhighlight %}
 
@@ -55,7 +55,7 @@ kwalifikatorem może, czy musi być `const`?  Czy typem ma być `T`, `T
 &`, czy `T &&`?
 
 **ODPOWIEDŹ**: Można, ale tylko od C++11, ponieważ tylko od C++11
-  zachowanie kategorii ma znaczenie.
+zachowanie kategorii ma znaczenie.
 
 ## Dlaczego to problem?
 
