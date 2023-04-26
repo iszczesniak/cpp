@@ -1,0 +1,4 @@
+Explain how std::forward works based on an implementation.
+Interestingly, std::forward can be called not just for the lvalues,
+but for rvalues too.  So what's the deal of calling with rvalue?
+Shouldn't we use just the lvalues, the parameters?
