@@ -25,7 +25,7 @@ main()
 {
   int x;
 
-  // Work the way we could expect from a forwarding reference.
+  // Works the way we would expect from a forwarding reference.
   A a1(1);
   A a2(x);
 
