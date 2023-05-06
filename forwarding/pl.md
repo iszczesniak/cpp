@@ -292,12 +292,12 @@ parametr `T &&`, gdzie `T` jest parametrem szablonu, dla którego mogą
 być użyte zasady wnioskowania dla referencji przekazującej.
 
 Ale jest tu pewien niuans, którego nie potrafię uzasadnić
-([temp.deduct.call#3]).  Parametr konstruktora:
+([temp.deduct.call#3]).  Parametr konstruktora typu `T &&`:
 
-* będzie referencją przekazującą, jeżeli `T` jest parametrem szablonu
+* jest referencją przekazującą, jeżeli `T` jest parametrem szablonu
   konstruktora,
 
-* nie będzie referencją przekazującą, jeżeli `T` jest parametrem
+* nie jest referencją przekazującą, jeżeli `T` jest parametrem
   szablonu typu.
 
 Oto przykład:
@@ -329,6 +329,11 @@ taki typ na referencję według zasady:
 Zbiory `cv1`, `cv2`, `cv12` oznaczają zbiory kwalifikatorów, do
 których mogą należeć `const` i `volatile`.  Zbiór `cv12` jest sumą
 zbiorów `cv1` i `cv2`.
+
+Spośród powyższych czterech przypadków, dla referencji przekazującej
+może wystąpić jedynie kombinacja `& &&`, kiedy argumentem funkcji jest
+l-wartość.  Wtedy referencja przekazująca jest spłaszczana do
+l-referencji, żeby można ją było zainicjalizować l-wartością.
 
 Przykład spłaszczania referencji:
 
