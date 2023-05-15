@@ -232,6 +232,15 @@ opcją `-O3` i porównać wyniki.
 {% include_relative timing.cc %}
 {% endhighlight %}
 
+# Przeciążenia
+
+Niestety nie udało mi się użyć funkcji `std::invoke` i `std::apply` z
+przeciążeniami:
+
+{% highlight c++ %}
+{% include_relative overloading.cc %}
+{% endhighlight %}
+
 # Podsumowanie
 
 * Callable może być określane w czasie kompilacji albo uruchomienia.
