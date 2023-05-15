@@ -1,20 +1,18 @@
 #include <utility>
 
-using namespace std;
-
 template <typename T>
 struct A
 {
   T &&m_ref;
 
-  A(T &&ref): m_ref(ref)
+  A(T &&ref): m_ref(std::forward<T>(ref))
   {
   }
 
   T &&
-  operator()
+  operator*()
   {
-    return forward<T>(m_ref);
+    return std::forward<T>(m_ref);
   }
 };
 
@@ -22,5 +20,6 @@ int
 main()
 {
   int x;
-  A a(x), b(1);
+  A<int &> a(x);
+  A<int> b(1);
 }

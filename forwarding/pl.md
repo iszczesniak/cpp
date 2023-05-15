@@ -358,6 +358,15 @@ Przykład:
 {% include_relative forward.cc %}
 {% endhighlight %}
 
+# Referencja przekazująca jako pole składowe
+
+Referencją przekazującą może być polem składowym szablonowego typu
+danych.
+
+{% highlight c++ %}
+{% include_relative field1.cc %}
+{% endhighlight %}
+
 # Rozbudowany przykład
 
 Zdefiniujemy różne przeciążenia dla funkcji `g`.  Funkcja `g` będzie
