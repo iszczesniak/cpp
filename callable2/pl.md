@@ -238,7 +238,7 @@ Niestety nie udało mi się użyć funkcji `std::invoke` i `std::apply` z
 przeciążeniami:
 
 {% highlight c++ %}
-{% include_relative overloading.cc %}
+{% include_relative overloads.cc %}
 {% endhighlight %}
 
 # Podsumowanie
