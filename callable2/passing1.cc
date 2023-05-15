@@ -53,6 +53,12 @@ main()
 
   // Here we implicitly get a pointer to the closure function.
   f1([]{cout << "World!\n";});
+  // We cannot implicitly get a pointer to a closure function if the
+  // lambda captured some data (these would be stored as member
+  // fields, and we would need a pointer to the closure).
+  int x;
+  //  f1([x]{cout << "World!\n";});
+
   // Doesn't work for the function reference type.
   // f2([]{cout << "World!\n";});
 
