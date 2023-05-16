@@ -185,7 +185,7 @@ funkcja jest mechanizmem czasu kompilacji i nie wprowadza żadnego
 narzutu czasowego i pamięciowego.
 
 {% highlight c++ %}
-{% include_relative time_it.cc %}
+{% include_relative time_it1.cc %}
 {% endhighlight %}
 
 W przykładzie wyżej użyliśmy **szablonu wariadycznego**, żeby funkcja
