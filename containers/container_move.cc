@@ -44,7 +44,9 @@ struct A
 
 int main()
 {
-  // A temporary object is not moved but copied.  I don't know why.
+  // A temporary object is not moved but copied because {A("V1")}
+  // creates an std::initializer_list object that provides access to
+  // its elements through a const reference.
   vector<A> va, vb{A("V1")};
   cout << "Moving a container touches no element.\n";
   va = move(vb);
