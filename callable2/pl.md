@@ -185,7 +185,7 @@ funkcja jest mechanizmem czasu kompilacji i nie wprowadza żadnego
 narzutu czasowego i pamięciowego.
 
 {% highlight c++ %}
-{% include_relative time_it.cc %}
+{% include_relative time_it1.cc %}
 {% endhighlight %}
 
 W przykładzie wyżej użyliśmy **szablonu wariadycznego**, żeby funkcja
@@ -230,6 +230,15 @@ opcją `-O3` i porównać wyniki.
 
 {% highlight c++ %}
 {% include_relative timing.cc %}
+{% endhighlight %}
+
+# Przeciążenia
+
+Niestety nie udało mi się użyć funkcji `std::invoke` i `std::apply` z
+przeciążeniami:
+
+{% highlight c++ %}
+{% include_relative overloads.cc %}
 {% endhighlight %}
 
 # Podsumowanie

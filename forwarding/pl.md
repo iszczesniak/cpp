@@ -16,8 +16,9 @@ O typie parametru (w tym kwalifikatorach `const` i `volatile`) funkcji
 `g` nic nie wiemy: może być dowolny.  Funkcja `g` może mieć też
 przeciążenia i przeciążone szablony.  Chcemy napisać tylko jedną
 implementację funkcji `f`, a więc musimy zaimplementować szablon
-funkcji.  Ten problem nazywamy **doskonałym przekazywaniem argumentu**
-(ang. perfect argument forwarding).
+funkcji, żeby pozwolić na przyjmowanie argumentów dowolnego typu.  Ten
+problem nazywamy **doskonałym przekazywaniem argumentu** (ang. perfect
+argument forwarding).
 
 Musimy zachować własności argumentu, żeby wyrażenie `f(<expr>)`
 wywołało to samo przeciążenie funkcji `g` co wyrażenie `g(<expr>)`.
@@ -67,6 +68,9 @@ albo l-wartość, albo r-wartość.  Są dwa podproblemy.
 
 Problemem jest określenie typu parametru funkcji, żeby mógł on być
 zawsze zainicjalizowany, bez względu na typ i kategorię argumentu.
+Ten podproblem już jest częściowo rozwiązany przez użycie szablonu
+funkcji, ponieważ wnioskowanie argumentów szablonu nie dopuszcza do
+konwersji typów.
 
 ### Podproblem #2
 
@@ -220,8 +224,8 @@ f(const T &t)
 Ta implementacja rozwiąże podproblem #1, ale dla `n` parametrów
 potrzebujemy `2^n` przeciążeń szablonów podstawowych!  W starym C++
 było to jedyne możliwe rozwiązanie, więc wówczas było akceptowalne.
-Kompatybilność wstecz jest zachowana: kompilator C++11 będą poprawnie
-kompilowały stary kod (bez r-referencji).
+Kompatybilność wstecz jest zachowana: kompilator C++11 będzie
+poprawnie kompilował stary kod (bez r-referencji).
 
 Jednak w C++11 to rozwiązanie nie jest w stanie doskonale przekazać
 r-wartości, bo nie uwzględnia ono przeciążenia z r-referencją.  **Od
@@ -235,7 +239,7 @@ Przykład:
 
 # Prawidłowe rozwiązanie: T &&
 
-Od C++1, żeby rozwiązać podproblem #1, typ parametru powinien być
+Od C++11, żeby rozwiązać podproblem #1, typ parametru powinien być
 zadeklarowany jako r-referencja bez kwalifikatorów.
 
 Prawda objawiona:
@@ -288,12 +292,12 @@ parametr `T &&`, gdzie `T` jest parametrem szablonu, dla którego mogą
 być użyte zasady wnioskowania dla referencji przekazującej.
 
 Ale jest tu pewien niuans, którego nie potrafię uzasadnić
-([temp.deduct.call#3]).  Parametr konstruktora:
+([temp.deduct.call#3]).  Parametr konstruktora typu `T &&`:
 
-* będzie referencją przekazującą, jeżeli `T` jest parametrem szablonu
+* jest referencją przekazującą, jeżeli `T` jest parametrem szablonu
   konstruktora,
 
-* nie będzie referencją przekazującą, jeżeli `T` jest parametrem
+* nie jest referencją przekazującą, jeżeli `T` jest parametrem
   szablonu typu.
 
 Oto przykład:
@@ -326,6 +330,11 @@ Zbiory `cv1`, `cv2`, `cv12` oznaczają zbiory kwalifikatorów, do
 których mogą należeć `const` i `volatile`.  Zbiór `cv12` jest sumą
 zbiorów `cv1` i `cv2`.
 
+Spośród powyższych czterech przypadków, dla referencji przekazującej
+może wystąpić jedynie kombinacja `& &&`, kiedy argumentem funkcji jest
+l-wartość.  Wtedy referencja przekazująca jest spłaszczana do
+l-referencji, żeby można ją było zainicjalizować l-wartością.
+
 Przykład spłaszczania referencji:
 
 {% highlight c++ %}
@@ -347,6 +356,15 @@ Przykład:
 
 {% highlight c++ %}
 {% include_relative forward.cc %}
+{% endhighlight %}
+
+# Referencja przekazująca jako pole składowe
+
+Referencją przekazującą może być polem składowym szablonowego typu
+danych.
+
+{% highlight c++ %}
+{% include_relative field1.cc %}
 {% endhighlight %}
 
 # Rozbudowany przykład

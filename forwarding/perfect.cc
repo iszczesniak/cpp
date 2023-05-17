@@ -55,4 +55,11 @@ int main()
   // Test "int &&"
   g(1, "int &&");
   f(1, "int &&");
+
+  // We pass an rvalue of double type, but expect the "int &&"
+  // overload of g to be called.  Type conversion will take place
+  // (from double to int) when calling function g from f, and there it
+  // is allowed and required, just like in C.
+  g(1.0, "int &&");
+  f(1.0, "int &&");
 }

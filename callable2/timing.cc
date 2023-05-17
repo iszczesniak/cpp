@@ -7,7 +7,7 @@
 
 using namespace std;
 
-const int N = 1000000;
+const int N = 10000000;
 
 template <typename C>
 void
@@ -80,6 +80,10 @@ main()
   time_pq(functor);
   time_pq(cmp);
   time_pq(closure);
+  time_pq(std::bind(&A::cmp, A(),
+                    std::placeholders::_1,
+                    std::placeholders::_2));
+
   time_pq(function<callable>(functor));
   time_pq(function<callable>(cmp));
   time_pq(function<callable>(closure));
@@ -90,6 +94,10 @@ main()
   time_sort(functor);
   time_sort(cmp);
   time_sort(closure);
+  time_sort(std::bind(&A::cmp, A(),
+                      std::placeholders::_1,
+                      std::placeholders::_2));
+
   time_sort(function<callable>(functor));
   time_sort(function<callable>(cmp));
   time_sort(function<callable>(closure));
