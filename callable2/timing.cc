@@ -8,6 +8,7 @@
 #include <vector>
 
 using namespace std;
+using namespace std::placeholders;
 
 const int N = 10000000;
 
@@ -66,28 +67,20 @@ main()
   time_pq(functor);
   time_pq(cmp);
   time_pq(closure);
-  time_pq(std::bind(&A::cmp, A(),
-                    std::placeholders::_1,
-                    std::placeholders::_2));
+  time_pq(std::bind(&A::cmp, A(), _1, _2));
 
   time_pq(function<callable>(functor));
   time_pq(function<callable>(cmp));
   time_pq(function<callable>(closure));
-  time_pq(function<callable>(std::bind(&A::cmp, A(),
-                                       std::placeholders::_1,
-                                       std::placeholders::_2)));
+  time_pq(function<callable>(std::bind(&A::cmp, A(), _1, _2)));
 
   time_sort(functor);
   time_sort(cmp);
   time_sort(closure);
-  time_sort(std::bind(&A::cmp, A(),
-                      std::placeholders::_1,
-                      std::placeholders::_2));
+  time_sort(std::bind(&A::cmp, A(), _1, _2));
 
   time_sort(function<callable>(functor));
   time_sort(function<callable>(cmp));
   time_sort(function<callable>(closure));
-  time_sort(function<callable>(std::bind(&A::cmp, A(),
-                                         std::placeholders::_1,
-                                         std::placeholders::_2)));
+  time_sort(function<callable>(std::bind(&A::cmp, A(), _1, _2)));
 }
