@@ -5,12 +5,17 @@
 #include <functional>
 #include <iostream>
 #include <queue>
+#include <random>
 #include <vector>
 
 using namespace std;
 using namespace std::placeholders;
 
-const int N = 10000000;
+const auto N = 10000000;
+
+random_device dev;
+mt19937 gen(dev());
+std::uniform_int_distribution<int> distr;
 
 template <typename C>
 void
@@ -20,8 +25,8 @@ time_pq(C c)
 
   priority_queue<int, vector<int>, C> q(c);
 
-  for(int i = 0; i < N; ++i)
-    q.push(i);
+  for(auto i = N; --i;)
+    q.push(distr(gen));
 
   while(!q.empty())
     q.pop();
@@ -31,13 +36,13 @@ template <typename C>
 void
 time_sort(C c)
 {
+  vector<int> v;
+  v.reserve(N);
+
+  for(auto i = N; --i;)
+    v.push_back(distr(gen));
+
   timer t(__PRETTY_FUNCTION__);
-  
-  vector<int> v(N);
-
-  for(int i = 0; i < v.size(); ++i)
-    v[i] = i;
-
   sort(v.begin(), v.end(), c);
 }
 
