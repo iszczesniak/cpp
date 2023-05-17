@@ -1,3 +1,5 @@
+#include "timer.hpp"
+
 #include <algorithm>
 #include <chrono>
 #include <functional>
@@ -13,9 +15,7 @@ template <typename C>
 void
 time_pq(C c)
 {
-  using tp_t = chrono::time_point<chrono::high_resolution_clock>;
-
-  tp_t t0 = std::chrono::system_clock::now();
+  timer t(__PRETTY_FUNCTION__);
 
   priority_queue<int, vector<int>, C> q(c);
 
@@ -24,34 +24,20 @@ time_pq(C c)
 
   while(!q.empty())
     q.pop();
-
-  tp_t t1 = std::chrono::system_clock::now();
-
-  double dt = static_cast<chrono::duration<double>>(t1 - t0).count();
-
-  cout << __PRETTY_FUNCTION__ << " took " << dt << " s" << endl;
 }
 
 template <typename C>
 void
 time_sort(C c)
 {
-  using tp_t = chrono::time_point<chrono::high_resolution_clock>;
-
+  timer t(__PRETTY_FUNCTION__);
+  
   vector<int> v(N);
 
   for(int i = 0; i < v.size(); ++i)
     v[i] = i;
 
-  tp_t t0 = std::chrono::system_clock::now();
-
   sort(v.begin(), v.end(), c);
-
-  tp_t t1 = std::chrono::system_clock::now();
-
-  double dt = static_cast<chrono::duration<double>>(t1 - t0).count();
-
-  cout << __PRETTY_FUNCTION__ << " took " << dt << " s" << endl;
 }
 
 bool
