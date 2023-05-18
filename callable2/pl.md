@@ -176,12 +176,10 @@ Oto przykład:
 {% include_relative invoke2.cc %}
 {% endhighlight %}
 
-W przykładzie niżej, funkcja `time_it` mierzy czas wykowania callable,
-którym może też być funkcja składowa.  Zaimplementowanie takiej
+W przykładzie niżej, funkcja `f` wywołuje otrzymany callable, którym
+może być także wskaźnik na funkcję składową.  Zaimplementowanie takiej
 funkcjonalności samemu byłoby dosyć trudne, a my to osiągnęliśmy
-jedynie korzystając z funkcji `std::invoke.` Ta funkcja jest
-mechanizmem czasu kompilacji i nie wprowadza żadnego narzutu czasowego
-i pamięciowego.
+jedynie korzystając z funkcji `std::invoke.`
 
 {% highlight c++ %}
 {% include_relative invoke3.cc %}
