@@ -23,7 +23,7 @@ int main()
   {
     timer t("generation");
 
-    for(auto i = N; --i;)
+    for(auto i = N; i--;)
       v.push_back(make_pair(distr(gen), i >> 4));
   }
 

@@ -24,7 +24,7 @@ doit(Q &&q)
     timer t("pushing");
     std::string name = "abcdefghijklmnop";
 
-    for(auto i = N; --i;)
+    for(auto i = N; i--;)
       {
 	int index = distr(gen);
 	int year = index % 5 + 1;
