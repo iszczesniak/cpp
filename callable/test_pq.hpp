@@ -14,6 +14,8 @@ doit(Q &&q)
 {
   timer t("together");
 
+  const auto N = 10000000;
+  
   {
     std::random_device dev;
     std::mt19937 gen(dev());
@@ -22,7 +24,7 @@ doit(Q &&q)
     timer t("pushing");
     std::string name = "abcdefghijklmnop";
 
-    for(int i = 0; i < 10000000; ++i)
+    for(auto i = N; --i;)
       {
 	int index = distr(gen);
 	int year = index % 5 + 1;
