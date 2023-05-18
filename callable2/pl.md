@@ -222,14 +222,14 @@ wprowadzają żadnego narzutu czasowego i pamięciowego.
 {% include_relative time_it2.cc %}
 {% endhighlight %}
 
-# Wydajność
+# Benchmark
 
 Przykład niżej demonstruje wydajność użycia różnego rodzaju callable
 dla kolejki priorytetowej i sortowania.  Proszę skompilować program z
 opcją `-O3` i porównać wyniki.
 
 {% highlight c++ %}
-{% include_relative timing.cc %}
+{% include_relative benchmark.cc %}
 {% endhighlight %}
 
 # Przeciążenia
