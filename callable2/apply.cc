@@ -7,7 +7,7 @@ using namespace std;
 
 template <typename G, typename T, typename E>
 void
-f(G &&g, T &&t, E && e)
+f(G &&g, T &&t, const E &e)
 {
   cout << e << ": ";
 
