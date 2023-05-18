@@ -184,11 +184,11 @@ mechanizmem czasu kompilacji i nie wprowadza żadnego narzutu czasowego
 i pamięciowego.
 
 {% highlight c++ %}
-{% include_relative time_it1.cc %}
+{% include_relative invoke3.cc %}
 {% endhighlight %}
 
 W przykładzie wyżej użyliśmy **szablonu wariadycznego**, żeby funkcja
-`time_it` mogła przyjąć dowolną (także zerową) liczbę argumentów dla
+`f` mogła przyjąć dowolną (także zerową) liczbę argumentów dla
 wywoływanego callable.  Szablony wariadyczne, które jedynie wspominamy
 tutaj, posiadają wiele szczegółów, ale najważniejszą cechą jest
 posiadanie **dowolnej liczby parametrów**.
@@ -222,8 +222,9 @@ na rzecz którego callable będzie wywołana.
 
 # Brak narzutu wydajnościowego
 
-Funkcje `std::invoke`, `std::apply` i `std::forward_as_tuple` nie
-wprowadzają żadnego narzutu czasowego i pamięciowego.
+Funkcje `std::invoke`, `std::apply` i `std::forward_as_tuple` są
+mechanizmami czasu kompilacji i nie wprowadzają żadnego narzutu
+czasowego i pamięciowego.
 
 {% highlight c++ %}
 {% include_relative no-overhead.cc %}
