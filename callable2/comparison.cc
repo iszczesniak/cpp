@@ -1,3 +1,5 @@
+#include "timer.hpp"
+
 #include <chrono>
 #include <iostream>
 #include <functional>
@@ -7,76 +9,48 @@ using namespace std;
 
 typedef std::chrono::duration<long long, pico> picoseconds;
 
-volatile int x;
+long long int x;
 
-constexpr long N = 100000000;
+constexpr auto N = 10000000;
 
 template <typename F, typename ... Args>
 void
-time_normal1(F &&f, Args &&... args)
+time_regular(F &&f, Args &&... args)
 {
-  cout << __PRETTY_FUNCTION__ << ": ";
+  timer t(__PRETTY_FUNCTION__);
 
-  auto t0 = std::chrono::system_clock::now();
-
-  for(int i = 0; i < N; ++i)
+  for(auto i = N; --i;)
     std::forward<F>(f)(std::forward<Args>(args)...);
-
-  auto t1 = std::chrono::system_clock::now();
-  auto dt = duration_cast<picoseconds>(t1 - t0);
-
-  cout << dt.count() / N << " ps\n";;
 }
 
 template <typename F, typename O, typename ... Args>
 void
-time_normal2(F &&f, O &&o, Args &&... args)
+time_member(F &&f, O &&o, Args &&... args)
 {
-  cout << __PRETTY_FUNCTION__ << ": ";
+  timer t(__PRETTY_FUNCTION__);
 
-  auto t0 = std::chrono::system_clock::now();
-
-  for(int i = 0; i < N; ++i)
-    (o.*std::forward<F>(f))(std::forward<Args>(args)...);
-
-  auto t1 = std::chrono::system_clock::now();
-  auto dt = duration_cast<picoseconds>(t1 - t0);
-
-  cout << dt.count() / N << " ps\n";;
+  for(auto i = N; --i;)
+    (std::forward<O>(o).*std::forward<F>(f))(std::forward<Args>(args)...);
 }
 
 template <typename F, typename ... Args>
 void
 time_invoke(F &&f, Args &&... args)
 {
-  cout << __PRETTY_FUNCTION__ << ": ";
+  timer t(__PRETTY_FUNCTION__);
 
-  auto t0 = std::chrono::system_clock::now();
-
-  for(int i = 0; i < N; ++i)
+  for(auto i = N; --i;)
     std::invoke(std::forward<F>(f), std::forward<Args>(args)...);
-
-  auto t1 = std::chrono::system_clock::now();
-  auto dt = duration_cast<picoseconds>(t1 - t0);
-
-  cout << dt.count() / N << " ps\n";;
 }
 
 template <typename F, typename Args>
 void
 time_apply(F &&f, Args args)
 {
-  cout << __PRETTY_FUNCTION__ << ": ";
+  timer t(__PRETTY_FUNCTION__);
 
-  auto t0 = std::chrono::system_clock::now();
-
-  for(int i = 0; i < N; ++i)
+  for(auto i = N; --i;)
     std::apply(std::forward<F>(f), std::forward<Args>(args));
-
-  auto t1 = std::chrono::system_clock::now();
-  auto dt = duration_cast<picoseconds>(t1 - t0);
-
-  cout << dt.count() / N << " ps\n";;
 }
 
 void
@@ -133,16 +107,16 @@ main()
 {
   A a;
 
-  time_normal1(foo);
-  time_normal1(foo2, 1);
-  time_normal1(goo<int>);
-  time_normal1(goo2<int>, 1);
-  time_normal1(a);
-  time_normal1(a, 1);
-  time_normal1([]{++x;});
-  time_normal1([](int){++x;}, 1);
-  time_normal2(&A::foo, a);
-  time_normal2(&A::foo2, a, 1);
+  time_regular(foo);
+  time_regular(foo2, 1);
+  time_regular(goo<int>);
+  time_regular(goo2<int>, 1);
+  time_regular(a);
+  time_regular(a, 1);
+  time_regular([]{++x;});
+  time_regular([](int){++x;}, 1);
+  time_member(&A::foo, a);
+  time_member(&A::foo2, a, 1);
 
   time_invoke(foo);
   time_invoke(foo2, 1);
@@ -165,4 +139,6 @@ main()
   time_apply([](int){++x;}, make_tuple(1));
   time_apply(&A::foo, forward_as_tuple(a));
   time_apply(&A::foo2, forward_as_tuple(a, 1));
+
+  cout << "Called " << x << " callables.\n";
 }
