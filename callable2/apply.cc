@@ -9,8 +9,7 @@ template <typename G, typename T, typename E>
 void
 f(G &&g, T &&t, const E &e)
 {
-  cout << e << ": ";
-
+  cout << __PRETTY_FUNCTION__ << ": " << e << '\n';
   std::apply(std::forward<G>(g), std::forward<T>(t));
 }
 
