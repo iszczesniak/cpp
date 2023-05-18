@@ -6,7 +6,8 @@
 
 using namespace std;
 
-long long int x;
+// Exercise: how does the volatile qualifier below affect the results?
+volatile long long int x;
 
 constexpr auto N = 1000000000;
 
@@ -53,7 +54,7 @@ time_apply(F &&f, Args args)
 void
 foo()
 {
-  ++x;
+  x += 1;
 }
 
 void
@@ -66,7 +67,7 @@ template <typename T>
 void
 goo()
 {
-  ++x;
+  x += 1;
 }
 
 template <typename T>
@@ -80,7 +81,7 @@ struct A
 {
   void foo()
   {
-    ++x;
+    x += 1;
   }
 
   void foo2(int i)
@@ -90,7 +91,7 @@ struct A
 
   void operator()()
   {
-    ++x;
+    x += 1;
   }
 
   void operator()(int i)
@@ -104,14 +105,15 @@ main()
 {
   A a;
 
+  // Exercise: pass the callables wrapped in std::function.
   time_regular(foo);
   time_regular(foo2, 1);
   time_regular(goo<int>);
   time_regular(goo2<int>, 1);
   time_regular(a);
   time_regular(a, 1);
-  time_regular([]{++x;});
-  time_regular([](int){++x;}, 1);
+  time_regular([]{x += 1;});
+  time_regular([](int){x += 1;}, 1);
   time_member(&A::foo, a);
   time_member(&A::foo2, a, 1);
 
@@ -121,8 +123,8 @@ main()
   time_invoke(goo2<int>, 1);
   time_invoke(a);
   time_invoke(a, 1);
-  time_invoke([]{++x;});
-  time_invoke([](int){++x;}, 1);
+  time_invoke([]{x += 1;});
+  time_invoke([](int){x += 1;}, 1);
   time_invoke(&A::foo, a);
   time_invoke(&A::foo2, a, 1);
 
@@ -132,8 +134,8 @@ main()
   time_apply(goo2<int>, make_tuple(1));
   time_apply(a, make_tuple());
   time_apply(a, make_tuple(1));
-  time_apply([]{++x;}, make_tuple());
-  time_apply([](int){++x;}, make_tuple(1));
+  time_apply([]{x += 1;}, make_tuple());
+  time_apply([](int){x += 1;}, make_tuple(1));
   time_apply(&A::foo, forward_as_tuple(a));
   time_apply(&A::foo2, forward_as_tuple(a, 1));
 
