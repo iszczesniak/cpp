@@ -13,7 +13,7 @@ ważne dla wydajnego kodu.
 * [Kategorie wyrażeń](categories/pl)
 * [Referencje](references/pl)
 * [Semantyka przeniesienia](move/pl)
-* [Wyrażenia wywołania](callable/pl)
+* [Wyrażenia wywołania](callable1/pl)
 * [Kontenery](containers/pl)
 * [`std::unique_ptr`](unique_ptr/pl)
 * [`std::shared_ptr`](shared_ptr/pl)
