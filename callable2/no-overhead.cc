@@ -6,11 +6,9 @@
 
 using namespace std;
 
-typedef std::chrono::duration<long long, pico> picoseconds;
-
 long long int x;
 
-constexpr auto N = 10000000;
+constexpr auto N = 1000000000;
 
 template <typename F, typename ... Args>
 void
@@ -18,7 +16,7 @@ time_regular(F &&f, Args &&... args)
 {
   timer t(__PRETTY_FUNCTION__);
 
-  for(auto i = N; --i;)
+  for(auto i = N; i--;)
     std::forward<F>(f)(std::forward<Args>(args)...);
 }
 
@@ -28,7 +26,7 @@ time_member(F &&f, O &&o, Args &&... args)
 {
   timer t(__PRETTY_FUNCTION__);
 
-  for(auto i = N; --i;)
+  for(auto i = N; i--;)
     (std::forward<O>(o).*std::forward<F>(f))(std::forward<Args>(args)...);
 }
 
@@ -38,7 +36,7 @@ time_invoke(F &&f, Args &&... args)
 {
   timer t(__PRETTY_FUNCTION__);
 
-  for(auto i = N; --i;)
+  for(auto i = N; i--;)
     std::invoke(std::forward<F>(f), std::forward<Args>(args)...);
 }
 
@@ -48,7 +46,7 @@ time_apply(F &&f, Args args)
 {
   timer t(__PRETTY_FUNCTION__);
 
-  for(auto i = N; --i;)
+  for(auto i = N; i--;)
     std::apply(std::forward<F>(f), std::forward<Args>(args));
 }
 
@@ -59,9 +57,9 @@ foo()
 }
 
 void
-foo2(int)
+foo2(int i)
 {
-  ++x;
+  x += i;
 }
 
 template <typename T>
@@ -73,9 +71,9 @@ goo()
 
 template <typename T>
 void
-goo2(int)
+goo2(int i)
 {
-  ++x;
+  x += i;
 }
 
 struct A
@@ -85,9 +83,9 @@ struct A
     ++x;
   }
 
-  void foo2(int)
+  void foo2(int i)
   {
-    ++x;
+    x += i;
   }
 
   void operator()()
@@ -95,9 +93,9 @@ struct A
     ++x;
   }
 
-  void operator()(int)
+  void operator()(int i)
   {
-    ++x;
+    x += i;
   }
 };
 
