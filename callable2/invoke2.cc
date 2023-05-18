@@ -8,7 +8,7 @@ struct A
 {
   string m_name;
 
-  A(string name): m_name(std::move(name))
+  A(const string &name): m_name(name)
   {
   }
 

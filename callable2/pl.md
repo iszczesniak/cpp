@@ -155,12 +155,12 @@ pierwszy rzut oka ta funkcja robi to samo, co zwykłe wywołanie
 callable.  Oto przykład:
 
 {% highlight c++ %}
-{% include_relative invoke.cc %}
+{% include_relative invoke1.cc %}
 {% endhighlight %}
 
 Dlaczego więc wprowadzono tę funkcję?  Bo pozwala także na wywołanie
-składowej klasy.  Funkcja wprowadza ujednolicony sposób wywołania
-dowolnego callable.
+składowej klasy. Funkcja wprowadza ujednolicony sposób wywołania
+dowolnego callable, co jest potrzebne w programowaniu uogólnionym.
 
 Argumentami `std::invoke` przy wywołaniu funkcji składowej kolejno są:
 
@@ -176,13 +176,12 @@ Oto przykład:
 {% include_relative invoke2.cc %}
 {% endhighlight %}
 
-Funkcja `std::invoke` pozwala na pisanie uogólnionego kodu, który może
-przyjmować dowolny callable.  W przykładzie niżej, funkcja `time_it`
-mierzy czas wykowania callable, którym może też być funkcja składowa.
-Zaimplementowanie takiej funkcjonalności samemu byłoby dosyć trudne, a
-my to osiągnęliśmy jedynie korzystając z funkcji `std::invoke.` Ta
-funkcja jest mechanizmem czasu kompilacji i nie wprowadza żadnego
-narzutu czasowego i pamięciowego.
+W przykładzie niżej, funkcja `time_it` mierzy czas wykowania callable,
+którym może też być funkcja składowa.  Zaimplementowanie takiej
+funkcjonalności samemu byłoby dosyć trudne, a my to osiągnęliśmy
+jedynie korzystając z funkcji `std::invoke.` Ta funkcja jest
+mechanizmem czasu kompilacji i nie wprowadza żadnego narzutu czasowego
+i pamięciowego.
 
 {% highlight c++ %}
 {% include_relative time_it1.cc %}
