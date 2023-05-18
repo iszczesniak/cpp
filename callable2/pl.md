@@ -214,11 +214,19 @@ Rozwiązanie jest proste: argumenty są przekazywane w krotce.  Krotkę
 tworzymy z użyciem funkcji `std::forward_as_tuple`, żeby zachować
 kategorię wartości wyrażeń elementów krotki.  Jeżeli wywołujemy
 funkcję składową, to pierwszym elementem krotki powinien być obiekt,
-na rzecz którego callable będzie wywołana.  Ta funkcja i krotki nie
+na rzecz którego callable będzie wywołana.
+
+{% highlight c++ %}
+{% include_relative apply.cc %}
+{% endhighlight %}
+
+# Brak narzutu wydajnościowego
+
+Funkcje `std::invoke`, `std::apply` i `std::forward_as_tuple` nie
 wprowadzają żadnego narzutu czasowego i pamięciowego.
 
 {% highlight c++ %}
-{% include_relative time_it2.cc %}
+{% include_relative no-overhead.cc %}
 {% endhighlight %}
 
 # Benchmark
