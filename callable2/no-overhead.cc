@@ -1,6 +1,5 @@
 #include "timer.hpp"
 
-#include <chrono>
 #include <iostream>
 #include <functional>
 #include <string>
