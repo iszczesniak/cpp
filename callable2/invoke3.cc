@@ -1,4 +1,3 @@
-#include <chrono>
 #include <iostream>
 #include <functional>
 #include <string>
@@ -14,27 +13,27 @@ f(G &&g, Args &&... args)
 }
 
 void
-g()
+foo()
 {
   cout << __PRETTY_FUNCTION__ << '\n';
 }
 
 template <typename T>
 void
-g(T)
+goo(T)
 {
   cout << __PRETTY_FUNCTION__ << '\n';
 }
 
 struct A
 {
-  void g() &
+  void foo()
   {
     cout << __PRETTY_FUNCTION__ << '\n';
   }
 
   template <typename T>
-  void g() &&
+  void goo(T)
   {
     cout << __PRETTY_FUNCTION__ << '\n';
   }
@@ -45,8 +44,8 @@ main()
 {
   A a;
 
-  f(g);
-  //  f(g<int>, 1);
-  f(&A::g, a);
-  f(&A::g<int>, a, 1);
+  f(foo);
+  f(goo<int>, 1);
+  f(&A::foo, a);
+  f(&A::goo<int>, A(), 1);
 }

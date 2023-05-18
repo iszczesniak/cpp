@@ -21,19 +21,20 @@ foo()
 
 template <typename T>
 void
-goo(T x)
+goo(T)
 {
   cout << __PRETTY_FUNCTION__ << '\n';
 }
 
 struct A
 {
-  void foo(int x)
+  void foo()
   {
     cout << __PRETTY_FUNCTION__ << '\n';
   }
 
-  void goo(int x)
+  template <typename T>
+  void goo(T)
   {
     cout << __PRETTY_FUNCTION__ << '\n';
   }
@@ -46,6 +47,6 @@ main()
 
   f(foo, make_tuple(), "Hello");
   f(goo<int>, make_tuple(1), 3.14159);
-  f(&A::foo, forward_as_tuple(a, 1), .1);
-  f(&A::goo, forward_as_tuple(A(), 1), 1);
+  f(&A::foo, forward_as_tuple(a), .1);
+  f(&A::goo<int>, forward_as_tuple(A(), 1), 1);
 }
