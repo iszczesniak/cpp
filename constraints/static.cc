@@ -1,3 +1,4 @@
+#include <concepts>
 #include <iostream>
 #include <type_traits>
 
@@ -5,15 +6,18 @@ using namespace std;
 
 struct A
 {
-  void
-  hello() const
+  virtual void hello() const
   {
-    cout << "Hello ";
+    cout << __PRETTY_FUNCTION__ << endl;
   }
 };
 
 struct B: A
 {
+  void hello() const override
+  {
+    cout << __PRETTY_FUNCTION__ << endl;
+  }
 };
 
 struct C
@@ -37,6 +41,7 @@ void
 foo1(const A &a)
 {
   cout << __PRETTY_FUNCTION__ << endl;
+  // This call has to be virtual.
   a.hello();
   goo(a);
 }
@@ -47,16 +52,18 @@ void
 foo2(const T &t)
 {
   cout << __PRETTY_FUNCTION__ << endl;
+  // This call does not have to be virtual.
   t.hello();
   goo(t);
 }
 
 // For objects of any class derived from A.
-template <typename T> requires std::is_base_of_v<A, T>
+template <typename T> requires std::derived_from<T, A>
 void
 foo3(const T &t)
 {
   cout << __PRETTY_FUNCTION__ << endl;
+  // This call does not have to be virtual.
   t.hello();
   goo(t);
 }
