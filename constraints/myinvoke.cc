@@ -2,12 +2,14 @@
 #include <utility>
 #include <type_traits>
 
+// A generic primary template.
 template <typename G, typename ... Args>
 void myinvoke(G &&g, Args &&... args)
 {
   std::forward<G>(g)(std::forward<Args>(args)...);
 }
 
+// A more-specialized primary template.
 template <typename G, typename O, typename ... Args>
 void
 myinvoke(G &&g, O &&o, Args &&... args) requires requires
