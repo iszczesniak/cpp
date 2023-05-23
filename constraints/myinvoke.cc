@@ -2,14 +2,14 @@
 #include <utility>
 #include <type_traits>
 
-// A generic primary template.
+// A generic primary template overload.
 template <typename G, typename ... Args>
 void myinvoke(G &&g, Args &&... args)
 {
   std::forward<G>(g)(std::forward<Args>(args)...);
 }
 
-// A more-specialized primary template.
+// A more-specialized primary template overload.
 template <typename G, typename O, typename ... Args>
 void
 myinvoke(G &&g, O &&o, Args &&... args) requires requires
@@ -19,6 +19,16 @@ myinvoke(G &&g, O &&o, Args &&... args) requires requires
 {
   (std::forward<O>(o).*std::forward<G>(g))(std::forward<Args>(args)...);
 }
+
+// A primary template that is as specialized as the one above.
+//
+// template <typename G, typename O, typename ... Args> requires
+// std::is_member_pointer_v<G>
+// void
+// myinvoke(G &&g, O &&o, Args &&... args)
+// {
+//   (std::forward<O>(o).*std::forward<G>(g))(std::forward<Args>(args)...);
+// }
 
 void foo()
 {
