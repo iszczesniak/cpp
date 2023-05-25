@@ -247,6 +247,20 @@ przeciążeniami:
 {% include_relative overloads.cc %}
 {% endhighlight %}
 
+# Doskonałe przekazywanie
+
+Callable powinniśmy doskonałe przekazywać (może lepiej: doskonale
+wywoływać).  Funkcji (`f` w przykładzie niżej) przekazujemy callable
+jako argument, a funkcja powinna zachować kategorię wartości argumentu
+przy wywoływaniu otrzymanego callable.  Zachowanie kategorii nie ma
+znaczenia, kiedy przekazywana jest funkcja (bo funkcja zawsze jest
+l-wartością), ale ma znaczenie, kiedy przekazujemy funktor albo
+domknięcie, bo wtedy argument może być l-wartością albo r-wartością.
+
+{% highlight c++ %}
+{% include_relative forwarding.cc %}
+{% endhighlight %}
+
 # Podsumowanie
 
 * Callable może być określane w czasie kompilacji albo uruchomienia.
