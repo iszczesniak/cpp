@@ -14,5 +14,5 @@ void g(int)
 int
 main()
 {
-  f(g);
+  //  f(g);
 }
