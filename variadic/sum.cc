@@ -1,3 +1,6 @@
 #include <iostream>
 
-constexpt 
+int
+main()
+{
+}
