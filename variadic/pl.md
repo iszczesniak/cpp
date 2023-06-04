@@ -14,6 +14,7 @@ parametrów szablonu:
 Trójkropek jest częścią definicji **paczki parametrów** (ang. a
 parameter pack), po którym następuje (bez oddzielającej spacji) nazwa
 paczki.  Paczka parametrów szablonu może być szablonu albo funkcji.
+Paczka parametrów jest używana wyłącznie w **rozwinięciu**.
 
 ## Paczka parametrów szablonu
 
@@ -43,12 +44,21 @@ funkcji.
 
 ## Paczka parametrów funkcji
 
-Paczka parametrów funkcji jest definiowana w liście parametrów
-funkcji:
+Paczka parametrów funkcji jest definiowana w liście parametrów funkcji
+także z użyciem trójkropka: pierwsze podajemy nazwę paczki parametrów
+szablonu, trójkropek, a następnie nazwę paczki parametrów funkcji.  Co
+ciekawe, definicja paczki parametrów funkcji jest jednocześnie
+rozwinięciem paczki parametrów szablonu.
+
+```cpp
+{% include_relative fun_par_pack.cc %}
+```
 
 ### Rozwinięcie paczki
 
 Rozwinięcie paczki
+
+# Skrócony zapis szablonu
 
 # Sekwencyjne przetwarzanie
 

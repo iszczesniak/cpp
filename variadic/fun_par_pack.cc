@@ -3,16 +3,15 @@
 using namespace std;
 
 template <typename ...Args>
-void foo()
+void foo(Args ...args)
 {
   cout << __PRETTY_FUNCTION__ << endl;
-  cout << sizeof...(Args) << endl;
 }
 
 int
 main()
 {
-  foo<>();
-  foo<int>();
-  foo<bool, double>();
+  foo();
+  foo(1);
+  foo(1, 2.0);
 }
