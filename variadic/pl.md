@@ -26,7 +26,7 @@ wyżej są typowe, a w przykładzie niżej wartościowe.
 
 ### Rozwinięcie paczki
 
-Nazwa paczki i trójkropek nazywa się rozwinięciem paczki (ang. pack
+Nazwę paczki z trójkropkiem nazywa się rozwinięciem paczki (ang. pack
 expansion).  Rozwinięcie paczki parametrów szablonu jest listą
 argumentów szablonu oddzielonych przecinkami:
 
@@ -34,15 +34,22 @@ argumentów szablonu oddzielonych przecinkami:
 {% include_relative expansion.cc %}
 ```
 
-W przypadkach wyżej argumenty szablonu musiałby być jawnie podane, bo
+W przykładach wyżej argumenty szablonu musiały być jawnie podane, bo
 funkcje i konstruktor nie miały parametrów i argumentów wywołania, na
-podstawie których wnioskowane są argumenty szablonu.  Argumenty dla
-parametrów szablonu w paczce są wnioskowane na podstawie definicji
-**paczki parametrów funkcji** i argumentów wywołania funkcji.
+podstawie których argumenty szablonu mogły być wywnioskowane.
+Argumenty dla parametrów szablonu w paczce są wnioskowane na podstawie
+definicji **paczki parametrów funkcji** i argumentów wywołania
+funkcji.
 
 ## Paczka parametrów funkcji
 
 Paczka parametrów funkcji jest definiowana w liście parametrów
 funkcji:
 
+### Rozwinięcie paczki
+
+Rozwinięcie paczki
+
 # Sekwencyjne przetwarzanie
+
+# Doskonałe przekazywanie
