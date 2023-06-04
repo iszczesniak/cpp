@@ -5,11 +5,11 @@
 #include <vector>
 
 template <typename C, typename I>
-concept mycallable =
+concept comparator =
   std::invocable<C, std::iter_const_reference_t<I>,
                  std::iter_const_reference_t<I>>;
 
-template <std::random_access_iterator I, mycallable<I> C>
+template <std::random_access_iterator I, comparator<I> C>
 void
 mysort(I &&i1, I &&i2, C &&c)
 {
