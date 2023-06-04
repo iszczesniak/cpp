@@ -90,11 +90,17 @@ motywacji wprowadzenia szablonu wariadycznego, implementacja funkcji
 {% include_relative forwarding.cc %}
 ```
 
-# Sekwencyjne przetwarzanie
+# Przetwarzanie rekurencyjne
+
+Parametry paczki funkcji możemy przetwarzać rekurencyjnie.  Sztuczka
+polega na zdefiniowaniu dwóch parametrów funkcji: pierwszy do
+przetworzenia przez funkcję, a drugi jako paczka do przekazania jako
+argument wywołania rekurencyjnego.  W ten sposób zmniejszamy liczbę
+parametrów paczki funkcji o jeden za każdym wywołaniem rekurencyjnym.
 
 # Wyrażenie złożenia
 
 Wyrażenie złożenia (ang. a fold expression) przetwarza paczkę
-parametrów.
+parametrówm, co eliminuje potrzebę przetważania rekurencyjnego.
 
 # Przykład: własności obiektu
