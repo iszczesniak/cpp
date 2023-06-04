@@ -98,9 +98,22 @@ przetworzenia przez funkcję, a drugi jako paczka do przekazania jako
 argument wywołania rekurencyjnego.  W ten sposób zmniejszamy liczbę
 parametrów paczki funkcji o jeden za każdym wywołaniem rekurencyjnym.
 
+```cpp
+{% include_relative recursive.cc %}
+```
+
 # Wyrażenie złożenia
 
 Wyrażenie złożenia (ang. a fold expression) przetwarza paczkę
-parametrówm, co eliminuje potrzebę przetważania rekurencyjnego.
+parametrówm, co eliminuje potrzebę przetważania rekurencyjnego.  Są
+cztery takie wyrażenia, każde ujęte w nawiasy, gdzie `e` jest
+wyrażeniem, `op` operatorem, a `args` nazwą paczki parametrów funkcji
+:
+
+* `(e op ... op args)` -> `(((e op p_1) op p_2) op ...) op p_n`
+
+```cpp
+{% include_relative fold.cc %}
+```
 
 # Przykład: własności obiektu
