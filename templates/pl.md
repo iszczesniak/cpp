@@ -21,7 +21,7 @@ Szablonowe mogą być:
 Deklaracje i definicje szablonów rozpoczynają się słowem kluczowym
 `template` z taką składnią:
 
-```cpp
+```
 template <lista parametrów>
 ```
 
@@ -80,7 +80,7 @@ dla parametru szablonu zadeklarowanego jako `int I`.
 
 Przykład deklaracji wartościowego parametru szablonu:
 
-```
+```cpp
 template <int N>
 ```
 
@@ -88,9 +88,9 @@ To jest przykład szablonu funkcji z wartościowym parametrem szablonu
 `N`, którego *argument* musi być jawnie podany, bo kompilator nie jest
 w stanie go wywnioskować:
 
-{% highlight c++ %}
+```cpp
 {% include_relative print2.cc %}
-{% endhighlight %}
+```
 
 W przykładzie niżej też mamy wartościowy parametr szablonu `N`,
 którego argument musi być jawnie podany.  Ale mamy też typowy parametr
