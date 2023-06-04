@@ -2,7 +2,7 @@
 
 using namespace std;
 
-template <typename ...N>
+template <unsigned ...N>
 void foo()
 {
   cout << __PRETTY_FUNCTION__ << endl;
@@ -13,6 +13,7 @@ int
 main()
 {
   foo<>();
-  foo<int>();
-  foo<bool, double>();
+  foo<1>();
+  foo<1, 2>();
+  // foo<1, -1>();
 }
