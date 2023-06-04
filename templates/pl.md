@@ -21,7 +21,7 @@ Szablonowe mogą być:
 Deklaracje i definicje szablonów rozpoczynają się słowem kluczowym
 `template` z taką składnią:
 
-```
+```cpp
 template <lista parametrów>
 ```
 
@@ -33,7 +33,7 @@ Parametry w liście są oddzielone przecinkami.  Deklaracja parametru
 składa się z rodzaju i opcjonalnej nazwy parametru.  Rodzaje
 parametrów to: typ, wartość, szablon.  Przykład listy parametrów:
 
-```
+```cpp
 template <typename T, int N, template<typename> typename C>
 ```
 
@@ -65,9 +65,9 @@ definicji szablonu, czyli czy, na przykład:
 To jest przykład funkcji szablonowej z typowym parametrem, gdzie
 kompilator jest w stanie **wywnioskować argument szablonu**:
 
-{% highlight c++ %}
+```cpp
 {% include_relative print1.cc %}
-{% endhighlight %}
+```
 
 ### Rodzaj parametru: wartość
 
