@@ -75,12 +75,20 @@ następującym trójkropkiem.
 Definicję paczki parametrów funkcji możemy skrócić przez użycie
 specyfikatora typu `auto`:
 
+```cpp
+{% include_relative abbreviated.cc %}
+```
+
 # Doskonałe przekazywanie
 
 Funkcja może przyjmować przez referencję przekazującą argumenty, które
 doskonale przekażemy, jak w przykładzie niżej.  To jest też jedna z
 motywacji wprowadzenia szablonu wariadycznego, implementacja funkcji
 `std::make_unique`.
+
+```cpp
+{% include_relative forwarding.cc %}
+```
 
 # Sekwencyjne przetwarzanie
 
