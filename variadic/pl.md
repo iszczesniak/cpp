@@ -6,7 +6,7 @@ zerową.  Szablon wariadyczny poznamy po trójkropku `...` w liście
 parametrów szablonu:
 
 ```cpp
-{% include_relative print1.cc %}
+{% include_relative intro.cc %}
 ```
 
 # Paczka parametrów
