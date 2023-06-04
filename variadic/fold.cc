@@ -11,5 +11,5 @@ print(const Args &...args)
 int
 main()
 {
-  print("Hello", ' ', std::string("World x "), 100, '\n');
+  print("Hello", ' ', std::string("World"), " x ", 100, '\n');
 }

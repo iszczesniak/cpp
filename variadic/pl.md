@@ -110,7 +110,7 @@ cztery takie wyrażenia, każde ujęte w nawiasy, gdzie `e` jest
 wyrażeniem, `op` operatorem, a `args` nazwą paczki parametrów funkcji
 :
 
-* `(e op ... op args)` -> `(((e op p_1) op p_2) op ...) op p_n`
+* (e op ... op args) -> (((e op p_1) op p_2) op ...) op p_n
 
 ```cpp
 {% include_relative fold.cc %}
