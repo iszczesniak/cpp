@@ -27,9 +27,9 @@ wyżej są typowe, a w przykładzie niżej wartościowe.
 
 ### Rozwinięcie paczki
 
-Nazwę paczki z trójkropkiem nazywa się rozwinięciem paczki (ang. pack
-expansion).  Rozwinięcie paczki parametrów szablonu jest listą
-argumentów szablonu oddzielonych przecinkami:
+Nazwę paczki z następującym trójkropkiem nazywa się rozwinięciem
+paczki (ang. pack expansion).  Paczka parametrów szablonu jest
+rozwijana do listy argumentów szablonu oddzielonych przecinkami:
 
 ```cpp
 {% include_relative expansion.cc %}
@@ -54,12 +54,21 @@ rozwinięciem paczki parametrów szablonu.
 {% include_relative fun_par_pack.cc %}
 ```
 
+W przykładzie wyżej parametry funkcji przyjmują argumenty przez
+wartość.  Mogą też przyjmować przez referencję stałą, jeżeli paczkę
+zdefiniujemy jako `const Args &...args`.
+
 ### Rozwinięcie paczki
 
 Rozwinięcie paczki
 
 # Skrócony zapis szablonu
 
+# Doskonałe przekazywanie
+
 # Sekwencyjne przetwarzanie
 
-# Doskonałe przekazywanie
+# Wyrażenie złożenia
+
+Wyrażenie złożenia (ang. a fold expression) przetwarza paczkę
+parametrów.
