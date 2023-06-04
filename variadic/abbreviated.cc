@@ -2,9 +2,9 @@
 #include <string>
 #include <vector>
 
-template <typename T, typename ...Args>
+template <typename T>
 auto
-factory(Args ...args)
+factory(auto ...args)
 {
   return T{args...};
 }

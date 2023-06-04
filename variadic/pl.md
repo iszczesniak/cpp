@@ -2,8 +2,11 @@
 
 C++11 wprowadził **szablon wariadyczny** (ang. a variadic template),
 który potrafi przyjąć dowolną liczbę argumentów szablonu, także
-zerową.  Szablon wariadyczny poznamy po trójkropku `...` w liście
-parametrów szablonu:
+zerową.  Szablon wariadyczny jest statycznie typowanym mechanizmem
+czasu kompilacji, który jest konkretyzowany w miejscu użycia.
+
+Szablon wariadyczny poznamy po trójkropku `...` w liście parametrów
+szablonu:
 
 ```cpp
 {% include_relative intro.cc %}
@@ -54,17 +57,30 @@ rozwinięciem paczki parametrów szablonu.
 {% include_relative fun_par_pack.cc %}
 ```
 
-W przykładzie wyżej parametry funkcji przyjmują argumenty przez
-wartość.  Mogą też przyjmować przez referencję stałą, jeżeli paczkę
-zdefiniujemy jako `const Args &...args`.
+W przykładzie wyżej funkcja przyjmuje argumenty przez wartość.  Może
+też przyjmować przez referencję stałą, jeżeli paczkę zdefiniujemy jako
+`const Args &...args`.
 
 ### Rozwinięcie paczki
 
-Rozwinięcie paczki
+Rozwinięcie paczki parametrów funkcji zapisujemy jako nazwa paczki z
+następującym trójkropkiem.
+
+```cpp
+{% include_relative factory.cc %}
+```
 
 # Skrócony zapis szablonu
 
+Definicję paczki parametrów funkcji możemy skrócić przez użycie
+specyfikatora typu `auto`:
+
 # Doskonałe przekazywanie
+
+Funkcja może przyjmować przez referencję przekazującą argumenty, które
+doskonale przekażemy, jak w przykładzie niżej.  To jest też jedna z
+motywacji wprowadzenia szablonu wariadycznego, implementacja funkcji
+`std::make_unique`.
 
 # Sekwencyjne przetwarzanie
 
@@ -72,3 +88,5 @@ Rozwinięcie paczki
 
 Wyrażenie złożenia (ang. a fold expression) przetwarza paczkę
 parametrów.
+
+# Przykład: własności obiektu
