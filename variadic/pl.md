@@ -70,6 +70,14 @@ następującym trójkropkiem.
 {% include_relative factory.cc %}
 ```
 
+Paczkę parametrów szablonu można rozwijać w zgraniu (ang. lockstep) z
+paczką parametrów funkcji, np. podczas inicjalizacji obiektów bazowych
+parametrami konstruktora klasy wyprowadzonej:
+
+```cpp
+{% include_relative lockstep.cc %}
+```
+
 # Skrócony zapis szablonu
 
 Definicję paczki parametrów funkcji możemy skrócić przez użycie
