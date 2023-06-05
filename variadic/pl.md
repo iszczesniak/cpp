@@ -125,3 +125,7 @@ wyrażeniem, `op` operatorem, a `args` nazwą paczki parametrów funkcji
 ```
 
 # Przykład: własności obiektu
+
+```cpp
+{% include_relative props.cc %}
+```
