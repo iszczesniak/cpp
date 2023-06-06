@@ -7,8 +7,7 @@
 template <typename T>
 struct name
 {
-  using name_type = T;
-  name_type m_name;
+  T m_name;
 
   constexpr auto operator <=> (const name &) const = default;
 };
@@ -43,8 +42,7 @@ operator << (std::ostream &os, const name<T> &w)
 template <typename T>
 struct weight
 {
-  using weight_type = T;
-  weight_type m_weight;
+  T m_weight;
 
   constexpr auto operator <=> (const weight &) const = default;
 };
