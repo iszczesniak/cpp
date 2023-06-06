@@ -23,7 +23,7 @@ get_name(name<T> &a)
 
 // The const getter.
 template <typename T>
-const auto &
+auto &
 get_name(const name<T> &a)
 {
   return a.m_name;
@@ -51,7 +51,7 @@ struct weight
 
 // The non-const getter.
 template <typename T>
-constexpr auto &
+auto &
 get_weight(weight<T> &a)
 {
   return a.m_weight;
@@ -59,7 +59,7 @@ get_weight(weight<T> &a)
 
 // The const getter.
 template <typename T>
-constexpr const auto &
+auto &
 get_weight(const weight<T> &a)
 {
   return a.m_weight;
@@ -84,14 +84,15 @@ struct A: P...
     }
 
   constexpr auto operator <=> (const A &) const = default;
-
-  std::ostream &
-    operator << (std::ostream &out) const
-  {
-    (out << ... << static_cast<P>(*this));
-    return out;
-  }
 };
+
+template <typename ...P>
+std::ostream &
+operator << (std::ostream &out, const A<P...> &a)
+{
+  ((out << static_cast<P>(a) << std::endl), ...);
+  return out;
+}
 
 // The main function -------------------------------------------------
 
@@ -100,8 +101,12 @@ main()
 {
   A<name<std::string>, weight<int>>
     a(name<std::string>("Hello"), weight<int>(1));
+
+  auto b = a;
   get_weight(a) = 2;
   get_name(a) = "World";
-  // std::cout << a;
-  // std::set s = {a};
+  std::set s = {a, b};
+
+  for(auto &e: s)
+    std::cout << e << std::endl;
 }
