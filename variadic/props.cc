@@ -1,6 +1,5 @@
 #include <iostream>
 #include <set>
-#include <string>
 
 // name --------------------------------------------------------------
 
@@ -97,8 +96,8 @@ operator << (std::ostream &out, const A<P...> &a)
 int
 main()
 {
-  A<name<std::string>, weight<int>>
-    a(name<std::string>("Hello"), weight<int>(1));
+  A<name<const char *>, weight<int>>
+    a(name<const char *>("Hello"), weight<int>(1));
 
   auto b = a;
   get_weight(a) = 2;
