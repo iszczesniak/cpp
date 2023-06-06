@@ -1,4 +1,5 @@
 #include <iostream>
+#include <set>
 #include <string>
 
 // name --------------------------------------------------------------
@@ -8,10 +9,6 @@ struct name
 {
   using name_type = T;
   name_type m_name;
-
-  name(const name_type &name): m_name(name)
-  {
-  }
 
   constexpr auto operator <=> (const name &) const = default;
 };
@@ -48,10 +45,6 @@ struct weight
 {
   using weight_type = T;
   weight_type m_weight;
-
-  weight(const weight_type &weight): m_weight(weight)
-  {
-  }
 
   constexpr auto operator <=> (const weight &) const = default;
 };
@@ -109,6 +102,6 @@ main()
     a(name<std::string>("Hello"), weight<int>(1));
   get_weight(a) = 2;
   get_name(a) = "World";
-  //  std::cout << a;
-  std::cout << (a < a);
+  // std::cout << a;
+  // std::set s = {a};
 }
