@@ -106,5 +106,9 @@ main()
   std::set s = {a, b};
 
   for(auto &e: s)
-    std::cout << e << std::endl;
+    {
+      std::cout << e << std::endl;
+      // Error: get_weight returns a const reference.
+      // get_weight(e) = 10;
+    }
 }
