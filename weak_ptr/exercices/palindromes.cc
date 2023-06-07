@@ -64,7 +64,7 @@ bool operator < (const palindromes &a, const palindromes &b)
 int
 main()
 {
-  timer("Took");
+  timer t("Found");
   
   map<int, set<palindromes>> m;
 
