@@ -9,6 +9,9 @@
 // * the words that have 2 palindromes,
 //
 // * and so forth.
+
+#include "timer.hpp"
+
 #include <algorithm>
 #include <map>
 #include <iostream>
@@ -50,6 +53,8 @@ bool operator < (const palindromes &a, const palindromes &b)
 int
 main()
 {
+  timer("Took", false);
+
   map<int, set<palindromes>> m;
 
   // Iterate over the input words.
