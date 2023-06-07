@@ -5,9 +5,9 @@ using namespace std;
 
 template <typename T>
 auto
-my_make_unique(auto &&...args)
+my_make_unique(auto &&...p)
 {
-  return unique_ptr<T>(new T{forward<decltype(args)>(args)...});
+  return unique_ptr<T>(new T{forward<decltype(p)>(p)...});
 }
 
 int

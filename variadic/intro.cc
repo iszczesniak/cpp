@@ -2,11 +2,11 @@
 
 using namespace std;
 
-template <typename ...Args>
+template <typename ...P>
 void foo()
 {
   cout << __PRETTY_FUNCTION__ << endl;
-  cout << sizeof...(Args) << endl;
+  cout << sizeof...(P) << endl;
 }
 
 int

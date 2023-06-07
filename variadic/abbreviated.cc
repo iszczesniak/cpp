@@ -4,9 +4,9 @@
 
 template <typename T>
 auto
-factory(auto ...args)
+factory(auto ...p)
 {
-  return T{args...};
+  return T{p...};
 }
 
 int

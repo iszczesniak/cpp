@@ -1,11 +1,11 @@
 #include <iostream>
 #include <string>
 
-template <typename ...Args>
+template <typename ...P>
 void
-print(const Args &...args)
+print(const P &...p)
 {
-  (std::cout << ... << args);
+  (std::cout << ... << p);
 }
 
 int

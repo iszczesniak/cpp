@@ -7,10 +7,10 @@ struct A
   A(int) {}
 };
 
-template <typename ...Args>
-struct B: Args...
+template <typename ...P>
+struct B: P...
 {
-  B(const Args &...args): Args(args)...
+  B(const P &...p): P(p)...
   {
     std::cout << __PRETTY_FUNCTION__ << std::endl;
   }

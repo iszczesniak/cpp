@@ -1,14 +1,14 @@
 #include <iostream>
 #include <string>
 
-template <typename Arg1, typename ...Args>
+template <typename P1, typename ...P>
 void
-print(Arg1 arg1, Args ...args)
+print(P1 p1, P ...p)
 {
-  std::cout << arg1;
+  std::cout << p1;
 
-  if constexpr(sizeof...(Args))
-    print(args...);
+  if constexpr(sizeof...(P))
+    print(p...);
 }
 
 int

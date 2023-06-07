@@ -2,11 +2,11 @@
 #include <string>
 #include <vector>
 
-template <typename T, typename ...Args>
+template <typename T, typename ...P>
 auto
-factory(Args ...args)
+factory(P ...p)
 {
-  return T{args...};
+  return T{p...};
 }
 
 int

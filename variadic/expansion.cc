@@ -5,8 +5,8 @@ struct A
 {
 };
 
-template <typename ...Args>
-struct B: Args...
+template <typename ...P>
+struct B: P...
 {
   B()
   {

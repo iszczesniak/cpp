@@ -21,10 +21,10 @@ void g(int, int)
 int
 main()
 {
-  auto c = [](auto &&... args)
+  auto c = [](auto &&...p)
   {
     cout << __PRETTY_FUNCTION__ << endl;
-    g(forward<decltype(args)>(args)...);
+    g(forward<decltype(p)>(p)...);
     // For no arguments, expanded to:
     // g(); 
     // For one argument, expanded to:
