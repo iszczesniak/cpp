@@ -13,7 +13,7 @@ auto &&
 forward(std::remove_reference_t<T> &&t)
 {
   static_assert(std::is_same_v<std::remove_reference_t<T>, T>,
-                "cannot convert");
+                "Cannot convert rvalue to lvalue.");
   return static_cast<std::remove_reference_t<T> &&>(t);
 }
 
