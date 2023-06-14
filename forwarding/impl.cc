@@ -23,10 +23,10 @@ main()
   int i = 1;
   auto &&r1 = forward<int>(i);
   ++r1;
-  cout << i << endl;
+  std::cout << i << std::endl;
   auto &r2 = forward<int &>(i);
   ++r2;
-  cout << i << endl;
+  std::cout << i << std::endl;
 
   // forward<int>(1);
 }
