@@ -25,8 +25,8 @@ void A<char>::foo()
 // instantiation of the primary template for T = char, so we cannot
 // now specialize the primary template for T = char.
 
-// If we want to specialize the primary template (that is commented
-// out below), we should comment out the specialization above.
+// If we want to specialize the primary template as given below, we
+// should comment out the specialization above.
 
 // Specialization of the primary template for T = char.
 // template <>
