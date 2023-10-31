@@ -18,7 +18,7 @@ struct A
 template<>
 void A<char>::foo()
 {
-  cout << "special = " << __PRETTY_FUNCTION__ << endl;
+  cout << "specialization: " << __PRETTY_FUNCTION__ << endl;
 }
 
 // The above specialization of a member function trigers the
@@ -39,6 +39,7 @@ void A<char>::foo()
 // specialization, so we cannot use 'template <>'.
 // void A<char>::foo()
 // {
+//   cout << "definition: " << __PRETTY_FUNCTION__ << endl;
 // }
 
 int main()
