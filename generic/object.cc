@@ -20,7 +20,9 @@ struct B: A
 void
 foo(const A &a)
 {
+  std::cout << "Function foo: ";
   a.foo();
+  std::cout << std::endl;
 }
 
 int

@@ -145,7 +145,7 @@ Nawet iterowanie po elementach tablicy `std::array` nie wprowadza
 {% include_relative test_foray.cc %}
 {% endhighlight %}
 
-Konkretyzacja pozwala też na lepszą kompilację kodu:
+Konkretyzacja pozwala też na lepszą optymalizację kodu:
 
 {% highlight c++ %}
 {% include_relative divide.cc %}
