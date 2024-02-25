@@ -92,9 +92,11 @@ w stanie go wywnioskować:
 {% include_relative print2.cc %}
 ```
 
-W przykładzie niżej też mamy wartościowy parametr szablonu `N`,
-którego argument musi być jawnie podany.  Ale mamy też typowy parametr
-szablonu `T`, którego *argument* może być wywnioskowany:
+W przykładzie niżej mamy dwa przeciążone szablony funkcji
+(przeciążone, bo mają tą samą nazwę).  Drugi szablon ma wartościowy
+parametr szablonu `N`, którego argument musi być jawnie podany.  Ma
+też typowy parametr szablonu `T`, którego argument może być
+wywnioskowany:
 
 {% highlight c++ %}
 {% include_relative print3.cc %}
