@@ -110,6 +110,13 @@ rekurencja jest przerwana przez instrukcję warunkową czasu kompilacji
 {% include_relative print4.cc %}
 {% endhighlight %}
 
+Jednym z dozwolonych typów dla wartościowych parametrów szablonu są
+wskaźniki i referencje na funkcje:
+
+```cpp
+{% include_relative callback.cc %}
+```
+
 ### Rodzaj parametru: szablon
 
 Nazwijmy to tak: **szablonowy parametr szablonu**.  Parametr tego
