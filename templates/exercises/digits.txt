@@ -1,0 +1,2 @@
+Write a template function that returns a name of a digit.  This
+functionality allows for compile-time conversion.
