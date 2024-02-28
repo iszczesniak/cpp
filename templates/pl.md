@@ -131,7 +131,7 @@ A to przykład początku deklaracji lub definicji szablonu z szablonowym
 parametrem:
 
 ```
-template <template <param-type-list> typename T>
+template <template <lista parametrów parametru> typename T>
 ```
 
 Przykładowy program:
