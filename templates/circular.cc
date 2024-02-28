@@ -2,9 +2,9 @@
 
 using namespace std;
 
-// We want to implement a vector of elements, where the elements have
-// a reference to the vector, i.e., an element knows who owns it.  We
-// have to types:
+// We want to implement a container of elements, where the elements
+// have a reference to the container, i.e., an element knows who owns
+// it.  We have to element types:
 //
 // A - disfunctional because of the circular dependency,
 //
@@ -43,11 +43,12 @@ struct B
 int
 main()
 {
-  // We can't possibliy define a type using B because of the circular
-  // dependency.
+  // We can't possibly define a container of elements A because of the
+  // circular dependency.
   // vector<A<vector<A<...>>>> a;
 
-  // Is the initialization ill-formed?  Note we use uninitialized "a".
+  // Is the initialization ill-formed?  Note that we use uninitialized
+  // container "a" to initialize element B(a).
   vector<B<vector>> a = {B(a)};
   a.emplace_back(a);
   a.push_back(B(a));
