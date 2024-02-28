@@ -152,6 +152,13 @@ wartościowy.
 {% include_relative template_type2.cc %}
 {% endhighlight %}
 
+Ten rodzaj parametru pozwala nam na przerwanie zależności cyklicznej
+między typami szablonowymi:
+
+{% highlight c++ %}
+{% include_relative circular.cc %}
+{% endhighlight %}
+
 ## Parametr a argument szablonu
 
 Parametrem jest nazwa, np. `T`, którą używamy w deklaracji i definicji
