@@ -367,7 +367,7 @@ sposoby:
   * kategoria tego wyrażenia zależy od typu wartości zwracanej przez
     funkcję: jeżeli zwracana wartość:
 
-    * jest typy referencyjnego (typ zdefiniowany z użyciem deklaratora
+    * jest typu referencyjnego (typ zdefiniowany z użyciem deklaratora
       `&`), to wyrażenie jest l-wartością,
 
     * nie jest typu referencyjnego, to wyrażenie jest r-wartością.
