@@ -1,4 +1,4 @@
-Implement a suffic increment operator for std::string that modifies
+Implement a suffix increment operator for std::string that modifies
 the string to create the next permutation (hint: use
 std::next_permutation), so that we can use it to produce all
 permutations of a string that has its characters sorted:
