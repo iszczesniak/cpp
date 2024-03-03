@@ -16,16 +16,16 @@ struct A
   }
 };
 
-// A &operator++(A &)
+// A &operator++(A &a)
 // {
-//   cout << __PRETTY_FUNCTION__ << std::endl;
-//   return *this;
+//   std::cout << __PRETTY_FUNCTION__ << std::endl;
+//   return a;
 // }
 
-// A &&operator++(A &&)
+// A &&operator++(A &&a)
 // {
-//   cout << __PRETTY_FUNCTION__ << std::endl;
-//   return std::move(*this);
+//   std::cout << __PRETTY_FUNCTION__ << std::endl;
+//   return std::move(a);
 // }
 
 int
