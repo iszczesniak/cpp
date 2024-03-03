@@ -232,7 +232,7 @@ Dlatego `++++x` kompiluje się, a `x++++` nie.
 
 Tak przy okazji:
 
-* wersja prefiksowa na priorytet niższy od sufiksowej,
+* wersja prefiksowa ma priorytet niższy od sufiksowej,
 
 * wersja prefiksowa ma wiązanie od prawej do lewej,
 
