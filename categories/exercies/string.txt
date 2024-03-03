@@ -1,0 +1,8 @@
+Implement a suffic increment operator for std::string that modifies
+the string to create the next permutation (hint: use
+std::next_permutation), so that we can use it to produce all
+permutations of a string that has its characters sorted:
+
+cout << "Permutations for abc:" << endl;
+  for(string i = "abc"; i++ != "cba";)
+    cout << i << endl;
