@@ -1,6 +1,4 @@
-using callable = decltype([]{});
-
-template <typename C = callable>
+template <typename C = decltype([]{})>
 void
 foo(C c = {})
 {
