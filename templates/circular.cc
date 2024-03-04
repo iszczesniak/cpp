@@ -4,7 +4,7 @@ using namespace std;
 
 // We want to implement a container of elements, where the elements
 // have a reference to the container, i.e., an element knows who owns
-// it.  We have to element types:
+// it.  We have two element types:
 //
 // A - disfunctional because of the circular dependency,
 //
@@ -18,7 +18,7 @@ struct A
 {
   T &m_t;
 
-  A(T &t): m_t(&t)
+  A(T &t): m_t(t)
   {
   }
 };
@@ -45,11 +45,13 @@ main()
 {
   // We can't possibly define a container of elements A because of the
   // circular dependency.
-  // vector<A<vector<A<...>>>> a;
+  // vector<A<vector<A<vector<A<vector... a1;
+  // vector<A<vector>> a2;
 
-  // Is the initialization ill-formed?  Note that we use uninitialized
-  // container "a" to initialize element B(a).
-  vector<B<vector>> a = {B(a)};
-  a.emplace_back(a);
-  a.push_back(B(a));
+  // Is the initialization ill-formed or undefined-behaved?  Note that
+  // we use uninitialized container "b" to initialize element B(b).
+  vector<B<vector>> b = {B(b)};
+  b.push_back(B(b));
+  // Looks like a snake eating its own tail.
+  b.emplace_back(b);
 }
