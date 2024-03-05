@@ -1,0 +1,3 @@
+Implement function power<a>(x) that calculates x to the power of a.
+Value of x can be known at run-time, and the value of a at the compile
+time.
