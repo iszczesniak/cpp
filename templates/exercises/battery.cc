@@ -5,7 +5,7 @@
 using namespace std;
 
 template <template<typename> typename F = less,
-          template<typename> typename C,
+          template<typename...> typename C,
           typename T>
 void
 battery(T e, const C<T> &c, F<T> f = {})
