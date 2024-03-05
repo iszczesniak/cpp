@@ -1,0 +1,7 @@
+Implement a function template so that calling fibonacci<int, 5>()
+would calculate the value of the 5th element of the Fibonacci
+sequence.
+
+Implement also a function template so that we can call
+fibonacci<int>(5).
+
