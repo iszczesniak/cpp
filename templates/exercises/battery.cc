@@ -27,9 +27,9 @@ main()
   battery(5, c, greater<int>{});
   battery<plus>(5, c);
 
-  // Error: .5 is not of the integer type.
+  // Error: .5 is not an integer value.
   // battery(.5, c, less<int>{});
 
-  // Error: double is not the integer type.
+  // Error: 5 is not a double value.
   // battery(5, c, less<double>{});
 }
