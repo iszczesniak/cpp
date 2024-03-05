@@ -13,7 +13,7 @@ power(T t)
 int
 main()
 {
-  // The value calculated at compile-time, nothing at run-time.
+  // The value calculated at compile-time, nothing at run-time?
   std::cout << power<2>(.2) << std::endl;
 
   // We use the volatile qualifier to force evaluation at run-time.
