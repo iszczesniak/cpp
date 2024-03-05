@@ -1,4 +1,5 @@
-Write a template function that takes a callable as a template
-parameter.  The parameter should have a default value of an empty
-callable.  Please make sure that introducing this functionality does
-not degrade performance -- please check the assembly output.
+Write a template function that takes a callable type as a template
+argument.  The function parameter of the callable type should have a
+default-constructed value.  Please make sure that introducing this
+functionality does not degrade performance -- please check the
+assembly output.
