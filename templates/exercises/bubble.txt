@@ -1,0 +1,17 @@
+Write a function template "bubble" that implements bubble sort, so
+that I can sort in ascending order:
+
+int t[] = {3, 1, 2};
+bubble(begin(t), end(t));
+
+vector v = {10, 5, 1};
+bubble(begin(v), end(v))
+
+Next, let a user pass a callable that compares elements to allow for
+sorting in descending order:
+
+bubble(begin(v), end(v), std::greater<int>{});
+
+Add a default callable so that the third function argument doesn't
+have to be provided.
+

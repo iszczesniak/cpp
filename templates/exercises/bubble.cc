@@ -8,8 +8,8 @@ using namespace std;
 // The bubble sort requires only a forward iterator, but our
 // implementation requires a random access operator.  We could improve
 // the implementation not to require the random access operator.
-template <typename I, typename F>
-void bubble(I i1, I i2, F f)
+template <typename I, typename F = std::less<std::iter_value_t<I>>>
+void bubble(I i1, I i2, F f = {})
 {
   if (i1 != i2)
     while(i1 != --i2)
@@ -27,7 +27,11 @@ int
 main()
 {
   int t[] = {1, 5, 3, 2};
-  bubble(begin(t), end(t), less<int>{});
+  bubble(begin(t), end(t));
+  for(const auto &e: t)
+    cout << e << '\n';
+
+  bubble(begin(t), end(t), std::greater<int>{});
   for(const auto &e: t)
     cout << e << '\n';
 
