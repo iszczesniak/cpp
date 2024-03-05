@@ -1,7 +1,18 @@
-#include "fibonacci.hpp"
-
 #include <cassert>
 #include <iostream>
+
+// Parameter N is of the value kind and type T.
+template <typename T, T N>
+T fibonacci()
+{
+  if constexpr (N >= 2)
+    return fibonacci<T, N - 1>() + fibonacci<T, N - 2>();
+
+  if constexpr (N == 1)
+    return 1;
+
+  return 0;
+}
 
 int
 main()
