@@ -1,4 +1,5 @@
-Implement struct A with two overloads of the prefix operator:
+Implement struct A with two overloads of the prefix increment
+operator:
 
 * for lvalues that results in an lvalue,
 
