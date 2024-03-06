@@ -59,8 +59,8 @@ Semantyka przeniesienia pozwala na przeniesienie wartości z obiektu
 źródłowego do docelowego kiedy kopiowanie nie jest potrzebne.  Została
 ona wprowadzona w C++11, ale jej potrzeba była zauważona w latach
 dziewięćdziesiątych.  Przenoszenie jest jak ratowanie ładunku
-(wartości) z tonącego statku (obiektu, który wkrótce zostanie
-zniszczony).
+(wartości) z tonącego statku (obiektu, który wkrótce nie będzie
+potrzebny).
 
 Semantyka przeniesienia jest stosowana:
 
