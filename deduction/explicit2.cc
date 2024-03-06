@@ -12,6 +12,7 @@ struct A
 
 struct B
 {
+  // The constructor is templated, even though the struct is not.
   template <typename T>
   B(T t)
   {
@@ -29,6 +30,7 @@ factory(A a)
 int
 main()
 {
+  // Just as for std::make_unique.
   factory<A>(1);
   factory<B>(1.1);
   factory<B>("Hello World!");
