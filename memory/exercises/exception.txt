@@ -1,0 +1,2 @@
+Check whether constructors are elided when catching exceptions by
+value.
