@@ -1,5 +1,6 @@
 Implement the prefix and suffix increment operators for std::string
 (they do not need to do anything), so that the following compiles:
 
+++++i;
 ++i++;
 i++++;

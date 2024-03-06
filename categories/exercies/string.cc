@@ -16,6 +16,7 @@ int
 main()
 {
   string s;
+  ++++s;
   ++s++;
   s++++;
 }
