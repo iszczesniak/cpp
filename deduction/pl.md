@@ -41,10 +41,10 @@ dwóch przypadkach:
 * musimy jawnie podać argumenty, bo kompilator nie jest ich w stanie
   wywnioskować.
 
-Kompilator wnioskuje argumenty szablonu na podstawie typów wyrażeń,
-które są przekazywane w wyrażeniu wywołania funkcji (kiedy wywołujemy
-funkcję) czy konstruktora (kiedy tworzymy obiekt).  Jeżeli nie jest w
-stanie wywnioskować argumentów, to musimy jawnie je podać.
+Kompilator wnioskuje argumenty szablonu na podstawie wyrażeń, które są
+przekazywane w wyrażeniu wywołania funkcji (kiedy wywołujemy funkcję)
+czy konstruktora (kiedy tworzymy obiekt).  Jeżeli nie jest w stanie
+wywnioskować argumentów, to musimy jawnie je podać.
 
 Przykład niżej pokazuje implementację fabryki obiektów.  Argument
 wywołania fabryki przekazujemy do konstruktora obiektu, którego typ
@@ -66,8 +66,8 @@ argument.
 Jeżeli w powyższym przykładzie z fabryką zmienimy kolejność
 argumentów, to typ argumentu wywołania konstruktora będziemy musieli
 także podać jawnie, chociaż mógłby być wywnioskowany.  Po zmianie
-kolejności musimy jawnie podać pierwszy argument, bo musimy podać
-drugi argument:
+kolejności musimy jawnie podać pierwszy argument, bo zapragnęliśmy
+podać drugi argument:
 
 {% highlight c++ %}
 {% include_relative explicit3.cc %}
@@ -78,7 +78,7 @@ drugi argument:
 Parametr szablonu (każdego rodzaju: typowy, wartościowy i szablonowy)
 może mieć zdefiniowany domyślny argument, który będzie użyty jeżeli
 nie podaliśmy argumentu jawnie i jeżeli kompilator nie jest w stanie
-wnioskować (bo, np., nie ma argumentu funkcji).  Domyślny argument
+go wnioskować (bo, np., nie ma argumentu funkcji).  Domyślny argument
 jest opcjonalny.
 
 Domyślny argument podajemy po nazwie parametru z użyciem `=`.  Oto
@@ -100,8 +100,8 @@ wymagane.  Do tego właśnie przydaje się domyślny argument szablonu.
 Rozwiązanie: typ callable jest parametrem szablonu z domyślnym
 argumentem, którym jest pusty callable, czyli struktura z operatorem
 wywołania o pustym ciele.  Musimy też podać domyślną wartość callable
-(argumentu wywołania funkcji), czyli `{}` (będzie wywołany domyślny
-konstruktor).  Oto super przykład:
+(argumentu wywołania funkcji), czyli `{}` (bezargumentowe tworzenie
+obiektu).  Oto super przykład:
 
 {% highlight c++ %}
 {% include_relative empty_callable.cc %}
@@ -134,15 +134,15 @@ Jeżeli argumenty szablonu nie są jawnie podane, to kompilator musi je
 wywnioskować, a jeżeli nie jest w stanie tego zrobić, to korzysta z
 domyślnych argumentów, jeżeli są.
 
-Kompilator wnioskuje argumenty szablonu funkcji na podstawie:
+Kompilator wnioskuje argumenty szablonu (funkcji) na podstawie:
 
-* **typów** parametrów szablonu funkcji,
+* **typów** parametrów funkcji,
 
-* **typów** argumentów wywołania funkcji szablonowej.
+* **typów i kategorii** argumentów wywołania funkcji.
 
 Typ wyrażenia (czyli także argumentu funkcji) nigdy nie jest
-referencyjny, nawet jeżeli wyrażeniem jest nazwa referencji (zmiennej
-typu referencyjnego). [expr.type]
+referencyjny, nawet jeżeli wyrażeniem jest nazwa
+referencji. [expr.type]
 
 ## Najprostszy przypadek
 
@@ -164,8 +164,8 @@ main()
 ```
 
 Kompilator ma wywnioskować argumenty dla parametrów (tych z `parameter
-list`) szablonu funkcji `foo` na podstawie typu wyrażenia `expr` i
-typu `ParameterType` parametru `t` funkcji `foo`.  Żeby można mówić o
+list`) szablonu funkcji `foo` na podstawie wyrażenia `expr` i typu
+`ParameterType` parametru `t` funkcji `foo`.  Żeby można mówić o
 wnioskowaniu, typ `ParameterType` musi zależeć od (użyć w swojej
 definicji) co najmniej jednego parametru szablonu.  Sposobów
 zdefiniowania typu `ParameterType` w zależności od parametrów szablonu
