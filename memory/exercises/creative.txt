@@ -1,0 +1,2 @@
+Come up with an example that demonstrates a detail of memory
+organization in C++.
