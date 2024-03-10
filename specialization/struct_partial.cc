@@ -20,7 +20,7 @@ struct A<std::vector<T>>
 
 // A partial specialization for any template type of the integer
 // argument.
-template <template<typename> typename T>
+template <template<typename...> typename T>
 struct A<T<int>>
 {
   void
