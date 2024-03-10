@@ -4,7 +4,7 @@
 
 using namespace std;
 
-template <template <typename> typename C, typename T>
+template <template <typename...> typename C, typename T>
 void
 foo(const C<T> &c)
 {

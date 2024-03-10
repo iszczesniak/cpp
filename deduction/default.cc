@@ -4,7 +4,7 @@
 
 using namespace std;
 
-template <template <typename> typename C = std::vector,
+template <template <typename...> typename C = std::vector,
           typename T = int, unsigned I = 10>
 C<T>
 container_factory()
