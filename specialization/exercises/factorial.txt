@@ -1,0 +1,7 @@
+Write a function that calculates (using int) the factorial for a
+number given as the template argument, so that I can call:
+
+factorial<5>();
+
+Implement the function as recursive, and break the recursion with
+template specialization.
