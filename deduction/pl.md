@@ -471,11 +471,10 @@ funkcji szablonowej.  Jak wtedy wnioskowane są argumenty szablonu?
 
 Wtedy wnioskowanie argumentów szablonu odbywa się niezależnie dla
 każdej pary parametru funkcji i argumentu wywołania.  Dla każdej pary
-wnioskowane są argumenty dla parametrów, które zostały użyte w
-definicji typu tego parametru funkcji.  Jeżeli jakiś argument został
-wywnioskowany więcej niż raz (czyli dla różnych par), to musiał on
-zostać wywnioskowany zawsze tak samo, w przeciwnym razie wnioskowanie
-nie udaje się.
+wnioskowane są argumenty dla parametrów szablonu, które zostały użyte
+w definicji typu tego parametru funkcji.  Jeżeli jakiś argument został
+wywnioskowany więcej niż raz (czyli dla różnych par), to musi on być
+taki sam, w przeciwnym razie wnioskowanie nie udaje się.
 
 Podczas wnioskowania nie jest dopuszczalna konwersja typów.  W
 przykładzie niżej wnioskowane są różne argumenty, bo nie jest
