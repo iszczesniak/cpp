@@ -312,9 +312,9 @@ Funkcję możemy przekazać do funkcji szablonowej przez:
 * wskaźnik.
 
 Funkcję możemy przekazać przez *referencję* używając referencyjnego
-typu parametru funkcji szablonowej, a dokładnie typu `F &`, gdzie `F`
-jest typowym parametrem szablonu.  Wywnioskowanym argumentem szablonu
-będzie typ przekazywanej funkcji.  Przykład:
+typu parametru funkcji, a dokładnie typu `F &`, gdzie `F` jest typowym
+parametrem szablonu.  Wywnioskowanym argumentem szablonu będzie typ
+referencji na przekazywaną funkcję.  Przykład:
 
 {% highlight c++ %}
 {% include_relative foo_ref.cc %}

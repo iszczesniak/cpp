@@ -25,8 +25,8 @@ main()
 {
   foo(&hello);
   goo(&hello);
-  // The following has the same effect as the above, because here the
-  // function name is converted into its pointer.
+  // The following has the same effect as the above, because the
+  // function name decays (is converted) to the function pointer.
   foo(hello);
   goo(hello);
 }
