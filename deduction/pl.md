@@ -297,7 +297,11 @@ znaczenie na etapie kompilacji (nie konsolidacji): kompilator nie może
 pozwolić na modyfikację parametru (`const`) i optymalizację odwołań
 (`volatile`) do parametru w ciele funkcji.  Typy tych funkcji nie mają
 zachowanych kwalifikatorów typu, bo nie mają one znaczenia dla kodu
-wywołującego te funkcje.
+wywołującego te funkcje:
+
+{% highlight c++ %}
+{% include_relative qualifiers_dropped.cc %}
+{% endhighlight %}
 
 ### Przekazywanie funkcji
 
