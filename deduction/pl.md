@@ -415,13 +415,14 @@ Oto przykład:
 
 ### Dowolny typ szablonowy
 
-Typy wartościowych parametrów obu szablonów muszą się zgadzać, gdzie:
+Typy wartościowych parametrów obu szablonów muszą się zgadzać.  Te oba
+szablony to:
 
-* jeden szablon to szablon funkcji (albo typu), który implementujemy,
-którego wartościowy parametr ma mieć wywnioskowany argument,
+* szablon funkcji: wartościowy parametr tego szablonu ma wywnioskowany
+  argument,
 
-* drugi szablon to szablon typu, którego jest argument wywołania
-funkcji.
+* szablon typu: tego szablonowego typu jest argument wywołania
+  funkcji.
 
 Na przykład, wartościowy parametr `I` musi mieć typ `std::size_t`, bo
 takiego typu jest wartościowy parametr typu szablonowego `std::array`:
