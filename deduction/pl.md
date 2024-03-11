@@ -276,7 +276,8 @@ Oto przykład dla typów wskaźnikowych:
  typem nigdy nie będzie typ referencyjny (bo wyrażenie nigdy nie jest
  typu referencyjnego), ale może być wskaźnikowy.  Dla typu
  wskaźnikowego są pomijane kwalifikatory najwyższego rzędu
- (ang. top-level qualifiers).*
+ (ang. top-level qualifiers).  Typy referencyjne nie mają
+ kwalifikatorów najwyższego rzędu.*
 
 Chodzi o to, że inicjalizacja parametrów funkcji (przy przekazywaniu
 argumentów wywołania przez wartość) kopiuje wartość argumentu
