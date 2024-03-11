@@ -352,7 +352,9 @@ Tablicę języka C możemy przekazać do funkcji szablonowej przez:
 
 * referencję,
 
-* wskaźnik.
+* wskaźnik,
+
+* ale nie wartość.
 
 Tablicę możemy przekazać przez *referencję* używając referencyjnego
 typu parametru funkcji szablonowej, a dokładnie typu `A &`, gdzie `A`
