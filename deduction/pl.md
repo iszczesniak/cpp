@@ -289,15 +289,15 @@ Przykład:
 {% include_relative arg_type_val.cc %}
 {% endhighlight %}
 
-W powyższym przykładnie, na podstawie skonkretyzowanych funkcji wydaje
+W powyższym przykładzie, na podstawie skonkretyzowanych funkcji wydaje
 się, że kwalifikatory typu (`const` i `volatile`) podane w definicji
-szablonu nie miały znaczenia.  Kwalifikatory typu dla parametrów
-zwykłych typów (niereferencyjnych i niewskaźnikowych) mają jedynie
-znaczenie na etapie kompilacji (nie konsolidacji): kompilator nie może
-pozwolić na modyfikację parametru (`const`) i optymalizację odwołań
-(`volatile`) do parametru w ciele funkcji.  Typy tych funkcji nie mają
-zachowanych kwalifikatorów typu, bo nie mają one znaczenia dla kodu
-wywołującego te funkcje:
+typu parametru funkcji nie miały znaczenia.  Kwalifikatory typu dla
+parametrów zwykłych typów (niereferencyjnych i niewskaźnikowych) mają
+jedynie znaczenie na etapie kompilacji (nie konsolidacji): kompilator
+nie może pozwolić na modyfikację parametru (`const`) i optymalizację
+odwołań (`volatile`) do parametru w ciele funkcji.  Typy tych funkcji
+nie mają zachowanych kwalifikatorów typu, bo nie mają one znaczenia
+dla kodu wywołującego te funkcje:
 
 {% highlight c++ %}
 {% include_relative qualifiers_dropped.cc %}
