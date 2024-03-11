@@ -221,15 +221,14 @@ porównaniu do wartościowych i szablonowych argumentów szablonu), bo:
 
 ## Typowy argument
 
-Typowego parametru używamy w definicji typu parametru funkcji, który
-może być typem:
+Typowy argument szablonu jest wnioskowany dla typowego parametru
+szablonu.  W zależności od typu parametru funkcji, kompilator stosuje
+różne zasady wnioskowania typowego argumentu szablonu.  Typ parametru
+funkcji może być:
 
-* referencyjnym lub wskaźnikowym,
+* referencyjny lub wskaźnikowy,
 
-* zwykłym (niereferencyjnym i niewskaźnikowym).
-
-W zależności od zdefiniowanego typu parametru funkcji, kompilator
-stosuje różne zasady wnioskowania typowego argumentu.
+* zwykły (niereferencyjny i niewskaźnikowy).
 
 ### Referencyjny lub wskaźnikowy typ parametru funkcji
 
