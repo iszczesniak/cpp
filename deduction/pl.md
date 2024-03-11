@@ -393,13 +393,13 @@ Oto przykład z rozpadem:
 ## Wartościowy argument
 
 Wartościowy argument szablonu jest wnioskowany tylko na podstawie typu
-argumentu wywołania funkcji szablonowej, z którego można ten argument
+argumentu wywołania funkcji, z którego można ten argument
 wywnioskować.  Częścią typu argumentu wywołania funkcji musi być pewna
 wartość, którą potrzebujemy, i która staje się wywnioskowanym
 wartościowym argumentem.
 
-Jedynymi typami argumentu wywołania funkcji szablonowej, na podstawie
-których możemy wywnioskować wartościowy argument szablonu, to:
+Jedynymi typami argumentu wywołania funkcji, na podstawie których
+możemy wywnioskować wartościowy argument szablonu, to:
 
 * typ tablicy języka C,
 
@@ -498,6 +498,6 @@ Zatem w poniższym przykładzie wnioskowanie nie udaje się:
 
 * Na podstawie czego wnioskowane są argumenty szablonu?
 
-* Co to jest rozpad tablicy?
+* Czy wnioskowanie uwzględnia typ wartości zwracanej przez funkcję?
 
-* Czy może być wywnioskowany szablonowy typ szablonu?
+* Co to jest rozpad tablicy?
