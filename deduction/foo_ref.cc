@@ -25,7 +25,4 @@ main()
 {
   foo(hello);
   goo(hello);
-  // The following would not compile.
-  // foo(&hello);
-  // goo(&hello);
 }
