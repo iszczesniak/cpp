@@ -191,18 +191,31 @@ ParameterType t = expr;
 Kompilator musi tak wywnioskować argumenty szablonu, których parametry
 są użyte w definicji typu `ParameterType`, żeby inicjalizacja była
 możliwa bez konwersji typu.  Może się to okazać niemożliwe, co
-uniemożliwia użycie szablonu.
+uniemożliwia konkretyzację szablonu.
 
 Na przykład, jeżeli `ParameterType` jest typem referencyjnym na obiekt
-stały typu `T`, który jest parametrem szablonu, a argumentem wywołania
-funkcji jest `1`, to inicjalizacja wygląda tak:
+stały typu `T`, gdzie `T` jest parametrem szablonu, a argumentem
+wywołania funkcji jest `1`, to inicjalizacja wygląda tak:
 
 ```cpp
-const T & t = 1;
+const T &t = 1;
 ```
 
-Wywnioskowanym argumentem będzie `int`, bo wtedy ta inicjalizacja jest
-możliwa bez konwersji typu.
+Wywnioskowanym argumentem będzie `T = int`, bo wtedy ta inicjalizacja
+jest możliwa bez konwersji typu.
+
+Jeżeli jednak dla przykładu wyżej `ParameterType` jest typem
+referencyjnym na obiekt niestały typu `T`, to inicjalizacja wygląda
+tak:
+
+```cpp
+T &t = 1;
+```
+
+Wywnioskowanym argumentem będzie ciągle `T = int`, bo r-wartość typu
+wbudowanego jest typu niestałego.  Zatem konkretyzacja nie powiedzie
+się, bo l-referencja niestała `t` nie może być zainicjalizowana
+r-wartością.
 
 # Rodzaje argumentów
 
@@ -213,8 +226,8 @@ argumenty, ale czasem też argumenty wartościowe czy szablonowe.
 Wnioskowanie typowych argumentów szablonu jest najbardziej złożone (w
 porównaniu do wartościowych i szablonowych argumentów szablonu), bo:
 
-* uwzględnia różne typy parametrów funkcji szablonowej: zwykłe,
-  referencyjne i wskaźnikowe,
+* uwzględnia różne typy parametrów funkcji: zwykłe, referencyjne i
+  wskaźnikowe,
 
 * uwzględnia różne typy argumentów wywołania funkcji: wbudowane
   (np. `int`), funkcyjne i tablicowe.
