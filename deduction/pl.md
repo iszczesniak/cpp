@@ -434,17 +434,16 @@ takiego typu jest wartościowy parametr typu szablonowego `std::array`:
 
 ## Szablonowy argument
 
-*Typowy parametr szablonu* pozwala na przyjęcie przez funkcję
-szablonową argumentu wywołania, który jest typu szablonowego, ale nie
-jesteśmy w stanie określić, jakie były argumenty tego typu
-szablonowego.
+Szablonowy parametr jest typowym parametrem, ale który dodatkowo
+pozwala na:
 
-*Szablonowy parametr szablonu* pozwala na przyjęcie przez funkcję
-szablonową argumentu wywołania, który jest typu szablonowego i
-jednoczesne wywnioskowanie argumentów tego typu szablonowego.
+* *definicję interfejsu przyjmowanego typu*: argumentem tego parametru
+   może być wyłącznie typ szablonowy spełniający zdefiniowany
+   interfejs,
 
-Zwykła sprawa: wywnioskowanym typem jest typ argumentu wywołania
-funkcji.
+* *wydobycie argumentów z przyjętego typu*: z argumentu tego parametru
+   (który jest na pewno typu szablonowego, bo spełnia interfejs),
+   możemy wydobyć argumenty konkretyzacji.
 
 Oto przykład:
 
