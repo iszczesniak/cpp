@@ -114,7 +114,7 @@ template <template <param-type-list> typename T>
 Here's an example:
 
 {% highlight c++ %}
-{% include_relative template_type.cc %}
+{% include_relative template1.cc %}
 {% endhighlight %}
 
 `__PRETTY_FUNCTION__` is replaced by GCC with the function name, and
@@ -126,7 +126,7 @@ template argument C can accept template types which accept two
 arguments: the first being the type, the second being the value.
 
 {% highlight c++ %}
-{% include_relative template_type2.cc %}
+{% include_relative template2.cc %}
 {% endhighlight %}
 
 <!-- LocalWords: lvalue lvalues rvalue -->

@@ -235,9 +235,10 @@ porównaniu do wartościowych i szablonowych argumentów szablonu), bo:
 ## Typowy argument
 
 Typowy argument szablonu jest wnioskowany dla typowego parametru
-szablonu.  W zależności od typu parametru funkcji, kompilator stosuje
-różne zasady wnioskowania typowego argumentu szablonu.  Typ parametru
-funkcji może być:
+szablonu.  Zasady wnioskowania dla szablonowych argumentów szablonu są
+takie same, jak dla typowych argumentów.  W zależności od typu
+parametru funkcji, kompilator stosuje różne zasady wnioskowania
+typowego argumentu szablonu.  Typ parametru funkcji może być:
 
 * referencyjny lub wskaźnikowy,
 
