@@ -460,7 +460,8 @@ Zatem w poniższym przykładzie wnioskowanie nie udaje się:
 
 # Podsumowanie
 
-* Argumenty szablonu mogą być jawnie podawane, wnioskowane, albo domyślne.
+* Argument szablonu może być wywnioskowany albo podany (jawnie albo
+  domyślnie).
 
 * Wnioskowanie argumentów szablonu zależy od typu parametru funkcji i
   typu argumentu wywołania funkcji.
