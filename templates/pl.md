@@ -137,7 +137,7 @@ template <template <lista parametrów parametru> typename T>
 Przykładowy program:
 
 {% highlight c++ %}
-{% include_relative template.cc %}
+{% include_relative template1.cc %}
 {% endhighlight %}
 
 Za `__PRETTY_FUNCTION__` kompilator GCC podstawia nazwę funkcji i
