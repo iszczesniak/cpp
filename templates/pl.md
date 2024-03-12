@@ -152,6 +152,29 @@ wartościowy.
 {% include_relative template2.cc %}
 {% endhighlight %}
 
+Szablonowy parametr to po prostu typowy parametr, ale który dodatkowo
+pozwala na:
+
+* *definicję interfejsu przyjmowanego typu*: argumentem tego parametru
+   może być wyłącznie typ szablonowy spełniający zdefiniowany
+   interfejs,
+
+* *wydobycie argumentów z przyjętego typu*: z argumentu tego parametru
+   (który jest na pewno typu szablonowego, bo spełnia interfejs),
+   możemy wydobyć argumenty konkretyzacji.
+
+Oto przykład:
+
+{% highlight c++ %}
+{% include_relative template3.cc %}
+{% endhighlight %}
+
+I kolejny przykład:
+
+{% highlight c++ %}
+{% include_relative template4.cc %}
+{% endhighlight %}
+
 Ten rodzaj parametru pozwala nam na przerwanie zależności cyklicznej
 między typami szablonowymi:
 
