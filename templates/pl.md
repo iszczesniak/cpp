@@ -120,8 +120,8 @@ wskaźniki i referencje na funkcje:
 ### Rodzaj parametru: szablon
 
 Nazwijmy to tak: **szablonowy parametr szablonu**.  Parametr tego
-rodzaju ma podstawiony typ szablonowy w czasie kompilacji, a w liście
-parametrów szablonu deklarujemy go tak:
+rodzaju ma podstawiony typ szablonowy podczas konkretyzacji, a w
+liście parametrów szablonu deklarujemy go tak:
 
 ```
 template <lista parametrów parametru> typename T
@@ -137,7 +137,7 @@ template <template <lista parametrów parametru> typename T>
 Przykładowy program:
 
 {% highlight c++ %}
-{% include_relative template_type.cc %}
+{% include_relative template.cc %}
 {% endhighlight %}
 
 Za `__PRETTY_FUNCTION__` kompilator GCC podstawia nazwę funkcji i
@@ -149,7 +149,7 @@ dowolny typ szablonowy, którego pierwszy parametr jest typowy, a drugi
 wartościowy.
 
 {% highlight c++ %}
-{% include_relative template_type2.cc %}
+{% include_relative template2.cc %}
 {% endhighlight %}
 
 Ten rodzaj parametru pozwala nam na przerwanie zależności cyklicznej
