@@ -9,6 +9,8 @@ These are the most important facts about references:
 * Reference is an alias (a name) for some data (a variable, an object,
   a temporary).
 
+* Reference has no identity, and so we cannot take its address.
+
 * When using a reference to an object, we use the object member
   selection syntax (i.e., `object.member`), and not the object member
   selection through a pointer syntax (i.e., `pointer->member`).

@@ -7,7 +7,10 @@ title: Referencje
 Najważniejsze fakty o referencjach:
 
 * Referencja jest aliasem (nazwą) danej (zmiennej, obiektu, czy
-  obiektu tymczasowego),
+  obiektu tymczasowego).
+
+* Referencja nie ma tożsamości (ang.~identity) i dlatego nie możemy
+  pobrać adresu referencji.
 
 * Mając referencję do obiektu, możemy uzyskać dostęp do składowych pól
   i funkcji z użyciem operatora dostępu (czyli `object.member`, jak w
