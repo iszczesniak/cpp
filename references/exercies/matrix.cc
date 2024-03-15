@@ -37,7 +37,7 @@ struct matrix
   }
   
   proxy
-  operator()(unsigned i, unsigned j)
+  operator()(unsigned i, unsigned j) const
   {
     return proxy(m_vov[i][j], m_vov[j][i]);
   }
