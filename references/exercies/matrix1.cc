@@ -8,6 +8,11 @@ struct matrix
   struct proxy
   {
     using p_type = vector<bool>::reference;
+
+    // Here we could store a reference to a proxy, but proxies are
+    // better used by value.  Proxies are usually temporary objects,
+    // so we could end up with a dangling reference, i.e., to a
+    // destroyed object.
     p_type m_normal, m_reverse;
 
     proxy(p_type normal, p_type reverse):
@@ -15,14 +20,17 @@ struct matrix
     {
     }
     
+    // Casts to the boolean value.
     operator bool() const
     {
       return m_normal;
     }
 
+
     proxy &
     operator = (bool flag)
     {
+      // We have to set the flag for the normal and the revese.
       m_normal = flag;
       m_reverse = flag;
       return *this;
