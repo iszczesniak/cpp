@@ -37,7 +37,7 @@ struct matrix
   }
   
   proxy
-  operator()(unsigned i, unsigned j) const
+  operator()(unsigned i, unsigned j)
   {
     return proxy(m_vov[i][j], m_vov[j][i]);
   }
@@ -46,15 +46,12 @@ struct matrix
 int
 main()
 {
-  matrix m(6);
+  matrix m(4);
   assert(m(0, 0) == false);
   
   m(0, 1) = true;
-  assert(m(1, 0) == true);
-  m(0, 4) = true;
-  m(1, 2) = true;
-  m(1, 4) = true;
+  m(0, 2) = true;
+  m(1, 3) = true;
   m(2, 3) = true;
-  m(2, 5) = true;
-  m(3, 5) = true;
+  assert(m(3, 2) == true);
 }

@@ -1,0 +1,38 @@
+This is a counter example of when not to use references.  It's also a
+good example to discuss categories.
+
+Implement type "matrix" that implements a neighborhood matrix for
+dense (that have many edges) undirected (edges are undirected) graphs.
+The implementation can use vector<bool>.
+
+To initialize a matrix that represents a graph of n vertexes without
+edges:
+
+matrix m(n);
+
+Access an edge from vertex i to vertex j:
+
+m(i, j)
+
+We can use m(i, j) to either:
+
+* check whether an edge exists: assert(m(i, j) == true)
+
+* to add an edge: m(i, j) == true;
+
+This graph:
+
+   (1)
+   / \
+  /   \
+(0)   (3)
+  \   /
+   \ /
+   (2)
+
+Is represented by the neighborhood matrix:
+
+0 1 1 0
+1 0 0 1
+1 0 0 1
+0 1 1 0
