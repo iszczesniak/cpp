@@ -5,21 +5,6 @@ Implement type "matrix" that implements a neighborhood matrix for
 dense (that have many edges) undirected (edges are undirected) graphs.
 The implementation can use vector<bool>.
 
-To initialize a matrix that represents a graph of n vertexes without
-edges:
-
-matrix m(n);
-
-Access an edge from vertex i to vertex j:
-
-m(i, j)
-
-We can use m(i, j) to either:
-
-* check whether an edge exists: assert(m(i, j) == true)
-
-* to add an edge: m(i, j) == true;
-
 This graph:
 
    (1)
@@ -36,3 +21,24 @@ Is represented by the neighborhood matrix:
 1 0 0 1
 1 0 0 1
 0 1 1 0
+
+To initialize a matrix that represents a graph of n vertexes without
+edges:
+
+matrix m(n);
+
+Access an edge from vertex i to vertex j:
+
+m(i, j)
+
+We can use m(i, j) to either:
+
+* check whether an edge exists: assert(m(i, j) == true)
+
+* to add an edge: m(i, j) == true;
+
+We can store the information in two ways:
+
+* a matrix: a vector of n vectors of n bools,
+
+* a triangle: a vector of n vectors of bool of size from n to 1,

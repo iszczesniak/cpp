@@ -35,7 +35,9 @@ struct matrix
   matrix(unsigned n): m_vov(n, vector<bool>(n))
   {
   }
-  
+
+  // This function has to return a proxy, so that we can assign to it
+  // a boolean value.
   proxy
   operator()(unsigned i, unsigned j)
   {
@@ -48,7 +50,7 @@ main()
 {
   matrix m(4);
   assert(m(0, 0) == false);
-  
+
   m(0, 1) = true;
   m(0, 2) = true;
   m(1, 3) = true;
