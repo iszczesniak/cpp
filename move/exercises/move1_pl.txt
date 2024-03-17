@@ -1,0 +1,5 @@
+Mając daną strukturę A, która ma jawnie usunięte składowe przenoszące,
+proszę zaimplementować strukturę B jako typ tylko do przenoszenia.  B
+jest wyprowadzona z A.  B posiada polę skadowe m_txt typu "string".
+Podczas przenoszenia, wartość obiektu bazowego jest kopiowana, a
+wartość obiektu składowego przenoszona.
