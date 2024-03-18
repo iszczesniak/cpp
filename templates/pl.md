@@ -25,7 +25,14 @@ Deklaracje i definicje szablonów rozpoczynają się słowem kluczowym
 template <lista parametrów>
 ```
 
-Mówimy, że szablon jest sparametryzowany, bo ma listę parametrów.
+Mówimy, że szablon jest sparametryzowany, bo ma listę parametrów.  Te
+parametry nazywamy **parametrami szablonu**.
+
+Kiedy wywołujemy funkcję zdefiniowaną szablonem, albo używamy typu
+zdefiniowanego szablonem, to po nazwie możemy podać w znakach `<>`
+**argumenty szablonu**.  Podczas konkretyzacji szablonu, argument
+szablonu jest **podstawiany** w miejsca wystąpienia parametru w ciele
+szablonu.
 
 ## Lista parametrów
 
