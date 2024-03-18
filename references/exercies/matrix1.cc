@@ -7,6 +7,10 @@ struct matrix
 {
   struct proxy
   {
+    // This is a proxy type to a data stored in vector<bool>.
+    // Container vector<bool> cannot return a reference to a boolean
+    // value (bool &), because it keeps the data bit-packed, and not
+    // as boollean values.
     using p_type = vector<bool>::reference;
 
     // Here we could store a reference to a proxy, but proxies are
@@ -25,7 +29,6 @@ struct matrix
     {
       return m_normal;
     }
-
 
     proxy &
     operator = (bool flag)
