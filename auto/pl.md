@@ -66,7 +66,7 @@ Inicjalizacja zmiennej wygląda tak:
 <typ zmiennej> <nazwa zmiennej> = <wyrażenie inicjalizujące>;
 ```
 
-Typ zmiennej może zawierać specyfikatory `const` i `volatile`.
+Typ zmiennej może zawierać kwalifikatory `const` i `volatile`.
 Dodatkowo może zawierać deklarator `&` typu referencyjnego i
 deklarator `*` typu wskaźnikowego.  Interesuje nas sytuacja, kiedy typ
 zmiennej zawiera specyfikator `auto`.  Na przykład:
