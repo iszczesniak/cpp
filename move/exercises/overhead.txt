@@ -1,0 +1,1 @@
+Check the overhead introduced by the move semantics.
