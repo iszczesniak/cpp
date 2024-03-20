@@ -1,3 +1,5 @@
+#include <utility>
+
 struct A
 {
   // We need this volatile to prevent the compiler from optimizing
