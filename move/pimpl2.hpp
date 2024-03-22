@@ -1,6 +1,6 @@
 // When we implement the PIMPL (pointer to implementation) idiom with
-// the move semantics, we get the exclusive ownership semantics,
-// available since C++11 as std::unique_ptr. 
+// the move semantics, we get the exclusive ownership semantics done
+// right.  Now std::unique_ptr offers this functionality.
 
 #ifndef PIMPL2
 #define PIMPL2
