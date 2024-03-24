@@ -3,26 +3,23 @@
 
 using namespace std;
 
-template<typename T>
-struct A
-{
-  using type = T &&;
-};
-
 int
 main()
 {
-  cout << std::boolalpha;
+  using l_type = int &;
+  using cl_type = const int &;
+  using r_type = int &&;
+  using cr_type = const int &&;
 
-  using lt = int &;
-  using rt = int &&;
+  // New type: non-const lvalue reference + l_type (and the others).
+  using ll_type = l_type &;
+  static_assert(is_same_v<l_type &, int &>);
+  using cll_type = cl_type &;
+  static_assert(is_same_v<cll_type, const int &>);
+  using rl_type = r_type &;
+  static_assert(is_same_v<rl_type, int &>);
+  using crl_type = cr_type &;
+  static_assert(is_same_v<crl_type, const int &>);
 
-  using typ1 = lt &&;
-  cout << is_same_v<int &, typ1> << endl;
-
-  using typ2 = rt &&;
-  cout << is_same_v<int &&, typ2> << endl;
-
-  cout << is_same_v<int &, typename A<lt>::type> << endl;
-  cout << is_same_v<int &&, typename A<rt>::type> << endl;
+  // Implement for all possible compilations as above.
 }
