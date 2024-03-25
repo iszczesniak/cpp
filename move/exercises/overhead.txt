@@ -1,1 +1,12 @@
-Check the overhead introduced by the move semantics.
+Check the overhead introduced by the move semantics using a simple
+structure A that has a pointer to an integer.  We compare two cases:
+
+* The baseline case: we implement the swapping of values of two
+objects by directly manipulating (swapping) the pointer fields in the
+objects.
+
+* The move semantics case: we implement the swapping with the move
+  semantics.
+
+Question: does the move semantics introduce some overhead?  You can
+examine the assembly code or take time measurements.
