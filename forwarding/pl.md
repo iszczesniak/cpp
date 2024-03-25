@@ -321,10 +321,10 @@ przekazująca, będzie typ `A & &&`.  Co wtedy?
 Jeżeli pojawi się typ referencji do referencji, to kompilator zamieni
 taki typ na referencję według zasady:
 
-* `cv1 A & cv2 A &` na `cv12 A &`
-* `cv1 A & cv2 A &&` na `cv12 A &`
-* `cv1 A && cv2 A &` na `cv12 A &`
-* `cv1 A && cv2 A &&` na `cv12 A &&`
+* `cv1 A & cv2 &` na `cv12 A &`
+* `cv1 A & cv2 &&` na `cv12 A &`
+* `cv1 A && cv2 &` na `cv12 A &`
+* `cv1 A && cv2 &&` na `cv12 A &&`
 
 Zbiory `cv1`, `cv2`, `cv12` oznaczają zbiory kwalifikatorów, do
 których mogą należeć `const` i `volatile`.  Zbiór `cv12` jest sumą
