@@ -1,5 +1,5 @@
-Given structure A that has implicitly deleted the move special
-functions, please implement structure B as a move-only type.  B is
+Given structure A that has the special move functions implicitly
+deleted, please implement structure B as a move-only type.  B is
 derived from A.  B has a member object m_txt of type "string".  The
 move operation should copy the value of the base object, while the
 value of the member object should be moved.
