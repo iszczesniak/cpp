@@ -1,7 +1,8 @@
 #include <type_traits>
 
-// Here we define the type of accepted functions.  We perfectly return
-// the value regardless that interface.
+// Here we accept a callable by pointer as a template argument.  Here
+// we define the type of accepted functions.  We perfectly return the
+// value regardless that interface.
 template <int &(*F)()>
 decltype(auto)
 foo1()
@@ -9,6 +10,7 @@ foo1()
   return F();
 }
 
+// Here we accept a callable by reference as a function argument.
 template <typename F>
 decltype(auto)
 foo2(F &f)
