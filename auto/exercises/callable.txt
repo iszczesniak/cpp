@@ -1,0 +1,2 @@
+Write a function template that accepts a callable, calls that callable
+without arguments, and perfectly returns what the callable returned.
