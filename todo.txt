@@ -6,53 +6,7 @@ Generic programming:
 
 **********************************************************************
 
-Injected class names.
-
-**********************************************************************
-
-For the move semantics, whether this compiles:
-
-A &a = A() = A();
-
-depends on declaration of the assignment operator:
-
-A & operator=(const A &) = default;
-A & operator=(const A &) &;
-A & operator=(A &&) &&;
-A && operator=(A &&) &&;
-
-**********************************************************************
-
 Add std::bind to generalized call expressions.
-
-**********************************************************************
-
-Overload resolution chooses a more specialized overload.  Explain what
-that exactly means.
-
-**********************************************************************
-
-ordering types, lower_bound, upper_bound in std::map
-
-<=>, and how others are synthesized from <=>
-
-std::map::Compare::is_transparent
-
-**********************************************************************
-
-callable vs invokable
-
-type traits
-
-variadic templates
-
-Type aliases cannot be specialized.  Use type traits.
-
-Injected class names in class templates.
-
-Partial specialization
-
-Tag dispatching - is it still needed?
 
 **********************************************************************
 
@@ -69,21 +23,6 @@ map<int, string &>
 
 **********************************************************************
 
-pair, tuple, get, structured bindings
-
-get<0>(p) instead of p.first
-get<1>(p) instead of p.second
-
-**********************************************************************
-
-Type erasure.
-
-**********************************************************************
-
-constexpr and literal types.
-
-**********************************************************************
-
 Fold expressions, as in the example from cppreference.com:
 
 // debugging aid
@@ -94,3 +33,62 @@ void print_sequence(std::integer_sequence<T, ints...> int_seq)
     ((std::cout << ints << ' '), ...);
     std::cout << '\n';
 }
+
+**********************************************************************
+
+Injected class names.
+
+**********************************************************************
+
+Overload resolution chooses a more specialized overload.  Explain what
+that exactly means.
+
+**********************************************************************
+
+For the move semantics, whether this compiles:
+
+A &a = A() = A();
+
+depends on declaration of the assignment operator:
+
+A & operator=(const A &) = default;
+A & operator=(const A &) &;
+A & operator=(A &&) &&;
+A && operator=(A &&) &&;
+
+**********************************************************************
+
+ordering types, lower_bound, upper_bound in std::map
+
+<=>, and how others are synthesized from <=>
+
+std::map::Compare::is_transparent
+
+**********************************************************************
+
+callable vs invokable
+
+type traits
+
+Type aliases cannot be specialized.  Use type traits.
+
+Injected class names in class templates.
+
+Partial specialization
+
+Tag dispatching - is it still needed?
+
+**********************************************************************
+
+pair, tuple, get, structured bindings
+
+get<0>(p) instead of p.first
+get<1>(p) instead of p.second
+
+**********************************************************************
+
+constexpr and literal types.
+
+**********************************************************************
+
+Type erasure.
