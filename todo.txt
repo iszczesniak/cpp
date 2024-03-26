@@ -1,3 +1,9 @@
+Generic programming:
+
+* "variadic" and "auto" - switch their places
+
+* deduction and forwarding reference
+
 **********************************************************************
 
 Injected class names.
