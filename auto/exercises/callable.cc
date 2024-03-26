@@ -2,7 +2,7 @@
 
 // Here we accept a callable by pointer as a template argument.  Here
 // we define the type of accepted functions.  We perfectly return the
-// value regardless that interface.
+// value regardless that accepted function type.
 template <int &(*F)()>
 decltype(auto)
 foo1()
@@ -29,21 +29,22 @@ int roo()
   return 1;
 }
 
+// Try to move that closure to the main function.
 auto c = []() -> int & {static int i = 1; return i;};
-
-struct
-{
-  int &
-  operator()() const
-  {
-    static int i = 1;
-    return i;
-  }
-} f;
 
 int
 main()
 {
+  struct
+  {
+    int &
+    operator()() const
+    {
+      static int i = 1;
+      return i;
+    }
+  } f;
+
   foo1<loo>();
   static_assert(std::is_same_v<decltype(foo1<loo>()), int &>);
   // To make the following compile, we would have to change the type
