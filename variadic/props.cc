@@ -87,7 +87,7 @@ template <typename ...P>
 std::ostream &
 operator << (std::ostream &out, const A<P...> &a)
 {
-  ((out << static_cast<P>(a) << std::endl), ...);
+  ((out << static_cast<const P &>(a) << std::endl), ...);
   return out;
 }
 
