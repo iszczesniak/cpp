@@ -17,7 +17,7 @@ struct B: A
   {
     A::operator=(source);
     // We can assign (as above) to the base object this way too:
-    // static_cast<A>(*this) = source;
+    // static_cast<A &>(*this) = source;
     m_s = source.m_s;
     return *this;
   }
@@ -34,7 +34,7 @@ struct B: A
   {
     A::operator=(std::move(source));
     // We can assign (as above) to the base object this way too:
-    // static_cast<A>(*this) = std::move(source);
+    // static_cast<A &>(*this) = std::move(source);
     m_s = std::move(source.m_s);
     return *this;
   }
