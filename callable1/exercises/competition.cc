@@ -26,7 +26,8 @@ struct cmp
 int
 main()
 {
-  vector v = {"Mo", "Ann", "Joe"};
+  vector<string> v = {"Mo", "Ann", "Joe"};
+
   places_type places = {{"Mo", 3}, {"Ann", 1},
                         {"Joe", 2}, {"Shmo", 4}};
 
