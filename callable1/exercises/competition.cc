@@ -35,7 +35,10 @@ main()
   for(auto &name: v)
     cout << name << endl;
 
-  sort(v.begin(), v.end(),
-       [&places](const string &a, const string &b)
+  sort(v.begin(), v.end(), [&places](const string &a, const string &b)
+       {return places[a] < places[b];});
+
+  // The same as above.
+  sort(v.begin(), v.end(), [&places](auto &a, auto &b)
        {return places[a] < places[b];});
 }
