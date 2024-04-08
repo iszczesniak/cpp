@@ -399,6 +399,10 @@ będą przekazywane zawsze l-wartości do funkcji `g`.  Można sprawdzić.
 * Problem doskonałego przekazywania argumentów występuje w
   programowaniu uogólnionym z użyciem szablonów.
 
+* Chodzi o przekazanie argumentów przez referencję (aby uniknąć
+  kopiowania bądź przenoszenia) i wywołanie właściwego przeciążenia
+  funkcji.
+
 * Żeby doskonale przekazać argument wywołania funkcji, używamy
   referencji przekazującej i funkcji `std::forward`.
 
