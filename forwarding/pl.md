@@ -321,21 +321,23 @@ przekazująca, będzie typ `A & &&`.  Co wtedy?
 Jeżeli pojawi się typ referencji do referencji, to kompilator zamieni
 taki typ na referencję według zasady:
 
-* `cv1 A & cv2 &` na `cv12 A &`
-* `cv1 A & cv2 &&` na `cv12 A &`
-* `cv1 A && cv2 &` na `cv12 A &`
-* `cv1 A && cv2 &&` na `cv12 A &&`
+* `cv1 A & cv2 &` -> `cv1 A &`
+* `cv1 A & cv2 &&` -> `cv1 A &`
+* `cv1 A && cv2 &` -> `cv1 A &`
+* `cv1 A && cv2 &&` -> `cv1 A &&`
 
-Zbiory `cv1`, `cv2`, `cv12` oznaczają zbiory kwalifikatorów, do
-których mogą należeć `const` i `volatile`.  Zbiór `cv12` jest sumą
-zbiorów `cv1` i `cv2`.
+Zbiory `cv1` i `cv2` oznaczają zbiory kwalifikatorów, do których mogą
+należeć `const` i `volatile`.  Zbiór `cv2`, który określałby
+kwalifikatory zagnieżdżonego typu referencyjnego (tego z lewej
+strony), jest pomijany, ponieważ typy referencyjne nie mają
+kwalifikatorów.
 
 Spośród powyższych czterech przypadków, dla referencji przekazującej
 może wystąpić jedynie kombinacja `& &&`, kiedy argumentem funkcji jest
 l-wartość.  Wtedy referencja przekazująca jest spłaszczana do
 l-referencji, żeby można ją było zainicjalizować l-wartością.
 
-Przykład spłaszczania referencji:
+Wyczerpujący test spłaszczania referencji z pominięciem `volatile`:
 
 {% highlight c++ %}
 {% include_relative collapse.cc %}

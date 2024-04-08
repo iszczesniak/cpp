@@ -23,6 +23,12 @@ map<int, string &>
 
 **********************************************************************
 
+When not to use references:
+
+* iterators, proxies
+
+**********************************************************************
+
 Fold expressions, as in the example from cppreference.com:
 
 // debugging aid
