@@ -10,12 +10,6 @@ Add std::bind to generalized call expressions.
 
 **********************************************************************
 
-When not to use references:
-
-* iterators, proxies
-
-**********************************************************************
-
 We can't store a reference in a container (e.g., a vector), but we can
 store pairs of references.  Why?
 
@@ -26,6 +20,12 @@ map<string &, int>
 But we can have:
 
 map<int, string &>
+
+**********************************************************************
+
+When not to use references:
+
+* iterators, proxies
 
 **********************************************************************
 
