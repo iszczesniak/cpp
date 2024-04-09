@@ -22,9 +22,9 @@ void roo(int &&)
 
 int main()
 {
-  // The lambda is passed by the rvalue reference.
+  // The lambda is accepted by the rvalue reference.
   c([](int x){}, 1); // 1 is an rvalue.
-  // The function is passed by the lvalue reference.
+  // The function is accepted by the lvalue reference.
   c(roo, 1);
 
   int a;
