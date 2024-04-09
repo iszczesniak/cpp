@@ -1,0 +1,4 @@
+We're writing struct B that derives from A.  A can have a number of
+overload constructors that accept just one argument.  Write a
+constructor of class B that perfectly forwards is argument to the
+constructor of the base class.
