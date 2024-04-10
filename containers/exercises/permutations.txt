@@ -1,0 +1,7 @@
+Make the code below produce all the sentences that are made of the
+given words.  A sentence is a permutation of the words.
+
+vector<string> words = {"Ala", "ma", "kota"};
+
+for(auto &&sentence: range(words))
+  cout << sentence << endl;

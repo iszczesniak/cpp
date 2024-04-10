@@ -29,7 +29,7 @@ An expression can be:
 **The value of an expression** is the result of evaluating an
   expression.
 
-The value of an expression has:
+An expression has:
 
 * a type (e.g., `int`, `bool`, `class A`) known at compile time,
 

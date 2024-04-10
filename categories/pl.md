@@ -28,7 +28,7 @@ Wyrażenie może być:
 
 **Wartość wyrażenia** jest wynikiem opracowania wyrażenia.
 
-Wartość wyrażenia ma:
+Wyrażenie ma:
 
 * typ (np. `int`, `bool`, `class A`) znany w czasie kompilacji,
 
