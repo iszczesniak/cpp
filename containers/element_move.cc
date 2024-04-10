@@ -52,7 +52,7 @@ int main()
   cout << "Vector insert:\n";
   v.insert(v.begin(), A("V2"));
   cout << "Vector element assignment:\n";
-  A a = move(v[0]);
+  A a = std::move(v[0]);
 
   cout << "-------------------------------------------------\n";
 
@@ -62,7 +62,7 @@ int main()
   cout << "List push_front:\n";
   l.push_front(A("L2"));
   cout << "List element assignment:\n";
-  (*l.begin()) = move(a);
+  (*l.begin()) = std::move(a);
 
   cout << "-------------------------------------------------\n";
 

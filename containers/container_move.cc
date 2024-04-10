@@ -49,21 +49,21 @@ int main()
   // its elements through a const reference.
   vector<A> va, vb{A("V1")};
   cout << "Moving a container touches no element.\n";
-  va = move(vb);
+  va = std::move(vb);
 
   cout << "-------------------------------------------------\n";
   
   // A temporary object is not moved but copied.  I don't know why.
   list<A> la, lb{A("L1")};
   cout << "Moving a container touches no element.\n";
-  la = move(lb);
+  la = std::move(lb);
 
   cout << "-------------------------------------------------\n";
 
   // A temporary object is not moved but copied.  I don't know why.
   set<A> sa, sb{A("S1")};
   cout << "Moving a container touches no element.\n";
-  sa = move(sb);
+  sa = std::move(sb);
 
   cout << "-------------------------------------------------\n";
 
