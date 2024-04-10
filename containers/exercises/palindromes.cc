@@ -24,7 +24,7 @@ struct palindromes
   void
   insert(string &&word)
   {
-    m_words.insert(move(word));
+    m_words.insert(std::move(word));
   }
 
   bool exists(const string &word) const
@@ -58,8 +58,8 @@ main()
           if (j != p.second.end() && !j->exists(word))
             {
               auto nh = p.second.extract(j);
-              nh.value().insert(move(word));
-              m[p.first + 1].insert(move(nh));
+              nh.value().insert(std::move(word));
+              m[p.first + 1].insert(std::move(nh));
               found = true;
               break;
             }
