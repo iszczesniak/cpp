@@ -1,15 +1,3 @@
-// Exercise
-//
-// Read words from the input, and print in aphabetical order:
-//
-// * the words that have no palindromes,
-//
-// * the words that have 1 palindrome,
-//
-// * the words that have 2 palindromes,
-//
-// * and so forth.
-
 #include "timer.hpp"
 
 #include <algorithm>
