@@ -1,0 +1,3 @@
+Please write a benchmark that would measure the performance gain of
+emplacing in comparison with insertion.  You could use std::list for
+comparison.
