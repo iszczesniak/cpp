@@ -228,16 +228,6 @@ czasowego i pamięciowego.
 {% include_relative no-overhead.cc %}
 {% endhighlight %}
 
-# Benchmark
-
-Przykład niżej demonstruje wydajność użycia różnego rodzaju callable
-dla kolejki priorytetowej i sortowania.  Proszę skompilować program z
-opcją `-O3` i porównać wyniki.
-
-{% highlight c++ %}
-{% include_relative benchmark.cc %}
-{% endhighlight %}
-
 # Przeciążenia
 
 Niestety nie udało mi się użyć funkcji `std::invoke` i `std::apply` z

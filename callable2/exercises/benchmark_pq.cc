@@ -32,20 +32,6 @@ time_pq(C c)
     q.pop();
 }
 
-template <typename C>
-void
-time_sort(C c)
-{
-  vector<int> v;
-  v.reserve(N);
-
-  for(auto i = N; --i;)
-    v.push_back(distr(gen));
-
-  timer t(__PRETTY_FUNCTION__);
-  sort(v.begin(), v.end(), c);
-}
-
 bool
 cmp(const int &a, const int &b)
 {
@@ -78,14 +64,4 @@ main()
   time_pq(function<callable>(cmp));
   time_pq(function<callable>(closure));
   time_pq(function<callable>(std::bind(&A::cmp, A(), _1, _2)));
-
-  time_sort(functor);
-  time_sort(cmp);
-  time_sort(closure);
-  time_sort(std::bind(&A::cmp, A(), _1, _2));
-
-  time_sort(function<callable>(functor));
-  time_sort(function<callable>(cmp));
-  time_sort(function<callable>(closure));
-  time_sort(function<callable>(std::bind(&A::cmp, A(), _1, _2)));
 }

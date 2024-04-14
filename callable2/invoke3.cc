@@ -5,11 +5,11 @@
 using namespace std;
 
 template <typename G, typename ... Args>
-auto
+decltype(auto)
 f(G &&g, Args &&... args)
 {
   cout << __PRETTY_FUNCTION__ << '\n';
-  std::invoke(std::forward<G>(g), std::forward<Args>(args)...);
+  return std::invoke(std::forward<G>(g), std::forward<Args>(args)...);
 }
 
 void
