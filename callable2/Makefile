@@ -1,5 +1,6 @@
-PRGS = $(patsubst %.cc, %, $(wildcard *.cc))
+SRCS != ls *.cc
+PROGS = $(SRCS:R)
 
-CXXFLAGS = -I../lib -std=c++20 -O2
+CXXFLAGS = -std=c++17
 
-all: $(PRGS)
+all: $(PROGS)
