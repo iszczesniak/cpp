@@ -6,4 +6,4 @@ According to the results of a competition:
 
 map<string, int> m = {{"Mo", 3}, {"Ann", 1}, {"Joe", 2}, {"Shmo", 4}};
 
-                      
+Solve the problem first with a functor, than with a closure.
