@@ -1,0 +1,5 @@
+Write a benchmark that would measure the performance of the
+std::priority_queue of integers with a function, a functor, a closure,
+and std::function.  For instance, you can write a function time_pq
+that would take any callable and use it to sort the elements in the
+queue.
