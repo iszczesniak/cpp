@@ -24,8 +24,8 @@ struct F
   // We store the first argument by reference.
   FirstArg &&m_a;
 
-  F(Callable &&c, FirstArg &&a): m_c(forward<Callable>(c)),
-				 m_a(forward<FirstArg>(a))
+  F(Callable &&c, FirstArg &&a): m_c(std::forward<Callable>(c)),
+				 m_a(std::forward<FirstArg>(a))
   {
     cout << __PRETTY_FUNCTION__ << endl;
   }
@@ -35,7 +35,8 @@ struct F
   operator()(SecondArg &&b)
   {
     cout << __PRETTY_FUNCTION__ << endl;
-    return m_c(forward<FirstArg>(m_a), forward<SecondArg>(b));
+    return m_c(std::forward<FirstArg>(m_a),
+               std::forward<SecondArg>(b));
   }
 };
 
@@ -46,7 +47,7 @@ F(Callable &&, FirstArg &&) -> F<Callable, FirstArg>;
 auto
 loo(A &a, B &b)
 {
-  return make_unique<C>(a, b);
+  return std::make_unique<C>(a, b);
 }
 
 // We use this type to see where exactly a lambda is destroyed.
@@ -64,7 +65,7 @@ main()
   cout << "Test #1:\n";
   {
     A a;
-    F f(make_unique<C, A, B>, move(a));
+    F f(make_unique<C, A, B>, std::move(a));
     auto up = f(B{});
   }
 
@@ -73,8 +74,10 @@ main()
     A a;
     F f([d = D()]
         (auto &&a, auto &&b)
-        {return make_unique<C>(forward<decltype(a)>(a),
-	                       forward<decltype(b)>(b));}, move(a));
+        {return make_unique<C>(std::forward<decltype(a)>(a),
+                               std::forward<decltype(b)>(b));},
+        std::move(a));
+
     auto up1 = f(B{});
     B b;
     auto up2 = f(b);
