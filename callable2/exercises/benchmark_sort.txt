@@ -1,0 +1,4 @@
+Write a benchmark that would measure the performance of std::sort for
+integers with a function, a functor, a closure, and std::function.
+For instance, you can write a function time_sort that would take any
+callable and use it to sort the elements in the queue.
