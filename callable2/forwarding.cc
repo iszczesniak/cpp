@@ -8,7 +8,7 @@ void f(C &&c)
 {
   cout << __PRETTY_FUNCTION__ << '\n';
   // Here we perfectly forward (or rather call) the callable.
-  forward<C>(c)();
+  std::forward<C>(c)();
 }
 
 void g()
