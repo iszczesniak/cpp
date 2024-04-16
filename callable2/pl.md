@@ -229,15 +229,9 @@ na rzecz którego callable będzie wywołana.
 {% include_relative apply.cc %}
 {% endhighlight %}
 
-# Brak narzutu wydajnościowego
-
 Funkcje `std::invoke`, `std::apply` i `std::forward_as_tuple` są
 mechanizmami czasu kompilacji i nie wprowadzają żadnego narzutu
 czasowego i pamięciowego.
-
-{% highlight c++ %}
-{% include_relative no-overhead.cc %}
-{% endhighlight %}
 
 # Przeciążenia
 
