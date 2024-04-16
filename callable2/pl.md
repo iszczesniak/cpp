@@ -1,8 +1,19 @@
 ---
-title: Uogólnienie callable
+title: Uogólnienie wyrażeń wywołania
 ---
 
-# Callable a czas kompilacji czy uruchomienia
+# Wprowadzenie
+
+Chielibyśmy, żeby wyrażenia wywołania mogły użyć:
+
+* dowolnego callable w czasie kompilacji bez utraty wydajności,
+
+* dowolnego callable w czasie uruchomienia, niestety już ze stratą
+  wydajności,
+
+* także funkcji składowej jako callable.
+
+# Czas kompilacji czy uruchomienia
 
 Callable może być określone (przez podanie referencji, wskaźnika czy
 obiektu) w czasie **uruchomienia**, albo **kompilacji**.
