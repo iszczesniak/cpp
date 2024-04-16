@@ -1,5 +1,5 @@
 PROGS = $(patsubst %.cc, %, $(wildcard *.cc))
 
-CXXFLAGS = -std=c++17 -I ../../lib -O3
+CXXFLAGS = -std=c++20 -I ../../lib -O3
 
 all: $(PROGS)
