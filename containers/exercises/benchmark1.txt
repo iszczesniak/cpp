@@ -1,0 +1,14 @@
+Write a benchmark that would measure the time taken to:
+
+* create a container of 10^8 integers initialized with the consecutive
+  values starting from 0 by inserting an element at the front,
+
+* calculate the sum of all elements of the container,
+
+* empty the container by repeatedly erasing the first element.
+
+Measure the times for a vector, deque, list and forward_list.
+
+For a vector and a deque, the above creation is severly inefficient.
+Instead, we should first reserve memory for the elements with the
+"reserve" function, and then set the values,
