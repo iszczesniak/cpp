@@ -8,7 +8,9 @@
 
 * Para `p` obiektów typów A i B: \code{std::pair<A, B> p;}
 
-* `p.first` - pierwszy element, `p.second` - drugi element
+* `p.first` - pierwszy element, `p.second` - drugi element,
+
+* get<0>(p) instead of p.first, get<1>(p) instead of p.second
 
 * Globalna funkcja szablonowa `std::make_pair` pozwala na tworzenie
   pary bez podania typów, kompilator wywnioskuje typy sam:
@@ -42,5 +44,3 @@
   }
 
 # Structured bindings
-
-  
