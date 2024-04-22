@@ -2,7 +2,7 @@ Generic programming:
 
 * "variadic" and "auto" - switch their places
 
-* deduction and forwarding reference
+* add forwarding reference to deduction
 
 **********************************************************************
 
