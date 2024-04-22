@@ -42,10 +42,6 @@ void print_sequence(std::integer_sequence<T, ints...> int_seq)
 
 **********************************************************************
 
-Injected class names.
-
-**********************************************************************
-
 Overload resolution chooses a more specialized overload.  Explain what
 that exactly means.
 
@@ -86,14 +82,7 @@ Tag dispatching - is it still needed?
 
 **********************************************************************
 
-pair, tuple, get, structured bindings
-
-get<0>(p) instead of p.first
-get<1>(p) instead of p.second
-
-**********************************************************************
-
-constexpr and literal types.
+constexpr, consteval, and literal types.
 
 **********************************************************************
 
