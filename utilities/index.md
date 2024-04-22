@@ -30,6 +30,8 @@
 
 # `std::any`
 
+# std::expected
+
 # std::exchange
 
 # Returning tuple with:
