@@ -28,10 +28,12 @@ main()
 {
   A a("a"), b("b");
 
-  // A pointer to a member function.
+  // A pointer to any member function of A with the defined interface.
   void (A::* p1)() = &A::foo;
   // It's better to let the compiler deduce the type.
   auto p2 = &A::goo;
+  // Make sure the types are the same.
+  static_assert(std::is_same_v<decltype(p1), decltype(p2)>);
 
   (a.*p1)();
   (b.*p1)();
