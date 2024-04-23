@@ -1,0 +1,30 @@
+Implement a functor struct that takes as the constructor arguments:
+
+* a pointer to a member function,
+
+* an object for which the function should be called.
+
+The struct should have "operator()" that takes one argument and
+perfectly forwards it to the function called for the object.
+
+Implement the same functionality with a closure.
+
+Sample code:
+
+struct A
+{
+  void foo(int);
+};
+
+struct visitor
+{
+  // implementation
+};
+
+int
+main()
+{
+  A a;
+  visitor v(&A::foo, a);
+  v(1);
+}
