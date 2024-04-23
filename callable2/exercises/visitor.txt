@@ -16,6 +16,7 @@ struct A
   void foo(int);
 };
 
+template...
 struct visitor
 {
   // implementation

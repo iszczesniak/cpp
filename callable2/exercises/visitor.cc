@@ -1,3 +1,4 @@
+#include <functional>
 #include <iostream>
 
 using namespace std;
@@ -29,6 +30,7 @@ struct visitor
   decltype(auto) operator()(T &&t)
   {
     return (m_a.*m_f)(forward<T>(t));
+    // return std::invoke(m_f, m_a, forward<T>(t));
   }
 };
 
