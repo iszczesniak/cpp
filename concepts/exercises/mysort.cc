@@ -11,9 +11,9 @@ concept comparator =
 
 template <std::random_access_iterator I, comparator<I> C>
 void
-mysort(I &&i1, I &&i2, C &&c)
+mysort(I i1, I i2, C &&c)
 {
-  std::sort(i1, i2, c);
+  std::sort(i1, i2, std::forward<C>(c));
 }
 
 bool
