@@ -1,2 +1,2 @@
 Write a variadic template function that accepts any number of
-arguments, and prints their values in separate lines.
+arguments, and prints their values.
