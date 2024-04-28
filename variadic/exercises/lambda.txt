@@ -1,0 +1,3 @@
+Write a lambda expression so that the we can call the resulting
+closure with any number of arguments.  The closure calls function g
+and perfectly forwards to it the arguments.
