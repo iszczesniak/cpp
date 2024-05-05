@@ -113,7 +113,7 @@ parametrów paczki funkcji o jeden za każdym wywołaniem rekurencyjnym.
 # Wyrażenie złożenia
 
 Wyrażenie złożenia (ang. a fold expression) przetwarza paczkę
-parametrówm, co eliminuje potrzebę przetważania rekurencyjnego.  Są
+parametrów, co eliminuje potrzebę przetwarzania rekurencyjnego.  Są
 cztery takie wyrażenia, każde ujęte w nawiasy, gdzie `e` jest
 wyrażeniem, `op` operatorem, a `args` nazwą paczki parametrów funkcji
 :
@@ -129,3 +129,27 @@ wyrażeniem, `op` operatorem, a `args` nazwą paczki parametrów funkcji
 ```cpp
 {% include_relative props.cc %}
 ```
+
+# Podsumowanie
+
+* Szablon wariadyczny przyjmuje dowolną liczbę argumentów.
+
+* Paczka argumentów szablonu jest używana tylko w wyrażeniach
+  złożenia.
+
+* Wyrażenie złożenia może definiować listy:
+
+  - dziedziczenia i inicjalizacji,
+
+  - parametrów szablonów i argumentów szablonów,
+
+  - parametrów funkcji i argumentów funkcji.
+
+# Quiz
+
+* Czy paczka parametrów szablonu może przyjąć argumenty różnego
+  rodzaju?
+
+* Czy paczka parametrów może być pusta?
+
+* Co to jest wyrażenie złożenia?
