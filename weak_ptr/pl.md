@@ -117,6 +117,10 @@ odwołań i licznik słabych odwołań osiągną zero.
 Oto implementacja:
 
 {% highlight c++ %}
+{% include_relative factory.hpp %}
+{% endhighlight %}
+
+{% highlight c++ %}
 {% include_relative factory.cc %}
 {% endhighlight %}
 
