@@ -16,7 +16,11 @@ std::map::Compare::is_transparent
 
 **********************************************************************
 
-Add std::bind to generalized call expressions.
+Add std::bind to callable1 and callable2.
+
+**********************************************************************
+
+prvalue, glvalue, xvalue
 
 **********************************************************************
 
@@ -35,7 +39,9 @@ map<int, string &>
 
 When not to use references:
 
-* iterators, proxies
+* iterators, proxies,
+
+* when it's better to pass by value.
 
 **********************************************************************
 
@@ -51,8 +57,10 @@ unique_ptr<int*>
 
 **********************************************************************
 
-Overload resolution chooses a more specialized overload.  Explain what
-that exactly means.
+Overloading
+-----------
+
+* Explain what "more specialized" means.
 
 **********************************************************************
 
