@@ -1,0 +1,7 @@
+Please implement myinvoke that would work as std::invoke.  Two
+overloads have to be implemented:
+
+* one for any kind of callables,
+
+* one, more specialized, for callables that are pointers to member
+  functions.
