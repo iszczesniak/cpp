@@ -10,8 +10,8 @@ struct A
 
 struct B
 {
-  // ACHTUNG!
-  // These initializations are ill-formed! Does the compiler complain?
+  // ACHTUNG!  These initializations are ill-formed! Does the compiler
+  // complain?  Clang 11 does, but GCC 12 doesn't.
   const A &a = A();
   const int &i = 1;
 };
