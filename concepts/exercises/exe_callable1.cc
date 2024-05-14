@@ -1,18 +1,29 @@
 #include <concepts>
 #include <utility>
 
-template <std::integral I, std::invocable<I> G>
-void f(G &&g)
+template <std::integral I>
+void f(std::invocable<I> auto &g)
 {
-  std::forward<G>(g)(1);
+  g(1);
 }
 
-void g(int)
+void i1(int)
+{
+}
+
+void i2(long)
+{
+}
+
+void d1(double)
 {
 }
 
 int
 main()
 {
-  //  f(g);
+  // I don't know how to make the template deduce the given argument.
+  f<int>(i1);
+  f<long>(i2);
+  // f<double>(d1);
 }
