@@ -16,7 +16,11 @@ std::map::Compare::is_transparent
 
 **********************************************************************
 
-Add std::bind to callable1 and callable2.
+Quickies
+
+* in-place construction
+
+* std::bind to callable1 and callable2.
 
 **********************************************************************
 
