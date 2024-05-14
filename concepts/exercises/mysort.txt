@@ -3,4 +3,4 @@ mysort should make sure to accept only:
 
 * the random access iterators of the range to sort,
 
-* the functor that compares elements of the types in the range.
+* the functor that compares elements of the type that we sort.
