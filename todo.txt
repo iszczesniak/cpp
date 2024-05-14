@@ -12,7 +12,7 @@ Quickies
 
 * std::bind to callable1 and callable2.
 
-* references/wrapper.cc
+* std::reference_wrapper, std::cref, std::ref
 
 **********************************************************************
 
