@@ -1,0 +1,9 @@
+Please write a function that would accept two arguments:
+
+* a value of any type,
+
+* a callable.
+
+The function should perfectly forward the value to the callable.
+Please make sure that the callable would accept the forwarded value.
+

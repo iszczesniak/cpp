@@ -1,0 +1,2 @@
+Please write a function that would accept a callable.  A callable, in
+turn, should accept an integral argument.
