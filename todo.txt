@@ -6,6 +6,16 @@ Generic programming:
 
 **********************************************************************
 
+value semantics
+
+<=>, and how others are synthesized from <=>
+
+ordering types, lower_bound, upper_bound in std::map
+
+std::map::Compare::is_transparent
+
+**********************************************************************
+
 Add std::bind to generalized call expressions.
 
 **********************************************************************
@@ -41,19 +51,6 @@ unique_ptr<int*>
 
 **********************************************************************
 
-Fold expressions, as in the example from cppreference.com:
-
-// debugging aid
-template<typename T, T... ints>
-void print_sequence(std::integer_sequence<T, ints...> int_seq)
-{
-    std::cout << "The sequence of size " << int_seq.size() << ": ";
-    ((std::cout << ints << ' '), ...);
-    std::cout << '\n';
-}
-
-**********************************************************************
-
 Overload resolution chooses a more specialized overload.  Explain what
 that exactly means.
 
@@ -77,11 +74,27 @@ not.
 
 **********************************************************************
 
-ordering types, lower_bound, upper_bound in std::map
+Smart pointers
 
-<=>, and how others are synthesized from <=>
+* std::nullptr
 
-std::map::Compare::is_transparent
+* cyclic dependency: deterministic vs nondeterministic destruction
+
+**********************************************************************
+
+Variadic templates
+------------------
+
+Fold expressions, as in the example from cppreference.com:
+
+// debugging aid
+template<typename T, T... ints>
+void print_sequence(std::integer_sequence<T, ints...> int_seq)
+{
+    std::cout << "The sequence of size " << int_seq.size() << ": ";
+    ((std::cout << ints << ' '), ...);
+    std::cout << '\n';
+}
 
 **********************************************************************
 
