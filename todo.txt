@@ -29,6 +29,18 @@ When not to use references:
 
 **********************************************************************
 
+Types int[] and int* seem the same:
+
+void foo(int []);
+void foo(int *);
+
+But these are not the same:
+
+unique_ptr<int[]>
+unique_ptr<int*>
+
+**********************************************************************
+
 Fold expressions, as in the example from cppreference.com:
 
 // debugging aid
@@ -57,6 +69,11 @@ A & operator=(const A &) = default;
 A & operator=(const A &) &;
 A & operator=(A &&) &&;
 A && operator=(A &&) &&;
+
+Since C++23, we've got the explicit object member function that
+simplifies writing a function that can accept (by the forwarding
+reference) an object of an lvalue and rvalue that is cv-qualified or
+not.
 
 **********************************************************************
 
