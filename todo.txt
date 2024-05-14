@@ -61,6 +61,30 @@ But these are not the same:
 unique_ptr<int[]>
 unique_ptr<int*>
 
+Sample code:
+
+#include <iostream>
+
+template<typename>
+struct ER;
+
+void foo(int[])
+{
+}
+
+void foo(int *)
+{
+}
+
+int
+main()
+{
+  using type = int [];
+  type x = {1, 2, 3};
+  //  ER<type> er;
+  static_assert(std::is_same_v<int *, int []>);
+}
+
 **********************************************************************
 
 Overloading
