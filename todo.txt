@@ -6,6 +6,16 @@ Generic programming:
 
 **********************************************************************
 
+Quickies
+
+* in-place construction
+
+* std::bind to callable1 and callable2.
+
+* references/wrapper.cc
+
+**********************************************************************
+
 value semantics
 
 <=>, and how others are synthesized from <=>
@@ -13,14 +23,6 @@ value semantics
 ordering types, lower_bound, upper_bound in std::map
 
 std::map::Compare::is_transparent
-
-**********************************************************************
-
-Quickies
-
-* in-place construction
-
-* std::bind to callable1 and callable2.
 
 **********************************************************************
 
