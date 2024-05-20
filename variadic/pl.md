@@ -113,10 +113,10 @@ parametrów paczki funkcji o jeden za każdym wywołaniem rekurencyjnym.
 # Wyrażenie złożenia
 
 Wyrażenie złożenia (ang. a fold expression) przetwarza paczkę
-parametrów, co eliminuje potrzebę przetwarzania rekurencyjnego.  Są
-cztery takie wyrażenia, każde ujęte w nawiasy, gdzie `e` jest
-wyrażeniem, `op` operatorem, a `args` nazwą paczki parametrów funkcji
-:
+parametrów, co eliminuje potrzebę przetwarzania rekurencyjnego.
+Wyrażenie złożenia poznajemy po `...` i nawiasach.  Oto przykładowe
+wyrażenie i jego rozwinięcie, gdzie `e` jest wyrażeniem, `op`
+operatorem, a `args` nazwą paczki parametrów funkcji:
 
 * `(e op ... op args)` -> `(((e op p_1) op p_2) op ...) op p_n`
 
