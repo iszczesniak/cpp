@@ -87,13 +87,6 @@ main()
 
 **********************************************************************
 
-Overloading
------------
-
-* Explain what "more specialized" means.
-
-**********************************************************************
-
 For the move semantics, whether this compiles:
 
 A &a = A() = A();
@@ -109,6 +102,15 @@ Since C++23, we've got the explicit object member function that
 simplifies writing a function that can accept (by the forwarding
 reference) an object of an lvalue and rvalue that is cv-qualified or
 not.
+
+**********************************************************************
+
+Overloading
+-----------
+
+* Explain what "more specialized" means.
+
+* Deduction guides.
 
 **********************************************************************
 
@@ -154,4 +156,4 @@ constexpr, consteval, and literal types.
 
 **********************************************************************
 
-Type erasure.
+Type erasure, if ever.
