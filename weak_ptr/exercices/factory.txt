@@ -1,0 +1,6 @@
+Please implement function "factory" that returns a shared_ptr to a
+default-constructed object of class A.  The function should track a
+previously created object, but should not own it.  If that object
+still exists in subsequent calls, the function should return a
+shared_ptr to that previously-created object.  Otherwise, the function
+should create a new one.
