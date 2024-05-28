@@ -15,9 +15,9 @@ void myinvoke(G &&g, Args &&... args)
 // A more specialized primary template.
 template <member_pointer G, typename O, typename ... Args>
 void
-myinvoke(G &&g, O &&o, Args &&... args)
+myinvoke(G g, O &&o, Args &&... args)
 {
-  (std::forward<O>(o).*std::forward<G>(g))(std::forward<Args>(args)...);
+  (std::forward<O>(o).*g)(std::forward<Args>(args)...);
 }
 
 void foo()
