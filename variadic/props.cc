@@ -83,11 +83,12 @@ struct A: P...
   constexpr auto operator <=> (const A &) const = default;
 };
 
-template <typename ...P>
+template <typename P1, typename ...Ps>
 std::ostream &
-operator << (std::ostream &out, const A<P...> &a)
+operator << (std::ostream &out, const A<P1, Ps...> &a)
 {
-  ((out << static_cast<const P &>(a) << std::endl), ...);
+  out << static_cast<const P1 &>(a);
+  ((out << ", " << static_cast<const Ps &>(a)), ...);
   return out;
 }
 
