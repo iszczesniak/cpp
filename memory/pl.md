@@ -82,7 +82,7 @@ pogorszenie wydajności programu.
 Komitet Standaryzacyjny C++ rozważał wprowadzenie odśmiecania pamięci,
 ale zaniechał tego z powodu oczekiwanego spadku wydajności programów.
 Dzisiaj programy pisane w C++ nie wymagają odśmiecania pamięci,
-ponieważ jest dostępna bogada funkcjonalność kontenerów i
+ponieważ jest dostępna bogata funkcjonalność kontenerów i
 inteligentnych wskaźników, które mogą być uznane za rodzaj odśmiecania
 pamięci.
 
