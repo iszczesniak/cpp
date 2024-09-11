@@ -183,7 +183,7 @@ potrafi.  Jeżeli nie, to proces zostanie zakończony z błędem, kiedy
 dojdzie do przepełnienia stosu.
 
 Poniższy kod testuje, jak duży jest stos i czy system operacyjny
-potrafi automatycznie przydzielać więcej pamięci dla stosu.  Funcja
+potrafi automatycznie przydzielać więcej pamięci dla stosu.  Funkcja
 wywołuje siebie (rekursywnie) i wypisuje na standardowe wyjście, ile
 razy była wywołana.  Jeżeli widzimy małe liczby (poniżej miliona),
 kiedy proces był zakończony, to system nie jest w stanie automatycznie
