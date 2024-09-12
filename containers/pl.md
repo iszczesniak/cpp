@@ -102,8 +102,8 @@ Wektor zapewnia:
   - operator swobodnego dostępu jest maksymalnie szybki, ponieważ
     jedynie zwiększa wskaźnik
 
-  - dostęp do pamięci jest maksymalnie szyki: elementy są
-    przechowywane obok siecie, co zwiększa efektywność pamięci
+  - dostęp do pamięci jest maksymalnie szybki: elementy są
+    przechowywane obok siebie, co zwiększa efektywność pamięci
     podręcznej procesora,
 
   - **usuwanie i wstawianie elementów jest wolne**.
