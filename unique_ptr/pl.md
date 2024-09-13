@@ -196,7 +196,7 @@ powinniśmy stosować ten typ inteligentnego wskaźnika.
 
 Typ `std::unique_ptr` jest szablonowy: typ zarządzanych danych
 przekazujemy jako argument szablonu.  Przekazujemy argumenty szablonu
-w nawiasach kontowych `<>` w ten sposób:
+w nawiasach ostrokątnych `<>` w ten sposób:
 
 ```p
 std::unique_ptr<typ> p;
