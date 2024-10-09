@@ -1,0 +1,2 @@
+Implement a benchmark that would measure the difference in run time
+between the dynamic and static polymorphism.
