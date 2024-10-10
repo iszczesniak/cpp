@@ -233,7 +233,7 @@ Generic programming:
 
 # Quiz
 
-* Does the generic programming in C++ suffers from performance loss?
+* Does the generic programming in C++ suffer the performance loss?
 
 * What's the difference between the static and dynamic polymorphism?
 
