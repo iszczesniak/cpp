@@ -1,5 +1,6 @@
+#include "timer.hpp"
+
 #include <algorithm>
-#include <chrono>
 #include <iostream>
 #include <random>
 #include <vector>
@@ -18,25 +19,15 @@ int main()
   v.reserve(n);
 
   {
-    auto t0 = std::chrono::system_clock::now();
+    timer t("generation");
 
     for(int i = 0; i < n; ++i)
       v.push_back(distr(gen));
-
-    auto t1 = std::chrono::system_clock::now();
-    double dt = static_cast<chrono::duration<double>>(t1 - t0).count();
-
-    cout << "generation: " << dt << " s\n";
   }
 
   {
-    auto t0 = std::chrono::system_clock::now();
+    timer t("sorting");
 
     sort(v.begin(), v.end());
-
-    auto t1 = std::chrono::system_clock::now();
-    double dt = static_cast<chrono::duration<double>>(t1 - t0).count();
-
-    cout << "sorting: " << dt << " s\n";
   }
 }
