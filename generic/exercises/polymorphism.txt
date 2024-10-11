@@ -13,7 +13,7 @@ Ideas:
   optimize the binary based on the hard-coded parameters in your code,
 
 * use volatile variables (e.g. volatile long x), so that the compiler
-  does not optimize the calculations,
+  does not optimize out calling a virtual function,
 
 * functions called (the virtuals, the overloads) should do the same
-  and the very little, e.g., incrementing a variable.
+  and the very little, e.g., incrementing a global variable.
