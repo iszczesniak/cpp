@@ -1,2 +1,19 @@
 Implement a benchmark that would measure the difference in run time
 between the dynamic and static polymorphism.
+
+Ideas:
+
+* don't use std::cout, because the input-output operations is very
+  slow,
+
+* do something a million or billion times, and then calculate the
+  average,
+
+* rely on input data read from std::cin, so that the compiler does not
+  optimize the binary based on the hard-coded parameters in your code,
+
+* use volatile variables (e.g. volatile long x), so that the compiler
+  does not optimize the calculations,
+
+* functions called (the virtuals, the overloads) should do the same
+  and the very little, e.g., incrementing a variable.
