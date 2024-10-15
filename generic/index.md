@@ -213,7 +213,7 @@ now is generic.
 
 ## An example of object-oriented programming
 
-The same functionality we could implement using dynamic programming.
+The same functionality we could implement using dynamic polymorphism.
 However, the assembly code is much more complicated, because of the
 call to a virtual function.
 
