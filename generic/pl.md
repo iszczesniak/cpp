@@ -27,7 +27,7 @@ Kluczowe są:
 ## Najbardziej ogólny przypadek
 
 Programowanie uogólnione jest wspierane przez język C++ z użyciem
-szablonów, przy użyciu których zaimplementowane są:
+szablonów i przeciążeń, przy użyciu których zaimplementowane są:
 
 * uogólnione struktury danych, takie jak kontenery biblioteki
   standardowej, np. `std::vector`,
@@ -57,7 +57,7 @@ bardziej ogólne niż programowanie obiektowe, które działa wyłącznie na
 typach obiektowych.  Możemy przerobić przykład wyżej, żeby działał nie
 tylko na kontenerach (które są obiektowe), ale też na tablicy z języka
 C: zamieniamy wywołania funkcji składowych `begin` i `end`, na
-wywołania funkcji szablonowych `std::begin` i `std::end`:
+wywołania funkcji nieskładowych `std::begin` i `std::end`:
 
 {% highlight c++ %}
 {% include_relative motivation2.cc %}
@@ -130,7 +130,7 @@ przykładzie:
 {% include_relative test_function.cc %}
 {% endhighlight %}
 
-Użycie krotki (`std::tuple`), też nie wprowadza narzutu.  Krotka jest
+Użycie krotki (`std::tuple`) też nie wprowadza narzutu.  Krotka jest
 szablonowym typem klasowym, więc ma konstruktor i destruktor, jednak
 są one puste.  Oto przykład dla testów:
 
@@ -170,7 +170,7 @@ programowania uogólnionego.
 Częstym problemem programowania jest potrzeba dostarczenia różnych
 fragmentów kodu (operacji czy algorytmów) w zależności od typów
 danych, na których działamy.  Programowanie uogólnione i obiektowe
-rozwiązują problem z użyciem polimorfizmu, ale różnych rodzajów:
+rozwiązują problem z użyciem polimorfizmu, ale różnego rodzaju:
 
 * W **programowaniu uogólnionym** używamy wywołania funkcji i
   mechanizmów ich uogólnienia: przeciążeń lub szablonów.  W *czasie
