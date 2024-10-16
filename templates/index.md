@@ -4,13 +4,17 @@ title: Templates
 
 # Templates
 
-There can be templates of:
+A template can be of a:
 
-* functions,
-* classes,
-* members (of classes),
-* types (aliases),
-* variables.
+* function,
+
+* class, struct, union,
+
+* member (a member function, a member field),
+
+* type alias,
+
+* variable.
 
 A template declaration or definition begins with the `template`
 keyword, and it has this syntax:
@@ -20,7 +24,7 @@ template <parameter list>
 ```
 
 We say a template is *parametrized*, because it has a list of
-parameters.
+parameters that we call template parameters.
 
 ## Parameter list
 

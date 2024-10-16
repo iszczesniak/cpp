@@ -4,19 +4,19 @@ title: Szablony
 
 # Szablony
 
-Szablonowe mogą być:
+Szablon może być:
 
-* funkcje, 
+* funkcji,
 
-* klasy, struktury, unie,
+* klasy, struktury, unii,
 
-* składowe klasy (czyli funkcje i pola składowe klasy),
+* składowej klasy (funkcji składowej, pola składowego),
 
-* typy (czyli aliasy typów),
+* aliasu typu,
 
-* zmienne,
+* zmiennej,
 
-* koncepty.
+* konceptu.
 
 Deklaracje i definicje szablonów rozpoczynają się słowem kluczowym
 `template` z taką składnią:
