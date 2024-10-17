@@ -24,7 +24,12 @@ template <parameter list>
 ```
 
 We say a template is *parametrized*, because it has a list of
-parameters that we call template parameters.
+parameters that we call **template parameters**.
+
+When we call a function defined with a template, then after the
+function name we can provide *template arguments* in `<>`.
+Instantiation **substitutes** a template argument for a template
+parameter in a template, i.e., puts an argument where a parameter is.
 
 ## Parameter list
 
