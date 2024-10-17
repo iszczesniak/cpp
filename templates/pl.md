@@ -36,8 +36,8 @@ parametru w szablonie.
 # Parametry szablonu
 
 Parametry szablonu są zdefiniowane w liście parametrów, gdzie są
-oddzielone przecinkami.  Deklaracja parametru składa się z rodzaju i
-opcjonalnej nazwy parametru.  Rodzaje parametrów to: typ, wartość,
+oddzielone przecinkami.  Definicja parametru ustala rodzaj i
+opcjonalną nazwę parametru.  Rodzaje parametrów to: typ, wartość,
 szablon.  Przykład listy parametrów:
 
 ```cpp

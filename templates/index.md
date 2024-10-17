@@ -31,18 +31,19 @@ function name we can provide **template arguments** in `<>`.
 Instantiation **substitutes** a template argument for a template
 parameter in a template, i.e., puts an argument where a parameter is.
 
-## Parameter list
+# Template parameters
 
-The list has to have at least one parameter.  The parameters in a list
-are seprated by a comma.  Each paramter in the list is declared with
-its type and name.  The types can be: type, value, and template.  For
-instance:
+Template parameters are defined in a parameter list, where they are
+comma-separated.  A parameter is defined by a kind and an optional
+name.  There are three kinds: type, value, and template.  An example
+with three parameters: T of the type kind, N of the value kind, and
+C of the template kind.
 
 ```
 template <typename T, int N, template<typename> typename C>
 ```
 
-### Type parameter
+## Parameter kind: type
 
 We declare a type parameter with `typename T`, where `typename` says
 it's a *type parameter*, and `T` is the name of the parameter.  We can
