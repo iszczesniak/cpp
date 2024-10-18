@@ -54,7 +54,7 @@ Instantiation can substitute `T` with any type: a built-in type,
 user-defined type, even `void`. `T` doesn't have to meet any
 requirements, e.g., inheriting from an interface class.  The
 requirements on type `T` follow from how we use the type in the
-template definition, i.e., whether we:
+template definition, i.e., whether we, e.g.,:
 
 * default-construct a value of type `T`,
 
