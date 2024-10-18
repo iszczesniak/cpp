@@ -53,7 +53,7 @@ mówi, że chodzi o typowy parametr, a `T` jest nazwą parametru.  Możemy
 również równoważnie napisać `class T`, ale nowocześniej jest `typename
 T`.
 
-Podczas kompilacji za `T` może być podstawiony dowolny typ: wbudowany
+Konkretyzacja może podstawić za `T` dowolny typ: wbudowany
 (np. `int`), użytkownika (np. `myclass`), a nawet `void`.  `T` nie
 musi spełniać żadnych warunków, np. nie musi dziedziczyć z klasy
 bazowej.  Wymagania dotyczące typu `T` wynikają z jego użycia w
@@ -70,7 +70,8 @@ definicji szablonu, czyli czy, na przykład:
 * piszemy do `std::ostream` wartość typu `T` z użyciem `operator<<`.
 
 To jest przykład funkcji szablonowej z typowym parametrem, gdzie
-kompilator jest w stanie **wywnioskować argument szablonu**:
+kompilator jest w stanie **wywnioskować argument szablonu**, więc nie
+musimy go jawnie podawać podczas wywołania funkcji:
 
 ```cpp
 {% include_relative print1.cc %}

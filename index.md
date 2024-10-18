@@ -24,3 +24,4 @@ interesting and important for efficient code.
 ## Generic programming
 
 * [Introduction](generic)
+* [Templates](templates)

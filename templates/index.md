@@ -45,17 +45,16 @@ template <typename T, int N, template<typename> typename C>
 
 ## Parameter kind: type
 
-We declare a type parameter with `typename T`, where `typename` says
-it's a *type parameter*, and `T` is the name of the parameter.  We can
-also declare equivalently a type parameter with `class T`, but
-`typename T` is preferred in modern C++.  `T` represents a type, and
-during compilation `T` is replaced with a type, e.g., `int` or the
-user class `myclass`.
+It's the most common kind.  We declare a type parameter with `typename
+T`, where `typename` says it's a *type parameter*, and `T` is the name
+of the parameter.  We can also declare equivalently a type parameter
+with `class T`, but `typename T` is preferred in modern C++.
 
-`T` can become any type: a built-in type, user-defined type, even
-`void`. `T` doesn't have to meet some requirements, e.g., inheriting
-from an interface class.  The requirements on type `T` follow from how
-we use the type in the template definition, i.e., whether we:
+Instantiation can substitute `T` with any type: a built-in type,
+user-defined type, even `void`. `T` doesn't have to meet any
+requirements, e.g., inheriting from an interface class.  The
+requirements on type `T` follow from how we use the type in the
+template definition, i.e., whether we:
 
 * default-construct a value of type `T`,
 
@@ -67,7 +66,9 @@ we use the type in the template definition, i.e., whether we:
 
 * output to `std::ostream` a value of type `T` using `operator<<`.
 
-This is an example of a function template with a type parameter `T`:
+This is an example of a function template with a type parameter, where
+the compiler is able to **deduce the template argument**, so that we
+do not have to provide it explictly when calling the function:
 
 {% highlight c++ %}
 {% include_relative print1.cc %}
