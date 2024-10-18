@@ -1,0 +1,13 @@
+Implement a function called "battery".  The function should take three
+arguments:
+
+* a value of any type T, T is a template parameter
+
+* a container of any type, provided it stores elements of type T,
+
+* a callable of any type, provided it takes two arguments of type T.
+
+The battery function should iterate over the elements of the
+container, and call the callable for the element and value passed to
+the function as the first argument.  The result of the callable should
+be sent to cout.
