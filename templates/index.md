@@ -76,9 +76,13 @@ do not have to provide it explictly when calling the function:
 
 ### Value parameter
 
-A parameter can also be a *value parameter*.  A value parameter is
-asigned a value of some type, typically of `int`, but other types are
-possible, though not very common:
+A parameter of this kind we define with `some_type I`, where
+`some_type` is a type, e.g., `int`.  Type `some_type` cannot be any,
+only some types allowed, with integer types being the most popular.
+Instantiation substitutes the parameter name with a value of that
+type, e.g., `1` for an template parameter declared as `int I`.
+
+An example of a template parameter declaration of the value kind:
 
 ```
 template <int N>
