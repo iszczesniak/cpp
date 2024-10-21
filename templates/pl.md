@@ -39,10 +39,10 @@ Parametry szablonu są zdefiniowane w liście parametrów, gdzie są
 oddzielone przecinkami.  Definicja parametru ustala rodzaj i
 opcjonalną nazwę parametru.  Rodzaje parametrów to: typ, wartość,
 szablon.  Przykład poniżej ma trzy parametry: `T` typowego rodzaju,
-`N` wartościowego rodzaju i `C` szablonowego rodzaju.
+nienazwany parametr wartościowego rodzaju i `C` szablonowego rodzaju.
 
 ```cpp
-template <typename T, int N, template<typename> typename C>
+template <typename T, int, template<typename> typename C>
 ```
 
 ## Rodzaj parametru: typ

@@ -36,11 +36,11 @@ parameter in a template, i.e., puts an argument where a parameter is.
 Template parameters are defined in a parameter list, where they are
 comma-separated.  A parameter is defined by a kind and an optional
 name.  There are three kinds: type, value, and template.  The example
-below has three parameters: `T` of the type kind, `N` of the value
-kind, and `C` of the template kind.
+below has three parameters: `T` of the type kind, an unnamed parameter
+of the value kind, and `C` of the template kind.
 
 ```cpp
-template <typename T, int N, template<typename> typename C>
+template <typename T, int, template<typename> typename C>
 ```
 
 ## Type parameter
