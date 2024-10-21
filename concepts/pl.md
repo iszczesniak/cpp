@@ -69,7 +69,7 @@ Na przykład w bibliotece `iterator` zdefiniowano koncept
 
 Koncept definiujemy tak:
 
-```
+```cpp
 template <lista parametrów>
 concept nazwa = ograniczenie;
 ```
