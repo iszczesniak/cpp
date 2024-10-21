@@ -35,20 +35,22 @@ parameter in a template, i.e., puts an argument where a parameter is.
 
 Template parameters are defined in a parameter list, where they are
 comma-separated.  A parameter is defined by a kind and an optional
-name.  There are three kinds: type, value, and template.  An example
-with three parameters: T of the type kind, N of the value kind, and
-C of the template kind.
+name.  There are three kinds: type, value, and template.  The example
+below has three parameters: `T` of the type kind, `N` of the value
+kind, and `C` of the template kind.
 
 ```
 template <typename T, int N, template<typename> typename C>
 ```
 
-## Parameter kind: type
+## Type parameter
 
-It's the most common kind.  We declare a type parameter with `typename
-T`, where `typename` says it's a *type parameter*, and `T` is the name
-of the parameter.  We can also declare equivalently a type parameter
-with `class T`, but `typename T` is preferred in modern C++.
+The template parameter of the type kind in short we can call the type
+template parameter.  It's the most common kind.  We define a type
+parameter with `typename T`, where `typename` says it's a type
+parameter, and `T` is the name of the parameter.  We can also define
+equivalently a type parameter with `class T`, but `typename T` is
+preferred in modern C++.
 
 Instantiation can substitute `T` with any type: a built-in type,
 user-defined type, even `void`. `T` doesn't have to meet any
@@ -76,13 +78,14 @@ do not have to provide it explictly when calling the function:
 
 ### Value parameter
 
-A parameter of this kind we define with `some_type I`, where
-`some_type` is a type, e.g., `int`.  Type `some_type` cannot be any,
-only some types allowed, with integer types being the most popular.
-Instantiation substitutes the parameter name with a value of that
-type, e.g., `1` for an template parameter declared as `int I`.
+Also known as the non-type parameter.  A parameter of this kind we
+define with `some_type I`, where `some_type` is a type, e.g., `int`.
+Type `some_type` cannot be any, only some types allowed, with integer
+types being the most popular.  Instantiation substitutes the parameter
+name with a value of type `some_type`, e.g., `1` for a template
+parameter defined as `int I`.
 
-An example of a template parameter declaration of the value kind:
+An example of a value template parameter definition:
 
 ```
 template <int N>
@@ -112,7 +115,7 @@ terminated by the compile-time conditional statement `if constexpr`
 ### Template parameter
 
 A template parameter `T` can be of a template type, i.e., at compile
-time the parameter is replaced with a template.  We declare a template
+time the parameter is replaced with a template.  We define a template
 paramater `T` as a template type like this, where `param-type-list` is
 a list of parameter types of template `T`:
 

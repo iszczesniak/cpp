@@ -38,7 +38,8 @@ parametru w szablonie.
 Parametry szablonu są zdefiniowane w liście parametrów, gdzie są
 oddzielone przecinkami.  Definicja parametru ustala rodzaj i
 opcjonalną nazwę parametru.  Rodzaje parametrów to: typ, wartość,
-szablon.  Przykład listy parametrów:
+szablon.  Przykład poniżej ma trzy parametry: `T` typowego rodzaju,
+`N` wartościowego rodzaju i `C` szablonowego rodzaju.
 
 ```cpp
 template <typename T, int N, template<typename> typename C>
@@ -48,7 +49,7 @@ template <typename T, int N, template<typename> typename C>
 
 Nazwijmy to prosto: **typowy parametr szablonu**.  I typowy on jest
 też dlatego, że tego rodzaju parametr jest najczęstszy.  Typowy
-parametr deklarujemy pisząc `typename T`.  Słowo kluczowe `typename`
+parametr definiujemy pisząc `typename T`.  Słowo kluczowe `typename`
 mówi, że chodzi o typowy parametr, a `T` jest nazwą parametru.  Możemy
 również równoważnie napisać `class T`, ale nowocześniej jest `typename
 T`.
@@ -80,13 +81,13 @@ musimy go jawnie podawać podczas wywołania funkcji:
 ## Rodzaj parametru: wartość
 
 Nazwijmy to prosto: **wartościowy parametr szablonu**.  Parametr tego
-rodzaju deklarujemy pisząc `some_type I`, gdzie `some_type` jest
+rodzaju definiujemy pisząc `some_type I`, gdzie `some_type` jest
 typem, np. `int`.  Typ `some_type` nie jest dowolny, tylko nieduży
 zbiór typów jest dozwolony, a najczęściej używane są typy całkowite.
 Podczas kompilacji za `I` podstawiana jest wartość tego typu, np. 1
-dla parametru szablonu zadeklarowanego jako `int I`.
+dla parametru szablonu zdefiniowanego jako `int I`.
 
-Przykład deklaracji wartościowego parametru szablonu:
+Przykład definicji wartościowego parametru szablonu:
 
 ```cpp
 template <int N>
