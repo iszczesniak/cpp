@@ -31,7 +31,7 @@ Te parametry nazywamy **parametrami szablonu**.
 Kiedy wywołujemy funkcję zdefiniowaną szablonem, to po jej nazwie
 możemy podać **argumenty szablonu** w znakach `<>`.  Konkretyzacja
 szablonu **podstawia** argument szablonu w miejsca wystąpienia
-parametru w szablonie.
+parametru w szablonie.  Mówimy także, że parametr przyjmuje argument.
 
 # Parametry szablonu
 
@@ -118,7 +118,7 @@ rekurencja jest przerwana przez instrukcję warunkową czasu kompilacji
 {% include_relative print4.cc %}
 ```
 
-Jednym z dozwolonych typów dla wartościowych parametrów szablonu są
+Jednymi z dozwolonych typów wartościowych parametrów szablonu są
 wskaźniki i referencje na funkcje:
 
 ```cpp
@@ -127,16 +127,17 @@ wskaźniki i referencje na funkcje:
 
 ## Rodzaj parametru: szablon
 
-Nazwijmy to tak: **szablonowy parametr szablonu**.  Parametr tego
-rodzaju ma podstawiony typ szablonowy podczas konkretyzacji, a w
-liście parametrów szablonu deklarujemy go tak:
+Nazwijmy to tak: **szablonowy parametr szablonu**.  Taki parametr
+przyjmuje jako argument typ szablonowy o interfejsie zdefiniowanym
+przez parametr.  Oto przykład definicji szablonowego parametru `T`,
+który przez listę parametrów definiuje interfejs przyjmowanego typu
+szablonowego:
 
 ```cpp
 template <parameter list> typename T
 ```
 
-A to przykład początku deklaracji lub definicji szablonu z szablonowym
-parametrem:
+A to przykład początku szablonu z szablonowym parametrem:
 
 ```cpp
 template <template <parameter list> typename T>

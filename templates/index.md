@@ -30,6 +30,7 @@ When we call a function defined with a template, then after the
 function name we can provide **template arguments** in `<>`.
 Instantiation **substitutes** a template argument for a template
 parameter in a template, i.e., puts an argument where a parameter is.
+We also say that a parameter accepts an argument.
 
 # Template parameters
 
@@ -115,8 +116,8 @@ constexpr`:
 {% include_relative print4.cc %}
 ```
 
-One of the allowed types for value parameters are function pointers
-and references:
+Among the allowed types for value parameters are function pointers and
+references:
 
 ```cpp
 {% include_relative callback.cc %}
@@ -124,16 +125,17 @@ and references:
 
 ## Template parameter
 
-A template parameter `T` can be of a template type, i.e., at compile
-time the parameter is replaced with a template.  We define a template
-paramater `T` as a template type like this, where `param-type-list` is
-a list of parameter types of template `T`:
+A template paramter of a template kind accepts as its argument a
+templated type of an interface defined by the parameter.  It's also
+known as the *template template parameter*.  In this example,
+parameter `T` defines by the parameter list the interface of the
+accepted template type:
 
 ```cpp
 template <parameter list> typename T
 ```
 
-This is an example of how a template with a template parameter begins:
+Here's how a template with a template parameter begins:
 
 ```cpp
 template <template <parameter list> typename T>
