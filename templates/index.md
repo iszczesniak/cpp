@@ -76,7 +76,7 @@ do not have to provide it explictly when calling the function:
 {% include_relative print1.cc %}
 ```
 
-### Value parameter
+## Value parameter
 
 Also known as the non-type parameter.  A parameter of this kind we
 define with `some_type I`, where `some_type` is a type, e.g., `int`.
