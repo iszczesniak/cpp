@@ -85,7 +85,7 @@ types being the most popular.  Instantiation substitutes the parameter
 name with a value of type `some_type`, e.g., `1` for a template
 parameter defined as `int I`.
 
-An example of a value template parameter definition:
+An example definition of a value template parameter:
 
 ```
 template <int N>

@@ -194,7 +194,7 @@ między typami szablonowymi:
 # Parametr a argument szablonu
 
 Parametrem jest nazwa, np. `T`, którą używamy w deklaracji i definicji
-szablonu.  Argumentem jest typ, wartość, albo szablon, który jest
+szablonu.  Argumentem jest typ, wartość, albo szablon typu, który jest
 podstawiany za parametr.  Argument możemy podać jawnie,
 np. `print<100>()`, albo może być wnioskowany na podstawie argumentu
 wywołania funkcji.
