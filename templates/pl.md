@@ -94,18 +94,17 @@ template <int N>
 ```
 
 To jest przykład szablonu funkcji z wartościowym parametrem szablonu
-`N`, którego *argument* musi być jawnie podany, bo kompilator nie jest
-w stanie go wywnioskować:
+`N`, którego argument musi być jawnie podany, bo kompilator nie jest w
+stanie go wywnioskować:
 
 ```cpp
 {% include_relative print2.cc %}
 ```
 
-W przykładzie niżej mamy dwa przeciążone szablony funkcji
-(przeciążone, bo mają tą samą nazwę).  Drugi szablon ma wartościowy
-parametr szablonu `N`, którego argument musi być jawnie podany.  Ma
-też typowy parametr szablonu `T`, którego argument może być
-wywnioskowany:
+W przykładzie niżej mamy dwa przeciążenia szablonu funkcji
+(przeciążenia, bo mają tą samą nazwę).  Drugi szablon ma wartościowy
+parametr szablonu `N` i typowy parametr szablonu `T`, którego argument
+może być wywnioskowany:
 
 ```cpp
 {% include_relative print3.cc %}

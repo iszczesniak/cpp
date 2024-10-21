@@ -91,28 +91,38 @@ An example definition of a value template parameter:
 template <int N>
 ```
 
-This is an example of a function template with a value parameter `N`:
+This is an example of a function template with a value parameter `N`
+whose argument must be explicitly provided because a compiler is
+unable to deduce it:
 
 ```cpp
 {% include_relative print2.cc %}
 ```
 
-This is an example of a function template with a value parameter `N`,
-where `N` has to be *given explicitely* by a programmer, and `T` is
-*deduced* by a compiler:
+Here we have to overloads of function templates (overloads because
+they have the same name).  The second template has a value parameter
+`N` and a type parameter `T` whose argument can be deduced:
 
 ```cpp
 {% include_relative print3.cc %}
 ```
 
-This is an example of a recursive function template.  The recursion is
-terminated by the compile-time conditional statement `if constexpr`
+This is an example of a recursive function template, where the
+recursion is terminated by the compile-time conditional statement `if
+constexpr`:
 
 ```cpp
 {% include_relative print4.cc %}
 ```
 
-### Template parameter
+One of the allowed types for value parameters are function pointers
+and references:
+
+```cpp
+{% include_relative callback.cc %}
+```
+
+## Template parameter
 
 A template parameter `T` can be of a template type, i.e., at compile
 time the parameter is replaced with a template.  We define a template
