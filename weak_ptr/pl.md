@@ -65,9 +65,9 @@ wskaźników.
 
 Przykład niżej demonstruje użycie wskaźnika:
 
-{% highlight c++ %}
+```cpp
 {% include_relative basic.cc %}
-{% endhighlight %}
+```
 
 ## Tworzenie współdzielonego wskaźnika ze słabego wskaźnika
 
@@ -94,9 +94,9 @@ wskaźnika.  Możemy to zrobić na dwa sposoby:
 
 Oto przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative snatch.cc %}
-{% endhighlight %}
+```
 
 ## Jak to działa
 
@@ -116,13 +116,13 @@ odwołań i licznik słabych odwołań osiągną zero.
 
 Oto implementacja:
 
-{% highlight c++ %}
+```cpp
 {% include_relative factory.hpp %}
-{% endhighlight %}
+```
 
-{% highlight c++ %}
+```cpp
 {% include_relative factory.cc %}
-{% endhighlight %}
+```
 
 ## Wydajność
 

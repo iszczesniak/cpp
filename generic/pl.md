@@ -39,9 +39,9 @@ Przykład niżej pokazuje w jaki sposób możemy używać kontenerów i
 algorytmów biblioteki standardowej.  Przykład wymaga kompilatora
 C++17.
 
-{% highlight c++ %}
+```cpp
 {% include_relative motivation.cc %}
-{% endhighlight %}
+```
 
 W przykładzie wyżej możemy zmienić typ sortowanych liczb z `int` na
 `double`: wystarczy zmienić type `vector` na `vector<double>` (czyli
@@ -59,9 +59,9 @@ tylko na kontenerach (które są obiektowe), ale też na tablicy z języka
 C: zamieniamy wywołania funkcji składowych `begin` i `end`, na
 wywołania funkcji nieskładowych `std::begin` i `std::end`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative motivation2.cc %}
-{% endhighlight %}
+```
 
 Ale przykład nie działa ze strukturą `list`.  Kompilator zwraca masę
 błędów, z których trudno się zorientować, gdzie jest problem.  A
@@ -93,15 +93,15 @@ nas kod wynikowy (asembler) programów.
 
 To jest kod bazowy `test_baseline.cc`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative test_baseline.cc %}
-{% endhighlight %}
+```
 
 To jest kod z użyciem szablonu funkcji `test_template.cc`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative test_template.cc %}
-{% endhighlight %}
+```
 
 Kompilujemy oba przykłady do asemblera (możemy też użyć Compiler
 Explorer) i patrzymy na różnice (możemy też użyć `c++filt`):
@@ -126,30 +126,30 @@ wydajnościowy.
 Zwykła funkcja też może być wkompilowana, co można sprawdzić na tym
 przykładzie:
 
-{% highlight c++ %}
+```cpp
 {% include_relative test_function.cc %}
-{% endhighlight %}
+```
 
 Użycie krotki (`std::tuple`) też nie wprowadza narzutu.  Krotka jest
 szablonowym typem klasowym, więc ma konstruktor i destruktor, jednak
 są one puste.  Oto przykład dla testów:
 
-{% highlight c++ %}
+```cpp
 {% include_relative test_tuple.cc %}
-{% endhighlight %}
+```
 
 Nawet iterowanie po elementach tablicy `std::array` nie wprowadza
 żadnego narzutu:
 
-{% highlight c++ %}
+```cpp
 {% include_relative test_foray.cc %}
-{% endhighlight %}
+```
 
 Konkretyzacja pozwala też na lepszą optymalizację kodu:
 
-{% highlight c++ %}
+```cpp
 {% include_relative divide.cc %}
-{% endhighlight %}
+```
 
 # Programowanie uogólnione a obiektowe
 
@@ -201,9 +201,9 @@ funkcji znajduje się niżej.  Te przeciążenia mają kod wspólny
 (`std::cout << "Function foo:";` i `std::cout << std::endl`) i kod
 zależny od typu parametru.
 
-{% highlight c++ %}
+```cpp
 {% include_relative generic1.cc %}
-{% endhighlight %}
+```
 
 Niżej znajduje się rozwiązanie z użyciem szablonu, gdzie wspólny kod
 pojawia się tylko raz.  Funkcja szablonowa korzysta z operatora `<<`,
@@ -213,9 +213,9 @@ okrojonej funkcjonalności, czyli tylko operatora `<<`, który możemy
 użyć także gdzie indziej.  Możemy powiedzieć, że uogólniliśmy kod
 funkcji `foo`.
 
-{% highlight c++ %}
+```cpp
 {% include_relative generic2.cc %}
-{% endhighlight %}
+```
 
 ## Przykład polimorfizmu dynamicznego
 
@@ -223,9 +223,9 @@ To samo zadanie możemy zaimplementować z użyciem polimorfizmu
 dynamicznego.  Kod wynikowy funkcji `main` jest jednak znacznie
 bardziej skomplikowany.
 
-{% highlight c++ %}
+```cpp
 {% include_relative object.cc %}
-{% endhighlight %}
+```
 
 # Podsumowanie
 

@@ -50,9 +50,9 @@ zwykłej funkcji nie robimy.
 
 Oto przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative foo1.cc %}
-{% endhighlight %}
+```
 
 Szablon podstawowy i specjalizację możemy także deklarować.  Jeżeli
 zadeklarujemy szablon podstawowy, ale go nie zdefiniujemy, to nie
@@ -66,17 +66,17 @@ parametrów funkcji.  W przykładzie niżej pominęliśmy listę argumentów
 (`<A>`) szablonu podstawowego po nazwie funkcji `foo` w deklaracji i
 definicji specjalizacji.
 
-{% highlight c++ %}
+```cpp
 {% include_relative foo2.cc %}
-{% endhighlight %}
+```
 
 Nie możemy częściowo specjalizować szablonów funkcji.  Specjalizacja
 częściowa polegałaby na wprowadzeniu parametru dla specjalizacji, ale
 nie jest to dozwolone, jak pokazuje przykład niżej.
 
-{% highlight c++ %}
+```cpp
 {% include_relative complete.cc %}
-{% endhighlight %}
+```
 
 Przykład niżej ilustruje rekurencyjny szablon funkcji, gdzie
 rekurencja jest przerwana przez specjalizację szablonu.  W
@@ -84,9 +84,9 @@ specjalizacji szablonu musimy podać argument `0` parametru `N`, bo
 kompilator nie jest w stanie go wywnioskować.  Argument `int`
 parametru `T` może być wywnioskowany, więc nie jest podany.
 
-{% highlight c++ %}
+```cpp
 {% include_relative print.cc %}
-{% endhighlight %}
+```
 
 ## Przeciążanie funkcji a szablony
 
@@ -98,9 +98,9 @@ Problem w tym, że nie mamy szablonu, który mógłby być zastosowany dla
 dowolnego typu i dlatego dla argumentu `.2` typu `double` jest
 wywołane przeciążenia dla typu `int`.
 
-{% highlight c++ %}
+```cpp
 {% include_relative overloads.cc %}
-{% endhighlight %}
+```
 
 Możemy dołożyć szablon podstawowy do przykładu, jak pokazano niżej.
 Mamy szablon dla dowolnego typu i przeciążenie dla typu `A`.  Czy dla
@@ -110,9 +110,9 @@ przeciążenie?  A dokładnie mówiąc przeciążenie funkcji szablonowej
 szablonu funkcji dla `T = A`) czy przeciążenie zwykłej funkcji?
 **Przeciążenie zwykłej funkcji zawsze ma pierwszeństwo.**
 
-{% highlight c++ %}
+```cpp
 {% include_relative mix1.cc %}
-{% endhighlight %}
+```
 
 Możemy dodać także specjalizację dla `T = A`, ale i tak zostanie
 wybrane przeciążenie zwykłej funkcji.  Podczas wyboru przeciążenia,
@@ -120,9 +120,9 @@ kompilator nie rozważa specjalizacji, a jedynie przeciążenia zwykłych
 funkcji i przeciążenia funkcji szablonowych.  Tak więc dodanie
 specjalizacji i tak nie namówi kompilator na jej użycie.
 
-{% highlight c++ %}
+```cpp
 {% include_relative mix2.cc %}
-{% endhighlight %}
+```
 
 ## Kiedy potrzebujemy specjalizacji
 
@@ -138,15 +138,15 @@ którą potrzebuje, a definicję specjalizacji czy nawet szablonu
 podstawowego można pozostawić użytkownikowi.  Tak może wyglądać plik
 nagłówkowy `library.hpp`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative library.hpp %}
-{% endhighlight %}
+```
 
 Tak może wyglądać użycie biblioteki:
 
-{% highlight c++ %}
+```cpp
 {% include_relative need.cc %}
-{% endhighlight %}
+```
 
 Jeżeli przeciążenie funkcji zadeklarujemy po dołączeniu biblioteki, to
 funkcja `goo` nie będzie go znała i nie użyje go.  Funkcja wie
@@ -179,9 +179,9 @@ Niżej definiujemy szablon podstawowy typu `A` z jedną funkcją składową
 specjalizacja typu ma identyczną składnię, jak całkowita specjalizacja
 funkcji.
 
-{% highlight c++ %}
+```cpp
 {% include_relative struct_complete.cc %}
-{% endhighlight %}
+```
 
 ## Częściowa specjalizacja i przykład
 
@@ -209,9 +209,9 @@ Najciekawszy jest ostatni przypadek, który jest zakomentowany, bo nie
 może się kompilować: kompilator nie jest w stanie zdecydować, której
 specjalizacji użyć.
 
-{% highlight c++ %}
+```cpp
 {% include_relative struct_partial.cc %}
-{% endhighlight %}
+```
 
 # Podsumowanie
 

@@ -42,14 +42,14 @@ dwóch przeciążeń funkcji `g` dla parametru typu l-referencja:
 
 Zadaniem jest napisanie takiego szablonu funkcji:
 
-{% highlight c++ %}
+```cpp
 template<typename T>
 void
 f(qualifiers_a type_a a)
 {
   g(a); // Is calling like this enough?
 }
-{% endhighlight %}
+```
 
 **PYTANIE**: Czy można napisać taki szablon funkcji `f`?  Jakie mają
 być kwalifikatory `qualifiers_a` i jaki typ `type_a`?  Czy
@@ -89,7 +89,7 @@ argumenty do konstruktora klasy w niezmienionej postaci.
 
 To jest przykład dla dwóch parametrów:
 
-{% highlight c++ %}
+```cpp
 template<typename T, typename A1, typename A2>
 unique_ptr<T>
 make_unique(qualifiers_a1 type_a1 a1,
@@ -97,7 +97,7 @@ make_unique(qualifiers_a1 type_a1 a1,
 {
   return unique_ptr<T>(new T(a1, a2));
 }
-{% endhighlight %}
+```
 
 ## Parametry i argumenty funkcji
 
@@ -133,14 +133,14 @@ Nie bierzemy pod uwagę rozwiązań:
 
 Wygląda tak:
 
-{% highlight c++ %}
+```cpp
 template<typename T>
 void
 f(T t)
 {
   g(t);
 }
-{% endhighlight %}
+```
 
 Gdy wykonamy `f(1)`, a funkcja `g` będzie pobierać argumenty przez
 referencję, to nie otrzyma referencji na oryginalny obiekt, a
@@ -157,14 +157,14 @@ Zatem zostają nam trzy przypadki z referencjami do rozważenia:
 
 Wygląda tak:
   
-{% highlight c++ %}
+```cpp
 template<typename T>
 void
 f(T &t)
 {
   g(t);
 }
-{% endhighlight %}
+```
 
 Jeżeli argumentem wywołania funkcji `f` jest r-wartość, to kompilacja
 nie powiedzie się, bo l-referencja nie może być zainicjalizowana
@@ -172,22 +172,22 @@ r-wartością.  **Złe rozwiązanie.**
 
 Przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative bad1.cc %}
-{% endhighlight %}
+```
 
 ## Rozwiązanie: `const T &`
 
 Wygląda tak:
   
-{% highlight c++ %}
+```cpp
 template<typename T>
 void
 f(const T &t)
 {
   g(t);
 }
-{% endhighlight %}
+```
 
 Teraz będzie się kompilować dla r-wartości, np. `f(1)`, ale jeżeli
 parametr funkcji `g` będzie niestałą l-referencją, to kod nie będzie
@@ -196,16 +196,16 @@ stałą referencją.  **Złe rozwiązanie.**
 
 Przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative bad2.cc %}
-{% endhighlight %}
+```
 
 ## Rozwiązanie: `T &` razem z `const T &`
 
 Możemy mieć dwa przciążenia szablonów podstawowych: jeden dla `T &`, a
 drugi dla `const T &`:
 
-{% highlight c++ %}
+```cpp
 template<typename T>
 void
 f(T &t)
@@ -219,7 +219,7 @@ f(const T &t)
 {
   g(t);
 }
-{% endhighlight %}
+```
 
 Ta implementacja rozwiąże podproblem #1, ale dla `n` parametrów
 potrzebujemy `2^n` przeciążeń szablonów podstawowych!  W starym C++
@@ -233,9 +233,9 @@ C++11 jest to złe rozwiązanie.**
 
 Przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative bad3.cc %}
-{% endhighlight %}
+```
 
 # Prawidłowe rozwiązanie: T &&
 
@@ -244,14 +244,14 @@ zadeklarowany jako r-referencja bez kwalifikatorów.
 
 Prawda objawiona:
 
-{% highlight c++ %}
+```cpp
 template<typename T>
 void
 f(T &&t)
 {
   g(std::forward<T>(t));
 }
-{% endhighlight %}
+```
 
 Jeżeli `T` jest parametrem szablonu, to parametr funkcji typu `T &&`
 nazywamy **referencją przekazującą** (ang. forwarding reference).
@@ -302,9 +302,9 @@ Ale jest tu pewien niuans, którego nie potrafię uzasadnić
 
 Oto przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative constructor.cc %}
-{% endhighlight %}
+```
     
 ## Referencja do referencji
 
@@ -339,9 +339,9 @@ l-referencji, żeby można ją było zainicjalizować l-wartością.
 
 Wyczerpujący test spłaszczania referencji z pominięciem `volatile`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative collapse.cc %}
-{% endhighlight %}
+```
 
 ## Funkcja `std::forward`
 
@@ -356,18 +356,18 @@ trzeba odzyskać kategorię argumentu wywołania funkcji.
 
 Przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative forward.cc %}
-{% endhighlight %}
+```
 
 # Referencja przekazująca jako pole składowe
 
 Referencją przekazującą może być polem składowym szablonowego typu
 danych.
 
-{% highlight c++ %}
+```cpp
 {% include_relative field1.cc %}
-{% endhighlight %}
+```
 
 # Rozbudowany przykład
 
@@ -381,17 +381,17 @@ funkcji `g`.
 
 Przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative perfect.cc %}
-{% endhighlight %}
+```
 
 Tutaj ten sam przykład, ale sprawdzający argument funkcji (ten drugi)
 zamieniliśmy na sprawdzający argument szablonu.  Teraz sprawdzamy typ
 w czasie kompilacji z użyciem `static_assert`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative perfect2.cc %}
-{% endhighlight %}
+```
 
 Co się stanie, jeżeli usuniemy funkcję `forward` z funkcji `f`?  Wtedy
 będą przekazywane zawsze l-wartości do funkcji `g`.  Można sprawdzić.

@@ -195,9 +195,9 @@ if the template argument was non-const.
 If we want to modify an element, then we have to remove the element
 first, and insert a new element with a different value next.
 
-{% highlight c++ %}
+```cpp
 {% include_relative set.cc %}
-{% endhighlight %}
+```
 
 # Iterators
 
@@ -215,9 +215,9 @@ random access any element in the C-style array if we increase (with
 the + operator) the pointer to the element number 0 by the value of
 the index as in here:
 
-{% highlight c++ %}
+```cpp
 {% include_relative pointer.cc %}
-{% endhighlight %}
+```
 
 Iterator types are user-defined, e.g., of a structure type.  Iterators
 are wrappers around pointers, where the operators (defined for that
@@ -225,9 +225,9 @@ type) implement the required functionality.  For instance, if in the
 example above we replace the C-style array with a deque, the rest of
 the code can remain untouched:
 
-{% highlight c++ %}
+```cpp
 {% include_relative iterator_intro.cc %}
-{% endhighlight %}
+```
 
 Iterators of the standard library are very small and very efficient.
 They typically store only a single pointer.  Therefore we are free to
@@ -284,9 +284,9 @@ A forward iterator provides only the two most basic operations: `*i`,
 `++i`.  The iterator of `std::forward_list` is a forward iterator.
 Here's an example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative iterator_forward.cc %}
-{% endhighlight %}
+```
 
 ## A bidirectional iterator
 
@@ -294,9 +294,9 @@ A bidirectional iterator is a forward iterator with an extra operation
 defined: `--i`, i.e., move back by one element.  The iterator of
 `std::list` is a bidirectional iterator.  For example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative iterator_bidirectional.cc %}
-{% endhighlight %}
+```
 
 ## A random-access iterator
 
@@ -319,9 +319,9 @@ condition, and then increment the variable.  This loop is also
 error-prone, as it's easy to mistakenly write '--i' instead of '++i',
 or `begin` instead of `end`.
 
-{% highlight c++ %}
+```cpp
 {% include_relative iterate_old.cc %}
-{% endhighlight %}
+```
 
 ## Iterating the new way
 
@@ -332,9 +332,9 @@ have to write less.
 
 The syntax is:
 
-{% highlight c++ %}
+```cpp
 for(declaration: expression) statement
-{% endhighlight %}
+```
 
 Where:
 
@@ -352,9 +352,9 @@ Where:
 
 An example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative iterate_new.cc %}
-{% endhighlight %}
+```
 
 ## How iteration the new way works
 
@@ -383,9 +383,9 @@ To use the range-based loops, we need to make sure that:
 
 Here is an example how we can use that functionality:
 
-{% highlight c++ %}
+```cpp
 {% include_relative range.cc %}
-{% endhighlight %}
+```
 
 # Containers and element management
 
@@ -396,9 +396,9 @@ container.
 
 Containers have the move semantics implemented.  An example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative container_move.cc %}
-{% endhighlight %}
+```
 
 ## Move semantics for element types
 
@@ -406,9 +406,9 @@ We can move elements into containers: it's enough to make sure that
 the element we insert is used in an rvalue.  We can also move from an
 element of a sequence container.  Example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative element_move.cc %}
-{% endhighlight %}
+```
 
 ## Extract
 
@@ -442,9 +442,9 @@ will destroy the element from which we moved.
 
 An example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative extract.cc %}
-{% endhighlight %}
+```
 
 ## Emplace
 
@@ -480,9 +480,9 @@ e.g., when we emplace at the front of a non-empty vector.  If that
 happens, the new element is created in a different memory location,
 and then moved into the required place.
 
-{% highlight c++ %}
+```cpp
 {% include_relative emplace.cc %}
-{% endhighlight %}
+```
 
 # Conclusion
 

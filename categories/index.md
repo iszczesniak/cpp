@@ -125,17 +125,17 @@ the assignment operator is an lvalue does not apply to C++.  You can
 have an lvalue on the left of the assignment operator, and the code
 will not compile:
 
-{% highlight c++ %}
+```cpp
 {% include_relative wrong-lvalue.cc %}
-{% endhighlight %}
+```
 
 The assignment operator for the integral types expects an lvalue on
 the left, so we cannot write `1 = 1`.  Here is a more elaborate
 example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative assignment.cc %}
-{% endhighlight %}
+```
 
 ## The rvalue category
 
@@ -156,9 +156,9 @@ compile.  For instance, `A()` is an rvalue (that creates a temporary
 object), and we can assign to it, because we defined the assignment
 operator in class `A`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative left-rvalue.cc %}
-{% endhighlight %}
+```
 
 ## From lvalue to rvalue
 
@@ -173,27 +173,27 @@ requires rvalues as its operands.  In the following example the `+`
 operator expects rvalues, and so the lvalues `x` and `y` are converted
 to rvalues.
 
-{% highlight c++ %}
+```cpp
 {% include_relative conversion1.cc %}
-{% endhighlight %}
+```
 
 For instance, the unary `*` operator (i.e., the dereference operator)
 requires a value of a memory address, which is an rvalue.  However, we
 can use the dereference operator with an lvalue too, because that
 lvalue will be converted to an rvalue.
 
-{% highlight c++ %}
+```cpp
 {% include_relative conversion2.cc %}
-{% endhighlight %}
+```
 
 There is no standard or implicit conversion from an rvalue to an
 lvalue.  For example, the reference operator (i.e., the unary `&`
 operator, a.k.a. the take-the-address-of operator) expects an lvalue.
 The rvalue that you try to pass will not be converted to an lvalue.
 
-{% highlight c++ %}
+```cpp
 {% include_relative conversion3.cc %}
-{% endhighlight %}
+```
 
 ## Example of the increment operator
 
@@ -202,9 +202,9 @@ its operand.  This requirement applies to both the prefix and the
 suffix versions of the operator.  The same applies to the decrement
 operator.
 
-{% highlight c++ %}
+```cpp
 {% include_relative increment1.cc %}
-{% endhighlight %}
+```
 
 The expression of the increment operator for built-in types is:
 
@@ -220,9 +220,9 @@ The expression of the increment operator for built-in types is:
 
 Therefore `++++x` compiles, and `x++++` doesn't.
 
-{% highlight c++ %}
+```cpp
 {% include_relative increment2.cc %}
-{% endhighlight %}
+```
 
 As a side note:
 
@@ -235,9 +235,9 @@ As a side note:
 In the example below, `std::string` has the suffix increment operator
 defined.  The loop with the prefix operator would be more complicated.
 
-{% highlight c++ %}
+```cpp
 {% include_relative string.cc %}
-{% endhighlight %}
+```
 
 ## Temporary objects
 
@@ -274,9 +274,9 @@ That example follows.  The constructor outputs the address of the
 object, so that we can make sure it's the same object in function
 `foo`.
 
-{% highlight c++ %}
+```cpp
 {% include_relative tmp-fun.cc %}
-{% endhighlight %}
+```
 
 ### A temporary as an exception
 
@@ -290,9 +290,9 @@ That example follows.  The constructor outputs the address of the
 object, so that we can make sure it's the same object in the catch
 block:
 
-{% highlight c++ %}
+```cpp
 {% include_relative tmp-except.cc %}
-{% endhighlight %}
+```
 
 We should catch an exception by reference: if we catch it by value,
 we're going to copy that exception.  Change the example so that an
@@ -319,9 +319,9 @@ However, a member function can be declared with a reference qualifier
 `&` or `&&` (and therefore be ref-qualified), so that it can be called
 for either an lvalue or an rvalue.  Example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative overloading.cc %}
-{% endhighlight %}
+```
 
 ## Functions and categories of expressions
 
@@ -351,15 +351,15 @@ expression in two ways:
 
 This is an example of a function call that is an lvalue:
 
-{% highlight c++ %}
+```cpp
 {% include_relative lvalue-call.cc %}
-{% endhighlight %}
+```
 
 This is an example of a function call that is an rvalue:
 
-{% highlight c++ %}
+```cpp
 {% include_relative rvalue-call.cc %}
-{% endhighlight %}
+```
 
 ## Incomplete types and categories of expressions
 
@@ -372,9 +372,9 @@ An incomplete type is the type that was either:
 Expressions of the incomplete type can be only lvalues (and so rvalues
 can be only of complete types).
 
-{% highlight c++ %}
+```cpp
 {% include_relative incomplete.cc %}
-{% endhighlight %}
+```
 
 # Conclusion
 

@@ -155,15 +155,15 @@ Oto przykład dla typów referencyjnych, gdzie funkcja `foo1` została
 skonkretyzowana trzy razy, funkcje `foo2` i `foo3` po dwa razy, a
 `foo4` raz:
 
-{% highlight c++ %}
+```cpp
 {% include_relative arg_type_ref.cc %}
-{% endhighlight %}
+```
 
 Oto przykład dla typów wskaźnikowych:
 
-{% highlight c++ %}
+```cpp
 {% include_relative arg_type_ptr.cc %}
-{% endhighlight %}
+```
 
 ### Zwykły typ parametru funkcji
 
@@ -182,9 +182,9 @@ kwalifikatory typu, bo w ciele funkcji działamy na kopii.
 
 Przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative arg_type_val.cc %}
-{% endhighlight %}
+```
 
 W powyższym przykładzie, na podstawie skonkretyzowanych funkcji wydaje
 się, że kwalifikatory typu (`const` i `volatile`) podane w definicji
@@ -196,9 +196,9 @@ odwołań (`volatile`) do parametru w ciele funkcji.  Typy tych funkcji
 nie mają zachowanych kwalifikatorów typu, bo nie mają one znaczenia
 dla kodu wywołującego te funkcje:
 
-{% highlight c++ %}
+```cpp
 {% include_relative qualifiers_dropped.cc %}
-{% endhighlight %}
+```
 
 ### Przekazywanie funkcji
 
@@ -215,18 +215,18 @@ typu parametru funkcji, a dokładnie typu `F &`, gdzie `F` jest typowym
 parametrem szablonu.  Wywnioskowanym argumentem szablonu będzie typ
 referencji na przekazywaną funkcję.  Przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative foo_ref.cc %}
-{% endhighlight %}
+```
 
 Funkcję możemy przekazać przez *wskaźnik* używając wskaźnikowego typu
 parametru funkcji szablonowej, a dokładnie typu `F *`, gdzie `F` jest
 typowym parametrem szablonu.  Wywnioskowanym argumentem szablonu
 będzie typ przekazywanej funkcji.  Przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative foo_ptr.cc %}
-{% endhighlight %}
+```
 
 Zamianę nazwy funkcji na wskaźnik do niej nazywamy **rozpadem funkcji
 na wskaźnik** (ang. decay), który pochodzi z języka C.  Z rozpadu
@@ -239,9 +239,9 @@ dokładnie typu `F`, gdzie `F` jest typowym parametrem szablonu.  Wtedy
 wywnioskowanym argumentem szablonu będzie typ wskaźnikowy na funkcję.
 Przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative foo_val.cc %}
-{% endhighlight %}
+```
 
 ### Przekazywanie tablic języka C
 
@@ -258,18 +258,18 @@ typu parametru funkcji szablonowej, a dokładnie typu `A &`, gdzie `A`
 jest typowym parametrem szablonu.  Wywnioskowanym argumentem będzie
 typ tablicy.  Przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative car_ref.cc %}
-{% endhighlight %}
+```
 
 Tablicę możemy przekazać przez *wskaźnik* używając wskaźnikowego typu
 parametru funkcji szablonowej, a dokładnie typu `A *`, gdzie `A` jest
 typowym parametrem szablonu.  Wywnioskowanym argumentem będzie typ
 tablicy.  Przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative car_ptr.cc %}
-{% endhighlight %}
+```
 
 Jeżeli typem parametru funkcji szablonowej jest zwykły typ
 (niereferencyjny i niewskaźnikowy), a argumentem wywołania funkcji
@@ -283,9 +283,9 @@ pierwszy element tablicy (a nie wskaźnik na tablicę), bo:
 
 Oto przykład z rozpadem:
 
-{% highlight c++ %}
+```cpp
 {% include_relative car_val.cc %}
-{% endhighlight %}
+```
 
 ## Wartościowy argument
 
@@ -306,9 +306,9 @@ możemy wywnioskować wartościowy argument szablonu, to:
 
 Oto przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative carray.cc %}
-{% endhighlight %}
+```
 
 ### Dowolny typ szablonowy
 
@@ -324,9 +324,9 @@ szablony to:
 Na przykład, wartościowy parametr `I` musi mieć typ `std::size_t`, bo
 takiego typu jest wartościowy parametr typu szablonowego `std::array`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative array.cc %}
-{% endhighlight %}
+```
 
 # Wiele parametrów funkcji szablonowej
 
@@ -349,9 +349,9 @@ przykładzie niżej wnioskowane są różne argumenty, bo nie jest
 dopuszczalna konwersja różnych typów argumentów wywołania funkcji.
 Zatem w poniższym przykładzie wnioskowanie nie udaje się:
 
-{% highlight c++ %}
+```cpp
 {% include_relative fail.cc %}
-{% endhighlight %}
+```
 
 # Podsumowanie
 

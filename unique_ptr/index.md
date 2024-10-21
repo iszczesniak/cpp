@@ -87,9 +87,9 @@ The example below shows how easily we can run into the type,
 ownership, and exception handling problems.  The compiler does not
 report problems with this broken code.
 
-{% highlight c++ %}
+```cpp
 {% include_relative problems.cc %}
-{% endhighlight %}
+```
 
 # The smart pointer solution
 
@@ -201,9 +201,9 @@ In the example below, the managing object `p` manages the data of type
 `int`, which will be automatically destroyed by `p` when it goes out
 of scope.
 
-{% highlight c++ %}
+```cpp
 {% include_relative simple.cc %}
-{% endhighlight %}
+```
 
 ## Function `std::make_unique`
 
@@ -249,16 +249,16 @@ optimization.
 The following example uses both the `std::unique_ptr` and
 `std::make_unique`.  Save this file as `test1.cc`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative test1.cc %}
-{% endhighlight %}
+```
 
 The following example of the same functionality uses raw pointers.
 Save this file as `test2.cc`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative test2.cc %}
-{% endhighlight %}
+```
 
 Now compile them to the assembly code with:
 
@@ -279,9 +279,9 @@ overhead of using `std::unique_ptr` and `std::make_unique`:
 
 The example below demonstrates the basic usage of `std::unique_ptr`.
 
-{% highlight c++ %}
+```cpp
 {% include_relative usage.cc %}
-{% endhighlight %}
+```
 
 # The solutions to the problems
 
@@ -314,9 +314,9 @@ we:
 
 Use `std::make_unique` to get the same done safer, as shown below.
 
-{% highlight c++ %}
+```cpp
 {% include_relative solved_type.cc %}
-{% endhighlight %}
+```
 
 ### Use `std::array` instead!
 
@@ -324,9 +324,9 @@ If you really have to have an array of static size (i.e., the size
 doesn't change at run-time), it's better to use `std::array` instead
 of the C-style array.  You can use it with smart pointers like this:
 
-{% highlight c++ %}
+```cpp
 {% include_relative array.cc %}
-{% endhighlight %}
+```
 
 ## The ownership problem
 
@@ -335,9 +335,9 @@ need to, e.g., a function or some structure.  You can move the
 ownership when you pass or return a unique pointer by value in a
 function call, as shown in the example below.
 
-{% highlight c++ %}
+```cpp
 {% include_relative solved_ownership.cc %}
-{% endhighlight %}
+```
 
 ## The exception handling problem
 
@@ -349,15 +349,15 @@ the example below.  We have to declare `p` before the try block, so
 that it's accessible in the catch block, and that complicates the
 code.
 
-{% highlight c++ %}
+```cpp
 {% include_relative except_raw1.cc %}
-{% endhighlight %}
+```
 
 The same can be accomplished with smart pointers better:
 
-{% highlight c++ %}
+```cpp
 {% include_relative except_smart1.cc %}
-{% endhighlight %}
+```
 
 ### Raw pointers not so easy, rather error-prone.
 
@@ -372,26 +372,26 @@ arguments in the call to `foo`.  The object of class `A` is:
 * not destroyed, because function `foo` is not called, because a call
   to function `index` throws an exception.
 
-{% highlight c++ %}
+```cpp
 {% include_relative except_raw2.cc %}
-{% endhighlight %}
+```
 
 The same can be accomplished the safe way with smart pointers.  This
 code works correctly regardless of whether an exception is thrown or
 not.
 
-{% highlight c++ %}
+```cpp
 {% include_relative except_smart2.cc %}
-{% endhighlight %}
+```
 
 ## The first example revisited
 
 Below there is the first example fixed with raw pointers.  All
 problems gone.
 
-{% highlight c++ %}
+```cpp
 {% include_relative problems_solved.cc %}
-{% endhighlight %}
+```
 
 # Conclusion
 

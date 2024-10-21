@@ -36,9 +36,9 @@ but it can be used by reference or by pointer too.
 We sort integers below.  We can do it, because integers have a
 built-in operator `<` defined:
 
-{% highlight c++ %}
+```cpp
 {% include_relative motivation1.cc %}
-{% endhighlight %}
+```
 
 Below we sort data of a user-defined type, and to this end we need to
 define the ordering (we could also say to establish ordering) between
@@ -58,9 +58,9 @@ should not modify its object, i.e., `this`), and it should take the
 other operand by a const reference (because it should not change that
 operand).
 
-{% highlight c++ %}
+```cpp
 {% include_relative motivation2.cc %}
-{% endhighlight %}
+```
 
 Function `std::sort` is using the `<` operator by default, i.e., if we
 do not provide a comparison callable as the last call argument.  Well,
@@ -75,9 +75,9 @@ No wonder that we can get the same effect as in the example above if
 we pass as the last argument an object of type `std::less<A>` (that's
 a callable), because if we didn't, it would be used anyway:
 
-{% highlight c++ %}
+```cpp
 {% include_relative motivation3.cc %}
-{% endhighlight %}
+```
 
 With `std::sort`, we do not always have to use the `<` operator, and
 instead we can pass a callable to establish ordering.  We can sort in
@@ -85,18 +85,18 @@ ascending order if we pass an object of the `std::greater` type.  That
 type is using the `>` operator, and so we have to define it instead of
 the `<` operator.
 
-{% highlight c++ %}
+```cpp
 {% include_relative motivation4.cc %}
-{% endhighlight %}
+```
 
 A callable can be passed not only to a function, but also to a
 constructor, which can store the callable as a member field, as, e.g.,
 the standard priority queue (type `std::priority_queue`) does.  Here's
 an example, which we'll be modifying later:
 
-{% highlight c++ %}
+```cpp
 {% include_relative pq.cc %}
-{% endhighlight %}
+```
 
 # Callable types
 
@@ -122,23 +122,23 @@ function.
 
 In the example below we use a function by pointer and by reference.
 
-{% highlight c++ %}
+```cpp
 {% include_relative function.cc %}
-{% endhighlight %}
+```
 
 Here we sort descendingly by passing a function pointer:
 
-{% highlight c++ %}
+```cpp
 {% include_relative sort_foo.cc %}
-{% endhighlight %}
+```
 
 By default, the priority queue sorts descendlingly, i.e., the returns
 the largest elemenets.  In the example below, we pass a pointer to a
 comparison function, so that the queue sorts ascendingly.
 
-{% highlight c++ %}
+```cpp
 {% include_relative pq_foo.cc %}
-{% endhighlight %}
+```
 
 ## A functor
 
@@ -152,15 +152,15 @@ functor, and call it.  The functor is a callable, because we can call
 it.  Since the `()` operator was defined constant, we can call it for
 constant functors.
 
-{% highlight c++ %}
+```cpp
 {% include_relative functor1.cc %}
-{% endhighlight %}
+```
 
 We can store some data in a functor:
 
-{% highlight c++ %}
+```cpp
 {% include_relative functor2.cc %}
-{% endhighlight %}
+```
 
 A functor acts just like a function when it keeps no data.  For
 example, types `std::less` and `std::greater` act like functions,
@@ -173,23 +173,23 @@ By default, the priority queue uses `std::less`, and returns the
 largest element.  To make the priority queue return the smallest
 element, we can pass it a functor of type `std::greater`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative pq_ro.cc %}
-{% endhighlight %}
+```
 
 Here we define a functor type, which acts like a function:
 
-{% highlight c++ %}
+```cpp
 {% include_relative pq_fo1.cc %}
-{% endhighlight %}
+```
 
 In the example below we pass to a functor a boolean value that is used
 by the call operator.  This value is passed at run-time.  This
 functionality couldn't be achieved with a function.
 
-{% highlight c++ %}
+```cpp
 {% include_relative pq_fo2.cc %}
-{% endhighlight %}
+```
 
 # Closure
 
@@ -236,16 +236,16 @@ with the `mutable` specifier.
 Therefore the simplest lambda is `[]{}`.  Here we create a closure and
 call it in one go (in one expression):
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture1.cc %}
-{% endhighlight %}
+```
 
 Expression `[]{}()`, which creates and calls a closure, is equivalent
 to this code:
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture1a.cc %}
-{% endhighlight %}
+```
 
 ## Semantics
 
@@ -275,15 +275,15 @@ block scope.
 The capture list can be empty.  In that case only the parameters of
 the parameter list are available in the body.  Example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture2.cc %}
-{% endhighlight %}
+```
 
 The code above is equivalent to this code:
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture2a.cc %}
-{% endhighlight %}
+```
 
 ## Ways of capturing variables
 
@@ -301,15 +301,15 @@ it by declarator `&`.
 
 For example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture3.cc %}
-{% endhighlight %}
+```
 
 The code above is equivalent to this code:
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture3a.cc %}
-{% endhighlight %}
+```
 
 ### Default capture policy
 
@@ -320,39 +320,39 @@ do not have to list them.
 
 We set the default capture-by-value policy with `=`.  For example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture4.cc %}
-{% endhighlight %}
+```
 
 The code above is equivalent to this code:
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture4a.cc %}
-{% endhighlight %}
+```
 
 We set the default capture-by-reference policy with `&`.  Please note
 that in the example below, and the next example too, the call operator
 can be const, because we are not modifying a member reference, but a
 variable to which the member reference is bound.  Here's an example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture5.cc %}
-{% endhighlight %}
+```
 
 The code above is equivalent to this code:
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture5a.cc %}
-{% endhighlight %}
+```
 
 We can specify the default capture policy, and then list those
 variables that should be captured the other way.  Also, for the member
 fields, we do not have to use the names of the captured variables, but
 we can give any name.
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture6.cc %}
-{% endhighlight %}
+```
 
 ## Closure Examples
 
@@ -370,15 +370,15 @@ the memory location of `c` with copy elision.
 
 Here's an example of using a lambda with a priority queue:
 
-{% highlight c++ %}
+```cpp
 {% include_relative pq_lambda1.cc %}
-{% endhighlight %}
+```
 
 Here we pass an argument to a closure:
 
-{% highlight c++ %}
+```cpp
 {% include_relative pq_lambda2.cc %}
-{% endhighlight %}
+```
 
 # Conclusion
 

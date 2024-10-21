@@ -113,9 +113,9 @@ The move constructor of class `T` has a single parameter of type `T
 
 In the example below the class has both constructors defined:
 
-{% highlight c++ %}
+```cpp
 {% include_relative constructors.cc %}
-{% endhighlight %}
+```
 
 ### Implementation of the constructor overloads
 
@@ -126,9 +126,9 @@ the base and member objects.  To this end we can use the `std::move`
 function, as shown in the example below, where the copy constructor is
 also implemented for comparison.
 
-{% highlight c++ %}
+```cpp
 {% include_relative ctor-impl.cc %}
-{% endhighlight %}
+```
   
 ## The copy and move assignment operators
 
@@ -142,9 +142,9 @@ type `T &&`.
 
 In the example below the class has both operators defined:
 
-{% highlight c++ %}
+```cpp
 {% include_relative operators.cc %}
-{% endhighlight %}
+```
 
 ### The return type of the move assignment operator
 
@@ -174,9 +174,9 @@ assignment operators for the base and member objects.  To this end we
 can use the `std::move` function, as shown in the example below, where
 the copy assignment operator is also implemented for comparison.
 
-{% highlight c++ %}
+```cpp
 {% include_relative assign-impl.cc %}
-{% endhighlight %}
+```
 
 ## Overload resolution
 
@@ -228,9 +228,9 @@ the function is deleted.
 A programmer can explicitly request the default implementation of a
 special member function with `= default`, like this:
 
-{% highlight c++ %}
+```cpp
 {% include_relative default.cc %}
-{% endhighlight %}
+```
 
 ### Default implementation
 
@@ -254,9 +254,9 @@ implicitly or explicitly):
 A programmer can explicitly request a special member function be
 deleted with `= delete`, like this:
 
-{% highlight c++ %}
+```cpp
 {% include_relative delete.cc %}
-{% endhighlight %}
+```
 
 ### Rules for special member functions
 
@@ -289,9 +289,9 @@ will have the move semantics implemented by default.
 A move-only type can only be moved: it cannot be copied.  This is an
 example of a move-only type:
 
-{% highlight c++ %}
+```cpp
 {% include_relative move-only.cc %}
-{% endhighlight %}
+```
 
 # Implications of the move semantics
 
@@ -333,9 +333,9 @@ from it to the location for the return value.  The return expression
 is the name of the parameter only, so the implicit move can take
 place.
 
-{% highlight c++ %}
+```cpp
 {% include_relative implicit1.cc %}
-{% endhighlight %}
+```
 
 
 #### Case 2
@@ -350,9 +350,9 @@ we slice off the value of the base object.  The return expression is
 the name of the local object only, so the implicit move can take
 place.
 
-{% highlight c++ %}
+```cpp
 {% include_relative implicit2.cc %}
-{% endhighlight %}
+```
 
 If the local object was static, the value would have to be copied, not
 moved.
@@ -368,9 +368,9 @@ values.  This function is implemented in the standard library, but in
 the example below we also have an example implementation to show
 what's going on:
 
-{% highlight c++ %}
+```cpp
 {% include_relative swap.cc %}
-{% endhighlight %}
+```
 
 # Conclusion
 

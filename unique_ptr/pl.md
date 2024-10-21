@@ -91,9 +91,9 @@ Przykład niżej pokazuje jak łatwo możemy się natknąć na problemy typu,
 własności i obsługi wyjątków.  Kompilator nie zgłasza błędów ani
 ostrzeżeń przy kompilowaniu tego błędnego kodu.
 
-{% highlight c++ %}
+```cpp
 {% include_relative problems.cc %}
-{% endhighlight %}
+```
 
 # Rozwiązanie: inteligentny wskaźnik
 
@@ -205,9 +205,9 @@ std::unique_ptr<typ> p;
 W przykładzie niżej, obiekt zarządzający `p` zarządza daną typu `int`,
 która będzie automatycznie zniszczona, kiedy `p` wyjdzie poza zakres.
 
-{% highlight c++ %}
+```cpp
 {% include_relative simple.cc %}
-{% endhighlight %}
+```
 
 ## Funkcja `std::make_unique`
 
@@ -253,16 +253,16 @@ standardami C++ i nowszymi kompilatorami, ten narzut będzie mniejszy.
 Przykład używa `std::unique_ptr` i `std::make_unique`.  Plik
 `test1.cc`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative test1.cc %}
-{% endhighlight %}
+```
 
 Poniższy przykład implementuje tą samą funkcjonalność z surowymi
 wskaźnikami.  Plik `test2.cc`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative test2.cc %}
-{% endhighlight %}
+```
 
 Kompilujemy do asemblera:
 
@@ -283,9 +283,9 @@ narzutu:
 
 Przykład niżej pokazuje, jak używać `std::unique_ptr`.
 
-{% highlight c++ %}
+```cpp
 {% include_relative usage.cc %}
-{% endhighlight %}
+```
 
 # Rozwiązanie problemów
 
@@ -318,9 +318,9 @@ Ciągle jednak możemy popełnić błędy, jak w przykładzie niżej, gdzie:
 Szablon funkcji `std::make_unique` pozwala nam bezpieczne osiągnąć
 poprawną implementację:
 
-{% highlight c++ %}
+```cpp
 {% include_relative solved_type.cc %}
-{% endhighlight %}
+```
 
 ### Lepiej użyć `std::array`!
 
@@ -329,9 +329,9 @@ który nie zmienia się w czasie uruchomienia), to lepiej użyć
 `std::array` zamiast tablicy języka C.  Możemy jej użyc z
 inteligentnymi wskaźnikami w ten sposób:
 
-{% highlight c++ %}
+```cpp
 {% include_relative array.cc %}
-{% endhighlight %}
+```
 
 ## Problem własności
 
@@ -341,9 +341,9 @@ jakiejś struktury danych.  Możemy także przenieść własność przekazując
 obiekt inteligentnego wskaźnika przez wartość, np. przekazując
 argument do funkcji, albo zwracając wynik z funkcji.  Oto przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative solved_ownership.cc %}
-{% endhighlight %}
+```
 
 ## Problem obsługi wyjątków
 
@@ -355,16 +355,16 @@ zadeklarować wskaźnik `p` przed blokiem przechwytywania wyjątku
 (ang. a try block), żeby był dostępny w bloku obsługi wyjątku, a to
 komplikuje kod.
 
-{% highlight c++ %}
+```cpp
 {% include_relative except_raw1.cc %}
-{% endhighlight %}
+```
 
 To samo, ale bezpieczniej, możemy osiągnąć z użyciem inteligentnych
 wskaźników:
 
-{% highlight c++ %}
+```cpp
 {% include_relative except_smart1.cc %}
-{% endhighlight %}
+```
 
 ### Surowe wskaźniki nie takie łatwe
 
@@ -383,25 +383,25 @@ Obiekt klasy `A`:
 * nie jest niszczony, ponieważ funkcja `index` rzuca wyjątek, więc
   funkcja `foo` nie jest wywołana.
 
-{% highlight c++ %}
+```cpp
 {% include_relative except_raw2.cc %}
-{% endhighlight %}
+```
 
 To samo, ale bezpieczniej, możemy osiągnąć z użyciem inteligentnych
 wskaźników.  Ten kod działa poprawnie z wyjątkami.
 
-{% highlight c++ %}
+```cpp
 {% include_relative except_smart2.cc %}
-{% endhighlight %}
+```
 
 ## A na koniec pierwszy przykład
 
 Niżej jest przykład z samego początku, ale naprawiony.  Problemów
 brak.
 
-{% highlight c++ %}
+```cpp
 {% include_relative problems_solved.cc %}
-{% endhighlight %}
+```
 
 # Podsumowanie
 

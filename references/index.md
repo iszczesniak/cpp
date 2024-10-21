@@ -64,15 +64,15 @@ gone.
 
 Save this file as `test1.cc`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative test1.cc %}
-{% endhighlight %}
+```
 
 Save this file as `test2.cc`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative test2.cc %}
-{% endhighlight %}
+```
 
 Now compile them to the assembly code with:
 
@@ -138,21 +138,21 @@ with expression `<expr>`.
 
 Here are some examples:
 
-{% highlight c++ %}
+```cpp
 {% include_relative lref.cc %}
-{% endhighlight %}
+```
 
 Here are some examples for containers and arrays:
 
-{% highlight c++ %}
+```cpp
 {% include_relative containers.cc %}
-{% endhighlight %}
+```
 
 Here are some examples for `std::pair` and `std::tuple`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative quasi.cc %}
-{% endhighlight %}
+```
 
 ## Const reference
 
@@ -178,9 +178,9 @@ too.**
 
 Here are some examples:
 
-{% highlight c++ %}
+```cpp
 {% include_relative cref.cc %}
-{% endhighlight %}
+```
 
 ## Rvalue reference
 
@@ -200,9 +200,9 @@ The rvalue reference was introduced in C++11 to enable:
 
 Here are some examples:
 
-{% highlight c++ %}
+```cpp
 {% include_relative rref.cc %}
-{% endhighlight %}
+```
 
 ## A reference cannot rebind
 
@@ -212,9 +212,9 @@ expression once.  Such rebinding would be required in the assignment
 operator of a class-type, which has a reference member field, as in
 this example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative members.cc %}
-{% endhighlight %}
+```
 
 ## Qualifiers
 
@@ -224,15 +224,15 @@ be cv-unqualified).
 
 A pointer example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative qualifiers_ptr.cc %}
-{% endhighlight %}
+```
 
 A reference example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative qualifiers_ref.cc %}
-{% endhighlight %}
+```
 
 In the above example we used the qualifiers in reference declarations
 but not at the **top level**.  A top-level qualifier for a reference
@@ -243,9 +243,9 @@ there.
 
 A reference to a pointer exists, but a pointer to a reference doesn't.
 
-{% highlight c++ %}
+```cpp
 {% include_relative r2p.cc %}
-{% endhighlight %}
+```
 
 # Reference tricks
 
@@ -273,9 +273,9 @@ non-const type or to an rvalue, so when there is no overload #1 and
 
 Here's a complete example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative overloading.cc %}
-{% endhighlight %}
+```
 
 ## Explicit conversion from an lvalue to an rvalue
 
@@ -292,9 +292,9 @@ don't have to type it in.  That function uses `static_cast<T
 
 Here's an example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative move.cc %}
-{% endhighlight %}
+```
 
 ### The use case
 
@@ -312,17 +312,17 @@ it.  The temporary will be destroyed when the reference goes out of
 scope.  Otherwise, a temporary would be destroyed after the expression
 was evaluated.
 
-{% highlight c++ %}
+```cpp
 {% include_relative tmp.cc %}
-{% endhighlight %}
+```
 
 A reference field has to be initialized by a constructor but not with
 a temporary expression [class.base.init#8].  The following example is
 ill-formed:
 
-{% highlight c++ %}
+```cpp
 {% include_relative tmp2.cc %}
-{% endhighlight %}
+```
 
 # Conclusion
 

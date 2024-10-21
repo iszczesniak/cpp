@@ -42,9 +42,9 @@ proszę odkomentować niektóre linie.  Program się kompiluje, ale proces
 jest unicestwiony przez system operacyjny sygnałem SIGSEGV (segment
 violation).
 
-{% highlight c++ %}
+```cpp
 {% include_relative sigsegv.cc %}
-{% endhighlight %}
+```
 
 Możemy sprawdzić miejsce zmiennych poniższą komendą.  Proszę zwrócić
 uwagę na literę 'r' na wyjściu, która symbolizuje pamięć tylko do
@@ -102,16 +102,16 @@ Pamięć do zapisu i odczytu przechowuje:
 Dane globalne są zainicjalizowane przed wywołaniem funkcji `main` i są
 dostępne wszędzie w programie:
 
-{% highlight c++ %}
+```cpp
 {% include_relative global.cc %}
-{% endhighlight %}
+```
 
 Dane statyczne są zainicjalizowane przed ich pierwszym użyciem i są
 lokalne (czyli niedostępne poza funkcją):
 
-{% highlight c++ %}
+```cpp
 {% include_relative static.cc %}
-{% endhighlight %}
+```
 
 W przykładzie wyżej, proszę usunąć `static` i zauważyć zmianę w
 zachowaniu programu.
@@ -137,9 +137,9 @@ konieczność, bo stos musi się zmniejszyć, kiedy zakres się kończy.
 Lokalne dane są niszczone w kolejności odwrotnej do kolejności ich
 tworzenia, bo stos jest strukturą FILO (ang. first in, last out).
 
-{% highlight c++ %}
+```cpp
 {% include_relative local.cc %}
-{% endhighlight %}
+```
 
 ## Dynamiczne dane
 
@@ -165,9 +165,9 @@ W poniższym przykładzie użyliśmy operatorów `new` i `delete`, czego
 już lepiej nie robić, ale jest to najprostszy przykład użycia danych
 dynamicznych.
 
-{% highlight c++ %}
+```cpp
 {% include_relative dynamic.cc %}
-{% endhighlight %}
+```
 
 ## Lokalne a dynamiczne dane
 
@@ -191,9 +191,9 @@ zwiększać rozmiaru stosu.  Jeżeli widzimy duże liczby (znacznie
 powyżej miliona), to najprawdopodobniej system automatycznie zwiększał
 rozmiar stosu.
 
-{% highlight c++ %}
+```cpp
 {% include_relative stack_test.cc %}
-{% endhighlight %}
+```
 
 Alokacja pamięci na stercie jest wolna, bo sterta jest złożoną
 stukturą danych, która nie tylko alokuje i dealokuje pamięć dowolnego
@@ -211,9 +211,9 @@ jedynie przez system operacyjny.  Kiedy system w końcu odmawia
 przydzielenia więcej pamięci, operator `new` rzuca wyjątek
 `std::bad_alloc`.  Oto przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative heap_test.cc %}
-{% endhighlight %}
+```
 
 Dane na stosie są upakowane razem w zależności od tego, kiedy były
 tworzone, tak więc dane powiązane ze sobą znajdują się blisko siebie w
@@ -261,9 +261,9 @@ C++17 lub nowszego (np. użyliśmy flagi `-std=c++17`), to kompilator
 zignoruje flagę `-fno-elide-constructors` w przypadkach, kiedy
 pomijanie konstruktorów jest wymagane począwszy od C++17.
 
-{% highlight c++ %}
+```cpp
 {% include_relative args.cc %}
-{% endhighlight %}
+```
 
 ## Zwracanie wyniku
 
@@ -293,9 +293,9 @@ zachowanie C++, proszę skompilować przykład z flagami
 kopiowane?  To zależy od konwencji wywołania funkcji, optymalizacji
 wartości powrotu czy unikania konstruktorów.
 
-{% highlight c++ %}
+```cpp
 {% include_relative return.cc %}
-{% endhighlight %}
+```
 
 # Konwencja wywołania funkcji
 
@@ -336,9 +336,9 @@ bezpośrednio w miejscu pamięci dla danych globalnych i statycznych,
 bez kopiowania obiektu z udziałem tymczasowego miejsca wymaganego
 przez starą konwencję.
 
-{% highlight c++ %}
+```cpp
 {% include_relative mcc.cc %}
-{% endhighlight %}
+```
 
 # Pomijanie konstruktorów
 
@@ -352,9 +352,9 @@ Przykład niżej demonstruje pomijanie konstruktorów.  Przykład proszę
 skompilować z flagami `-fno-elide-constructors -std=c++14`, a potem
 bez nich i zwrócić uwagę na różnice.
 
-{% highlight c++ %}
+```cpp
 {% include_relative elide.cc %}
-{% endhighlight %}
+```
 
 Proszę skompilować różne poprzednie przykłady przekazywania argumentów
 i zwracania wartości z włączonym i wyłączonym pomijaniem
@@ -382,35 +382,35 @@ dostępne, jeżeli są pomijane, więc poniższy kod jest poprawny w myśl
 C++17 (opcja `-std=c++17` GCC), ale nie C++14 (opcja `-std=c++14`
 GCC):
 
-{% highlight c++ %}
+```cpp
 {% include_relative rvo_or_not.cc %}
-{% endhighlight %}
+```
 
 Pomijanie konstruktorów dla zwracanej wartości nie zawsze może być
 zastosowane z powodów technicznych.  Przede wszystkim dlatego, że
 pewne obiekty muszą być pierwsze stworzone, a dopiero potem jest
 podejmowana decyzja, który obiekt zwrócić:
 
-{% highlight c++ %}
+```cpp
 {% include_relative rvo_no1.cc %}
-{% endhighlight %}
+```
 
 Także dlatego, że próbujemy zwrócić przez wartość parametr funkcji,
 który już został stworzony przez kod wywołujący, nie funkcję.  Funkcja
 może jedynie skopiować wartość parametru do miejsca, gdzie ma być
 zwrócony wynik:
 
-{% highlight c++ %}
+```cpp
 {% include_relative rvo_no2.cc %}
-{% endhighlight %}
+```
 
 I także dlatego, że próbujemy zwrócić przez wartość dane globalne albo
 statyczne, które muszą istnieć po powrocie z funkcji.  Funkcja może
 wtedy jedynie skopiować wynik:
 
-{% highlight c++ %}
+```cpp
 {% include_relative rvo_no3.cc %}
-{% endhighlight %}
+```
 
 # Podsumowanie
 
@@ -435,6 +435,6 @@ wtedy jedynie skopiować wynik:
 * Na czym polega pomijanie konstruktorów przy zwracaniu wyniku przez
   wartość?
 
-<!-- LocalWords: enum  sigsegv endhighlight heisenbugs -->
+<!-- LocalWords: enum sigsegv heisenbugs -->
 <!-- LocalWords: deallocates defragmentation manyfold args -->
 <!-- LocalWords: EAX RDI RVO SIGSEGV -->

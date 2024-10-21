@@ -40,9 +40,9 @@ In the following example we try to write to the read-only memory --
 please uncomment some lines.  The code compiles, but is killed by the
 operating system with the SIGSEGV (segment violation) signal.
 
-{% highlight c++ %}
+```cpp
 {% include_relative sigsegv.cc %}
-{% endhighlight %}
+```
 
 We can check the location of the variables with the command below.
 Notice the 'r' in the output for the read-only memory:
@@ -97,16 +97,16 @@ The read-write memory stores:
 Global data are initialized before entering the `main` function, and
 are available everywhere in the program:
 
-{% highlight c++ %}
+```cpp
 {% include_relative global.cc %}
-{% endhighlight %}
+```
 
 Static data are initialized before its first use, and are local to a
 function (i.e., unavailable elsewhere):
 
-{% highlight c++ %}
+```cpp
 {% include_relative static.cc %}
-{% endhighlight %}
+```
 
 In the example above remove `static`, and notice the changes in the
 program output.
@@ -132,9 +132,9 @@ when a scope ends.
 Data created locally are destroyed in the reverse order of their
 creation, because the stack is a FILO (first in, last out) structure.
 
-{% highlight c++ %}
+```cpp
 {% include_relative local.cc %}
-{% endhighlight %}
+```
 
 ## The dynamic data
 
@@ -157,9 +157,9 @@ The following example uses the low-level `new` and `delete` operators,
 which is not recommended, but suitable to demonstrate the dynamic
 allocation.
 
-{% highlight c++ %}
+```cpp
 {% include_relative dynamic.cc %}
-{% endhighlight %}
+```
 
 ## Local vs dynamic data
 
@@ -182,9 +182,9 @@ allocate more memory for the stack.  If we see large numbers (above a
 million or far more), then the operating system most likely
 automatically allocates more memory for the stack.
 
-{% highlight c++ %}
+```cpp
 {% include_relative stack_test.cc %}
-{% endhighlight %}
+```
 
 Allocation on the heap is slow, because it's a complex data structure
 which not only allocates and deallocates memory of an arbitrary size,
@@ -197,9 +197,9 @@ heap can grow to any size, only limited by an operating system.  When
 finally an operating system refuses to allocate more memory, the `new`
 operator throws `std::bad_alloc`.  Here's an example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative heap_test.cc %}
-{% endhighlight %}
+```
 
 Data on the stack are packed together according to when the data was
 created, and so data that are related are close to each other.  This
@@ -246,9 +246,9 @@ code with C++17 (e.g., with `-std=c++17` in GCC) or higher, your
 request to disable constructor elision may be ignored by the compiler,
 because constructor elision in some cases is mandatory since C++17.
 
-{% highlight c++ %}
+```cpp
 {% include_relative args.cc %}
-{% endhighlight %}
+```
 
 ## Returning a result
 
@@ -278,9 +278,9 @@ compile the example with the flag `-fno-elide-constructors
 function call convention, constructor elision, and return value
 optimization.
 
-{% highlight c++ %}
+```cpp
 {% include_relative return.cc %}
-{% endhighlight %}
+```
 
 # Function call convention
 
@@ -323,9 +323,9 @@ function returns an object directly in the place of memory for global
 and static data, without copying the object using a temporary place
 required by the legacy call convention.
 
-{% highlight c++ %}
+```cpp
 {% include_relative mcc.cc %}
-{% endhighlight %}
+```
 
 # Constructor elision
 
@@ -339,9 +339,9 @@ This example that demonstrates the constructor elision.  Compile the
 example with, then without the flag `-fno-elide-constructors`.  Notice
 the differences at run-time.
 
-{% highlight c++ %}
+```cpp
 {% include_relative elide.cc %}
-{% endhighlight %}
+```
 
 Compile the various previous examples of passing arguments to and
 returning results from functions but without disabling the constructor
@@ -367,33 +367,33 @@ constructors can be unavailable if they are elided, and therefore the
 following code is valid for C++17 (GCC option `-std=c++17`), but not
 for C++14 (GCC option `-std=c++14`):
 
-{% highlight c++ %}
+```cpp
 {% include_relative rvo_or_not.cc %}
-{% endhighlight %}
+```
 
 This functionality not always can take place, because of technical
 reasons.  First, because we return data, which has to be created prior
 to deciding which data exactly to return:
 
-{% highlight c++ %}
+```cpp
 {% include_relative rvo_no1.cc %}
-{% endhighlight %}
+```
 
 Second, because we try to return a function parameter, which was
 created by the caller, not the function, and so the function cannot
 create the parameter in the location for the return value:
 
-{% highlight c++ %}
+```cpp
 {% include_relative rvo_no2.cc %}
-{% endhighlight %}
+```
 
 Finally, because we try to return global or static data, which has to
 be available after the function returns, and so the function can only
 copy the result from the global or static data:
 
-{% highlight c++ %}
+```cpp
 {% include_relative rvo_no3.cc %}
-{% endhighlight %}
+```
 
 # Conclusion
 
@@ -419,6 +419,6 @@ copy the result from the global or static data:
 
 {% include rid %}
 
-<!-- LocalWords: enum  sigsegv endhighlight heisenbugs -->
+<!-- LocalWords: enum sigsegv heisenbugs -->
 <!-- LocalWords: deallocates defragmentation manyfold args -->
 <!-- LocalWords: EAX RDI RVO SIGSEGV -->

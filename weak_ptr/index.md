@@ -61,9 +61,9 @@ give the implementation.
 
 The example below shows the basic usage:
 
-{% highlight c++ %}
+```cpp
 {% include_relative basic.cc %}
-{% endhighlight %}
+```
 
 ## Producing the shared poiner from a weak pointer
 
@@ -88,9 +88,9 @@ ways:
 
 Here's an example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative snatch.cc %}
-{% endhighlight %}
+```
 
 ## How it works
 
@@ -114,9 +114,9 @@ and the weak count reach zero.
 
 Here's the implementation:
 
-{% highlight c++ %}
+```cpp
 {% include_relative factory.cc %}
-{% endhighlight %}
+```
 
 ## Performance
 

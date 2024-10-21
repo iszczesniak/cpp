@@ -37,9 +37,9 @@ efficiency:
 The example below shows how we can use containers and algorithms of
 the standard library.  This example needs a C++17 compiler.
 
-{% highlight c++ %}
+```cpp
 {% include_relative motivation.cc %}
-{% endhighlight %}
+```
 
 In the above example we can change the type of the sorted numbers from
 `int` to `double`: it's enough to change type `vector` to
@@ -58,9 +58,9 @@ objects), but with C-style arrays too: we replace the calls to member
 functions `begin` and `end` with non-member function templates
 `std::begin` and `std::end`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative motivation2.cc %}
-{% endhighlight %}
+```
 
 But that example doesn't work for type `list`.  The compiler produces
 a lengthy error message that's hard to decipher.  The problem is the
@@ -91,15 +91,15 @@ the assembly code.
 This is the baseline code, i.e., to this code we compare the others
 (`test_baseline.cc`):
 
-{% highlight c++ %}
+```cpp
 {% include_relative test_baseline.cc %}
-{% endhighlight %}
+```
 
 This example uses templates (`test_template.cc`):
 
-{% highlight c++ %}
+```cpp
 {% include_relative test_template.cc %}
-{% endhighlight %}
+```
 
 We compile both examples to the assembly code (we can use the Compiler
 Explorer too) and we look for differences (`c++filt` can come useful
@@ -124,30 +124,30 @@ performance down.
 
 A regular (non-template) function can be inlined too:
 
-{% highlight c++ %}
+```cpp
 {% include_relative test_function.cc %}
-{% endhighlight %}
+```
 
 A tuple (`std::tuple`) also doesn't introduce overhead.  Type `tuple`
 is a templated structure, so it has a constructor and a destructor but
 they are empty.  Here's an example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative test_tuple.cc %}
-{% endhighlight %}
+```
 
 Even iterating over the elements of `std::array` doesn't introduce any
 overhead:
 
-{% highlight c++ %}
+```cpp
 {% include_relative test_foray.cc %}
-{% endhighlight %}
+```
 
 Instantiation allows for better optimization:
 
-{% highlight c++ %}
+```cpp
 {% include_relative divide.cc %}
-{% endhighlight %}
+```
 
 # Generic vs object-oriented programming
 
@@ -196,9 +196,9 @@ function overloading.  These overloads have some identical code
 some extra code depending on the parameter type (e.g., `std::cout <<
 i;` for integers).
 
-{% highlight c++ %}
+```cpp
 {% include_relative generic1.cc %}
-{% endhighlight %}
+```
 
 Below we use a function template, where the identical code from the
 example above appears once.  The function template uses operator `<<`
@@ -207,9 +207,9 @@ as in the example above, but for the `operator <<` only, which we
 could use in other parts of code.  We could say that function `foo`
 now is generic.
 
-{% highlight c++ %}
+```cpp
 {% include_relative generic2.cc %}
-{% endhighlight %}
+```
 
 ## An example of object-oriented programming
 
@@ -217,9 +217,9 @@ The same functionality we could implement using dynamic polymorphism.
 However, the assembly code is much more complicated, because of the
 call to a virtual function.
 
-{% highlight c++ %}
+```cpp
 {% include_relative object.cc %}
-{% endhighlight %}
+```
 
 # Conclusion
 

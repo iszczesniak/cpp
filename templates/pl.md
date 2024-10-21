@@ -115,9 +115,9 @@ Przykład niżej ilustruje rekurencyjny szablon funkcji, gdzie
 rekurencja jest przerwana przez instrukcję warunkową czasu kompilacji
 `if constexpr`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative print4.cc %}
-{% endhighlight %}
+```
 
 Jednym z dozwolonych typów dla wartościowych parametrów szablonu są
 wskaźniki i referencje na funkcje:
@@ -145,9 +145,9 @@ template <template <lista parametrów parametru> typename T>
 
 Przykładowy program:
 
-{% highlight c++ %}
+```cpp
 {% include_relative template1.cc %}
-{% endhighlight %}
+```
 
 Za `__PRETTY_FUNCTION__` kompilator GCC podstawia nazwę funkcji i
 argumenty szablonu, więc możemy przekonać się w jaki sposób funkcja
@@ -157,9 +157,9 @@ W przykładzie niżej, za szablonowy parametr `C` może być podstawiony
 dowolny typ szablonowy, którego pierwszy parametr jest typowy, a drugi
 wartościowy.
 
-{% highlight c++ %}
+```cpp
 {% include_relative template2.cc %}
-{% endhighlight %}
+```
 
 Szablonowy parametr to po prostu typowy parametr, ale który dodatkowo
 pozwala na:
@@ -174,22 +174,22 @@ pozwala na:
 
 Oto przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative template3.cc %}
-{% endhighlight %}
+```
 
 I kolejny przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative template4.cc %}
-{% endhighlight %}
+```
 
 Ten rodzaj parametru pozwala nam na przerwanie zależności cyklicznej
 między typami szablonowymi:
 
-{% highlight c++ %}
+```cpp
 {% include_relative circular.cc %}
-{% endhighlight %}
+```
 
 # Parametr a argument szablonu
 
@@ -233,9 +233,9 @@ Kiedy korzystamy z kontenerów biblioteki standardowej (a każdy robił
 to na pewno), jawnie podajemy argumenty szablonu jako część nazwy typu
 używając `<>`, czyli składni `typ kontenera<lista argumentów>`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative explicit.cc %}
-{% endhighlight %}
+```
 
 Tej składni możemy też użyć przy wywołaniu funkcji szablonowej (a nie
 tylko przy definiowaniu typu, np. kontenera), co jest przydatne w
@@ -257,9 +257,9 @@ wywołania fabryki przekazujemy do konstruktora obiektu, którego typ
 jest określony przez argument szablonu.  Kompilator nie jest w stanie
 określić typu obiektu, więc musimy go jawnie podać.
 
-{% highlight c++ %}
+```cpp
 {% include_relative explicit2.cc %}
-{% endhighlight %}
+```
 
 ### Kolejność argumentów
 
@@ -275,9 +275,9 @@ także podać jawnie, chociaż mógłby być wywnioskowany.  Po zmianie
 kolejności musimy jawnie podać pierwszy argument, bo zapragnęliśmy
 podać drugi argument:
 
-{% highlight c++ %}
+```cpp
 {% include_relative explicit3.cc %}
-{% endhighlight %}
+```
 
 ## Domyślne argumenty szablonu
 
@@ -290,9 +290,9 @@ jest opcjonalny.
 Domyślny argument podajemy po nazwie parametru z użyciem `=`.  Oto
 przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative default.cc %}
-{% endhighlight %}
+```
 
 ### Domyślne callable
 
@@ -309,9 +309,9 @@ wywołania o pustym ciele.  Musimy też podać domyślną wartość callable
 (argumentu wywołania funkcji), czyli `{}` (bezargumentowe tworzenie
 obiektu).  Oto super przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative empty_callable.cc %}
-{% endhighlight %}
+```
 
 # Podsumowanie
 

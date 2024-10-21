@@ -72,9 +72,9 @@ This is an example of a function template with a type parameter, where
 the compiler is able to **deduce the template argument**, so that we
 do not have to provide it explictly when calling the function:
 
-{% highlight c++ %}
+```cpp
 {% include_relative print1.cc %}
-{% endhighlight %}
+```
 
 ### Value parameter
 
@@ -93,24 +93,24 @@ template <int N>
 
 This is an example of a function template with a value parameter `N`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative print2.cc %}
-{% endhighlight %}
+```
 
 This is an example of a function template with a value parameter `N`,
 where `N` has to be *given explicitely* by a programmer, and `T` is
 *deduced* by a compiler:
 
-{% highlight c++ %}
+```cpp
 {% include_relative print3.cc %}
-{% endhighlight %}
+```
 
 This is an example of a recursive function template.  The recursion is
 terminated by the compile-time conditional statement `if constexpr`
 
-{% highlight c++ %}
+```cpp
 {% include_relative print4.cc %}
-{% endhighlight %}
+```
 
 ### Template parameter
 
@@ -131,9 +131,9 @@ template <template <param-type-list> typename T>
 
 Here's an example:
 
-{% highlight c++ %}
+```cpp
 {% include_relative template1.cc %}
-{% endhighlight %}
+```
 
 `__PRETTY_FUNCTION__` is replaced by GCC with the function name, and
 the template parameters, so that we can learn what the paremeters
@@ -143,8 +143,8 @@ This is a modified example from above.  This time the template-type
 template argument C can accept template types which accept two
 arguments: the first being the type, the second being the value.
 
-{% highlight c++ %}
+```cpp
 {% include_relative template2.cc %}
-{% endhighlight %}
+```
 
 <!-- LocalWords: lvalue lvalues rvalue -->

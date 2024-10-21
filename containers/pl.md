@@ -197,9 +197,9 @@ jeżeli argumentem szablonu jest typ niestały.
 Jeżeli chcemy zmienić wartość elementu, to pierwsze musimy usunąć
 element, a następnie wstawić nowy element o nowej wartości.
 
-{% highlight c++ %}
+```cpp
 {% include_relative set.cc %}
-{% endhighlight %}
+```
 
 # Iteratory
 
@@ -215,9 +215,9 @@ także inkrementować.  Co więcej, możemy mieć swobodny dostęp do
 dowolnego elementu tablicy języka C przez zwiększenie (operatorem `+`)
 wskaźnika na element numer 0 o indeks elementu:
 
-{% highlight c++ %}
+```cpp
 {% include_relative pointer.cc %}
-{% endhighlight %}
+```
 
 Typy iteratorów mogą być definiowane przez programistę, czyli
 programista może zaimplementować swój typ kontenera i typ jego
@@ -226,9 +226,9 @@ implementują wymaganą funkcjonalność.  Na przykład, jeżeli w
 przykładzie wyżej zamienimy tablicę języka C z `std::deque`, to reszta
 kodu pozostaje bez zmian:
 
-{% highlight c++ %}
+```cpp
 {% include_relative iterator_intro.cc %}
-{% endhighlight %}
+```
 
 Iteratory biblioteki standardowej są małe i wydajne.  Najczęściej
 przechowują jeden wskaźnik, więc możemy je kopiować i używać przez
@@ -284,9 +284,9 @@ Iterator jednokierunkowy oferuje tylko najbardziej podstawowe
 operacje: `*i` i `++i`.  Przykładem operatora jednokierunkowego jest
 iterator listy jednokierunkowej.  Oto przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative iterator_forward.cc %}
-{% endhighlight %}
+```
 
 ## Iterator dwukierunkowy
 
@@ -294,9 +294,9 @@ Iterator dwukierunkowy to iterator jednokierunkowy z dodatkowym
 definiowanym operatorem: `--i`, czyli może cofnąć się o jeden element.
 Lista ma iterator dwukierunkowy.  Na przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative iterator_bidirectional.cc %}
-{% endhighlight %}
+```
 
 ## Iterator swobodnego dostępu
 
@@ -350,9 +350,9 @@ Gdzie:
 
 Przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative iterate_new.cc %}
-{% endhighlight %}
+```
 
 ## Jak działa iterowanie po nowemu?
 
@@ -380,9 +380,9 @@ inkrementowany.
 
 Oto przykład implementacji własnego typu zakresu:
 
-{% highlight c++ %}
+```cpp
 {% include_relative range.cc %}
-{% endhighlight %}
+```
 
 # Zarządzanie elementami kontenera
 
@@ -395,9 +395,9 @@ także **umieścić** (ang. emplace) w kontenerze.
 Kontenery mają zaimplementowaną semantykę przeniesienia.  Oto
 przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative container_move.cc %}
-{% endhighlight %}
+```
 
 ## Semantyka przeniesiena dla typów elementów
 
@@ -405,9 +405,9 @@ Elementy mogą być przenoszone do kontenerów: wystarczy, że wstawiany
 element będzie użyty w r-wartości.  Możemy także przenieść element z
 kontenera sekwencyjnego.  Przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative element_move.cc %}
-{% endhighlight %}
+```
 
 ## Wyciąganie elementów
 
@@ -441,9 +441,9 @@ użycie funkcji `value`, a potem przenieść jego wartość do, np.,
 kontenera innego typu.  Kiedy uchwyt będzie niszczony, to zniszczy on
 obiekt, którego wartość przenieśliśmy.  Oto przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative extract.cc %}
-{% endhighlight %}
+```
 
 ## Umieszczanie
 
@@ -481,9 +481,9 @@ nowy element jest tworzony w jakimś innymi miejscu (na przykład w
 zmiennej lokalnej), a następnie jego wartość jest przenoszona do
 miejsca docelowego.
 
-{% highlight c++ %}
+```cpp
 {% include_relative emplace.cc %}
-{% endhighlight %}
+```
 
 # Podsumowanie
 

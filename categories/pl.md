@@ -134,17 +134,17 @@ zastosowania w C++.  W poniższym przykładzie nie możemy użyć
 l-wartości po lewej stronie operatora przypisania (a niby powinniśmy
 móc zgodnie z definicją), bo jest ona stała:
 
-{% highlight c++ %}
+```cpp
 {% include_relative wrong-lvalue.cc %}
-{% endhighlight %}
+```
 
 Operator przypisania dla typów całkowitych wymaga l-wartości po lewej
 stronie, więc nie możemy napisać `1 = 1`.  Oto bardziej rozbudowany
 przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative assignment.cc %}
-{% endhighlight %}
+```
 
 ## R-wartość
 
@@ -165,9 +165,9 @@ poniższy przykład. `A()` jest r-wartością (bo tworzy obiekt
 tymczasowy) i możemy mu przypisać `1`, bo zdefiniowaliśmy taki
 operator przypisania w strukturze `A`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative left-rvalue.cc %}
-{% endhighlight %}
+```
 
 ## Konwersja standardowa z l-wartości na r-wartość
 
@@ -180,27 +180,27 @@ r-wartości jako operandów.  W poniższym przykładzie operator `+`
 wymaga r-wartości, więc l-wartości `x` i `y` są konwertowane niejawnie
 do r-wartości.
 
-{% highlight c++ %}
+```cpp
 {% include_relative conversion1.cc %}
-{% endhighlight %}
+```
 
 Kolejny przykład dotyczy jednoargumentowego operatora `*` (czyli
 operatora wyłuskania), który wymaga r-wartości: adresu pamięci.  Ale
 wyłuskać możemy też l-wartość, bo zostanie ona poddana konwersji
 standardowej:
 
-{% highlight c++ %}
+```cpp
 {% include_relative conversion2.cc %}
-{% endhighlight %}
+```
 
 Nie ma niejawnej konwersji z r-wartości na l-wartość.  Na przykład,
 operator pobrania adresu (czyli jednoargumentowy operator `&`) wymaga
 l-wartości.  Jeżeli przekażemy mu r-wartość, to nie będzie ona poddana
 niejawnej konwersji do l-wartości, jak pokazuje przykład niżej:
 
-{% highlight c++ %}
+```cpp
 {% include_relative conversion3.cc %}
-{% endhighlight %}
+```
 
 ## Przykład z operatorem inkrementacji
 
@@ -208,9 +208,9 @@ Operator inkrementacji (czyli `++`) dla typów całkowitych wymaga
 l-wartości jako operandu.  Wymóg ten dotyczy wersji prefiksowej i
 sufiksowej operatora.  To samo dotyczy operatora dekrementacji.
 
-{% highlight c++ %}
+```cpp
 {% include_relative increment1.cc %}
-{% endhighlight %}
+```
 
 Wyrażenie operatora inkrementacji dla typów wbudowanych jest:
 
@@ -226,9 +226,9 @@ Wyrażenie operatora inkrementacji dla typów wbudowanych jest:
 
 Dlatego `++++x` kompiluje się, a `x++++` nie.
 
-{% highlight c++ %}
+```cpp
 {% include_relative increment2.cc %}
-{% endhighlight %}
+```
 
 Tak przy okazji:
 
@@ -242,9 +242,9 @@ Przykład poniżej pokazuje implementację sufiksowego operatora
 inkrementacji dla `std::string`.  Pętla z prefiksowym operatorem
 byłaby bardziej skomplikowana.
 
-{% highlight c++ %}
+```cpp
 {% include_relative string.cc %}
-{% endhighlight %}
+```
 
 ## Dana tymczasowa
 
@@ -294,9 +294,9 @@ Omówiony wyżej przypadek prezentuje poniższy przykład.  Konstruktor
 wypisuje adres tworzonego obiektu, żebyśmy mogli się upewnić, że to
 ten sam obiekt w funkcji `foo`.
 
-{% highlight c++ %}
+```cpp
 {% include_relative tmp-fun.cc %}
-{% endhighlight %}
+```
 
 ### Dana tymczasowa jako wyjątek
 
@@ -313,9 +313,9 @@ Omówiony wyżej przypadek prezentuje poniższy przykład.  Konstruktor
 wypisuje adres tworzonego obiektu, żebyśmy mogli się upewnić, że to
 ten sam obiekt w bloku obsługi wyjątku.
 
-{% highlight c++ %}
+```cpp
 {% include_relative tmp-except.cc %}
-{% endhighlight %}
+```
 
 Powinniśmy obsługiwać wyjątki przez referencję, bo jeżeli będziemy
 obsługiwać przez wartość, to wyjątek będzie kopiowany.  Proszę zmienić
@@ -343,9 +343,9 @@ Możemy jednak zadeklarować funkcję z kwalifikatorem referencji `&`
 albo `&&`, żeby można ją było wywołać albo dla l-wartości, albo
 r-wartości.  Na przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative overloading.cc %}
-{% endhighlight %}
+```
 
 ## Funkcje a kategorie wyrażeń
 
@@ -375,16 +375,16 @@ sposoby:
 To jest przykład wyrażenia wywołania funkcji, które jest l-wartością,
 bo zwracana wartość jest typu referencyjnego:
 
-{% highlight c++ %}
+```cpp
 {% include_relative lvalue-call.cc %}
-{% endhighlight %}
+```
 
 To jest przykład wyrażenia wywołania funkcji, które jest r-wartością,
 bo zwracana wartość nie jest typu referencyjnego:
 
-{% highlight c++ %}
+```cpp
 {% include_relative rvalue-call.cc %}
-{% endhighlight %}
+```
 
 ## Typy niekompletne a kategorie wyrażeń
 
@@ -401,9 +401,9 @@ mogą być r-wartością).
 
 W przykładzie niżej używamy typu, który nie został zdefiniowany:
 
-{% highlight c++ %}
+```cpp
 {% include_relative incomplete.cc %}
-{% endhighlight %}
+```
 
 # Podsumowanie
 

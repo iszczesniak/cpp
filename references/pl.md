@@ -73,15 +73,15 @@ referencji, które są wyoptymalizowane.
 
 Zapiszmy ten plik jako `test1.cc`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative test1.cc %}
-{% endhighlight %}
+```
 
 Zapiszmy ten plik jako `test2.cc`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative test2.cc %}
-{% endhighlight %}
+```
 
 Skompilujmy je do asemblera:
 
@@ -156,21 +156,21 @@ inicjalizującym jest `<expr>`.  *Deklaratorem* l-referencji jest `&`.
 
 Podstawowe przykłady:
 
-{% highlight c++ %}
+```cpp
 {% include_relative lref.cc %}
-{% endhighlight %}
+```
 
 Przykłady dla kontenerów i tablic:
 
-{% highlight c++ %}
+```cpp
 {% include_relative containers.cc %}
-{% endhighlight %}
+```
 
 Przykłady dla `std::pair` i `std::tuple`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative quasi.cc %}
-{% endhighlight %}
+```
 
 ## Referencja stała
 
@@ -195,9 +195,9 @@ r-wartością.**
 
 Przykłady:
 
-{% highlight c++ %}
+```cpp
 {% include_relative cref.cc %}
-{% endhighlight %}
+```
 
 ## R-referencja
 
@@ -215,9 +215,9 @@ R-referencja została wprowadzona w C++11, żeby umożliwić:
 
 Przykłady:
 
-{% highlight c++ %}
+```cpp
 {% include_relative rref.cc %}
-{% endhighlight %}
+```
 
 ## Referencji nie można zmienić
 
@@ -227,9 +227,9 @@ zainicjalizowana.  Taka zmiana byłaby wymagana przez operator
 przypisania typu klasowego, który ma referencyjne pole składowe, tak
 jak w przykładzie niżej:
 
-{% highlight c++ %}
+```cpp
 {% include_relative members.cc %}
-{% endhighlight %}
+```
 
 ## Kwalifikatory
 
@@ -238,15 +238,15 @@ Typ wskaźnikowy może mieć kwalifikatory `const` lub `volatile`
 
 Przykłady dla wskaźnika:
 
-{% highlight c++ %}
+```cpp
 {% include_relative qualifiers_ptr.cc %}
-{% endhighlight %}
+```
 
 Przykłady dla referencji:
 
-{% highlight c++ %}
+```cpp
 {% include_relative qualifiers_ref.cc %}
-{% endhighlight %}
+```
 
 W przykładzie wyżej użyliśmy kwalifikatorów w deklaracjach referencji,
 ale nie na **najwyższym poziomie** (ang. top-level).  Kwalifikator
@@ -257,9 +257,9 @@ deklaratora `&`, ale tam jest zabroniony.
 
 Referencja do wskaźnika istnieje, ale nie wskaźnik do referencji.
 
-{% highlight c++ %}
+```cpp
 {% include_relative r2p.cc %}
-{% endhighlight %}
+```
 
 # Sztuczki referencyjne
 
@@ -288,9 +288,9 @@ zadeklarowano przeciążeń #1 i #3, kompilator wybierze przeciążenie #2.
 
 Oto przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative overloading.cc %}
-{% endhighlight %}
+```
 
 ## Jawna konwersja l-wartości do r-wartości
 
@@ -306,9 +306,9 @@ podstawie typu wyrażenia `<expr>`.  Funkcja używa `static_cast<T
 
 Przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative move.cc %}
-{% endhighlight %}
+```
 
 ### Jeden przypadek użycia
 
@@ -326,17 +326,17 @@ odwołuje się do niej.  Dana tymczasowa będzie zniszczona, kiedy
 referencja wyjdzie poza zakres.  Bez referencji, dana tymczasowa
 byłaby niszczona po opracowaniu wyrażenia.
 
-{% highlight c++ %}
+```cpp
 {% include_relative tmp.cc %}
-{% endhighlight %}
+```
 
 Referencyjne pole składowe musi być zainicjalizowane przez
 konstruktor, ale nie wyrażeniem tymczasowym [class.base.init#8].
 Poniższy przykład jest błędny:
 
-{% highlight c++ %}
+```cpp
 {% include_relative tmp2.cc %}
-{% endhighlight %}
+```
 
 # Podsumowanie
 

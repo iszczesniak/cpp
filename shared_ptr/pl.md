@@ -73,9 +73,9 @@ Referencja w Javie i C# ma semantykę współdzielonej własności.
 
 Przykład niżej pokazuje podstawowe użycie.
 
-{% highlight c++ %}
+```cpp
 {% include_relative basic.cc %}
-{% endhighlight %}
+```
 
 ## Jak to działa.
 
@@ -102,15 +102,15 @@ Przykład niżej pokazuje podstawowe użycie.
 Możemy przenieść własność z obiektu typu `unique_ptr` do obiektu typu
 `shared_ptr` w ten sposób:
 
-{% highlight c++ %}
+```cpp
 {% include_relative u2s.cc %}
-{% endhighlight %}
+```
 
 Ale lepiej jest tak:
 
-{% highlight c++ %}
+```cpp
 {% include_relative u2s_better.cc %}
-{% endhighlight %}
+```
 
 Możemy przenieść własność z r-wartości typu `unique_ptr` do obiektu
 typu `shared_ptr`, ponieważ typ `shared_ptr` ma konstruktor, który
@@ -118,9 +118,9 @@ przyjmuje przez r-referencję obiekt typu `unique_ptr`.  W przykładzie
 niżej, tworzymy obiekt typu `shared_ptr` za podstawie obiektu
 tymczasowego typu `unique_ptr` zwracanego przez funkcję:
 
-{% highlight c++ %}
+```cpp
 {% include_relative u2s_example.cc %}
-{% endhighlight %}
+```
 
 ## Wydajność
 
@@ -143,16 +143,16 @@ bo wymagałby dodatkowego odwołania pośredniego (przez wskaźnik).
 Kiedy tworzymy dane zarządzane i obiekt zarządzający, możemy podać typ
 zarządzanych danych dwa razy (i być może się pomylić):
 
-{% highlight c++ %}
+```cpp
 {% include_relative make_shared.cc %}
-{% endhighlight %}
+```
 
 Ale możemy użyć szablonu funkcji `make_shared` i podać typ tylko raz,
 co jest mniej podatne na błędy:
 
-{% highlight c++ %}
+```cpp
 {% include_relative make_shared2.cc %}
-{% endhighlight %}
+```
 
 Szablon funkcji `make_shared` przyjmuje typ zarządzanych danych jako
 argument szablonu.

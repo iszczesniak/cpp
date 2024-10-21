@@ -26,9 +26,9 @@ wywołania, no bo nie wiadomo co wkompilować.  Proszę sprawdzić kod
 wynikowy przykładu niżej (z Code Explorer lub z użyciem narzędzia
 `objdump`).
 
-{% highlight c++ %}
+```cpp
 {% include_relative run.cc %}
-{% endhighlight %}
+```
 
 ## Callable w czasie kompilacji
 
@@ -37,17 +37,17 @@ czasie uruchomienia, to może ono być wkompilowane w miejscu wywołania.
 Jeżeli chcemy użyć inne callable, to musimy zmienić kod źródłowy.  Oto
 przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative compile1.cc %}
-{% endhighlight %}
+```
 
 Przykład niżej pokazuje wkompilowanie domknięcia.  Przykład pokazuje
 też brak narzutu wydajnościowego użycia domknięcia, co można sprawdzić
 z użyciem Code Explorer lub narzędziem `objdump`.
 
-{% highlight c++ %}
+```cpp
 {% include_relative compile2.cc %}
-{% endhighlight %}
+```
 
 # Typ przyjmowanego callable
 
@@ -64,16 +64,16 @@ ciekawe, wyrażenie z domknięciem (w przykładzie jest to `[]{cout <<
 "World!\n";}`) może być niejawnie rzutowane na wskaźnik na funkcję
 domknięcia, dlatego ten przykład się kompiluje.
 
-{% highlight c++ %}
+```cpp
 {% include_relative passing1.cc %}
-{% endhighlight %}
+```
 
 Możemy też określić typ przyjmowanego callable jako konkretny typ
 funktora.
 
-{% highlight c++ %}
+```cpp
 {% include_relative passing2.cc %}
-{% endhighlight %}
+```
 
 ## `std::function` jako callable
 
@@ -98,9 +98,9 @@ wydajnościowym pośredniego wywołania i kopiowania callable.  Jeżeli
 tej funkcjonalności nie potrzebujemy, to nie powinniśmy używać
 `std::function`.
 
-{% highlight c++ %}
+```cpp
 {% include_relative passing3.cc %}
-{% endhighlight %}
+```
 
 ## Szablonowy typ callable
 
@@ -112,9 +112,9 @@ przekłada się na maksymalną wydajnośc, bo kod wynikowy generowany jest
 Użycie szablonu nie wyklucza użycia `std::function`, która może być po
 prostu argumentem szablonu.
 
-{% highlight c++ %}
+```cpp
 {% include_relative passing4.cc %}
-{% endhighlight %}
+```
 
 # Funkcja składowa klasy
 
@@ -142,16 +142,16 @@ Przykład niżej pokazuje także użycie `std::function` razem ze
 wskaźnikiem na funkcję składową.  Musimy użyć funkcji `std::bind`,
 żeby przekazać obiekt, na rzecz którego funkcja będzie wywoływana.
 
-{% highlight c++ %}
+```cpp
 {% include_relative pointer-to-member.cc %}
-{% endhighlight %}
+```
 
 Tę składnię łatwo pomylić ze składnią wywołania funkcji, do której
 wskaźnik jest przechowywany jako pole składowe obiektu.  Oto przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative member-pointer.cc %}
-{% endhighlight %}
+```
 
 Użycie wkaźnika na funkcję składową jest zaawansowaną
 funkcjonalnością, którą oczywiście stosuje się wyłącznie w
@@ -165,9 +165,9 @@ Wszystkie argumenty `std::invoke` są doskonale przekazywane.  Na
 pierwszy rzut oka ta funkcja robi to samo, co zwykłe wywołanie
 callable.  Oto przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative invoke1.cc %}
-{% endhighlight %}
+```
 
 Dlaczego więc wprowadzono tę funkcję?  Bo pozwala także na wywołanie
 składowej klasy. Funkcja wprowadza ujednolicony sposób wywołania
@@ -183,18 +183,18 @@ Argumentami `std::invoke` przy wywołaniu funkcji składowej kolejno są:
 
 Oto przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative invoke2.cc %}
-{% endhighlight %}
+```
 
 W przykładzie niżej, funkcja `f` wywołuje otrzymany callable, którym
 może być także wskaźnik na funkcję składową.  Zaimplementowanie takiej
 funkcjonalności samemu byłoby dosyć trudne, a my to osiągnęliśmy
 jedynie korzystając z funkcji `std::invoke.`
 
-{% highlight c++ %}
+```cpp
 {% include_relative invoke3.cc %}
-{% endhighlight %}
+```
 
 W przykładzie wyżej użyliśmy **szablonu wariadycznego**, żeby funkcja
 `f` mogła przyjąć dowolną (także zerową) liczbę argumentów dla
@@ -225,9 +225,9 @@ kategorię wartości wyrażeń elementów krotki.  Jeżeli wywołujemy
 funkcję składową, to pierwszym elementem krotki powinien być obiekt,
 na rzecz którego callable będzie wywołana.
 
-{% highlight c++ %}
+```cpp
 {% include_relative apply.cc %}
-{% endhighlight %}
+```
 
 Funkcje `std::invoke`, `std::apply` i `std::forward_as_tuple` są
 mechanizmami czasu kompilacji i nie wprowadzają żadnego narzutu
@@ -238,9 +238,9 @@ czasowego i pamięciowego.
 Niestety nie udało mi się użyć funkcji `std::invoke` i `std::apply` z
 przeciążeniami:
 
-{% highlight c++ %}
+```cpp
 {% include_relative overloads.cc %}
-{% endhighlight %}
+```
 
 # Doskonałe przekazywanie
 
@@ -252,9 +252,9 @@ znaczenia, kiedy przekazywana jest funkcja (bo funkcja zawsze jest
 l-wartością), ale ma znaczenie, kiedy przekazujemy funktor albo
 domknięcie, bo wtedy argument może być l-wartością albo r-wartością.
 
-{% highlight c++ %}
+```cpp
 {% include_relative forwarding.cc %}
-{% endhighlight %}
+```
 
 # Podsumowanie
 

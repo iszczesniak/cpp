@@ -77,9 +77,9 @@ In Java or C#, a reference has the shared-ownership semantics.
 
 The example below shows the basic usage.
 
-{% highlight c++ %}
+```cpp
 {% include_relative basic.cc %}
-{% endhighlight %}
+```
 
 ## How it works
 
@@ -105,15 +105,15 @@ The example below shows the basic usage.
 We can move the ownership from `unique_ptr` to `shared_ptr` like that
 alright:
 
-{% highlight c++ %}
+```cpp
 {% include_relative u2s.cc %}
-{% endhighlight %}
+```
 
 But it's downright better done this way:
 
-{% highlight c++ %}
+```cpp
 {% include_relative u2s_better.cc %}
-{% endhighlight %}
+```
 
 We can move the ownership from an rvalue of type `unique_ptr`, because
 `shared_ptr` has the constructor which takes by rvalue reference an
@@ -121,9 +121,9 @@ object of type `std::unique_ptr`.  Therefore, we can create a
 `shared_ptr` object from a temporary object of type `unique_ptr`,
 e.g., returned by a function like this:
 
-{% highlight c++ %}
+```cpp
 {% include_relative u2s_example.cc %}
-{% endhighlight %}
+```
 
 ## Performance
 
@@ -147,16 +147,16 @@ indirect access, thwarting performance.
 When creating the managed data and the managing object, we can write
 the type of the managed data twice (and perhaps introduce bugs):
 
-{% highlight c++ %}
+```cpp
 {% include_relative make_shared.cc %}
-{% endhighlight %}
+```
 
 But we can use function `make_shared` and write the type only once
 like this (which is less error-prone):
 
-{% highlight c++ %}
+```cpp
 {% include_relative make_shared2.cc %}
-{% endhighlight %}
+```
 
 Function template `make_shared` takes the type of the data to manage
 as its template argument.

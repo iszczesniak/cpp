@@ -101,9 +101,9 @@ Konstruktor przenoszący klasy `T` ma jeden parametr typu `T &&`.
 
 W przykładzie niżej klasa ma zdefiniowane trzy konstruktory:
 
-{% highlight c++ %}
+```cpp
 {% include_relative constructors.cc %}
-{% endhighlight %}
+```
 
 ### Implementacja przeciążeń konstruktora
 
@@ -116,9 +116,9 @@ obiektów bazowych i składowych.  Do tego celu używamy funkcji
 `std::move`, jak pokazano w przykładzie niżej, w którym dla porównania
 zaimplementowano także konstruktor kopiujący.
 
-{% highlight c++ %}
+```cpp
 {% include_relative ctor-impl.cc %}
-{% endhighlight %}
+```
   
 ## Operator przypisania: kopiujący i przenoszący
 
@@ -134,9 +134,9 @@ Przenoszący operator przypisania klasy `T` ma jeden parametr typu `T
 W przykładzie niżej klasa ma zdefiniowane dwa przeciążenia operatora
 przypisania:
 
-{% highlight c++ %}
+```cpp
 {% include_relative operators.cc %}
-{% endhighlight %}
+```
 
 ### Typ wyniku przenoszącego operatora przypisania
 
@@ -168,9 +168,9 @@ operatorów przypisania.  Do tego celu używamy funkcji `std::move`, jak
 pokazano w przykładzie niżej, w którym dla porównania zaimplementowano
 także kopiujący operator przypisania.
 
-{% highlight c++ %}
+```cpp
 {% include_relative assign-impl.cc %}
-{% endhighlight %}
+```
 
 ## Wybór przeciążenia
 
@@ -223,9 +223,9 @@ kiedy jest wybrana, to kompilacja kończy się błędem.
 Programista może jawnie zażądać domyślnej implementacji składowej
 specjalnej z użyciem `= default`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative default.cc %}
-{% endhighlight %}
+```
 
 ### Domyślna implementacja
 
@@ -248,9 +248,9 @@ Wszystkie obiekty bazowe i składowe w domyślnej implementacji:
 
 Programista może jawnie usunąć składową z użyciem `= delete`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative delete.cc %}
-{% endhighlight %}
+```
 
 ### Zasady dla składowych specjalnych
 
@@ -288,9 +288,9 @@ przeniesienia.
 Obiekty typu tylko do przenoszenia mogą być tylko przenoszone i nie
 mogą być kopiowane.  Oto przykład typu tylko do przenoszenia:
 
-{% highlight c++ %}
+```cpp
 {% include_relative move-only.cc %}
-{% endhighlight %}
+```
 
 # Konsekwencje semantyki przeniesienia
 
@@ -335,9 +335,9 @@ wartości, bo:
 
 Oto przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative implicit1.cc %}
-{% endhighlight %}
+```
 
 #### Przypadek 2
 
@@ -356,9 +356,9 @@ Będzie przenoszona tylko wartość obiektu bazowego, a nie całego
 obiektu, co nazywamy cięciem obiektu (ang. object slicing), bo
 wycinamy wartość obiektu bazowego, żeby ją przenieść.
 
-{% highlight c++ %}
+```cpp
 {% include_relative implicit2.cc %}
-{% endhighlight %}
+```
 
 Jeżeli obiekt lokalny byłby statyczny (czyli nie byłby niszczony po
 wyjściu z funkcji), to wartość nie mogłaby zostać niejawnie
@@ -376,9 +376,9 @@ zamienia ich wartości.  Ta funkcja jest częścią biblioteki
 standardowej, ale przykładowa implementacja niżej ilustruje problem
 wydajnej zamiany wartości:
 
-{% highlight c++ %}
+```cpp
 {% include_relative swap.cc %}
-{% endhighlight %}
+```
 
 # Podsumowanie
 

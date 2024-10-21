@@ -36,9 +36,9 @@ wskaźnik.
 W poniższym sortowaniu porównywane są liczby całkowite, dla których
 jest ustalony porządek (liniowy) z użyciem operatora `<`:
 
-{% highlight c++ %}
+```cpp
 {% include_relative motivation1.cc %}
-{% endhighlight %}
+```
 
 W przykładzie niżej sortujemy obiekty typu klasowego.  Żeby kompilacja
 powiodła się, musimy zdefiniować porządek z użyciem **operatora
@@ -54,9 +54,9 @@ powinien zmieniać pierwszego operandu) i powinien pobierać drugi
 operand przez referenceję stałą (bo nie powinien zmieniać drugiego
 operandu).
 
-{% highlight c++ %}
+```cpp
 {% include_relative motivation2.cc %}
-{% endhighlight %}
+```
 
 Funkcja `std::sort` używa operatora `<`, jeżeli nie przakażemy jej
 callable porównania jako ostatni argument wywołania.  Tak naprawdę
@@ -70,18 +70,18 @@ Możemy uzyskać identyczny efekt jak w przykładzie wyżej, jeżeli
 przekażemy jako callable obiekt struktury `std::less<A>`.  Jeżeli tego
 nie zrobimy, zostanie on domyślnie użyty.
 
-{% highlight c++ %}
+```cpp
 {% include_relative motivation3.cc %}
-{% endhighlight %}
+```
 
 Funkcja `std::sort` nie musi zawsze używać operatora `<`.  Możemy użyć
 dowolnego callable.  Możemy sortować w kolejności rosnącej, jeżeli
 użyjemy obiektu struktury `std::greater`.  Ten typ używa operatora
 `>`, więc musimy go zdefiniować, zamiast operatora `<`.
 
-{% highlight c++ %}
+```cpp
 {% include_relative motivation4.cc %}
-{% endhighlight %}
+```
 
 Callable może być przekazywany nie tylko funkcji, ale też
 konstruktorowi, który może przechować callable w polu składowym.  Tak
@@ -89,9 +89,9 @@ robi, na przykład, kolejka priorytetowa biblioteki standardowej
 (`std::priority_queue`).  Poniżej jest nasz roboczy przykład z kolejką
 priorytetową, który będziemy dalej zmieniać.
 
-{% highlight c++ %}
+```cpp
 {% include_relative pq.cc %}
-{% endhighlight %}
+```
 
 # Typy callable
 
@@ -117,24 +117,24 @@ funkcji.
 W przykładzie niżej posługujemy się funkcją przez wskaźnik i
 referencję.
 
-{% highlight c++ %}
+```cpp
 {% include_relative function.cc %}
-{% endhighlight %}
+```
 
 Tutaj sortujemy malejąco z użyciem wskaźnika na funkcję:
 
-{% highlight c++ %}
+```cpp
 {% include_relative sort_foo.cc %}
-{% endhighlight %}
+```
 
 Domyślnie kolejka priorytetowa sortuje malejąco, czyli zwraca
 największe elementy.  W przykładzie niżej przekazujemy wskaźnik na
 funkcję porównującą, żeby ustalić porządek rosnący w kolejce
 priorytetowej.
 
-{% highlight c++ %}
+```cpp
 {% include_relative pq_foo.cc %}
-{% endhighlight %}
+```
 
 ## Funktor
 
@@ -148,15 +148,15 @@ i wywołujemy go.  Funktor jest callable, bo możemy go wywołać.
 Ponieważ operator `()` został zdefiniowany jako stały, to możemy go
 wywołać także na rzecz obiektów stałych.
 
-{% highlight c++ %}
+```cpp
 {% include_relative functor1.cc %}
-{% endhighlight %}
+```
 
 W funktorze możemy przechowywać dane:
 
-{% highlight c++ %}
+```cpp
 {% include_relative functor2.cc %}
-{% endhighlight %}
+```
 
 Funktor działa jak funkcja, kiedy nie przechowuje danych.  Na
 przykład, typy `std::less` i `std::greater` zachowują się jak funkcje,
@@ -168,24 +168,24 @@ Domyślnie kolejka priorytetowa zwraca największy element, bo do
 porównania używa klasy funktora `std::less`.  Poniżej użyjemy funktora
 klasy `std::greater`, żeby kolejka zwracała najmniejszy element.
 
-{% highlight c++ %}
+```cpp
 {% include_relative pq_ro.cc %}
-{% endhighlight %}
+```
 
 Możemy także zdefiniować własny typ funktora, który działa jak
 funkcja:
 
-{% highlight c++ %}
+```cpp
 {% include_relative pq_fo1.cc %}
-{% endhighlight %}
+```
 
 W tym przykładzie w czasie uruchomienia przekazujemy konstruktorowi
 funktora argument (dodatkową daną do obliczeń), który mówi o porządku
 (rosnącym bądź malejącym):
 
-{% highlight c++ %}
+```cpp
 {% include_relative pq_fo2.cc %}
-{% endhighlight %}
+```
 
 # Domknięcie
 
@@ -234,16 +234,16 @@ jako niestałą z użyciem specyfikatora `mutable`.
 Dlatego najprostszą lambdą jest `[]{}`.  Tutaj tworzymy domknięcie i
 wywołujemy je w jednym wyrażeniu:
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture1.cc %}
-{% endhighlight %}
+```
 
 Wyrażenie `[]{}()`, które tworzy i wywołuje domknięcie, jest
 równoważne temu kodowi:
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture1a.cc %}
-{% endhighlight %}
+```
 
 ## Semantyka
 
@@ -275,15 +275,15 @@ funkcji, czy bloku.
 Lista przechwytywania może być pusta.  W takim przypadku w ciele
 dostępne są jedynie parametry z listy parametrów.  Oto przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture2.cc %}
-{% endhighlight %}
+```
 
 Powyższy kod jest równoważny poniższemu:
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture2a.cc %}
-{% endhighlight %}
+```
 
 ## Sposoby przechwytywania zmiennych
 
@@ -303,15 +303,15 @@ deklaratorem `&`.
 
 Na przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture3.cc %}
-{% endhighlight %}
+```
 
 Powyższy kod jest równoważny poniższemu:
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture3a.cc %}
-{% endhighlight %}
+```
 
 ### Domyślna polityka przechwytywania
 
@@ -323,39 +323,39 @@ przechwytywane i nie musimy ich podawać w liście.
 Domyślnej polityki przechwytywania przez wartość żądamy z użyciem
 deklaratora `=`.  Na przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture4.cc %}
-{% endhighlight %}
+```
 
 Powyższy kod jest równoważny poniższemu:
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture4a.cc %}
-{% endhighlight %}
+```
 
 Domyślnej polityki przechwytywania przez referencję żądamy z użyciem
 deklaratora `&`.  W dwóch przykładach niżej, funkcja operatora `()`
 może być stała, bo nie zmieniamy referencji składowej, a jedynie
 zmienną, do której referencja się odnosi.
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture5.cc %}
-{% endhighlight %}
+```
 
 Powyższy kod jest równoważny poniższemu:
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture5a.cc %}
-{% endhighlight %}
+```
 
 Możemy zażądać domyślnej polityki, a następnie podać te zmienne, które
 powinny być przechwycone odwrotnie.  Możemy także użyć innych nazw dla
 pól składowych, innych od nazw przechwytywanych zmiennych.  Oto
 przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative capture6.cc %}
-{% endhighlight %}
+```
 
 ## Przykłady domknięć
 
@@ -373,15 +373,15 @@ konstruktora.
 
 Tutaj jest przykład użycia lambdy z kolejką priorytetową:
 
-{% highlight c++ %}
+```cpp
 {% include_relative pq_lambda1.cc %}
-{% endhighlight %}
+```
 
 Tutaj przekazujemy argument do domknięcia:
 
-{% highlight c++ %}
+```cpp
 {% include_relative pq_lambda2.cc %}
-{% endhighlight %}
+```
 
 # Podsumowanie
 

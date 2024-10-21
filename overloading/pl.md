@@ -11,9 +11,9 @@ musi wybrać funkcję spośród zbioru przeciążeń.
 Już dla prostych funkcji możemy mieć problem określić które
 przeciążenie zostanie wywołane.  Na przykład:
 
-{% highlight c++ %}
+```cpp
 {% include_relative spec-vs-over.cc %}
-{% endhighlight %}
+```
 
 Wybór przeciążenia (ang. overload resolution) ma kilka składowych:
 
