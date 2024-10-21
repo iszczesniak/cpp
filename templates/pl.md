@@ -107,9 +107,9 @@ parametr szablonu `N`, którego argument musi być jawnie podany.  Ma
 też typowy parametr szablonu `T`, którego argument może być
 wywnioskowany:
 
-{% highlight c++ %}
+```cpp title=print3.cc
 {% include_relative print3.cc %}
-{% endhighlight %}
+```
 
 Przykład niżej ilustruje rekurencyjny szablon funkcji, gdzie
 rekurencja jest przerwana przez instrukcję warunkową czasu kompilacji
