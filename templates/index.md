@@ -99,7 +99,7 @@ unable to deduce it:
 {% include_relative print2.cc %}
 ```
 
-Here we have to overloads of function templates (overloads because
+Here we have two overloads of function templates (overloads because
 they have the same name).  The second template has a value parameter
 `N` and a type parameter `T` whose argument can be deduced:
 
