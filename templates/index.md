@@ -19,7 +19,7 @@ A template can be of a:
 A template declaration or definition begins with the `template`
 keyword, and it has this syntax:
 
-```
+```cpp
 template <parameter list>
 ```
 
@@ -39,7 +39,7 @@ name.  There are three kinds: type, value, and template.  The example
 below has three parameters: `T` of the type kind, `N` of the value
 kind, and `C` of the template kind.
 
-```
+```cpp
 template <typename T, int N, template<typename> typename C>
 ```
 
@@ -87,7 +87,7 @@ parameter defined as `int I`.
 
 An example definition of a value template parameter:
 
-```
+```cpp
 template <int N>
 ```
 
@@ -119,14 +119,14 @@ time the parameter is replaced with a template.  We define a template
 paramater `T` as a template type like this, where `param-type-list` is
 a list of parameter types of template `T`:
 
-```
-template <param-type-list> typename T
+```cpp
+template <parameter list> typename T
 ```
 
 This is an example of how a template with a template parameter begins:
 
-```
-template <template <param-type-list> typename T>
+```cpp
+template <template <parameter list> typename T>
 ```
 
 Here's an example:

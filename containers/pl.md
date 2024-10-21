@@ -331,21 +331,21 @@ popełnienia błędu jest mniejsze.
 
 Taka jest składnia:
 
-```
-for(deklaracja: wyrażenie) zdanie
+```cpp
+for(declaration: expression) statement
 ```
 
 Gdzie:
 
-* `deklaracja` deklaruje zmienną, która jest inicjalizowana elementami
-  kontenera (a dokładniej elementami zakresu) w każdej iteracji pętli.
-  Tę zmienną nazywamy *zadeklarowaną zmienną*.
+* `declaration` deklaruje zmienną, która jest inicjalizowana
+  elementami kontenera (a dokładniej elementami zakresu) w każdej
+  iteracji pętli.  Tę zmienną nazywamy *zadeklarowaną zmienną*.
 
-* `wyrażenie` jest *wyrażeniem zakresu*.  Najczęściej jest nim
+* `expression` jest *wyrażeniem zakresu*.  Najczęściej jest nim
   kontener.  Dla wyrażenia zakresu możemy wywołać funkcje `begin` i
   `end`.
 
-* `zdanie` jest zdaniem wykonywanym w każdej iteracji pętli.  W tym
+* `statement` jest zdaniem wykonywanym w każdej iteracji pętli.  W tym
   zdaniu używamy zadeklarowanej zmiennej.
 
 Przykład:

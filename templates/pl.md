@@ -21,8 +21,8 @@ Szablon może być:
 Deklaracje i definicje szablonów rozpoczynają się słowem kluczowym
 `template` z taką składnią:
 
-```
-template <lista parametrów>
+```cpp
+template <parameter list>
 ```
 
 Mówimy, że szablon jest *sparametryzowany*, bo ma listę parametrów.
@@ -132,15 +132,15 @@ Nazwijmy to tak: **szablonowy parametr szablonu**.  Parametr tego
 rodzaju ma podstawiony typ szablonowy podczas konkretyzacji, a w
 liście parametrów szablonu deklarujemy go tak:
 
-```
-template <lista parametrów parametru> typename T
+```cpp
+template <parameter list> typename T
 ```
 
 A to przykład początku deklaracji lub definicji szablonu z szablonowym
 parametrem:
 
-```
-template <template <lista parametrów parametru> typename T>
+```cpp
+template <template <parameter list> typename T>
 ```
 
 Przykładowy program:
