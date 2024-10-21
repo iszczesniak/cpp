@@ -107,7 +107,7 @@ parametr szablonu `N`, którego argument musi być jawnie podany.  Ma
 też typowy parametr szablonu `T`, którego argument może być
 wywnioskowany:
 
-```cpp [print3.cc]
+```cpp
 {% include_relative print3.cc %}
 ```
 
