@@ -62,8 +62,8 @@ szablonowych argumentów szablonu nie obowiązują.
 
 Inicjalizacja zmiennej wygląda tak:
 
-```
-<typ zmiennej> <nazwa zmiennej> = <wyrażenie inicjalizujące>;
+```cpp
+type name = expression;
 ```
 
 Typ zmiennej może zawierać kwalifikatory `const` i `volatile`.

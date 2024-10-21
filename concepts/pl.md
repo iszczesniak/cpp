@@ -70,8 +70,8 @@ Na przykład w bibliotece `iterator` zdefiniowano koncept
 Koncept definiujemy tak:
 
 ```cpp
-template <lista parametrów>
-concept nazwa = ograniczenie;
+template <parameter list>
+concept nazwa = constraint;
 ```
 
 Konceptu nie można ograniczyć, czyli po liście parametrów nie możemy
