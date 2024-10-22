@@ -20,10 +20,11 @@ main()
   print(.1);                // T = double
 
   // We explicitely give a template argument.
-  print<int>(1.2);          // T = int
   print<double>(1);         // T = double
   print<string>("Hello!");  // T = string
   print<double>();          // T = double
+  // This one produces a warning, so I commented it out.
+  // print<int>(1.2);          // T = int
 
   // We use the default template argument (int), and a default value
   // for a call argument ({}, which is 0 for int).
