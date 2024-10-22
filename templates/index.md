@@ -142,9 +142,8 @@ Here we use parameter `T`:
 template <template <parameter-list> typename T>
 ```
 
-In this example, the template template parameter `C` accepts only a
-template type that, in turn, accepts a type argument and the value
-argument:
+In this example, the template parameter `C` accepts only a template
+type that, in turn, accepts a type argument and the value argument:
 
 ```cpp
 {% include_relative template1.cc %}
@@ -152,13 +151,20 @@ argument:
 
 A compiler (Clang, GCC) replaces `__PRETTY_FUNCTION__` with the
 function name and the template arguments, so that we can examine how
-the function template was instantiated,
+the function template was instantiated.
 
 A template parameter allows to deduce the arguments of the
 instantiated template type:
 
 ```cpp
 {% include_relative template2.cc %}
+```
+
+A template parameter breaks circular dependency between template
+types:
+
+```cpp
+{% include_relative circular.cc %}
 ```
 
 <!-- LocalWords: lvalue lvalues rvalue -->
