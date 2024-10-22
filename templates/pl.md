@@ -153,7 +153,7 @@ Dwie uwagi na temat przykładu wyżej:
 
 * za `__PRETTY_FUNCTION__` kompilator (Clang, GCC) podstawia nazwę
   funkcji z argumentami szablonu, więc możemy sprawdzić w jaki sposób
-  funkcja została skonkretyzowana;
+  szablon funkcji został skonkretyzowany;
 
 * trzykropek (`...`) w liście parametrów definiuje paczkę parametrów,
   która przyjmuje dowolną liczbę argumentów danego rodzaju (w tym
