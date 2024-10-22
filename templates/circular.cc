@@ -28,7 +28,7 @@ struct A
 // perfect solution, because we require the owning type T to be
 // templated with a single argument, so other types will not be
 // accepted.
-template <template <typename> typename T>
+template <template <typename...> typename T>
 struct B
 {
   // "B" is an injected class name, i.e., we do not have to write
