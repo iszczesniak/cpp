@@ -147,9 +147,9 @@ Here's an example:
 {% include_relative template1.cc %}
 ```
 
-`__PRETTY_FUNCTION__` is replaced by GCC with the function name, and
-the template parameters, so that we can learn what the paremeters
-really are.
+`__PRETTY_FUNCTION__` is replaced by a compiler (Clang, GCC) and with
+the function name, and the template parameters, so that we can learn
+what the paremeters really are.
 
 This is a modified example from above.  This time the template-type
 template argument C can accept template types which accept two
