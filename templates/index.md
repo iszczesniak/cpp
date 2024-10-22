@@ -53,11 +53,12 @@ parameter, and `T` is the name of the parameter.  We can also define
 equivalently a type parameter with `class T`, but `typename T` is
 preferred in modern C++.
 
-Instantiation can substitute `T` with any type: a built-in type,
-user-defined type, even `void`. `T` doesn't have to meet any
-requirements, e.g., inheriting from an interface class.  The
-requirements on type `T` follow from how we use the type in the
-template definition, i.e., whether we, e.g.,:
+Instantiation can substitute `T` with any concrete type: a built-in
+type (e.g., `int`), a user-defined type (e.g., `A`), a template type
+(e.g., `vector<int>`), even `void`.  Concrete, meaning not a type
+template.  `T` doesn't have to meet any requirements, e.g., inheriting
+from an interface class.  The requirements on type `T` follow from how
+we use the type in the template definition, i.e., whether we, e.g.,:
 
 * default-construct a value of type `T`,
 
@@ -125,20 +126,20 @@ references:
 
 ## Template parameter
 
-A template paramter of a template kind accepts as its argument a
-templated type of an interface defined by the parameter.  It's also
-known as the *template template parameter*.  In this example,
-parameter `T` defines by the parameter list the interface of the
-accepted template type:
+A template paramter of the template kind accepts as its argument a
+type template of the required interface.  It's also known as the
+*template template parameter*.  The definition of the template
+parameter `T` defines (with the parameter list `parameter-list`) the
+interface of the acceptable type templates:
 
 ```cpp
-template <parameter list> typename T
+template <parameter-list> typename T
 ```
 
-Here's how a template with a template parameter begins:
+Here we use parameter `T`:
 
 ```cpp
-template <template <parameter list> typename T>
+template <template <parameter-list> typename T>
 ```
 
 Here's an example:
@@ -164,5 +165,11 @@ turn, accepts a type argument and the value argument.
 ```cpp
 {% include_relative template2.cc %}
 ```
+
+A template parameter allows to:
+
+* define the interface of an accepted type template,
+
+* deduce the arguments of the instantiated template type.
 
 <!-- LocalWords: lvalue lvalues rvalue -->

@@ -54,11 +54,12 @@ mówi, że chodzi o typowy parametr, a `T` jest nazwą parametru.  Możemy
 również równoważnie napisać `class T`, ale nowocześniej jest `typename
 T`.
 
-Konkretyzacja może podstawić za `T` dowolny typ: wbudowany
-(np. `int`), użytkownika (np. `myclass`), a nawet `void`.  `T` nie
-musi spełniać żadnych warunków, np. nie musi dziedziczyć z klasy
-bazowej.  Wymagania dotyczące typu `T` wynikają z jego użycia w
-definicji szablonu, czyli czy, na przykład:
+Konkretyzacja może podstawić za `T` dowolny konkretny typ: typ
+wbudowany (np. `int`), typ użytkownika (np. `A`), typ szablonowy
+(np. `vector<int>`), a nawet `void`.  Konkretny, czyli nie szablon
+typu.  `T` nie musi spełniać żadnych warunków, np. nie musi
+dziedziczyć z klasy bazowej.  Wymagania dotyczące typu `T` wynikają z
+jego użycia w definicji szablonu, czyli czy, na przykład:
 
 * tworzymy domyślną wartość typu `T`, czyli `T{}`,
 
@@ -128,19 +129,18 @@ wskaźniki i referencje na funkcje:
 ## Rodzaj parametru: szablon
 
 Nazwijmy to tak: **szablonowy parametr szablonu**.  Taki parametr
-przyjmuje jako argument typ szablonowy o interfejsie zdefiniowanym
-przez parametr.  Oto przykład definicji szablonowego parametru `T`,
-który przez listę parametrów definiuje interfejs przyjmowanego typu
-szablonowego:
+przyjmuje jako argument szablon typu o wymaganym interfejsie.
+Definicja szablonowego parametru `T` definiuje (przez listę parametrów
+`parameter-list`) interfejs dopuszczalnych szablonów typów:
 
 ```cpp
-template <parameter list> typename T
+template <parameter-list> typename T
 ```
 
-A to przykład początku szablonu z szablonowym parametrem:
+Tutaj używamy parametr `T`:
 
 ```cpp
-template <template <parameter list> typename T>
+template <template <parameter-list> typename T>
 ```
 
 Przykładowy program:
@@ -155,9 +155,9 @@ Dwie uwagi na temat przykładu wyżej:
   funkcji z argumentami szablonu, więc możemy sprawdzić w jaki sposób
   szablon funkcji został skonkretyzowany;
 
-* trzykropek (`...`) w liście parametrów definiuje paczkę parametrów,
-  która przyjmuje dowolną liczbę argumentów danego rodzaju (w tym
-  przypadku typowych), co potem będzie omawiane.
+* trzykropek (`...`) w liście parametrów definiuje *paczkę
+  parametrów*, która przyjmuje dowolną liczbę argumentów danego
+  rodzaju (w tym przypadku typowych), co potem będzie omawiane.
 
 W przykładzie niżej, za szablonowy parametr `C` może być podstawiony
 dowolny typ szablonowy, którego pierwszy parametr jest typowy, a drugi
@@ -168,15 +168,12 @@ wartościowy.
 ```
 
 Szablonowy parametr to po prostu typowy parametr, ale który dodatkowo
-pozwala na:
+pozwala:
 
-* *definicję interfejsu przyjmowanego typu*: argumentem tego parametru
-   może być wyłącznie typ szablonowy spełniający zdefiniowany
-   interfejs,
+* zdefiniować (przez listę parametrów) interfejs przyjmowanego
+  szablonu typu,
 
-* *wydobycie argumentów z przyjętego typu*: z argumentu tego parametru
-   (który jest na pewno typu szablonowego, bo spełnia interfejs),
-   możemy wydobyć argumenty konkretyzacji.
+* wydobyć argumenty z przyjętego skonkretyzowanego typu szablonowego.
 
 Oto przykład:
 
