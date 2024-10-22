@@ -149,9 +149,15 @@ Przykładowy program:
 {% include_relative template1.cc %}
 ```
 
-Za `__PRETTY_FUNCTION__` kompilator (Clang, GCC) podstawija nazwę
-funkcji i argumenty szablonu, więc możemy przekonać się w jaki sposób
-funkcja została skonkretyzowana.
+Dwie uwagi na temat przykładu wyżej:
+
+* za `__PRETTY_FUNCTION__` kompilator (Clang, GCC) podstawija nazwę
+  funkcji i argumenty szablonu, więc możemy przekonać się w jaki
+  sposób funkcja została skonkretyzowana;
+
+* trzykropek (`...`) w liście parametrów definiuje paczkę parametrów,
+  która może przyjąć dowolną liczbę argumentów danego rodzaju (w tym
+  przypadku typowych), wrócimy do tego.
 
 W przykładzie niżej, za szablonowy parametr `C` może być podstawiony
 dowolny typ szablonowy, którego pierwszy parametr jest typowy, a drugi
