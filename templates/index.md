@@ -126,7 +126,7 @@ references:
 
 ## Template parameter
 
-A template paramter of the template kind accepts as its argument a
+A template paramter of the template kind accepts (as its argument) a
 type template of the required interface.  It's also known as the
 *template template parameter*.  The definition of the template
 parameter `T` defines (with the parameter list `parameter-list`) the

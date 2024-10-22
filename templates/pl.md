@@ -129,7 +129,7 @@ wskaźniki i referencje na funkcje:
 ## Rodzaj parametru: szablon
 
 Nazwijmy to tak: **szablonowy parametr szablonu**.  Taki parametr
-przyjmuje jako argument szablon typu o wymaganym interfejsie.
+przyjmuje (jako swój argument) szablon typu o wymaganym interfejsie.
 Definicja szablonowego parametru `T` definiuje (przez listę parametrów
 `parameter-list`) interfejs dopuszczalnych szablonów typów:
 
