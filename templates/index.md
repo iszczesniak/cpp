@@ -149,9 +149,9 @@ Here's an example:
 
 Two notes on the example above:
 
-* `__PRETTY_FUNCTION__` is replaced by a compiler (Clang, GCC) and
-  with the function name, and the template parameters, so that we can
-  learn what the paremeters really are,
+* `__PRETTY_FUNCTION__` is replaced by a compiler (Clang, GCC) with
+  the function name and the template arguments, so that we can examine
+  how the template was instantiated,
 
 * the ellipsis (`...`) defines a *parameter pack* that accepts any
   number of arguments of the given kind (in that case of the type

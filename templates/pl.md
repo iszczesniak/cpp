@@ -151,9 +151,9 @@ Przykładowy program:
 
 Dwie uwagi na temat przykładu wyżej:
 
-* za `__PRETTY_FUNCTION__` kompilator (Clang, GCC) podstawija nazwę
-  funkcji i argumenty szablonu, więc możemy przekonać się w jaki
-  sposób funkcja została skonkretyzowana;
+* za `__PRETTY_FUNCTION__` kompilator (Clang, GCC) podstawia nazwę
+  funkcji z argumentami szablonu, więc możemy sprawdzić w jaki sposób
+  funkcja została skonkretyzowana;
 
 * trzykropek (`...`) w liście parametrów definiuje paczkę parametrów,
   która przyjmuje dowolną liczbę argumentów danego rodzaju (w tym
