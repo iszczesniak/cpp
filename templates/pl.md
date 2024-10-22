@@ -155,15 +155,15 @@ Za `__PRETTY_FUNCTION__` kompilator (Clang, GCC) podstawia nazwę
 funkcji z argumentami szablonu, więc możemy sprawdzić w jaki sposób
 szablon funkcji został skonkretyzowany.
 
-Szablonowy parametr pozwala wydobyć argumenty z przyjętego
-skonkretyzowanego typu szablonowego:
+Szablonowy parametr pozwala wywnioskować argumenty skonkretyzowanego
+typu szablonowego:
 
 ```cpp
 {% include_relative template2.cc %}
 ```
 
-Ten rodzaj parametru pozwala nam na przerwanie zależności cyklicznej
-między typami szablonowymi:
+Szablonowy parametr przerywa zależność cykliczną między typami
+szablonowymi:
 
 ```cpp
 {% include_relative circular.cc %}
