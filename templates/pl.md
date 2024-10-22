@@ -131,7 +131,7 @@ wskaźniki i referencje na funkcje:
 Nazwijmy to tak: **szablonowy parametr szablonu**.  Taki parametr
 przyjmuje (jako swój argument) szablon typu o wymaganym interfejsie.
 Definicja szablonowego parametru `T` definiuje (przez listę parametrów
-`parameter-list`) interfejs dopuszczalnych szablonów typów:
+`parameter-list`) interfejs dopuszczalnych szablonów typu:
 
 ```cpp
 template <parameter-list> typename T
