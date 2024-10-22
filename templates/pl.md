@@ -137,7 +137,7 @@ Definicja szablonowego parametru `T` definiuje (przez listę parametrów
 template <parameter-list> typename T
 ```
 
-Tutaj używamy parametr `T`:
+Tutaj używamy parametu `T`:
 
 ```cpp
 template <template <parameter-list> typename T>
