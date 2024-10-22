@@ -3,17 +3,16 @@
 
 using namespace std;
 
-template <template <typename, long unsigned> typename C, typename T>
+template <template <typename, std::size_t> typename C, std::size_t I>
 void
-foo(T t)
+foo(const C<int, I> &c)
 {
   cout << __PRETTY_FUNCTION__ << endl;
-  C<T, 1> c1 = {t};
-  C<T, 2> c2 = {t, t};
+  cout << "Got " << I << " elements\n";
 }
 
 int
 main()
 {
-  foo<array>(1);
+  foo(array{1, 2, 3});
 }

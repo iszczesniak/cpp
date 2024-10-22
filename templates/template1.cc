@@ -1,28 +1,24 @@
+#include <array>
 #include <iostream>
-#include <list>
-#include <vector>
 
 using namespace std;
 
-template <template <typename...> typename C, typename T>
+template <template <typename, long unsigned> typename C, typename T>
 void
 foo(T t)
 {
   cout << __PRETTY_FUNCTION__ << endl;
-  C<T> c;
-  c.push_back(t);
+  C<T, 1> c1 = {t};
+  C<T, 2> c2 = {t, t};
 }
 
 int
 main()
 {
-  foo<list>(1);
-  foo<list>("Hello");
-  foo<vector>(.1);
-  foo<vector>("World");
+  foo<array>(1);
 
   // This is cool: pointer to an instantiated function template.  We
   // instantiate the function right here, because we point to it.
-  void (*fp)(double) = foo<list, double>;
-  fp(1);
+  void (*fp)(double) = foo<array, double>;
+  fp(.1);
 }

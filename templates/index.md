@@ -142,34 +142,23 @@ Here we use parameter `T`:
 template <template <parameter-list> typename T>
 ```
 
-Here's an example:
+In this example, the template template parameter `C` accepts only a
+template type that, in turn, accepts a type argument and the value
+argument:
 
 ```cpp
 {% include_relative template1.cc %}
 ```
 
-Two notes on the example above:
+A compiler (Clang, GCC) replaces `__PRETTY_FUNCTION__` with the
+function name and the template arguments, so that we can examine how
+the function template was instantiated,
 
-* `__PRETTY_FUNCTION__` is replaced by a compiler (Clang, GCC) with
-  the function name and the template arguments, so that we can examine
-  how the function template was instantiated,
-
-* the ellipsis (`...`) defines a *parameter pack* that accepts any
-  number of arguments of the given kind (in that case of the type
-  kind), but that we'll talk about later.
-
-The following is a modified example from above.  This time the
-template template parameter `C` accepts only a template type that, in
-turn, accepts a type argument and the value argument.
+A template parameter allows to deduce the arguments of the
+instantiated template type:
 
 ```cpp
 {% include_relative template2.cc %}
 ```
-
-A template parameter allows to:
-
-* define the interface of an accepted type template,
-
-* deduce the arguments of the instantiated template type.
 
 <!-- LocalWords: lvalue lvalues rvalue -->

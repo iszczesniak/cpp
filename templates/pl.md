@@ -143,48 +143,23 @@ Tutaj używamy parametu `T`:
 template <template <parameter-list> typename T>
 ```
 
-Przykładowy program:
-
-```cpp
-{% include_relative template1.cc %}
-```
-
-Dwie uwagi na temat przykładu wyżej:
-
-* za `__PRETTY_FUNCTION__` kompilator (Clang, GCC) podstawia nazwę
-  funkcji z argumentami szablonu, więc możemy sprawdzić w jaki sposób
-  szablon funkcji został skonkretyzowany;
-
-* trzykropek (`...`) w liście parametrów definiuje *paczkę
-  parametrów*, która przyjmuje dowolną liczbę argumentów danego
-  rodzaju (w tym przypadku typowych), co potem będzie omawiane.
-
 W przykładzie niżej, za szablonowy parametr `C` może być podstawiony
 dowolny typ szablonowy, którego pierwszy parametr jest typowy, a drugi
 wartościowy.
 
 ```cpp
+{% include_relative template1.cc %}
+```
+
+Za `__PRETTY_FUNCTION__` kompilator (Clang, GCC) podstawia nazwę
+funkcji z argumentami szablonu, więc możemy sprawdzić w jaki sposób
+szablon funkcji został skonkretyzowany.
+
+Szablonowy parametr pozwala wydobyć argumenty z przyjętego
+skonkretyzowanego typu szablonowego:
+
+```cpp
 {% include_relative template2.cc %}
-```
-
-Szablonowy parametr to po prostu typowy parametr, ale który dodatkowo
-pozwala:
-
-* zdefiniować (przez listę parametrów) interfejs przyjmowanego
-  szablonu typu,
-
-* wydobyć argumenty z przyjętego skonkretyzowanego typu szablonowego.
-
-Oto przykład:
-
-```cpp
-{% include_relative template3.cc %}
-```
-
-I kolejny przykład:
-
-```cpp
-{% include_relative template4.cc %}
 ```
 
 Ten rodzaj parametru pozwala nam na przerwanie zależności cyklicznej
