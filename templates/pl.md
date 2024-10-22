@@ -162,7 +162,7 @@ typu szablonowego:
 {% include_relative template2.cc %}
 ```
 
-Szablonowy parametr przerywa zależność cykliczną między typami
+Szablonowy parametr pozwala przerwać zależność cykliczną między typami
 szablonowymi:
 
 ```cpp
