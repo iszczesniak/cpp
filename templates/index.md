@@ -153,11 +153,13 @@ Two notes on the example above:
   with the function name, and the template parameters, so that we can
   learn what the paremeters really are,
 
-*
+* the ellipsis (`...`) defines a *parameter pack* that accepts any
+  number of arguments of the given kind (in that case of the type
+  kind), but that we'll talk about later.
 
-This is a modified example from above.  This time the template-type
-template argument `C` can accept template types which accept two
-arguments: the first being the type, the second being the value.
+The following is a modified example from above.  This time the
+template template parameter `C` accepts only a template type that, in
+turn, accepts a type argument and the value argument.
 
 ```cpp
 {% include_relative template2.cc %}

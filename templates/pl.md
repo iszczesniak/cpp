@@ -156,8 +156,8 @@ Dwie uwagi na temat przykładu wyżej:
   sposób funkcja została skonkretyzowana;
 
 * trzykropek (`...`) w liście parametrów definiuje paczkę parametrów,
-  która może przyjąć dowolną liczbę argumentów danego rodzaju (w tym
-  przypadku typowych), wrócimy do tego.
+  która przyjmuje dowolną liczbę argumentów danego rodzaju (w tym
+  przypadku typowych), co potem będzie omawiane.
 
 W przykładzie niżej, za szablonowy parametr `C` może być podstawiony
 dowolny typ szablonowy, którego pierwszy parametr jest typowy, a drugi
