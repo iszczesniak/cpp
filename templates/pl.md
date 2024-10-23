@@ -171,7 +171,7 @@ szablonowymi:
 
 # Parametr a argument
 
-Parametrem jest zdefiniowany w liście parametrów i ma nazwę, np. `T`,
+Parametr jest zdefiniowany w liście parametrów i ma nazwę, np. `T`,
 którą używamy w deklaracji czy definicji szablonu.  Argumentem jest
 typ, wartość, albo szablon typu, który jest podstawiany za parametr.
 
