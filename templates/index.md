@@ -174,7 +174,7 @@ e.g., `T`, that we use in the template declaration or definition.  An
 argument is a type, a value or a type template that is substituted for
 a parameter.
 
-These terms are analogous to the terms of a **function parameter** nad
+These terms are analogous to the terms of a **function parameter** and
 a **function argument**, but this analogy is only skin-deep.
 Initialization of a function parameter with a function argument has
 many details (e.g., type conversion, reference initialization), that
