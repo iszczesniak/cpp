@@ -180,7 +180,7 @@ Initialization of a function parameter with a function argument has
 many details (e.g., type conversion, reference initialization), that
 do not apply to substitution.  Substitution only checks whether the
 argument is valid, i.e., that it is a type, a value or a type
-template, as expected by the parameter kind.  Bottomline:
+template, as expected by the parameter kind.  Bottom line:
 **substitution is not initialization**.
 
 <!-- LocalWords: lvalue lvalues rvalue -->
