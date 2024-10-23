@@ -179,7 +179,7 @@ Te terminy są analogiczne do terminów **parametru funkcji** i
 **argumentu funkcji**, ale ta analogia jest jedynie powierzchowna.
 Inicjalizacja parametru funkcji z użyciem argumentu wywołania ma dużo
 szczegółów (jak na przykład konwersje między typami, czy zasady
-inicjalizowania referencji), których podstawienie nie ma.
+inicjalizowania referencji), które nie odnoszą się do podstawienia.
 Podstawienie jedynie sprawdza czy argument jest poprawny, czyli że
 jest typem, wartością, czy typem szablonowym, zgodnie z rodzajem
 parametru.  Wniosek: **podstawienie to nie inicjalizacja**.
