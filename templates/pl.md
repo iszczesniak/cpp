@@ -169,22 +169,20 @@ szablonowymi:
 {% include_relative circular.cc %}
 ```
 
-# Parametr a argument szablonu
+# Parametr a argument
 
-Parametrem jest nazwa, np. `T`, którą używamy w deklaracji i definicji
-szablonu.  Argumentem jest typ, wartość, albo szablon typu, który jest
-podstawiany za parametr.  Argument możemy podać jawnie,
-np. `print<100>()`, albo może być wnioskowany na podstawie argumentu
-wywołania funkcji.
+Parametrem jest zdefiniowany w liście parametrów i ma nazwę, np. `T`,
+którą używamy w deklaracji czy definicji szablonu.  Argumentem jest
+typ, wartość, albo szablon typu, który jest podstawiany za parametr.
 
-Ta terminologia jest analogiczna do terminologii **parametru funkcji**
-i **argumentu wywołania funkcji**, ale ta analogia jest jedynie
-powierzchowna.  Inicjalizacja parametru funkcji z użyciem argumentu
-wywołania ma dużo szczegółów (jak na przykład konwersje między typami,
-czy zasady inicjalizowania referencji), których podstawienie nie ma.
-Podstawienie to skopiowanie tekstu argumentu do parametru ze
-sprawdzeniem rodzaju argumentu (czy jest typem, wartością, czy typem
-szablonowym).  Wniosek: **podstawienie to nie inicjalizacja**.
+Te terminy są analogiczne do terminów **parametru funkcji** i
+**argumentu funkcji**, ale ta analogia jest jedynie powierzchowna.
+Inicjalizacja parametru funkcji z użyciem argumentu wywołania ma dużo
+szczegółów (jak na przykład konwersje między typami, czy zasady
+inicjalizowania referencji), których podstawienie nie ma.
+Podstawienie jedynie sprawdza czy argument jest poprawny, czyli że
+jest typem, wartością, czy typem szablonowym, jak oczekiwano.
+Wniosek: **podstawienie to nie inicjalizacja**.
 
 # Argumenty szablonu
 
