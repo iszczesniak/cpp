@@ -181,8 +181,8 @@ Inicjalizacja parametru funkcji z użyciem argumentu wywołania ma dużo
 szczegółów (jak na przykład konwersje między typami, czy zasady
 inicjalizowania referencji), których podstawienie nie ma.
 Podstawienie jedynie sprawdza czy argument jest poprawny, czyli że
-jest typem, wartością, czy typem szablonowym, jak oczekiwano.
-Wniosek: **podstawienie to nie inicjalizacja**.
+jest typem, wartością, czy typem szablonowym, zgodnie z rodzajem
+parametru.  Wniosek: **podstawienie to nie inicjalizacja**.
 
 # Argumenty szablonu
 

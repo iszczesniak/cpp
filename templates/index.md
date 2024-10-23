@@ -178,9 +178,9 @@ These terms are analogous to the terms of a **function parameter** and
 a **function argument**, but this analogy is only skin-deep.
 Initialization of a function parameter with a function argument has
 many details (e.g., type conversion, reference initialization), that
-do not apply to substitution.  Substition only checks whether the
+do not apply to substitution.  Substitution only checks whether the
 argument is valid, i.e., that it is a type, a value or a type
-template, as expected.  Bottomline: **substitution is not
-initialization**.
+template, as expected by the parameter kind.  Bottomline:
+**substitution is not initialization**.
 
 <!-- LocalWords: lvalue lvalues rvalue -->
