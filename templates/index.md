@@ -23,7 +23,7 @@ keyword, and it has this syntax:
 template <parameter list>
 ```
 
-We say a template is *parametrized*, because it parameters that we
+We say a template is *parametrized*, because it has parameters that we
 call **template parameters**.  A template parameter is defined in the
 parameter list (`parameter list` above) and has a name, that we then
 use in the template declaration or definition.
