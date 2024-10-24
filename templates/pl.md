@@ -32,9 +32,9 @@ nazwę, którą używamy w deklaracji czy definicji szablonu.
 
 Kiedy używamy szablonu (np. wywołujemy funkcję zdefiniowaną
 szablonem), to po jego nazwie możemy podać **argumenty szablonu** w
-znakach `<>`.  Konkretyzacja szablonu **podstawia** argument szablonu
-w miejsca wystąpienia parametru w szablonie.  Mówimy także, że
-parametr przyjmuje argument.
+znakach `<>`.  **Konkretyzacja** szablonu **podstawia** argument
+szablonu w miejsca wystąpienia parametru w szablonie.  Mówimy także,
+że parametr przyjmuje argument.
 
 Terminy parametru i argumentu szablonu są analogiczne do terminów
 **parametru i argumentu funkcji**, ale ta analogia jest jedynie
