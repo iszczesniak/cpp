@@ -25,8 +25,8 @@ Deklaracje i definicje szablonów rozpoczynają się słowem kluczowym
 template <parameter list>
 ```
 
-Mówimy, że szablon jest *sparametryzowany*, bo ma listę parametrów,
-które nazywamy **parametrami szablonu**.  Parametr jest zdefiniowany w
+Mówimy, że szablon jest *sparametryzowany*, bo ma parametry, które
+nazywamy **parametrami szablonu**.  Parametr jest zdefiniowany w
 liście parametrów (`parameter list` powyżej) i ma nazwę, którą
 następnie używamy w deklaracji czy definicji szablonu.
 

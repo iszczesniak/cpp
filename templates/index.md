@@ -23,10 +23,10 @@ keyword, and it has this syntax:
 template <parameter list>
 ```
 
-We say a template is *parametrized*, because it has a list of
-parameters that we call **template parameters**.  A template parameter
-is defined in the parameter list (`parameter list` above) and has a
-name, that we then use in the template declaration or definition.
+We say a template is *parametrized*, because it parameters that we
+call **template parameters**.  A template parameter is defined in the
+parameter list (`parameter list` above) and has a name, that we then
+use in the template declaration or definition.
 
 When we use a template (e.g., we call a function defined with a
 template), then after the template name we can provide **template
