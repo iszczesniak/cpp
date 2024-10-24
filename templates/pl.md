@@ -197,8 +197,8 @@ Ten przykład pokazuje wyżej wymienione przypadki:
 {% include_relative intro.cc %}
 ```
 
-Zanim przejdziemy do wnioskowania, pierwsze omówimy jawne podawanie
-argumentów szablonów i domyślne argumenty szablonów.
+Zanim przejdziemy do wnioskowania, pierwsze omówimy jawne i domyślne
+argumenty szablonu.
 
 ## Jawnie podane argumenty szablonu
 
