@@ -25,26 +25,25 @@ Deklaracje i definicje szablonów rozpoczynają się słowem kluczowym
 template <parameter list>
 ```
 
-Mówimy, że szablon jest *sparametryzowany*, bo ma listę parametrów.
-Te parametry nazywamy **parametrami szablonu**.  Parametr jest
-zdefiniowany w liście parametrów (`parameter list` powyżej) i ma
-nazwę, którą używamy w deklaracji czy definicji szablonu.
+Mówimy, że szablon jest *sparametryzowany*, bo ma listę parametrów,
+które nazywamy **parametrami szablonu**.  Parametr jest zdefiniowany w
+liście parametrów (`parameter list` powyżej) i ma nazwę, którą
+następnie używamy w deklaracji czy definicji szablonu.
 
 Kiedy używamy szablonu (np. wywołujemy funkcję zdefiniowaną
 szablonem), to po jego nazwie możemy podać **argumenty szablonu** w
 znakach `<>`.  **Konkretyzacja** szablonu **podstawia** argument
-szablonu w miejsca wystąpienia parametru w szablonie.  Mówimy także,
-że parametr przyjmuje argument.
+szablonu w miejsca wystąpienia parametru szablonu.  Mówimy także, że
+parametr przyjmuje argument.
 
 Terminy parametru i argumentu szablonu są analogiczne do terminów
 **parametru i argumentu funkcji**, ale ta analogia jest jedynie
 powierzchowna.  Inicjalizacja parametru funkcji z użyciem argumentu
-(wywołania) funkcji ma dużo szczegółów (jak na przykład konwersje
-typów czy inicjalizacja referencji), które nie odnoszą się do
-podstawienia.  Podstawienie jedynie sprawdza czy argument jest
-poprawny, czyli że jest typem, wartością, czy typem szablonowym,
-zgodnie z **rodzajem parametru**.  Wniosek: **podstawienie to nie
-inicjalizacja**.
+funkcji ma dużo szczegółów (jak na przykład konwersje typów czy
+inicjalizacja referencji), które nie odnoszą się do podstawienia.
+Podstawienie jedynie sprawdza czy argument jest poprawny, czyli że
+jest typem, wartością czy typem szablonowym, zgodnie z **rodzajem
+parametru**.  Wniosek: **podstawienie to nie inicjalizacja**.
 
 # Parametry szablonu
 

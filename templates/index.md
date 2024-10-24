@@ -24,13 +24,25 @@ template <parameter list>
 ```
 
 We say a template is *parametrized*, because it has a list of
-parameters that we call **template parameters**.
+parameters that we call **template parameters**.  A template parameter
+is defined in the parameter list (`parameter list` above) and has a
+name, that we then use in the template declaration or definition.
 
-When we call a function defined with a template, then after the
-function name we can provide **template arguments** in `<>`.
-Instantiation **substitutes** a template argument for a template
-parameter in a template, i.e., puts an argument where a parameter is.
-We also say that a parameter accepts an argument.
+When we use a template (e.g., we call a function defined with a
+template), then after the template name we can provide **template
+arguments** in `<>`.  **Instantiation** of a template **substitutes**
+a template argument for a template parameter.  We also say that a
+parameter accepts an argument.
+
+The terms of a template parameter and a template argument are
+analogous to the terms of a **function parameter** and a **function
+argument**, but this analogy is only skin-deep.  Initialization of a
+function parameter with a function argument has many details (e.g.,
+type conversion, reference initialization), that do not apply to
+substitution.  Substitution only checks whether the argument is valid,
+i.e., that it is a type, a value or a type template, as stipulated by
+the **parameter kind**.  Bottom line: **substitution is not
+initialization**.
 
 # Template parameters
 
@@ -166,21 +178,5 @@ types:
 ```cpp
 {% include_relative circular.cc %}
 ```
-
-# A parameter vs an argument
-
-Template parameter is defined in the parameter list and has a name,
-e.g., `T`, that we use in the template declaration or definition.  An
-argument is a type, a value or a type template that is substituted for
-a parameter.
-
-These terms are analogous to the terms of a **function parameter** and
-a **function argument**, but this analogy is only skin-deep.
-Initialization of a function parameter with a function argument has
-many details (e.g., type conversion, reference initialization), that
-do not apply to substitution.  Substitution only checks whether the
-argument is valid, i.e., that it is a type, a value or a type
-template, as stipulated by the parameter kind.  Bottom line:
-**substitution is not initialization**.
 
 <!-- LocalWords: lvalue lvalues rvalue -->
