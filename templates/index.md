@@ -179,4 +179,20 @@ types:
 {% include_relative circular.cc %}
 ```
 
+# Template arguments
+
+Arguments can be:
+
+* deduced by a compiler (most frequenlty used),
+
+* explicitly given by a programmer (sometimes indispensable),
+
+* defaulted by a programmer (sometimes useful).
+
+This example demonstrates the above functionality:
+
+```cpp
+{% include_relative intro.cc %}
+```
+
 <!-- LocalWords: lvalue lvalues rvalue -->
