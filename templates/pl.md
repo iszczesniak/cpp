@@ -26,12 +26,25 @@ template <parameter list>
 ```
 
 Mówimy, że szablon jest *sparametryzowany*, bo ma listę parametrów.
-Te parametry nazywamy **parametrami szablonu**.
+Te parametry nazywamy **parametrami szablonu**.  Parametr jest
+zdefiniowany w liście parametrów (`parameter list` powyżej) i ma
+nazwę, którą używamy w deklaracji czy definicji szablonu.
 
-Kiedy wywołujemy funkcję zdefiniowaną szablonem, to po jej nazwie
-możemy podać **argumenty szablonu** w znakach `<>`.  Konkretyzacja
-szablonu **podstawia** argument szablonu w miejsca wystąpienia
-parametru w szablonie.  Mówimy także, że parametr przyjmuje argument.
+Kiedy używamy szablonu (np. wywołujemy funkcję zdefiniowaną
+szablonem), to po jego nazwie możemy podać **argumenty szablonu** w
+znakach `<>`.  Konkretyzacja szablonu **podstawia** argument szablonu
+w miejsca wystąpienia parametru w szablonie.  Mówimy także, że
+parametr przyjmuje argument.
+
+Terminy parametru i argumentu szablonu są analogiczne do terminów
+**parametru i argumentu funkcji**, ale ta analogia jest jedynie
+powierzchowna.  Inicjalizacja parametru funkcji z użyciem argumentu
+(wywołania) funkcji ma dużo szczegółów (jak na przykład konwersje
+typów czy inicjalizacja referencji), które nie odnoszą się do
+podstawienia.  Podstawienie jedynie sprawdza czy argument jest
+poprawny, czyli że jest typem, wartością, czy typem szablonowym,
+zgodnie z **rodzajem parametru**.  Wniosek: **podstawienie to nie
+inicjalizacja**.
 
 # Parametry szablonu
 
@@ -168,21 +181,6 @@ szablonowymi:
 ```cpp
 {% include_relative circular.cc %}
 ```
-
-# Parametr a argument
-
-Parametr jest zdefiniowany w liście parametrów i ma nazwę, np. `T`,
-którą używamy w deklaracji czy definicji szablonu.  Argumentem jest
-typ, wartość, albo szablon typu, który jest podstawiany za parametr.
-
-Te terminy są analogiczne do terminów **parametru funkcji** i
-**argumentu funkcji**, ale ta analogia jest jedynie powierzchowna.
-Inicjalizacja parametru funkcji z użyciem argumentu wywołania ma dużo
-szczegółów (jak na przykład konwersje między typami, czy zasady
-inicjalizowania referencji), które nie odnoszą się do podstawienia.
-Podstawienie jedynie sprawdza czy argument jest poprawny, czyli że
-jest typem, wartością, czy typem szablonowym, zgodnie z rodzajem
-parametru.  Wniosek: **podstawienie to nie inicjalizacja**.
 
 # Argumenty szablonu
 
