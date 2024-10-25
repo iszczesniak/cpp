@@ -239,6 +239,11 @@ case of function arguments) because they are positional, i.e., the
 argument position determines the parameter.  And so if we want to
 provide the second argument, we have to provide the first.
 
+Let's swap the parameters in the factory example.  Now that we provide
+the argument for parameter `T` as the second, we also have to provide
+the argument for `A` as the first.  Prior to the change, the argument
+for `A` was deduced.
+
 ```cpp
 {% include_relative explicit3.cc %}
 ```

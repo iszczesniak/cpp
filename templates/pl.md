@@ -240,11 +240,10 @@ przypadku argumentów funkcji), bo są one pozycyjne, czyli pozycja
 argumentu w liście określa parametr.  Tak więc jeżeli chcemy podać
 drugi argument, to musimy podać też pierwszy.
 
-Jeżeli w powyższym przykładzie z fabryką zmienimy kolejność
-argumentów, to typ argumentu wywołania konstruktora będziemy musieli
-także podać jawnie, chociaż mógłby być wywnioskowany.  Po zmianie
-kolejności musimy jawnie podać pierwszy argument, bo zapragnęliśmy
-podać drugi argument:
+Zamieńmy miejscami parametry w przykładzie z fabryką.  Ponieważ teraz
+argument parametru `T` podajemy jako drugi, to jako pierwszy musimy
+podać argument parametru `A`.  Przez zmianą, argument dla `A` był
+wnioskowany.
 
 ```cpp
 {% include_relative explicit3.cc %}
