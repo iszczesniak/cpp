@@ -235,11 +235,10 @@ stanie wywnioskować argumentu dla `T`, więc musimy go jawnie podać.
 
 ### Kolejność argumentów
 
-Kolejność argumentów szablonu ma znaczenie (tak jak w przypadku
-argumentów wywołania funkcji), bo argumenty są pozycyjne, czyli od
-pozycji argumenty zależy to, o który argument nam chodzi.  Tak więc
-jeżeli chcemy podać drugi argument, to musimy podać też pierwszy
-argument.
+Kolejność argumentów szablonu ma znaczenie (dokładnie tak samo jak w
+przypadku argumentów funkcji), bo są one pozycyjne, czyli pozycja
+argumentu w liście określa parametr.  Tak więc jeżeli chcemy podać
+drugi argument, to musimy podać też pierwszy.
 
 Jeżeli w powyższym przykładzie z fabryką zmienimy kolejność
 argumentów, to typ argumentu wywołania konstruktora będziemy musieli

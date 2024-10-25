@@ -232,4 +232,15 @@ provide it explicitly.
 {% include_relative explicit2.cc %}
 ```
 
+### The order of arguments
+
+The order of template arguments matters (exactly the same as in the
+case of function arguments) because they are positional, i.e., the
+argument position determines the parameter.  And so if we want to
+provide the second argument, we have to provide the first.
+
+```cpp
+{% include_relative explicit3.cc %}
+```
+
 <!-- LocalWords: lvalue lvalues rvalue -->
