@@ -204,18 +204,16 @@ argumentów szablonów i domyślne argumenty szablonów.
 
 Kiedy korzystamy z kontenerów biblioteki standardowej (a każdy robił
 to na pewno), jawnie podajemy argumenty szablonu jako część nazwy typu
-używając `<>`, czyli składni `typ kontenera<lista argumentów>`:
+używając `<>`, czyli składni `typ_kontenera<lista argumentów>`:
 
 ```cpp
-{% include_relative explicit.cc %}
+{% include_relative explicit1.cc %}
 ```
 
-Tej składni możemy też użyć przy wywołaniu funkcji szablonowej (a nie
-tylko przy definiowaniu typu, np. kontenera), co jest przydatne w
-dwóch przypadkach:
+Tej składni możemy też użyć przy wywołaniu funkcji szablonowej (co już
+robiliśmy wyżej), co jest niezbędne w dwóch przypadkach:
 
-* chcemy innych argumentów niż te wnioskowane przez kompilator, co
-  zrobiliśmy w przykładzie wyżej z funkcją `print`,
+* chcemy innych argumentów niż te wnioskowane przez kompilator,
 
 * musimy jawnie podać argumenty, bo kompilator nie jest ich w stanie
   wywnioskować.

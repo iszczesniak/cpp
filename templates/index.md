@@ -195,4 +195,22 @@ This example demonstrates the above functionality:
 {% include_relative intro.cc %}
 ```
 
+## Explicitly given template arguments
+
+When we use the containers of the standard library, we explicitly give
+the arguments as part of the container type in `<>`, i.e., using the
+syntax `container_type<argument list>`:
+
+```cpp
+{% include_relative explicit1.cc %}
+```
+
+We can use that syntax when calling a template function (that we have
+already used above) which is indispensable in two cases:
+
+* we want different arguments to those the compiler would deduce,
+
+* we have to explicitly provide the arguments because the compiler is
+  unable to deduce them.
+
 <!-- LocalWords: lvalue lvalues rvalue -->
