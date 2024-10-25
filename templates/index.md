@@ -216,4 +216,20 @@ already used above) which is indispensable in two cases:
 * we have to explicitly provide the arguments because the compiler
   would be unable to deduce them.
 
+A compiler deduces the template arguments based on the expressions
+that are passed as function arguments (when we call a function) or
+constructor arguments (when we create an object).  When a compiler is
+unable to deduce the template arguments, we have to provide them
+explicitly.
+
+An example below shows the implementation of an object factory.  The
+argument of calling `factory` is passed to the constructor of the
+object whose type is given by the template arguement.  The compiler is
+unable to deduce the type of the constructed object, so we have to
+provide it explicitly.
+
+```cpp
+{% include_relative explicit2.cc %}
+```
+
 <!-- LocalWords: lvalue lvalues rvalue -->

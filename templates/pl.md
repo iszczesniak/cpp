@@ -210,8 +210,8 @@ typu używając `<>`, czyli składni `typ<lista argumentów>`:
 {% include_relative explicit1.cc %}
 ```
 
-Tej składni możemy też użyć przy wywołaniu funkcji szablonowej (co już
-robiliśmy wyżej), co jest niezbędne w dwóch przypadkach:
+Tej składni możemy też użyć przy wywołaniu funkcji szablonowej
+(robiliśmy to już wyżej), co jest niezbędne w dwóch przypadkach:
 
 * chcemy innych argumentów niż te wnioskowane przez kompilator,
 
@@ -219,14 +219,15 @@ robiliśmy wyżej), co jest niezbędne w dwóch przypadkach:
   wywnioskować.
 
 Kompilator wnioskuje argumenty szablonu na podstawie wyrażeń, które są
-przekazywane w wyrażeniu wywołania funkcji (kiedy wywołujemy funkcję)
-czy konstruktora (kiedy tworzymy obiekt).  Jeżeli nie jest w stanie
-wywnioskować argumentów, to musimy jawnie je podać.
+przekazywane jako argumenty wywołania funkcji (kiedy wywołujemy
+funkcję) czy konstruktora (kiedy tworzymy obiekt).  Jeżeli kompilator
+nie jest w stanie wywnioskować argumentów szablonu, to musimy jawnie
+je podać.
 
 Przykład niżej pokazuje implementację fabryki obiektów.  Argument
-wywołania fabryki przekazujemy do konstruktora obiektu, którego typ
+wywołania `factory` przekazujemy do konstruktora obiektu, którego typ
 jest określony przez argument szablonu.  Kompilator nie jest w stanie
-określić typu obiektu, więc musimy go jawnie podać.
+określić typu tworzonego obiektu, więc musimy go jawnie podać.
 
 ```cpp
 {% include_relative explicit2.cc %}
