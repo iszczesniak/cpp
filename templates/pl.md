@@ -203,8 +203,8 @@ argumenty szablonu.
 ## Jawnie podane argumenty szablonu
 
 Kiedy korzystamy z kontenerów biblioteki standardowej (a każdy robił
-to na pewno), jawnie podajemy argumenty szablonu jako część nazwy typu
-używając `<>`, czyli składni `typ_kontenera<lista argumentów>`:
+to na pewno), możemy jawnie podać argumenty szablonu jako część nazwy
+typu używając `<>`, czyli składni `typ<lista argumentów>`:
 
 ```cpp
 {% include_relative explicit1.cc %}
@@ -215,7 +215,7 @@ robiliśmy wyżej), co jest niezbędne w dwóch przypadkach:
 
 * chcemy innych argumentów niż te wnioskowane przez kompilator,
 
-* musimy jawnie podać argumenty, bo kompilator nie jest ich w stanie
+* musimy jawnie podać argumenty, bo kompilator nie byłby w stanie ich
   wywnioskować.
 
 Kompilator wnioskuje argumenty szablonu na podstawie wyrażeń, które są

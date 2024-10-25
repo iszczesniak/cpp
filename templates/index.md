@@ -200,9 +200,9 @@ template arguments.
 
 ## Explicitly given template arguments
 
-When we use the containers of the standard library, we explicitly give
-the arguments as part of the container type in `<>`, i.e., using the
-syntax `container_type<argument list>`:
+When we use the containers of the standard library, we can explicitly
+give the arguments as part of the container type in `<>`, i.e., using
+the syntax `type<argument list>`:
 
 ```cpp
 {% include_relative explicit1.cc %}
@@ -211,9 +211,9 @@ syntax `container_type<argument list>`:
 We can use that syntax when calling a template function (that we have
 already used above) which is indispensable in two cases:
 
-* we want different arguments to those the compiler would deduce,
+* we want different arguments to those a compiler would deduce,
 
-* we have to explicitly provide the arguments because the compiler is
-  unable to deduce them.
+* we have to explicitly provide the arguments because the compiler
+  would be unable to deduce them.
 
 <!-- LocalWords: lvalue lvalues rvalue -->
