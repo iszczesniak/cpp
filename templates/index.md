@@ -224,8 +224,8 @@ explicitly.
 
 An example below shows the implementation of an object factory.  The
 argument of calling `factory` is passed to the constructor of the
-object whose type is given by the template arguement.  The compiler is
-unable to deduce the type of the constructed object, so we have to
+object whose type is given by the template parameter `T`.  The
+compiler is unable to deduce the argument for `T`, so we have to
 provide it explicitly.
 
 ```cpp

@@ -226,8 +226,8 @@ je podać.
 
 Przykład niżej pokazuje implementację fabryki obiektów.  Argument
 wywołania `factory` przekazujemy do konstruktora obiektu, którego typ
-jest określony przez argument szablonu.  Kompilator nie jest w stanie
-określić typu tworzonego obiektu, więc musimy go jawnie podać.
+jest określony przez parametr `T` szablonu.  Kompilator nie jest w
+stanie wywnioskować argumentu dla `T`, więc musimy go jawnie podać.
 
 ```cpp
 {% include_relative explicit2.cc %}
