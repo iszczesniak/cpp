@@ -195,6 +195,9 @@ This example demonstrates the above functionality:
 {% include_relative intro.cc %}
 ```
 
+Before we get to deduction, first we discuss the explicit and default
+template arguments.
+
 ## Explicitly given template arguments
 
 When we use the containers of the standard library, we explicitly give
