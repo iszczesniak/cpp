@@ -275,8 +275,8 @@ się domyślny argument szablonu.
 Rozwiązanie: typ callable jest parametrem szablonu z domyślnym
 argumentem, którym jest puste callable, czyli struktura z operatorem
 wywołania o pustym ciele.  Musimy też podać domyślną wartość callable
-(argument wywołania funkcji), czyli `{}` (bezargumentowe tworzenie
-argumentu).  Oto super przykład:
+(argument wywołania funkcji), czyli `{}` (argument stwórz
+bezargumentowo).  Oto super przykład:
 
 ```cpp
 {% include_relative empty_callable.cc %}

@@ -274,7 +274,7 @@ Solution: a callable type is a template parameter with a default
 argument that is an empty callable, i.e., a type with an empty
 implementation of the call operator.  We also have to provide a
 default value of a callable (a default function argument), i.e., `{}`
-(default-construction of the argument).  That's a nice example:
+(default-construct the argument).  That's a nice example:
 
 ```cpp
 {% include_relative empty_callable.cc %}
