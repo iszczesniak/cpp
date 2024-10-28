@@ -286,7 +286,7 @@ bezargumentowo).  Oto super przykład:
 
 * Szablony są podstawą programowania uogólnionego w C++.
 
-* Parametry szablonów są typowe, wartościowe albo szablonowe.
+* Parametry szablonów są typowe, wartościowe i szablonowe.
 
 * Szablony funkcji są najciekawsze i najbardziej złożone pośród
   szablonów.
