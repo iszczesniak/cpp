@@ -251,10 +251,9 @@ wnioskowany.
 
 ## Domyślne argumenty szablonu
 
-Parametr szablonu (każdego rodzaju: typowy, wartościowy i szablonowy)
-może mieć zdefiniowany domyślny argument, który będzie użyty jeżeli
-nie podaliśmy argumentu jawnie i jeżeli kompilator nie jest w stanie
-go wnioskować (bo, np., nie ma argumentu funkcji).  Domyślny argument
+Parametr szablonu (każdego rodzaju) może mieć zdefiniowany domyślny
+argument, który będzie użyty jeżeli nie podaliśmy argumentu jawnie i
+jeżeli kompilator nie jest w stanie go wnioskować.  Domyślny argument
 jest opcjonalny.
 
 Domyślny argument podajemy po nazwie parametru z użyciem `=`.  Oto

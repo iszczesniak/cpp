@@ -248,4 +248,17 @@ for `A` was deduced.
 {% include_relative explicit3.cc %}
 ```
 
+## Default template arguments
+
+A template parameter (of any kind) can have a default argument that
+will be used if an argument was not explicitly given or a compiler is
+unable to deduce it.  A default argument is optional.
+
+We define a default argument after a parameter name using `=`.  Here's
+an example:
+
+```cpp
+{% include_relative default.cc %}
+```
+
 <!-- LocalWords: lvalue lvalues rvalue -->
