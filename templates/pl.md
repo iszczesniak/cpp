@@ -273,9 +273,9 @@ jest wymagane, żeby nie wprowadzało narzutu.  Do tego właśnie przydaje
 się domyślny argument szablonu.
 
 Rozwiązanie: typ callable jest parametrem szablonu z domyślnym
-argumentem, którym jest pusty callable, czyli struktura z operatorem
+argumentem, którym jest puste callable, czyli struktura z operatorem
 wywołania o pustym ciele.  Musimy też podać domyślną wartość callable
-(argumentu wywołania funkcji), czyli `{}` (bezargumentowe tworzenie
+(argument wywołania funkcji), czyli `{}` (bezargumentowe tworzenie
 obiektu).  Oto super przykład:
 
 ```cpp
