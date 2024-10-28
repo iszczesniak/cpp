@@ -268,9 +268,9 @@ przykład:
 Czasami trzeba przekazać callable jakiejś funkcji, ale nie zawsze to
 callable jest wymagane.  Nie chcemy przekazywać wskaźnika i sprawdzać
 w czasie uruchomienia, czy jest on `nullptr`, albowiem niewydajne i
-nieciekawe.  Chcemy, żeby callable było wkompilowane, a w szczególnym
-przypadku, żeby callable nie wprowadzało narzutu, jeżeli nie jest
-wymagane.  Do tego właśnie przydaje się domyślny argument szablonu.
+nieciekawe.  Chcemy, żeby callable było wkompilowane, a jeżeli nie
+jest wymagane, żeby nie wprowadzało narzutu.  Do tego właśnie przydaje
+się domyślny argument szablonu.
 
 Rozwiązanie: typ callable jest parametrem szablonu z domyślnym
 argumentem, którym jest pusty callable, czyli struktura z operatorem

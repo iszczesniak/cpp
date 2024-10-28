@@ -261,4 +261,23 @@ an example:
 {% include_relative default.cc %}
 ```
 
+### A default callable
+
+Sometimes we need to pass a callable to some function but that may not
+be always necessary.  We do not want to pass a pointer and check at
+run-time whether it's a `nullptr`, because it's inefficient and
+uninteresting.  We would like to have the callable inlined, and if
+it's not required, performance should not deteriorate.  A default
+template argument is useful for that.
+
+Solution: a callable type is a template parameter with a default
+argument that is an empty callable, i.e., a type with an empty
+implementation of the call operator.  We also have to provide a
+default value of a callable (a default function argument), i.e., `{}`
+(default-construt the argument).  That's a nice example:
+
+```cpp
+{% include_relative empty_callable.cc %}
+```
+
 <!-- LocalWords: lvalue lvalues rvalue -->
