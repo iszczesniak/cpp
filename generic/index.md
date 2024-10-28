@@ -44,8 +44,7 @@ the standard library.  This example needs a C++17 compiler.
 In the above example we can change the type of the sorted numbers from
 `int` to `double`: it's enough to change type `vector` to
 `vector<double>` (i.e., to give argument `double` to template type
-`vector`).  We can change type `vector` to `array` (with `#include
-<array>` added) or `deque` (with `#include <deque>` added).  At
+`vector`).  We can change type `vector` to `array` or `deque`.  At
 compile-time, the `sort` function template is **instantiated**
 (compile-tailored) for the type of the structure, and the type of the
 structure elements used.

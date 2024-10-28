@@ -46,10 +46,9 @@ C++17.
 W przykładzie wyżej możemy zmienić typ sortowanych liczb z `int` na
 `double`: wystarczy zmienić type `vector` na `vector<double>` (czyli
 podać argument `double` szablonu typu `vector`).  Możemy też zmienić
-typ z `vector` na `array` (trzeba też dodać `#include <array>`) czy
-`deque` (trzeba też dodać `#include <deque>`).  Podczas kompilacji
-szablon funkcji `sort` jest **konkretyzowany** (kompilowany "na
-miarę") dla użytej struktury danych i typów elementów struktury.
+typ z `vector` na `array` czy `deque`.  Podczas kompilacji szablon
+funkcji `sort` jest **konkretyzowany** (kompilowany "na miarę") dla
+użytej struktury danych i typów elementów struktury.
 
 **Programowanie uogólnione** może też działać na danych, które **nie
 są obiektowe**, na przykład na tablicach z języka C, przez co jest
