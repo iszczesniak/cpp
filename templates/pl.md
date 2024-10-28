@@ -288,7 +288,8 @@ bezargumentowo).  Oto super przykład:
 
 * Parametry szablonów są typowe, wartościowe albo szablonowe.
 
-* Szablony funkcji są najciekawsze i najtrudniejsze pośród szablonów.
+* Szablony funkcji są najciekawsze i najbardziej złożone pośród
+  szablonów.
 
 # Quiz
 

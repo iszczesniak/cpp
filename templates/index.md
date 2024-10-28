@@ -280,4 +280,21 @@ default value of a callable (a default function argument), i.e., `{}`
 {% include_relative empty_callable.cc %}
 ```
 
+# Conclusion
+
+* Templates are the basis of generic programming in C++.
+
+* Template parameters can be of three kinds: type, value and template.
+
+* Among templates, function templates are the most interesting and
+  complex.
+
+# Quiz
+
+* What is the type template parameter?
+
+* What can a template be of?
+
+* Template argument vs parameter.
+
 <!-- LocalWords: lvalue lvalues rvalue -->
