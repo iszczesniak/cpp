@@ -113,9 +113,9 @@ argumenty, ale czasem też argumenty wartościowe czy szablonowe.
 # Typowy argument
 
 Wnioskowanie typowych argumentów szablonu jest najbardziej złożone (w
-porównaniu do rodzajów wartościowych i szablonowych), bo rozróżnia:
+porównaniu do rodzaju wartościowego i szablonowego), bo rozróżnia:
 
-* typy niereferencyjne i referencyjne parametrów funkcji,
+* typy parametrów funkcji: niereferencyjne i referencyjne,
 
 * typy argumentów wywołania funkcji: np. funkcyjne czy tablicowe.
 
