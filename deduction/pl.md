@@ -29,10 +29,6 @@ Kompilator wnioskuje argumenty szablonu (funkcji) na podstawie:
 
 * **typów i kategorii** argumentów wywołania funkcji.
 
-Typ wyrażenia (czyli także argumentu funkcji) nigdy nie jest
-referencyjny, nawet jeżeli wyrażeniem jest nazwa
-referencji. [expr.type]
-
 ## Najprostszy przypadek
 
 W najprostszym przypadku wywołujemy funkcję z jednym parametrem:
@@ -134,6 +130,10 @@ typowego argumentu szablonu.  Typ parametru funkcji może być:
 * zwykły (niereferencyjny i niewskaźnikowy).
 
 ### Referencyjny lub wskaźnikowy typ parametru funkcji
+
+Typ wyrażenia (czyli także argumentu funkcji) nigdy nie jest
+referencyjny, nawet jeżeli wyrażeniem jest nazwa
+referencji. [expr.type]
 
 *Zasada: wnioskowany argument szablonu jest typem argumentu wywołania
  z pominięciem kwalifikatorów typu (`const` czy `volatile`) jeżeli te
