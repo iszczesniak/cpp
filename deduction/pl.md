@@ -8,20 +8,18 @@ Argumenty szablonu są wnioskowane dla naszej wygody, żeby nie trzeba
 było ich jawnie podawać i nie pomylić się przy okazji.  Kompilator
 wnioskuje argumenty szablonu w następujących przypadkach:
 
-* wywołanie nieskładowej funkcji szablonowej -- to jest najczęstsze
-  zastosowanie,
+* wywołanie nieskładowej funkcji szablonowej (najczęstsze i
+  najprostsze),
 
 * wywołanie składowej funkcji szablonowej, w tym konstruktora,
 
 * inicjalizacja zmiennej typu `auto` (w tym parametrów funkcji i
   zwracanych wartości).
 
-Kiedy kompilator kompiluje wywołanie jakiejś **funkcji szablonowej**,
-to musi skonkretyzować **szablon funkcji**, czyli wygenerować kod
-funkcji szablonowej na podstawie szablonu funkcji i jego argumentów.
-Jeżeli argumenty szablonu nie są jawnie podane, to kompilator musi je
-wywnioskować, a jeżeli nie jest w stanie tego zrobić, to korzysta z
-domyślnych argumentów, jeżeli są.
+Wnioskowanie omawiamy na przykładzie nieskładowej funkcji szablonowej.
+Dla wywołania **funkcji szablonowej**, kompilator musi skonkretyzować
+**szablon funkcji**, czyli wygenerować kod funkcji szablonowej na
+podstawie szablonu funkcji i jego argumentów.
 
 Kompilator wnioskuje argumenty szablonu (funkcji) na podstawie:
 
