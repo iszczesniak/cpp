@@ -6,21 +6,15 @@ title: Wnioskowanie argumentów szablonu
 
 Argumenty szablonu są wnioskowane dla naszej wygody, żeby nie trzeba
 było ich jawnie podawać i nie pomylić się przy okazji.  Kompilator
-wnioskuje argumenty szablonu kiedy kompiluje wywołanie funkcji
-szablonowej -- to jest najczęstsze zastosowanie.  Ale te same zasady
-wnioskowania są też wykorzystywane kiedy *inicjalizujemy*:
+wnioskuje argumenty szablonu w następujących przypadkach:
 
-* zmienną typu `auto` na podstawie wyrażenia inicjalizującego
-  (np. `auto i = m.find(key);`), gdzie `auto` pełni rolę typowego
-  parametru szablonu, którego argument kompilator wnioskuje,
+* wywołanie nieskładowej funkcji szablonowej -- to jest najczęstsze
+  zastosowanie,
 
-* wynik typu `auto` zwracany przez funkcję na podstawie wyrażenia
-  instrukcji `return`, gdzie `auto` pełni rolę typowego parametru
-  szablonu, którego argument kompilator wnioskuje,
+* wywołanie składowej funkcji szablonowej, w tym konstruktora,
 
-* obiekt klasy szablonowej na podstawie argumentów wywołania
-  konstruktora (np. `pair p{1, .1};`), gdzie kompilator wnioskuje
-  wymagane argumenty szablonu klasy.
+* inicjalizacja zmiennej typu `auto` (w tym parametrów funkcji i
+  zwracanych wartości).
 
 Kiedy kompilator kompiluje wywołanie jakiejś **funkcji szablonowej**,
 to musi skonkretyzować **szablon funkcji**, czyli wygenerować kod
