@@ -16,7 +16,9 @@ wnioskuje argumenty szablonu w następujących przypadkach:
 * inicjalizacja zmiennej typu `auto` (w tym parametrów funkcji i
   zwracanych wartości).
 
-Wnioskowanie omawiamy na przykładzie nieskładowej funkcji szablonowej.
+# Podstawy wnioskowania
+
+Wnioskowanie omówimy na przykładzie nieskładowej funkcji szablonowej.
 Dla wywołania **funkcji szablonowej**, kompilator musi skonkretyzować
 **szablon funkcji**, czyli wygenerować kod funkcji szablonowej na
 podstawie szablonu funkcji i jego argumentów.
@@ -54,15 +56,19 @@ definicji) co najmniej jednego parametru szablonu.  Sposobów
 zdefiniowania typu `ParameterType` w zależności od parametrów szablonu
 jest wiele, a my omówimy najważniejsze.
 
-## Inicjalizacja parametrów funkcji szablonowej: bez konwersji
+## Podstawowa zasada i ograniczenie
 
-Ponieważ parametr funkcji jest inicjalizowany na podstawie argumentu
-wywołania funkcji, to wywnioskowane argumenty szablonu mają pozwolić
-na tę inicjalizację.  Wnioskowanie wprowadza ważne ograniczenie:
-**inicjalizacja ma się odbyć bez konwersji typu** (z typu argumentu
-wywołania funkcji do typu parametru funkcji).  Tego warunku nie ma
-przy wywołaniu zwykłej (nieszablonowej) funkcji, gdzie konwersje są
-dozwolone.
+Zasada: **wywnioskowany argument szablonu ma pozwolić na inicjalizację
+parametru funkcji**.
+
+Inicjalizacja zawsze odbywa się na podstawie argumentu (jawnego bądź
+domyślnego) funkcji.
+
+Ograniczenie: **inicjalizacja ma się odbyć bez konwersji typu**.
+
+Mowa tu o konwersji typu argumentu wywołania funkcji do typu parametru
+funkcji.  Przy wywołaniu zwykłej (nieszablonowej) funkcji tego
+ograniczenia nie ma (tam konwersje są dozwolone).
 
 Inicjalizacja parametru `t` w powyższym najprostszym przypadku wygląda
 zatem tak:
@@ -85,47 +91,46 @@ const T &t = 1;
 ```
 
 Wywnioskowanym argumentem będzie `T = int`, bo wtedy ta inicjalizacja
-jest możliwa bez konwersji typu.
-
-Jeżeli jednak dla przykładu wyżej `ParameterType` jest typem
-referencyjnym na obiekt niestały typu `T`, to inicjalizacja wygląda
-tak:
+jest możliwa bez konwersji typu.  Jeżeli jednak dla przykładu wyżej
+`ParameterType` jest typem referencyjnym na obiekt niestały typu `T`,
+to inicjalizacja wygląda tak:
 
 ```cpp
 T &t = 1;
 ```
 
-Wywnioskowanym argumentem będzie ciągle `T = int`, bo r-wartość typu
-wbudowanego jest typu niestałego.  Zatem konkretyzacja nie powiedzie
-się, bo l-referencja niestała `t` nie może być zainicjalizowana
-r-wartością.
+Wywnioskowanym argumentem będzie ciągle `T = int`, bo r-wartość
+(literał `1`) typu wbudowanego jest typu niestałego.  Zatem
+konkretyzacja nie powiedzie się, bo l-referencja niestała `t` nie może
+być zainicjalizowana r-wartością.
 
-# Rodzaje argumentów
+## Rodzaje argumentów
 
 Dla każdego **rodzaju** parametru szablonu, kompilator może wnioskować
 argument.  Najczęściej chcemy, żeby kompilator wnioskował typowe
 argumenty, ale czasem też argumenty wartościowe czy szablonowe.
 
+# Typowy argument
+
 Wnioskowanie typowych argumentów szablonu jest najbardziej złożone (w
-porównaniu do wartościowych i szablonowych argumentów szablonu), bo:
+porównaniu do rodzajów wartościowych i szablonowych), bo rozróżnia:
 
-* uwzględnia różne typy parametrów funkcji: zwykłe, referencyjne i
-  wskaźnikowe,
+* typy niereferencyjne i referencyjne parametrów funkcji,
 
-* uwzględnia różne typy argumentów wywołania funkcji: wbudowane
-  (np. `int`), funkcyjne i tablicowe.
-
-## Typowy argument
+* typy argumentów wywołania funkcji: np. funkcyjne czy tablicowe.
 
 Typowy argument szablonu jest wnioskowany dla typowego parametru
 szablonu.  Zasady wnioskowania dla szablonowych argumentów szablonu są
-takie same, jak dla typowych argumentów.  W zależności od typu
-parametru funkcji, kompilator stosuje różne zasady wnioskowania
-typowego argumentu szablonu.  Typ parametru funkcji może być:
+takie same, jak dla typowych argumentów.  Typ parametru funkcji może
+być:
 
-* referencyjny lub wskaźnikowy,
+* niereferencyjny,
 
-* zwykły (niereferencyjny i niewskaźnikowy).
+* referencyjny.
+
+W zależności od typu parametru funkcji, kompilator stosuje różne
+zasady wnioskowania typowego argumentu szablonu.  Zasady te jednak
+wynikają z podstawowej zasady wnioskowania.
 
 ### Referencyjny lub wskaźnikowy typ parametru funkcji
 
