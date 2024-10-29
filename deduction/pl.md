@@ -56,7 +56,7 @@ definicji) co najmniej jednego parametru szablonu.  Sposobów
 zdefiniowania typu `ParameterType` w zależności od parametrów szablonu
 jest wiele, a my omówimy najważniejsze.
 
-## Podstawowa zasada i ograniczenie
+## Podstawowa zasada z ograniczeniem
 
 Zasada: **wywnioskowany argument szablonu ma pozwolić na inicjalizację
 parametru funkcji**.
@@ -91,18 +91,18 @@ const T &t = 1;
 ```
 
 Wywnioskowanym argumentem będzie `T = int`, bo wtedy ta inicjalizacja
-jest możliwa bez konwersji typu.  Jeżeli jednak dla przykładu wyżej
-`ParameterType` jest typem referencyjnym na obiekt niestały typu `T`,
-to inicjalizacja wygląda tak:
+jest możliwa bez konwersji typu.  Jeżeli jednak `ParameterType` jest
+typem referencyjnym na obiekt niestały typu `T`, to inicjalizacja
+wygląda tak:
 
 ```cpp
 T &t = 1;
 ```
 
-Wywnioskowanym argumentem będzie ciągle `T = int`, bo r-wartość
-(literał `1`) typu wbudowanego jest typu niestałego.  Zatem
-konkretyzacja nie powiedzie się, bo l-referencja niestała `t` nie może
-być zainicjalizowana r-wartością.
+Wywnioskowanym argumentem będzie ciągle `T = int`, bo r-wartość typu
+wbudowanego (literał `1`) jest typu niestałego (tak powiada standard).
+Zatem konkretyzacja nie powiedzie się, bo l-referencja niestała `t`
+nie może być zainicjalizowana r-wartością.
 
 ## Rodzaje argumentów
 
@@ -112,36 +112,27 @@ argumenty, ale czasem też argumenty wartościowe czy szablonowe.
 
 # Typowy argument
 
-Wnioskowanie typowych argumentów szablonu jest najbardziej złożone (w
-porównaniu do rodzaju wartościowego i szablonowego), bo rozróżnia:
+Typowy argument szablonu jest wnioskowany dla typowego parametru
+szablonu.  To wnioskowanie jest najbardziej złożone (w porównaniu do
+rodzaju wartościowego czy szablonowego), bo rozróżnia:
 
 * typy parametrów funkcji: niereferencyjne i referencyjne,
 
 * typy argumentów wywołania funkcji: np. funkcyjne czy tablicowe.
 
-Typowy argument szablonu jest wnioskowany dla typowego parametru
-szablonu.  Zasady wnioskowania dla szablonowych argumentów szablonu są
-takie same, jak dla typowych argumentów.  Typ parametru funkcji może
-być:
+W zależności od typu parametru funkcji (referencyjny czy nie), są
+stosowane różne zasady, które jednak wynikają z podstawowej zasady z
+ograniczeniem.
 
-* niereferencyjny,
+### Referencyjny typ parametru funkcji
 
-* referencyjny.
+Zasada: wnioskowany argument szablonu jest typem argumentu wywołania z
+pominięciem kwalifikatorów typu (`const` czy `volatile`) jeżeli te
+kwalifikatory zostały podane w definicji typu parametru funkcji.
 
-W zależności od typu parametru funkcji, kompilator stosuje różne
-zasady wnioskowania typowego argumentu szablonu.  Zasady te jednak
-wynikają z podstawowej zasady wnioskowania.
-
-### Referencyjny lub wskaźnikowy typ parametru funkcji
-
-Typ wyrażenia (czyli także argumentu funkcji) nigdy nie jest
-referencyjny, nawet jeżeli wyrażeniem jest nazwa
-referencji. [expr.type]
-
-*Zasada: wnioskowany argument szablonu jest typem argumentu wywołania
- z pominięciem kwalifikatorów typu (`const` czy `volatile`) jeżeli te
- kwalifikatory zostały podane w definicji typu parametru funkcji.
- Pamiętajmy, że typ argumentu funkcji nigdy nie jest referencyjny.*
+Pamiętajmy, że typ argumentu funkcji nigdy nie jest referencyjny.  Typ
+wyrażenia (czyli także argumentu funkcji) nigdy nie jest referencyjny,
+nawet jeżeli wyrażeniem jest nazwa referencji. [expr.type]
 
 Chodzi o to, żeby referencyjny (albo wskaźnikowy) typ parametru
 funkcji rzeczywiście mógł być zainicjalizowany: jeżeli typ argumentu
