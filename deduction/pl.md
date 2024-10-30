@@ -104,6 +104,20 @@ wbudowanego (literał `1`) jest typu niestałego (tak powiada standard).
 Zatem konkretyzacja nie powiedzie się, bo l-referencja niestała `t`
 nie może być zainicjalizowana r-wartością.
 
+## Najwyższego rzędu
+
+Kwalifikatory i deklaratory typu mogą być najwyższego rzędu.
+
+### Kwalifikatory
+
+### Deklaratory
+
+## Typ wyrażenia
+
+Każde wyrażenie w C++ jest typu niereferencyjnego, a więc i typ
+argumentu funkcji nigdy jest niereferencyjny, nawet jeżeli wyrażeniem
+jest nazwa referencji. [expr.type]
+
 ## Rodzaje argumentów
 
 Dla każdego **rodzaju** parametru szablonu, kompilator może wnioskować
@@ -129,10 +143,6 @@ ograniczeniem.
 Zasada: wnioskowany argument szablonu jest typem argumentu wywołania z
 pominięciem kwalifikatorów typu (`const` czy `volatile`) jeżeli te
 kwalifikatory zostały podane w definicji typu parametru funkcji.
-
-Pamiętajmy, że typ argumentu funkcji nigdy nie jest referencyjny.  Typ
-wyrażenia (czyli także argumentu funkcji) nigdy nie jest referencyjny,
-nawet jeżeli wyrażeniem jest nazwa referencji. [expr.type]
 
 Chodzi o to, żeby referencyjny (albo wskaźnikowy) typ parametru
 funkcji rzeczywiście mógł być zainicjalizowany: jeżeli typ argumentu
