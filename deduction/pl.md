@@ -131,7 +131,7 @@ te kwalifikatory są usuwane z sygnatury funkcji.  Proszę sprawdzić
 ```
 
 Co więcej, zmienną (parametr `i` w programie wyżej) typu niestałego
-lub ulotnego, możemy inicjalizować wartością typu stałego lub
+czy nieulotnego, możemy inicjalizować wartością typu stałego lub
 ulotnego, bo wartość jest kopiowana.
 
 #### Typ wskaźnikowy
