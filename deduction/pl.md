@@ -117,7 +117,7 @@ i wskaźnikowych, ale już nie w typach referencyjnych.
 #### Typ zwykły
 
 Definiowany typ zwykły może mieć kwalifikatory typu najwyższego rzędu
-podane przed albo po nazwie używanego typu , np. `const int` albo `int
+podane przed albo po nazwie używanego typu, np. `const int` albo `int
 const` (i są to te same typy).
 
 Nie można przeciążać funkcji pod względem kwalifikatorów typu
