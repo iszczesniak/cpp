@@ -127,7 +127,7 @@ te kwalifikatory są usuwane z sygnatury funkcji.  Proszę sprawdzić
 (komendą `nm`) sygnatury funkcji w tablicy symboli tego programu:
 
 ```cpp
-{% include_relative arg_type_ref.cc %}
+{% include_relative cv_regular.cc %}
 ```
 
 Co więcej, zmienną (parametr `i` w programie wyżej) typu niestałego
