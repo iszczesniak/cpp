@@ -148,8 +148,8 @@ ulotnego, bo wartość jest kopiowana.
 ## Typ wyrażenia
 
 Każde wyrażenie w C++ jest typu niereferencyjnego, a więc i typ
-argumentu funkcji nigdy jest niereferencyjny, nawet jeżeli wyrażeniem
-jest nazwa referencji. [expr.type]
+argumentu funkcji jest niereferencyjny, nawet jeżeli wyrażeniem jest
+nazwa referencji. [expr.type]
 
 ## Rodzaje argumentów
 
