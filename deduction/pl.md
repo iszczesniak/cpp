@@ -117,15 +117,15 @@ w typie `int * const &` deklaratorem najwyższego rzędu jest `&`.
 
 ### Kwalifikatory
 
-Kwalifikatory typu (`const` i `volatile`) najwyższego rzędu mogą
-występować w typach i zwykłych (niewskaźnikowych i niereferencyjnych)
-i wskaźnikowych, ale już nie w typach referencyjnych.
+**Kwalifikatory typu (`const` i `volatile`) najwyższego rzędu** mogą
+występować w każdym typie za wyjątkiem typu referencyjnego.
 
 #### Typ zwykły
 
-Definiowany typ zwykły może mieć kwalifikatory typu najwyższego rzędu
-podane przed albo po nazwie używanego typu, np. `const int` albo `int
-const` (i są to te same typy).
+Definiowany typ zwykły (niewskaźnikowy i niereferencyjny) może mieć
+kwalifikatory typu najwyższego rzędu podane przed albo po nazwie
+używanego typu, np. `const int` albo `int const` (i są to te same
+typy).
 
 Nie można przeciążać funkcji pod względem kwalifikatorów typu
 zwykłego, ponieważ te kwalifikatory mają znaczenie wyłącznie dla
@@ -165,7 +165,7 @@ rodzaju wartościowego czy szablonowego), bo rozróżnia:
 
 * typy parametrów funkcji, w szczególności:
 
-  - **zwykłe** (niereferencyjne i niereferencyjne),
+  - **zwykłe** (niewskaźnikowe i niereferencyjne),
 
   - **wskaźnikowe**,
 
