@@ -143,8 +143,6 @@ ulotnego, bo wartość jest kopiowana.
 
 #### Typ wskaźnikowy
 
-
-
 #### Typ referencyjny
 
 ## Typ wyrażenia
@@ -165,15 +163,28 @@ Typowy argument szablonu jest wnioskowany dla typowego parametru
 szablonu.  To wnioskowanie jest najbardziej złożone (w porównaniu do
 rodzaju wartościowego czy szablonowego), bo rozróżnia:
 
-* typy parametrów funkcji: niereferencyjne i referencyjne,
+* typy parametrów funkcji, w szczególności:
 
-* typy argumentów wywołania funkcji: np. funkcyjne czy tablicowe.
+  - **zwykłe** (niereferencyjne i niereferencyjne),
 
-W zależności od typu parametru funkcji (referencyjny czy nie), są
-stosowane różne zasady, które jednak wynikają z podstawowej zasady z
-ograniczeniem.
+  - **wskaźnikowe**,
 
-### Referencyjny typ parametru funkcji
+  - **referencyjne**.
+
+* typy argumentów wywołania funkcji, w szczególności:
+
+  - **funkcyjne**,
+
+  - **tablicowe**.
+
+W zależności od omawianych szczególnych (najważniejszych) typów
+parametru funkcji (zwykłych, wskaźnikowych, referencyjnych) stosowane
+są nieco różne zasady, które jednak wynikają z podstawowej zasady z
+ograniczeniem.  Dla tych szczególnych typów, wnioskowany typ może
+różnić się od typu argumentu wywołania funkcji wyłącznie
+kwalifikatorami lub deklaratorami najwyższego rzędu.
+
+## Referencyjny typ parametru funkcji
 
 Zasada: wnioskowany argument szablonu jest typem argumentu wywołania z
 pominięciem kwalifikatorów typu jeżeli te kwalifikatory zostały podane
