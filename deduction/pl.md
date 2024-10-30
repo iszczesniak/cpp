@@ -108,6 +108,13 @@ nie może być zainicjalizowana r-wartością.
 
 Kwalifikatory i deklaratory typu mogą być najwyższego rzędu.
 
+### Deklaratory
+
+Deklaratory `*` typu wskaźnikowego i `&` typu referencyjnego mogą
+znaleźć się w różnych miejscach w definiowanym typie.  **Deklaratorem
+najwyższego rzędu** jest ten pierwszy od prawej strony.  Na przykład,
+w typie `int * const &` deklaratorem najwyższego rzędu jest `&`.
+
 ### Kwalifikatory
 
 Kwalifikatory typu (`const` i `volatile`) najwyższego rzędu mogą
@@ -136,9 +143,9 @@ ulotnego, bo wartość jest kopiowana.
 
 #### Typ wskaźnikowy
 
-#### Typ referencyjny
 
-### Deklaratory
+
+#### Typ referencyjny
 
 ## Typ wyrażenia
 
