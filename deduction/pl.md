@@ -127,11 +127,12 @@ kwalifikatory typu najwyższego rzędu podane przed albo po nazwie
 używanego typu, np. `const int` albo `int const` (i są to te same
 typy).
 
-Nie można przeciążać funkcji pod względem kwalifikatorów typu
-zwykłego, ponieważ te kwalifikatory mają znaczenie wyłącznie dla
-implementacji funkcji, a nie dla strony wywołującej funkcję.  Dlatego
-te kwalifikatory są usuwane z sygnatury funkcji.  Proszę sprawdzić
-(komendą `nm`) sygnatury funkcji w tablicy symboli tego programu:
+Nie można przeciążać funkcji pod względem kwalifikatorów typu zwykłego
+(parametru funkcji), ponieważ te kwalifikatory mają znaczenie
+wyłącznie dla implementacji funkcji, a nie dla strony wywołującej
+funkcję.  Dlatego te kwalifikatory są usuwane z sygnatury funkcji.
+Proszę sprawdzić (komendą `nm`) sygnatury funkcji w tablicy symboli
+tego programu:
 
 ```cpp
 {% include_relative cv_regular.cc %}
@@ -150,11 +151,12 @@ Kwalifikatory typu wskaźnikowego znajdują się na prawo od deklaratora
 patrząc od prawej strony).  Odnoszą się one do zmiennej wskaźnikowej,
 a nie do wskazywanych danych.
 
-Tak jak w przypadku zwykłej zmiennej, nie możemy przeciążać funkcji
-dla typów wskaźnikowych różniących się kwalifikatorami najwyższego
-rzędu.  I podobnie, możemy inicjalizować zmienną wskaźnikową na
-podstawie wartości wskaźnika, nawet jeżeli ich typy (wskaźnikowe)
-różnią się jedynie kwalifikatorami najwyższego rzędu.
+Tak jak w przypadku zmiennej zwykłego typu, nie możemy przeciążać
+funkcji dla typów wskaźnikowych (parametrów funkcji) różniących się
+kwalifikatorami najwyższego rzędu.  I podobnie, możemy inicjalizować
+zmienną wskaźnikową na podstawie wartości wskaźnika, nawet jeżeli ich
+typy (wskaźnikowe) różnią się jedynie kwalifikatorami najwyższego
+rzędu.
 
 ```cpp
 {% include_relative cv_ptr.cc %}
