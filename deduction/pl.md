@@ -137,11 +137,28 @@ te kwalifikatory są usuwane z sygnatury funkcji.  Proszę sprawdzić
 {% include_relative cv_regular.cc %}
 ```
 
-Co więcej, zmienną (parametr `i` w programie wyżej) typu niestałego
-czy nieulotnego, możemy inicjalizować wartością typu stałego lub
-ulotnego, bo wartość jest kopiowana.
+Co więcej, zmienną (parametr `i` funkcji `foo` w programie wyżej)
+możemy inicjalizować wyrażeniem inicjalizującym (argument `i`
+wywołania funkcji), nawet jeżeli ich typy zwykłe różnią się
+kwalifikatorami najwyższego rzędu, bo chodzi jedynie o kopiowanie
+wartości.
 
 #### Typ wskaźnikowy
+
+Kwalifikatory typu wskaźnikowego znajdują się na prawo od deklaratora
+`*` najwyższego rzędu, czyli na końcu definicji typu (albo na początku
+patrząc od prawej strony).  Odnoszą się one do zmiennej wskaźnikowej,
+a nie do wskazywanych danych.
+
+Tak jak w przypadku zwykłej zmiennej, nie możemy przeciążać funkcji
+dla typów wskaźnikowych różniących się kwalifikatorami najwyższego
+rzędu.  I podobnie, możemy inicjalizować zmienną wskaźnikową na
+podstawie wartości wskaźnika, nawet jeżeli ich typy różnią się
+kwalifikatorami najwyższego rzędu.
+
+```cpp
+{% include_relative cv_ptr.cc %}
+```
 
 #### Typ referencyjny
 
