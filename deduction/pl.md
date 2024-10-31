@@ -139,7 +139,7 @@ te kwalifikatory są usuwane z sygnatury funkcji.  Proszę sprawdzić
 
 Co więcej, zmienną (parametr `i` funkcji `foo` w programie wyżej)
 możemy inicjalizować wyrażeniem inicjalizującym (argument `i`
-wywołania funkcji), nawet jeżeli ich typy zwykłe różnią się
+wywołania funkcji), nawet jeżeli ich typy (zwykłe) różnią się jedynie
 kwalifikatorami najwyższego rzędu, bo chodzi jedynie o kopiowanie
 wartości.
 
@@ -153,8 +153,8 @@ a nie do wskazywanych danych.
 Tak jak w przypadku zwykłej zmiennej, nie możemy przeciążać funkcji
 dla typów wskaźnikowych różniących się kwalifikatorami najwyższego
 rzędu.  I podobnie, możemy inicjalizować zmienną wskaźnikową na
-podstawie wartości wskaźnika, nawet jeżeli ich typy różnią się
-kwalifikatorami najwyższego rzędu.
+podstawie wartości wskaźnika, nawet jeżeli ich typy (wskaźnikowe)
+różnią się jedynie kwalifikatorami najwyższego rzędu.
 
 ```cpp
 {% include_relative cv_ptr.cc %}
