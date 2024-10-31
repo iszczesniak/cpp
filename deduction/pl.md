@@ -178,7 +178,9 @@ można jej zmienić, żeby była aliasem innej danej, więc kwalifikator
 
 Każde wyrażenie w C++ jest typu niereferencyjnego, a więc i typ
 argumentu funkcji jest niereferencyjny, nawet jeżeli wyrażeniem jest
-nazwa referencji. [expr.type]
+nazwa referencji.  W standardzie napisano ([expr.type]), że przed
+opracowaniem wyrażenia z jego typu kompilator usuwa deklarator `&`
+najwyższego rzędu.
 
 ## Rodzaje argumentów
 
