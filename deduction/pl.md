@@ -164,6 +164,16 @@ rzędu.
 
 #### Typ referencyjny
 
+Referencja albo nazywa pewną daną (np. element tablicy) albo jest
+aliasem innej zmiennej.  Typ referencyjny nie ma kwalifikatorów
+najwyższego rzędu, bo referencja ma wiernie odwzorować typ danej, do
+której jest aliasem.  Na przykład, typ `int & const` jest
+niedopuszczalny.
+
+Co więcej, referencję można tylko zainicjalizować, a potem już nie
+można jej zmienić, żeby była aliasem innej danej, więc kwalifikator
+`const` najwyższego rzędu nie robiłby różnicy.
+
 ## Typ wyrażenia
 
 Każde wyrażenie w C++ jest typu niereferencyjnego, a więc i typ
