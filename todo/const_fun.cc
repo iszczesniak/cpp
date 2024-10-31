@@ -1,7 +1,7 @@
 int main()
 {
   // A non-const function cannot be declated const, because it has no
-  // object to work :
+  // object to work on:
 
   // void goo() const;
 
@@ -9,6 +9,5 @@ int main()
   using fun_type = void() const;
 
   // And the following doesn't:
-  fun_type *p = hello;
+  // fun_type *p = nullptr;
 }
-
