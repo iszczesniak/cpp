@@ -213,7 +213,9 @@ parametru funkcji (zwykłych, wskaźnikowych, referencyjnych) stosowane
 są nieco różne zasady, które jednak wynikają z podstawowej zasady z
 ograniczeniem.  Dla tych szczególnych typów, wnioskowany typ może
 różnić się od typu argumentu wywołania funkcji wyłącznie
-kwalifikatorami lub deklaratorami najwyższego rzędu.
+kwalifikatorami lub deklaratorami najwyższego rzędu.  Wnioskowanym
+typem nigdy nie będzie typ referencyjny, bo argument funkcji nigdy nie
+jest typu referencyjnego.
 
 ## Referencyjny typ parametru funkcji
 
@@ -243,9 +245,7 @@ Oto przykład dla typów wskaźnikowych:
 ### Zwykły typ parametru funkcji
 
 *Zasada: wnioskowany argument szablonu jest typem argumentu wywołania
- z pominięciem kwalifikatorów `const` i `volatile`.  Wnioskowanym
- typem nigdy nie będzie typ referencyjny (bo wyrażenie nigdy nie jest
- typu referencyjnego), ale może być wskaźnikowy.  Dla typu
+ z pominięciem kwalifikatorów `const` i `volatile`.  Dla typu
  wskaźnikowego są pomijane kwalifikatory najwyższego rzędu
  (ang. top-level qualifiers).  Typy referencyjne nie mają
  kwalifikatorów najwyższego rzędu.*
