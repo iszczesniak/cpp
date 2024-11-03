@@ -196,11 +196,13 @@ rodzaju wartościowego czy szablonowego), bo rozróżnia:
 
 * typy parametrów funkcji, w szczególności:
 
-  - **zwykłe** (niewskaźnikowe i niereferencyjne),
+  - **zwykłe** (niewskaźnikowe i niereferencyjne) dla przekazywania
+      przez wartość,
 
-  - **wskaźnikowe**,
+  - **wskaźnikowe** dla przekazywania przez wskaźnik (które jest
+      przekazywaniem wskaźnika przez wartość),
 
-  - **referencyjne**.
+  - **referencyjne** dla przekazywania przez referencję.
 
 * typy argumentów wywołania funkcji, w szczególności:
 
