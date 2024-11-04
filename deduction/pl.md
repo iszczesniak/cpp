@@ -243,7 +243,7 @@ Ten typ paramatru szablonu może także przyjąc argument typu
 wskaźnikowego:
 
 ```cpp
-{% include_relative arg_type_val1.cc %}
+{% include_relative arg_type_val2.cc %}
 ```
 
 ## Referencyjny typ parametru funkcji
