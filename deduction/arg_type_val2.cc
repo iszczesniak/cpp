@@ -11,13 +11,13 @@ int
 main()
 {
   int i = 1;
-  int * p = &i;
-  int * const cp = &i;
-  int * volatile vp = &i;
-  int * const volatile cvp = &i;
+  int const volatile * p1 = &i;
+  int volatile * const p2 = &i;
+  int const * volatile p3 = &i;
+  int * const volatile p4 = &i;
 
-  foo(p);
-  foo(cp);
-  foo(vp);
-  foo(cvp);
+  foo(p1);
+  foo(p2);
+  foo(p3);
+  foo(p4);
 }
