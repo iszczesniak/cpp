@@ -125,24 +125,26 @@ występować w każdym typie za wyjątkiem typu referencyjnego.
 Definiowany typ zwykły (niewskaźnikowy i niereferencyjny) może mieć
 kwalifikatory typu najwyższego rzędu podane przed albo po nazwie
 używanego typu, np. `const int` albo `int const` (i są to te same
-typy).
+typy).  Kwalifikatory te mają znaczenie wyłącznie na etapie kompilacji
+(nie uruchomienia): kompilator nie może pozwolić modyfikować danej
+typu `const`, a dostępu do danej typu `volatile` nie może
+optymalizować.
+
+Zmienną (parametr `i` funkcji `foo` w programie niżej) możemy
+inicjalizować wyrażeniem inicjalizującym (argument `i` wywołania
+funkcji), nawet jeżeli ich typy (zwykłe) różnią się jedynie
+kwalifikatorami najwyższego rzędu, bo chodzi jedynie o kopiowanie
+wartości.
 
 Nie można przeciążać funkcji pod względem kwalifikatorów typu zwykłego
-(parametru funkcji), ponieważ te kwalifikatory mają znaczenie
-wyłącznie dla implementacji funkcji, a nie dla strony wywołującej
-funkcję.  Dlatego te kwalifikatory są usuwane z sygnatury funkcji.
-Proszę sprawdzić (komendą `nm`) sygnatury funkcji w tablicy symboli
-tego programu:
+(parametru funkcji), ponieważ te kwalifikatory nie mają znaczenia dla
+strony wywołującej funkcję i są usuwane z sygnatury funkcji, żeby
+umożliwić konsolidację.  Proszę sprawdzić (komendą `nm`) sygnatury
+funkcji w tablicy symboli programu poniżej.
 
 ```cpp
 {% include_relative cv_regular.cc %}
 ```
-
-Co więcej, zmienną (parametr `i` funkcji `foo` w programie wyżej)
-możemy inicjalizować wyrażeniem inicjalizującym (argument `i`
-wywołania funkcji), nawet jeżeli ich typy (zwykłe) różnią się jedynie
-kwalifikatorami najwyższego rzędu, bo chodzi jedynie o kopiowanie
-wartości.
 
 #### Typ wskaźnikowy
 
@@ -221,10 +223,8 @@ jest typu referencyjnego.
 
 ### Zwykły typ parametru funkcji
 
-*Zasada: wnioskowany argument szablonu jest typem argumentu wywołania
- z pominięciem kwalifikatorów `const` i `volatile`.  Dla typu
- wskaźnikowego są pomijane kwalifikatory najwyższego rzędu
- (ang. top-level qualifiers).*
+**Zasada: wnioskowany argument szablonu jest typem argumentu wywołania
+ z pominięciem kwalifikatorów najwyższego rzędu.**
 
 Chodzi o to, że inicjalizacja parametrów funkcji (przy przekazywaniu
 argumentów wywołania przez wartość) kopiuje wartość argumentu
@@ -237,19 +237,8 @@ Przykład:
 {% include_relative arg_type_val.cc %}
 ```
 
-W powyższym przykładzie, na podstawie skonkretyzowanych funkcji wydaje
-się, że kwalifikatory typu (`const` i `volatile`) podane w definicji
-typu parametru funkcji nie miały znaczenia.  Kwalifikatory typu dla
-parametrów zwykłych typów (niereferencyjnych i niewskaźnikowych) mają
-jedynie znaczenie na etapie kompilacji (nie konsolidacji): kompilator
-nie może pozwolić na modyfikację parametru (`const`) i optymalizację
-odwołań (`volatile`) do parametru w ciele funkcji.  Typy tych funkcji
-nie mają zachowanych kwalifikatorów typu, bo nie mają one znaczenia
-dla kodu wywołującego te funkcje:
-
-```cpp
-{% include_relative qualifiers_dropped.cc %}
-```
+Ten typ paramatru szablonu może także przyjąc argument typu
+wskaźnikowego.
 
 ## Referencyjny typ parametru funkcji
 
