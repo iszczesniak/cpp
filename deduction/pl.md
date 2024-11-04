@@ -228,17 +228,23 @@ jest typu referencyjnego.
 
 Chodzi o to, że inicjalizacja parametrów funkcji (przy przekazywaniu
 argumentów wywołania przez wartość) kopiuje wartość argumentu
-wywołania do parametru funkcji.  Wtedy nie trzeba już zadbać o
-kwalifikatory typu, bo w ciele funkcji działamy na kopii.
+wywołania do parametru funkcji.  Wnioskowanie nie musi zadbać o
+kwalifikatory typu, bo w ciele funkcji działamy na kopii.  W definicji
+parametru możemy podać kwalifikatory, żeby poprosić kompilator o
+pilnowanie się z tym parametrem.
 
 Przykład:
 
 ```cpp
-{% include_relative arg_type_val.cc %}
+{% include_relative arg_type_val1.cc %}
 ```
 
 Ten typ paramatru szablonu może także przyjąc argument typu
 wskaźnikowego.
+
+```cpp
+{% include_relative arg_type_val1.cc %}
+```
 
 ## Referencyjny typ parametru funkcji
 
