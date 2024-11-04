@@ -229,7 +229,7 @@ kwalifikatorami lub deklaratorami najwyższego rzędu.  Wnioskowanym
 typem nigdy nie będzie typ referencyjny, bo argument funkcji nigdy nie
 jest typu referencyjnego.
 
-### Zwykły typ parametru funkcji
+## Zwykły typ parametru funkcji
 
 **Zasada: wnioskowany argument szablonu jest typem argumentu wywołania
  z pominięciem kwalifikatorów najwyższego rzędu.**
@@ -252,6 +252,21 @@ wskaźnikowego:
 
 ```cpp
 {% include_relative arg_type_val2.cc %}
+```
+
+## Wskaźnikowy typ parametru funkcji
+
+```cpp
+{% include_relative arg_type_val2.cc %}
+```
+
+**Zasada: wnioskowany argument szablonu jest typem argumentu wywołania
+z pominięciem kwalifikatorów i deklaratora *najwyższego* rzędu.
+Kwalifikatory *niższego* rzędu podane w definicji typu parametru
+funkcji też są pomijane.**
+
+```cpp
+{% include_relative arg_type_ptr.cc %}
 ```
 
 ## Referencyjny typ parametru funkcji

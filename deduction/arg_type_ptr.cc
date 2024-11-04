@@ -2,28 +2,22 @@
 
 template <typename T>
 void
-foo1(T *t)
+foo(T *t)
 {
   std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
-template <typename T>
-void
-foo2(const T *t)
-{
-  std::cout << __PRETTY_FUNCTION__ << std::endl;
-}
+// Can't overload for pointer types of different top-level qualifiers.
+// template <typename T>
+// void
+// foo(T * const t)
+// {
+//   std::cout << __PRETTY_FUNCTION__ << std::endl;
+// }
 
 template <typename T>
 void
-foo3(volatile T *t)
-{
-  std::cout << __PRETTY_FUNCTION__ << std::endl;
-}
-
-template <typename T>
-void
-foo4(const volatile T *t)
+foo(T volatile *t)
 {
   std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
@@ -31,23 +25,14 @@ foo4(const volatile T *t)
 int
 main()
 {
-  int x = 1;
-  const int y = 2;
-  const volatile int z = 3;
+  int i = 1;
+  int const volatile * p1 = &i;
+  int volatile * const p2 = &i;
+  int const * volatile p3 = &i;
+  int * const volatile p4 = &i;
 
-  foo1(&x);
-  foo1(&y);
-  foo1(&z);
-
-  foo2(&x);
-  foo2(&y);
-  foo2(&z);
-
-  foo3(&x);
-  foo3(&y);
-  foo3(&z);
-
-  foo4(&x);
-  foo4(&y);
-  foo4(&z);
+  foo(p1);
+  foo(p2);
+  foo(p3);
+  foo(p4);
 }
