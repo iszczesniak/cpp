@@ -58,13 +58,13 @@ jest wiele, a my omówimy najważniejsze.
 
 ## Podstawowa zasada z ograniczeniem
 
-Zasada: **wywnioskowany argument szablonu ma pozwolić na inicjalizację
-parametru funkcji**.
+**Zasada: wywnioskowany argument szablonu ma pozwolić na inicjalizację
+parametru funkcji.**
 
 Inicjalizacja zawsze odbywa się na podstawie argumentu (jawnego bądź
 domyślnego) funkcji.
 
-Ograniczenie: **inicjalizacja ma się odbyć bez konwersji typu**.
+**Ograniczenie: inicjalizacja ma się odbyć bez konwersji typu.**
 
 Mowa tu o konwersji typu argumentu wywołania funkcji do typu parametru
 funkcji.  Przy wywołaniu zwykłej (nieszablonowej) funkcji tego
@@ -219,38 +219,12 @@ kwalifikatorami lub deklaratorami najwyższego rzędu.  Wnioskowanym
 typem nigdy nie będzie typ referencyjny, bo argument funkcji nigdy nie
 jest typu referencyjnego.
 
-## Referencyjny typ parametru funkcji
-
-Zasada: wnioskowany argument szablonu jest typem argumentu wywołania z
-pominięciem kwalifikatorów typu jeżeli te kwalifikatory zostały podane
-w definicji typu parametru funkcji.
-
-Chodzi o to, żeby referencyjny (albo wskaźnikowy) typ parametru
-funkcji rzeczywiście mógł być zainicjalizowany: jeżeli typ argumentu
-wywołania jest stały (bądź ulotny), to referencja (albo wskaźnik) musi
-być stała (bądź ulotna).
-
-Oto przykład dla typów referencyjnych, gdzie funkcja `foo1` została
-skonkretyzowana trzy razy, funkcje `foo2` i `foo3` po dwa razy, a
-`foo4` raz:
-
-```cpp
-{% include_relative arg_type_ref.cc %}
-```
-
-Oto przykład dla typów wskaźnikowych:
-
-```cpp
-{% include_relative arg_type_ptr.cc %}
-```
-
 ### Zwykły typ parametru funkcji
 
 *Zasada: wnioskowany argument szablonu jest typem argumentu wywołania
  z pominięciem kwalifikatorów `const` i `volatile`.  Dla typu
  wskaźnikowego są pomijane kwalifikatory najwyższego rzędu
- (ang. top-level qualifiers).  Typy referencyjne nie mają
- kwalifikatorów najwyższego rzędu.*
+ (ang. top-level qualifiers).*
 
 Chodzi o to, że inicjalizacja parametrów funkcji (przy przekazywaniu
 argumentów wywołania przez wartość) kopiuje wartość argumentu
@@ -275,6 +249,31 @@ dla kodu wywołującego te funkcje:
 
 ```cpp
 {% include_relative qualifiers_dropped.cc %}
+```
+
+## Referencyjny typ parametru funkcji
+
+Zasada: wnioskowany argument szablonu jest typem argumentu wywołania z
+pominięciem kwalifikatorów typu jeżeli te kwalifikatory zostały podane
+w definicji typu parametru funkcji.
+
+Chodzi o to, żeby referencyjny (albo wskaźnikowy) typ parametru
+funkcji rzeczywiście mógł być zainicjalizowany: jeżeli typ argumentu
+wywołania jest stały (bądź ulotny), to referencja (albo wskaźnik) musi
+być stała (bądź ulotna).
+
+Oto przykład dla typów referencyjnych, gdzie funkcja `foo1` została
+skonkretyzowana trzy razy, funkcje `foo2` i `foo3` po dwa razy, a
+`foo4` raz:
+
+```cpp
+{% include_relative arg_type_ref.cc %}
+```
+
+Oto przykład dla typów wskaźnikowych:
+
+```cpp
+{% include_relative arg_type_ptr.cc %}
 ```
 
 ### Przekazywanie funkcji
