@@ -161,7 +161,15 @@ typy (wskaźnikowe) różnią się jedynie kwalifikatorami najwyższego
 rzędu.
 
 ```cpp
-{% include_relative cv_ptr.cc %}
+{% include_relative cv_ptr1.cc %}
+```
+
+Możemy jednak przeciążać funkcje dla typów wskaźnikowych, które różnią
+się kwalifikatorami niższego rzędu.  Chodzi o możliwość przeciążenia
+pod względem typu danych, do których odnosi się wskaźnik:
+
+```cpp
+{% include_relative cv_ptr2.cc %}
 ```
 
 #### Typ referencyjny
