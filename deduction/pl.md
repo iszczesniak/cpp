@@ -231,8 +231,8 @@ jest typu referencyjnego.
 
 ## Zwykły typ parametru funkcji
 
-**Zasada: wnioskowany argument szablonu jest typem argumentu wywołania
- z pominięciem kwalifikatorów najwyższego rzędu.**
+**Wnioskowany argument szablonu jest typem argumentu wywołania z
+pominięciem kwalifikatorów najwyższego rzędu.**
 
 Chodzi o to, że inicjalizacja parametrów funkcji (przy przekazywaniu
 argumentów wywołania przez wartość) kopiuje wartość argumentu
@@ -256,10 +256,23 @@ wskaźnikowego:
 
 ## Wskaźnikowy typ parametru funkcji
 
-**Zasada: wnioskowany argument szablonu jest typem argumentu wywołania
-z pominięciem kwalifikatorów i deklaratora *najwyższego* rzędu.
-Kwalifikatory *niższego* rzędu podane w definicji typu parametru
-funkcji też są pomijane.**
+**Wnioskowany argument szablonu jest typem argumentu wywołania z
+pominięciem kwalifikatorów i deklaratora *najwyższego* rzędu.  Jeżeli
+w definicji typu parametru funkcji podamy kwalifikatory najwyższego
+rzędu typu danej, do której wskaźnik się odnosi, to te kwalifikatory
+też pomijane.**
+
+Wyjaśnienie:
+
+* Kwalifikatory najwyższego rzędu są pomijane, bo nie mają one
+znaczenia dla fukncji, która działa na kopii wskaźnika.
+
+* Deklarator najwyższego rzędu jest pomijany, bo on już jest w
+  definicji typu parametru funkcji.
+
+* Kwalifikatory 
+
+*niższego* rzędu
 
 ```cpp
 {% include_relative arg_type_ptr.cc %}
