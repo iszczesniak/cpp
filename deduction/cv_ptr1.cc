@@ -1,18 +1,26 @@
 #include <concepts>
 
-void foo(int * i)
+void foo(const int * i)
 {
 }
 
 // This function has same signature as the one above.
-// void foo(int * const i)
+// void foo(const int * const i)
 // {
 // }
 
 int main()
 {
-  const int i = 1;
-  int * const p1 = nullptr;
-  // int * const p2 = &i; // Error: Would let modify i.
-  foo(p1);
+  int i = 1;
+  foo(&i);
+
+  const int j = 2;
+  foo(&j);
+
+  int * const p1 = &i;
+  const int * p2 = p1;
+  
+  const int * p3 = &i;
+  // Error! Would allow to modify the data pointed by p3.
+  // int * const p4 = p3;
 }
