@@ -309,12 +309,6 @@ skonkretyzowana trzy razy, funkcje `foo2` i `foo3` po dwa razy, a
 {% include_relative arg_type_ref.cc %}
 ```
 
-Oto przykład dla typów wskaźnikowych:
-
-```cpp
-{% include_relative arg_type_ptr.cc %}
-```
-
 ### Przekazywanie funkcji
 
 Funkcję możemy przekazać przez:
