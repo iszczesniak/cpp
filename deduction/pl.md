@@ -239,7 +239,7 @@ jest typu referencyjnego.
 
 ## Zwykły typ parametru funkcji
 
-**Wnioskowany argument szablonu jest typem argumentu wywołania z
+**Wywnioskowany argument szablonu jest typem argumentu funkcji z
 pominięciem kwalifikatorów najwyższego rzędu.**
 
 Chodzi o to, że inicjalizacja parametrów funkcji (przy przekazywaniu
@@ -264,7 +264,7 @@ wskaźnikowego:
 
 ## Wskaźnikowy typ parametru funkcji
 
-**Wnioskowany argument szablonu jest typem argumentu wywołania z
+**Wywnioskowany argument szablonu jest typem argumentu wywołania z
 pominięciem deklaratora `*` i kwalifikatorów *najwyższego* rzędu.
 Jeżeli w definicji typu parametru funkcji podamy kwalifikatory
 najwyższego rzędu typu danej, do której wskaźnik się odnosi, to te
@@ -292,7 +292,7 @@ Wyjaśnienie:
 
 ## Referencyjny typ parametru funkcji
 
-**Wnioskowany argument szablonu jest typem argumentu wywołania z
+**Wywnioskowany argument szablonu jest typem argumentu wywołania z
 pominięciem tych kwalifikatorów najwyższego rzędu, które zostały
 podane w definicji typu danych, do których referencyjny parametr
 funkcji się odnosi.**
