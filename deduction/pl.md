@@ -283,8 +283,8 @@ Wyjaśnienie:
 * Kwalifikatory najwyższego rzędu dla wskazywanego typu też są
   pomijane, jeżeli znajdują się w definicji parametru funkcji.  Jeżeli
   ich tam nie ma, to kwalifikatory z typu argumentu funkcji znajdą się
-  we wywnioskowanym typie, co pozwala na ich propagację i
-  uwzględnienie wewnątrz szablonu.
+  we wywnioskowanym typie, co pozwala nie tylko na inicjalizację
+  parametru funkcji, ale także na ich propagację do szablonu.
 
 ```cpp
 {% include_relative arg_type_ptr.cc %}
