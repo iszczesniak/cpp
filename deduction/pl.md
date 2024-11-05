@@ -292,14 +292,16 @@ Wyjaśnienie:
 
 ## Referencyjny typ parametru funkcji
 
-Zasada: wnioskowany argument szablonu jest typem argumentu wywołania z
-pominięciem kwalifikatorów typu jeżeli te kwalifikatory zostały podane
-w definicji typu parametru funkcji.
+**Zasada: wnioskowany argument szablonu jest typem argumentu wywołania
+z pominięciem tych kwalifikatorów najwyższego rzędu, które zostały
+podane w definicji typu danych, do których referencyjny parametr
+funkcji się odnosi.**
 
-Chodzi o to, żeby referencyjny (albo wskaźnikowy) typ parametru
-funkcji rzeczywiście mógł być zainicjalizowany: jeżeli typ argumentu
-wywołania jest stały (bądź ulotny), to referencja (albo wskaźnik) musi
-być stała (bądź ulotna).
+Pamiętajmy, że typ argumentu nigdy nie jest referencyjny.  W tej
+zasadzie chodzi o to, żeby referencyjny parametr funkcji rzeczywiście
+mógł być zainicjalizowany: jeżeli typ argumentu wywołania jest stały
+(bądź ulotny), to referencja musi odnosić się do danej typu stałego
+(bądź ulotnego).
 
 Przykład:
 
