@@ -256,10 +256,6 @@ wskaźnikowego:
 
 ## Wskaźnikowy typ parametru funkcji
 
-```cpp
-{% include_relative arg_type_val2.cc %}
-```
-
 **Zasada: wnioskowany argument szablonu jest typem argumentu wywołania
 z pominięciem kwalifikatorów i deklaratora *najwyższego* rzędu.
 Kwalifikatory *niższego* rzędu podane w definicji typu parametru
