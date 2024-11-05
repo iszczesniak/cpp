@@ -153,20 +153,28 @@ Kwalifikatory typu wskaźnikowego znajdują się na prawo od deklaratora
 patrząc od prawej strony).  Odnoszą się one do zmiennej wskaźnikowej,
 a nie do wskazywanych danych.
 
-Tak jak w przypadku zmiennej zwykłego typu, nie możemy przeciążać
-funkcji dla typów wskaźnikowych (parametrów funkcji) różniących się
-kwalifikatorami najwyższego rzędu.  I podobnie, możemy inicjalizować
-zmienną wskaźnikową na podstawie wartości wskaźnika, nawet jeżeli ich
-typy (wskaźnikowe) różnią się jedynie kwalifikatorami najwyższego
-rzędu.
+Tak jak w przypadku zmiennej zwykłego typu:
+
+* nie możemy przeciążać funkcji dla typów wskaźnikowych (parametrów
+  funkcji) różniących się kwalifikatorami najwyższego rzędu,
+
+* możemy inicjalizować zmienną wskaźnikową na podstawie wartości
+  wskaźnika, nawet jeżeli ich typy (wskaźnikowe) różnią się
+  kwalifikatorami najwyższego rzędu.
+
+Przykład:
 
 ```cpp
 {% include_relative cv_ptr1.cc %}
 ```
 
-Możemy jednak przeciążać funkcje dla typów wskaźnikowych, które różnią
-się kwalifikatorami niższego rzędu.  Chodzi o możliwość przeciążenia
-pod względem typu danych, do których odnosi się wskaźnik:
+Możemy jednak przeciążać funkcje dla typów wskaźnikowych (parametru
+funkcji), które różnią się kwalifikatorami dla typu wskazywanych
+danych.  Te kwalifikatory możemy nazwać **niższego rzędu**, jeżeli
+mówimy o typie wskaźnika, albo **najwyższego rzędu**, jeżeli mówimy o
+typie danych, do których wskaźnik się odnosi.  Zatem chodzi o
+możliwość przeciążenia pod względem typu danych, do których odnosi się
+wskaźnik.  Oto przykład:
 
 ```cpp
 {% include_relative cv_ptr2.cc %}
@@ -257,22 +265,26 @@ wskaźnikowego:
 ## Wskaźnikowy typ parametru funkcji
 
 **Wnioskowany argument szablonu jest typem argumentu wywołania z
-pominięciem kwalifikatorów i deklaratora *najwyższego* rzędu.  Jeżeli
-w definicji typu parametru funkcji podamy kwalifikatory najwyższego
-rzędu typu danej, do której wskaźnik się odnosi, to te kwalifikatory
-też pomijane.**
+pominięciem deklaratora `*` i kwalifikatorów *najwyższego* rzędu.
+Jeżeli w definicji typu parametru funkcji podamy kwalifikatory
+najwyższego rzędu typu danej, do której wskaźnik się odnosi, to te
+kwalifikatory też są pomijane we wnioskowanym argumencie.**
 
 Wyjaśnienie:
 
-* Kwalifikatory najwyższego rzędu są pomijane, bo nie mają one
-znaczenia dla fukncji, która działa na kopii wskaźnika.
-
-* Deklarator najwyższego rzędu jest pomijany, bo on już jest w
+* Deklarator `*` najwyższego rzędu jest pomijany, bo on już jest w
   definicji typu parametru funkcji.
 
-* Kwalifikatory 
+* Kwalifikatory najwyższego rzędu są pomijane, bo nie mają one
+  znaczenia dla funkcji, która działa na kopii wartości argumentu
+  przekazanego do niej (tak jak w przypadku zwykłego typu parametru
+  funkcji).
 
-*niższego* rzędu
+* Kwalifikatory najwyższego rzędu dla wskazywanego typu też są
+  pomijane, jeżeli znajdują się w definicji parametru funkcji.  Jeżeli
+  ich tam nie ma, to kwalifikatory z typu argumentu funkcji znajdą się
+  we wywnioskowanym typie, co pozwala na ich propagację i
+  uwzględnienie wewnątrz szablonu.
 
 ```cpp
 {% include_relative arg_type_ptr.cc %}
