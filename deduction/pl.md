@@ -301,9 +301,7 @@ funkcji rzeczywiście mógł być zainicjalizowany: jeżeli typ argumentu
 wywołania jest stały (bądź ulotny), to referencja (albo wskaźnik) musi
 być stała (bądź ulotna).
 
-Oto przykład dla typów referencyjnych, gdzie funkcja `foo1` została
-skonkretyzowana trzy razy, funkcje `foo2` i `foo3` po dwa razy, a
-`foo4` raz:
+Przykład:
 
 ```cpp
 {% include_relative arg_type_ref.cc %}
