@@ -160,7 +160,8 @@ Tak jak w przypadku zmiennej zwykłego typu:
 
 * możemy inicjalizować zmienną wskaźnikową na podstawie wartości
   wskaźnika, nawet jeżeli ich typy (wskaźnikowe) różnią się
-  kwalifikatorami najwyższego rzędu.
+  kwalifikatorami najwyższego rzędu, bo wartość wskaźnika jest jedynie
+  kopiowana.
 
 Przykład:
 
