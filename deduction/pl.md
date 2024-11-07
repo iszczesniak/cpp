@@ -266,9 +266,8 @@ wskaźnikowego:
 
 **Wywnioskowany argument szablonu jest typem argumentu funkcji z
 pominięciem deklaratora `*` i kwalifikatorów *najwyższego* rzędu.
-Jeżeli w definicji typu parametru funkcji podamy kwalifikatory
-najwyższego rzędu typu danej, do której wskaźnik się odnosi, to te
-kwalifikatory też są pomijane we wnioskowanym argumencie.**
+Kwalifikatory najwyższego rzędu dla *typu wskazywanych danych* też są
+pomijane, jeżeli znajdują się w definicji parametru funkcji.**
 
 Wyjaśnienie:
 
@@ -280,11 +279,12 @@ Wyjaśnienie:
   przekazanego do niej (tak jak w przypadku zwykłego typu parametru
   funkcji).
 
-* Kwalifikatory najwyższego rzędu dla wskazywanego typu też są
-  pomijane, jeżeli znajdują się w definicji parametru funkcji.  Jeżeli
-  ich tam nie ma, to kwalifikatory z typu argumentu funkcji znajdą się
-  we wywnioskowanym typie, co pozwala nie tylko na inicjalizację
-  parametru funkcji, ale także na ich propagację do szablonu.
+* Jeżeli w definicji typu parametru funkcji podamy kwalifikatory
+  najwyższego rzędu dla **typu wskazywanych danych**, to te
+  kwalifikatory będą pominięte we wywnioskowanym typie.  Jeżeli nie
+  zostały podane, to kwalifikatory (typu wskazywanych danych)
+  zdefiniowane przez typ argumentu funkcji będą propagowane do
+  wywnioskowanego typu, co pozwala na inicjalizację parametru funkcji.
 
 ```cpp
 {% include_relative arg_type_ptr.cc %}
