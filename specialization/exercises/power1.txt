@@ -1,0 +1,4 @@
+Implement function power<a>(x) that recursively calculates the value
+of x to the power of a.  Value of x can be known at run-time, and the
+value of a at the compile time.  Try to break the recursion with a
+template specialization.
