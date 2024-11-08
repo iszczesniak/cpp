@@ -7,6 +7,9 @@ power(T t)
   return t * power<I - 1>(t);
 }
 
+// This solution is inferior to using the conditional compile-time
+// statement (if constexpr) because we have to define a specialization
+// for every type: double and int.
 template <>
 double power<0>(double t)
 {
