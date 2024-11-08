@@ -130,20 +130,31 @@ typy).  Kwalifikatory te mają znaczenie wyłącznie na etapie kompilacji
 typu `const`, a dostępu do danej typu `volatile` nie może
 optymalizować.
 
-Zmienną (parametr `i` funkcji `foo` w programie niżej) możemy
-inicjalizować wyrażeniem inicjalizującym (argument `i` wywołania
-funkcji), nawet jeżeli ich typy (zwykłe) różnią się jedynie
-kwalifikatorami najwyższego rzędu, bo chodzi jedynie o kopiowanie
-wartości.
-
-Nie można przeciążać funkcji pod względem kwalifikatorów typu zwykłego
-(parametru funkcji), ponieważ te kwalifikatory nie mają znaczenia dla
-strony wywołującej funkcję i są usuwane z sygnatury funkcji, żeby
-umożliwić konsolidację.  Proszę sprawdzić (komendą `nm`) sygnatury
-funkcji w tablicy symboli programu poniżej.
+Swoboda.  Zmienną możemy inicjalizować wyrażeniem inicjalizującym,
+nawet jeżeli ich typy (zwykłe) różnią się jedynie kwalifikatorami
+najwyższego rzędu, bo chodzi jedynie o kopiowanie wartości.
 
 ```cpp
-{% include_relative cv_regular.cc %}
+{% include_relative cv_regular1.cc %}
+```
+
+Ta swoboda dotycz także inicjalizacji parametrów funkcji z użyciem
+argumentu funkcji, z czego wynika ograniczenie.
+
+Ograniczenie.  Nie można przeciążać funkcji pod względem
+kwalifikatorów typu zwykłego (parametru funkcji), ponieważ
+inicjalizacja parametru typu zwykłego (która nie stawia warunków
+dotyczących kwalifikatorów typów parametru i argumentu funkcji) nie
+jest w stanie wpłynąć na wybór przeciążenia.
+
+Te kwalifikatory (które są szczegółem implementacji ciała funkcji) i
+tak nie mają znaczenia dla strony wywołującej funkcję i są usuwane
+przez kompilator z sygnatury funkcji (nie są one częścią interfejsu
+funkcji), żeby umożliwić konsolidację.  Proszę sprawdzić (komendą
+`nm`) sygnatury funkcji w tablicy symboli programu poniżej.
+
+```cpp
+{% include_relative cv_regular2.cc %}
 ```
 
 #### Typ wskaźnikowy

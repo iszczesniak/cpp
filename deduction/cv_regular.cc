@@ -1,23 +1,12 @@
-#include <concepts>
-
-void foo(const int i)
-{
-}
-
-// This function has same signature as the one above even though their
-// parameters differ with the qualifiers.
-// void foo(volatile int i)
-// {
-// }
-
 int main()
 {
-  static_assert(std::same_as<const int, int const>);
-  volatile int i = 1;
-  foo(i);
+  int a1 = 1;
+  const int a2 = 2;
+  volatile int a3 = 3;
+  const volatile int a4 = 4;
 
-  // Can point to a function with a regular parameter that is either
-  // const or non-const.
-  void (*fp1)(const int) = foo;
-  void (*fp2)(int) = foo;
+  int b1 = a4;
+  const int b2 = a3;
+  volatile int b3 = a2;
+  const volatile int b4 = a1;
 }
