@@ -180,9 +180,9 @@ rzędu, możemy też podać kwalifikatory **najwyższego rzędu** dla typu
 wskazywanych danych.  Kwalifikatory te możemy nazwać **niższego
 rzędu**, jeżeli mówimy o typie wskaźnika.
 
-**Warunek.** Kompilator pilnuje, żeby kwalifikatory *niższego rzędu*
-(typu) inicjalizowanego wskaźnika zawierały kwalifikatory *najwyższego
-rzędu* typu wskazywanych danych.
+**Warunek.** Kwalifikatory *niższego rzędu* typu inicjalizowanego
+wskaźnika muszą zawierać kwalifikatory *najwyższego rzędu* typu
+wskazywanych danych.
 
 Oto przykład:
 
