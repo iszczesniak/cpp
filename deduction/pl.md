@@ -11,7 +11,7 @@ wnioskuje argumenty szablonu w następujących przypadkach:
 * wywołanie nieskładowej funkcji szablonowej (najczęstsze i
   najprostsze),
 
-* wywołanie składowej funkcji szablonowej, w tym konstruktora,
+* wywołanie składowej funkcji szablonowej (w tym konstruktora),
 
 * inicjalizacja zmiennej typu `auto` (w tym parametrów funkcji i
   zwracanych wartości).
@@ -130,28 +130,28 @@ typy).  Kwalifikatory te mają znaczenie wyłącznie na etapie kompilacji
 typu `const`, a dostępu do danej typu `volatile` nie może
 optymalizować.
 
-Swoboda.  Zmienną możemy inicjalizować wyrażeniem inicjalizującym,
+**Swoboda.** Zmienną możemy inicjalizować wyrażeniem inicjalizującym,
 nawet jeżeli ich typy (zwykłe) różnią się jedynie kwalifikatorami
-najwyższego rzędu, bo chodzi jedynie o kopiowanie wartości.
+najwyższego rzędu, bo chodzi tylko o kopiowanie wartości.  Przykład:
 
 ```cpp
 {% include_relative cv_regular1.cc %}
 ```
 
-Ta swoboda dotycz także inicjalizacji parametrów funkcji z użyciem
+Ta swoboda dotycz także inicjalizacji parametru funkcji z użyciem
 argumentu funkcji, z czego wynika ograniczenie.
 
-Ograniczenie.  Nie można przeciążać funkcji pod względem
+**Ograniczenie.** Nie można przeciążać funkcji pod względem
 kwalifikatorów typu zwykłego (parametru funkcji), ponieważ
-inicjalizacja parametru typu zwykłego (która nie stawia warunków
-dotyczących kwalifikatorów typów parametru i argumentu funkcji) nie
-jest w stanie wpłynąć na wybór przeciążenia.
+inicjalizacja parametru typu zwykłego (gdzie swoboda nie stawia
+warunków dotyczących kwalifikatorów) nie jest w stanie wpłynąć na
+wybór przeciążenia.
 
 Te kwalifikatory (które są szczegółem implementacji ciała funkcji) i
-tak nie mają znaczenia dla strony wywołującej funkcję i są usuwane
-przez kompilator z sygnatury funkcji (nie są one częścią interfejsu
-funkcji), żeby umożliwić konsolidację.  Proszę sprawdzić (komendą
-`nm`) sygnatury funkcji w tablicy symboli programu poniżej.
+tak nie mają znaczenia dla strony wywołującej funkcję i dlatego są
+usuwane przez kompilator z sygnatury funkcji (nie są one częścią
+interfejsu funkcji), żeby umożliwić konsolidację.  Proszę sprawdzić
+(komendą `nm`) sygnatury funkcji w tablicy symboli programu poniżej.
 
 ```cpp
 {% include_relative cv_regular2.cc %}
@@ -164,32 +164,39 @@ Kwalifikatory typu wskaźnikowego znajdują się na prawo od deklaratora
 patrząc od prawej strony).  Odnoszą się one do zmiennej wskaźnikowej,
 a nie do wskazywanych danych.
 
-Tak jak w przypadku zmiennej zwykłego typu:
-
-* nie możemy przeciążać funkcji dla typów wskaźnikowych (parametrów
-  funkcji) różniących się kwalifikatorami najwyższego rzędu,
-
-* możemy inicjalizować zmienną wskaźnikową na podstawie wartości
-  wskaźnika, nawet jeżeli ich typy (wskaźnikowe) różnią się
-  kwalifikatorami najwyższego rzędu, bo wartość wskaźnika jest jedynie
-  kopiowana.
-
-Przykład:
+Tak jak w przypadku zmiennej zwykłego typu, zmienną wskaźnikową możemy
+inicjalizować na podstawie wartości wskaźnika, nawet jeżeli ich typy
+(wskaźnikowe) różnią się kwalifikatorami najwyższego rzędu, bo wartość
+wskaźnika jest jedynie kopiowana i dlatego też nie możemy przeciążać
+funkcji dla typów wskaźnikowych (parametrów funkcji) różniących się
+kwalifikatorami najwyższego rzędu.  Przykład:
 
 ```cpp
 {% include_relative cv_ptr1.cc %}
 ```
 
-Możemy jednak przeciążać funkcje dla typów wskaźnikowych (parametru
-funkcji), które różnią się kwalifikatorami dla typu wskazywanych
-danych.  Te kwalifikatory możemy nazwać **niższego rzędu**, jeżeli
-mówimy o typie wskaźnika, albo **najwyższego rzędu**, jeżeli mówimy o
-typie danych, do których wskaźnik się odnosi.  Zatem chodzi o
-możliwość przeciążenia pod względem typu danych, do których odnosi się
-wskaźnik.  Oto przykład:
+W typie wskaźnikowym, tuż po lewej stronie deklaratora `*` najwyższego
+rzędu, możemy też podać kwalifikatory **najwyższego rzędu** dla typu
+wskazywanych danych.  Kwalifikatory te możemy nazwać **niższego
+rzędu**, jeżeli mówimy o typie wskaźnika.
+
+**Warunek.** Kompilator pilnuje, żeby kwalifikatory *niższego rzędu*
+(typu) inicjalizowanego wskaźnika zawierały kwalifikatory *najwyższego
+rzędu* typu wskazywanych danych.
+
+Oto przykład:
 
 ```cpp
 {% include_relative cv_ptr2.cc %}
+```
+
+Ten warunek pozwala przeciążać funkcje dla typów wskaźnikowych
+(parametru funkcji), które różnią się kwalifikatorami dla typu
+wskazywanych danych.  Chodzi o możliwość przeciążenia pod względem
+typu danych, do których odnosi się wskaźnik.  Oto przykład:
+
+```cpp
+{% include_relative cv_ptr3.cc %}
 ```
 
 #### Typ referencyjny
