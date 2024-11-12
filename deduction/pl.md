@@ -212,7 +212,7 @@ najwyższego rzędu nie robiłby różnicy.  Tak więc, na przykład, typ
 `int & const` jest niedopuszczalny.
 
 Dlatego nie da się przeciążać funkcji dla typów referencyjnych
-(parametru funkcji), które miałyby się różnić kwalifikatorami
+(parametru funkcji), które miałyby się różnić tylko kwalifikatorami
 najwyższego rzędu.  Nawet deklaracja jednej funkcji jest niemożliwa,
 jeżeli typ referencyjny jej parametru miałby mieć kwalifikator.
 

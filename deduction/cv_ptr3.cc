@@ -1,12 +1,11 @@
-#include <concepts>
 #include <iostream>
 
-void foo(int * i)
+void foo(int *)
 {
   std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
-void foo(const int * i)
+void foo(const int *)
 {
   std::cout << __PRETTY_FUNCTION__ << std::endl;
 }

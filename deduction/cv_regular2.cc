@@ -1,12 +1,12 @@
 #include <concepts>
 
-void foo(const int i)
+void foo(const int)
 {
 }
 
 // This function has same signature as the one above even though their
 // parameters differ with the qualifiers.
-// void foo(volatile int i)
+// void foo(volatile int)
 // {
 // }
 
