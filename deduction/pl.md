@@ -203,18 +203,26 @@ typu danych, do których odnosi się wskaźnik.  Oto przykład:
 
 Referencja albo nazywa pewną daną (np. element tablicy) albo jest
 aliasem innej zmiennej.  Typ referencyjny nie ma kwalifikatorów
-najwyższego rzędu, bo referencja ma wiernie odwzorować typ danej, do
-której jest aliasem: wyrażenie referencyjne jest wyrażeniem z tą daną,
-do której referencja się odnosi.  Co więcej, referencję można tylko
-zainicjalizować, a potem już nie można jej zmienić, żeby była aliasem
-innej danej, więc kwalifikator `const` najwyższego rzędu nie robiłby
-różnicy.  Tak więc, na przykład, typ `int & const` jest
-niedopuszczalny.
+najwyższego rzędu, bo referencja ma wiernie odwzorować typ danej,
+której jest aliasem: wyrażenie referencyjne jest zamieniane na
+wyrażenie z tą daną, do której referencja się odnosi.  Co więcej,
+referencję można tylko zainicjalizować, a potem już nie można jej
+zmienić, żeby była aliasem innej danej, a kwalifikator `const`
+najwyższego rzędu nie robiłby różnicy.  Tak więc, na przykład, typ
+`int & const` jest niedopuszczalny.
 
-Podobnie jak dla typu zwykłego i typu wskaźnikowego, nie można
-przeciążać funkcji pod względem referencyjnych typów (parametru
-funkcji), które różniłyby się tylko kwalifikatorami najwyższego rzędu,
-bo są one niedopuszczalne.
+Dlatego nie da się przeciążać funkcji dla typów referencyjnych
+(parametru funkcji), które miałyby się różnić kwalifikatorami
+najwyższego rzędu.  Nawet deklaracja jednej funkcji jest niemożliwa,
+jeżeli typ referencyjny jej parametru miałby mieć kwalifikator.
+
+```cpp
+{% include_relative cv_ref1.cc %}
+```
+
+```cpp
+{% include_relative cv_ref2.cc %}
+```
 
 ## Typ wyrażenia
 
