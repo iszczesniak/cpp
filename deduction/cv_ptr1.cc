@@ -10,8 +10,8 @@ void foo(int *)
 int main()
 {
   int i = 1;
-  int * p1 = &i;
-  int * const p2 = &i;
+  int * const p1 = &i;
+  int * p2 = p1;
 
   foo(p1);
   foo(p2);
