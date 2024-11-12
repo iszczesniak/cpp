@@ -13,7 +13,6 @@ void foo(const int *)
 int main()
 {
   int i = 1;
-  const int j = 2;
   foo(&i);
-  foo(&j);
+  foo(&std::as_const(i));
 }
