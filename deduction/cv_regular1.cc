@@ -1,5 +1,9 @@
+#include <concepts>
+
 int main()
 {
+  static_assert(std::same_as<const int, int const>);
+
   int a1 = 1;
   const int a2 = 2;
   volatile int a3 = 3;
