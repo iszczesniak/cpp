@@ -14,7 +14,7 @@ int main()
   foo(i);
 
   // Can point to a function with a regular parameter that is either
-  // const or non-const.
-  void (*fp1)(const int) = foo;
-  void (*fp2)(int) = foo;
+  // non-const or const.
+  void (*fp1)(int) = foo;
+  void (*fp2)(const int) = foo;
 }
