@@ -1,7 +1,7 @@
 #include <concepts>
 #include <iostream>
 
-void foo(int * const i)
+void foo(int * i)
 {
   std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
