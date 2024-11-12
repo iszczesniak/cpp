@@ -178,11 +178,11 @@ kwalifikatorami najwyższego rzędu.  Przykład:
 W typie wskaźnikowym, tuż po lewej stronie deklaratora `*` najwyższego
 rzędu, możemy też podać kwalifikatory **najwyższego rzędu** dla typu
 wskazywanych danych.  Kwalifikatory te możemy nazwać **niższego
-rzędu**, jeżeli mówimy o typie wskaźnika.
+rzędu**, jeżeli mówimy o typie wskaźnikowym.
 
-**Warunek.** Kwalifikatory *niższego rzędu* typu inicjalizowanego
-wskaźnika muszą zawierać kwalifikatory *najwyższego rzędu* typu
-wskazywanych danych.
+**Warunek dla typu wskaźnikowego.** Kwalifikatory *niższego rzędu*
+typu wskaźnikowego muszą zawierać kwalifikatory *najwyższego rzędu*
+typu wskazywanych danych.
 
 Oto przykład:
 
@@ -216,9 +216,26 @@ Dlatego nie da się przeciążać funkcji dla typów referencyjnych
 najwyższego rzędu.  Nawet deklaracja jednej funkcji jest niemożliwa,
 jeżeli typ referencyjny jej parametru miałby mieć kwalifikator.
 
+Podobnie jak w typie wskaźnikowym, tak i w typie referencyjnym, tuż po
+lewej stronie deklaratora `&` najwyższego rzędu, możemy też podać
+kwalifikatory **najwyższego rzędu** dla typu wskazywanych danych.
+Kwalifikatory te możemy nazwać **niższego rzędu**, jeżeli mówimy o
+typie referencyjnym.
+
+**Warunek dla typu referencyjnego.** Kwalifikatory *niższego rzędu*
+typu referencyjnego muszą zawierać kwalifikatory *najwyższego rzędu*
+typu wskazywanych danych.
+
+Oto przykład:
+
 ```cpp
 {% include_relative cv_ref1.cc %}
 ```
+
+Ten warunek pozwala przeciążać funkcje dla typów referencyjnych
+(parametru funkcji), które różnią się kwalifikatorami dla typu
+wskazywanych danych.  Chodzi o możliwość przeciążenia pod względem
+typu danych, do których odnosi się referencja.  Oto przykład:
 
 ```cpp
 {% include_relative cv_ref2.cc %}
