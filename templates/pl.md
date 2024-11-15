@@ -210,19 +210,14 @@ typu używając `<>`, czyli składni `typ<lista argumentów>`:
 {% include_relative explicit1.cc %}
 ```
 
-Tej składni możemy też użyć przy wywołaniu funkcji szablonowej
-(robiliśmy to już wyżej), co jest niezbędne w dwóch przypadkach:
+Tej składni (jawnego podawania argumentów szablonu) możemy też użyć
+przy wywołaniu funkcji szablonowej, co jest niezbędne jeżeli:
 
-* chcemy innych argumentów niż te wnioskowane przez kompilator,
+* kompilator nie ma sposobu na wywnioskowanie argumentów,
 
-* musimy jawnie podać argumenty, bo kompilator nie byłby w stanie ich
-  wywnioskować.
+* wnioskowanie kończyłoby się błędem,
 
-Kompilator wnioskuje argumenty szablonu na podstawie wyrażeń, które są
-przekazywane jako argumenty wywołania funkcji (kiedy wywołujemy
-funkcję) czy konstruktora (kiedy tworzymy obiekt).  Jeżeli kompilator
-nie jest w stanie wywnioskować argumentów szablonu, to musimy jawnie
-je podać.
+* chcemy innych argumentów niż te wnioskowane przez kompilator.
 
 Przykład niżej pokazuje implementację fabryki obiektów.  Argument
 wywołania `factory` przekazujemy do konstruktora obiektu, którego typ
@@ -253,8 +248,9 @@ wnioskowany.
 
 Parametr szablonu (każdego rodzaju) może mieć zdefiniowany domyślny
 argument, który będzie użyty jeżeli nie podaliśmy argumentu jawnie i
-jeżeli kompilator nie jest w stanie go wnioskować.  Domyślny argument
-jest opcjonalny.
+jeżeli kompilator nie ma sposobu na jego wywnioskowanie.  Jeżeli
+wnioskowanie zakończy się błędem, to domyślny argument nie będzie
+użyty.  Domyślny argument jest opcjonalny.
 
 Domyślny argument podajemy po nazwie parametru z użyciem `=`.  Oto
 przykład:
