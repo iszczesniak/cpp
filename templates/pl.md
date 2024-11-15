@@ -185,11 +185,11 @@ szablonowymi:
 
 Argumenty szablonu mogą być:
 
-* wnioskowane przez kompilator (najczęściej stosowane),
+* **wnioskowane** przez kompilator (najczęściej stosowane),
 
-* jawnie podane przez programistę (czasami niezbędne),
+* **jawnie podane** przez programistę (czasami niezbędne),
 
-* domyślnie podane przez programistę (czasami wygodne).
+* **domyślnie podane** przez programistę (czasami wygodne).
 
 Ten przykład pokazuje wyżej wymienione przypadki:
 
@@ -210,23 +210,26 @@ typu używając `<>`, czyli składni `typ<lista argumentów>`:
 {% include_relative explicit1.cc %}
 ```
 
-Tej składni (jawnego podawania argumentów szablonu) możemy też użyć
-przy wywołaniu funkcji szablonowej, co jest niezbędne jeżeli:
-
-* kompilator nie ma sposobu na wywnioskowanie argumentów,
-
-* wnioskowanie kończyłoby się błędem,
-
-* chcemy innych argumentów niż te wnioskowane przez kompilator.
-
-Przykład niżej pokazuje implementację fabryki obiektów.  Argument
-wywołania `factory` przekazujemy do konstruktora obiektu, którego typ
-jest określony przez parametr `T` szablonu.  Kompilator nie jest w
-stanie wywnioskować argumentu dla `T`, więc musimy go jawnie podać.
+Wywołując funkcję, też możemy jawnie podać argumenty szablonu, jak w
+przykładzie poniższej fabryki obiektów.  Argument wywołania `factory`
+przekazujemy do konstruktora obiektu, którego typ jest określony przez
+parametr `T` szablonu.  Kompilator nie jest w stanie wywnioskować
+argumentu dla `T`, więc musimy go jawnie podać.
 
 ```cpp
 {% include_relative explicit2.cc %}
 ```
+
+Jawne podanie argumentu szablonu jest niezbędne, jeżeli kompilator nie
+będzie próbował go wywnioskować (bo nie ma sposobu) i argument
+domyślny nie został zdefiniowany.
+
+Możemy też jawnie podać argumenty szablonu w dwóch raczej nietypowych
+przypadkach (które świadczą o problemach w kodzie), kiedy:
+
+* wnioskowanie kończyłoby się błędem,
+
+* chcemy innych argumentów niż te wnioskowane przez kompilator.
 
 ### Kolejność argumentów
 
@@ -248,9 +251,10 @@ wnioskowany.
 
 Parametr szablonu (każdego rodzaju) może mieć zdefiniowany domyślny
 argument, który będzie użyty jeżeli nie podaliśmy argumentu jawnie i
-jeżeli kompilator nie ma sposobu na jego wywnioskowanie.  Jeżeli
-wnioskowanie zakończy się błędem, to domyślny argument nie będzie
-użyty.  Domyślny argument jest opcjonalny.
+jeżeli kompilator nie próbował go wywnioskować (bo nie miał na to
+sposobu).  Jeżeli wnioskowanie zakończy się błędem (bo kompilator miał
+sposób i próbował, ale mu się nie udało), to domyślny argument nie
+będzie użyty.  Domyślny argument jest opcjonalny.
 
 Domyślny argument podajemy po nazwie parametru z użyciem `=`.  Oto
 przykład:
