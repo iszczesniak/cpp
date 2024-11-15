@@ -97,8 +97,8 @@ operator << (std::ostream &out, const A<P1, Ps...> &a)
 int
 main()
 {
-  A<name<const char *>, weight<int>>
-    a(name<const char *>("Hello"), weight<int>(1));
+  using type = A<name<const char *>, weight<int>>;
+  type a(name<const char *>("Hello"), weight<int>(1));
 
   auto b = a;
   get_weight(a) = 2;
