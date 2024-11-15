@@ -7,22 +7,11 @@ template <typename T>
 struct name
 {
   T m_name;
-
-  constexpr auto operator <=> (const name &) const = default;
 };
 
-// The non-const getter.
 template <typename T>
-auto &
+T &
 get_name(name<T> &a)
-{
-  return a.m_name;
-}
-
-// The const getter.
-template <typename T>
-auto &
-get_name(const name<T> &a)
 {
   return a.m_name;
 }
@@ -42,22 +31,11 @@ template <typename T>
 struct weight
 {
   T m_weight;
-
-  constexpr auto operator <=> (const weight &) const = default;
 };
 
-// The non-const getter.
 template <typename T>
-auto &
+T &
 get_weight(weight<T> &a)
-{
-  return a.m_weight;
-}
-
-// The const getter.
-template <typename T>
-auto &
-get_weight(const weight<T> &a)
 {
   return a.m_weight;
 }
@@ -79,8 +57,6 @@ struct A: P...
   A(P && ...p): P(std::forward<P>(p))...
     {
     }
-
-  constexpr auto operator <=> (const A &) const = default;
 };
 
 template <typename P1, typename ...Ps>
@@ -100,15 +76,10 @@ main()
   using type = A<name<const char *>, weight<int>>;
   type a(name<const char *>("Hello"), weight<int>(1));
 
-  auto b = a;
+  type b = a;
   get_weight(a) = 2;
   get_name(a) = "World";
-  std::set s = {a, b};
 
-  for(auto &e: s)
-    {
-      std::cout << e << std::endl;
-      // Error: get_weight returns a const reference.
-      // get_weight(e) = 10;
-    }
+  std::cout << a << std::endl;
+  std::cout << b << std::endl;
 }
