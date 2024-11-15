@@ -74,8 +74,8 @@ int
 main()
 {
   using type = A<name<const char *>, weight<int>>;
-  type a(name<const char *>("Hello"), weight<int>(1));
 
+  type a(name<const char *>("Hello"), weight<int>(1));
   type b = a;
   get_weight(a) = 2;
   get_name(a) = "World";
