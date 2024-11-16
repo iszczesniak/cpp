@@ -26,17 +26,7 @@ int main()
   for(auto i = cbegin(a); i != cend(a); ++i)
     cout << *i << endl;
 
-  // That would not compile, because we're trying to modifying the
-  // elements that we access through a const iterator.
-  // for(auto i = cbegin(a); i != cend(v); ++i)
-  //   cout << (*i)++ << endl;
-
   // We're using const iterators here.
   for(auto i = begin(as_const(a)); i != end(as_const(a)); ++i)
     cout << *i << endl;
-
-  // That would not compile, because we're trying to modifying the
-  // elements that we access through a const iterator.
-  // for(auto i = begin(as_const(a)); i != end(as_const(a)); ++i)
-  //   cout << (*i)++ << endl;
 }
