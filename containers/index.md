@@ -324,6 +324,12 @@ or `begin` instead of `end`.
 {% include_relative iterate_old.cc %}
 ```
 
+Likewise for C-style arrays:
+
+```cpp
+{% include_relative iterate_old_ca.cc %}
+```
+
 ## Iterating the new way
 
 Since C++11, we can iterate the new way, using the *range-based* (aka

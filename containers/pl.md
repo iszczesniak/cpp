@@ -323,6 +323,12 @@ warunek pętli, a potem zwiększyć zmienną.  Łatwo się pomylić i napisać
 {% include_relative iterate_old.cc %}
 ```
 
+Podobnie dla tablicy języka C:
+
+```cpp
+{% include_relative iterate_old_ca.cc %}
+```
+
 ## Nowy sposób
 
 Od C++11 możemy iterować w nowy sposób, używając nowej składni pętli
