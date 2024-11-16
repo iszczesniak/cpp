@@ -16,8 +16,9 @@ goo(int a[])
 int
 main()
 {
-  // Type of a is: int[3]
   int a[] = {1, 2, 3};
   foo(a);
   goo(a);
+  // foo(&a);
+  // goo(&a);
 }
