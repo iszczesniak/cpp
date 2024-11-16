@@ -6,7 +6,9 @@ using namespace std;
 
 int main()
 {
+  // The code works any range: a container and a C-style array.
   vector v = {1, 2, 3};
+  // int v[] = {1, 2, 3};
 
   // We can modify the elements, because we use them through a
   // non-const reference of type: auto &
@@ -23,9 +25,9 @@ int main()
   // for(const auto &e: v)
   //   cout << ++e << endl;
 
-  // We could also iterate through a non-const container and reference
-  // the elements with a const reference, becasue we refer to the
-  // non-const container with a const reference.
+  // We could also iterate through a non-const range and reference the
+  // elements with a const reference, becasue we refer to the
+  // non-const range with a const reference.
   for(auto &e: as_const(v))
     cout << e << endl;
 }
