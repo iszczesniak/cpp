@@ -308,7 +308,8 @@ pointer is a random-access iterator too.
 # Forward-iterating over the elements of a container
 
 We can forward-iterate over the elements of a container (or, more
-broadly, a range) in two ways: the old, and the new.
+broadly, a range, that includes the C-style array) in two ways: the
+old, and the new.
 
 ## Iterating the old way
 

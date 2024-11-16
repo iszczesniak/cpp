@@ -307,8 +307,9 @@ dostępu.  Wskaźnik też jest iteratorem swobodnego dostępu.
 
 # Pętla `for`
 
-Możemy iterować po elementach kontenera (albo ogólniej po zakresie) z
-użyciem pętli `for` na dwa sposoby: stary i nowy.
+Możemy iterować po elementach kontenera (albo ogólniej po zakresie, w
+tym po tablicy języka C) z użyciem pętli `for` na dwa sposoby: stary i
+nowy.
 
 ## Stary sposób
 
