@@ -290,6 +290,15 @@ doskonałego zwracania wyniku (tego samego typu, który zwraca funkcja
 {% include_relative return_decltype2.cc %}
 ```
 
+# Skrócony zapis szablonu
+
+Definicję paczki parametrów funkcji możemy skrócić przez użycie
+specyfikatora typu `auto`:
+
+```cpp
+{% include_relative abbreviated.cc %}
+```
+
 # Podsumowanie
 
 * Specyfikator `auto` pozwala na wnioskowanie typu.

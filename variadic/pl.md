@@ -78,15 +78,6 @@ parametrami konstruktora klasy wyprowadzonej:
 {% include_relative lockstep.cc %}
 ```
 
-# Skrócony zapis szablonu
-
-Definicję paczki parametrów funkcji możemy skrócić przez użycie
-specyfikatora typu `auto`:
-
-```cpp
-{% include_relative abbreviated.cc %}
-```
-
 # Doskonałe przekazywanie
 
 Funkcja może przyjmować przez referencję przekazującą argumenty, które
