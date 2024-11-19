@@ -362,13 +362,19 @@ Przykład:
 
 ### Przypadek wariadyczny
 
-Funkcja może przyjmować przez referencję przekazującą argumenty, które
-doskonale przekażemy, jak w przykładzie niżej.  To jest też jedna z
-motywacji wprowadzenia szablonu wariadycznego, implementacja funkcji
-`std::make_unique`.
+Funkcja może przyjmować przez referencję przekazującą dowolną liczbę
+argumentów, które doskonale przekażemy, jak w przykładzie niżej.  To
+jest też jedna z motywacji wprowadzenia szablonu wariadycznego:
+implementacja funkcji `std::make_unique`.
 
 ```cpp
-{% include_relative variadic.cc %}
+{% include_relative variadic1.cc %}
+```
+
+A tu skrócony zapis z użyciem specyfikatora `auto`:
+
+```cpp
+{% include_relative variadic2.cc %}
 ```
 
 # Referencja przekazująca jako pole składowe
