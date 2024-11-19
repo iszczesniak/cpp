@@ -360,6 +360,17 @@ Przykład:
 {% include_relative forward.cc %}
 ```
 
+### Przypadek wariadyczny
+
+Funkcja może przyjmować przez referencję przekazującą argumenty, które
+doskonale przekażemy, jak w przykładzie niżej.  To jest też jedna z
+motywacji wprowadzenia szablonu wariadycznego, implementacja funkcji
+`std::make_unique`.
+
+```cpp
+{% include_relative variadic.cc %}
+```
+
 # Referencja przekazująca jako pole składowe
 
 Referencją przekazującą może być polem składowym szablonowego typu
