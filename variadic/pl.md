@@ -110,31 +110,35 @@ parametrów paczki funkcji o jeden za każdym wywołaniem rekurencyjnym.
 {% include_relative recursive.cc %}
 ```
 
-# Wyrażenie złożenia
+# Wyrażenie złożenia (od C++17)
 
 Wyrażenie złożenia (ang. a fold expression) jest przepisem na
-wygenerowanie wyrażenia na podstawie parametrów paczki `p` i z użyciem
-dowolnego **dwuargumentowego operatora `op`**.  Wyrażenie tak się
-nazywa, bo składa dowolne wyrażenie do skompresowanego zapisu.
-Wyrażenie złożenia jest przetwarzane w czasie kompilacji dla danej
-paczki parametrów, co eliminuje potrzebę przetwarzania rekurencyjnego.
+wygenerowanie wyrażenia na podstawie paczki `p` parametrów funkcji i z
+użyciem dowolnego **dwuargumentowego operatora `op`**.  Wyrażenie tak
+się nazywa, bo składa wyrażenie do skompresowanego zapisu.  Wyrażenie
+złożenia jest przetwarzane w czasie kompilacji dla danej paczki
+parametrów `p`, co eliminuje potrzebę przetwarzania rekurencyjnego.
 Wyrażenie złożenia poznajemy po `...` i nawiasach.  Są cztery wersje:
-dwie jednoargumentowe i dwie dwuargumentowe, ale ciągle dla tego
+dwie jednoargumentowe i dwie dwuargumentowe, ale ciągle z użyciem tego
 samego operatora `op`.
 
-Wyrażenia złożenia wymagają wyrażenia `expr`, które używa paczki `p`
-parametrów funkcji.  Wyrażenie `expr` jest rozwijane dla kolejnych
-parametrów `p_1`, `p_2`, ... paczki `p`.
+Wyrażenie złożenia wymaga wyrażenia `expr`, które używa paczki `p`.
+Wyrażenie `expr` jest rozwijane dla kolejnych parametrów `p_1`, `p_2`,
+... paczki `p`.
 
 Wersje jednoargumentowe wyrażenia złożenia, gdzie argumentem jest
 `expr`:
 
-* wersja lewostronna: `(... op expr)` -> `(p_1 op (p_2 op ...))`
+* wersja lewostronna: `(... op expr)` -> `((p_1 op p_2) op ...)`
 
-* wersja prawostronna: `(expr op ...)` -> `((p_1 op p_2) op ...)`
+* wersja prawostronna: `(expr op ...)` -> `(p_1 op (p_2 op ...))`
 
-Oto przykład z wersją prawostronną, gdzie `expr` to `std::cout << ", "
-<< p` a operatorem jest przecinek:
+Przykład niżej używa wersji prawostronnej, gdzie `expr` to `(std::cout
+<< ", " << p)` a operatorem jest przecinek.  Jeżeli paczka `p` jest
+pusta, to wyrażenie złożenia jest puste.  Jeżeli `p` ma jeden
+parametr, to kompilator dokooptowuje (bo `op` jest dwuargumentowy)
+dodatkowy pusty parametr, jeżeli taki istnieje (dla operatora `,` jest
+nim `void()`).
 
 ```cpp
 {% include_relative fold1.cc %}
@@ -143,9 +147,9 @@ Oto przykład z wersją prawostronną, gdzie `expr` to `std::cout << ", "
 Wersje dwuargumentowe wymagają dodatkowego argumentu, którym jest
 wyrażenie inicjalizujące `init`.
 
-* wersja lewostronna `(init op ... op expr)` -> `(((e op p_1) op p_2) op ...) op p_n`
+* wersja lewostronna `(init op ... op expr)` -> `((init op p_1) op p_2) op ...)`
 
-* wersja lewostronna `(init op ... op expr)` -> `(((e op p_1) op p_2) op ...) op p_n`
+* wersja prawostronna `(expr op ... op init)` -> `(init op (p_1 op (p_2 op ...)`
 
 Oto przykład z wersją lewostronną:
 
