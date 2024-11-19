@@ -136,15 +136,15 @@ Wersje jednoargumentowe wyrażenia złożenia, gdzie argumentem jest
 Przykład niżej używa wersji prawostronnej, gdzie `expr` to `(std::cout
 << ", " << p)` a operatorem jest przecinek.  Jeżeli paczka `p` jest
 pusta, to wyrażenie złożenia jest puste.  Jeżeli `p` ma jeden
-parametr, to kompilator dokooptowuje (bo `op` jest dwuargumentowy)
-dodatkowy pusty parametr, jeżeli taki istnieje (dla operatora `,` jest
-nim `void()`).
+parametr, to kompilator dokooptowuje dodatkowy pusty parametr, jeżeli
+taki istnieje (dla operatora `,` jest nim `void()`), bo `op` wymaga
+dwóch argumentów.
 
 ```cpp
 {% include_relative fold1.cc %}
 ```
 
-Wersje dwuargumentowe wymagają dodatkowego argumentu, którym jest
+Wersje dwuargumentowe wymagają drugiego argumentu, którym jest
 wyrażenie inicjalizujące `init`.
 
 * wersja lewostronna `(init op ... op expr)` -> `((init op p_1) op p_2) op ...)`
