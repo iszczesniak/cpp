@@ -1,3 +1,7 @@
+---
+title: Szablon wariadyczny
+---
+
 # Wstęp
 
 C++11 wprowadził **szablon wariadyczny** (ang. a variadic template),
