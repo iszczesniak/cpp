@@ -121,7 +121,13 @@ operatorem, a `args` nazwą paczki parametrów funkcji:
 * `(e op ... op args)` -> `(((e op p_1) op p_2) op ...) op p_n`
 
 ```cpp
-{% include_relative fold.cc %}
+{% include_relative fold1.cc %}
+```
+
+Korzystając z wyrażenia złożenia możemy też 
+
+```cpp
+{% include_relative fold2.cc %}
 ```
 
 # Przykład: własności obiektu
