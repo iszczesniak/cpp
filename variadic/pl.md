@@ -112,35 +112,42 @@ parametrów paczki funkcji o jeden za każdym wywołaniem rekurencyjnym.
 
 # Wyrażenie złożenia
 
-Wyrażenie złożenia (ang. a fold expression) przetwarza paczkę
-parametrów (także w czasie kompilacji), co eliminuje potrzebę
-przetwarzania rekurencyjnego.  Wyrażenie złożenia poznajemy po `...` i
-nawiasach.  Są cztery wersje: dwie jednoargumentowe i dwie
-dwuargumentowe.
+Wyrażenie złożenia (ang. a fold expression) jest przepisem na
+wygenerowanie wyrażenia na podstawie parametrów paczki `p` i z użyciem
+dowolnego **dwuargumentowego operatora `op`**.  Wyrażenie tak się
+nazywa, bo składa dowolne wyrażenie do skompresowanego zapisu.
+Wyrażenie złożenia jest przetwarzane w czasie kompilacji dla danej
+paczki parametrów, co eliminuje potrzebę przetwarzania rekurencyjnego.
+Wyrażenie złożenia poznajemy po `...` i nawiasach.  Są cztery wersje:
+dwie jednoargumentowe i dwie dwuargumentowe, ale ciągle dla tego
+samego operatora `op`.
 
-Wyrażenia złożenia wymagają wyrażenia `pack`, które używa paczki `p`
-parametrów funkcji.  Wyrażenie `pack` jest rozwijane dla kolejnych
-elementów `p_1`, `p_2`, ... paczki `pack`.  Wymagany jest też operator
-`op`.
+Wyrażenia złożenia wymagają wyrażenia `expr`, które używa paczki `p`
+parametrów funkcji.  Wyrażenie `expr` jest rozwijane dla kolejnych
+parametrów `p_1`, `p_2`, ... paczki `p`.
 
-Wersje jednoargumentowe wymagają operatora i wyrażenia `pack`:
+Wersje jednoargumentowe wyrażenia złożenia, gdzie argumentem jest
+`expr`:
 
-* wersja prawostronna: `(pack op ...)` -> `((pack for p_1) op`
+* wersja lewostronna: `(... op expr)` -> `(p_1 op (p_2 op ...))`
 
-* wersja lewostronna: `(... op e)` -> `()`
+* wersja prawostronna: `(expr op ...)` -> `((p_1 op p_2) op ...)`
 
-Oto przykład:
+Oto przykład z wersją prawostronną, gdzie `expr` to `std::cout << ", "
+<< p` a operatorem jest przecinek:
 
 ```cpp
 {% include_relative fold1.cc %}
 ```
 
-Wersje dwuargumentowe wymagają dodatkowo wyrażenia inicjalizującego
-`init`:
+Wersje dwuargumentowe wymagają dodatkowego argumentu, którym jest
+wyrażenie inicjalizujące `init`.
 
-* `(e op ... op p)` -> `(((e op p_1) op p_2) op ...) op p_n`
+* wersja lewostronna `(init op ... op expr)` -> `(((e op p_1) op p_2) op ...) op p_n`
 
-Oto przykład:
+* wersja lewostronna `(init op ... op expr)` -> `(((e op p_1) op p_2) op ...) op p_n`
+
+Oto przykład z wersją lewostronną:
 
 ```cpp
 {% include_relative fold2.cc %}
