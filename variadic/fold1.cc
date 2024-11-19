@@ -12,6 +12,6 @@ print(const T &t, const P &...p)
 int
 main()
 {
-  print("Hello", std::string("World"), "x", 100);
+  print(5, "10", std::string("15"));
   std::cout << std::endl;
 }
