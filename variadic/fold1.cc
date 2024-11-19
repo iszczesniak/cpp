@@ -1,15 +1,17 @@
 #include <iostream>
 #include <string>
 
-template <typename ...P>
+template <typename T, typename ...P>
 void
-print(const P &...p)
+print(const T &t, const P &...p)
 {
-  (std::cout << ... << p);
+  std::cout << t;
+  ((std::cout << ", " << p), ...);
 }
 
 int
 main()
 {
-  print("Hello", ' ', std::string("World"), " x ", 100, '\n');
+  print("Hello", std::string("World"), "x", 100);
+  std::cout << std::endl;
 }

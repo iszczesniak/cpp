@@ -113,18 +113,34 @@ parametrów paczki funkcji o jeden za każdym wywołaniem rekurencyjnym.
 # Wyrażenie złożenia
 
 Wyrażenie złożenia (ang. a fold expression) przetwarza paczkę
-parametrów, co eliminuje potrzebę przetwarzania rekurencyjnego.
-Wyrażenie złożenia poznajemy po `...` i nawiasach.  Oto przykładowe
-wyrażenie i jego rozwinięcie, gdzie `e` jest wyrażeniem, `op`
-operatorem, a `args` nazwą paczki parametrów funkcji:
+parametrów (także w czasie kompilacji), co eliminuje potrzebę
+przetwarzania rekurencyjnego.  Wyrażenie złożenia poznajemy po `...` i
+nawiasach.  Są cztery wersje: dwie jednoargumentowe i dwie
+dwuargumentowe.
 
-* `(e op ... op args)` -> `(((e op p_1) op p_2) op ...) op p_n`
+Wyrażenia złożenia wymagają wyrażenia `pack`, które używa paczki `p`
+parametrów funkcji.  Wyrażenie `pack` jest rozwijane dla kolejnych
+elementów `p_1`, `p_2`, ... paczki `pack`.  Wymagany jest też operator
+`op`.
+
+Wersje jednoargumentowe wymagają operatora i wyrażenia `pack`:
+
+* wersja prawostronna: `(pack op ...)` -> `((pack for p_1) op`
+
+* wersja lewostronna: `(... op e)` -> `()`
+
+Oto przykład:
 
 ```cpp
 {% include_relative fold1.cc %}
 ```
 
-Korzystając z wyrażenia złożenia możemy też 
+Wersje dwuargumentowe wymagają dodatkowo wyrażenia inicjalizującego
+`init`:
+
+* `(e op ... op p)` -> `(((e op p_1) op p_2) op ...) op p_n`
+
+Oto przykład:
 
 ```cpp
 {% include_relative fold2.cc %}
