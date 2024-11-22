@@ -190,7 +190,7 @@ chcemy iterować używając referencji stałej do elementów kontenera, a
 wiemy, że elementem kontenera jest para klucza i wartości.  Program
 jednak nie działa prawidłowo.  Gdzie jest błąd?
 
-Błąd jest w typie pierwszego elementu pary: klucze w kontenerzą są
+Błąd jest w typie pierwszego elementu pary: klucze w kontenerze są
 typu stałego, a my zażądaliśmy typu niestałego.  Zatem typ zmiennej
 pętli powinien być `const pair<const int, string> &`.  Ten drobny błąd
 powoduje, że kompilator tworzy tymczasową parę elementów typu `int`
