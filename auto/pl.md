@@ -117,23 +117,6 @@ Podobnie dla wskaźników:
 {% include_relative pointers.cc %}
 ```
 
-Możemy także wykorzystać referencję przekazującą: `auto &&`.  Ten typ
-to nie r-referencja, ponieważ wynikowym typem może być dowolny typ
-referencyjny: l-referencja, referencja stała albo r-referencja.  Oto
-przykład:
-
-```cpp
-{% include_relative forwarding_reference.cc %}
-```
-
-Z referencji przekazującej możemy skorzystać, kiedy chcemy
-zainicjalizować referencję do elementu zwracanego przez funkcję, ale
-nie znamy zarówno typu jak i kategorii zwracanej wartości:
-
-```cpp
-{% include_relative forwarding_reference2.cc %}
-```
-
 ## Zwykły typ
 
 Używając typu zwykłego (niereferencyjnego i niewskaźnikowego), możemy

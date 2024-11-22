@@ -377,10 +377,29 @@ A tu skrócony zapis z użyciem specyfikatora `auto`:
 {% include_relative variadic2.cc %}
 ```
 
-# Referencja przekazująca jako pole składowe
+# Referencja przekazująca
 
-Referencją przekazującą może być polem składowym szablonowego typu
-danych.
+Referencja przekazująca może być zwykłą zmienną lub polem składowym.
+
+## Zwykła zmienna
+
+Typ `auto &&` to referencja przekazująca, a nie r-referencja, ponieważ
+wynikowym typem może być dowolny typ referencyjny: l-referencja,
+referencja stała albo r-referencja.
+
+```cpp
+{% include_relative forward1.cc %}
+```
+
+Z referencji przekazującej możemy skorzystać, kiedy chcemy
+zainicjalizować referencję do elementu zwracanego przez funkcję, ale
+nie znamy zarówno typu jak i *kategorii* zwracanej wartości:
+
+```cpp
+{% include_relative forward2.cc %}
+```
+
+## Pole składowe
 
 ```cpp
 {% include_relative field1.cc %}
