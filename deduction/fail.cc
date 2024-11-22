@@ -35,8 +35,8 @@ main()
   // max_val(1, .1);
   
   // No deduction takes place.
-  max_ref<int>(1, .1);
+  max_ref<int>(1, '1');
   max_ref<double>(1, .1);
-  max_val<int>(1, .1);
+  max_val<int>(1, '1');
   max_val<double>(1, .1);
 }
