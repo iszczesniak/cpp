@@ -36,5 +36,5 @@ main()
   A<double>().goo();
 
   // We compare with the < operator inherited from std::pair.
-  A<double>() < A<double>();
+  std::cout << (A<double>() < A<double>()) << std::endl;
 }
