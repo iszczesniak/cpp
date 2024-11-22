@@ -83,8 +83,6 @@ parametru funkcji szablonowej, gdzie:
 * wyrażenie inicjalizujące jest traktowane jak argument wywołania
   funkcji.
 
-* argument wywołania funkcji jest wyrażeniem inicjalizującym.
-
 Zadaniem kompilatora jest wywnioskowanie argumentu takiego urojonego
 szablonu (urojonego, bo nie jest zapisany w kodzie, a jedynie go sobie
 wyobrażamy) i podstawienie go w miejsce `auto`.
@@ -158,7 +156,11 @@ jest typu referencyjnego.
 
 Specyfikator typu `decltype` dostarcza typ zmiennej czy wyrażenia,
 który możemy wykorzystać do deklaracji typu innej zmiennej.
-Dostarczony typ może być dowolny, także referencyjny.
+Dostarczony typ może być dowolny, także referencyjny.  Ale chwileczkę,
+czy przypadkiem nie było powiedziane, że wyrażenia nigdy nie są typu
+referencyjnego?  Także te, które przekazujemy do `decltype`?  Tak, ale
+w przypadku `decltype` deklarator `&` najwyższego rzędu nie jest
+usuwany.  Tak powiada standard.
 
 ```cpp
 {% include_relative decltype.cc %}
@@ -166,8 +168,8 @@ Dostarczony typ może być dowolny, także referencyjny.
 
 Jeżeli chcemy, żeby `decltype` dostarczył dla zmiennej typ jej
 wyrażenia inicjalizacyjnego, to używamy `decltype(auto)`.  To nie to
-samo, co `auto`, w którym stosowane są zasady wnioskowania typowych
-argumentów szablonu.  Oto przykłady:
+samo, co `auto`, w którym stosowane są zasady wnioskowania typowego
+argumentu szablonu.  Oto przykłady:
 
 ```cpp
 {% include_relative decltype_auto.cc %}
