@@ -1,6 +1,6 @@
 #include <iostream>
 
-auto max(auto a, auto b)
+auto my_max(auto a, auto b)
 {
   if (a < b)
     return b;
@@ -10,7 +10,7 @@ auto max(auto a, auto b)
 
 int main()
 {
-  std::cout << max(1, 2) << std::endl;
+  std::cout << my_max(1, 2) << std::endl;
 
-  // std::cout << max(1, .1) << std::endl;
+  // std::cout << my_max(1, .1) << std::endl;
 }
