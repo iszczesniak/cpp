@@ -1,0 +1,2 @@
+Write a program to demonstrate that indeed `auto` is the default type
+of a call operator of a closure.

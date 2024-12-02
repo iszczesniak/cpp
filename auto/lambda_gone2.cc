@@ -2,7 +2,7 @@
 
 using namespace std;
 
-struct fun
+struct
 {
   int x = 0;
 
@@ -12,12 +12,11 @@ struct fun
          << "x = " << ++x << ", "
          << "i = " << i << endl;
   }
-};
+} f;
 
 int main()
 {
-  fun c;
-  c(1);
-  c(.1);
-  c("Hello!");
+  f(1);
+  f(.1);
+  f("Hello!");
 }

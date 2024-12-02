@@ -275,6 +275,13 @@ programowania w C++ może zwątpić:
 {% include_relative lambda.cc %}
 ```
 
+## Typ zwracanej wartości
+
+Domyślnym typem zwracanym przez operator wywołania funkcji domknięcia
+jest `auto`.  Z użyciem `->` możemy jednak zdefiniować typ zwracanego
+wyniku jako `decltype(auto)`, żeby zadbać o doskonałe zwracanie
+wyniku.
+
 # Skrócony zapis szablonu
 
 Zapis szablonu możemy skrócić o nagłówek, jeżeli typ parametru funkcji
