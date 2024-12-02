@@ -197,20 +197,6 @@ możemy używać jak referencji (chodzi o składnię i semantykę).
 {% include_relative for_auto.cc %}
 ```
 
-# Wyrażenia lambda i `auto`
-
-W wyrażeniu lambda możemy podać parametry dla operatora wywołania.  I
-tam możemy użyć `auto`.  Wtedy składowa operatora wywołania jest
-szablonowa, gdzie `auto` służy jako typowy parametr szablonu funkcji.
-Wywołanie tej funkcji składowej z argumentami różnych typów powoduje
-konkretyzację szablonu i generowanie nowych przeciążeń dla tego samego
-domknięcia.  Oto przykład to ilustrujący, po którym weteran
-programowania w C++ może zwątpić:
-
-```cpp
-{% include_relative lambda.cc %}
-```
-
 # Typ wyniku funkcji i `auto`
 
 Funkcja (zwykła albo szablonowa) może mieć zadeklarowany typ zwracanej
@@ -273,6 +259,20 @@ doskonałego zwracania wyniku (tego samego typu, który zwraca funkcja
 
 ```cpp
 {% include_relative return_decltype2.cc %}
+```
+
+# Wyrażenia lambda i `auto`
+
+W wyrażeniu lambda możemy podać parametry dla operatora wywołania.  I
+tam możemy użyć `auto`.  Wtedy składowa operatora wywołania jest
+szablonowa, gdzie `auto` służy jako typowy parametr szablonu funkcji.
+Wywołanie tej funkcji składowej z argumentami różnych typów powoduje
+konkretyzację szablonu i generowanie nowych przeciążeń dla tego samego
+domknięcia.  Oto przykład to ilustrujący, po którym weteran
+programowania w C++ może zwątpić:
+
+```cpp
+{% include_relative lambda.cc %}
 ```
 
 # Skrócony zapis szablonu
