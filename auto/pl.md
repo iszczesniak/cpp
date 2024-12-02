@@ -263,6 +263,11 @@ doskonałego zwracania wyniku (tego samego typu, który zwraca funkcja
 
 # Wyrażenia lambda i `auto`
 
+Specyfikatora `auto` możemy użyć w definicji typu parametru i
+zwracanej wartości.
+
+## Typ parametru
+
 W wyrażeniu lambda możemy podać parametry dla operatora wywołania.  I
 tam możemy użyć `auto`.  Wtedy składowa operatora wywołania jest
 szablonowa, gdzie `auto` służy jako typowy parametr szablonu funkcji.
@@ -272,7 +277,7 @@ domknięcia.  Oto przykład to ilustrujący, po którym weteran
 programowania w C++ może zwątpić:
 
 ```cpp
-{% include_relative lambda.cc %}
+{% include_relative lambda_par.cc %}
 ```
 
 ## Typ zwracanej wartości
@@ -281,6 +286,10 @@ Domyślnym typem zwracanym przez operator wywołania funkcji domknięcia
 jest `auto`.  Z użyciem `->` możemy jednak zdefiniować typ zwracanego
 wyniku jako `decltype(auto)`, żeby zadbać o doskonałe zwracanie
 wyniku.
+
+```cpp
+{% include_relative lambda_ret.cc %}
+```
 
 # Skrócony zapis szablonu
 
