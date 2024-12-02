@@ -1,0 +1,3 @@
+Write a functor class that works as this lambda expression:
+
+auto c = [](const auto &t){std::cout << t;};
