@@ -1,0 +1,2 @@
+Implement the functionality of ../lambda_par.cc as a functor class
+with a template member function.
