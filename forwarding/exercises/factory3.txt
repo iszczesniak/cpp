@@ -1,0 +1,3 @@
+Modify the solution to exercise factory2.txt so that the factory
+accepts any number of arguments and passes them perfectly to the
+constructed object.

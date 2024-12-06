@@ -1,6 +1,0 @@
-Implement function my_make_unique<A>(<arg>) that creates on the heap
-an object of type A by perfectly passing to it the one <arg>.  Next,
-the function passes the created object to unique_ptr<A> for
-management, and then returns by value the managing object.  Please
-overload the constructors of A, and make sure the right constructor is
-called.
