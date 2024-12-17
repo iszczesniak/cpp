@@ -16,6 +16,11 @@ Quickies
 
 * unified initialization
 
+* structured bindings, return {} to have a pair or a tuple, conversion
+  beteween pair and tuple, std::tie
+
+* variadic structured bindings (auto [... p])
+
 **********************************************************************
 
 value semantics
