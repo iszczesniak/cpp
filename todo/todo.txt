@@ -1,11 +1,3 @@
-Generic programming:
-
-* "variadic" and "auto" - switch their places
-
-* add forwarding reference to deduction
-
-**********************************************************************
-
 Quickies
 
 * in-place construction
@@ -121,22 +113,6 @@ Smart pointers
 * std::nullptr
 
 * cyclic dependency: deterministic vs nondeterministic destruction
-
-**********************************************************************
-
-Variadic templates
-------------------
-
-Fold expressions, as in the example from cppreference.com:
-
-// debugging aid
-template<typename T, T... ints>
-void print_sequence(std::integer_sequence<T, ints...> int_seq)
-{
-    std::cout << "The sequence of size " << int_seq.size() << ": ";
-    ((std::cout << ints << ' '), ...);
-    std::cout << '\n';
-}
 
 **********************************************************************
 
