@@ -51,7 +51,8 @@ main()
   f1(g);
   f2(g);
 
-  // Here we implicitly get a pointer to the closure function.
+  // Here we implicitly get a pointer to the closure function.  The
+  // closure decays into a pointer type.
   f1([]{cout << "World!\n";});
   // We cannot implicitly get a pointer to a closure function if the
   // lambda captured some data (these would be stored as member
@@ -62,9 +63,9 @@ main()
   // Doesn't work for the function reference type.
   // f2([]{cout << "World!\n";});
 
-  // This would not compile, because a functor does not convert to a
-  // function pointer.  A functor is an object, which we
-  // default-construct: callme().
+  // This would not compile, because a functor does not convert
+  // (implicitly or explicitly) to a function pointer.  A functor is
+  // an object, which we default-construct: callme().
   //
   // f1(callme());
   // f2(callme());
