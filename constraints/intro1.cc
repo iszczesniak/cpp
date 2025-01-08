@@ -23,10 +23,12 @@ main()
   inc(x);
 
   std::string y("Hello World!");
-  // This would not compile, because std::string is not incrementable.
+  // Fails at compile time because std::string is not incrementable.
+  // We shouldn't be allowed to use std::string.
   // inc(y);
 
   divide<2>(2);
-  // The template argument shouldn't be 0, yet we can use it.
+  // Fails at run time because of the division by zero.
+  // We shouldn't be allowed to use 0.
   divide<0>(2);
 }
