@@ -119,6 +119,8 @@ Smart pointers
 
 * cyclic dependency: deterministic vs nondeterministic destruction
 
+* smart pointers can manage resources other than memory
+
 **********************************************************************
 
 callable vs invokable
