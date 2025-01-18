@@ -1,0 +1,5 @@
+Member vs non-member operators, inside and outside, friend.
+
+Barton–Nackman trick:
+
+https://en.wikipedia.org/wiki/Barton%E2%80%93Nackman_trick
