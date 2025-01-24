@@ -6,7 +6,10 @@ Quickies
 
 * std::reference_wrapper, std::cref, std::ref
 
-* unified initialization
+* unified initialization,
+
+* create an instance of a struct (that doesn't have any constructor)
+  by passing the values of fields either in {} or, since C++20, in ().
 
 * structured bindings, return {} to have a pair or a tuple, conversion
   beteween pair and tuple, std::tie
