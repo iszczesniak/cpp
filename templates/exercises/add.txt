@@ -1,0 +1,2 @@
+Please write a function `add` that takes any number of arguments by a
+const reference.  The function returns the sum of the arguments taken.
