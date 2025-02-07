@@ -1,0 +1,4 @@
+Please implement a function `mymin` that takes two arguments by value
+of a single type and returns by value the one that is less than or
+equal to the other.  Please implement and use a concept `comparable`
+that tests whether a type has the `<=` operator.
