@@ -1,0 +1,5 @@
+Please implement a function `foo` that takes a callable as an
+argument.  The callable takes no arguments and returns no value.
+Function `foo` calls the callable.  If `foo` was called without a
+callable, it should use an empty callable, i.e., a callable that does
+nothing.

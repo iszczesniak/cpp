@@ -5,7 +5,7 @@ template <typename Param, typename... Params>
 auto add(const Param &param, const Params &... params)
 {
   if constexpr (sizeof...(params))
-    return param + fun(params...);
+    return param + add(params...);
   else
     return param;
 }
