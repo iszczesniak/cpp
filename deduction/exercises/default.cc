@@ -8,7 +8,9 @@ void foo(T t = {})
 
 int main()
 {
-  foo();
   foo(.1);
   foo<std::string>();
+
+  // No deduction takes place as there is no argument passed.
+  foo();
 }
