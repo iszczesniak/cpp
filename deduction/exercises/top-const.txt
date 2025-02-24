@@ -1,0 +1,5 @@
+Implement a non-template function `foo` that takes its argument by
+value and declares its parameter as const-qualified.  Implement
+function template `too` that does the same as `foo`.  In the main
+function, call those functions, and then (with `nm`) look at the
+symbol table of the executable.  Can you see the const qualifier?
