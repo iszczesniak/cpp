@@ -1,0 +1,7 @@
+Please implement function `foo` that has one template parameter of the
+value kind with the default argument of `int`.  Declare the default
+value of the function argument to be `{}`, i.e., default-construct the
+value.
+
+Call the function with no argument.  How was the template argument
+deduced?
