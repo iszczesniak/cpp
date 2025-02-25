@@ -14,7 +14,7 @@ albo *zdefiniowanych przez użytkownika* (np., `struct A`, `class B`,
   się znajdują.
 
 C++ musi spełniać podstawowe wymagania systemu operacyjnego dotyczące
-organizacji pamięci, a reszta zależy do C++.
+organizacji pamięci, a reszta zależy od C++.
 
 ## Podstawowe wymagania systemu operacyjnego
 
