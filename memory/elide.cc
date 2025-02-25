@@ -32,7 +32,7 @@ int main()
 {
   // That's a function declaration, though in the legacy C++ it used
   // to mean the default initialization of object "foo".
-  A foo();
+  // A foo();
 
   // The equivalent ways of default initialization.
   {
