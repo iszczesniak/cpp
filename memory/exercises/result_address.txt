@@ -1,0 +1,4 @@
+Please check whether RDI is really the register used to pass the
+address for a value returned by function.  You can compile your code
+to the assembler with the -s flag or you can use an line compiler,
+e.g., godbolt.org.
