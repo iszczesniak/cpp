@@ -1,0 +1,3 @@
+Check whether modifying a local variable of the const integer type can
+cause the segment violation fault.  It's a test only, we don't program
+that way.
