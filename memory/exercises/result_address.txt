@@ -1,11 +1,5 @@
 Please check where the address for the return value is passed to a
 function and a constructor.  A constructor is a special function that
 does not have a return value (or rather the return value is always the
-constructed object).
-
-You can compile your code to the assembler with the -S flag or you can
-use an online compiler, e.g., godbolt.org.
-
-Spoiler: for 64bit x86, GCC 12.2 and Linux Debian 12.9, for a function
-the address is passed as the last on the stack, and for a constructor
-in RDI.
+constructed object).  You can compile your code to the assembler with
+the -S flag or you can use an online compiler, e.g., godbolt.org.

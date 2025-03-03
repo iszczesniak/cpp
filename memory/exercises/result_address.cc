@@ -1,6 +1,7 @@
 #include <utility>
 
-std::pair<int, int> foo()
+std::pair<int, int>
+foo()
 {
   return {1, 2};
 }
