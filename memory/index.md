@@ -285,18 +285,30 @@ optimization.
 # Function call convention
 
 The *call convention* are the technical details on how exactly a
-function is called, which depend on the system architecture, the
-operating system, and the compiler.  C++ does not specify a call
-convention, but some C++ functionality (like the constructor elision
-and the return value optimization) follows from a typical call
-convention.
+function is called, which depend on the platform (the system
+architecture, the operating system, and the compiler).  C++ does not
+specify a call convention, but some C++ functionality (like the
+constructor elision and the return value optimization) follows from a
+typical call convention.
 
-Typically, a call convention requires that the caller of the function
-(i.e., the code that calls the function):
+A regular C++ programmer doesn't have to know such details, but
+mentioning them is worthwhile to understand that C++ is a part of
+computer systems that evolve.  In that evolotion, C++ must be binary
+compatible with C (so that C++ can call C functions), where new C++
+functionality can be implemented on supported platforms.
+
+There are many call conventions that depend mostly on the processor
+capabilities.  Typically, a call convention requires that the caller
+of the function (i.e., the code that calls the function):
 
 * creates the function parameters on the stack,
 
 * allocates memory for the return value.
+
+Parameters are created on the stack because a processor might be
+unable to store them (in registers).  The caller allocates memory for
+the return value because it may not fit in a processor, yet it should
+be available to the caller once the function returns.
 
 Small data may be passed or returned in processor registers.  For
 instance, a function can take an argument or return as a result an
@@ -311,10 +323,11 @@ variable that was assigned the result.
 The modern call convention allows the place for the return value be
 allocated anywhere in memory (not only on the stack, but also on the
 heap, or in the memory for the global and static data), and passing to
-a function the address of the place in a processor register (e.g., RDI
-for x86, Linux, and GCC), so that the function can create the return
-value at the pointed address.  We don't need a temporary place, but
-only an extra register.
+a function the address of the place, so that the function can create
+the return value at the place pointed.  We don't need a temporary
+place anymore.  For instance, for x86, Linux, and GCC, the address is
+passed to a function on the stack last, while to a constructor in the
+RDI register.
 
 The following example demonstrates that a result can be returned
 anywhere (as the modern call convention allows), and not only on the

@@ -306,28 +306,25 @@ wywołania funkcji, ale pewne funkcjonalności (jak unikanie
 konstruktorów czy optymalizacja wartości powrotu) wynikają typowej
 konwencji wywołania funkcji.
 
-Programista C++ nie musi znać tych szczegółów, ale warto o nich
+Zwykły programista C++ nie musi znać tych szczegółów, ale warto o nich
 wspomnieć, żeby zrozumieć, że język C++ jest składową systemów
 informatycznych, które ewoluują.  W tej ewolucji C++ musi być zgodny
-binarnie z C (żeby móc wywoływać funkcje języka C), a nowe
+binarnie z C (żeby móc wywoływać funkcje języka C), gdzie nowe
 funkcjonalności C++ powinny dać się zaimplementować na wspieranych
 platformach.
 
-Konwencji wywołania funkcji jest wiele, a *typowa konwencja* powinna
-zapewnić:
-
-* dowolną liczbę argumentów wywołania funkcji,
-
-* argment czy zwracana wartość nie musi się mieścić w rejestrze
-  procesora, bo może to być duży obiekt.
-
-* procesory mają różną liczbę i wielkość rejestrów.
-
-Typowa konwencja wywołania funkcji wymaga od kodu wywołującego:
+Konwencji wywołania funkcji jest wiele, które głównie zależą od
+możliwości procesora.  Uogólniając, *typowa konwencja* (minimalna
+funkcjonalność każdej konwencji) wymaga od strony wywołującej:
 
 * utworzenia parametrów na stosie,
 
-* alokacji pamięci dla zwracanej wartości.
+* alokacji pamięci dla zwracanej wartości,
+
+Parametry są tworzone na stosie, ponieważ procesor może ich nie
+pomieścić (w rejestrach).  Strona wywołująca alokuje pamięć, ponieważ
+wartość może się nie zmieścić w procesorze, a powinna być dostępna po
+powrocie z funkcji.
 
 Małe dane mogą być przekazywane i zwracane w rejestrach procesora.  Na
 przykład, funkcja może przyjąć jako argument albo zwrócić jako wynik
@@ -342,9 +339,10 @@ której wynik przypisywano.
 Nowoczesna konwencja wywołania funkcji pozwala na alokację miejsca dla
 zwracanej wartości gdziekolwiek w pamięci (nie tylko na stosie, ale
 także na stercie czy pamięci dla danych globalnych i statycznych) i
-przekazanie adresu tego miejsca w rejestrze procesora (np. RDI dla
-x86, Linuxa i GCC), żeby funkcja zwróciła wynik pod wskazanym adresem.
-Nie potrzebujemy tymczasowego miejsca, a jedynie dodatkowy rejestr.
+przekazanie adresu tego miejsca, żeby funkcja zwróciła wynik we
+wskazanym miejscu.  Nie potrzebujemy już tymczasowego miejsca.  Na
+przykład, dla x86, Linuxa i GCC, adres jest przekazywany do funkcji na
+szczycie stosu, a do konstruktora w rejestrze RDI.
 
 Przykład niżej pokazuje, że wynik może być zwracany gdziekolwiek (na
 co pozwala nowoczesna konwencja wywołania), a nie tylko na stosie (jak
