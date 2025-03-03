@@ -300,11 +300,28 @@ wartości powrotu czy unikania konstruktorów.
 # Konwencja wywołania funkcji
 
 *Konwencja wywołania funkcji* to szczegóły techniczne dotyczące
-wywołania funkcji, które zależą od architektury systemu, systemu
-operacyjnego i kompilatora.  C++ nie definiuje konwencji wywołania
-funkcji, ale pewne funkcjonalności (jak unikanie konstruktorów czy
-optymalizacja wartości powrotu) wynikają z typowej konwencji wywołania
-funkcji.
+wywołania funkcji, które zależą od platformy (architektury systemu,
+systemu operacyjnego i kompilatora).  C++ nie definiuje konwencji
+wywołania funkcji, ale pewne funkcjonalności (jak unikanie
+konstruktorów czy optymalizacja wartości powrotu) wynikają typowej
+konwencji wywołania funkcji.
+
+Programista C++ nie musi znać tych szczegółów, ale warto o nich
+wspomnieć, żeby zrozumieć, że język C++ jest składową systemów
+informatycznych, które ewoluują.  W tej ewolucji C++ musi być zgodny
+binarnie z C (żeby móc wywoływać funkcje języka C), a nowe
+funkcjonalności C++ powinny dać się zaimplementować na wspieranych
+platformach.
+
+Konwencji wywołania funkcji jest wiele, a *typowa konwencja* powinna
+zapewnić:
+
+* dowolną liczbę argumentów wywołania funkcji,
+
+* argment czy zwracana wartość nie musi się mieścić w rejestrze
+  procesora, bo może to być duży obiekt.
+
+* procesory mają różną liczbę i wielkość rejestrów.
 
 Typowa konwencja wywołania funkcji wymaga od kodu wywołującego:
 
