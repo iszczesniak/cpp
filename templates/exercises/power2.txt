@@ -1,2 +1,2 @@
-Implement function power<x, a>() that calculates x to the power of a.
-Values of x and a have to be known at compile time.
+Implement recursively function power<x, a>() that calculates x to the
+power of a.  Values of x and a have to be known at compile time.
