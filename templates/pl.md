@@ -42,7 +42,7 @@ powierzchowna.  Inicjalizacja parametru funkcji z użyciem argumentu
 funkcji ma dużo szczegółów (jak na przykład konwersje typów czy
 inicjalizacja referencji), które nie odnoszą się do podstawienia.
 Podstawienie jedynie sprawdza czy argument jest poprawny, czyli że
-jest typem, wartością czy typem szablonowym, zgodnie z **rodzajem
+jest typem, wartością czy szablonem typu, zgodnie z **rodzajem
 parametru**.  Wniosek: **podstawienie to nie inicjalizacja**.
 
 # Parametry szablonu
