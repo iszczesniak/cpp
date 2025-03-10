@@ -6,8 +6,8 @@ title: Szablon wariadyczny
 
 C++11 wprowadził **szablon wariadyczny** (ang. a variadic template),
 który potrafi przyjąć dowolną liczbę argumentów szablonu, także
-zerową.  Szablon wariadyczny jest statycznie typowanym mechanizmem
-czasu kompilacji, który jest konkretyzowany w miejscu użycia.
+zerową.  Szablon wariadyczny jest mechanizmem czasu kompilacji, który
+jest konkretyzowany w miejscu użycia.
 
 Szablon wariadyczny poznamy po trójkropku `...` w liście parametrów
 szablonu:
@@ -16,12 +16,15 @@ szablonu:
 {% include_relative intro.cc %}
 ```
 
+W powyższym przykładzie trójkropek został użyty w definicji paczki
+parametrów, a potem w rozwinięciu tej paczki.
+
 # Paczka parametrów
 
 Trójkropek jest częścią definicji **paczki parametrów** (ang. a
 parameter pack), po którym następuje nazwa paczki.  Paczka parametrów
 szablonu może być szablonu albo funkcji.  Paczka parametrów jest
-używana wyłącznie w **rozwinięciu**.
+używana w **rozwinięciu** albo **wyrażeniu złożenia**.
 
 ## Paczka parametrów szablonu
 
@@ -63,7 +66,7 @@ rozwinięciem paczki parametrów szablonu.
 
 W przykładzie wyżej funkcja przyjmuje argumenty przez wartość.  Może
 też przyjmować przez referencję stałą, jeżeli paczkę zdefiniujemy jako
-`const Args &...args`.
+`const Args &... args`.
 
 ### Rozwinięcie paczki
 

@@ -2,8 +2,8 @@
 
 using namespace std;
 
-template <typename ...P>
-void foo(P ...p)
+template <typename... P>
+void foo(P... p)
 {
   cout << __PRETTY_FUNCTION__ << endl;
 }

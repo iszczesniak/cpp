@@ -2,7 +2,7 @@
 
 using namespace std;
 
-template <typename ...P>
+template <typename... P>
 void foo()
 {
   cout << __PRETTY_FUNCTION__ << endl;

@@ -51,15 +51,15 @@ operator << (std::ostream &os, const weight<T> &w)
 
 // Type A can use properties. ----------------------------------------
 
-template <typename ...P>
+template <typename... P>
 struct A: P...
 {
-  A(P && ...p): P(std::forward<P>(p))...
+  A(P &&... p): P(std::forward<P>(p))...
     {
     }
 };
 
-template <typename P1, typename ...Ps>
+template <typename P1, typename... Ps>
 std::ostream &
 operator << (std::ostream &out, const A<P1, Ps...> &a)
 {

@@ -2,9 +2,9 @@
 #include <string>
 #include <vector>
 
-template <typename T, typename ...P>
+template <typename T, typename... P>
 auto
-factory(P ...p)
+factory(P... p)
 {
   return T{p...};
 }

@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 
-template <typename ...P>
+template <typename... P>
 void
-print(const P &...p)
+print(const P &... p)
 {
   (std::cout << ... << p);
 }

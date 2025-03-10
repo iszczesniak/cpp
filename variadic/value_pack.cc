@@ -2,7 +2,7 @@
 
 using namespace std;
 
-template <unsigned ...N>
+template <unsigned... N>
 void foo()
 {
   cout << __PRETTY_FUNCTION__ << endl;
