@@ -19,9 +19,9 @@ szablonu:
 # Paczka parametrów
 
 Trójkropek jest częścią definicji **paczki parametrów** (ang. a
-parameter pack), po którym następuje (bez oddzielającej spacji) nazwa
-paczki.  Paczka parametrów szablonu może być szablonu albo funkcji.
-Paczka parametrów jest używana wyłącznie w **rozwinięciu**.
+parameter pack), po którym następuje nazwa paczki.  Paczka parametrów
+szablonu może być szablonu albo funkcji.  Paczka parametrów jest
+używana wyłącznie w **rozwinięciu**.
 
 ## Paczka parametrów szablonu
 
