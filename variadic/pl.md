@@ -154,14 +154,14 @@ Oto przykład z wersją lewostronną:
 
 * Szablon wariadyczny przyjmuje dowolną liczbę argumentów.
 
-* Paczka argumentów szablonu jest używana tylko w wyrażeniach
+* Paczka parametrów jest używana w rozwinięciach albo w wyrażeniach
   złożenia.
 
-* Wyrażenie złożenia może definiować listy:
+* Wariadyczne mogą być listy:
 
   - dziedziczenia i inicjalizacji,
 
-  - parametrów szablonów i argumentów szablonów,
+  - parametrów szablonu i argumentów szablonu,
 
   - parametrów funkcji i argumentów funkcji.
 
