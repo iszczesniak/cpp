@@ -111,15 +111,15 @@ ciągle z użyciem tego samego operatora `op`.
 
 Wyrażenie złożenia wymaga wyrażenia `expr`, które używa paczki `p`.
 Wyrażenie `expr` jest opracowywane dla kolejnych parametrów paczki
-`p`, która składa się z parametrów `p_1`, `p_2`, ...,
+`p`, która składa się z parametrów p<sub>1</sub>, p<sub>2</sub>, ...,
 p<sub>(n-1)</sub>, p<sub>n</sub>.
 
 Wersje jednoargumentowe wyrażenia złożenia, gdzie argumentem jest
 `expr`:
 
-* wersja lewostronna: `(... op expr)` -> `((p_1 op p_2) op ...)`
+* wersja lewostronna: `(... op E)` -> ((E<sub>1</sub> op E<sub>2<\sub>) op ...)
 
-* wersja prawostronna: `(expr op ...)` -> `(... op (p_(n-1) op p_n))`
+* wersja prawostronna: `(E op ...)` -> (... op (E<sub>(n-1)</sub> op p<sub>n</sub>))
 
 Wersja lewostronna przetwarza parametry paczki od lewej strony (do
 prawej, czyli od `p_1` do `p_n`), a prawostronna od prawej (do lewej,
