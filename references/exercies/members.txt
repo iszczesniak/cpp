@@ -1,0 +1,3 @@
+Write a test program to check whether member reference fields are
+optimized out.  Compile with optimization (-O1) but volatile-qualify
+the referenced data so that it's not optimized out.
