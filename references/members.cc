@@ -2,9 +2,9 @@
 
 struct A
 {
-  int &m_i;
+  int &m_r;
 
-  A(int &i): m_i(i)
+  A(int &r): m_r(r)
   {
   }
 };
@@ -12,8 +12,8 @@ struct A
 int
 main()
 {
-  int i;
-  A a(i), b(i);
+  int i, j;
+  A a(i), b(j);
 
   // These would not compile:
   // a = b;
