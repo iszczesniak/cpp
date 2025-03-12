@@ -126,12 +126,12 @@ prawej, czyli od p<sub>1</sub> do p<sub>n</sub>, a prawostronna od
 prawej (do lewej, czyli od p<sub>n</sub> do p<sub>1</sub>).
 
 Wersje dwuargumentowe wymagają drugiego argumentu, którym jest
-wyrażenie inicjalizujące `I`.  To wyrażenie działa tak samo, jak
+wyrażenie inicjalizujące `i`.  To wyrażenie działa tak samo, jak
 wyrażenie jednoargumentowe
 
-* wersja lewostronna `(I op ... op E)` -> ((I op E<sub>1</sub>) op ...)
+* wersja lewostronna `(i op ... op E)` -> ((i op E<sub>1</sub>) op ...)
 
-* wersja prawostronna `(E op ... op I)` -> (... op (E<sub>n</sub> op I))
+* wersja prawostronna `(E op ... op i)` -> (... op (E<sub>n</sub> op i))
 
 Przykład niżej używa wersji prawostronnej, gdzie `E` to `(std::cout <<
 ", " << p)` a operatorem jest przecinek.  Jeżeli paczka `p` jest
