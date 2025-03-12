@@ -110,15 +110,20 @@ Są cztery wersje: dwie jednoargumentowe i dwie dwuargumentowe, ale
 ciągle z użyciem tego samego operatora `op`.
 
 Wyrażenie złożenia wymaga wyrażenia `expr`, które używa paczki `p`.
-Wyrażenie `expr` jest rozwijane dla kolejnych parametrów `p_1`, `p_2`,
-... paczki `p`.
+Wyrażenie `expr` jest opracowywane dla kolejnych parametrów paczki
+`p`, która składa się z parametrów `p_1`, `p_2`, ..., `p_(n-1)`,
+p_n.
 
 Wersje jednoargumentowe wyrażenia złożenia, gdzie argumentem jest
 `expr`:
 
 * wersja lewostronna: `(... op expr)` -> `((p_1 op p_2) op ...)`
 
-* wersja prawostronna: `(expr op ...)` -> `(p_1 op (p_2 op ...))`
+* wersja prawostronna: `(expr op ...)` -> `(... op (p_(n-1) op p_n))`
+
+Wersja lewostronna przetwarza parametry paczki od lewej strony (do
+prawej, czyli od `p_1` do `p_n`), a prawostronna od prawej (do lewej,
+czyli od `p_n` do `p_1`).
 
 Przykład niżej używa wersji prawostronnej, gdzie `expr` to `(std::cout
 << ", " << p)` a operatorem jest przecinek.  Jeżeli paczka `p` jest
