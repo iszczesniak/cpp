@@ -109,9 +109,9 @@ rekurencyjnego.  Wyrażenie złożenia poznajemy po `...` i nawiasach.
 Są cztery wersje: dwie jednoargumentowe i dwie dwuargumentowe, ale
 ciągle z użyciem tego samego operatora `op`.
 
-Wyrażenie złożenia wymaga wyrażenia `expr`, które używa paczki `p`.
-Wyrażenie `expr` jest opracowywane dla kolejnych parametrów paczki
-`p`, która składa się z parametrów p<sub>1</sub>, p<sub>2</sub>, ...,
+Wyrażenie złożenia wymaga wyrażenia `E`, które używa paczki `p`.
+Wyrażenie `E` jest opracowywane dla kolejnych parametrów paczki `p`,
+która składa się z parametrów p<sub>1</sub>, p<sub>2</sub>, ...,
 p<sub>(n-1)</sub>, p<sub>n</sub>.
 
 Wersje jednoargumentowe wyrażenia złożenia, gdzie argumentem jest
@@ -122,31 +122,26 @@ Wersje jednoargumentowe wyrażenia złożenia, gdzie argumentem jest
 * wersja prawostronna: `(E op ...)` -> (... op (E<sub>(n-1)</sub> op E<sub>n</sub>))
 
 Wersja lewostronna przetwarza parametry paczki od lewej strony (do
-prawej, czyli od `p_1` do `p_n`), a prawostronna od prawej (do lewej,
-czyli od `p_n` do `p_1`).
+prawej, czyli od p<sub>1</sub> do p<sub>n</sub>, a prawostronna od
+prawej (do lewej, czyli od p<sub>n</sub> do p<sub>1</sub>).
 
-Przykład niżej używa wersji prawostronnej, gdzie `expr` to `(std::cout
-<< ", " << p)` a operatorem jest przecinek.  Jeżeli paczka `p` jest
+Wersje dwuargumentowe wymagają drugiego argumentu, którym jest
+wyrażenie inicjalizujące `I`.  To wyrażenie działa tak samo, jak
+wyrażenie jednoargumentowe
+
+* wersja lewostronna `(I op ... op E)` -> ((I op E<sub>1</sub>) op ...)
+
+* wersja prawostronna `(E op ... op I)` -> (... op (E<sub>n</sub> op I))
+
+Przykład niżej używa wersji prawostronnej, gdzie `E` to `(std::cout <<
+", " << p)` a operatorem jest przecinek.  Jeżeli paczka `p` jest
 pusta, to wyrażenie złożenia jest puste.  Jeżeli `p` ma jeden
 parametr, to kompilator dokooptowuje dodatkowy pusty parametr, jeżeli
 taki istnieje (dla operatora `,` jest nim `void()`), bo `op` wymaga
 dwóch argumentów.
 
 ```cpp
-{% include_relative fold1.cc %}
-```
-
-Wersje dwuargumentowe wymagają drugiego argumentu, którym jest
-wyrażenie inicjalizujące `init`.
-
-* wersja lewostronna `(init op ... op expr)` -> `((init op p_1) op p_2) op ...)`
-
-* wersja prawostronna `(expr op ... op init)` -> `(init op (p_1 op (p_2 op ...)`
-
-Oto przykład z wersją lewostronną:
-
-```cpp
-{% include_relative fold2.cc %}
+{% include_relative complex.cc %}
 ```
 
 # Przykład: własności obiektu
