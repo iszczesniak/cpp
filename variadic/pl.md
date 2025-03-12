@@ -111,8 +111,8 @@ ciągle z użyciem tego samego operatora `op`.
 
 Wyrażenie złożenia wymaga wyrażenia `expr`, które używa paczki `p`.
 Wyrażenie `expr` jest opracowywane dla kolejnych parametrów paczki
-`p`, która składa się z parametrów `p_1`, `p_2`, ..., `p_(n-1)`,
-p_n.
+`p`, która składa się z parametrów `p_1`, `p_2`, ..., `p~(n-1)~`,
+p~n~.
 
 Wersje jednoargumentowe wyrażenia złożenia, gdzie argumentem jest
 `expr`:
