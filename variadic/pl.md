@@ -121,7 +121,7 @@ Wersje jednoargumentowe wyrażenia złożenia, gdzie argumentem jest `E`:
 * wersja prawostronna: `(E op ...)` -> (... op (E<sub>(n-1)</sub> op E<sub>n</sub>))
 
 Wersja lewostronna przetwarza parametry paczki od lewej strony (do
-prawej, czyli od p<sub>1</sub> do p<sub>n</sub>, a prawostronna od
+prawej, czyli od p<sub>1</sub> do p<sub>n</sub>), a prawostronna od
 prawej (do lewej, czyli od p<sub>n</sub> do p<sub>1</sub>).
 
 Wersje dwuargumentowe wymagają drugiego argumentu, którym jest
