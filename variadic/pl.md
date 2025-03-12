@@ -103,19 +103,18 @@ Wyrażenie złożenia (ang. a fold expression, od C++17) jest przepisem
 na wygenerowanie wyrażenia z użyciem dowolnego **dwuargumentowego
 operatora `op`** na podstawie paczki `p` parametrów funkcji.
 Wyrażenie tak się nazywa, bo składa wyrażenie do skompresowanego
-zapisu.  Wyrażenie złożenia jest przetwarzane w czasie kompilacji dla
-danej paczki parametrów `p`, co eliminuje potrzebę przetwarzania
+zapisu.  Wyrażenie złożenia jest konkretyzowane w czasie kompilacji
+dla danej paczki parametrów `p`, co eliminuje potrzebę przetwarzania
 rekurencyjnego.  Wyrażenie złożenia poznajemy po `...` i nawiasach.
 Są cztery wersje: dwie jednoargumentowe i dwie dwuargumentowe, ale
 ciągle z użyciem tego samego operatora `op`.
 
-Wyrażenie złożenia wymaga wyrażenia `E`, które używa paczki `p`.
-Wyrażenie `E` jest opracowywane dla kolejnych parametrów paczki `p`,
-która składa się z parametrów p<sub>1</sub>, p<sub>2</sub>, ...,
-p<sub>(n-1)</sub>, p<sub>n</sub>.
+Paczka `p` składa się z parametrów p<sub>1</sub>, p<sub>2</sub>, ...,
+p<sub>(n-1)</sub>, p<sub>n</sub>.  Wyrażenie złożenia wymaga wyrażenia
+`E`, które używa paczki `p`.  Wyrażenie `E` opracowane dla parametru
+p<sub>i</sub> zapisujemy jako E<sub>i</sub>.
 
-Wersje jednoargumentowe wyrażenia złożenia, gdzie argumentem jest
-`expr`:
+Wersje jednoargumentowe wyrażenia złożenia, gdzie argumentem jest `E`:
 
 * wersja lewostronna: `(... op E)` -> ((E<sub>1</sub> op E<sub>2</sub>) op ...)
 
@@ -126,12 +125,12 @@ prawej, czyli od p<sub>1</sub> do p<sub>n</sub>, a prawostronna od
 prawej (do lewej, czyli od p<sub>n</sub> do p<sub>1</sub>).
 
 Wersje dwuargumentowe wymagają drugiego argumentu, którym jest
-wyrażenie inicjalizujące `i`.  To wyrażenie działa tak samo, jak
+wyrażenie inicjalizujące `A`.  To wyrażenie działa tak samo, jak
 wyrażenie jednoargumentowe
 
-* wersja lewostronna `(i op ... op E)` -> ((i op E<sub>1</sub>) op ...)
+* wersja lewostronna `(A op ... op E)` -> ((A op E<sub>1</sub>) op ...)
 
-* wersja prawostronna `(E op ... op i)` -> (... op (E<sub>n</sub> op i))
+* wersja prawostronna `(E op ... op A)` -> (... op (E<sub>n</sub> op A))
 
 Przykład niżej używa wersji prawostronnej, gdzie `E` to `(std::cout <<
 ", " << p)` a operatorem jest przecinek.  Jeżeli paczka `p` jest
