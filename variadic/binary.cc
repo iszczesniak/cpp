@@ -10,6 +10,7 @@ void
 read(P &... p)
 {
   (cin >> ... >> p);
+  // (p >> ... >> cin);
 }
 
 template <typename... P>
@@ -17,6 +18,7 @@ void
 write(P &&... p)
 {
   (cout << ... << p);
+  // (p << ... << cout);
 }
 
 int
