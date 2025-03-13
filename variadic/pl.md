@@ -128,22 +128,29 @@ tak, jakby miał wiązanie prawe.
 
 Dla działania łącznego (np. dodawania) nie ma znaczenia, czy
 przetwarzamy od lewej czy od prawej strony, więc oba wyrażenia
-złożenia (lewe i prawe) zrócą ten sam wynik.  Jeżeli jednak działanie
+złożenia (lewe i prawe) zwrócą ten sam wynik.  Jeżeli jednak działanie
 nie jest łączne, to trzeba wybrać właściwą wersję wyrażenia.  W
 przykładzie niżej odejmowanie nie jest łączne, a odejmowanie ma
 wiązanie lewe, więc lewe wyrażenie złożenia daje poprawną odpowiedź.
 
 ```cpp
-{% include_relative unary.cc %}
+{% include_relative unary1.cc %}
 ```
 
 Wersje dwuargumentowe wymagają drugiego argumentu, którym jest
-wyrażenie inicjalizujące `A`.  To wyrażenie działa tak samo, jak
-wyrażenie jednoargumentowe
+wyrażenie inicjalizujące `A`.
 
 * wersja lewa `(A op ... op E)` -> ((A op E<sub>1</sub>) op ...)
 
 * wersja prawa `(E op ... op A)` -> (... op (E<sub>n</sub> op A))
+
+Jeżeli dodalibyśmy wyrażenie `A` na początek paczki, to moglibyśmy
+skorzystać z jednoargumentowe wyrażenia złożenia, ale byłoby to
+niewygodne i mniej ekspresywne, jak pokazano niżej:
+
+```cpp
+{% include_relative force_unary.cc %}
+```
 
 Przykład niżej używa wersji prawej, gdzie `E` to `(std::cout << ", "
 << p)` a operatorem jest przecinek.  Jeżeli paczka `p` jest pusta, to
