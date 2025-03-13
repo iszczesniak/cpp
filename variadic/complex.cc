@@ -6,7 +6,7 @@ void
 print(const T &t, const P &... p)
 {
   std::cout << t;
-  ((std::cout << ", " << p), ...);
+  (... , (std::cout << ", " << p));
 }
 
 int
