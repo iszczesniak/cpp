@@ -101,13 +101,14 @@ parametrów paczki funkcji o jeden za każdym wywołaniem rekurencyjnym.
 
 Wyrażenie złożenia (ang. a fold expression, od C++17) jest przepisem
 na wygenerowanie wyrażenia z użyciem dowolnego **dwuargumentowego
-operatora `op`** na podstawie paczki `p` parametrów funkcji.
-Wyrażenie tak się nazywa, bo składa wyrażenie do skompresowanego
-zapisu.  Wyrażenie złożenia jest konkretyzowane w czasie kompilacji
-dla danej paczki parametrów `p`, co eliminuje potrzebę przetwarzania
-rekurencyjnego.  Wyrażenie złożenia poznajemy po `...` i nawiasach.
-Są cztery wersje: dwie jednoargumentowe i dwie dwuargumentowe, ale
-ciągle z użyciem tego samego operatora `op`.
+operatora `op`** i paczki `p` parametrów funkcji.  Wyrażenie tak się
+nazywa, bo składa docelowe wyrażenie (to, które sami napisalibyśmy
+"ręcznie") do skompresowanego zapisu.  Wyrażenie złożenia jest
+konkretyzowane w czasie kompilacji dla danej paczki parametrów `p`, co
+eliminuje potrzebę przetwarzania rekurencyjnego.  Wyrażenie złożenia
+poznajemy po `...` i nawiasach.  Są cztery wersje: dwie
+jednoargumentowe i dwie dwuargumentowe, ale ciągle z użyciem tego
+samego operatora `op`.
 
 Paczka `p` składa się z parametrów p<sub>1</sub>, p<sub>2</sub>, ...,
 p<sub>(n-1)</sub>, p<sub>n</sub>.  Wyrażenie złożenia wymaga wyrażenia
