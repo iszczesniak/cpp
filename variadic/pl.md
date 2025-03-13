@@ -168,8 +168,16 @@ Wyrażenie musi być lewe, bo:
   argumentem kolejnego wyrażenia przekierowania.
 
 ```cpp
-{% include_relative binary.cc %}
+{% include_relative binary_left.cc %}
 ```
+
+Oto przykład z prawym wyrażeniem:
+
+```cpp
+{% include_relative binary_right.cc %}
+```
+
+## Z dwuargumentowego do jednoargumentowego
 
 Jeżeli dodalibyśmy wyrażenie `A` na początek paczki, to moglibyśmy
 skorzystać z jednoargumentowego wyrażenia złożenia, ale byłoby to
