@@ -1,29 +1,35 @@
 #include <iostream>
+#include <sstream>
 #include <string>
+#include <utility>
+
+using namespace std;
 
 template <typename... P>
 void
-in(P &... p)
+read(P &&... p)
 {
-  (std::cin >> ... >> p);
+  (... >> p);
 }
 
 template <typename... P>
 void
-out(const P &... p)
+write(P &&... p)
 {
-  (std::cout << ... << p);
+  (... << std::forward<P>(p));
 }
 
 int
 main()
 {
-  out("Hello", ' ', std::string("World"), " x ", 100, '\n');
+  write(cout, "Hello", ' ', std::string("World"), " x ", 100, '\n');
 
-  std::string s;
-  int x;
+  istringstream in("Hi! 100 0");
+
+  string txt;
   bool b;
 
-  in(s, x, b);
-  out(s, x, b);
+  // We don't care about the 100, so we read it into a temporary.
+  read(in, txt, int(), b);
+  write(cout, txt, ' ', 200, ' ', b, '\n');
 }
