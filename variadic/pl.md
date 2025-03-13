@@ -132,8 +132,14 @@ Dla działania łącznego (np. dodawania) nie ma znaczenia, czy
 przetwarzamy od lewej czy od prawej strony, więc oba wyrażenia
 złożenia (lewe i prawe) zwrócą ten sam wynik.  Jeżeli jednak działanie
 nie jest łączne, to trzeba wybrać właściwą wersję wyrażenia.  W
-przykładzie niżej odejmowanie nie jest łączne, a odejmowanie ma
-wiązanie lewe, więc lewe wyrażenie złożenia daje poprawną odpowiedź.
+przykładzie niżej odejmowanie nie jest łączne i ma wiązanie lewe, więc
+powinniśmy użyć lewego wyrażenia złożenia.
+
+```cpp
+{% include_relative unary1.cc %}
+```
+
+Przykład poniżej pokazuje konieczność użycia prawego wyrażenia:
 
 ```cpp
 {% include_relative unary1.cc %}
