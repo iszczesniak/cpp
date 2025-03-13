@@ -142,7 +142,7 @@ powinniśmy użyć lewego wyrażenia złożenia.
 Przykład poniżej pokazuje konieczność użycia prawego wyrażenia:
 
 ```cpp
-{% include_relative unary1.cc %}
+{% include_relative unary2.cc %}
 ```
 
 ## Wersja dwuargumentowa
