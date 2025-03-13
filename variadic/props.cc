@@ -64,7 +64,7 @@ std::ostream &
 operator << (std::ostream &out, const A<P1, Ps...> &a)
 {
   out << static_cast<const P1 &>(a);
-  ((out << ", " << static_cast<const Ps &>(a)), ...);
+  (... , (out << ", " << static_cast<const Ps &>(a)));
   return out;
 }
 
