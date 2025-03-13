@@ -7,7 +7,7 @@ void left(R &r, T &... p)
 }
 
 template <typename R, typename... T>
-void right(T &... p)
+void right(R &r, T &... p)
 {
   (p += ... += r);
 }
