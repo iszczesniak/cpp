@@ -156,6 +156,16 @@ wyrażenie inicjalizujące `A`.
 
 Strumienie wejścia-wyjścia są często wyrażeniem inicjalizującym
 dwuargumentowego wyrażenia złożenia, jak w przykładzie niżej.
+Wyrażenie musi być lewe, bo:
+
+* pierwszym argumentem operatora przekierowania (`>>` czy `<<`) jest
+  strumień (wejściowy czy wyjściowy),
+
+* operator przekierowania zwraca strumień, który otrzymał jako pierwszy
+  argument,
+
+* strumień zwracany przez wyrażenie przekierowania staje się pierwszym
+  argumentem kolejnego wyrażenia przekierowania.
 
 ```cpp
 {% include_relative binary.cc %}
