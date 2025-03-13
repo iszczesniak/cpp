@@ -16,13 +16,13 @@ template <typename... P>
 void
 write(P &&... p)
 {
-  (... << std::forward<P>(p));
+  (... << p);
 }
 
 int
 main()
 {
-  write(cout, "Hello", ' ', std::string("World"), " x ", 100, '\n');
+  write(cout, "Hello", ' ', std::string("World"), " x ", 100, "!\n");
 
   istringstream in("Hi! 100 0");
 

@@ -136,13 +136,13 @@ przykładzie niżej odejmowanie nie jest łączne i ma wiązanie lewe, więc
 powinniśmy użyć lewego wyrażenia złożenia.
 
 ```cpp
-{% include_relative unary1.cc %}
+{% include_relative unary_left.cc %}
 ```
 
 Przykład poniżej pokazuje konieczność użycia prawego wyrażenia:
 
 ```cpp
-{% include_relative unary2.cc %}
+{% include_relative unary_right.cc %}
 ```
 
 ## Wersja dwuargumentowa
@@ -153,6 +153,13 @@ wyrażenie inicjalizujące `A`.
 * wersja lewa `(A op ... op E)` -> ((A op E<sub>1</sub>) op ...)
 
 * wersja prawa `(E op ... op A)` -> (... op (E<sub>n</sub> op A))
+
+Strumienie wejścia-wyjścia są często wyrażeniem inicjalizującym
+dwuargumentowego wyrażenia złożenia, jak w przykładzie niżej.
+
+```cpp
+{% include_relative binary.cc %}
+```
 
 Jeżeli dodalibyśmy wyrażenie `A` na początek paczki, to moglibyśmy
 skorzystać z jednoargumentowego wyrażenia złożenia, ale byłoby to
