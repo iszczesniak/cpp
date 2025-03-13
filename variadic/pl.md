@@ -101,14 +101,13 @@ parametrów paczki funkcji o jeden za każdym wywołaniem rekurencyjnym.
 
 Wyrażenie złożenia (ang. a fold expression, od C++17) jest przepisem
 na wygenerowanie wyrażenia z użyciem dowolnego **dwuargumentowego
-operatora `op`** i paczki `p` parametrów funkcji.  Wyrażenie tak się
-nazywa, bo składa docelowe wyrażenie (to, które sami napisalibyśmy
-"ręcznie") do skompresowanego zapisu.  Wyrażenie złożenia jest
-konkretyzowane w czasie kompilacji dla danej paczki parametrów `p`, co
-eliminuje potrzebę przetwarzania rekurencyjnego.  Wyrażenie złożenia
-poznajemy po `...` i nawiasach.  Są cztery wersje: dwie
-jednoargumentowe i dwie dwuargumentowe, ale ciągle z użyciem tego
-samego operatora `op`.
+operatora `op`** i paczki parametrów.  Wyrażenie tak się nazywa, bo
+składa docelowe wyrażenie (to, które sami napisalibyśmy "ręcznie") do
+skompresowanego zapisu.  Wyrażenie złożenia jest konkretyzowane w
+czasie kompilacji dla danej paczki parametrów, co eliminuje potrzebę
+przetwarzania rekurencyjnego.  Wyrażenie złożenia poznajemy po `...` i
+nawiasach.  Są cztery wersje: dwie jednoargumentowe i dwie
+dwuargumentowe, ale ciągle z użyciem tego samego operatora `op`.
 
 Paczka `p` składa się z parametrów p<sub>1</sub>, p<sub>2</sub>, ...,
 p<sub>(n-1)</sub>, p<sub>n</sub>.  Wyrażenie złożenia wymaga wyrażenia
@@ -117,28 +116,41 @@ p<sub>i</sub> zapisujemy jako E<sub>i</sub>.
 
 Wersje jednoargumentowe wyrażenia złożenia, gdzie argumentem jest `E`:
 
-* wersja lewostronna: `(... op E)` -> ((E<sub>1</sub> op E<sub>2</sub>) op ...)
+* wersja lewa: `(... op E)` -> ((E<sub>1</sub> op E<sub>2</sub>) op ...)
 
-* wersja prawostronna: `(E op ...)` -> (... op (E<sub>(n-1)</sub> op E<sub>n</sub>))
+* wersja prawa: `(E op ...)` -> (... op (E<sub>(n-1)</sub> op E<sub>n</sub>))
 
-Wersja lewostronna przetwarza parametry paczki od lewej strony (do
-prawej, czyli od p<sub>1</sub> do p<sub>n</sub>), a prawostronna od
-prawej (do lewej, czyli od p<sub>n</sub> do p<sub>1</sub>).
+Wersja lewa przetwarza parametry paczki od lewej strony (do prawej,
+czyli od p<sub>1</sub> do p<sub>n</sub>), a prawa od prawej (do lewej,
+czyli od p<sub>n</sub> do p<sub>1</sub>).  Zatem wersja lewa
+przetwarza argumenty tak, jakby operator miał wiązanie lewe, a prawa
+tak, jakby miał wiązanie prawe.
+
+Dla działania łącznego (np. dodawania) nie ma znaczenia, czy
+przetwarzamy od lewej czy od prawej strony, więc oba wyrażenia
+złożenia (lewe i prawe) zrócą ten sam wynik.  Jeżeli jednak działanie
+nie jest łączne, to trzeba wybrać właściwą wersję wyrażenia.  W
+przykładzie niżej odejmowanie nie jest łączne, a odejmowanie ma
+wiązanie lewe, więc lewe wyrażenie złożenia daje poprawną odpowiedź.
+
+```cpp
+{% include_relative unary.cc %}
+```
 
 Wersje dwuargumentowe wymagają drugiego argumentu, którym jest
 wyrażenie inicjalizujące `A`.  To wyrażenie działa tak samo, jak
 wyrażenie jednoargumentowe
 
-* wersja lewostronna `(A op ... op E)` -> ((A op E<sub>1</sub>) op ...)
+* wersja lewa `(A op ... op E)` -> ((A op E<sub>1</sub>) op ...)
 
-* wersja prawostronna `(E op ... op A)` -> (... op (E<sub>n</sub> op A))
+* wersja prawa `(E op ... op A)` -> (... op (E<sub>n</sub> op A))
 
-Przykład niżej używa wersji prawostronnej, gdzie `E` to `(std::cout <<
-", " << p)` a operatorem jest przecinek.  Jeżeli paczka `p` jest
-pusta, to wyrażenie złożenia jest puste.  Jeżeli `p` ma jeden
-parametr, to kompilator dokooptowuje dodatkowy pusty parametr, jeżeli
-taki istnieje (dla operatora `,` jest nim `void()`), bo `op` wymaga
-dwóch argumentów.
+Przykład niżej używa wersji prawej, gdzie `E` to `(std::cout << ", "
+<< p)` a operatorem jest przecinek.  Jeżeli paczka `p` jest pusta, to
+wyrażenie złożenia jest puste.  Jeżeli `p` ma jeden parametr, to
+kompilator dokooptowuje dodatkowy pusty parametr, jeżeli taki istnieje
+(dla operatora `,` jest nim `void()`), bo `op` wymaga dwóch
+argumentów.
 
 ```cpp
 {% include_relative complex.cc %}
