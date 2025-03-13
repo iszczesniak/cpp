@@ -114,6 +114,8 @@ p<sub>(n-1)</sub>, p<sub>n</sub>.  Wyrażenie złożenia wymaga wyrażenia
 `E`, które używa paczki `p`.  Wyrażenie `E` opracowane dla parametru
 p<sub>i</sub> zapisujemy jako E<sub>i</sub>.
 
+## Wersja jednoargumentowa
+
 Wersje jednoargumentowe wyrażenia złożenia, gdzie argumentem jest `E`:
 
 * wersja lewa: `(... op E)` -> ((E<sub>1</sub> op E<sub>2</sub>) op ...)
@@ -137,6 +139,8 @@ wiązanie lewe, więc lewe wyrażenie złożenia daje poprawną odpowiedź.
 {% include_relative unary1.cc %}
 ```
 
+## Wersja dwuargumentowa
+
 Wersje dwuargumentowe wymagają drugiego argumentu, którym jest
 wyrażenie inicjalizujące `A`.
 
@@ -145,7 +149,7 @@ wyrażenie inicjalizujące `A`.
 * wersja prawa `(E op ... op A)` -> (... op (E<sub>n</sub> op A))
 
 Jeżeli dodalibyśmy wyrażenie `A` na początek paczki, to moglibyśmy
-skorzystać z jednoargumentowe wyrażenia złożenia, ale byłoby to
+skorzystać z jednoargumentowego wyrażenia złożenia, ale byłoby to
 niewygodne i mniej ekspresywne, jak pokazano niżej:
 
 ```cpp
