@@ -179,6 +179,8 @@ niewygodne i mniej ekspresywne, jak pokazano niżej:
 {% include_relative force_unary.cc %}
 ```
 
+## Krótki a trudny przykład: lista oddzielona przecinkami
+
 Przykład niżej używa wersji prawej, gdzie `E` to `(std::cout << ", "
 << p)` a operatorem jest przecinek.  Jeżeli paczka `p` jest pusta, to
 wyrażenie złożenia jest puste.  Jeżeli `p` ma jeden parametr, to
@@ -190,7 +192,7 @@ argumentów.
 {% include_relative complex.cc %}
 ```
 
-# Przykład: własności obiektu
+# Rozbudowany przykład: własności obiektu
 
 ```cpp
 {% include_relative props.cc %}
