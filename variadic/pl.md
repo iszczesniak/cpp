@@ -193,7 +193,7 @@ Przykład niżej używa operatora przecinka, który jest nietypowy,
 ponieważ łączy dwa niezależne wyrażenia.  Łączone wyrażenia nie mają
 ze sobą nic wspólnego i są opracowywane niezależnie.  Przecinek
 gwarantuje jedynie, że pierwsze będzie wykonane pierwsze wyrażenie,
-zatem nawiasy z drugiego wyrażenia nie mają wpływu na kolejność
+zatem nawiasy z drugiego wyrażenia nie mogą mieć wpływu na kolejność
 wykonania pierwszego wyrażenia.  W poniższym przykładzie, nawiasowanie
 nie ma wpływu na wynik, ponieważ kolejność opracowania wyrażeń z
 operatorem `<<` ustalają przecinki.
