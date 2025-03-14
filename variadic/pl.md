@@ -199,7 +199,7 @@ nie ma wpływu na wynik, ponieważ kolejność opracowania wyrażeń z
 operatorem `<<` ustalają przecinki.
 
 ```cpp
-{% include_relative complex.cc %}
+{% include_relative comma.cc %}
 ```
 
 Przykład niżej używa wersji prawej, gdzie `E` to `(std::cout << ", "
