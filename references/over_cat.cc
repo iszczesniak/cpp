@@ -2,11 +2,11 @@ int main()
 {
   struct A
   {
-    void operator = (int) &
+    void operator = (this A &, int)
     {
     }
 
-    void operator = (int) && = delete;
+    void operator = (this A &&, int) = delete;
   };
 
   A a;
