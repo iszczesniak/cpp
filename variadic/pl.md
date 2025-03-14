@@ -207,10 +207,10 @@ Przykład niżej używa wersji prawej, gdzie `E` to `(std::cout << ", "
 wyrażenie złożenia jest puste.  Jeżeli `p` ma jeden parametr, to
 kompilator dokooptowuje dodatkowy pusty parametr, jeżeli taki istnieje
 (dla operatora `,` jest nim `void()`), bo `op` wymaga dwóch
-argumentów.  Żeby na początku nie było przecinka, to pierszy parametr
-wypisujemy poza paczką (tak, jak w przetwarzaniu rekurencyjnym), a
-wypisanie każdego parametru z paczki jest poprzedzone wypisaniem
-przecinka.
+argumentów.  Żeby na początku nie wypisać samego przecinka, to pierszy
+parametr wypisujemy poza paczką (tak, jak w przetwarzaniu
+rekurencyjnym), a wypisanie każdego parametru z paczki jest
+poprzedzone wypisaniem przecinka.
 
 ```cpp
 {% include_relative complex.cc %}
