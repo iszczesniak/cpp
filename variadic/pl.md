@@ -189,6 +189,19 @@ niewygodne i mniej ekspresywne, jak pokazano niżej:
 
 ## Krótki a trudny przykład: lista oddzielona przecinkami
 
+Przykład niżej używa operatora przecinka, który jest nietypowy,
+ponieważ łączy dwa niezależne wyrażenia.  Łączone wyrażenia nie mają
+ze sobą nic wspólnego i są opracowywane niezależnie.  Przecinek
+gwarantuje jedynie, że pierwsze będzie wykonane pierwsze wyrażenie,
+zatem nawiasy z drugiego wyrażenia nie mają wpływu na kolejność
+wykonania pierwszego wyrażenia.  W poniższym przykładzie, nawiasowanie
+nie ma wpływu na wynik, ponieważ kolejność opracowania wyrażeń z
+operatorem `<<` ustalają przecinki.
+
+```cpp
+{% include_relative complex.cc %}
+```
+
 Przykład niżej używa wersji prawej, gdzie `E` to `(std::cout << ", "
 << p)` a operatorem jest przecinek.  Jeżeli paczka `p` jest pusta, to
 wyrażenie złożenia jest puste.  Jeżeli `p` ma jeden parametr, to
