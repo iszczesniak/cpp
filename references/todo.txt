@@ -9,4 +9,31 @@ to.
 
 **********************************************************************
 
-Explicit object parameter (C++23): over_cat.cc
+Explicit object parameter (C++23)
+
+Describe the overloading over categories with the explicit object
+parameter (below) in comparison with the reference qualifier of a
+member function (categories/over_cat.cc).
+
+When time is ripe (GCC 14, Clang 18), save the following into
+over_cat.cc:
+
+int main()
+{
+  struct A
+  {
+    void operator = (this A &, int)
+    {
+    }
+
+    void operator = (this A &&, int) = delete;
+  };
+
+  A a;
+  a = 1;
+
+  // Does not compile, because the overload declared deleted.
+  // A() = 1;
+}
+
+**********************************************************************
