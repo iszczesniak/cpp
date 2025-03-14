@@ -1,0 +1,12 @@
+Pointer vs reference
+
+Explain in detail the differences between the pointers (that must
+always exist, because we can change them at run time), and references
+(that exist only at compile time, because they do not need to exist at
+run time, as they cannot be changed).  In the place of a reference,
+the compiler hardcodes the address of the data the reference is bound
+to.
+
+**********************************************************************
+
+Explicit member parameter (C++23): explicit.cc
