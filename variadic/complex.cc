@@ -14,4 +14,6 @@ main()
 {
   print(5, "10", std::string("15"));
   std::cout << std::endl;
+  // What's this?
+  1, void();
 }
