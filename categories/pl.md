@@ -364,8 +364,8 @@ sposoby:
 
   * to wyrażenie jest:
 
-    * l-wartością, jeżeli funkcja zwraca typ referencyjny (typ
-      zdefiniowany z użyciem deklaratora `&`),
+    * l-wartością, jeżeli funkcja zwraca referencję (a dokładnie
+      l-referencję),
 
     * r-wartością w przeciwnym razie.
 
