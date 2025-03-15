@@ -330,24 +330,21 @@ expression in two ways:
 
 * by name only:
 
-  * the expression: `foo`,
+  * i.e., the expression: `foo`,
 
-  * that expression is an lvalue, 
-
-  * we can take the address of that expression: `&foo`,
+  * that expression is an lvalue, because we can take its address:
+    `&foo`,
 
 * by a function call:
 
-  * the expression: `foo(<args>)`,
+  * i.e., the expression: `foo(<args>)`,
 
-  * the category of that expression expression depends on the return
-    type of the function called:
+  * that expression is:
 
-    * if the return type is *a reference* type, then that expression
-      is an *lvalue*,
+    * an lvalue if the function returns a reference (an lvalue
+      reference, specifically),
 
-    * if the return type is *not a reference* type, then that
-      expression is *an rvalue*.
+    * an rvalue otherwise.
 
 This is an example of a function call that is an lvalue:
 
