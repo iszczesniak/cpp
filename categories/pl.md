@@ -354,23 +354,20 @@ sposoby:
 
 * tylko przez nazwę:
 
-  * wyrażenie: `foo`,
+  * czyli mowa o takim wyrażeniu: `foo`,
 
-  * to wyrażenie jest l-wartością,
-  
-  * możemy pobrać adres: `&foo`,
+  * to wyrażenie jest l-wartością, bo możemy pobrać adres: `&foo`,
 
-* wywołanie funkcji:
+* jako wywołanie funkcji:
 
-  * wyrażenie: `foo(<argumenty>)`,
+  * czyli mowa o takim wyrażeniu: `foo(<argumenty>)`,
 
-  * kategoria tego wyrażenia zależy od typu wartości zwracanej przez
-    funkcję: jeżeli zwracana wartość:
+  * to wyrażenie jest:
 
-    * jest typu referencyjnego (typ zdefiniowany z użyciem deklaratora
-      `&`), to wyrażenie jest l-wartością,
+    * l-wartością, jeżeli funkcja zwraca typ referencyjny (typ
+      zdefiniowany z użyciem deklaratora `&`),
 
-    * nie jest typu referencyjnego, to wyrażenie jest r-wartością.
+    * r-wartością w przeciwnym razie.
 
 To jest przykład wyrażenia wywołania funkcji, które jest l-wartością,
 bo zwracana wartość jest typu referencyjnego:
