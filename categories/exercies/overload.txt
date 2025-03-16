@@ -1,5 +1,3 @@
-Implement struct A with two overloads of member function foo:
-
-* one for lvalues,
-
-* one for rvalues.
+Implement struct A with two member overloads of the prefix increment
+operator: one for lvalues, the other for rvalues.  The overloads
+do and return nothing.
