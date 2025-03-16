@@ -1,0 +1,3 @@
+Implement an empty struct A, and then define two non-member overloads
+of the prefix increment operator: one for lvalues, the other for
+rvalues.  The overloads do and return nothing.
