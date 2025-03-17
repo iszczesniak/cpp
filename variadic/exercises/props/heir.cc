@@ -15,4 +15,5 @@ main()
   type joe{name<string>("Jonathan"), weight<int>(12)};
   get_name(joe) += " I";
   get_weight(joe) += 50;
+  cout << joe << '\n';
 }
