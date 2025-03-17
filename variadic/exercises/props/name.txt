@@ -1,0 +1,18 @@
+Write a header file "name.hpp" that implements a struct template
+"name" that is parametrized with the type that can store names, e.g.,
+const char *, std::string.  This type should have just a member field,
+so that we can initialize an object of this type with {}.  Please make
+sure your implementation compiles with a sample program name.cc.
+
+Define a non-member function get_name that takes an object of the
+"name" struct, and returns by reference the value that described the
+name.  There have to be two functions:
+
+* one that takes a non-const reference to name<T>, and returns a
+  non-const reference to the member field,
+
+* one that takes a const reference to name<T>, and returns a non-const
+  reference to the member field.
+
+Also, overload the << operator for the output stream, so that we can
+print the value of the object to std::cout.
