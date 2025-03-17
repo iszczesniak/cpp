@@ -1,6 +1,6 @@
 Goal: find out whether references are always optimized out.
 
-Compile (without linking) the pointer.cpp program into the assembly:
+Compile (without linking) the pointer.cpp program into the assembler:
 
 g++ -c -S pointer.cpp
 
