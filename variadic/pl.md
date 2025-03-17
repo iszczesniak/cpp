@@ -216,12 +216,6 @@ poprzedzone wypisaniem przecinka.
 {% include_relative complex.cc %}
 ```
 
-# Rozbudowany przykład: własności obiektu
-
-```cpp
-{% include_relative props.cc %}
-```
-
 # Podsumowanie
 
 * Szablon wariadyczny przyjmuje dowolną liczbę argumentów.
