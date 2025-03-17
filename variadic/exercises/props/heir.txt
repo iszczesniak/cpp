@@ -1,0 +1,7 @@
+Implement a struct "heir" that inherits from any number of base
+classes.  Its constructor should take by a const reference one
+argument to pass to each base contructor.  Implement with a fold
+expression the << operator that would call the << operator for the
+base classes.
+
+Take a look at heir.cc how we want to use that struct.
