@@ -1,0 +1,11 @@
+Goal: find out whether references are always optimized out.
+
+Compile (without linking) the pointer.cpp program into the assembly:
+
+g++ -c -S pointer.cpp
+
+Take a look at the assembly of the main function.  When passing by
+reference to function foo, are we not just passing a pointer?
+
+Now, define a body of the function (up to now the function was only
+declared), and compile again.  Was the reference optimized out?
