@@ -1,8 +1,8 @@
 struct A
 {
-  volatile int &m_i;
+  volatile int &m_r;
 
-  A(volatile int &i): m_i(i)
+  A(volatile int &r): m_r(r)
   {
   }
 };
