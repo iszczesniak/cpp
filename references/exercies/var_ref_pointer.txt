@@ -1,0 +1,13 @@
+In the corresponding program, there are defined:
+
+* an integer variable i,
+
+* an rvalue reference r to a temporary 1,
+
+* a pointer p to the variable i.
+
+Is there a difference between i and r?
+
+Taking a look at the assembler output, experiment when r and p are
+optimized out.
+
