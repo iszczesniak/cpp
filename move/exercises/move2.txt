@@ -1,0 +1,3 @@
+Implement struct B derived from A.  B has a member object `m_txt` of
+`string` type.  Make class B move-only, where the move operations move
+the base object, but copy the member object.
