@@ -272,8 +272,7 @@ Wszystkie składowe specjalne są niejawnie domyślnie zaimplementowane
 * *zasada nowego kodu*: składowe kopiujące będą **niejawnie usunięte**
   (więc będą brały udział w wyborze przeciążenia), jeżeli składowa
   przenosząca została **jawnie zadeklarowana**: programista będzie
-  musiał jawnie zadeklarować kopiujące składowe specjalne, jeżeli są
-  potrzebne.
+  musiał jawnie zadeklarować składowe kopiujące, jeżeli są potrzebne.
 
 Te zasady mają na celu bezproblemową integrację semantyki
 przeniesienia zarówno w starym, jak i nowym kodzie.  Typ, który nie
