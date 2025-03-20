@@ -196,7 +196,7 @@ Składowymi specjalnymi są:
 Składowa specjalna może być niezadeklarowana (ang. undeclared) albo
 zadeklarowana (ang. declared).  Funkcja może być zadeklarowana:
 
-* **jawnie przez programistę** (ang. explicitely) jako:
+* **jawnie przez programistę** (ang. explicitly) jako:
 
   * *dostarczona przez użytkownika* (ang. user-defined): programista
      dostarcza implementację,
