@@ -256,32 +256,33 @@ Programista może jawnie usunąć składową z użyciem `= delete`:
 ### Zasady dla składowych specjalnych
 
 Wszystkie składowe specjalne są niejawnie domyślnie zaimplementowane
-(jeżeli są potrzebne), ale:
+(jeżeli są potrzebne), chyba że będzie zastosowana:
 
-* konstruktor domyślny (ten z pustą listą parametrów) będzie
-  niezadeklarowany, jeżeli którykolwiek konstruktor będzie jawnie
-  zadeklarowany,
+* *stara zasada*: konstruktor domyślny (ten z pustą listą parametrów)
+  będzie niezadeklarowany, jeżeli którykolwiek konstruktor będzie
+  jawnie zadeklarowany,
 
-* konstruktor kopiujący i kopiujący operator przypisania będą
-  **niejawnie usunięte** (więc będą brały udział w wyborze
-  przeciążenia), jeżeli konstruktor przenoszący lub przenoszący operator
-  przypisania został **jawnie zadeklarowany**: programista będzie musiał
-  jawnie zadeklarować kopiujące składowe specjalne, jeżeli są wymagane,
+* *zasada kompatybilności wstecz*: konstruktor przenoszący i
+  przenoszący operator przypisania będą **niezadeklarowane** (więc nie
+  będą brały udziału w wyborze przeciążenia), jeżeli konstruktor
+  kopiujący, kopiujący operator przypisania lub destruktor będą
+  **jawnie zadeklarowane**: stary kod będzie nadal działał, jak
+  działał, bo nie będzie miał niejawnie dostarczonej domyślnej
+  implementacji semantyki przeniesienia (czyli przenoszących
+  składowych specjalnych),
 
-* konstruktor przenoszący i przenoszący operator przypisania będą
-  **niezadeklarowane** (więc nie będą brały udziału w wyborze
-  przeciążenia), jeżeli konstruktor kopiujący, kopiujący operator
-  przypisania lub destruktor będą **jawnie zadeklarowane**: stary kod
-  będzie nadal działał i nie będzie miał niejawnie dostarczonej domyślnej
-  implementacji semantyki przeniesienia (czyli przenoszących składowych
-  specjalnych).
+* *zasada nowego kodu*: konstruktor kopiujący i kopiujący operator
+  przypisania będą **niejawnie usunięte** (więc będą brały udział w
+  wyborze przeciążenia), jeżeli konstruktor przenoszący lub
+  przenoszący operator przypisania został **jawnie zadeklarowany**:
+  programista będzie musiał jawnie zadeklarować kopiujące składowe
+  specjalne, jeżeli są potrzebne.
 
 Te zasady mają na celu bezproblemową integrację semantyki
-przeniesienia zarówno w starym, jak i nowym kodzie.  Na przykład,
-stary kod (np. `std::pair`), który nie zarządza swoimi zasobami w
-jakiś nietypowy sposób (który wymagałby implementacji konstruktora
-kopiującego, kopiującego operatora przypisania lub destruktora),
-będzie miał dostarczoną domyślną implementację semantyki
+przeniesienia zarówno w starym, jak i nowym kodzie.  Typ, który nie
+zarządza swoimi zasobami w jakiś nietypowy sposób (nie będzie
+deklarował składowych kopiujących czy przenoszących), będzie miał
+dostarczone domyślne implementacje semantyk kopiowania i
 przeniesienia.
 
 ## Typ tylko do przenoszenia
@@ -401,6 +402,6 @@ Semantyka przeniesienia:
 
 * Jak działa semantyka przeniesienia?
 
-* Czy jest typ tylko do przenoszenia?
+* Czym jest typ tylko do przenoszenia?
 
 <!-- LocalWords: destructor expr lvalue lvalues rvalue rvalues RVO -->
