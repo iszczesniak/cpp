@@ -7,11 +7,11 @@ title: Materiały z C++
 Tu są moje materiały dotyczące C++, które uważam za interesujące i
 ważne dla wydajnego kodu.
 
-> Chodzi mi o to, aby język giętki
-> Powiedział wszystko, co pomyśli głowa;
-> A czasem był jak piorun jasny prędki, (...)
+> Chodzi mi o to, aby język giętki<br/>
+> Powiedział wszystko, co pomyśli głowa;<br/>
+> A czasem był jak piorun jasny prędki, (...)<br/>
 >
->                            Juliusz Słowacki
+> Juliusz Słowacki
 
 ## Zaawansowane programowanie obiektowe
 
