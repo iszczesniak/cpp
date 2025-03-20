@@ -1,9 +1,9 @@
 #include <utility>
 
-// A move-only type.  We do not have to explicitely delete the copy
+// A move-only type.  We do not have to explicitly delete the copy
 // constructor, and the copy assignment operator, because they will be
-// implicitely deleted, since the move constructor and the move
-// assignment operator are explicitely defaulted.
+// implicitly deleted, since the move constructor and the move
+// assignment operator are explicitly defaulted.
 struct A
 {
   A() = default;
