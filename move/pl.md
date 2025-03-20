@@ -117,7 +117,7 @@ obiektów bazowych i składowych.  Do tego celu używamy funkcji
 zaimplementowano także konstruktor kopiujący.
 
 ```cpp
-{% include_relative ctor-impl.cc %}
+{% include_relative ctor_impl.cc %}
 ```
   
 ## Operator przypisania: kopiujący i przenoszący
@@ -170,7 +170,7 @@ pokazano w przykładzie niżej, w którym dla porównania zaimplementowano
 także kopiujący operator przypisania.
 
 ```cpp
-{% include_relative assign-impl.cc %}
+{% include_relative assign_impl.cc %}
 ```
 
 ## Wybór przeciążenia
@@ -290,7 +290,7 @@ Obiekty typu tylko do przenoszenia mogą być tylko przenoszone i nie
 mogą być kopiowane.  Oto przykład typu tylko do przenoszenia:
 
 ```cpp
-{% include_relative move-only.cc %}
+{% include_relative move_only.cc %}
 ```
 
 # Konsekwencje semantyki przeniesienia

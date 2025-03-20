@@ -127,7 +127,7 @@ function, as shown in the example below, where the copy constructor is
 also implemented for comparison.
 
 ```cpp
-{% include_relative ctor-impl.cc %}
+{% include_relative ctor_impl.cc %}
 ```
   
 ## The copy and move assignment operators
@@ -175,7 +175,7 @@ can use the `std::move` function, as shown in the example below, where
 the copy assignment operator is also implemented for comparison.
 
 ```cpp
-{% include_relative assign-impl.cc %}
+{% include_relative assign_impl.cc %}
 ```
 
 ## Overload resolution
@@ -290,7 +290,7 @@ A move-only type can only be moved: it cannot be copied.  This is an
 example of a move-only type:
 
 ```cpp
-{% include_relative move-only.cc %}
+{% include_relative move_only.cc %}
 ```
 
 # Implications of the move semantics
