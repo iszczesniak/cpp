@@ -7,6 +7,10 @@ title: Materiały z C++
 Tu są moje materiały dotyczące C++, które uważam za interesujące i
 ważne dla wydajnego kodu.
 
+| Chodzi mi o to, aby język giętki
+| Powiedział wszystko, co pomyśli głowa;
+| A czasem był jak piorun jasny prędki, (...)
+
 ## Zaawansowane programowanie obiektowe
 
 * [Organizacja pamięci](memory/pl)
