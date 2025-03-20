@@ -1,5 +1,17 @@
+#include <iostream>
+
+struct A
+{
+  A &operator = (A &&)
+  {
+    std::cout << __PRETTY_FUNCTION__ << std::endl;
+    return *this;
+  }
+};
+
 int
 main()
 {
-  a = b = T();
+  A x, y;
+  A &r = A() = A();
 }
