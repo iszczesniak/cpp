@@ -207,7 +207,7 @@ zadeklarowana (ang. declared).  Funkcja może być zadeklarowana:
   * *usunięta* (ang. deleted): programista deklaruje składową jako
      usuniętą.
 
-* **niejawnie przez kompilator** (ang. implicitely) jako:
+* **niejawnie przez kompilator** (ang. implicitly) jako:
 
   * *domyślnie zaimplementowana* (ang. defaulted): kompilator dołącza
      domyślą implementację bez żądania programisty,
