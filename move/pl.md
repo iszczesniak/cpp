@@ -156,8 +156,8 @@ kopiowania.
 Co ciekawe, ponieważ wyrażenie z wywołaniem przenoszącego operatora
 przypisania (zadeklarowanego jako `T &operator=(T &&);`) jest
 l-wartością (ponieważ zwraca l-referencję), to możemy go użyć do
-inicjalizacji l-referencji: `T &l = T() = T();`, mimo że `T &l = T();`
-się nie kompiluje.
+inicjalizacji niestałej l-referencji: `T &l = T() = T();`, mimo że `T
+&l = T();` się nie kompiluje.
 
 ### Implementacja przeciążeń operatora przypisania
 
