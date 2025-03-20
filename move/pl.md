@@ -144,7 +144,7 @@ Jeżeli `a` i `b` są typu `T`, to wyrażenie `a = b = T()` powinno
 przenieść wartość z obiektu tymczasowego `T()` do `b`, a następnie
 powinno skopiować wartość z `b` do `a`.  To wyrażenie jest
 opracowywane od prawej do lewej strony, ponieważ operator przypisania
-ma wiązanie prawostronne.
+ma prawe wiązanie.
 
 Dlatego przenoszący operator przypisania powinien zwracać
 l-referencję, a nie r-referencję.  Jeżeli operator zwracałby
