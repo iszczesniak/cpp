@@ -149,8 +149,9 @@ ma wiązanie prawostronne.
 Dlatego przenoszący operator przypisania powinien zwracać
 l-referencję, a nie r-referencję.  Jeżeli operator zwracałby
 r-referencję, to wtedy to wyrażenie przenosiłoby wartość z obiektu
-tymczasowego `T()` do `b` (tak jak należy), ale potem przenosiłoby
-wartość z `b` do `a`, a nie kopiowało, czego byśmy oczekiwali.
+tymczasowego `T()` do `b` (tak jak oczekujemy), ale potem
+*przenosiłoby* wartość z `b` do `a`, a przecież oczekiwalibyśmy
+kopiowania.
 
 Co ciekawe, ponieważ wyrażenie z wywołaniem przenoszącego operatora
 przypisania (zadeklarowanego jako `T &operator=(T &&);`) jest
