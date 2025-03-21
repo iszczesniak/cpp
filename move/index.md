@@ -273,11 +273,10 @@ needed), unless one of the following rules applies:
   implementation of move semantics (i.e., the move members) will not
   be stuffed in,
 
-* *the rule for the new code*: the copy constructor and the copy
-  assignment operator will be **implicitly deleted**, if the move
-  constructor or the move assignment operator is **explicitly
-  declared** (so that a programmer has to implement, if needed, the
-  copy constructor and the copy assignment operators).
+* *the rule for the new code*: the copy members will be **implicitly
+  deleted** (so that overload resolution considers them), if a move
+  member is **explicitly declared**: a programmer would have to
+  declare the copy members, if they are required.
 
 These rules ensure the seamless integration of the move semantics into
 the legacy and modern code.  For instance, the legacy code (such as
