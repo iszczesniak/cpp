@@ -259,8 +259,8 @@ Wszystkie składowe specjalne są niejawnie domyślnie zaimplementowane
 (jeżeli są potrzebne), chyba że będzie zastosowana:
 
 * *stara zasada*: konstruktor domyślny (ten z pustą listą parametrów)
-  będzie niezadeklarowany, jeżeli którykolwiek konstruktor będzie
-  jawnie zadeklarowany,
+  będzie **niezadeklarowany**, jeżeli którykolwiek inny konstruktor
+  będzie jawnie **zadeklarowany**,
 
 * *zasada kompatybilności wstecz*: składowe przenoszące będą
   **niezadeklarowane** (więc nie będą brały udziału w wyborze

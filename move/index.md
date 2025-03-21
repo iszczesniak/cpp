@@ -263,14 +263,15 @@ deleted with `= delete`, like this:
 All special member functions are implicitly defaulted (if they are
 needed), unless one of the following rules applies:
 
-* *the old rule*: the default constructor will be **undeclared**, if
-  any other constructor is **explicitly declared**,
+* *the same old rule*: the default constructor will be **undeclared**,
+  if any other constructor is **explicitly declared**,
 
-* *the backward compatibility rule*: the move constructor and the move
-  assignment operator will be **undeclared**, if the copy constructor,
-  the copy assignment operator or the destructor is **explicitly
-  declared** (so that the legacy code continues to work and doesn't
-  have the move semantics stuffed in),
+* *the backward compatibility rule*: the move members will be
+  **undeclared** (so that overload resolution does not consider them),
+  if the copy members or the destructor are **explicitly declared**:
+  the legacy code continues to work the old way because the default
+  implementation of move semantics (i.e., the move members) will not
+  be stuffed in,
 
 * *the rule for the new code*: the copy constructor and the copy
   assignment operator will be **implicitly deleted**, if the move
