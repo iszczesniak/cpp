@@ -148,22 +148,42 @@ In the example below the class has both operators defined:
 
 ### The return type of the move assignment operator
 
-If `a` and `b` are of type `T`, then expression `a = b = T()` should
-move the value of the temporary object `T()` to `b`, and then should
-copy the value from `b` to `a`.  That expression is evaluated
+If `x` and `y` are of type `A`, then expression `x = y = A()` should
+move the value of the temporary object `A()` to `y`, and then should
+copy the value from `y` to `x`.  That expression is evaluated
 right-to-left, because the assignment operator has the right-to-left
 associativity.
 
 Therefore, the move assignment operator should return an lvalue
 reference, and not an rvalue reference.  If the move assignment
 operator returned an rvalue reference, then that expression would move
-the value from the temporary object `T()` to `b`, and then move (not
-copy) the value of `b` to `a`.
+the value from the temporary object `A()` to `y` (as expected), and
+then move the value of `b` to `a`, while we would expect the copying.
+The implementation is below.
 
-Interestingly, because the move assignment operator returns an lvalue
-reference (when it is declared as `T &operator=(T &&);`), we can
-initialize an lvalue reference with the return value of the operator:
-`T &l = T() = T();` even though `T &l = T();` would fail to compile.
+```cpp
+{% include_relative assign_cat1.cc %}
+```
+
+However, with the above implementation, expression `x = A() = A()` is
+incorrectly evaluated.  Expression `A() = A()` indeed moves the value
+from the right temporary to the left one, but it's an lvalue (because
+the move assignment operator returns an lvalue reference) that becomes
+the source expression for the assignment operator for `x`, a copy
+assignment operator, a not the expected move one.
+
+Interestingly, the move assignment operator returns an lvalue
+reference that we can use to initialize an lvalue reference: `T &l =
+T() = T();`.  Such initialization compiles, even though it shouldn't
+as `T &l = T();` fails to compile.  That's a shortcoming.
+
+To fix the above incorrect evaluation and the shortcoming, we should
+overload the move assignment operator separately for the lvalues and
+rvalues.  The correct implementation follows.
+
+```cpp
+{% include_relative assign_cat2.cc %}
+```
 
 ### Implementation of the assignment operator overloads
 

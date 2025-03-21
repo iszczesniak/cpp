@@ -149,7 +149,7 @@ ma prawe wiązanie.
 Dlatego przenoszący operator przypisania powinien zwracać
 l-referencję, a nie r-referencję.  Jeżeli operator zwracałby
 r-referencję, to wtedy to wyrażenie przenosiłoby wartość z obiektu
-tymczasowego `T()` do `y` (tak jak oczekujemy), ale potem
+tymczasowego `A()` do `y` (tak jak oczekujemy), ale potem
 *przenosiłoby* wartość z `y` do `x`, a przecież oczekiwalibyśmy
 kopiowania.  Implementacja poniżej.
 
@@ -159,15 +159,15 @@ kopiowania.  Implementacja poniżej.
 
 Jednak z powyższą implementacją, wyrażenie `x = A() = A()` jest
 niepoprawnie opracowywane.  Wyrażenie `A() = A()` co prawda przeniesie
-wartość z prawego obiektu do lewego, ale zwróci l-wartość (ponieważ
-przenoszący operator przypisania zwraca l-referencję), która będzie
-wyrażeniem źródłowym operatora przypisania do zmiennej `x`, ale
+wartość z prawego obiektu do lewego, ale to wyrażenie jest l-wartością
+(ponieważ przenoszący operator przypisania zwraca l-referencję), która
+będzie wyrażeniem źródłowym operatora przypisania do zmiennej `x`, ale
 operatora przypisania kopiującego, a nie oczekiwanego przenoszącego.
 
 Co ciekawe, ponieważ przenoszący operator przypisania zwraca
-l-wartość, to jego wyniku możemy użyć do inicjalizacji niestałej
-l-referencji: `T &l = T() = T();`.  Taka inicjalizacja kompiluje się,
-choć nie powinna, skoro `T &l = T();` się nie kompiluje.  To jest
+l-referencję, to jego wynikiem możemy zainicjalizować niestałą
+l-referencję: `A &l = A() = A();`.  Taka inicjalizacja kompiluje się,
+choć nie powinna, skoro `A &l = A();` się nie kompiluje.  To jest
 uchybienie.
 
 Żeby zaradzić powyższemu niepoprawnemu opracowaniu i temu uchybieniu,
