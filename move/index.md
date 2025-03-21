@@ -279,10 +279,9 @@ needed), unless one of the following rules applies:
   declare the copy members, if they are required.
 
 These rules ensure the seamless integration of the move semantics into
-the legacy and modern code.  For instance, the legacy code (such as
-`std::pair`) that doesn't do any special resource management (in the
-copy constructor, the copy assignment operator, and the destructor),
-will have the move semantics implemented by default.
+the legacy and modern code.  A type that does not manage its resources
+in some unusual way (it's about the special members), will have the
+copy and move semantics implemented by default.
 
 ## Move-only types
 

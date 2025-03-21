@@ -277,7 +277,7 @@ Wszystkie składowe specjalne są niejawnie domyślnie zaimplementowane
 Te zasady mają na celu bezproblemową integrację semantyki
 przeniesienia zarówno w starym, jak i nowym kodzie.  Typ, który nie
 zarządza swoimi zasobami w jakiś nietypowy sposób (chodzi o składowe
-specjalne), będzie miał dostarczone domyślne implementacje semantyk
+specjalne), będzie miał zaimplementowane domyślnie semantyki
 kopiowania i przeniesienia.
 
 ## Typ tylko do przenoszenia
