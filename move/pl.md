@@ -151,24 +151,28 @@ l-referencję, a nie r-referencję.  Jeżeli operator zwracałby
 r-referencję, to wtedy to wyrażenie przenosiłoby wartość z obiektu
 tymczasowego `T()` do `y` (tak jak oczekujemy), ale potem
 *przenosiłoby* wartość z `y` do `x`, a przecież oczekiwalibyśmy
-kopiowania.
+kopiowania.  Implementacja poniżej.
 
 ```cpp
 {% include_relative assign_cat1.cc %}
 ```
 
-Co ciekawe, ponieważ wyrażenie z wywołaniem przenoszącego operatora
-przypisania (zadeklarowanego jako `T &operator=(A &&);`) jest
-l-wartością (ponieważ zwraca l-referencję), to możemy go użyć do
-inicjalizacji niestałej l-referencji: `T &l = T() = T();`.  Taka
-inicjalizacja kompiluje się, choć nie powinna, skoro `T &l = T();` się
-nie kompiluje.  To jest uchybienie.
+Jednak z powyższą implementacją, wyrażenie `x = A() = A()` jest
+niepoprawnie opracowywane.  Wyrażenie `A() = A()` co prawda przeniesie
+wartość z prawego obiektu do lewego, ale zwróci l-wartość (ponieważ
+przenoszący operator przypisania zwraca l-referencję), która będzie
+wyrażeniem źródłowym przypisania zmiennej `x`, ale przez kopiowanie, a
+nie oczekiwane przeniesienie.
 
-Kolejnym uchybieniem jest niepoprawne opracowanie wyrażenia `x = A() =
-A()`.  Wyrażenie `A() = A()` co prawda przeniesie wartość z prawego
-obiektu do lewego, ale zwróci l-wartość, która będzie wyrażeniem
-źródłowym przypisania zmiennej `x`, więc przypisanie odbiędzie się
-przez kopiowanie, a oczekiwalibyśmy przeniesienia.
+Co ciekawe, ponieważ przenoszący operator przypisania zwraca
+l-wartość, to jego wyniku możemy użyć do inicjalizacji niestałej
+l-referencji: `T &l = T() = T();`.  Taka inicjalizacja kompiluje się,
+choć nie powinna, skoro `T &l = T();` się nie kompiluje.  To jest
+uchybienie.
+
+Żeby zaradzić powyższemu niepoprawnemu opracowaniu i temu uchybieniu,
+należy przeciążyć przenoszący operator przypisania osobno dla
+l-wartości i r-wartości.  Poprawna implementacja poniżej.
 
 ```cpp
 {% include_relative assign_cat2.cc %}
