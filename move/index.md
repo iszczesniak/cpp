@@ -261,10 +261,10 @@ deleted with `= delete`, like this:
 ### Rules for special member functions
 
 All special member functions are implicitly defaulted (if they are
-needed), but:
+needed), unless one of the following rules applies:
 
-* the default constructor will be **undeclared**, if any other
-  constructor is *explicitly declared*,
+* *the old rule*: the default constructor will be **undeclared**, if
+  any other constructor is *explicitly declared*,
 
 * the copy constructor and the copy assignment operator will be
   **implicitly deleted**, if the move constructor or the move
