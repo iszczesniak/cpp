@@ -140,24 +140,39 @@ przypisania:
 
 ### Typ wyniku przenoszącego operatora przypisania
 
-Jeżeli `a` i `b` są typu `T`, to wyrażenie `a = b = T()` powinno
-przenieść wartość z obiektu tymczasowego `T()` do `b`, a następnie
-powinno skopiować wartość z `b` do `a`.  To wyrażenie jest
+Jeżeli `x` i `y` są typu `A`, to wyrażenie `x = y = A()` powinno
+przenieść wartość z obiektu tymczasowego `A()` do `y`, a następnie
+powinno skopiować wartość z `y` do `x`.  To wyrażenie jest
 opracowywane od prawej do lewej strony, ponieważ operator przypisania
 ma prawe wiązanie.
 
 Dlatego przenoszący operator przypisania powinien zwracać
 l-referencję, a nie r-referencję.  Jeżeli operator zwracałby
 r-referencję, to wtedy to wyrażenie przenosiłoby wartość z obiektu
-tymczasowego `T()` do `b` (tak jak oczekujemy), ale potem
-*przenosiłoby* wartość z `b` do `a`, a przecież oczekiwalibyśmy
+tymczasowego `T()` do `y` (tak jak oczekujemy), ale potem
+*przenosiłoby* wartość z `y` do `x`, a przecież oczekiwalibyśmy
 kopiowania.
 
+```cpp
+{% include_relative assign_cat1.cc %}
+```
+
 Co ciekawe, ponieważ wyrażenie z wywołaniem przenoszącego operatora
-przypisania (zadeklarowanego jako `T &operator=(T &&);`) jest
+przypisania (zadeklarowanego jako `T &operator=(A &&);`) jest
 l-wartością (ponieważ zwraca l-referencję), to możemy go użyć do
-inicjalizacji niestałej l-referencji: `T &l = T() = T();`, mimo że `T
-&l = T();` się nie kompiluje.
+inicjalizacji niestałej l-referencji: `T &l = T() = T();`.  Taka
+inicjalizacja kompiluje się, choć nie powinna, skoro `T &l = T();` się
+nie kompiluje.  To jest uchybienie.
+
+Kolejnym uchybieniem jest niepoprawne opracowanie wyrażenia `x = A() =
+A()`.  Wyrażenie `A() = A()` co prawda przeniesie wartość z prawego
+obiektu do lewego, ale zwróci l-wartość, która będzie wyrażeniem
+źródłowym przypisania zmiennej `x`, więc przypisanie odbiędzie się
+przez kopiowanie, a oczekiwalibyśmy przeniesienia.
+
+```cpp
+{% include_relative assign_cat2.cc %}
+```
 
 ### Implementacja przeciążeń operatora przypisania
 
