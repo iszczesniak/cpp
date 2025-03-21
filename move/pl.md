@@ -161,8 +161,8 @@ Jednak z powyższą implementacją, wyrażenie `x = A() = A()` jest
 niepoprawnie opracowywane.  Wyrażenie `A() = A()` co prawda przeniesie
 wartość z prawego obiektu do lewego, ale zwróci l-wartość (ponieważ
 przenoszący operator przypisania zwraca l-referencję), która będzie
-wyrażeniem źródłowym przypisania zmiennej `x`, ale przez kopiowanie, a
-nie oczekiwane przeniesienie.
+wyrażeniem źródłowym operatora przypisania do zmiennej `x`, ale
+operatora przypisania kopiującego, a nie oczekiwanego przenoszącego.
 
 Co ciekawe, ponieważ przenoszący operator przypisania zwraca
 l-wartość, to jego wyniku możemy użyć do inicjalizacji niestałej
