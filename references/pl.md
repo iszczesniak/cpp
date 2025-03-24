@@ -294,7 +294,12 @@ Oto przykład:
 
 ## Jawna konwersja l-wartości do r-wartości
 
-Możemy jawnie konwertować l-wartość do r-wartości przez użycie
+Znamy już konwersję standardową, która **niejawnie** konwertuje
+l-wartość do r-wartości.  Jednak ta konwersja standardowa nie ma
+zastosowania przy inicjalizacji r-referencji: wyrażenie inicjalizujące
+musi być r-wartością ([dcl.init.ref]).
+
+Możemy **jawnie** konwertować l-wartość do r-wartości przez użycie
 `static_cast<T &&>(<expr>)`, gdzie `<expr>` może być l-wartością albo
 r-wartością.  Jawne podanie typu `T` jest jednak trochę uciążliwe.
 

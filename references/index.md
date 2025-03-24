@@ -279,7 +279,12 @@ Here's a complete example:
 
 ## Explicit conversion from an lvalue to an rvalue
 
-We can explicitely get an rvalue reference to an lvalue with
+We already know the standard conversion that **implicitly** converts
+an lvalue to an rvalue.  However, that standard conversion is
+suppressed in the initialization of an rvalue reference: the
+initializing expression must by an rvalue ([dcl.init.ref]).
+
+We can **explicitly** get an rvalue reference to an lvalue with
 `static_cast<T &&>(<expr>)`, where `<expr>` can be an lvalue or an
 rvalue.  This is, however, a bit wordy, since we have to type in the
 type `T`.
