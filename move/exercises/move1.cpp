@@ -18,7 +18,7 @@ struct A
 struct B: A
 {
   std::string m_txt;
-  B(B &&src): A(src), m_txt(src.m_txt)
+  B(B &&src): A(src), m_txt(move(src.m_txt))
   {
   }
 
