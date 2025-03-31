@@ -29,6 +29,9 @@ Kompilator wnioskuje argumenty szablonu (funkcji) na podstawie:
 
 * **typów i kategorii** argumentów wywołania funkcji.
 
+Wpływ kategorii argumentu na wnioskowanie jest dosyć skomplikowany i
+opisany w oddzielnym temacie doskonałego przekazywania argumentów.
+
 ## Najprostszy przypadek
 
 W najprostszym przypadku wywołujemy funkcję z jednym parametrem:
@@ -261,21 +264,23 @@ Typowy argument szablonu jest wnioskowany dla typowego parametru
 szablonu.  To wnioskowanie jest najbardziej złożone (w porównaniu do
 rodzaju wartościowego czy szablonowego), bo rozróżnia:
 
-* typy parametrów funkcji, w szczególności:
+* typ parametru funkcji, w szczególności:
 
-  - **zwykłe** (niewskaźnikowe i niereferencyjne) dla przekazywania
+  - **zwykły** (niewskaźnikowy i niereferencyjny) dla przekazywania
       przez wartość,
 
-  - **wskaźnikowe** dla przekazywania przez wskaźnik (które jest
+  - **wskaźnikowy** dla przekazywania przez wskaźnik (które jest
       przekazywaniem wskaźnika przez wartość),
 
-  - **referencyjne** dla przekazywania przez referencję.
+  - **referencyjny** dla przekazywania przez referencję.
 
-* typy argumentów wywołania funkcji, w szczególności:
+* typ argumentu wywołania funkcji, w szczególności:
 
-  - **funkcyjne**,
+  - **funkcyjny**,
 
-  - **tablicowe**.
+  - **tablicowy**.
+
+* kategorię argumentu (opisane w innym temacie).
 
 W zależności od omawianych szczególnych (najważniejszych) typów
 parametru funkcji (zwykłych, wskaźnikowych, referencyjnych) stosowane
