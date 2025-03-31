@@ -69,9 +69,10 @@ domyślnego) funkcji.
 
 **Ograniczenie: inicjalizacja ma się odbyć bez konwersji typu.**
 
-Mowa tu o konwersji typu argumentu wywołania funkcji do typu parametru
-funkcji.  Przy wywołaniu zwykłej (nieszablonowej) funkcji tego
-ograniczenia nie ma (tam konwersje są dozwolone).
+Mowa tu o konwersji typu argumentu `expr` wywołania funkcji do typu
+`ParameterType` parametru funkcji.  Przy wywołaniu zwykłej
+(nieszablonowej) funkcji tego ograniczenia nie ma (tam konwersje są
+dozwolone).
 
 Inicjalizacja parametru `t` w powyższym najprostszym przypadku wygląda
 zatem tak:
@@ -106,6 +107,14 @@ Wywnioskowanym argumentem będzie ciągle `T = int`, bo r-wartość typu
 wbudowanego (literał `1`) jest typu niestałego (tak powiada standard).
 Zatem konkretyzacja nie powiedzie się, bo l-referencja niestała `t`
 nie może być zainicjalizowana r-wartością.
+
+Coś jest nie tak z tym brakiem konwersji w przykładach wyżej:
+`ParameterType` jest **`const int &`**, a wyrażenie `1` jest typu
+**`int`**!  Gdzie tu zgodność?  To teraz precyzyjniej: typ
+`ParameterType` parametru funkcji i typ argumentu `expr` mogą się
+różnić wyłącznie kwalifikatorami i deklaratorem `&` najwyższego rzędu.
+Te różnice są dopuszczalne z uwagi na zasady (opisane niżej)
+inicjalizowania zmiennych.
 
 ## Najwyższego rzędu
 
