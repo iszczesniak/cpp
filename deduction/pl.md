@@ -264,8 +264,8 @@ dalszym opracowaniem.
 # Rodzaje argumentów
 
 Dla każdego **rodzaju** parametru szablonu, kompilator może wnioskować
-argument.  Najczęściej chcemy, żeby kompilator wnioskował typowe
-argumenty, ale czasem też argumenty wartościowe.
+argument.  Najczęściej chcemy, żeby kompilator wnioskował typowe (w
+tym szablonowe) argumenty, ale czasem też argumenty wartościowe.
 
 ## Typowy argument
 
