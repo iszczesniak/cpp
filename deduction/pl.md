@@ -267,10 +267,10 @@ rodzaju wartościowego czy szablonowego), bo rozróżnia:
 * typ parametru funkcji, w szczególności:
 
   - **zwykły** (niewskaźnikowy i niereferencyjny) dla przekazywania
-      przez wartość,
+    przez wartość,
 
   - **wskaźnikowy** dla przekazywania przez wskaźnik (które jest
-      przekazywaniem wskaźnika przez wartość),
+    po prostu przekazywaniem przez wartość),
 
   - **referencyjny** dla przekazywania przez referencję.
 
