@@ -29,6 +29,9 @@ Kompilator wnioskuje argumenty szablonu (funkcji) na podstawie:
 
 * **typów i kategorii** argumentów wywołania funkcji.
 
+Wpływ kategorii argumentu na wnioskowanie jest dosyć skomplikowany i
+opisany w oddzielnym temacie doskonałego przekazywania argumentów.
+
 ## Najprostszy przypadek
 
 W najprostszym przypadku wywołujemy funkcję z jednym parametrem:
@@ -66,9 +69,10 @@ domyślnego) funkcji.
 
 **Ograniczenie: inicjalizacja ma się odbyć bez konwersji typu.**
 
-Mowa tu o konwersji typu argumentu wywołania funkcji do typu parametru
-funkcji.  Przy wywołaniu zwykłej (nieszablonowej) funkcji tego
-ograniczenia nie ma (tam konwersje są dozwolone).
+Mowa tu o konwersji typu argumentu `expr` wywołania funkcji do typu
+`ParameterType` parametru funkcji.  Przy wywołaniu zwykłej
+(nieszablonowej) funkcji tego ograniczenia nie ma (tam konwersje są
+dozwolone).
 
 Inicjalizacja parametru `t` w powyższym najprostszym przypadku wygląda
 zatem tak:
@@ -103,6 +107,14 @@ Wywnioskowanym argumentem będzie ciągle `T = int`, bo r-wartość typu
 wbudowanego (literał `1`) jest typu niestałego (tak powiada standard).
 Zatem konkretyzacja nie powiedzie się, bo l-referencja niestała `t`
 nie może być zainicjalizowana r-wartością.
+
+Coś jest nie tak z tym brakiem konwersji w przykładach wyżej:
+`ParameterType` jest **`const int &`**, a wyrażenie `1` jest typu
+**`int`**!  Gdzie tu zgodność?  To teraz precyzyjniej: typ
+`ParameterType` parametru funkcji i typ argumentu `expr` mogą się
+różnić wyłącznie kwalifikatorami i deklaratorem `&` najwyższego rzędu.
+Te różnice są dopuszczalne z uwagi na zasady (opisane niżej)
+inicjalizowania zmiennych.
 
 ## Najwyższego rzędu
 
@@ -261,21 +273,23 @@ Typowy argument szablonu jest wnioskowany dla typowego parametru
 szablonu.  To wnioskowanie jest najbardziej złożone (w porównaniu do
 rodzaju wartościowego czy szablonowego), bo rozróżnia:
 
-* typy parametrów funkcji, w szczególności:
+* typ parametru funkcji, w szczególności:
 
-  - **zwykłe** (niewskaźnikowe i niereferencyjne) dla przekazywania
-      przez wartość,
+  - **zwykły** (niewskaźnikowy i niereferencyjny) dla przekazywania
+    przez wartość,
 
-  - **wskaźnikowe** dla przekazywania przez wskaźnik (które jest
-      przekazywaniem wskaźnika przez wartość),
+  - **wskaźnikowy** dla przekazywania przez wskaźnik (które jest
+    po prostu przekazywaniem przez wartość),
 
-  - **referencyjne** dla przekazywania przez referencję.
+  - **referencyjny** dla przekazywania przez referencję.
 
-* typy argumentów wywołania funkcji, w szczególności:
+* typ argumentu wywołania funkcji, w szczególności:
 
-  - **funkcyjne**,
+  - **funkcyjny**,
 
-  - **tablicowe**.
+  - **tablicowy**.
+
+* kategorię argumentu (opisane w innym temacie).
 
 W zależności od omawianych szczególnych (najważniejszych) typów
 parametru funkcji (zwykłych, wskaźnikowych, referencyjnych) stosowane

@@ -1,0 +1,4 @@
+Zaimplementuj strukturę B wyprowadzoną z typu A.  B ma pole składowe
+`m_txt` typu `string`.  Typ B powinien być tylko do przenoszenia,
+gdzie przenoszenie przenosi wartość obiektu bazowego, ale kopuje
+wartość obiektu składowego.

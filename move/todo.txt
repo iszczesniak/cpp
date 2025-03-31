@@ -1,0 +1,9 @@
+As the move assignment can be overloaded for rvalues and lvalues, so
+can be the copy assignment.  Discuss this together with the move
+assignment: first the copy, then the move.
+
+********************************************************************
+
+std::swap - show how the shallow does right with std::swap, contrary
+to the common wisdom that we shall only copy deep.  How do we
+reconcile?  The move semantics!

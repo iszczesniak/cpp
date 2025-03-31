@@ -30,7 +30,8 @@ main()
   A b{a};
   // Only the default constructor will be called, because the move
   // constructor will be elided.  Compile with -fno-elide-constructors
-  // to see the move constructor called.
+  // to see the move constructor called, but a compiler will ignore
+  // your requests where the elision is mandated by C++17.
   A c{A()};
   // Calls the move constructor.
   A d{std::move(a)};
