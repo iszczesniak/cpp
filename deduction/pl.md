@@ -249,13 +249,13 @@ nazwa referencji.  W standardzie napisano ([expr.type]), że kompilator
 usuwa deklarator `&` najwyższego rzędu z typu wyrażenia przed jego
 dalszym opracowaniem.
 
-## Rodzaje argumentów
+# Rodzaje argumentów
 
 Dla każdego **rodzaju** parametru szablonu, kompilator może wnioskować
 argument.  Najczęściej chcemy, żeby kompilator wnioskował typowe
-argumenty, ale czasem też argumenty wartościowe czy szablonowe.
+argumenty, ale czasem też argumenty wartościowe.
 
-# Typowy argument
+## Typowy argument
 
 Typowy argument szablonu jest wnioskowany dla typowego parametru
 szablonu.  To wnioskowanie jest najbardziej złożone (w porównaniu do
