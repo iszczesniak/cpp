@@ -532,8 +532,8 @@ Zatem w poniższym przykładzie wnioskowanie nie udaje się:
 * Wnioskowanie argumentów szablonu zależy od typu parametru funkcji i
   typu argumentu wywołania funkcji.
 
-* Wnioskowany może być typ wskaźnikowy, referencyjny, stały, a nawet
-  tablicowy.
+* Żeby zrozumieć wnioskowanie, należy znać szczegóły dotyczące
+  inicjalizacji zmiennych, wskaźników i referencji.
 
 # Quiz
 
