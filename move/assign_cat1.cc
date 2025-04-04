@@ -25,7 +25,7 @@ main()
   x = y = A();
   // Does not work as expected.  I would expect two moves.
   x = A() = A();
-  // Again, I would something different: three moves.
+  // Again, I would expect two moves.
   A() = A() = A();
 
   // This shouldn't compile.  Yet it does!
