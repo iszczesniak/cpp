@@ -112,27 +112,35 @@ Coś jest nie tak z tym brakiem konwersji w przykładach wyżej:
 `ParameterType` jest **`const int &`**, a wyrażenie `1` jest typu
 **`int`**!  Gdzie tu zgodność?  To teraz precyzyjniej: typ
 `ParameterType` parametru funkcji i typ argumentu `expr` mogą się
-różnić wyłącznie kwalifikatorami i deklaratorem `&` najwyższego rzędu.
-Te różnice są dopuszczalne z uwagi na zasady (opisane niżej)
-inicjalizowania zmiennych.
+różnić wyłącznie kwalifikatorami i deklaratorem `&` najwyższego rzędu,
+zgodnie z zasadami (opisanymi niżej) inicjalizowania zmiennych.
+Wywnioskowany argument szablonu jest typem argumentu funkcji z tymi
+ewentualnymi różnicami.
 
-## Najwyższego rzędu
+# Najwyższego rzędu
 
-Kwalifikatory i deklaratory typu mogą być najwyższego rzędu.
+Miejsce użycia kwalifikatora i deklaratora w definiowanym typie ma
+wpływ na:
 
-### Deklaratory
+* inicjalizację wartości tego typu,
+
+* przeciążenie funkcji pod względem parametru tego typu.
+
+Kwalifikatory i deklaratory typu mogą być najwyższego rzędu.  
+
+## Deklaratory
 
 Deklaratory `*` typu wskaźnikowego i `&` typu referencyjnego mogą
 znaleźć się w różnych miejscach w definiowanym typie.  **Deklaratorem
 najwyższego rzędu** jest ten pierwszy od prawej strony.  Na przykład,
 w typie `int * const &` deklaratorem najwyższego rzędu jest `&`.
 
-### Kwalifikatory
+## Kwalifikatory
 
 **Kwalifikatory typu (`const` i `volatile`) najwyższego rzędu** mogą
 występować w każdym typie za wyjątkiem typu referencyjnego.
 
-#### Typ zwykły
+### Typ zwykły
 
 Definiowany typ zwykły (niewskaźnikowy i niereferencyjny) może mieć
 kwalifikatory typu najwyższego rzędu podane przed albo po nazwie
@@ -169,7 +177,7 @@ interfejsu funkcji), żeby umożliwić konsolidację.  Proszę sprawdzić
 {% include_relative cv_regular2.cc %}
 ```
 
-#### Typ wskaźnikowy
+### Typ wskaźnikowy
 
 Kwalifikatory typu wskaźnikowego znajdują się na prawo od deklaratora
 `*` najwyższego rzędu, czyli na końcu definicji typu (albo na początku
@@ -211,7 +219,7 @@ typu danych, do których odnosi się wskaźnik.  Oto przykład:
 {% include_relative cv_ptr3.cc %}
 ```
 
-#### Typ referencyjny
+### Typ referencyjny
 
 Referencja albo nazywa pewną daną (np. element tablicy) albo jest
 aliasem innej zmiennej.  Typ referencyjny nie ma kwalifikatorów
@@ -253,7 +261,7 @@ typu danych, do których odnosi się referencja.  Oto przykład:
 {% include_relative cv_ref2.cc %}
 ```
 
-## Typ wyrażenia
+# Typ wyrażenia
 
 Każde wyrażenie w C++ jest typu niereferencyjnego, a więc i typ
 argumentu funkcji jest niereferencyjny, nawet jeżeli wyrażeniem jest
@@ -261,13 +269,11 @@ nazwa referencji.  W standardzie napisano ([expr.type]), że kompilator
 usuwa deklarator `&` najwyższego rzędu z typu wyrażenia przed jego
 dalszym opracowaniem.
 
-# Rodzaje argumentów
+# Wnioskowanie typowego argumentu szablonu
 
 Dla każdego **rodzaju** parametru szablonu, kompilator może wnioskować
 argument.  Najczęściej chcemy, żeby kompilator wnioskował typowe (w
-tym szablonowe) argumenty, ale czasem też argumenty wartościowe.
-
-## Typowy argument
+tym szablonowe) argumenty.
 
 Typowy argument szablonu jest wnioskowany dla typowego parametru
 szablonu.  To wnioskowanie jest najbardziej złożone (w porównaniu do
@@ -371,7 +377,7 @@ Przykład:
 {% include_relative arg_type_ref.cc %}
 ```
 
-### Przekazywanie funkcji
+## Przekazywanie funkcji
 
 Funkcję możemy przekazać przez:
 
@@ -414,7 +420,7 @@ Przykład:
 {% include_relative foo_val.cc %}
 ```
 
-### Przekazywanie tablic języka C
+## Przekazywanie tablic języka C
 
 Tablicę języka C możemy przekazać do funkcji szablonowej przez:
 
@@ -458,7 +464,7 @@ Oto przykład z rozpadem:
 {% include_relative car_val.cc %}
 ```
 
-## Wartościowy argument
+# Wartościowy argument szablonu
 
 Wartościowy argument szablonu jest wnioskowany tylko na podstawie typu
 argumentu wywołania funkcji, z którego można ten argument
@@ -473,7 +479,7 @@ możemy wywnioskować wartościowy argument szablonu, to:
 
 * dowolny typ szablonowy.
 
-### Typ tablicy języka C
+## Typ tablicy języka C
 
 Oto przykład:
 
@@ -481,7 +487,7 @@ Oto przykład:
 {% include_relative carray.cc %}
 ```
 
-### Dowolny typ szablonowy
+## Dowolny typ szablonowy
 
 Typy wartościowych parametrów obu szablonów muszą się zgadzać.  Te oba
 szablony to:
