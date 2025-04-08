@@ -10,6 +10,10 @@ foo(const int &a, const int &b)
 int
 main()
 {
+  // Equivalent ways to call a function.
+  foo(10, 20); // Is foo decaying into a pointer that we call?
+  (&foo)(10, 20);
+
   // I don't like the C syntax of the pointer to a function.
   bool (*f1a)(const int &, const int &) = foo;
   bool (*f1b)(const int &, const int &) = &foo;
