@@ -9,6 +9,9 @@ struct A
 
 struct B: A
 {
+  B() = default;
+  B(const B &) = default;
+  B(B &&) = default;
 };
 
 int main()
