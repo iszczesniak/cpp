@@ -322,9 +322,9 @@ funkcjonalność każdej konwencji) wymaga od strony wywołującej:
 * alokacji pamięci dla zwracanej wartości,
 
 Parametry są tworzone na stosie, ponieważ procesor może ich nie
-pomieścić (w rejestrach).  Strona wywołująca alokuje pamięć, ponieważ
-wartość może się nie zmieścić w procesorze, a powinna być dostępna po
-powrocie z funkcji.
+pomieścić (w rejestrach).  Strona wywołująca alokuje pamięć dla
+zwracanej wartości, ponieważ procesor może jej nie pomieścić (w
+rejestrach), a powinna ona być dostępna po powrocie z funkcji.
 
 Małe dane mogą być przekazywane i zwracane w rejestrach procesora.  Na
 przykład, funkcja może przyjąć jako argument albo zwrócić jako wynik
