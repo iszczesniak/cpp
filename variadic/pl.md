@@ -202,8 +202,8 @@ operatorem `<<` ustalają przecinki.
 {% include_relative comma.cc %}
 ```
 
-Przykład niżej używa wersji prawej, gdzie `E` to `(std::cout << ", "
-<< p)` a operatorem jest przecinek.  Jeżeli paczka `p` jest pusta, to
+Przykład niżej używa wersji lewej, gdzie `E` to `(std::cout << ", " <<
+p)` a operatorem jest przecinek.  Jeżeli paczka `p` jest pusta, to
 wyrażenie złożenia jest puste.  Jeżeli `p` ma jeden parametr, to
 kompilator dokooptowuje dodatkowy pusty parametr, jeżeli taki istnieje
 (dla operatora `,` jest nim `void()`), bo `op` wymaga dwóch
