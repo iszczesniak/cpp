@@ -1,0 +1,2 @@
+Proszę omówić wnioskowanie argumentu szablonu dla parametru typu
+wskaźnikowego.
