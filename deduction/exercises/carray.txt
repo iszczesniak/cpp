@@ -1,0 +1,7 @@
+Proszę napisać szablon funkcji `print`, która przyjmie tablicę języka
+C i rekurencyjnie wypisze jej elementy.  Sposób użycia:
+
+```cpp
+int t[] = {1, 2, 3};
+print(t);
+```
