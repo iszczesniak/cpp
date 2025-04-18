@@ -1,0 +1,9 @@
+Proszę napisać szablon funkcji `print`, która przyjmie tablicę języka
+C przez referencję i wypisze elementy tablicy w pętli.  Sposób użycia:
+
+```cpp
+int t[] = {1, 2, 3};
+print(t);
+```
+
+Czy to roziązanie działa szybciej od rozwiązania carray.cc?
