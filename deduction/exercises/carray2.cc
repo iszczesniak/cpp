@@ -5,7 +5,7 @@ template <typename T>
 void foo(T &t)
 {
   for(std::size_t i = 0; i < std::size(t); ++i)
-    std::cout << t[i];
+    std::cout << t[i] << std::endl;
 }
 
 int main()
