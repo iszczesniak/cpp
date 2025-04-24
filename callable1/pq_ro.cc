@@ -11,7 +11,7 @@ main(void)
   priority_queue<int, vector<int>, greater<int>> q;
 
   // I was hoping the third template argument would be deduced from
-  // the constructor argument, but, alas, not.
+  // the constructor argument, but, alas, no.
   // priority_queue<int> q(std::greater<int>{});
   
   q.push(2);

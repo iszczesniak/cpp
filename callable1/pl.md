@@ -12,13 +12,14 @@ możemy wywołać, co z angielskiego jest nazywane *callable*.  Wywołanie
 callable ma ustaloną składnię (czyli składnię wyrażenia wywołania) i
 określony interfejs, czyli jakiego typu są parametry i wynik callable.
 
-Uogólnienie ma na celu:
+Uogólnienie wyrażenia wywołania (z funkcji na callable) ma na celu:
 
-* pominięcie pośredniego (czyli przez wskaźnik) wywołania funkcji, na
-  rzecz wkompilowania (ang. inlining) funkcji w miejsce wywołania,
+* pominięcie pośredniego (czyli przez wskaźnik) wywołania, na rzecz
+  wkompilowania w miejsce wywołania (ang. inlining),
 
-* możliwość dostarczenia dodatkowych danych do obliczeń, czego nie
-  jesteśmy w stanie wykonać ze wskaźnikiem na funkcję.
+* możliwość dostarczenia dodatkowych danych dla callable (poza
+  argumentami wywołania), czego nie jesteśmy w stanie zrobić dla
+  funkcji.
 
 Biblioteka standardowa używa (przekazuje, zapisuje jako pole składowe)
 callable **przez wartość**, więc **kopiowanie callable powinno być
@@ -99,7 +100,7 @@ Callable może być:
 
 * funkcją (użytą przez wskaźnik albo referencję),
 
-* funktorem (użytą przez wartość, referencję albo wskaźnik).
+* funktorem (użytym przez wartość, referencję albo wskaźnik).
 
 ## Funkcja
 
@@ -140,8 +141,9 @@ priorytetowej.
 
 Funktor to obiekt, który ma zdefiniowany operator wywołania `()`
 (ang. call operator).  Zaletą funktora, w porównaniu z funkcją, jest
-możliwość przekazania dodatkowych danych, która są przechowywane w
-polach składowych funktora.
+możliwość przekazania do konstruktora dodatkowych danych, które są
+przechowywane w polach składowych, a potem używane przez operator
+wywołania.
 
 W przykładzie niżej definiujemy prosty typ funktora, tworzymy funktor
 i wywołujemy go.  Funktor jest callable, bo możemy go wywołać.
