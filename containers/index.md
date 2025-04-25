@@ -79,9 +79,9 @@ Associative containers:
 
 The adapters:
 
-* `std::stack` - the stack,
+* `std::stack<T>` - the stack,
 
-* `std::queue` - the queue,
+* `std::queue<T>` - the queue,
 
 * `std::priority_queue<T>` - the priority queue.
 
