@@ -9,9 +9,11 @@ Zwykłe (nieszablonowe) funkcje (zarówno nieskładowe jak i składowe)
 mogą być przeciążane.  Kiedy wywołujemy funkcję, kompilator musi
 wybrać funkcję spośród zbioru przeciążeń.
 
-## Funkcja składowa a nieskładowa
+# Konwersja
 
-## Klas nie można przeciążać
+# Funkcja składowa a nieskładowa, w tym operatorowa
+
+# Klas nie można przeciążać
 
 Możemy zdefiniować tylko jeden szablon klasy.  Jest to szablon
 podstawowy, który możemy częściowo albo całkowicie specjalizować.  Nie
