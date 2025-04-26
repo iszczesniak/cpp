@@ -5,5 +5,5 @@ int
 main()
 {
   int x;
-  foo(x, x);
+  // foo(x, x);
 }
