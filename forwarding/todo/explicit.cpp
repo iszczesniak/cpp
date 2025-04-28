@@ -3,7 +3,7 @@
 
 struct A
 {
-    template <typename Self, typename Src>
+    template <typename Self>
     auto && operator=(this Self &&self, A &&src)
     {
         std::cout << __PRETTY_FUNCTION__ << std::endl;
