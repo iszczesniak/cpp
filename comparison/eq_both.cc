@@ -1,9 +1,12 @@
 struct A
 {
+  bool operator == (const A &) const
+  {
+    return true;
+  }
 };
 
-// Non-const *this because the trailing const is commented out.
-bool operator == (const A &, A &)
+bool operator == (const A &, const A &)
 {
   return true;
 }
@@ -17,5 +20,5 @@ int main()
   a1 == a2;
   // The following compiles since C++20, because the expression "a2 ==
   // a1" is rewritten to "a1 == a2".
-  //  a2 == a1;
+  a2 == a1;
 }
