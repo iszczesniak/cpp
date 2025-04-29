@@ -1,5 +1,5 @@
 PROGS = $(patsubst %.cc, %, $(wildcard *.cc))
-OBJS = $(patsubst %.cpp, %.o, $(wildcard *.cpp))
+# OBJS = $(patsubst %.cpp, %.o, $(wildcard *.cpp))
 
 CXXFLAGS = -std=c++17
 
