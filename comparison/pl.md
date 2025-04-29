@@ -12,6 +12,8 @@ implementacji czy generowania jakiegoś operatora na podstawie innych
 operatorów.  Zanim skoncentrujemy się na C++20, przypomnijmy sobie
 podstawy.
 
+# Składowa a nieskładowa
+
 # C++20
 
 # Przepisywanie operatora
