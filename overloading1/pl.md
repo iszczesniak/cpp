@@ -7,7 +7,7 @@ title: Przeciążenia zwykłych funkcji
 Przeciążenie jest mechanizmem abstrakcji, czyli pozwala uogólniać kod.
 Zwykłe (nieszablonowe) funkcje (zarówno nieskładowe jak i składowe)
 mogą być przeciążane.  Kiedy wywołujemy funkcję, kompilator musi
-wybrać funkcję spośród zbioru przeciążeń.
+wybrać wybrać przeciążenie, które użyje.
 
 # Konwersja
 
