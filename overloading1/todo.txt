@@ -1,0 +1,7 @@
+Assignment operator can only be member.  A member operator doesn't
+have priority over the non-member operator, or the other way around.
+
+The dereference operator, the cast operator.
+
+A constructor offers a way to convert between types.  Explicit
+constuctor.
