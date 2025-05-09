@@ -45,6 +45,11 @@ struct my_unique_ptr
   {
     return m_ptr;
   }
+
+  operator bool()
+  {
+    return m_ptr != nullptr;
+  }
 };
 
 #endif // MY_UNIQUE_PTR

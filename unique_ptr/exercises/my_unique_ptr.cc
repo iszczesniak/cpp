@@ -30,7 +30,7 @@ main()
   // For a non-const object.
   {
     my_unique_ptr<A> up(new A);
-    // my_unique_ptr<A> up2 = up;
+    // my_unique_ptr<A> up1 = up;
     my_unique_ptr<A> up2 = move(up);
 
     my_unique_ptr<A> up3;
@@ -38,12 +38,14 @@ main()
     up3 = std::move(up2);
     (*up).foo();
     up->foo();
+    assert(!up);
+    assert(up3);
   }
 
   // For a const object.
   {
     my_unique_ptr<const A> up(new A);
-    // my_unique_ptr<A> up2 = up;
+    // my_unique_ptr<A> up1 = up;
     my_unique_ptr<const A> up2 = move(up);
 
     my_unique_ptr<const A> up3;
@@ -51,5 +53,7 @@ main()
     up3 = std::move(up2);
     (*up).foo();
     up->foo();
+    assert(!up);
+    assert(up3);
   }
 }
