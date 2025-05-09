@@ -1,0 +1,2 @@
+Implement `my_unique_ptr` that implements the functionality of a smart
+pointer of the exclusive ownership semantics, e.g., std::unique_ptr.
