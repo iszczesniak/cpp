@@ -23,7 +23,7 @@ struct my_unique_ptr
   {
     a.m_ptr = nullptr;
   }
-    
+
   my_unique_ptr &
   operator = (my_unique_ptr &&a)
   {
@@ -33,10 +33,17 @@ struct my_unique_ptr
     return *this;
   }
 
-  auto &
-  operator *() const
+  // The dereference operator.
+  T &
+  operator * () const
   {
     return *m_ptr;
+  }
+
+  T *
+  operator -> () const
+  {
+    return m_ptr;
   }
 };
 

@@ -37,6 +37,7 @@ main()
     // up3 = up2;
     up3 = std::move(up2);
     (*up).foo();
+    up->foo();
   }
 
   // For a const object.
@@ -49,5 +50,6 @@ main()
     // up3 = up2;
     up3 = std::move(up2);
     (*up).foo();
+    up->foo();
   }
 }
