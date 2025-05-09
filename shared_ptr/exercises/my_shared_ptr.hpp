@@ -97,6 +97,24 @@ public:
 
     return *this;
   }
+
+  // The dereference operator.
+  T &
+  operator * () const
+  {
+    return *m_data_ptr;
+  }
+
+  T *
+  operator -> () const
+  {
+    return m_data_ptr;
+  }
+
+  operator bool()
+  {
+    return m_ctrl_ptr != nullptr;
+  }
 };
 
 #endif // MY_SHARED_PTR

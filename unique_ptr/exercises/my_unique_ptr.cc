@@ -36,10 +36,11 @@ main()
     my_unique_ptr<A> up3;
     // up3 = up2;
     up3 = std::move(up2);
-    (*up).foo();
-    up->foo();
+
     assert(!up);
     assert(up3);
+    (*up3).foo();
+    up3->foo();
   }
 
   // For a const object.
@@ -51,9 +52,10 @@ main()
     my_unique_ptr<const A> up3;
     // up3 = up2;
     up3 = std::move(up2);
-    (*up).foo();
-    up->foo();
+
     assert(!up);
     assert(up3);
+    (*up3).foo();
+    up3->foo();
   }
 }
