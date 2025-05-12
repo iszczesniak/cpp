@@ -1,19 +1,20 @@
 struct A
 {
-  bool operator == (const A &) const = default;
+  bool operator == (const A &) const & = default;
 };
 
 struct B: A
 {
-  using A::operator ==;
-
   // bool operator == (const B &b) const
   // {
   //   return static_cast<const A &>(*this) == static_cast<const A &>(b);
   // }
 };
 
+bool operator == (const A&, const B &);
+
 int main()
 {
-  B() == B();
+  B b;
+  b == b;
 }
