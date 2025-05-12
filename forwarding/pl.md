@@ -26,19 +26,20 @@ Problem sprowadza się do zachowania *kategorii* i *typu*
 przekazywanego argumentu.
 
 Jest to ujęcie problemu od C++11, ponieważ mowa o zachowaniu kategorii
-argumentu: jeżeli funckja `f` otrzymała r-wartość (albo l-wartość), to
+argumentu: jeżeli funkcja `f` otrzymała r-wartość (albo l-wartość), to
 powinna przekazać do funkcji `g` też r-wartość (albo l-wartość).
 Należy zachować kategorię, ponieważ r-wartość może wymagać specjalnego
 traktowania (chodzi o przenoszenie wartości).
 
 Problem też istniał w starym C++ (przed C++11), ale kategoria wartości
-nie miała szczególnego znaczenia, bo nie można jej było zachować
+nie miała wpływu na wybór przeciążenia i nie dało się jej zachować
 podczas przekazywania.  Wówczas chodziło o zachowanie wyboru jednego z
-dwóch przeciążeń funkcji `g` dla parametru typu l-referencja:
+dwóch przeciążeń funkcji `g` dla parametru typu referencyjnego (a
+dokładnie l-referencji):
 
-* stała, np. `void g(A &);`,
+* stałego, np. `void g(A &);`,
 
-* niestała, np. `void g(const A &);`.
+* niestałego, np. `void g(const A &);`.
 
 Zadaniem jest napisanie takiego szablonu funkcji:
 
