@@ -50,7 +50,6 @@ public:
   {
   }
 
-  // This might not be exception-safe, because "new" can throw.
   my_shared_ptr(T *ptr): m_ctrl_ptr(new control), m_data_ptr(ptr)
   {
   }
