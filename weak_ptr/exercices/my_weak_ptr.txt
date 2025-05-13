@@ -1,0 +1,2 @@
+Implement `my_weak_ptr` that implements the functionality of a smart
+pointer of the weak ownership semantics, i.e., std::weak_ptr.
