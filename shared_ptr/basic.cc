@@ -48,13 +48,13 @@ int main (void)
 
   {
     // We move-initialize the ownership.
-    shared_ptr<A> sp2(move(sp));
+    shared_ptr<A> sp2(std::move(sp));
     assert(!sp);
     assert(sp2);
 
     shared_ptr<A> sp3;
     // We move-assign the ownership.
-    sp3 = move(sp2);
+    sp3 = std::move(sp2);
     assert(!sp2);
     assert(sp3);
 

@@ -7,5 +7,5 @@ int
 main()
 {
   auto up = make_unique<int>();
-  shared_ptr<int> sp(move(up));
+  shared_ptr<int> sp(std::move(up));
 }
