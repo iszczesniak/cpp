@@ -28,12 +28,12 @@ void
 stash(unique_ptr<A> p)
 {
   static unique_ptr<A> stash;
-  stash = move(p);
+  stash = std::move(p);
 }
 
 int
 main()
 {
   auto p = factory();
-  stash(move(p));
+  stash(std::move(p));
 }

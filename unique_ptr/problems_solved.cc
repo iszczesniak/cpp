@@ -30,5 +30,5 @@ int
 main()
 {
   auto p = factory();
-  foo(move(p));
+  foo(std::move(p));
 }

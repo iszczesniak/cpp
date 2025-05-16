@@ -14,7 +14,7 @@ struct A
     cout << "default ctor\n";
   }
 
-  A(string &&name): m_name(move(name))
+  A(string &&name): m_name(std::move(name))
   {
     cout << "ctor: " << m_name << endl;
   }
@@ -66,10 +66,10 @@ main()
   // p2 = p1;
 
   // We can move-initialize to move the ownership.
-  auto p3 = move(p2);
+  auto p3 = std::move(p2);
 
   // We can move-assign to move the ownership.
-  p2 = move(p3);
+  p2 = std::move(p3);
 
   // That's how we can get access to the managed data.
   cout << p2->m_name << endl;
