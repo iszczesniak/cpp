@@ -28,7 +28,7 @@ factory()
       delete p;      
     }
 
-  return nullptr;
+  return p;
 }
 
 int
