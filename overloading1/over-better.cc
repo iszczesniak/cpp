@@ -12,6 +12,6 @@ void foo(int)
 
 int main()
 {
-  float f;
-  foo(f);
+  // The argument is 0 of type float.
+  foo(.0f);
 }
