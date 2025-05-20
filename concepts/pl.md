@@ -156,7 +156,7 @@ domyślny `{}` argument wywołania funkcji `f`.
 Oto przykład:
 
 ```cpp
-{% include_relative callable.cc %}
+{% include_relative callable2.cc %}
 ```
 
 Ale biblioteka standardowa ma już koncept podobny do naszego
