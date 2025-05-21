@@ -19,8 +19,11 @@ namespace Y
 
   void g()
   {
-    // void X::f(X::A);
+    // Needed to bypass the overload resolution.
     void f(X::A);
+
+    // Find out why exactly the following is not allowed.
+    // void X::f(X::A);
 
     X::A a;
     f(a);
