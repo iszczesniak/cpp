@@ -19,8 +19,8 @@ namespace Y
 
   void g()
   {
-    void X::f(A);
-    // void f(X::A);
+    // void X::f(X::A);
+    void f(X::A);
 
     X::A a;
     f(a);
