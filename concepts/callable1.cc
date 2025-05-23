@@ -24,7 +24,7 @@ int main()
   static_assert(Callable<decltype(static_cast<void(*)(int)>(g)), int>);
 
   // The declaration below overshadows the 'void g()' overload, so now
-  // we can say 'decltype(g)'.
+  // (that there's just one g in scope) we can say 'decltype(g)'.
   void g(int);
   static_assert(Callable<decltype(g), int>);
 }

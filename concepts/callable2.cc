@@ -36,9 +36,12 @@ struct A
 
 int main()
 {
+  // The function is called with a default-constructed EmptyCallable.
   f();
 
-  // Error: the constraint of the concept not satisfied.
+  // Error: the constraint of the concept not satisfied: the closure
+  // (i.e., its call operator) accepts no argument, while it should
+  // accept an int and a string.
   // f([]{});
 
   f(foo);

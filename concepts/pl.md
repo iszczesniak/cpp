@@ -160,7 +160,11 @@ koncept `Callable` będzie spełniony.
 
 W przykładzie niżej definiujemy także typ `EmptyCallable`, który nic
 nie robi i który jest domyślnym argumentem szablonu funkcji `f`.
-Zdefiniowaliśmy także domyślny `{}` argument wywołania funkcji `f`.
+Zdefiniowaliśmy także domyślny argument `{}` (bezargumentowa
+inicjalizacja) wywołania funkcji `f`.  Wnioskowany argument (dla
+parametru `T`) szablonu funkcji `f` jest pierwszym argumentem konceptu
+`Callable`, `int` staje się drugim, a `string` trzecim.
+`EmptyCallable` nie wprowadza żadnego narzutu.
 
 Oto przykład:
 
