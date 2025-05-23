@@ -21,7 +21,7 @@ g(int &&)
 void
 f(incr auto &&x)
 {
-  g(forward<decltype(x)>(x));
+  g(std::forward<decltype(x)>(x));
 }
 
 int
