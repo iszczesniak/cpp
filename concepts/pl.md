@@ -144,14 +144,23 @@ otrzymać z użyciem specyfikatora `decltype`.  Oto przykład:
 
 # Przykład
 
-Ograniczenia i koncepty mogą dotyczyć także callable.  W ten sposób
-możemy określić ograniczenia na callable dotyczące przyjmowanych
-argumentów czy zwracanego typu.
+Ograniczenia i koncepty mogą dotyczyć także typu callable.  W ten
+sposób możemy określić dla jakich callable (jakie warunki ma spełniać
+typ callable) może być użyty szablon funkcji.
 
 W przykładzie niżej używamy szablonu wariadycznego do zdefiniowania
-konceptu `Callable`.  Definiujemy także typ `EmptyCallable`, który
-jest domyślnym argumentem szablonu funkcji `f`.  Zdefiniowaliśmy także
-domyślny `{}` argument wywołania funkcji `f`.
+konceptu `Callable`.  Pierszym argumentem szablonu jest typ callable,
+a kolejne argumenty definiują typy argumentów, które chcemy przekazać
+do wywołania callable.  Jeżeli callable będzie można tak wywołać, to
+koncept `Callable` będzie spełniony.
+
+```cpp
+{% include_relative callable1.cc %}
+```
+
+W przykładzie niżej definiujemy także typ `EmptyCallable`, który nic
+nie robi i który jest domyślnym argumentem szablonu funkcji `f`.
+Zdefiniowaliśmy także domyślny `{}` argument wywołania funkcji `f`.
 
 Oto przykład:
 
