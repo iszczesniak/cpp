@@ -1,5 +1,14 @@
 #include <iostream>
 
+// We have two primary function templates.  The first has a single
+// template parameter T, the other has two parameters T1 and T2.  How
+// does the compiler choose the right template?  Is this overload
+// resolution?
+//
+// f(1, 1);
+//
+// f(true, 1);
+
 // Template #1
 template <typename T>
 void foo(T t1, T t2)
@@ -57,4 +66,7 @@ int main()
   // then template #2 could be used too, but not the other way around.
   
   foo(1, 1);
+
+  // The second case.
+  foo(true, 1);
 }
