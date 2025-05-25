@@ -17,8 +17,8 @@ void foo(const T &, T &)
 int main()
 {
   int x = 1;
-  foo(x, x);
+  // foo(x, x);
 
   const int cx = 1;
-  foo(cx, cx);
+  // foo(cx, cx);
 }
