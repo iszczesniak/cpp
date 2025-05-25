@@ -3,13 +3,13 @@
 using namespace std;
 
 template <typename T>
-void foo(T &)
+void foo(T)
 {
   cout << __PRETTY_FUNCTION__ << endl;
 }
 
 template <typename T>
-void foo(const T &)
+void foo(T *)
 {
   cout << __PRETTY_FUNCTION__ << endl;
 }
@@ -17,8 +17,8 @@ void foo(const T &)
 int main()
 {
   int x = 1;
+  // Only the first overload can be used.
   foo(x);
-
-  const int cx = 1;
-  foo(cx);  
+  // Both overloads can be called, but the second is more specialized.
+  foo(&x);
 }

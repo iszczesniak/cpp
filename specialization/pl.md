@@ -213,6 +213,32 @@ specjalizacji użyć.
 {% include_relative struct_partial.cc %}
 ```
 
+# Bardziej wyspecjalizowany szablon
+
+C++ pozwala przeciążać szablony podstawowe funkcji o tej samej nazwie.
+W przykładzie niżej definiujemy dwa szablony podstawowe funkcji `foo`,
+a następnie wywołujemy funkcję `foo`.
+
+```cpp
+{% include_relative special1.cc %}
+```
+
+Skąd kompilator wie, które przeciążenie szablonu wybrać?  Pierwsze
+wywołanie przekazuje argument typu całkowitego, więc wybór jest tylko
+jeden: pierwsze przeciążenie.  Drugie przeciążenie nie może być użyte,
+bo kompilator nie jest w stanie wywnioskować argumentu `T` szablonu
+(żeby można byłoby zainicjalizować parametr funkcji).
+
+Drugie wywołanie jest ciekawsze.  Kompilator może użyć zarówno
+pierwszego przeciążenia (z `T = int *`), jak i drugiego przeciążenia
+(z `T = int`).  W tej sytuacji jest wywoływany **bardziej
+wyspecjalizowany szablon**.  W tym przykładzie drugie przeciążenie
+jest bardziej wyspecjalizowane.
+
+O bardziej wyspecjalizowanym szablonie mówimy wtedy, kiedy porównujemy
+dwa szablony.  W przykładzie wyżej mamy dwa szablony, które możemy
+użyć przy drugim wywołaniu funkcji.
+
 # Podsumowanie
 
 * Specjalizować można szablony funkcji i typy szablonowe.
