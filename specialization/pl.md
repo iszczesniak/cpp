@@ -270,9 +270,17 @@ ze zbioru kandydatów (w drugim kroku), wyrażenie wywołania nie jest
 już brane pod uwagę.** Wyrażenie wywołania jest brane pod uwagę tylko
 w pierwszym kroku, żeby wybrać kandydatów.
 
-O bardziej wyspecjalizowanym szablonie mówimy wtedy, kiedy porównujemy
-dwa szablony.  W przykładzie wyżej mamy dwa szablony, które możemy
-użyć przy drugim wywołaniu funkcji.
+## Wybór najlepszego kandydata
+
+Ze zbioru kandydatów wybieramy najlepszego, czyli najbardziej
+wyspecjalizowany szablon.  Wyboru dokonujemy przez porównywanie
+kandydatów parami, czyli z użyciem binarnej relacji porównania.
+Porównując parę kandydatów, nie zawsze będziemy mogli stwierdzić,
+który kandydat jest lepszy i dlatego tę relację nazywamy porządkiem
+częściowym, bo nie musi zachodzić między dowolną parą kandydatów.  Co
+więcej, jako wynik porównania kandydatów może się okazać, że mamy
+remis, czyli, że nie ma jednego najbardziej wyspecjalizowanego
+kandydata.
 
 # Podsumowanie
 
