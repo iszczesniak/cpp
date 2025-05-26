@@ -266,9 +266,9 @@ przeciążenie trafia do zbioru kandydatów, w przeciwnym razie jest
 ignorowane zgodnie z zasadą SFINAE.
 
 Zwróćmy uwagę na ważny fakt: **podczas wyboru najlepszego przeciążenia
-ze zbioru kandydatów (drugi krok), wyrażenie wywołania nie jest już
-brane pod uwagę.** Wyrażenie wywołania było brane pod uwagę w
-pierwszym kroku, żeby wybrać kandydatów.
+ze zbioru kandydatów (w drugim kroku), wyrażenie wywołania nie jest
+już brane pod uwagę.** Wyrażenie wywołania jest brane pod uwagę tylko
+w pierwszym kroku, żeby wybrać kandydatów.
 
 O bardziej wyspecjalizowanym szablonie mówimy wtedy, kiedy porównujemy
 dwa szablony.  W przykładzie wyżej mamy dwa szablony, które możemy

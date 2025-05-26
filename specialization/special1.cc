@@ -2,12 +2,14 @@
 
 using namespace std;
 
+// Overload #1
 template <typename T>
 void foo(T)
 {
   cout << __PRETTY_FUNCTION__ << endl;
 }
 
+// Overload #2
 template <typename T>
 void foo(T *)
 {
@@ -17,13 +19,11 @@ void foo(T *)
 int main()
 {
   int x = 1;
-  // Only the first overload can be used.  The template function
+  // Call #1: only overload #1 is a candidate.  The template function
   // called is: void foo(int).
   foo(x);
-  // Both overloads ("void foo(T) with T = int *" and "void foo(T *)
-  // with T = int") can be instantiated, so that the resulting
-  // template function "void foo(T *)" can be called.  The compiler
-  // chooses the second template to produce the template function to
-  // finally call it.
+
+  // Call #2: overloads #1 and #2 are the candidates.  The template
+  // function called is: void foo(int *).
   foo(&x);
 }
