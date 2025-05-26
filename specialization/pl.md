@@ -227,13 +227,13 @@ Jak kompilator wybrał przeciążenia szablonów podczas dwóch wywołań
 funkcji w przykładzie wyżej?  Pierwsze wywołanie przekazuje argument
 typu całkowitego, więc wybór jest tylko jeden: pierwsze przeciążenie.
 Drugie przeciążenie nie może być użyte, bo kompilator nie jest w
-stanie wywnioskować argumentu `T` szablonu, żeby można byłoby
+stanie wywnioskować argumentu `T` szablonu tak, żeby można byłoby
 zainicjalizować parametr funkcji.
 
 Drugie wywołanie jest ciekawsze.  Kompilator może użyć zarówno
-pierwszego, jak i drugiego przeciążenia.  W tej sytuacji jest
-wywoływany **bardziej wyspecjalizowany szablon**.  W tym przykładzie
-drugie przeciążenie jest bardziej wyspecjalizowane.
+pierwszego, jak i drugiego przeciążenia.  W tej sytuacji jest użyty
+**bardziej wyspecjalizowany szablon**.  W tym przykładzie drugie
+przeciążenie jest bardziej wyspecjalizowane.
 
 Zanim przejdziemy dalej (do omówienia idei bardziej wyspecjalizowanego
 szablonu), to podsumujmy przykład i zauważmy ważny fakt.  Podczas
@@ -245,7 +245,7 @@ przeciążenia używając wywnioskowanych argumentów:
 * drugie przeciążenie: `void foo(T *)` z `T = int`.
 
 Obie konkretyzacje tworzą funkcję szablonową `void foo(int *)`, którą
-już można użyć w drugim wywołaniu.  Teraz problemem pozostaje, które
+można już użyć w drugim wywołaniu.  Teraz problemem pozostaje, które
 przeciążenie szablonu wybrać do wygenerowania tej funkcji szablonowej.
 
 Podkreślmy, że kompilator w dwóch osobnych krokach:
@@ -260,15 +260,15 @@ przeciążeń tych, które można użyć dla danego wyrażenia wywołania,
 czyli tak skonkretyzować, żeby uzyskaną funkcję szablonową można było
 wywołać z argumentami tego wyrażenia wywołania.  Wiemy, że
 konkretyzacja jest możliwa dla wywnioskowanych argumentów, zatem dla
-każdego dostępnego przeciążenia przeprowadzane jest wnioskowanie
-argumentów na podstawie wyrażenia wywołania: jeżeli wnioskowanie się
-udało, to przeciążenie trafia do zbioru kandydatów, w przeciwnym razie
-jest ignorowane zgodnie z zasadą SFINAE.
+każdego dostępnego przeciążenia przeprowadzane jest wnioskowanie z
+użyciem wyrażenia wywołania: jeżeli wnioskowanie się udało, to
+przeciążenie trafia do zbioru kandydatów, w przeciwnym razie jest
+ignorowane zgodnie z zasadą SFINAE.
 
 Zwróćmy uwagę na ważny fakt: **podczas wyboru najlepszego przeciążenia
-ze zbioru kandydatów, wyrażenie wywołania nie jest już brane pod
-uwagę.** Wyrażenie wywołania jest brane pod uwagę tylko w pierwszym
-kroku, żeby wybrać kandydatów.
+ze zbioru kandydatów (drugi krok), wyrażenie wywołania nie jest już
+brane pod uwagę.** Wyrażenie wywołania było brane pod uwagę w
+pierwszym kroku, żeby wybrać kandydatów.
 
 O bardziej wyspecjalizowanym szablonie mówimy wtedy, kiedy porównujemy
 dwa szablony.  W przykładzie wyżej mamy dwa szablony, które możemy
