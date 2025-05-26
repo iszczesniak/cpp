@@ -215,9 +215,14 @@ specjalizacji użyć.
 
 # Bardziej wyspecjalizowany szablon podstawowy
 
-C++ pozwala przeciążać szablony podstawowe funkcji o tej samej nazwie.
-W przykładzie niżej definiujemy dwa szablony podstawowe funkcji `foo`,
-a następnie wywołujemy funkcję `foo`.
+Specjalizacja (być może lepiej "wyspecjalizowanie") ma dodatkowe
+znaczenie w języku C++, który pozwala przeciążać szablony podstawowe
+funkcji o tej samej nazwie.  Jeżeli będzie można użyć więcej niż
+jednego przeciążenia, to kompilator wybiera bardziej
+**wyspecjalizowany** szablon podstawowy.  Nie musimy specjalizować
+szablonu, żeby mówić o bardziej wyspecjalizowanym szablonie
+podstawowym.  W przykładzie niżej definiujemy dwa szablony podstawowe
+funkcji `foo`, a następnie wywołujemy funkcję `foo`.
 
 ```cpp
 {% include_relative special1.cc %}
@@ -272,15 +277,16 @@ w pierwszym kroku, żeby wybrać kandydatów.
 
 ## Wybór najlepszego kandydata
 
-Ze zbioru kandydatów wybieramy najlepszego, czyli najbardziej
-wyspecjalizowany szablon.  Wyboru dokonujemy przez porównywanie
-kandydatów parami, czyli z użyciem binarnej relacji porównania.
-Porównując parę kandydatów, nie zawsze będziemy mogli stwierdzić,
-który kandydat jest lepszy i dlatego tę relację nazywamy porządkiem
-częściowym, bo nie musi zachodzić między dowolną parą kandydatów.  Co
-więcej, jako wynik porównania kandydatów może się okazać, że mamy
-remis, czyli, że nie ma jednego najbardziej wyspecjalizowanego
-kandydata.
+Ze zbioru kandydatów wybieramy najlepsze przeciążenie, czyli
+**najbardziej wyspecjalizowane**.  Wyboru dokonujemy przez
+porównywanie przeciążeń parami, czyli z użyciem binarnej relacji
+porównania.  Porównując parę przeciążeń chcemy określić, które
+przeciążenie jest **bardziej wyspecjalizowane**.  Jednak relacja
+"bardziej wyspecjalizowane" jest częściowa, bo nie musi zachodzić
+między każdą parą przeciążeń.  Ponieważ relacja jest częściowa, to
+może okazać się, że kompilator nie jest w stanie wybrać najbardziej
+wyspecjalizowanego przeciążenia i wted zgłasza błąd
+niejednoznaczności.
 
 # Podsumowanie
 
