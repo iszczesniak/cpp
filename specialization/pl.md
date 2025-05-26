@@ -213,7 +213,7 @@ specjalizacji użyć.
 {% include_relative struct_partial.cc %}
 ```
 
-# Bardziej wyspecjalizowany szablon
+# Bardziej wyspecjalizowany szablon podstawowy
 
 C++ pozwala przeciążać szablony podstawowe funkcji o tej samej nazwie.
 W przykładzie niżej definiujemy dwa szablony podstawowe funkcji `foo`,
@@ -267,16 +267,8 @@ jest ignorowane zgodnie z zasadą SFINAE.
 
 Zwróćmy uwagę na ważny fakt: **podczas wyboru najlepszego przeciążenia
 ze zbioru kandydatów, wyrażenie wywołania nie jest już brane pod
-uwagę.** Wyrażenie wywołania było brane pod uwagę w pierwszym kroku,
-żeby wybrać kandydatów.
-
-```cpp
-template <typename T>
-void foo(void(*)(T))
-{
-  cout << __PRETTY_FUNCTION__ << endl;
-}
-```
+uwagę.** Wyrażenie wywołania jest brane pod uwagę tylko w pierwszym
+kroku, żeby wybrać kandydatów.
 
 O bardziej wyspecjalizowanym szablonie mówimy wtedy, kiedy porównujemy
 dwa szablony.  W przykładzie wyżej mamy dwa szablony, które możemy
