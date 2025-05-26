@@ -18,7 +18,7 @@ int main()
   // Can we call f with an int and a bool?
   static_assert(Callable<decltype(f), int, bool>);
 
-  // We cannot just say 'decltype(f)', because the compiler wouldn't
+  // We cannot just say 'decltype(g)', because the compiler wouldn't
   // know which overload we mean, and thefore we need to static_cast.
   static_assert(Callable<decltype(static_cast<void(*)()>(g))>);
   static_assert(Callable<decltype(static_cast<void(*)(int)>(g)), int>);
