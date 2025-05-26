@@ -17,8 +17,10 @@ void foo(T *)
 int main()
 {
   int x = 1;
-  // Only the first overload can be used.
+  // Only the first overload can be used.  The template function
+  // called is: void foo(int).
   foo(x);
   // Both overloads can be called, but the second is more specialized.
+  // The template function called is: void foo(int *).
   foo(&x);
 }
