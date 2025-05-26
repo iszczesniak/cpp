@@ -223,21 +223,60 @@ a następnie wywołujemy funkcję `foo`.
 {% include_relative special1.cc %}
 ```
 
-Jak kompilator wybrał przeciążenie szablonu?  Pierwsze wywołanie
-przekazuje argument typu całkowitego, więc wybór jest tylko jeden:
-pierwsze przeciążenie.  Drugie przeciążenie nie może być użyte, bo
-kompilator nie jest w stanie wywnioskować argumentu `T` szablonu, żeby
-można byłoby zainicjalizować parametr funkcji.
+Jak kompilator wybrał przeciążenia szablonów podczas dwóch wywołań
+funkcji w przykładzie wyżej?  Pierwsze wywołanie przekazuje argument
+typu całkowitego, więc wybór jest tylko jeden: pierwsze przeciążenie.
+Drugie przeciążenie nie może być użyte, bo kompilator nie jest w
+stanie wywnioskować argumentu `T` szablonu, żeby można byłoby
+zainicjalizować parametr funkcji.
 
 Drugie wywołanie jest ciekawsze.  Kompilator może użyć zarówno
-pierwszego przeciążenia (z `T = int *`), jak i drugiego przeciążenia
-(z `T = int`).  W tej sytuacji jest wywoływany **bardziej
-wyspecjalizowany szablon**.  W tym przykładzie drugie przeciążenie
-jest bardziej wyspecjalizowane.
+pierwszego, jak i drugiego przeciążenia.  W tej sytuacji jest
+wywoływany **bardziej wyspecjalizowany szablon**.  W tym przykładzie
+drugie przeciążenie jest bardziej wyspecjalizowane.
 
-Zanim przejdziemy dalej (do omówienia bardziej wyspecjalizowanego
-szablonu), to podsumujmy sytuację.  Mamy dwa przeciążenia szablonów,
-które możemy skonkretyzować dla wywnioskowanych szablonów.
+Zanim przejdziemy dalej (do omówienia idei bardziej wyspecjalizowanego
+szablonu), to podsumujmy przykład i zauważmy ważny fakt.  Podczas
+opracowania drugiego wywołania, kompilator może skonkretyzować oba
+przeciążenia używając wywnioskowanych argumentów:
+
+* pierwsze przeciążenie: `void foo(T)` z `T = int *`,
+
+* drugie przeciążenie: `void foo(T *)` z `T = int`.
+
+Obie konkretyzacje tworzą funkcję szablonową `void foo(int *)`, którą
+już można użyć w drugim wywołaniu.  Teraz problemem pozostaje, które
+przeciążenie szablonu wybrać do wygenerowania tej funkcji szablonowej.
+
+Podkreślmy, że kompilator w dwóch osobnych krokach:
+
+1. tworzy zbiór kandydatów przeciążeń szablonów podstawowych,
+
+2. wybiera najlepsze (najbardziej wyspecjalizowane) przeciążenie ze
+   zbioru kandydatów.
+
+Kompilator tworzy zbiór kandydatów przez wybranie spośród dostępnych
+przeciążeń tych, które można użyć dla danego wyrażenia wywołania,
+czyli tak skonkretyzować, żeby uzyskaną funkcję szablonową można było
+wywołać z argumentami tego wyrażenia wywołania.  Wiemy, że
+konkretyzacja jest możliwa dla wywnioskowanych argumentów, zatem dla
+każdego dostępnego przeciążenia przeprowadzane jest wnioskowanie
+argumentów na podstawie wyrażenia wywołania: jeżeli wnioskowanie się
+udało, to przeciążenie trafia do zbioru kandydatów, w przeciwnym razie
+jest ignorowane zgodnie z zasadą SFINAE.
+
+Zwróćmy uwagę na ważny fakt: **podczas wyboru najlepszego przeciążenia
+ze zbioru kandydatów, wyrażenie wywołania nie jest już brane pod
+uwagę.** Wyrażenie wywołania było brane pod uwagę w pierwszym kroku,
+żeby wybrać kandydatów.
+
+```cpp
+template <typename T>
+void foo(void(*)(T))
+{
+  cout << __PRETTY_FUNCTION__ << endl;
+}
+```
 
 O bardziej wyspecjalizowanym szablonie mówimy wtedy, kiedy porównujemy
 dwa szablony.  W przykładzie wyżej mamy dwa szablony, które możemy
