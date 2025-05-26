@@ -280,13 +280,35 @@ w pierwszym kroku, żeby wybrać kandydatów.
 Ze zbioru kandydatów wybieramy najlepsze przeciążenie, czyli
 **najbardziej wyspecjalizowane**.  Wyboru dokonujemy przez
 porównywanie przeciążeń parami, czyli z użyciem binarnej relacji
-porównania.  Porównując parę przeciążeń chcemy określić, które
+porządku.  Porównując parę przeciążeń chcemy określić, które
 przeciążenie jest **bardziej wyspecjalizowane**.  Jednak relacja
-"bardziej wyspecjalizowane" jest częściowa, bo nie musi zachodzić
-między każdą parą przeciążeń.  Ponieważ relacja jest częściowa, to
-może okazać się, że kompilator nie jest w stanie wybrać najbardziej
-wyspecjalizowanego przeciążenia i wted zgłasza błąd
+"bardziej wyspecjalizowane" nie musi zachodzić między każdą parą
+przeciążeń i dlatego nazywana jest **częściową**.  Ponieważ relacja
+jest częściowa, to może okazać się, że kompilator nie jest w stanie
+wybrać najbardziej wyspecjalizowanego przeciążenia i wted zgłasza błąd
 niejednoznaczności.
+
+### Relacja "bardziej wyspecjalizowane"
+
+Dla przykładu wyżej możemy powiedzieć, że dla drugiego wywołania
+przeciążenie drugie jest bardziej wyspecjalizowane niż pierwsze
+(relacja zachodzi).  Ponieważ zbiór kandydatów ma tylko dwa
+przeciążenia, więc możemy powiedzieć, że przeciążenie drugie jest
+najbardziej wyspecializowane.
+
+Załóżmy, że przeciążenie l<sub>i</sub> można wywołać z argumentami
+typu, które należą do zbioru t<sub>i</sub>, a przeciążenie
+l<sub>j</sub> z argumentami typu, które należą do zbioru
+t<sub>j</sub>.  Przeciążenie l<sub>i</sub> jest bardziej
+wyspecializowane niż przeciążenie l<sub>j</sub>, jeżeli t<sub>i</sub>
+jest podzbiorem właściwym t<sub>j</sub>.
+
+W przykładzie wyżej, przeciążenie pierwsze l<sub>1</sub> przyjmuje
+argumenty dowolnych typów ze zbioru t<sub>1</sub>, także
+wskaźnikowych.  Drugie przeciążenie l<sub>2</sub> przyjmuje argumenty
+dowolnych typów wskaźnikowych ze zbioru t<sub>2</sub>.  Ponieważ
+t<sub>2</sub> jest podzbiorem właściwym t<sub>1</sub>, to
+l<sub>2</sub> jest bardziej wyspecjalizowane niż l<sub>1</sub>.
 
 # Podsumowanie
 
