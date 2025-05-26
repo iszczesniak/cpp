@@ -20,7 +20,10 @@ int main()
   // Only the first overload can be used.  The template function
   // called is: void foo(int).
   foo(x);
-  // Both overloads can be called, but the second is more specialized.
-  // The template function called is: void foo(int *).
+  // Both overloads ("void foo(T) with T = int *" and "void foo(T *)
+  // with T = int") can be instantiated, so that the resulting
+  // template function "void foo(T *)" can be called.  The compiler
+  // chooses the second template to produce the template function to
+  // finally call it.
   foo(&x);
 }

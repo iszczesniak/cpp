@@ -223,17 +223,21 @@ a następnie wywołujemy funkcję `foo`.
 {% include_relative special1.cc %}
 ```
 
-Skąd kompilator wie, które przeciążenie szablonu wybrać?  Pierwsze
-wywołanie przekazuje argument typu całkowitego, więc wybór jest tylko
-jeden: pierwsze przeciążenie.  Drugie przeciążenie nie może być użyte,
-bo kompilator nie jest w stanie wywnioskować argumentu `T` szablonu
-(żeby można byłoby zainicjalizować parametr funkcji).
+Jak kompilator wybrał przeciążenie szablonu?  Pierwsze wywołanie
+przekazuje argument typu całkowitego, więc wybór jest tylko jeden:
+pierwsze przeciążenie.  Drugie przeciążenie nie może być użyte, bo
+kompilator nie jest w stanie wywnioskować argumentu `T` szablonu, żeby
+można byłoby zainicjalizować parametr funkcji.
 
 Drugie wywołanie jest ciekawsze.  Kompilator może użyć zarówno
 pierwszego przeciążenia (z `T = int *`), jak i drugiego przeciążenia
 (z `T = int`).  W tej sytuacji jest wywoływany **bardziej
 wyspecjalizowany szablon**.  W tym przykładzie drugie przeciążenie
 jest bardziej wyspecjalizowane.
+
+Zanim przejdziemy dalej (do omówienia bardziej wyspecjalizowanego
+szablonu), to podsumujmy sytuację.  Mamy dwa przeciążenia szablonów,
+które możemy skonkretyzować dla wywnioskowanych szablonów.
 
 O bardziej wyspecjalizowanym szablonie mówimy wtedy, kiedy porównujemy
 dwa szablony.  W przykładzie wyżej mamy dwa szablony, które możemy
