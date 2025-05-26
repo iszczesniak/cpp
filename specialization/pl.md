@@ -218,7 +218,7 @@ specjalizacji użyć.
 Specjalizacja (być może lepiej "wyspecjalizowanie") ma dodatkowe
 znaczenie w języku C++, który pozwala przeciążać szablony podstawowe
 funkcji o tej samej nazwie.  Jeżeli będzie można użyć więcej niż
-jednego przeciążenia, to kompilator wybiera bardziej
+jednego przeciążenia, to kompilator wybiera najbardziej
 **wyspecjalizowany** szablon podstawowy.  Nie musimy specjalizować
 szablonu, żeby mówić o bardziej wyspecjalizowanym szablonie
 podstawowym.  W przykładzie niżej definiujemy dwa szablony podstawowe
