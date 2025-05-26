@@ -37,9 +37,9 @@ podczas przekazywania.  Wówczas chodziło o zachowanie wyboru jednego z
 dwóch przeciążeń funkcji `g` dla parametru typu referencyjnego (a
 dokładnie l-referencji):
 
-* stałego, np. `void g(A &);`,
+* niestałego, np. `void g(A &);`,
 
-* niestałego, np. `void g(const A &);`.
+* stałego, np. `void g(const A &);`.
 
 Zadaniem jest napisanie takiego szablonu funkcji:
 
