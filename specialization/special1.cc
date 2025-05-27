@@ -3,15 +3,15 @@
 using namespace std;
 
 // Overload #1
-template <typename T>
-void foo(T)
+template <typename T1>
+void foo(T1 p)
 {
   cout << __PRETTY_FUNCTION__ << endl;
 }
 
 // Overload #2
-template <typename T>
-void foo(T *)
+template <typename T2>
+void foo(T2 *)
 {
   cout << __PRETTY_FUNCTION__ << endl;
 }

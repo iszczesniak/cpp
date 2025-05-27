@@ -296,19 +296,32 @@ przeciążenie drugie jest bardziej wyspecjalizowane niż pierwsze
 przeciążenia, więc możemy powiedzieć, że przeciążenie drugie jest
 najbardziej wyspecializowane.
 
-Załóżmy, że przeciążenie l<sub>i</sub> można wywołać z argumentami
-typu, które należą do zbioru t<sub>i</sub>, a przeciążenie
-l<sub>j</sub> z argumentami typu, które należą do zbioru
-t<sub>j</sub>.  Przeciążenie l<sub>i</sub> jest bardziej
-wyspecializowane niż przeciążenie l<sub>j</sub>, jeżeli t<sub>i</sub>
-jest podzbiorem właściwym t<sub>j</sub>.
+Relacja "bardziej wyspecjalizowane" sprawdza **typy argumentów**
+wywołania funkcji, które mogą być użyte z przeciążeniem.  Załóżmy, że
+przeciążenie l<sub>i</sub> można wywołać z argumentami typu, które
+należą do zbioru t<sub>i</sub>, a przeciążenie l<sub>j</sub> z
+argumentami typu, które należą do zbioru t<sub>j</sub>.  Przeciążenie
+l<sub>i</sub> jest bardziej wyspecializowane niż przeciążenie
+l<sub>j</sub>, jeżeli t<sub>i</sub> jest podzbiorem właściwym
+t<sub>j</sub>.
 
 W przykładzie wyżej, przeciążenie pierwsze l<sub>1</sub> przyjmuje
-argumenty dowolnych typów ze zbioru t<sub>1</sub>, także
+argumenty dowolnych typów ze zbioru T<sub>1</sub>, także
 wskaźnikowych.  Drugie przeciążenie l<sub>2</sub> przyjmuje argumenty
-dowolnych typów wskaźnikowych ze zbioru t<sub>2</sub>.  Ponieważ
-t<sub>2</sub> jest podzbiorem właściwym t<sub>1</sub>, to
-l<sub>2</sub> jest bardziej wyspecjalizowane niż l<sub>1</sub>.
+dowolnych typów wskaźnikowych ze zbioru t<sub>2</sub>.  Przeciążenie
+l<sub>2</sub> jest bardziej wyspecjalizowane niż l<sub>1</sub>,
+ponieważ t<sub>2</sub> jest podzbiorem właściwym t<sub>1</sub>, a to
+wiemy z zasad wnioskowania:
+
+* pierwsze przeciążenie możemy użyć dla każdego argumentu typu `T2 *`
+  (czyli typu parametru drugiego przeciążenia), bo możemy
+  zainicjalizować parametr `T1 p1` wyrażeniem typu `T2 *`, ponieważ
+  wtedy `T1` może być wywnioskowany jako `T1 = T2 *`,
+
+* drugiego przeciążenia nie możemy użyć dla każdego argumentu typu
+  `T1`, a jedynie dla typów wskaźnikowych, czyli parametr `T2 *p2`
+  możemy zainicjalizować tylko wtedy, kiedy `T1` jest typem
+  `T *`, bo tylko wtedy można wywnioskować `T2 = T`.
 
 # Podsumowanie
 
