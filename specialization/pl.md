@@ -279,22 +279,27 @@ w pierwszym kroku, żeby wybrać kandydatów.
 
 Ze zbioru kandydatów wybieramy najlepsze przeciążenie, czyli
 **najbardziej wyspecjalizowane**.  Wyboru dokonujemy przez
-porównywanie przeciążeń parami, czyli z użyciem binarnej relacji
-porządku.  Porównując parę przeciążeń chcemy określić, które
-przeciążenie jest **bardziej wyspecjalizowane**.  Jednak relacja
-"bardziej wyspecjalizowane" nie musi zachodzić między każdą parą
-przeciążeń i dlatego nazywana jest **częściową**.  Ponieważ relacja
-jest częściowa, to może okazać się, że kompilator nie jest w stanie
-wybrać najbardziej wyspecjalizowanego przeciążenia i wted zgłasza błąd
-niejednoznaczności.
+porównywanie przeciążeń parami, czyli z użyciem binarnej relacji.
+Relacja jest porządkiem, ponieważ jest przechodnia.  Przchodnia, bo
+jeżeli $l_i$ jest bardziej wyspecjalizowana niż $l_j$, a $l_j$ od
+$l_k$, to oczekujemy, że $l_i$ będzie uznana za bardziej
+wyspecjalizowaną od $l_k$.
 
-### Relacja "bardziej wyspecjalizowane"
+Porównując parę przeciążeń chcemy określić, które przeciążenie jest
+**bardziej wyspecjalizowane**.  Jednak relacja "bardziej
+wyspecjalizowane" nie musi zachodzić między każdą parą przeciążeń i
+dlatego nazywana jest **częściową**.  Ponieważ relacja jest częściowa,
+to może okazać się, że kompilator nie jest w stanie wybrać najbardziej
+wyspecjalizowanego przeciążenia i wted zgłasza błąd
+niejednoznaczności.
 
 Dla przykładu wyżej możemy powiedzieć, że dla drugiego wywołania
 przeciążenie drugie jest bardziej wyspecjalizowane niż pierwsze
 (relacja zachodzi).  Ponieważ zbiór kandydatów ma tylko dwa
 przeciążenia, więc możemy powiedzieć, że przeciążenie drugie jest
 najbardziej wyspecializowane.
+
+### Relacja "bardziej wyspecjalizowane"
 
 Relacja "bardziej wyspecjalizowane" sprawdza **typy argumentów**
 wywołania funkcji, które mogą być użyte z przeciążeniem.  Załóżmy, że
