@@ -1,0 +1,4 @@
+Jako typ `my_unique_ptr` zaimplementuj niezbędną funkcjonalność
+inteligentnego wskaźnika o semantyce wyłącznej własności, który
+zarządza daną typu `A`.  Zaimplementuj dostęp do surowego wskaźnika z
+użyciem operatora `*`.
