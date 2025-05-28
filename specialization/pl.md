@@ -281,7 +281,7 @@ Ze zbioru kandydatów wybieramy najlepsze przeciążenie, czyli
 **najbardziej wyspecjalizowane**.  Wyboru dokonujemy przez
 porównywanie przeciążeń parami, czyli z użyciem binarnej relacji.
 Relacja jest porządkiem, ponieważ jest przechodnia.  Przchodnia, bo
-jeżeli $l_i$ jest bardziej wyspecjalizowana niż $l_j$, a $l_j$ od
+jeżeli $l_i$ jest bardziej wyspecjalizowana niż $`l_j`$, a $l_j$ od
 $l_k$, to oczekujemy, że $l_i$ będzie uznana za bardziej
 wyspecjalizowaną od $l_k$.
 
