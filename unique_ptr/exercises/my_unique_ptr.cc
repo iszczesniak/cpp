@@ -31,7 +31,7 @@ main()
   {
     my_unique_ptr<A> up(new A);
     // my_unique_ptr<A> up1 = up;
-    my_unique_ptr<A> up2 = move(up);
+    my_unique_ptr<A> up2 = std::move(up);
 
     my_unique_ptr<A> up3;
     // up3 = up2;
@@ -47,7 +47,7 @@ main()
   {
     my_unique_ptr<const A> up(new A);
     // my_unique_ptr<A> up1 = up;
-    my_unique_ptr<const A> up2 = move(up);
+    my_unique_ptr<const A> up2 = std::move(up);
 
     my_unique_ptr<const A> up3;
     // up3 = up2;

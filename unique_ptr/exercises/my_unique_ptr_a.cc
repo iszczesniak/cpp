@@ -27,9 +27,9 @@ struct my_unique_ptr
     return *this;
   }
 
-  A *operator*()
+  A &operator*()
   {
-    return m_ptr;
+    return *m_ptr;
   }
 };
 
