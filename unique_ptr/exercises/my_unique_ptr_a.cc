@@ -10,6 +10,11 @@ struct my_unique_ptr
   {
   }
 
+  ~my_unique_ptr()
+  {
+    delete m_ptr;
+  }
+
   my_unique_ptr(my_unique_ptr &&src): m_ptr(src.m_ptr)
   {
     src.m_ptr = nullptr;
