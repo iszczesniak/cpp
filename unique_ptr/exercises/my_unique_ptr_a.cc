@@ -10,6 +10,11 @@ struct my_unique_ptr
   {
   }
 
+  ~my_unique_ptr()
+  {
+    delete m_ptr;
+  }
+
   my_unique_ptr(my_unique_ptr &&src): m_ptr(src.m_ptr)
   {
     src.m_ptr = nullptr;
@@ -27,9 +32,9 @@ struct my_unique_ptr
     return *this;
   }
 
-  A *operator*()
+  A &operator*()
   {
-    return m_ptr;
+    return *m_ptr;
   }
 };
 
