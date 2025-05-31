@@ -285,7 +285,7 @@ Porównując parę szablonów I i J chcemy określić, który szablon jest
 bardziej wyspecjalizowany.  Zapis I < J czytamy: **I jest bardziej
 wyspecjalizowany niż J**.
 
-Jednak relacja < nie musi zachodzić między każdą parą przeciążeń i
+Jednak relacja < nie musi zachodzić między każdą parą szablonów i
 dlatego nazywana jest **częściową**.  Ponieważ relacja jest częściowa,
 to może okazać się, że kompilator nie jest w stanie wybrać najbardziej
 wyspecjalizowanego przeciążenia i wted zgłasza błąd
