@@ -213,37 +213,37 @@ specjalizacji użyć.
 {% include_relative struct_partial.cc %}
 ```
 
-# Bardziej wyspecjalizowany szablon podstawowy
+# Najbardziej wyspecjalizowany szablon podstawowy
 
 Specjalizacja (a może lepiej "wyspecjalizowanie") ma dodatkowe
 znaczenie w języku C++, który pozwala przeciążać szablony podstawowe
 funkcji o tej samej nazwie.  Jeżeli będzie można użyć więcej niż
-jednego przeciążenia, to kompilator wybiera najbardziej
-**wyspecjalizowany** szablon podstawowy.  Nie musimy specjalizować
-szablonu, żeby mówić o najbardziej wyspecjalizowanym szablonie
-podstawowym.  W przykładzie niżej definiujemy dwa szablony podstawowe
-funkcji `foo`, a następnie wywołujemy funkcję `foo`.
+jednego szablonu, to kompilator wybiera najbardziej
+**wyspecjalizowany** szablon.  Nie musimy specjalizować szablonu, żeby
+mówić o najbardziej wyspecjalizowanym szablonie podstawowym.  W
+przykładzie niżej definiujemy dwa szablony podstawowe funkcji `foo`, a
+następnie wywołujemy funkcję `foo`.
 
 ```cpp
 {% include_relative special1.cc %}
 ```
 
-Jak kompilator wybrał przeciążenia szablonów podczas dwóch wywołań
-funkcji w przykładzie wyżej?  Pierwsze wywołanie przekazuje argument
-typu całkowitego, więc wybór jest tylko jeden: przeciążenie A.
-Przeciążenie B nie może być użyte, bo kompilator nie jest w stanie
-wywnioskować argumentu `B1` szablonu tak, żeby można byłoby
-zainicjalizować parametr `b1` funkcji.
+Jak kompilator wybrał właściwy szablon dla dwóch wywołań funkcji w
+przykładzie wyżej?  Pierwsze wywołanie przekazuje argument typu
+całkowitego, więc wybór jest tylko jeden: szablon A.  Szablon B nie
+może być użyty, bo kompilator nie jest w stanie wywnioskować argumentu
+`B1` szablonu tak, żeby można byłoby zainicjalizować parametr `b1`
+funkcji.
 
 Drugie wywołanie jest ciekawsze.  Kompilator może użyć zarówno
-przeciążenia A, jak i B.  W tej sytuacji jest użyty **bardziej
-wyspecjalizowany szablon**.  W tym przykładzie przeciążenie B jest
-bardziej wyspecjalizowane.
+szablonu A, jak i B.  W tej sytuacji jest użyty **bardziej
+wyspecjalizowany szablon**.  W tym przykładzie szablon B jest bardziej
+wyspecjalizowany.
 
 Zanim przejdziemy dalej (do omówienia idei bardziej wyspecjalizowanego
 szablonu), to podsumujmy przykład i zauważmy ważny fakt.  Podczas
 opracowania drugiego wywołania, kompilator może skonkretyzować oba
-przeciążenia używając wywnioskowanych argumentów:
+szablony używając wywnioskowanych argumentów:
 
 * przeciążenie A: `void foo(A1)` z `A1 = int *`,
 
@@ -309,16 +309,17 @@ szablon B jest bardziej wyspecjalizowany niż A (relacja zachodzi: B <
 A).  A ponieważ zbiór kandydatów ma tylko dwa szablony, więc szablon B
 uznajemy za najbardziej wyspecializowany.
 
-### Relacja "bardziej wyspecjalizowane"
+### Relacja "bardziej wyspecjalizowany"
 
-Relacja "bardziej wyspecjalizowane" sprawdza **typy argumentów**
-wywołania funkcji, które mogą być użyte z przeciążeniem.  Załóżmy, że
-przeciążenie l<sub>i</sub> można wywołać z argumentami typu, które
-należą do zbioru t<sub>i</sub>, a przeciążenie l<sub>j</sub> z
-argumentami typu, które należą do zbioru t<sub>j</sub>.  Przeciążenie
-l<sub>i</sub> jest bardziej wyspecializowane niż przeciążenie
-l<sub>j</sub>, jeżeli t<sub>i</sub> jest podzbiorem właściwym
-t<sub>j</sub>.
+Relacja "bardziej wyspecjalizowany" sprawdza **typy argumentów**
+wywołania funkcji, które mogą być użyte z przeciążeniem.
+
+Załóżmy, że przeciążenie l<sub>i</sub> można wywołać z argumentami
+typu, które należą do zbioru t<sub>i</sub>, a przeciążenie
+l<sub>j</sub> z argumentami typu, które należą do zbioru
+t<sub>j</sub>.  Przeciążenie l<sub>i</sub> jest bardziej
+wyspecializowane niż przeciążenie l<sub>j</sub>, jeżeli t<sub>i</sub>
+jest podzbiorem właściwym t<sub>j</sub>.
 
 W przykładzie wyżej, przeciążenie pierwsze l<sub>1</sub> przyjmuje
 argumenty dowolnych typów ze zbioru T<sub>1</sub>, także
