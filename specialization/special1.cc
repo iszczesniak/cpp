@@ -2,16 +2,16 @@
 
 using namespace std;
 
-// Overload #1
-template <typename T1>
-void foo(T1 p)
+// Overload A
+template <typename A1>
+void foo(A1 a1)
 {
   cout << __PRETTY_FUNCTION__ << endl;
 }
 
-// Overload #2
-template <typename T2>
-void foo(T2 *)
+// Overload B
+template <typename B1>
+void foo(B1 *b1)
 {
   cout << __PRETTY_FUNCTION__ << endl;
 }
@@ -19,11 +19,11 @@ void foo(T2 *)
 int main()
 {
   int x = 1;
-  // Call #1: only overload #1 is a candidate.  The template function
-  // called is: void foo(int).
+  // Call #1: only overload A is a candidate.  The template function
+  // called: void foo(int).
   foo(x);
 
-  // Call #2: overloads #1 and #2 are the candidates.  The template
-  // function called is: void foo(int *).
+  // Call #2: overloads A and B are the candidates.  The template
+  // function called: void foo(int *).
   foo(&x);
 }
