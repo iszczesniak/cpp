@@ -215,7 +215,7 @@ specjalizacji użyć.
 
 # Bardziej wyspecjalizowany szablon podstawowy
 
-Specjalizacja (być może lepiej "wyspecjalizowanie") ma dodatkowe
+Specjalizacja (a może lepiej "wyspecjalizowanie") ma dodatkowe
 znaczenie w języku C++, który pozwala przeciążać szablony podstawowe
 funkcji o tej samej nazwie.  Jeżeli będzie można użyć więcej niż
 jednego przeciążenia, to kompilator wybiera najbardziej
@@ -230,28 +230,29 @@ funkcji `foo`, a następnie wywołujemy funkcję `foo`.
 
 Jak kompilator wybrał przeciążenia szablonów podczas dwóch wywołań
 funkcji w przykładzie wyżej?  Pierwsze wywołanie przekazuje argument
-typu całkowitego, więc wybór jest tylko jeden: pierwsze przeciążenie.
-Drugie przeciążenie nie może być użyte, bo kompilator nie jest w
-stanie wywnioskować argumentu `T` szablonu tak, żeby można byłoby
-zainicjalizować parametr funkcji.
+typu całkowitego, więc wybór jest tylko jeden: przeciążenie A.
+Przeciążenie B nie może być użyte, bo kompilator nie jest w stanie
+wywnioskować argumentu `B1` szablonu tak, żeby można byłoby
+zainicjalizować parametr `b1` funkcji.
 
 Drugie wywołanie jest ciekawsze.  Kompilator może użyć zarówno
-pierwszego, jak i drugiego przeciążenia.  W tej sytuacji jest użyty
-**bardziej wyspecjalizowany szablon**.  W tym przykładzie drugie
-przeciążenie jest bardziej wyspecjalizowane.
+przeciążenia A, jak i B.  W tej sytuacji jest użyty **bardziej
+wyspecjalizowany szablon**.  W tym przykładzie przeciążenie B jest
+bardziej wyspecjalizowane.
 
 Zanim przejdziemy dalej (do omówienia idei bardziej wyspecjalizowanego
 szablonu), to podsumujmy przykład i zauważmy ważny fakt.  Podczas
 opracowania drugiego wywołania, kompilator może skonkretyzować oba
 przeciążenia używając wywnioskowanych argumentów:
 
-* pierwsze przeciążenie: `void foo(T)` z `T = int *`,
+* przeciążenie A: `void foo(A1)` z `A1 = int *`,
 
-* drugie przeciążenie: `void foo(T *)` z `T = int`.
+* przeciążenie B: `void foo(B1 *)` z `B1 = int`.
 
 Obie konkretyzacje tworzą funkcję szablonową `void foo(int *)`, którą
 można już użyć w drugim wywołaniu.  Teraz problemem pozostaje, które
-przeciążenie szablonu wybrać do wygenerowania tej funkcji szablonowej.
+przeciążenie szablonu wybrać do wygenerowania ciała tej funkcji
+szablonowej.
 
 Podkreślmy, że kompilator w dwóch osobnych krokach:
 
@@ -277,27 +278,36 @@ w pierwszym kroku, żeby wybrać kandydatów.
 
 ## Wybór najlepszego kandydata
 
-Ze zbioru kandydatów wybieramy najlepsze przeciążenie, czyli
-**najbardziej wyspecjalizowane**.  Wyboru dokonujemy przez
-porównywanie przeciążeń parami, czyli z użyciem binarnej relacji.
-Relacja jest porządkiem, ponieważ jest przechodnia.  Przchodnia, bo
-jeżeli $l_i$ jest bardziej wyspecjalizowana niż $`l_j`$, a $l_j$ od
-$l_k$, to oczekujemy, że $l_i$ będzie uznana za bardziej
-wyspecjalizowaną od $l_k$.
+Ze zbioru kandydatów wybieramy najlepszy szablon, czyli **najbardziej
+wyspecjalizowany**.  Wyboru dokonujemy przez porównywanie szablonów
+parami, czyli z użyciem binarnej relacji, którą oznaczymy jako <.
+Porównując parę szablonów I i J chcemy określić, który szablon jest
+bardziej wyspecjalizowany.  Zapis I < J czy czytamy: **I jest bardziej
+wyspecjalizowany niż J**.
 
-Porównując parę przeciążeń chcemy określić, które przeciążenie jest
-**bardziej wyspecjalizowane**.  Jednak relacja "bardziej
-wyspecjalizowane" nie musi zachodzić między każdą parą przeciążeń i
+Jednak relacja < nie musi zachodzić między każdą parą przeciążeń i
 dlatego nazywana jest **częściową**.  Ponieważ relacja jest częściowa,
 to może okazać się, że kompilator nie jest w stanie wybrać najbardziej
 wyspecjalizowanego przeciążenia i wted zgłasza błąd
 niejednoznaczności.
 
+Relacja < jest silnym porządkiem częciowym, ponieważ jest:
+
+* częściowa,
+
+* przeciwzwrotna, bo szablon nie jest bardziej wyspecjalizowany od
+  siebie, czyli relacja I < I nigdy nie zachodzi,
+
+* asymetryczna, bo jeżeli I < J, to relacja odwrotna (czyli J < I) nie
+  zachodzi,
+
+* przechodnia, bo jeżeli I < J i J < K, to naturalnie oczekujemy, że I
+  będzie uznany za bardziej wyspecjalizowany niż K, czyli I < K.
+
 Dla przykładu wyżej możemy powiedzieć, że dla drugiego wywołania
-przeciążenie drugie jest bardziej wyspecjalizowane niż pierwsze
-(relacja zachodzi).  Ponieważ zbiór kandydatów ma tylko dwa
-przeciążenia, więc możemy powiedzieć, że przeciążenie drugie jest
-najbardziej wyspecializowane.
+szablon B jest bardziej wyspecjalizowany niż A (relacja zachodzi: B <
+A).  A ponieważ zbiór kandydatów ma tylko dwa szablony, więc szablon B
+uznajemy za najbardziej wyspecializowany.
 
 ### Relacja "bardziej wyspecjalizowane"
 
