@@ -282,7 +282,7 @@ Ze zbioru kandydatów wybieramy najlepszy szablon, czyli **najbardziej
 wyspecjalizowany**.  Wyboru dokonujemy przez porównywanie szablonów
 parami, czyli z użyciem binarnej relacji, którą oznaczymy jako <.
 Porównując parę szablonów I i J chcemy określić, który szablon jest
-bardziej wyspecjalizowany.  Zapis I < J czy czytamy: **I jest bardziej
+bardziej wyspecjalizowany.  Zapis I < J czytamy: **I jest bardziej
 wyspecjalizowany niż J**.
 
 Jednak relacja < nie musi zachodzić między każdą parą przeciążeń i
