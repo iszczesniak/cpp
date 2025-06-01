@@ -260,20 +260,12 @@ Podkreślmy, że kompilator w dwóch osobnych krokach:
 2. wybiera najlepszy (najbardziej wyspecjalizowany) szablon ze
    zbioru kandydatów.
 
-Kompilator tworzy zbiór kandydatów przez wybranie spośród dostępnych
-szablonów tych, które można użyć dla danego wyrażenia wywołania, czyli
-tak skonkretyzować, żeby uzyskaną funkcję szablonową można było
-wywołać z argumentami tego wyrażenia wywołania bez konwersji typów.
-Wiemy, że konkretyzacja jest możliwa dla wywnioskowanych argumentów,
-zatem dla każdego dostępnego szablonu przeprowadzane jest wnioskowanie
-z użyciem wyrażenia wywołania: jeżeli wnioskowanie się udało, to
-szablon trafia do zbioru kandydatów, w przeciwnym razie jest
-ignorowany zgodnie z zasadą SFINAE.
-
-Zwróćmy uwagę na ważny fakt: **podczas wyboru najlepszego szablonu ze
-zbioru kandydatów (w drugim kroku), wyrażenie wywołania nie jest już
-brane pod uwagę.** Wyrażenie wywołania jest brane pod uwagę tylko w
-pierwszym kroku, żeby wybrać kandydatów.
+W pierwszym kroku, spośród dostępnych szablonów, kompilator wybiera
+te, dla których można wywnioskować argumenty (pozostałe szablony są
+ignorowane zgodnie z zasadą SFINAE).  Zwróćmy uwagę na ważny fakt: **w
+drugim kroku, wyrażenie wywołania nie jest już brane pod uwagę.**
+Wyrażenie wywołania jest brane pod uwagę tylko w pierwszym kroku, żeby
+wybrać kandydatów.
 
 ## Wybór najlepszego kandydata
 
@@ -289,7 +281,7 @@ dlatego nazywana jest **częściową**.  Ponieważ relacja jest częściowa,
 to może okazać się, że kompilator nie jest w stanie wybrać najbardziej
 wyspecjalizowanego szablonu i wted zgłasza błąd niejednoznaczności.
 
-Relacja < jest silnym porządkiem częciowym, ponieważ jest:
+Relacja < jest silnym porządkiem częściowym, ponieważ jest:
 
 * częściowa,
 
