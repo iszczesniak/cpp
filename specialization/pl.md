@@ -245,36 +245,35 @@ szablonu), to podsumujmy przykład i zauważmy ważny fakt.  Podczas
 opracowania drugiego wywołania, kompilator może skonkretyzować oba
 szablony używając wywnioskowanych argumentów:
 
-* przeciążenie A: `void foo(A1)` z `A1 = int *`,
+* szablon A: `void foo(A1)` z `A1 = int *`,
 
-* przeciążenie B: `void foo(B1 *)` z `B1 = int`.
+* szablon B: `void foo(B1 *)` z `B1 = int`.
 
 Obie konkretyzacje tworzą funkcję szablonową `void foo(int *)`, którą
-można już użyć w drugim wywołaniu.  Teraz problemem pozostaje, które
-przeciążenie szablonu wybrać do wygenerowania ciała tej funkcji
-szablonowej.
+można już użyć w drugim wywołaniu.  Teraz problemem pozostaje, który
+szablon wybrać do wygenerowania ciała tej funkcji szablonowej.
 
 Podkreślmy, że kompilator w dwóch osobnych krokach:
 
-1. tworzy zbiór kandydatów przeciążeń szablonów podstawowych,
+1. tworzy zbiór kandydatów szablonów,
 
-2. wybiera najlepsze (najbardziej wyspecjalizowane) przeciążenie ze
+2. wybiera najlepszy (najbardziej wyspecjalizowany) szablon ze
    zbioru kandydatów.
 
 Kompilator tworzy zbiór kandydatów przez wybranie spośród dostępnych
-przeciążeń tych, które można użyć dla danego wyrażenia wywołania,
-czyli tak skonkretyzować, żeby uzyskaną funkcję szablonową można było
-wywołać z argumentami tego wyrażenia wywołania.  Wiemy, że
-konkretyzacja jest możliwa dla wywnioskowanych argumentów, zatem dla
-każdego dostępnego przeciążenia przeprowadzane jest wnioskowanie z
-użyciem wyrażenia wywołania: jeżeli wnioskowanie się udało, to
-przeciążenie trafia do zbioru kandydatów, w przeciwnym razie jest
-ignorowane zgodnie z zasadą SFINAE.
+szablonów tych, które można użyć dla danego wyrażenia wywołania, czyli
+tak skonkretyzować, żeby uzyskaną funkcję szablonową można było
+wywołać z argumentami tego wyrażenia wywołania bez konwersji typów.
+Wiemy, że konkretyzacja jest możliwa dla wywnioskowanych argumentów,
+zatem dla każdego dostępnego szablonu przeprowadzane jest wnioskowanie
+z użyciem wyrażenia wywołania: jeżeli wnioskowanie się udało, to
+szablon trafia do zbioru kandydatów, w przeciwnym razie jest
+ignorowany zgodnie z zasadą SFINAE.
 
-Zwróćmy uwagę na ważny fakt: **podczas wyboru najlepszego przeciążenia
-ze zbioru kandydatów (w drugim kroku), wyrażenie wywołania nie jest
-już brane pod uwagę.** Wyrażenie wywołania jest brane pod uwagę tylko
-w pierwszym kroku, żeby wybrać kandydatów.
+Zwróćmy uwagę na ważny fakt: **podczas wyboru najlepszego szablonu ze
+zbioru kandydatów (w drugim kroku), wyrażenie wywołania nie jest już
+brane pod uwagę.** Wyrażenie wywołania jest brane pod uwagę tylko w
+pierwszym kroku, żeby wybrać kandydatów.
 
 ## Wybór najlepszego kandydata
 
@@ -288,15 +287,14 @@ wyspecjalizowany niż J**.
 Jednak relacja < nie musi zachodzić między każdą parą szablonów i
 dlatego nazywana jest **częściową**.  Ponieważ relacja jest częściowa,
 to może okazać się, że kompilator nie jest w stanie wybrać najbardziej
-wyspecjalizowanego przeciążenia i wted zgłasza błąd
-niejednoznaczności.
+wyspecjalizowanego szablonu i wted zgłasza błąd niejednoznaczności.
 
 Relacja < jest silnym porządkiem częciowym, ponieważ jest:
 
 * częściowa,
 
-* przeciwzwrotna, bo szablon nie jest bardziej wyspecjalizowany od
-  siebie, czyli relacja I < I nigdy nie zachodzi,
+* przeciwzwrotna, bo szablon nie może być bardziej wyspecjalizowany od
+  siebie samego, czyli relacja I < I nigdy nie zachodzi,
 
 * asymetryczna, bo jeżeli I < J, to relacja odwrotna (czyli J < I) nie
   zachodzi,
@@ -312,7 +310,7 @@ uznajemy za najbardziej wyspecializowany.
 ### Relacja "bardziej wyspecjalizowany"
 
 Relacja "bardziej wyspecjalizowany" sprawdza **typy argumentów**
-wywołania funkcji, które mogą być użyte z przeciążeniem.
+wywołania funkcji, które mogą być użyte z porównywanymi szablonami.
 
 Załóżmy, że przeciążenie l<sub>i</sub> można wywołać z argumentami
 typu, które należą do zbioru t<sub>i</sub>, a przeciążenie
