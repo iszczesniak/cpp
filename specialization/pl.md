@@ -304,7 +304,7 @@ Relacja < jest silnym porządkiem częciowym, ponieważ jest:
 
 Dla przykładu wyżej możemy powiedzieć, że dla drugiego wywołania
 szablon B jest bardziej wyspecjalizowany niż A (relacja zachodzi: B <
-A).  A ponieważ zbiór kandydatów ma tylko dwa szablony, więc szablon B
+A).  Ponieważ zbiór kandydatów ma tylko dwa szablony, więc szablon B
 uznajemy za najbardziej wyspecializowany.
 
 ### Relacja "bardziej wyspecjalizowany"
