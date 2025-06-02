@@ -1,0 +1,9 @@
+With static_asserts and the std::invocable concept, make sure that we
+can call these callables:
+
+struct A
+{
+  void operator()();
+};
+
+void foo(int);

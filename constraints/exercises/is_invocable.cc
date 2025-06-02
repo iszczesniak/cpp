@@ -10,9 +10,6 @@ void foo(int);
 int
 main()
 {
-  // We pass only the invocable type, without the types of the
-  // arguments, so we expect to call the callable without the
-  // arguments.
   static_assert(std::is_invocable<A>::value);
   static_assert(std::is_invocable_v<A>);
 
