@@ -22,7 +22,9 @@ void d1(double)
 int
 main()
 {
-  // I don't know how to make the template deduce the given argument.
+  // I don't know how to make the template deduce the first argument
+  // of the allable, so that we could make sure it is integral.  We
+  // have to provide it explicitly.
   f<int>(i1);
   f<long>(i2);
   // f<double>(d1);

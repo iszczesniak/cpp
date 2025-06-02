@@ -1,2 +1,6 @@
 Please write a function that would accept a callable.  A callable, in
 turn, should accept an integral argument.
+
+DISCLAIMER: I don't know how to do this right.  Please take a look at
+the comment in my solution.
+
