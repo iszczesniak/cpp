@@ -301,8 +301,17 @@ uznajemy za najbardziej wyspecializowany.
 
 ### Relacja "bardziej wyspecjalizowany"
 
-Relacja "bardziej wyspecjalizowany" sprawdza **typy argumentów**
-wywołania funkcji, które mogą być użyte z porównywanymi szablonami.
+Relacja < sprawdza argumenty wywołania funkcji, które mogą być użyte z
+porównywanymi szablonami.  Szablon bardziej wyspecjalizowany to ten,
+którego dopuszczalne argumenty są podzbiorem właściwym dopuszczalnych
+argumentów drugiego szablonu.  Ale co dokładnie znaczy "dopuszczany
+argument"?
+
+Dopuszczalny argument to ten, który może być użyty do wywołania
+funkcji, ten na podstawie którego można wywnioskować argumenty
+szablonu.  Nie chodzi tylko o typ argumentu, ale i jego kategorię, a
+także o typ parametru funkcji, w szczególności czy jest to referencja
+przekazująca.
 
 Załóżmy, że przeciążenie l<sub>i</sub> można wywołać z argumentami
 typu, które należą do zbioru t<sub>i</sub>, a przeciążenie
