@@ -1,0 +1,3 @@
+Napisz funkcję `f`, która doskonale przyjmuje i wywołuje (z
+zachowaniem kategorii wartości) bezparametrowe callable, a następnie
+doskonale zwraca wynik zwrócony przez callable.
