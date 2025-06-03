@@ -301,24 +301,21 @@ uznajemy za najbardziej wyspecializowany.
 
 ### Relacja "bardziej wyspecjalizowany"
 
-Relacja < sprawdza argumenty wywołania funkcji, które mogą być użyte z
-porównywanymi szablonami.  Szablon bardziej wyspecjalizowany to ten,
+Relacja I < J porównuje argumenty wywołania funkcji, które mogą być
+użyte z szablonami I i J.  Szablon bardziej wyspecjalizowany to ten,
 którego dopuszczalne argumenty są podzbiorem właściwym dopuszczalnych
-argumentów drugiego szablonu.  Ale co dokładnie znaczy "dopuszczany
+argumentów drugiego szablonu.  Ale co dokładnie oznacza "dopuszczany
 argument"?
 
 Dopuszczalny argument to ten, który może być użyty do wywołania
 funkcji, ten na podstawie którego można wywnioskować argumenty
-szablonu.  Nie chodzi tylko o typ argumentu, ale i jego kategorię, a
-także o typ parametru funkcji, w szczególności czy jest to referencja
-przekazująca.
+szablonu.  Nie chodzi tylko o typ argumentu, ale i jego kategorię, co
+jest ważne w przypadku inicjalizacji referencyjnego parametru funkcji.
 
-Załóżmy, że przeciążenie l<sub>i</sub> można wywołać z argumentami
-typu, które należą do zbioru t<sub>i</sub>, a przeciążenie
-l<sub>j</sub> z argumentami typu, które należą do zbioru
-t<sub>j</sub>.  Przeciążenie l<sub>i</sub> jest bardziej
-wyspecializowane niż przeciążenie l<sub>j</sub>, jeżeli t<sub>i</sub>
-jest podzbiorem właściwym t<sub>j</sub>.
+Załóżmy, że przeciążenie I można wywołać z argumentami, które należą
+do zbioru T, a przeciążenie J z argumentami, które należą do zbioru U.
+Przeciążenie I jest bardziej wyspecializowane niż przeciążenie J,
+jeżeli T jest podzbiorem właściwym U.
 
 W przykładzie wyżej, przeciążenie pierwsze l<sub>1</sub> przyjmuje
 argumenty dowolnych typów ze zbioru T<sub>1</sub>, także

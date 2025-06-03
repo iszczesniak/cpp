@@ -1,0 +1,3 @@
+Zaimplementuj koncept `retval<F, T>`, który jest prawdziwy, jeżeli `F`
+jest typem callable, który nie przyjmuje argumentów i który zwraca
+wartość typu `T`.  Przykładowe użycie znajduje się w pliku retval.cc.
