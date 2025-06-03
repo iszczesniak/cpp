@@ -255,9 +255,9 @@ szablon wybrać do wygenerowania ciała tej funkcji szablonowej.
 
 Podkreślmy, że kompilator w dwóch osobnych krokach:
 
-1. tworzy zbiór kandydatów szablonów,
+#. tworzy zbiór kandydatów szablonów,
 
-2. wybiera najlepszy (najbardziej wyspecjalizowany) szablon ze
+#. wybiera najlepszy (najbardziej wyspecjalizowany) szablon ze
    zbioru kandydatów.
 
 W pierwszym kroku, spośród dostępnych szablonów, kompilator wybiera
