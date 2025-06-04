@@ -196,16 +196,12 @@ jedynie korzystając z funkcji `std::invoke.`
 {% include_relative invoke3.cc %}
 ```
 
-W przykładzie wyżej użyliśmy **szablonu wariadycznego**, żeby funkcja
-`f` mogła przyjąć dowolną (także zerową) liczbę argumentów dla
-wywoływanego callable.  Szablony wariadyczne, które jedynie wspominamy
-tutaj, posiadają wiele szczegółów, ale najważniejszą cechą jest
-posiadanie **dowolnej liczby parametrów**.
+W przykładzie wyżej użyliśmy szablonu wariadycznego, żeby funkcja `f`
+mogła przyjąć dowolną (także zerową) liczbę argumentów dla
+wywoływanego callable.  Są dwa problemy powyższego przykładu związane
+z użyciem `std::invoke`:
 
-Są dwa problemy powyższego przykładu związane z użyciem `std::invoke`:
-
-* konieczność użycia szablonu wariadycznego, co jest trudne i dlatego
-  niewygodne,
+* konieczność użycia szablonu wariadycznego,
 
 * po argumentach dla callable nie można przekazać innych argumentów,
   bo wszysto do końca jest traktowane jako argumenty dla callable.
@@ -216,14 +212,12 @@ Funkcja `std::apply` pozwala na wywołanie dowolnego callable:
 
 * bez użycia szablonu wariadycznego,
 
-* z możliwością podania dodatkowych argumentów po argumentach dla
-  callable.
+* gdzie argumenty są przekazywane w jednej krotce.
 
-Rozwiązanie jest proste: argumenty są przekazywane w krotce.  Krotkę
-tworzymy z użyciem funkcji `std::forward_as_tuple`, żeby zachować
-kategorię wartości wyrażeń elementów krotki.  Jeżeli wywołujemy
-funkcję składową, to pierwszym elementem krotki powinien być obiekt,
-na rzecz którego callable będzie wywołana.
+Krotkę tworzymy z użyciem funkcji `std::forward_as_tuple`, żeby
+zachować kategorię wartości wyrażeń elementów krotki.  Jeżeli
+wywołujemy funkcję składową, to pierwszym elementem krotki powinien
+być obiekt, na rzecz którego callable będzie wywołana.
 
 ```cpp
 {% include_relative apply.cc %}
