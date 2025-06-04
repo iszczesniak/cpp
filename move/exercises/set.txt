@@ -1,4 +1,5 @@
 W strukturze typu `set<pair<int, string>>` **umieść** element o
-dowolnych wartościach.  Następnie proszę tak zmienić zbiór, żeby
-zinkrementować liczbę całkowitą, ale nie zmienić obiektu typu `string`
-(ma to być ten sam obiekt, czyli w tym samym miejscu pamięci).
+dowolnych wartościach.  Następnie proszę tak zmienić zbiór, żeby w
+umieszczonym elemencie zinkrementować liczbę całkowitą, ale nie
+zmienić obiektu typu `string` (ma to być ten sam obiekt, czyli w tym
+samym miejscu pamięci).
