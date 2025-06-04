@@ -1,0 +1,2 @@
+Napisz fragment kodu, który zademonstruje przeciążanie operatora
+przypisania w zależności od kategorii lewego i prawego operandu.
