@@ -20,7 +20,7 @@ struct A
   // In the examples above, the right operand doesn't have to be of
   // type A, but of any type, e.g.:
 
-  // Left operand: rvalue, right operand: rvalue.
+  // 5. Left operand: rvalue, right operand: rvalue.
   A & operator = (int &&) &&;
 };
 
@@ -31,4 +31,5 @@ int main()
   a1 = A(); // #2
   A() = a1; // #3
   A() = A(); // #4
+  A() = 5; // #5
 }
