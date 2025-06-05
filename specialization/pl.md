@@ -255,9 +255,9 @@ szablon wybrać do wygenerowania ciała tej funkcji szablonowej.
 
 Podkreślmy, że kompilator w dwóch osobnych krokach:
 
-#. tworzy zbiór kandydatów szablonów,
+1. tworzy zbiór kandydatów szablonów,
 
-#. wybiera najlepszy (najbardziej wyspecjalizowany) szablon ze
+2. wybiera najlepszy (najbardziej wyspecjalizowany) szablon ze
    zbioru kandydatów.
 
 W pierwszym kroku, spośród dostępnych szablonów, kompilator wybiera
@@ -299,7 +299,7 @@ szablon B jest bardziej wyspecjalizowany niż A (relacja zachodzi: B <
 A).  Ponieważ zbiór kandydatów ma tylko dwa szablony, więc szablon B
 uznajemy za najbardziej wyspecializowany.
 
-### Relacja "bardziej wyspecjalizowany" - pierwsze podejście
+### Relacja "bardziej wyspecjalizowany"
 
 Relacja I < J porównuje argumenty wywołania funkcji, które mogą być
 użyte z szablonami I i J.  **Szablon bardziej wyspecjalizowany to ten,
@@ -310,9 +310,13 @@ odwrót (czyli nie każdy argument dopuszczalny dla J jest dopuszczalny
 dla I).  Ale co dokładnie oznacza "dopuszczany argument"?
 
 Dopuszczalny argument to ten, który może być użyty do wywołania
-funkcji, czyli ten na podstawie którego można wywnioskować argumenty
+funkcji, czyli ten, na podstawie którego można wywnioskować argumenty
 szablonu.  Nie chodzi tylko o typ argumentu, ale i jego kategorię, co
 jest ważne w przypadku inicjalizacji referencyjnego parametru funkcji.
+Dopuszczalne argumenty to zbiór wszystkich możliwych argumentów.  Na
+tym etapie wiemy, że argument wywołania funkcji (tego właśnie
+opracowywanego) należy do zbioru dopuszczalnych argumentów każdego
+szablonu ze zbioru kandydatów.
 
 W przykładzie wyżej, przeciążenie pierwsze l<sub>1</sub> przyjmuje
 argumenty dowolnych typów ze zbioru T<sub>1</sub>, także
