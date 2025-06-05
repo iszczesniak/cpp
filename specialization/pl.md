@@ -299,23 +299,20 @@ szablon B jest bardziej wyspecjalizowany niż A (relacja zachodzi: B <
 A).  Ponieważ zbiór kandydatów ma tylko dwa szablony, więc szablon B
 uznajemy za najbardziej wyspecializowany.
 
-### Relacja "bardziej wyspecjalizowany"
+### Relacja "bardziej wyspecjalizowany" - pierwsze podejście
 
 Relacja I < J porównuje argumenty wywołania funkcji, które mogą być
-użyte z szablonami I i J.  Szablon bardziej wyspecjalizowany to ten,
+użyte z szablonami I i J.  **Szablon bardziej wyspecjalizowany to ten,
 którego dopuszczalne argumenty są podzbiorem właściwym dopuszczalnych
-argumentów drugiego szablonu.  Ale co dokładnie oznacza "dopuszczany
-argument"?
+argumentów drugiego szablonu.** Parafrazując: jeżeli I < J, to każdy
+dopuszczalny argument dla I jest też dopuszczalny dla J, ale nie na
+odwrót (czyli nie każdy argument dopuszczalny dla J jest dopuszczalny
+dla I).  Ale co dokładnie oznacza "dopuszczany argument"?
 
 Dopuszczalny argument to ten, który może być użyty do wywołania
-funkcji, ten na podstawie którego można wywnioskować argumenty
+funkcji, czyli ten na podstawie którego można wywnioskować argumenty
 szablonu.  Nie chodzi tylko o typ argumentu, ale i jego kategorię, co
 jest ważne w przypadku inicjalizacji referencyjnego parametru funkcji.
-
-Załóżmy, że przeciążenie I można wywołać z argumentami, które należą
-do zbioru T, a przeciążenie J z argumentami, które należą do zbioru U.
-Przeciążenie I jest bardziej wyspecializowane niż przeciążenie J,
-jeżeli T jest podzbiorem właściwym U.
 
 W przykładzie wyżej, przeciążenie pierwsze l<sub>1</sub> przyjmuje
 argumenty dowolnych typów ze zbioru T<sub>1</sub>, także
