@@ -313,10 +313,12 @@ Dopuszczalny argument to ten, który może być użyty do wywołania
 funkcji, czyli ten, na podstawie którego można wywnioskować argumenty
 szablonu.  Nie chodzi tylko o typ argumentu, ale i jego kategorię, co
 jest ważne w przypadku inicjalizacji referencyjnego parametru funkcji.
-Dopuszczalne argumenty to zbiór wszystkich możliwych argumentów.  Na
-tym etapie wiemy, że argument wywołania funkcji (tego właśnie
+Dopuszczalne argumenty to zbiór wszystkich możliwych argumentów.  W
+drugim kroku wiemy, że argument wywołania funkcji (tego właśnie
 opracowywanego) należy do zbioru dopuszczalnych argumentów każdego
-szablonu ze zbioru kandydatów.
+szablonu ze zbioru kandydatów, więc nie pozwoli on nam wybrać bardziej
+wyspecjalizowanego szablonu i dlatego nie jest ona już brany pod
+uwagę.  Potrzebujemy innego sposobu porównania.
 
 W przykładzie wyżej, przeciążenie pierwsze l<sub>1</sub> przyjmuje
 argumenty dowolnych typów ze zbioru T<sub>1</sub>, także
