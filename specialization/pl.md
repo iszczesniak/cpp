@@ -320,18 +320,17 @@ argumentów każdego szablonu ze zbioru kandydatów: ten argument nie
 pozwoli nam wybrać bardziej wyspecjalizowanego szablonu i dlatego nie
 jest brany pod uwagę.  Potrzebujemy innego sposobu porównania.
 
-W przykładzie wyżej, przeciążenie pierwsze l<sub>1</sub> przyjmuje
-argumenty dowolnych typów ze zbioru T<sub>1</sub>, także
-wskaźnikowych.  Drugie przeciążenie l<sub>2</sub> przyjmuje argumenty
-dowolnych typów wskaźnikowych ze zbioru t<sub>2</sub>.  Przeciążenie
-l<sub>2</sub> jest bardziej wyspecjalizowane niż l<sub>1</sub>,
-ponieważ t<sub>2</sub> jest podzbiorem właściwym t<sub>1</sub>, a to
-wiemy z zasad wnioskowania:
+W przykładzie wyżej, szablon A przyjmuje argumenty dowolnych typów,
+także wskaźnikowych.  Szablon B przyjmuje argumenty tylko typów
+wskaźnikowych.  Szablon B jest bardziej wyspecjalizowane niż szablon
+A, ponieważ zbiór dopuszczalnych argumentów szablonu B jest podzbiorem
+właściwym zbioru dopuszczalnych argumentów szablonu A.  Tak to wynika
+z wnioskowania:
 
-* pierwsze przeciążenie możemy użyć dla każdego argumentu typu `T2 *`
-  (czyli typu parametru drugiego przeciążenia), bo możemy
-  zainicjalizować parametr `T1 p1` wyrażeniem typu `T2 *`, ponieważ
-  wtedy `T1` może być wywnioskowany jako `T1 = T2 *`,
+* szablonu A możemy użyć dla każdego argumentu typu `T2 *` (czyli typu
+  parametru drugiego przeciążenia), bo możemy zainicjalizować parametr
+  `T1 p1` wyrażeniem typu `T2 *`, ponieważ wtedy `T1` może być
+  wywnioskowany jako `T1 = T2 *`,
 
 * drugiego przeciążenia nie możemy użyć dla każdego argumentu typu
   `T1`, a jedynie dla typów wskaźnikowych, czyli parametr `T2 *p2`
