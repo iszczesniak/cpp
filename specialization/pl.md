@@ -330,9 +330,9 @@ dopuszczalnych argumentów funkcji szablonu A.  Tak to wynika z
 wnioskowania:
 
 * szablonu A możemy użyć dla każdego argumentu typu `B1 *` (czyli typu
-  parametru drugiego przeciążenia), bo możemy zainicjalizować parametr
-  `T1 p1` wyrażeniem typu `T2 *`, ponieważ wtedy `T1` może być
-  wywnioskowany jako `T1 = T2 *`,
+  parametru funkcji szablonu B), bo możemy zainicjalizować parametr
+  `A1 a1` wyrażeniem typu `B1 *`: `A1` będzie wywnioskowany jako `B1
+  *`,
 
 * drugiego przeciążenia nie możemy użyć dla każdego argumentu typu
   `T1`, a jedynie dla typów wskaźnikowych, czyli parametr `T2 *p2`
