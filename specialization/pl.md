@@ -317,8 +317,9 @@ kategorię, co jest ważne w przypadku inicjalizacji referencyjnego
 parametru funkcji.  W drugim kroku wiemy, że argument funkcji
 opracowywanego wyrażenia jest dopuszczalny dla każdego szablonu ze
 zbioru kandydatów: ten argument nie pozwoli nam wybrać bardziej
-wyspecjalizowanego szablonu i dlatego nie jest brany pod uwagę.
-Potrzebujemy innego sposobu porównania.
+wyspecjalizowanego szablonu i dlatego nie jest dalej brany pod uwagę
+(w pierwszym kroku był, ale w drugim już nie).  Potrzebujemy innego
+sposobu porównania.
 
 W przykładzie wyżej, funkcja szablonu A przyjmuje argumenty funkcji
 dowolnych typów, także wskaźnikowych.  Funkcja szablonu B przyjmuje
@@ -328,7 +329,7 @@ argumentów funkcji szablonu B jest podzbiorem właściwym zbioru
 dopuszczalnych argumentów funkcji szablonu A.  Tak to wynika z
 wnioskowania:
 
-* szablonu A możemy użyć dla każdego argumentu typu `T2 *` (czyli typu
+* szablonu A możemy użyć dla każdego argumentu typu `B1 *` (czyli typu
   parametru drugiego przeciążenia), bo możemy zainicjalizować parametr
   `T1 p1` wyrażeniem typu `T2 *`, ponieważ wtedy `T1` może być
   wywnioskowany jako `T1 = T2 *`,
