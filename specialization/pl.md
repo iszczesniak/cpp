@@ -341,21 +341,23 @@ wnioskowania:
   wnioskowanie się uda (np. `B1 = T`).
 
 Porównanie szablonów I i J wykorzystuje wnioskowanie.  Zacznijmy od
-najprostszego przypadku:
+najprostszego przypadku, gdzie `ParamTypeI1` używa parametru `I1`
+(np. `ParamTypeI1` może być `const I1 *`), a `ParamTypeJ1` używa
+parametru `J1`:
 
 ```cpp
 {% include_relative simplest.hpp %}
 ```
 
-Powiemy, że I < J, kiedy:
+Powiemy, że `I < J`, kiedy:
 
-* możemy wywnioskować argument szablonu I na podstawie szablonu J,
-  czyli na podstawie inicjalizacji parametru i1: `ParamTypeI1 i1 =
-  <expression of type ParamTypeJ1>`.
+* możemy wywnioskować argument szablonu `J` na podstawie szablonu `I`,
+  czyli na podstawie inicjalizacji parametru `j1`: `ParamTypeJ1 j1 =
+  ExprI1`, gdzie `ExprI1` jest typu `ParamTypeI1`,
 
-* nie możemy wnioskować argumentu szablonu J na podstawie szablonu I,
-  czyli na podstawie inicjalizacji parametru j1: `ParamTypeJ1 j1 =
-  <expression of type ParamTypeI1>`.
+* nie możemy wnioskować argumentu szablonu `I` na podstawie szablonu
+  `J`, czyli na podstawie inicjalizacji parametru `i1`: `ParamTypeI1
+  i1 = ExprJ1`, gdzie `ExprJ1` jest typu `ParamTypeJ1`.
 
 # Podsumowanie
 
