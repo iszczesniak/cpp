@@ -313,8 +313,8 @@ oznacza "dopuszczany argument funkcji"?
 Dopuszczalny argument funkcji to ten, który może być użyty do
 wywołania funkcji, czyli ten, na podstawie którego można wywnioskować
 argumenty szablonu.  Nie chodzi tylko o typ argumentu, ale i jego
-kategorię, co jest ważne w przypadku inicjalizacji referencyjnego
-parametru funkcji.  W drugim kroku wiemy, że argument funkcji
+kategorię (co jest ważne w przypadku inicjalizacji referencyjnego
+parametru funkcji).  W drugim kroku wiemy, że argument funkcji
 opracowywanego wyrażenia jest dopuszczalny dla każdego szablonu ze
 zbioru kandydatów: ten argument nie pozwoli nam wybrać bardziej
 wyspecjalizowanego szablonu i dlatego nie jest dalej brany pod uwagę
