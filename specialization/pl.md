@@ -304,8 +304,8 @@ uznajemy za najbardziej wyspecializowany.
 Relacja I < J porównuje argumenty wywołania funkcji, które mogą być
 użyte z szablonami I i J.  **Szablon bardziej wyspecjalizowany to ten,
 którego dopuszczalne argumenty są podzbiorem właściwym dopuszczalnych
-argumentów drugiego szablonu.** Parafrazując: jeżeli I < J, to każdy
-dopuszczalny argument dla I jest też dopuszczalny dla J, ale nie na
+argumentów drugiego szablonu.** Parafrazując: I < J oznacza, że każdy
+argument dopuszczalny dla I jest też dopuszczalny dla J, ale nie na
 odwrót (czyli nie każdy argument dopuszczalny dla J jest dopuszczalny
 dla I).  Ale co dokładnie oznacza "dopuszczany argument"?
 
@@ -313,12 +313,11 @@ Dopuszczalny argument to ten, który może być użyty do wywołania
 funkcji, czyli ten, na podstawie którego można wywnioskować argumenty
 szablonu.  Nie chodzi tylko o typ argumentu, ale i jego kategorię, co
 jest ważne w przypadku inicjalizacji referencyjnego parametru funkcji.
-Dopuszczalne argumenty to zbiór wszystkich możliwych argumentów.  W
-drugim kroku wiemy, że argument wyrażenia wywołania funkcji (tego
-właśnie opracowywanego wyrażenia) należy do zbioru dopuszczalnych
-argumentów każdego szablonu ze zbioru kandydatów: ten argument nie
-pozwoli nam wybrać bardziej wyspecjalizowanego szablonu i dlatego nie
-jest brany pod uwagę.  Potrzebujemy innego sposobu porównania.
+W drugim kroku wiemy, że argument wyrażenia wywołania funkcji (tego
+właśnie opracowywanego wyrażenia) jest dopuszczalny dla każdego
+szablonu ze zbioru kandydatów: ten argument nie pozwoli nam wybrać
+bardziej wyspecjalizowanego szablonu i dlatego nie jest brany pod
+uwagę.  Potrzebujemy innego sposobu porównania.
 
 W przykładzie wyżej, szablon A przyjmuje argumenty dowolnych typów,
 także wskaźnikowych.  Szablon B przyjmuje argumenty tylko typów
