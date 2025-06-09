@@ -322,10 +322,10 @@ jest brany pod uwagę.  Potrzebujemy innego sposobu porównania.
 
 W przykładzie wyżej, szablon A przyjmuje argumenty dowolnych typów,
 także wskaźnikowych.  Szablon B przyjmuje argumenty tylko typów
-wskaźnikowych.  Szablon B jest bardziej wyspecjalizowane niż szablon
-A, ponieważ zbiór dopuszczalnych argumentów szablonu B jest podzbiorem
-właściwym zbioru dopuszczalnych argumentów szablonu A.  Tak to wynika
-z wnioskowania:
+wskaźnikowych.  Szablon B jest bardziej wyspecjalizowane niż szablon A
+(czyli B < A), ponieważ zbiór dopuszczalnych argumentów szablonu B
+jest podzbiorem właściwym zbioru dopuszczalnych argumentów szablonu A.
+Tak to wynika z wnioskowania:
 
 * szablonu A możemy użyć dla każdego argumentu typu `T2 *` (czyli typu
   parametru drugiego przeciążenia), bo możemy zainicjalizować parametr
@@ -336,6 +336,23 @@ z wnioskowania:
   `T1`, a jedynie dla typów wskaźnikowych, czyli parametr `T2 *p2`
   możemy zainicjalizować tylko wtedy, kiedy `T1` jest typem
   `T *`, bo tylko wtedy można wywnioskować `T2 = T`.
+
+Porównanie szablonów I i J wykorzystuje wnioskowanie.  Zacznijmy od
+najprostszego przypadku:
+
+```cpp
+{% include_relative simplest.hpp %}
+```
+
+Powiemy, że I < J, kiedy:
+
+* możemy wywnioskować argument szablonu I na podstawie szablonu J,
+  czyli na podstawie inicjalizacji parametru i1: `ParamTypeI1 i1 =
+  <expression of type ParamTypeJ1>`.
+
+* nie możemy wnioskować argumentu szablonu J na podstawie szablonu I,
+  czyli na podstawie inicjalizacji parametru j1: `ParamTypeJ1 j1 =
+  <expression of type ParamTypeI1>`.
 
 # Podsumowanie
 
