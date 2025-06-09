@@ -331,13 +331,14 @@ wnioskowania:
 
 * szablonu A możemy użyć dla każdego argumentu typu `B1 *` (czyli typu
   parametru funkcji szablonu B), bo możemy zainicjalizować parametr
-  `A1 a1` wyrażeniem typu `B1 *`: `A1` będzie wywnioskowany jako `B1
-  *`,
+  `a1` funkcji wyrażeniem typu `B1 *`: `A1` będzie wywnioskowany jako
+  `B1 *`,
 
-* drugiego przeciążenia nie możemy użyć dla każdego argumentu typu
-  `T1`, a jedynie dla typów wskaźnikowych, czyli parametr `T2 *p2`
-  możemy zainicjalizować tylko wtedy, kiedy `T1` jest typem
-  `T *`, bo tylko wtedy można wywnioskować `T2 = T`.
+* szablonu B nie możemy użyć dla każdego argumentu typu `A1` (czyli
+  typu parametru funkcji szablonu A), a jedynie dla typów
+  wskaźnikowych; parametr `b1` możemy zainicjalizować tylko wtedy,
+  kiedy `A1` jest typem wskaźnikowym (np. `T *`), bo tylko wtedy
+  wnioskowanie się uda (np. `B1 = T`).
 
 # Podsumowanie
 
