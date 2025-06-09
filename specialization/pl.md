@@ -321,10 +321,10 @@ nam wybrać bardziej wyspecjalizowanego szablonu i dlatego nie jest
 dalej brany pod uwagę (w pierwszym kroku był, ale w drugim już nie).
 Potrzebujemy innego sposobu porównania.
 
-W przykładzie wyżej, funkcja szablonu A przyjmuje argumenty funkcji
+W przykładzie wyżej, funkcja szablonu A przyjmuje argumenty (funkcji)
 dowolnych typów, także wskaźnikowych.  Funkcja szablonu B przyjmuje
-argumenty funkcji tylko typów wskaźnikowych.  Szablon B jest bardziej
-wyspecjalizowane niż szablon A, ponieważ zbiór dopuszczalnych
+argumenty tylko typów wskaźnikowych.  Szablon B jest bardziej
+wyspecjalizowany niż szablon A, ponieważ zbiór dopuszczalnych
 argumentów funkcji szablonu B jest podzbiorem właściwym zbioru
 dopuszczalnych argumentów funkcji szablonu A.  Tak to wynika z
 wnioskowania:
