@@ -303,39 +303,42 @@ uznajemy za najbardziej wyspecializowany.
 
 Relacja I < J porównuje argumenty wywołania funkcji, które mogą być
 użyte z szablonami I i J.  **Szablon bardziej wyspecjalizowany to ten,
-którego dopuszczalne argumenty są podzbiorem właściwym dopuszczalnych
-argumentów drugiego szablonu.** Parafrazując: jeżeli I < J, to każdy
-dopuszczalny argument dla I jest też dopuszczalny dla J, ale nie na
-odwrót (czyli nie każdy argument dopuszczalny dla J jest dopuszczalny
-dla I).  Ale co dokładnie oznacza "dopuszczany argument"?
+którego dopuszczalne argumenty funkcji są podzbiorem właściwym
+dopuszczalnych argumentów funkcji drugiego szablonu.** Parafrazując: I
+< J oznacza, że każdy argument funkcji dopuszczalny dla I jest też
+dopuszczalny dla J, ale nie na odwrót (czyli nie każdy argument
+funkcji dopuszczalny dla J jest dopuszczalny dla I).  Ale co dokładnie
+oznacza "dopuszczany argument funkcji"?
 
-Dopuszczalny argument to ten, który może być użyty do wywołania
-funkcji, czyli ten, na podstawie którego można wywnioskować argumenty
-szablonu.  Nie chodzi tylko o typ argumentu, ale i jego kategorię, co
-jest ważne w przypadku inicjalizacji referencyjnego parametru funkcji.
-Dopuszczalne argumenty to zbiór wszystkich możliwych argumentów.  W
-drugim kroku wiemy, że argument wyrażenia wywołania funkcji (tego
-właśnie opracowywanego wyrażenia) należy do zbioru dopuszczalnych
-argumentów każdego szablonu ze zbioru kandydatów: ten argument nie
-pozwoli nam wybrać bardziej wyspecjalizowanego szablonu i dlatego nie
-jest brany pod uwagę.  Potrzebujemy innego sposobu porównania.
+Dopuszczalny argument funkcji to ten, który może być użyty do
+wywołania funkcji, czyli (w przypadku użycia szablonu funkcji) ten, na
+podstawie którego można wywnioskować argumenty szablonu.  Nie chodzi
+tylko o typ argumentu, ale i jego kategorię (co jest ważne w przypadku
+inicjalizacji referencyjnego parametru funkcji).  W drugim kroku
+wiemy, że argument funkcji opracowywanego wyrażenia jest dopuszczalny
+dla każdego szablonu ze zbioru kandydatów: ten argument nie pozwoli
+nam wybrać bardziej wyspecjalizowanego szablonu i dlatego nie jest
+dalej brany pod uwagę (w pierwszym kroku był, ale w drugim już nie).
+Potrzebujemy innego sposobu porównania.
 
-W przykładzie wyżej, szablon A przyjmuje argumenty dowolnych typów,
-także wskaźnikowych.  Szablon B przyjmuje argumenty tylko typów
-wskaźnikowych.  Szablon B jest bardziej wyspecjalizowane niż szablon A
-(czyli B < A), ponieważ zbiór dopuszczalnych argumentów szablonu B
-jest podzbiorem właściwym zbioru dopuszczalnych argumentów szablonu A.
-Tak to wynika z wnioskowania:
+W przykładzie wyżej, funkcja szablonu A przyjmuje argumenty (funkcji)
+dowolnych typów, także wskaźnikowych.  Funkcja szablonu B przyjmuje
+argumenty tylko typów wskaźnikowych.  Szablon B jest bardziej
+wyspecjalizowany niż szablon A (czyli B < A), ponieważ zbiór
+dopuszczalnych argumentów funkcji szablonu B jest podzbiorem właściwym
+zbioru dopuszczalnych argumentów funkcji szablonu A.  Tak to wynika z
+wnioskowania:
 
-* szablonu A możemy użyć dla każdego argumentu typu `T2 *` (czyli typu
-  parametru drugiego przeciążenia), bo możemy zainicjalizować parametr
-  `T1 p1` wyrażeniem typu `T2 *`, ponieważ wtedy `T1` może być
-  wywnioskowany jako `T1 = T2 *`,
+* szablonu A możemy użyć dla każdego argumentu typu `B1 *` (czyli typu
+  parametru funkcji szablonu B), bo możemy zainicjalizować parametr
+  `a1` funkcji wyrażeniem typu `B1 *`: `A1` będzie wywnioskowany jako
+  `B1 *`,
 
-* drugiego przeciążenia nie możemy użyć dla każdego argumentu typu
-  `T1`, a jedynie dla typów wskaźnikowych, czyli parametr `T2 *p2`
-  możemy zainicjalizować tylko wtedy, kiedy `T1` jest typem
-  `T *`, bo tylko wtedy można wywnioskować `T2 = T`.
+* szablonu B nie możemy użyć dla każdego argumentu typu `A1` (czyli
+  typu parametru funkcji szablonu A), a jedynie dla typów
+  wskaźnikowych; parametr `b1` możemy zainicjalizować tylko wtedy,
+  kiedy `A1` jest typem wskaźnikowym (np. `T *`), bo tylko wtedy
+  wnioskowanie się uda (np. `B1 = T`).
 
 Porównanie szablonów I i J wykorzystuje wnioskowanie.  Zacznijmy od
 najprostszego przypadku:
