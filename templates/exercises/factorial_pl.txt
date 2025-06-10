@@ -1,0 +1,4 @@
+Proszę napisać szablon funkcji `factorial`, która rekurencyjnie, w
+czasie kompilacji wyznaczy i zwróci jako wynik silnię podanej liczby.
+Typ liczby jest pierwszym parametrem szablonu, a liczba drugim.  Oto
+przykład wywołania: `cout << factorial<unsigned, 10>();`

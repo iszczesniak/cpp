@@ -5,3 +5,8 @@ factorial<5>();
 
 Implement the function as recursive, and break the recursion with
 template specialization.
+
+Please note that a function specialization cannot be partial, and so
+we have to define it for a specific type, e.g., int.  Using the
+compile-time conditional statement (`if constexpr`) is better, because
+it does not require a specialization.
