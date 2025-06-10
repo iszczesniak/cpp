@@ -1,0 +1,6 @@
+Zdefiniuj koncept `printable`, który sprawdza, czy wartość danego typu
+można wypisać (z użyciem operatora `<<`) do strumienia wyjściowego
+(`std::ostream`).  Następnie proszę napisać trzy wersje (normalną,
+skróconą i najkrótszą) szablonu funkcji `print`, która przyjmuje przez
+referencję argument typu spełniającego koncept `printable`, a
+następnie wypisze ją na `std::cout`.
