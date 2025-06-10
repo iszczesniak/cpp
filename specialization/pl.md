@@ -271,10 +271,9 @@ wybrać kandydatów.
 
 Ze zbioru kandydatów wybieramy najlepszy szablon, czyli **najbardziej
 wyspecjalizowany**.  Wyboru dokonujemy przez porównywanie szablonów
-parami, czyli z użyciem binarnej relacji, którą oznaczymy jako <.
-Porównując parę szablonów I i J chcemy określić, który szablon jest
-bardziej wyspecjalizowany.  Zapis I < J czytamy: **I jest bardziej
-wyspecjalizowany niż J**.
+parami, czyli z użyciem binarnej relacji, którą umownie oznaczymy jako
+<.  Porównując parę szablonów `I` i `J` chcemy określić, który szablon
+jest bardziej wyspecjalizowany.
 
 Jednak relacja < nie musi zachodzić między każdą parą szablonów i
 dlatego nazywana jest **częściową**.  Ponieważ relacja jest częściowa,
@@ -286,13 +285,14 @@ Relacja < jest silnym porządkiem częściowym, ponieważ jest:
 * częściowa,
 
 * przeciwzwrotna, bo szablon nie może być bardziej wyspecjalizowany od
-  siebie samego, czyli relacja I < I nigdy nie zachodzi,
+  siebie samego, czyli relacja `I < I` nigdy nie zachodzi,
 
-* asymetryczna, bo jeżeli I < J, to relacja odwrotna (czyli J < I) nie
-  zachodzi,
+* asymetryczna, bo jeżeli `I < J`, to relacja odwrotna (czyli `J < I`)
+  nie zachodzi,
 
-* przechodnia, bo jeżeli I < J i J < K, to naturalnie oczekujemy, że I
-  będzie uznany za bardziej wyspecjalizowany niż K, czyli I < K.
+* przechodnia, bo jeżeli `I < J` i `J < K`, to naturalnie oczekujemy,
+  że `I` będzie uznany za bardziej wyspecjalizowany niż `K`, czyli `I
+  < K`.
 
 Dla przykładu wyżej możemy powiedzieć, że dla drugiego wywołania
 szablon B jest bardziej wyspecjalizowany niż A (relacja zachodzi: B <
@@ -301,19 +301,24 @@ uznajemy za najbardziej wyspecializowany.
 
 ### Relacja "bardziej wyspecjalizowany"
 
-Relacja I < J porównuje argumenty wywołania funkcji, które mogą być
-użyte z szablonami I i J.  **Szablon bardziej wyspecjalizowany to ten,
-którego dopuszczalne argumenty funkcji są podzbiorem właściwym
-dopuszczalnych argumentów funkcji drugiego szablonu.** Parafrazując: I
-< J oznacza, że każdy argument funkcji dopuszczalny dla I jest też
-dopuszczalny dla J, ale nie na odwrót (czyli nie każdy argument
-funkcji dopuszczalny dla J jest dopuszczalny dla I).  Ale co dokładnie
-oznacza "dopuszczany argument funkcji"?
+Relacja `I < J` porównuje argumenty wywołania funkcji, które mogą być
+użyte z szablonami `I` i `J`.  **Szablon bardziej wyspecjalizowany to
+ten, którego dopuszczalne argumenty funkcji są podzbiorem właściwym
+dopuszczalnych argumentów funkcji drugiego szablonu.** Parafrazując:
+`I < J` oznacza, że każdy argument funkcji dopuszczalny dla `I` jest
+też dopuszczalny dla `J`, ale nie na odwrót (czyli nie każdy argument
+funkcji dopuszczalny dla `J` jest dopuszczalny dla `I`).
 
-Dopuszczalny argument funkcji to ten, który może być użyty do
-wywołania funkcji, czyli (w przypadku użycia szablonu funkcji) ten, na
-podstawie którego można wywnioskować argumenty szablonu.  Nie chodzi
-tylko o typ argumentu, ale i jego kategorię (co jest ważne w przypadku
+Podkreślmy, że notacja `I ⊂ J` jest umowna.  Możemy użyć innego
+symbolu i możemy go odwrócić.  Kierunek tak wybrałem, żeby się zgadzał
+z relacją zawierania zbiorów.  Możemy powiedzieć, że `J` jest mniej
+wyspecjalizowany niż `I`.
+
+Ale co dokładnie oznacza "dopuszczany argument funkcji"?  Dopuszczalny
+argument funkcji to ten, który może być użyty do wywołania funkcji,
+czyli (w przypadku użycia szablonu funkcji) ten, na podstawie którego
+można wywnioskować argumenty szablonu.  Nie chodzi tylko o typ
+argumentu, ale i jego kategorię (co jest ważne w przypadku
 inicjalizacji referencyjnego parametru funkcji).  W drugim kroku
 wiemy, że argument funkcji opracowywanego wyrażenia jest dopuszczalny
 dla każdego szablonu ze zbioru kandydatów: ten argument nie pozwoli
@@ -340,8 +345,8 @@ wnioskowania:
   kiedy `A1` jest typem wskaźnikowym (np. `T *`), bo tylko wtedy
   wnioskowanie się uda (np. `B1 = T`).
 
-Porównanie szablonów I i J wykorzystuje wnioskowanie.  Zacznijmy od
-najprostszego przypadku, gdzie `ParamTypeI1` używa parametru `I1`
+Porównanie szablonów `I` i `J` wykorzystuje wnioskowanie.  Zacznijmy
+od najprostszego przypadku, gdzie `ParamTypeI1` używa parametru `I1`
 (np. `ParamTypeI1` może być `const I1 *`), a `ParamTypeJ1` używa
 parametru `J1`:
 
