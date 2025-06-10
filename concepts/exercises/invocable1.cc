@@ -8,7 +8,7 @@ template <typename T, invocable<T> F>
 void
 call(T &&t, F &&f)
 {
-  forward<F>(f)(forward<T>(t));
+  std::forward<F>(f)(std::forward<T>(t));
 }
 
 void
