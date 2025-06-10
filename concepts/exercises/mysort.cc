@@ -6,8 +6,8 @@
 
 template <typename C, typename I>
 concept comparator =
-  std::invocable<C, std::iter_const_reference_t<I>,
-                 std::iter_const_reference_t<I>>;
+  std::invocable<C, std::iter_reference_t<I>,
+                 std::iter_reference_t<I>>;
 
 template <std::random_access_iterator I, comparator<I> C>
 void
