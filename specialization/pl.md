@@ -257,8 +257,7 @@ Podkreślmy, że kompilator w dwóch osobnych krokach:
 
 1. tworzy zbiór kandydatów szablonów,
 
-2. wybiera najlepszy (najbardziej wyspecjalizowany) szablon ze
-   zbioru kandydatów.
+2. wybiera najbardziej wyspecjalizowany szablon ze zbioru kandydatów.
 
 W pierwszym kroku, spośród dostępnych szablonów, kompilator wybiera
 te, dla których można wywnioskować argumenty (pozostałe szablony są
@@ -267,20 +266,19 @@ drugim kroku, wyrażenie wywołania nie jest już brane pod uwagę.**
 Wyrażenie wywołania jest brane pod uwagę tylko w pierwszym kroku, żeby
 wybrać kandydatów.
 
-## Wybór najlepszego kandydata
+## Wybór najbardziej wyspecjalizowanego szablonu
 
-Ze zbioru kandydatów wybieramy najlepszy szablon, czyli **najbardziej
-wyspecjalizowany**.  Wyboru dokonujemy przez porównywanie szablonów
-parami, czyli z użyciem binarnej relacji, którą umownie oznaczymy jako
-`⊂`.  Porównując parę szablonów `I` i `J` chcemy określić, który
-szablon jest bardziej wyspecjalizowany.
+Ze zbioru kandydatów wybieramy najbardziej wyspecjalizowany szablon
+przez porównywanie szablonów parami, czyli z użyciem binarnej relacji,
+którą umownie oznaczymy jako `⊂`.  Porównując parę szablonów `I` i `J`
+chcemy określić, który szablon jest bardziej wyspecjalizowany.
 
 Jednak relacja `⊂` nie musi zachodzić między każdą parą szablonów i
 dlatego nazywana jest **częściową**.  Ponieważ relacja jest częściowa,
 to może okazać się, że kompilator nie jest w stanie wybrać najbardziej
-wyspecjalizowanego szablonu i wted zgłasza błąd niejednoznaczności.
+wyspecjalizowanego szablonu i wtedy zgłasza błąd niejednoznaczności.
 
-Relacja ⊂ jest silnym porządkiem częściowym, ponieważ jest:
+Relacja `⊂` jest silnym porządkiem częściowym, ponieważ jest:
 
 * częściowa,
 
@@ -295,9 +293,9 @@ Relacja ⊂ jest silnym porządkiem częściowym, ponieważ jest:
   ⊂ K`.
 
 Dla przykładu wyżej możemy powiedzieć, że dla drugiego wywołania
-szablon B jest bardziej wyspecjalizowany niż A (relacja zachodzi: `B ⊂
-A`).  Ponieważ zbiór kandydatów ma tylko dwa szablony, więc szablon B
-uznajemy za najbardziej wyspecializowany.
+szablon `B` jest bardziej wyspecjalizowany niż `A` (relacja zachodzi:
+`B ⊂ A`).  Ponieważ zbiór kandydatów ma tylko dwa szablony, więc
+szablon `B` uznajemy za najbardziej wyspecializowany.
 
 ### Relacja "bardziej wyspecjalizowany"
 
@@ -307,7 +305,19 @@ ten, którego dopuszczalne argumenty funkcji są podzbiorem właściwym
 dopuszczalnych argumentów funkcji drugiego szablonu.** Parafrazując:
 `I ⊂ J` oznacza, że każdy argument funkcji dopuszczalny dla `I` jest
 też dopuszczalny dla `J`, ale nie na odwrót (czyli nie każdy argument
-funkcji dopuszczalny dla `J` jest dopuszczalny dla `I`).  
+funkcji dopuszczalny dla `J` jest dopuszczalny dla `I`).
+
+Relację `I ⊂ J` czytamy:
+
+* `I` jest bardziej wyspecjalizowany niż `J`,
+
+* `I` jest mniej ogólny niż `J`.
+
+A relację odwrotną `J ⊃ I` czytamy:
+
+* `J` jest mniej wyspecjalizowany niż `I`,
+
+* `J` jest bardziej ogólny niż `I`,
 
 Ale co dokładnie oznacza "dopuszczany argument funkcji"?  Dopuszczalny
 argument funkcji to ten, który może być użyty do wywołania funkcji,
@@ -349,16 +359,19 @@ parametru `J1`:
 {% include_relative simplest.hpp %}
 ```
 
-Powiemy, że `I ⊂ J`, czyli `I` jest bardziej wyspecjalizowanu od `J`,
-kiedy:
+Powiemy, że `I ⊂ J` wtedy i tylko wtedy, gdy:
 
-* możemy wywnioskować argument szablonu `J` na podstawie szablonu `I`,
-  czyli na podstawie inicjalizacji parametru `j1`: `ParamTypeJ1 j1 =
-  ExprI1`, gdzie `ExprI1` jest typu `ParamTypeI1`,
+* każdy argument dopuszczalny dla szablonu `I` jest dopuszczalny dla
+  szablonu `J`, jeżeli możemy wywnioskować argument szablonu `J` na
+  podstawie szablonu `I`, czyli na podstawie inicjalizacji parametru
+  `j1`: `ParamTypeJ1 j1 = ExprI1`, gdzie `ExprI1` jest typu
+  `ParamTypeI1`,
 
-* nie możemy wywnioskować argumentu szablonu `I` na podstawie szablonu
-  `J`, czyli na podstawie inicjalizacji parametru `i1`: `ParamTypeI1
-  i1 = ExprJ1`, gdzie `ExprJ1` jest typu `ParamTypeJ1`.
+* nie każdy argument dopuszczalny dla szablonu `J` jest dopuszczalny
+  dla szablonu `I`, jeżeli nie możemy wywnioskować argumentu szablonu
+  `I` na podstawie szablonu `J`, czyli na podstawie inicjalizacji
+  parametru `i1`: `ParamTypeI1 i1 = ExprJ1`, gdzie `ExprJ1` jest typu
+  `ParamTypeJ1`.
 
 # Podsumowanie
 
