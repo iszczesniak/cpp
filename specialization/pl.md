@@ -317,7 +317,7 @@ A relację odwrotną `J ⊃ I` czytamy:
 
 * `J` jest mniej wyspecjalizowany niż `I`,
 
-* `J` jest bardziej ogólny niż `I`,
+* `J` jest bardziej ogólny niż `I`.
 
 Ale co dokładnie oznacza "dopuszczany argument funkcji"?  Dopuszczalny
 argument funkcji to ten, który może być użyty do wywołania funkcji,
