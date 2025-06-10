@@ -272,47 +272,42 @@ wybrać kandydatów.
 Ze zbioru kandydatów wybieramy najlepszy szablon, czyli **najbardziej
 wyspecjalizowany**.  Wyboru dokonujemy przez porównywanie szablonów
 parami, czyli z użyciem binarnej relacji, którą umownie oznaczymy jako
-<.  Porównując parę szablonów `I` i `J` chcemy określić, który szablon
-jest bardziej wyspecjalizowany.
+`⊂`.  Porównując parę szablonów `I` i `J` chcemy określić, który
+szablon jest bardziej wyspecjalizowany.
 
-Jednak relacja < nie musi zachodzić między każdą parą szablonów i
+Jednak relacja `⊂` nie musi zachodzić między każdą parą szablonów i
 dlatego nazywana jest **częściową**.  Ponieważ relacja jest częściowa,
 to może okazać się, że kompilator nie jest w stanie wybrać najbardziej
 wyspecjalizowanego szablonu i wted zgłasza błąd niejednoznaczności.
 
-Relacja < jest silnym porządkiem częściowym, ponieważ jest:
+Relacja ⊂ jest silnym porządkiem częściowym, ponieważ jest:
 
 * częściowa,
 
 * przeciwzwrotna, bo szablon nie może być bardziej wyspecjalizowany od
-  siebie samego, czyli relacja `I < I` nigdy nie zachodzi,
+  siebie samego, czyli relacja `I ⊂ I` nigdy nie zachodzi,
 
-* asymetryczna, bo jeżeli `I < J`, to relacja odwrotna (czyli `J < I`)
-  nie zachodzi,
+* asymetryczna, bo jeżeli `I ⊂ J`, to relacja odwrotna (czyli `J ⊂ I`,
+  albo inaczej `I ⊃ J`) nie zachodzi,
 
-* przechodnia, bo jeżeli `I < J` i `J < K`, to naturalnie oczekujemy,
+* przechodnia, bo jeżeli `I ⊂ J` i `J ⊂ K`, to naturalnie oczekujemy,
   że `I` będzie uznany za bardziej wyspecjalizowany niż `K`, czyli `I
-  < K`.
+  ⊂ K`.
 
 Dla przykładu wyżej możemy powiedzieć, że dla drugiego wywołania
-szablon B jest bardziej wyspecjalizowany niż A (relacja zachodzi: B <
-A).  Ponieważ zbiór kandydatów ma tylko dwa szablony, więc szablon B
+szablon B jest bardziej wyspecjalizowany niż A (relacja zachodzi: `B ⊂
+A`).  Ponieważ zbiór kandydatów ma tylko dwa szablony, więc szablon B
 uznajemy za najbardziej wyspecializowany.
 
 ### Relacja "bardziej wyspecjalizowany"
 
-Relacja `I < J` porównuje argumenty wywołania funkcji, które mogą być
+Relacja `I ⊂ J` porównuje argumenty wywołania funkcji, które mogą być
 użyte z szablonami `I` i `J`.  **Szablon bardziej wyspecjalizowany to
 ten, którego dopuszczalne argumenty funkcji są podzbiorem właściwym
 dopuszczalnych argumentów funkcji drugiego szablonu.** Parafrazując:
-`I < J` oznacza, że każdy argument funkcji dopuszczalny dla `I` jest
+`I ⊂ J` oznacza, że każdy argument funkcji dopuszczalny dla `I` jest
 też dopuszczalny dla `J`, ale nie na odwrót (czyli nie każdy argument
-funkcji dopuszczalny dla `J` jest dopuszczalny dla `I`).
-
-Podkreślmy, że notacja `I ⊂ J` jest umowna.  Możemy użyć innego
-symbolu i możemy go odwrócić.  Kierunek tak wybrałem, żeby się zgadzał
-z relacją zawierania zbiorów.  Możemy powiedzieć, że `J` jest mniej
-wyspecjalizowany niż `I`.
+funkcji dopuszczalny dla `J` jest dopuszczalny dla `I`).  
 
 Ale co dokładnie oznacza "dopuszczany argument funkcji"?  Dopuszczalny
 argument funkcji to ten, który może być użyty do wywołania funkcji,
@@ -326,21 +321,21 @@ nam wybrać bardziej wyspecjalizowanego szablonu i dlatego nie jest
 dalej brany pod uwagę (w pierwszym kroku był, ale w drugim już nie).
 Potrzebujemy innego sposobu porównania.
 
-W przykładzie wyżej, funkcja szablonu A przyjmuje argumenty (funkcji)
-dowolnych typów, także wskaźnikowych.  Funkcja szablonu B przyjmuje
-argumenty tylko typów wskaźnikowych.  Szablon B jest bardziej
-wyspecjalizowany niż szablon A (czyli B < A), ponieważ zbiór
-dopuszczalnych argumentów funkcji szablonu B jest podzbiorem właściwym
-zbioru dopuszczalnych argumentów funkcji szablonu A.  Tak to wynika z
-wnioskowania:
+W przykładzie wyżej, funkcja szablonu `A` przyjmuje argumenty
+(funkcji) dowolnych typów, także wskaźnikowych.  Funkcja szablonu `B`
+przyjmuje argumenty tylko typów wskaźnikowych.  Szablon `B` jest
+bardziej wyspecjalizowany niż szablon `A` (czyli `B ⊂ A`), ponieważ
+zbiór dopuszczalnych argumentów funkcji szablonu `B` jest podzbiorem
+właściwym zbioru dopuszczalnych argumentów funkcji szablonu `A`.  Tak
+to wynika z wnioskowania:
 
-* szablonu A możemy użyć dla każdego argumentu typu `B1 *` (czyli typu
-  parametru funkcji szablonu B), bo możemy zainicjalizować parametr
-  `a1` funkcji wyrażeniem typu `B1 *`: `A1` będzie wywnioskowany jako
-  `B1 *`,
+* szablonu `A` możemy użyć dla każdego argumentu typu `B1 *` (czyli
+  typu parametru funkcji szablonu `B`), bo możemy zainicjalizować
+  parametr `a1` funkcji wyrażeniem typu `B1 *`: `A1` będzie
+  wywnioskowany jako `B1 *`,
 
-* szablonu B nie możemy użyć dla każdego argumentu typu `A1` (czyli
-  typu parametru funkcji szablonu A), a jedynie dla typów
+* szablonu `B` nie możemy użyć dla każdego argumentu typu `A1` (czyli
+  typu parametru funkcji szablonu `A`), a jedynie dla typów
   wskaźnikowych; parametr `b1` możemy zainicjalizować tylko wtedy,
   kiedy `A1` jest typem wskaźnikowym (np. `T *`), bo tylko wtedy
   wnioskowanie się uda (np. `B1 = T`).
@@ -354,13 +349,14 @@ parametru `J1`:
 {% include_relative simplest.hpp %}
 ```
 
-Powiemy, że `I < J`, kiedy:
+Powiemy, że `I ⊂ J`, czyli `I` jest bardziej wyspecjalizowanu od `J`,
+kiedy:
 
 * możemy wywnioskować argument szablonu `J` na podstawie szablonu `I`,
   czyli na podstawie inicjalizacji parametru `j1`: `ParamTypeJ1 j1 =
   ExprI1`, gdzie `ExprI1` jest typu `ParamTypeI1`,
 
-* nie możemy wnioskować argumentu szablonu `I` na podstawie szablonu
+* nie możemy wywnioskować argumentu szablonu `I` na podstawie szablonu
   `J`, czyli na podstawie inicjalizacji parametru `i1`: `ParamTypeI1
   i1 = ExprJ1`, gdzie `ExprJ1` jest typu `ParamTypeJ1`.
 
