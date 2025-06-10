@@ -301,11 +301,19 @@ szablon `B` uznajemy za najbardziej wyspecializowany.
 
 Relacja `I ⊂ J` porównuje argumenty wywołania funkcji, które mogą być
 użyte z szablonami `I` i `J`.  **Szablon bardziej wyspecjalizowany to
-ten, którego dopuszczalne argumenty funkcji są podzbiorem właściwym
-dopuszczalnych argumentów funkcji drugiego szablonu.** Parafrazując:
-`I ⊂ J` oznacza, że każdy argument funkcji dopuszczalny dla `I` jest
-też dopuszczalny dla `J`, ale nie na odwrót (czyli nie każdy argument
-funkcji dopuszczalny dla `J` jest dopuszczalny dla `I`).
+ten, którego dopuszczalne argumenty funkcji są *podzbiorem właściwym*
+dopuszczalnych argumentów funkcji drugiego szablonu.** Relacja
+właściwego zawierania oznacza, że każdy argument funkcji dopuszczalny
+dla jednego szablonu jest dopuszczalny dla drugiego szablonu, ale nie
+na odwrót, co zapisujemy w poniższej definicji:
+
+**Definicja: `I ⊂ J` wtedy i tylko wtedy, gdy**:
+
+1. każdy argument funkcji dopuszczalny dla szablonu `I` jest też
+   dopuszczalny dla szablonu `J`,
+
+2. nie każdy argument funkcji dopuszczalny dla szablonu `J` jest
+   dopuszczalny dla szablonu `I`.
 
 Relację `I ⊂ J` czytamy:
 
@@ -359,19 +367,16 @@ parametru `J1`:
 {% include_relative simplest.hpp %}
 ```
 
-Powiemy, że `I ⊂ J` wtedy i tylko wtedy, gdy:
+Powyższą definicję relacji `I ⊂ J` możemy wyrazić wnioskowaniem
+argumentów szablonu.  Powiemy, że `I ⊂ J` wtedy i tylko wtedy, gdy:
 
-* każdy argument dopuszczalny dla szablonu `I` jest dopuszczalny dla
-  szablonu `J`, jeżeli możemy wywnioskować argument szablonu `J` na
-  podstawie szablonu `I`, czyli na podstawie inicjalizacji parametru
-  `j1`: `ParamTypeJ1 j1 = ExprI1`, gdzie `ExprI1` jest typu
-  `ParamTypeI1`,
+1. możemy wywnioskować argument szablonu `J` na podstawie szablonu
+   `I`, czyli na podstawie inicjalizacji parametru `j1`: `ParamTypeJ1
+   j1 = ExprI1`, gdzie `ExprI1` jest typu `ParamTypeI1`,
 
-* nie każdy argument dopuszczalny dla szablonu `J` jest dopuszczalny
-  dla szablonu `I`, jeżeli nie możemy wywnioskować argumentu szablonu
-  `I` na podstawie szablonu `J`, czyli na podstawie inicjalizacji
-  parametru `i1`: `ParamTypeI1 i1 = ExprJ1`, gdzie `ExprJ1` jest typu
-  `ParamTypeJ1`.
+2. nie możemy wywnioskować argumentu szablonu `I` na podstawie
+   szablonu `J`, czyli na podstawie inicjalizacji parametru `i1`:
+   `ParamTypeI1 i1 = ExprJ1`, gdzie `ExprJ1` jest typu `ParamTypeJ1`.
 
 # Podsumowanie
 
