@@ -1,0 +1,2 @@
+In a `set<string>`, emplace an element `"Hello World!"`.  Then move
+that string to the front of a `list<string>`.
