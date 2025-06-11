@@ -230,24 +230,24 @@ następnie wywołujemy funkcję `foo`.
 
 Jak kompilator wybrał właściwy szablon dla dwóch wywołań funkcji w
 przykładzie wyżej?  Pierwsze wywołanie przekazuje argument typu
-całkowitego, więc wybór jest tylko jeden: szablon A.  Szablon B nie
-może być użyty, bo kompilator nie jest w stanie wywnioskować argumentu
-`B1` szablonu tak, żeby można byłoby zainicjalizować parametr `b1`
-funkcji.
+całkowitego, więc wybór jest tylko jeden: szablon `A`.  Szablon `B`
+nie może być użyty, bo kompilator nie jest w stanie wywnioskować
+argumentu `B1` szablonu tak, żeby można byłoby zainicjalizować
+parametr `b1` funkcji.
 
 Drugie wywołanie jest ciekawsze.  Kompilator może użyć zarówno
-szablonu A, jak i B.  W tej sytuacji jest użyty **bardziej
-wyspecjalizowany szablon**.  W tym przykładzie szablon B jest bardziej
-wyspecjalizowany.
+szablonu `A`, jak i `B`.  W tej sytuacji jest użyty **bardziej
+wyspecjalizowany szablon**.  W tym przykładzie szablon `B` jest
+bardziej wyspecjalizowany.
 
 Zanim przejdziemy dalej (do omówienia idei bardziej wyspecjalizowanego
 szablonu), to podsumujmy przykład i zauważmy ważny fakt.  Podczas
 opracowania drugiego wywołania, kompilator może skonkretyzować oba
 szablony używając wywnioskowanych argumentów:
 
-* szablon A: `void foo(A1)` z `A1 = int *`,
+* szablon `A`: `void foo(A1)` z `A1 = int *`,
 
-* szablon B: `void foo(B1 *)` z `B1 = int`.
+* szablon `B`: `void foo(B1 *)` z `B1 = int`.
 
 Obie konkretyzacje tworzą funkcję szablonową `void foo(int *)`, którą
 można już użyć w drugim wywołaniu.  Teraz problemem pozostaje, który
@@ -321,7 +321,7 @@ Relację `I ⊂ J` czytamy:
 
 * `I` jest mniej ogólny niż `J`.
 
-A relację odwrotną `J ⊃ I` czytamy:
+Natomiast relację odwrotną `J ⊃ I` czytamy:
 
 * `J` jest mniej wyspecjalizowany niż `I`,
 
