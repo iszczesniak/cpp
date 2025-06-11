@@ -18,7 +18,7 @@ struct A
 };
 
 shared_ptr<A>
-factory()
+singleton()
 {
   static weak_ptr<A> wp;
 
@@ -33,8 +33,8 @@ factory()
 int
 main()
 {
-  factory();
-  auto sp1 = factory();
-  auto sp2 = factory();
+  singleton();
+  auto sp1 = singleton();
+  auto sp2 = singleton();
   assert(sp1 == sp2);
 }
