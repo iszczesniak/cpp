@@ -32,9 +32,7 @@ struct B
   {
   }
 
-  B(B &&b): m_up(std::move(b.m_up))
-  {
-  }
+  B(B &&b) = default;
 
   B &operator=(const B &b)
   {
@@ -42,11 +40,7 @@ struct B
     return *this;
   }
 
-  B &operator=(B &&b)
-  {
-    m_up = std::move(b.m_up);
-    return *this;
-  }
+  B &operator=(B &&b) = default;
 };
 
 int main()
