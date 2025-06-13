@@ -1,0 +1,4 @@
+Create a `std::priority_queue` that stores the elements of type
+`std::shared_ptr<std::string>`.  Sort the elemenets in the descending
+lexicographical order of the strings.  Write a piece of code that
+demonstrates how the queue works.
