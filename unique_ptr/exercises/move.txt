@@ -1,0 +1,6 @@
+Given struct `A`, please implement struct `B` with a member field of
+type `std::unique_ptr<A>`.  Moving the value of object of type `B`
+should move the ownership of the smart pointer.  Copying the value of
+object of type `B` should copy the value of object of type `A`, so
+that the smart pointer manages a new object of type `A` (a copy just
+made).
