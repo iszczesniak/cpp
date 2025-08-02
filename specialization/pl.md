@@ -365,7 +365,7 @@ jednym parametrem funkcji:
 * szablon `I` ma jeden parametr `I1` a jego funkcja `foo` ma jeden
   parametr `i1` typu `ParamI1`; typ `ParamI1` używa `I1`,
 
-* szablon `J` ma jeden parametr `I1` a jego funkcja `foo` ma jeden
+* szablon `J` ma jeden parametr `J1` a jego funkcja `foo` ma jeden
   parametr `j1` typu `ParamJ1`; typ `ParamJ1` używa `J1`.
 
 ```cpp
@@ -377,7 +377,7 @@ używamy w definicjach relacji `⊂`, natomiast w przykładach używamy
 nazw `A`, `B`, `C`.  W przykładzie wyżej, najprostrzy ogólny przypadek
 ma tak zamienione:
 
-* nazwy szablonów: `I` &rarr `A`, `J` -> `B`,
+* nazwy szablonów: `I` &rarr; `A`, `J` -> `B`,
 
 * nazwy parametrów szablonów: I1 -> A1, J1 -> B1,
 
