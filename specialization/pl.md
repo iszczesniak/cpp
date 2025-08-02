@@ -377,13 +377,14 @@ używamy w definicjach relacji `⊂`, natomiast w przykładach używamy
 nazw `A`, `B`, `C`.  W przykładzie wyżej, najprostrzy ogólny przypadek
 ma tak zamienione:
 
-* nazwy szablonów: `I` &rarr; `A`, `J` -> `B`,
+* nazwy szablonów: `I` &rarr; `A`, `J` &rarr; `B`,
 
-* nazwy parametrów szablonów: I1 -> A1, J1 -> B1,
+* nazwy parametrów szablonów: `I1` &rarr; `A1`, `J1` &rarr; `B1`,
 
-* nazwy parametrów funkcji: i1 -> a1, j1 -> b1,
+* nazwy parametrów funkcji: `i1` &rarr; `a1`, `j1` &rarr; `b1`,
 
-* definicje typów parametrów funkcji: ParamI1 -> A1, ParamJ1 -> B1 *.
+* definicje typów parametrów funkcji: `ParamI1` &rarr; `A1`, `ParamJ1`
+  &rarr; `B1 *`.
 
 Powyższą definicję relacji `I ⊂ J` możemy wyrazić wnioskowaniem
 argumentów szablonu.  Powiemy, że `I ⊂ J` wtedy i tylko wtedy, gdy:
