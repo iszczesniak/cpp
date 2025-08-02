@@ -359,13 +359,31 @@ to wynika z wnioskowania:
   wnioskowanie się uda (np. `B1 = T`).
 
 Porównanie szablonów `I` i `J` wykorzystuje wnioskowanie.  Zacznijmy
-od najprostszego przypadku, gdzie `ParamTypeI1` używa parametru `I1`
-(np. `ParamTypeI1` może być `const I1 *`), a `ParamTypeJ1` używa
-parametru `J1`:
+od **najprostszego ogólnego przypadku** z jednym parametrem szablonu i
+jednym parametrem funkcji:
+
+* szablon `I` ma jeden parametr `I1` a jego funkcja `foo` ma jeden
+  parametr `i1` typu `ParamI1`; typ `ParamI1` używa `I1`,
+
+* szablon `J` ma jeden parametr `I1` a jego funkcja `foo` ma jeden
+  parametr `j1` typu `ParamJ1`; typ `ParamJ1` używa `J1`.
 
 ```cpp
 {% include_relative simplest.hpp %}
 ```
+
+Zwróćmy uwagę na nazwy szablonów i parametrów.  Nazwy `I` i `J`
+używamy w definicjach relacji `⊂`, natomiast w przykładach używamy
+nazw `A`, `B`, `C`.  W przykładzie wyżej, najprostrzy ogólny przypadek
+ma tak zamienione:
+
+* nazwy szablonów: `I` &rarr `A`, `J` -> `B`,
+
+* nazwy parametrów szablonów: I1 -> A1, J1 -> B1,
+
+* nazwy parametrów funkcji: i1 -> a1, j1 -> b1,
+
+* definicje typów parametrów funkcji: ParamI1 -> A1, ParamJ1 -> B1 *.
 
 Powyższą definicję relacji `I ⊂ J` możemy wyrazić wnioskowaniem
 argumentów szablonu.  Powiemy, że `I ⊂ J` wtedy i tylko wtedy, gdy:
