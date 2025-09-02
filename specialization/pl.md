@@ -399,7 +399,11 @@ szablonu, co zapiszemy jako poniższą definicję.
    szablonu `J`, czyli na podstawie inicjalizacji parametru `i1`:
    `ParamTypeI1 i1 = ExprJ1`, gdzie `ExprJ1` jest typu `ParamTypeJ1`.
 
-Spróbujmy użyć definicji
+Spróbujmy użyć Definicji 2 do zrozumienia następującego przykładu:
+
+```cpp
+{% include_relative special2.hpp %}
+```
 
 # Podsumowanie
 

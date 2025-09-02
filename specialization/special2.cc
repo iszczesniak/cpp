@@ -23,11 +23,7 @@ void foo(void (*c1)(C1))
   cout << __PRETTY_FUNCTION__ << endl;
 }
 
-void goo1(int)
-{
-}
-
-void goo2()
+void goo(int)
 {
 }
 
@@ -42,9 +38,7 @@ int main()
   // function called: void foo(int *).
   foo(&x);
 
-  // Call #3:
-  foo(goo1);
-
-  // This one compiles too!
-  foo(goo2);
+  // Call #3: templates A, B and C are the candidates.  The template
+  // function called: void foo(void (*)(int));
+  foo(goo);
 }
