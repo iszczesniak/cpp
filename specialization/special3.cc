@@ -18,16 +18,23 @@ void foo(B1 *b1)
 
 // Template C
 template <typename C1>
-void foo(void (*c1)(C1))
+void foo(C1 (*c1)())
 {
   cout << __PRETTY_FUNCTION__ << endl;
 }
 
-void goo1(int)
+// Template D
+template <typename D1>
+void foo(void (*d1)(D1))
+{
+  cout << __PRETTY_FUNCTION__ << endl;
+}
+
+void goo1()
 {
 }
 
-void goo2()
+void goo2(int)
 {
 }
 
@@ -42,9 +49,6 @@ int main()
   // function called: void foo(int *).
   foo(&x);
 
-  // Call #3:
   foo(goo1);
-
-  // This one compiles too!
   foo(goo2);
 }
