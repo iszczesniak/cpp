@@ -307,7 +307,7 @@ właściwego zawierania oznacza, że każdy argument funkcji dopuszczalny
 dla jednego szablonu jest dopuszczalny dla drugiego szablonu, ale nie
 na odwrót, co zapisujemy w poniższej definicji:
 
-**Definicja: `I ⊂ J` wtedy i tylko wtedy, gdy**:
+**Definicja 1**: `I ⊂ J` wtedy i tylko wtedy, gdy:
 
 1. każdy argument funkcji dopuszczalny dla szablonu `I` jest też
    dopuszczalny dla szablonu `J`,
@@ -374,8 +374,8 @@ jednym parametrem funkcji:
 
 Zwróćmy uwagę na nazwy szablonów i parametrów.  Nazwy `I` i `J`
 używamy w definicjach relacji `⊂`, natomiast w przykładach używamy
-nazw `A`, `B`, `C`.  W przykładzie wyżej, najprostrzy ogólny przypadek
-ma tak zamienione:
+nazw `A`, `B`, `C`, `D`.  W przykładzie wyżej, najprostrzy ogólny
+przypadek ma tak zamienione:
 
 * nazwy szablonów: `I` &rarr; `A`, `J` &rarr; `B`,
 
@@ -386,8 +386,10 @@ ma tak zamienione:
 * definicje typów parametrów funkcji: `ParamI1` &rarr; `A1`, `ParamJ1`
   &rarr; `B1 *`.
 
-Powyższą definicję relacji `I ⊂ J` możemy wyrazić wnioskowaniem
-argumentów szablonu.  Powiemy, że `I ⊂ J` wtedy i tylko wtedy, gdy:
+Definicję 1 (relacji `I ⊂ J`) możemy wyrazić wnioskowaniem argumentów
+szablonu, co zapiszemy jako poniższą definicję.
+
+**Definicja 2**: `I ⊂ J` wtedy i tylko wtedy, gdy:
 
 1. możemy wywnioskować argument szablonu `J` na podstawie szablonu
    `I`, czyli na podstawie inicjalizacji parametru `j1`: `ParamTypeJ1
@@ -396,6 +398,8 @@ argumentów szablonu.  Powiemy, że `I ⊂ J` wtedy i tylko wtedy, gdy:
 2. nie możemy wywnioskować argumentu szablonu `I` na podstawie
    szablonu `J`, czyli na podstawie inicjalizacji parametru `i1`:
    `ParamTypeI1 i1 = ExprJ1`, gdzie `ExprJ1` jest typu `ParamTypeJ1`.
+
+Spróbujmy użyć definicji
 
 # Podsumowanie
 
