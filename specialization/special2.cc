@@ -44,7 +44,6 @@ int main()
 
   // Call #3:
   foo(goo1);
-
   // This one compiles too!
   foo(goo2);
 }
