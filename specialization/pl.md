@@ -402,7 +402,7 @@ szablonu, co zapiszemy jako poniższą definicję.
 Spróbujmy użyć Definicji 2 do zrozumienia następującego przykładu:
 
 ```cpp
-{% include_relative special2.hpp %}
+{% include_relative special2.cc %}
 ```
 
 # Podsumowanie
