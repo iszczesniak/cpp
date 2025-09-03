@@ -30,6 +30,7 @@ void goo()
 int main()
 {
   int x = 1;
+
   // Call #1: only template A is a candidate.  The template function
   // called: void foo(int).
   foo(x);
