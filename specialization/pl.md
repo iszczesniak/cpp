@@ -392,14 +392,14 @@ szablonu, co zapiszemy jako poniższą definicję.
 **Definicja 2**: `I ⊂ J` wtedy i tylko wtedy, gdy:
 
 1. możemy wywnioskować argument szablonu `J` na podstawie szablonu
-   `I`, czyli argument dla parametru `J1` na podstawie inicjalizacji
-   parametru `j1`: `ParamTypeJ1 j1 = ExprI1`, gdzie `ExprI1` jest typu
-   `ParamTypeI1`,
+   `I`, czyli możemy wywnioskować argument dla parametru `J1` na
+   podstawie inicjalizacji parametru `j1`: `ParamTypeJ1 j1 = ExprI1`,
+   gdzie `ExprI1` jest typu `ParamTypeI1`,
 
 2. nie możemy wywnioskować argumentu szablonu `I` na podstawie
-   szablonu `J`, czyli argumentu dla parametru `I1` na podstawie
-   inicjalizacji parametru `i1`: `ParamTypeI1 i1 = ExprJ1`, gdzie
-   `ExprJ1` jest typu `ParamTypeJ1`.
+   szablonu `J`, czyli nie możemy wywnioskować argumentu dla parametru
+   `I1` na podstawie inicjalizacji parametru `i1`: `ParamTypeI1 i1 =
+   ExprJ1`, gdzie `ExprJ1` jest typu `ParamTypeJ1`.
 
 Spróbujmy użyć Definicji 2 do zrozumienia poniższego przykładu.  Ten
 przykład jest przerobionym poprzednim przykładem, gdzie usunęliśmy
@@ -423,14 +423,14 @@ bardziej wyspecjalizowany: `C` czy `B`.  Powiemy, że `C` jest bardziej
 wyspecjalizowany od `B` (`C ⊂ B`), jeżeli:
 
 1. możemy wywnioskować argument szablonu `B` na podstawie szablonu
-   `C`, czyli argument dla parametru `B1` na podstawie inicjalizacji
-   parametru `b1`: `B1 *b1 = ExprC1`, gdzie `ExprC1` jest typu `C1
-   (*)()`,
+   `C`, czyli możemy wywnioskować argument dla parametru `B1` na
+   podstawie inicjalizacji parametru `b1`: `B1 *b1 = ExprC1`, gdzie
+   `ExprC1` jest typu `C1 (*)()`,
 
 2. nie możemy wywnioskować argumentu szablonu `C` na podstawie
-   szablonu `B`, czyli argumentu dla parametru `C1` na podstawie
-   inicjalizacji parametru `c1`: `C1 (*c1)() = ExprB1`, gdzie `ExprB1`
-   jest typu `B1 *`.
+   szablonu `B`, czyli nie możemy wywnioskować argumentu dla parametru
+   `C1` na podstawie inicjalizacji parametru `c1`: `C1 (*c1)() =
+   ExprB1`, gdzie `ExprB1` jest typu `B1 *`.
 
 Zatem `C ⊂ B`, ponieważ:
 
@@ -440,6 +440,8 @@ Ad 1. `ExprC1` jest typem wskaźnika na funkję typu `C1()`, więc `B1`
 Ad 2. `ExprB1` jest typem wskaźnika na cokolwiek, więc nie możemy
    wywnioskować `C1` dla dowolnego B1 (powiodłoby się wyłącznie dla
    pewnych typów funkcji).
+
+Jako ćwiczenie proszę sprawdzić, czy zachodzi relacja `C ⊂ B`.
 
 Relacja `⊂` jest przechodnia (ponieważ jest porządkiem), więc z `C ⊂
 B` i `B ⊂ A` wynika `C ⊂ A`.  Zatem `C` jest najbardziej
