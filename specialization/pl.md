@@ -412,6 +412,15 @@ Wywołujemy funkcję `foo` i przekazujemy jej argument: nazwę funkcji
 `goo`.  Kompilator próbuje użyć szablonów (`A`, `B`, `C`) i dla
 każdego z nich nazwa `goo` rozpada się na wskaźnik do funkcji `goo`,
 ponieważ żaden z szablonów nie przyjmuje argumentu przez referencję.
+Zatem typem przekazywanego argumentu jest `void (*)()`.  Dla każdego
+szablonu wnioskowanie się powodzi.
+
+Wiemy z poprzedniego przykładu, że `B ⊂ A`, więc pozostaje sprawdzić,
+w jakiej relacji jest `C` z `B` i `A`.
+
+Relacja `⊂` jest przechodnia (ponieważ jest porządkiem), więc z `C ⊂
+B` i `B ⊂ A` wynika `C ⊂ A`.  Zatem `C` jest najbardziej
+wyspecjalizowany i on jest użyty.
 
 # Podsumowanie
 
