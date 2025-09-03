@@ -441,7 +441,7 @@ Ad 2. `ExprB1` jest typem wskaźnika na cokolwiek, więc nie możemy
    wywnioskować `C1` dla dowolnego B1 (powiodłoby się wyłącznie dla
    pewnych typów funkcji).
 
-Jako ćwiczenie proszę sprawdzić, czy zachodzi relacja `C ⊂ B`.
+Jako ćwiczenie proszę sprawdzić, czy zachodzi relacja `B ⊂ C`.
 
 Relacja `⊂` jest przechodnia (ponieważ jest porządkiem), więc z `C ⊂
 B` i `B ⊂ A` wynika `C ⊂ A`.  Zatem `C` jest najbardziej
