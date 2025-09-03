@@ -432,14 +432,14 @@ wyspecjalizowany od `B` (`C ⊂ B`), jeżeli:
    inicjalizacji parametru `c1`: `C1 (*c1)() = ExprB1`, gdzie `ExprB1`
    jest typu `B1 *`.
 
-Powiemy, że `C ⊂ B`, ponieważ:
+Zatem `C ⊂ B`, ponieważ:
 
-Ad 1. `ExprC1` jest typem wskaźnika na funkję typu `C1()`, to `B1`
-   jest wywnioskowany jako `C1()`: wnioskowanie powiodło się,
+Ad 1. `ExprC1` jest typem wskaźnika na funkję typu `C1()`, więc `B1`
+   jest wywnioskowany jako `C1()`: udało się,
 
-Ad 2. `ExprB1` jest typem wskaźnika na cokolwiek, więc wnioskowanie
-   `C1` nie powiedzie się dla dowolnego B1: wnioskowanie nie powiodło
-   się.
+Ad 2. `ExprB1` jest typem wskaźnika na cokolwiek, więc nie możemy
+   wywnioskować `C1` dla dowolnego B1 (powiodłoby się wyłącznie dla
+   pewnych typów funkcji).
 
 Relacja `⊂` jest przechodnia (ponieważ jest porządkiem), więc z `C ⊂
 B` i `B ⊂ A` wynika `C ⊂ A`.  Zatem `C` jest najbardziej
