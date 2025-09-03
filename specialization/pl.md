@@ -392,12 +392,14 @@ szablonu, co zapiszemy jako poniższą definicję.
 **Definicja 2**: `I ⊂ J` wtedy i tylko wtedy, gdy:
 
 1. możemy wywnioskować argument szablonu `J` na podstawie szablonu
-   `I`, czyli na podstawie inicjalizacji parametru `j1`: `ParamTypeJ1
-   j1 = ExprI1`, gdzie `ExprI1` jest typu `ParamTypeI1`,
+   `I`, czyli argument dla parametru `J1` na podstawie inicjalizacji
+   parametru `j1`: `ParamTypeJ1 j1 = ExprI1`, gdzie `ExprI1` jest typu
+   `ParamTypeI1`,
 
 2. nie możemy wywnioskować argumentu szablonu `I` na podstawie
-   szablonu `J`, czyli na podstawie inicjalizacji parametru `i1`:
-   `ParamTypeI1 i1 = ExprJ1`, gdzie `ExprJ1` jest typu `ParamTypeJ1`.
+   szablonu `J`, czyli argumentu dla parametru `I1` na podstawie
+   inicjalizacji parametru `i1`: `ParamTypeI1 i1 = ExprJ1`, gdzie
+   `ExprJ1` jest typu `ParamTypeJ1`.
 
 Spróbujmy użyć Definicji 2 do zrozumienia poniższego przykładu.  Ten
 przykład jest przerobionym poprzednim przykładem, gdzie usunęliśmy
@@ -421,7 +423,7 @@ bardziej wyspecjalizowany: `C` czy `B`.  Powiemy, że `C` jest bardziej
 wyspecjalizowany od `B` (`C ⊂ B`), jeżeli:
 
 1. możemy wywnioskować argument szablonu `B` na podstawie szablonu
-   `C`, czyli argumentu dla parametru `B1` na podstawie inicjalizacji
+   `C`, czyli argument dla parametru `B1` na podstawie inicjalizacji
    parametru `b1`: `B1 *b1 = ExprC1`, gdzie `ExprC1` jest typu `C1
    (*)()`,
 
