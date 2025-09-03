@@ -29,17 +29,7 @@ void goo()
 
 int main()
 {
-  int x = 1;
-
-  // Call #1: only template A is a candidate.  The template function
-  // called: void foo(int).
-  foo(x);
-
-  // Call #2: templates A and B are the candidates.  The template
-  // function called: void foo(int *).
-  foo(&x);
-
-  // Call #3: templates A, B and C are the candidates.  The template
-  // function called: void foo(int (*)());
+  // Templates A, B and C are the candidates.  The template function
+  // called: void foo(int (*)());
   foo(goo);
 }

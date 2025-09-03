@@ -374,8 +374,8 @@ jednym parametrem funkcji:
 
 Zwróćmy uwagę na nazwy szablonów i parametrów.  Nazwy `I` i `J`
 używamy w definicjach relacji `⊂`, natomiast w przykładach używamy
-nazw `A`, `B`, `C`, `D`.  W przykładzie wyżej, najprostrzy ogólny
-przypadek ma tak zamienione:
+nazw `A`, `B`, `C`.  W przykładzie wyżej, najprostrzy ogólny przypadek
+ma tak zamienione:
 
 * nazwy szablonów: `I` &rarr; `A`, `J` &rarr; `B`,
 
@@ -399,11 +399,19 @@ szablonu, co zapiszemy jako poniższą definicję.
    szablonu `J`, czyli na podstawie inicjalizacji parametru `i1`:
    `ParamTypeI1 i1 = ExprJ1`, gdzie `ExprJ1` jest typu `ParamTypeJ1`.
 
-Spróbujmy użyć Definicji 2 do zrozumienia następującego przykładu:
+Spróbujmy użyć Definicji 2 do zrozumienia poniższego przykładu.  Ten
+przykład jest przerobionym poprzednim przykładem, gdzie usunęliśmy
+pierwsze i drugie wywołanie, a następnie dodaliśmy szablon `C` i jego
+użycie.
 
 ```cpp
 {% include_relative special2.cc %}
 ```
+
+Wywołujemy funkcję `foo` i przekazujemy jej argument: nazwę funkcji
+`goo`.  Kompilator próbuje użyć szablonów (`A`, `B`, `C`) i dla
+każdego z nich nazwa `goo` rozpada się na wskaźnik do funkcji `goo`,
+ponieważ żaden z szablonów nie przyjmuje argumentu przez referencję.
 
 # Podsumowanie
 
