@@ -61,7 +61,7 @@ Kontenery sekwencyjne:
 
 * `std::list<T>` - lista dwukierunkowa,
 
-* `std::deque<T>` - połączenie wektora i listy dwukierunkowej,
+* `std::deque<T>` - kontener z cechami wektora i listy,
 
 * `std::forward_list<T>` - lista jednokierunkowa,
 
@@ -148,25 +148,32 @@ maksymalną wydajność.
 
 ### `std::deque<T>`
 
+Ten kontener jest kompromisem między funkcjonalnością a wydajnością
+wektora i listy.  Kontener jest przydatny, jeżeli potrzebujemy
+swobodnego dostępu i jednocześnie często wstawiamy czy usuwamy
+elementy na początku czy końcu kontenera.
+
 Ten kontener zapewnia:
 
-* **swobodny dostęp**,
+* **swobodny dostęp o stałym czasie** - jak wektor,
 
-* **szybkie wstawianie i usuwanie**.
+* **wstawianie i usuwanie o stałym czasie, ale tylko w przypadku
+    początku i końca kontenera** - jak lista.
 
-Jak to możliwe?  Trzeba wspomnieć, że swobodny dostęp nie jest taki
-szybki, jak w przypadku `std::vector`, a wstawianie i usuwanie
-elementów nie jest takie szybkie, jak w przypadku `std::list`.  Ten
-kontener jest kompromisem między funkcjonalnością a wydajnością.
-Kontener jest przydatny, jeżeli potrzebujemy swobodnego dostępu i
-jednocześnie często wstawiamy i usuwamy elementy.
+Jak to możliwe?  Trzeba wspomnieć, że:
 
-Kontener jest zaimplementowany jako dużo małych wektorów,
-uporządkowanych jeden po drugim, ale bez gwarancji ciągłości w
-pamięci.  Jeżeli realokacja, wstawianie albo usuwanie jest wymagane,
-to ogranicza się wyłącznie do jednego małego wektora, a nie całego
-kontenera.  Swobodny dostęp jest mniej wydajny w porównaniu z
-wektorem, ponieważ znalezienie adresu elementu wymaga więcej obliczeń.
+* swobodny dostęp, mimo że jest o stałym czasie (czyli nie zależy od
+  wielkości kontenera), nie jest tak szybki, jak dla wektora,
+
+* wstawianie i usuwanie poza początkiem i końcem jest czasu
+  liniowego, a dla listy jest stałego czasu.
+
+Kontener jest zaimplementowany bez gwarancji ciągłości w pamięci, jako
+lista tablic (języka C) o stałej długości.  Swobodny dostęp jest mniej
+wydajny w porównaniu z wektorem, ponieważ znalezienie adresu elementu
+wymaga nieco więcej obliczeń niż w przypadku wektora.  Wstawiania czy
+usuwanie poza początkiem i końcem jest czasu liniowego, ponieważ
+wymaga przesunięcia wszystkich elementów "na prawo".
 
 Używamy `std::deque` tylko wtedy, kiedy wektor czy lista to za mało.
 
