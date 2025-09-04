@@ -169,9 +169,10 @@ Jak to możliwe?  Trzeba wspomnieć, że:
 Kontener jest zaimplementowany bez gwarancji ciągłości w pamięci, jako
 lista tablic (języka C) o stałej długości.  Swobodny dostęp jest mniej
 wydajny w porównaniu z wektorem, ponieważ znalezienie adresu elementu
-wymaga nieco więcej obliczeń niż w przypadku wektora.  Wstawiania czy
+wymaga nieco więcej obliczeń niż w przypadku wektora.  Wstawianie czy
 usuwanie poza początkiem i końcem jest czasu liniowego, ponieważ
-wymaga przesunięcia wszystkich elementów "na prawo".
+wymaga przesunięcia wszystkich elementów "na prawo" od miejsca
+wstawiania czy usuwania.
 
 Używamy `std::deque` tylko wtedy, kiedy wektor czy lista to za mało.
 
