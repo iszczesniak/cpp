@@ -238,21 +238,6 @@ wyspecjalizowany i on jest użyty.
 
 # Podsumowanie
 
-* Specjalizować można szablony funkcji i typy szablonowe.
-
-* Specjalizacja może być częściowa albo całkowita.
-
-* Specjalizacja pozwala na nadpisanie implementacji szablonu
-  podstawowego dla wybranych kombinacji jego argumentów.
-
 # Quiz
-
-* Czy szablon funkcji może być częściowo specjalizowany?
-
-* Czy w wyborze przeciążenia pierwszeństwo ma funkcja szablonowa czy
-  przeciążenie funkcji?
-
-* Czy specjalizacja szablonu typu dziedziczy po podstawowym szablonie
-  typu?
 
 <!-- LocalWords: lvalue lvalues rvalue -->
