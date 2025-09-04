@@ -61,8 +61,8 @@ Sequence containers:
 
 * `std::list<T>` - the doubly-linked list,
 
-* `std::deque<T>` - the deque, amalgamation of the vector and the
-  doubly-linked list,
+* `std::deque<T>` - a container with the traits of the vector and the
+  list,
 
 * `std::forward_list<T>` - the singly-linked list,
 
@@ -148,24 +148,30 @@ performance.
 
 ### `std::deque<T>`
 
-The deque (pronounced as "deck", as in deck of cards) offers:
+The deque (pronounced as "deck", as in deck of cards) offers a
+trade-off between functionality and efficiency.  Use the deque if you
+need random-access, and frequently insert or erase elements at the
+front or the back.  It offers:
 
-* **random access**,
+* **const-time random access** - like the vector,
 
-* **fast insertion and removal**.
+* **const-time insertion and removal at the front and the back** -
+    like the list.
 
-How come?  Well, insertion and removal are not as fast as in
-`std::list`, and random access is not as fast as in `std::vector`.
-The deque offers a trade-off between functionality, and efficiency.
-Use the deque if you frequently need to random-access, insert and
-remove elements.
+How come?  Well, we'd be remiss not to mention that:
 
-The deque is implemented with small vectors organized one after
-another, but without guaranteeing memory contiguity.  If element
-reallocation, insertion or removal is required, then it's limited to
-one small vector.  However, random access is less efficient in
-comparison with vector, because finding an address of an element
-requires more arithmetic.
+* the random access, even though of const time (doesn't depend on the
+  size of the container), is not as fast as for the vector,
+
+* insertion or removal, except for the front and the back, is of
+  linear time, while for the list is of const time.
+
+The deque is implemented without the guarantee of memory contiguity,
+as a list of equal-size arrays.  Random access is less efficient in
+comparison with the vector because finding an address of an element
+requires more arithmetic.  Insertion or erasure, except for the front
+and the back, is of linear time because the elements "on the right"
+have to be "reorganized".
 
 Use the deque only when the vector and the list won't do.
 

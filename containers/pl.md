@@ -167,12 +167,11 @@ Jak to możliwe?  Trzeba wspomnieć, że:
   liniowego, a dla listy jest stałego czasu.
 
 Kontener jest zaimplementowany bez gwarancji ciągłości w pamięci, jako
-lista tablic (języka C) o stałej długości.  Swobodny dostęp jest mniej
-wydajny w porównaniu z wektorem, ponieważ znalezienie adresu elementu
-wymaga nieco więcej obliczeń niż w przypadku wektora.  Wstawianie czy
-usuwanie poza początkiem i końcem jest czasu liniowego, ponieważ
-wymaga przesunięcia wszystkich elementów "na prawo" od miejsca
-wstawiania czy usuwania.
+lista tablic o równej wielkości.  Swobodny dostęp jest mniej wydajny w
+porównaniu z wektorem, ponieważ znalezienie adresu elementu wymaga
+nieco więcej obliczeń.  Wstawianie czy usuwanie, poza początkiem i
+końcem, jest czasu liniowego, ponieważ wymaga "przeorganizowania"
+wszystkich elementów "na prawo".
 
 Używamy `std::deque` tylko wtedy, kiedy wektor czy lista to za mało.
 
