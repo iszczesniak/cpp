@@ -151,9 +151,7 @@ maksymalną wydajność.
 Ten kontener jest kompromisem między funkcjonalnością a wydajnością
 wektora i listy.  Kontener jest przydatny, jeżeli potrzebujemy
 swobodnego dostępu i jednocześnie często wstawiamy czy usuwamy
-elementy na początku czy końcu kontenera.
-
-Ten kontener zapewnia:
+elementy na początku czy końcu kontenera.  Kontener zapewnia:
 
 * **swobodny dostęp o stałym czasie** - jak wektor,
 
