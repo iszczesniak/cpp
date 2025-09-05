@@ -148,7 +148,8 @@ maksymalną wydajność.
 
 ### `std::deque<T>`
 
-Ten kontener jest kompromisem między funkcjonalnością a wydajnością
+Jest to kolejka o dwóch końcach (ang. double ended queue).  Ten
+kontener jest kompromisem między funkcjonalnością a wydajnością
 wektora i listy.  Kontener jest przydatny, jeżeli potrzebujemy
 swobodnego dostępu i jednocześnie często wstawiamy czy usuwamy
 elementy na początku czy końcu kontenera.  Kontener zapewnia:

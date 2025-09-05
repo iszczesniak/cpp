@@ -148,10 +148,10 @@ performance.
 
 ### `std::deque<T>`
 
-The deque (pronounced as "deck", as in deck of cards) offers a
-trade-off between functionality and efficiency.  Use the deque if you
-need random-access, and frequently insert or erase elements at the
-front or the back.  It offers:
+The deque (the double ended queue, pronounced as "deck", as in "deck
+of cards") offers a trade-off between functionality and efficiency.
+Use the deque if you need random-access, and frequently insert or
+erase elements at the front or the back.  It offers:
 
 * **const-time random access** - like the vector,
 
