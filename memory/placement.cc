@@ -19,7 +19,7 @@ A g("global1");
 
 A &singleton()
 {
-  static A a;
+  static A a("singleton1");
   return a;
 }
 
@@ -31,4 +31,8 @@ int main()
 
   g.~A();
   new(&g) A("global2");
+
+  auto &s = singleton();
+  s.~A();
+  new(&s) A("singleton2");
 }
