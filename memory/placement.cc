@@ -25,14 +25,14 @@ A &singleton()
 
 int main()
 {
-  A a("local1");
-  a.~A();
-  new(&a) A("local2");
-
   g.~A();
   new(&g) A("global2");
 
   auto &s = singleton();
   s.~A();
   new(&s) A("singleton2");
+
+  A l("local1");
+  l.~A();
+  new(&l) A("local2");
 }
