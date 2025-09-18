@@ -459,39 +459,61 @@ An example:
 {% include_relative extract.cc %}
 ```
 
-## Emplace
+## Insertion
 
-An element can be copied, moved, or *emplaced* into a container.
-Copying is needed when we want to keep the source element intact.
-Moving is faster, and so preferred over copying, if the source won't be
-needed later.  In both copying and moving, we create an object
-ourselves, and then pass it to a container.  Emplacing creates an
-object based on the arguments we provide.
+We insert an element by passing it to a function (e.g., `insert` or
+`push_front`) of a container.  If the element is an object, then it's
+eligible for moving if we passed it as an rvalue, and copied
+otherwise.  Copying is needed when we want to keep the source element
+intact.  Moving is faster, and so preferred over copying, if the
+source won't be needed later.
 
-Emplacing is the fastest: a container tries to create the element in
-the required place: the element is created *in-place*, i.e., in the
-place (memory location) required by the container.  No copying, no
-moving... if all goes well.
+The container inserts (by copying or moving the value of the passed
+element) either with the constructor or the assignment operator
+depending on whether the target object already exists.  If it doesn't
+but the memory has already been allocated (e.g., as in a vector), then
+the target object is constructed in place (using the placement `new`
+operator).
 
-An emplace function takes the arguments of an element constructor, and
-passes them (forwards, technically speaking) to the constructor when
-it's known where (i.e., the place is known) the element should be
-constructed.
+## Emplacement
 
-We emplace by calling an `emplace` function of a container.
-Containers have other functions for emplacing with slight semantic
-differences, e.g., `std::list` has `emplace_front`, and
-`std::forward_list` has `emplace_after`.
+Emplacement creates an object based on the arguments we provide, as
+opposed to insertion that expects an already-created object.
 
-Emplacement works similar to insertion in that the elements that
-follow are "pushed to the right".  Therefore emplacement entails the
-same performance issues as the insertion does.
+An emplacement function takes the arguments for the constructor of the
+element, and passes them (forwards, technically speaking) to the
+constructor.
+
+Therea are three cases:
+
+* the target place is available
+
+* 
+
+* 
+
+
+The target place (e.g., the place where the container should emplace
+the element)
 
 A container **tries** to emplace the element.  Tries, because the
 place for the element might be already taken by some other element,
 e.g., when we emplace at the front of a non-empty vector.  If that
 happens, the new element is created in a different memory location,
 and then moved into the required place.
+
+Emplacing is the fastest: a container **tries** to create the element
+*in place* (using the placement `new` operator).  No copying, no
+moving... if the target place isn't already occupied.
+
+We emplace by calling an emplacement function of a container.
+Containers have various functions for emplacing with slight semantic
+differences, e.g., `std::vector` has `emplace`, `std::list` has
+`emplace_front`, and `std::forward_list` has `emplace_after`.
+
+Emplacement works similar to insertion in that the elements that
+follow are "pushed to the right".  Therefore emplacement entails the
+same performance issues as the insertion does.
 
 ```cpp
 {% include_relative emplace.cc %}

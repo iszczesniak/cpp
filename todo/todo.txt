@@ -1,7 +1,5 @@
 Quickies
 
-* in-place construction
-
 * std::bind to callable1 and callable2, vs closure
 
 * std::reference_wrapper, std::cref, std::ref

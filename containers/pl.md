@@ -469,9 +469,10 @@ który sami stworzyliśmy.  **Umieszczanie samo tworzy obiekt** z
 użyciem argumentów, które przekazujemy.
 
 Umieszczanie jest najszybsze, bo kontener próbuje stworzyć element we
-wymaganym miejscu: element jest **tworzyony w miejscu**
-(ang. in-place), czyli w miejscu pamięci wymaganym przez kontener.
-Bez kopiowania czy przenoszenia, jeżeli wszystko pójdzie dobrze.
+wymaganym miejscu: element jest *tworzony w miejscu* (ang. in place)
+przez umieszczający operator `new`, czyli w miejscu pamięci wymaganym
+przez kontener.  Bez kopiowania czy przenoszenia, jeżeli wszystko
+pójdzie dobrze.
 
 Funkcja umieszczająca przyjmuje argumenty dla konstruktora elementu i
 przekazuje mu je wtedy, kiedy wiadomo, gdzie (czyli w którym miejscu

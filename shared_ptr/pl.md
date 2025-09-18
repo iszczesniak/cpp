@@ -166,9 +166,9 @@ pominięty.
 
 Co ciekawe, `make_shared` alokuje *w jednym kawałku* (czyli z jedną
 alokacją pamięci) pamięć dla zarządzanych danych i struktury
-sterującej, a następnie *tworzy w miejscu* (ang. to create in place,
-czyli pod wskazanym adresem, bez alokacji pamięci) dane zarządzane i
-strukturę sterującą, co jest szybsze niż dwie osobne alokacje pamięci.
+sterującej, a następnie *tworzy w miejscu* (z użyciem
+umiejscawiającego operatora `new`) dane zarządzane i strukturę
+sterującą, co jest szybsze niż dwie osobne alokacje pamięci.
 
 # Podsumowanie
 
