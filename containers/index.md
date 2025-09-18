@@ -478,33 +478,20 @@ operator).
 ## Emplacement
 
 Emplacement creates an object based on the arguments we provide, as
-opposed to insertion that expects an already-created object.
+opposed to insertion that expects a ready object.  An emplacement
+function takes the arguments for the constructor of the object, and
+passes them (*forwards*, technically speaking) to the constructor.
+The container knows the **target place** (i.e., the place in memory)
+for the value being emplaced, because it manages the memory for its
+elements.
 
-An emplacement function takes the arguments for the constructor of the
-element, and passes them (forwards, technically speaking) to the
-constructor.
-
-Therea are three cases:
-
-* the target place is available
-
-* 
-
-* 
-
-
-The target place (e.g., the place where the container should emplace
-the element)
-
-A container **tries** to emplace the element.  Tries, because the
-place for the element might be already taken by some other element,
-e.g., when we emplace at the front of a non-empty vector.  If that
-happens, the new element is created in a different memory location,
-and then moved into the required place.
-
-Emplacing is the fastest: a container **tries** to create the element
-*in place* (using the placement `new` operator).  No copying, no
-moving... if the target place isn't already occupied.
+If the target place doesn't already store an object (e.g., the place
+for the first element of an empty vector), the container creates an
+object in that place.  If the target place already stores an object,
+the container assignes to it a temporary object created with the
+forwarded arguments.  Alternatively, I'd reckon, the target place
+could have its object destroyed, and a new object could be created in
+its place, but that ain't so.
 
 We emplace by calling an emplacement function of a container.
 Containers have various functions for emplacing with slight semantic
