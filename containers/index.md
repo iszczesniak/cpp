@@ -463,10 +463,10 @@ An example:
 
 We insert an element by passing it to a function (e.g., `insert` or
 `push_front`) of a container.  If the element is an object, then it's
-eligible for moving if we passed it as an rvalue, and copied
-otherwise.  Copying is needed when we want to keep the source element
-intact.  Moving is faster, and so preferred over copying, if the
-source won't be needed later.
+eligible for moving if we pass it as an rvalue, and copied otherwise.
+Copying is needed when we want to keep the source element intact.
+Moving is faster, and so preferred over copying, if the source won't
+be needed later.
 
 The container inserts (by copying or moving the value of the passed
 element) either with the constructor or the assignment operator
@@ -492,7 +492,7 @@ the container assignes to it a temporary object created with the
 forwarded arguments, so that the temporary value is eligible for
 moving into the object in the target place.  Alternatively, I'd
 reckon, the target object could be destroyed, and a new one could be
-created in its place, but that ain't so.
+created in its place, but that ain't so, and I wish I knew why.
 
 We emplace by calling an emplacement function of a container.
 Containers have various functions for emplacing with slight semantic
