@@ -489,9 +489,10 @@ If the target place doesn't already store an object (e.g., the place
 for the first element of an empty vector), the container creates an
 object in that place.  If the target place already stores an object,
 the container assignes to it a temporary object created with the
-forwarded arguments.  Alternatively, I'd reckon, the target place
-could have its object destroyed, and a new object could be created in
-its place, but that ain't so.
+forwarded arguments, so that the temporary value is eligible for
+moving into the object in the target place.  Alternatively, I'd
+reckon, the target object could be destroyed, and a new one could be
+created in its place, but that ain't so.
 
 We emplace by calling an emplacement function of a container.
 Containers have various functions for emplacing with slight semantic
