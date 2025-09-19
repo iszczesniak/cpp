@@ -461,12 +461,10 @@ An example:
 
 ## Insertion
 
-We insert an element by passing it to a function (e.g., `insert` or
-`push_front`) of a container.  If the element is an object, then it's
-eligible for moving if we pass it as an rvalue, and copied otherwise.
-Copying is needed when we want to keep the source element intact.
-Moving is faster, and so preferred over copying, if the source won't
-be needed later.
+We insert an element by passing it to an function (e.g., `insert` or
+`push_front`) of a container.  An insertion function differentiates
+between categories of its argument, so that an lvalue passed is
+copied, and an rvalue is eligible for moving.
 
 The container inserts (by copying or moving the value of the passed
 element) either with the constructor or the assignment operator
