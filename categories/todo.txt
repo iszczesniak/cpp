@@ -8,14 +8,13 @@ rvalue).  A prvalue is a description how to create a temporary object:
 the type of data to create, and the initializers, e.g., int(), 1, A(),
 A("Hi!"), A{}.
 
-The value of an xvalue can be moved.  An xvalue is one of the two:
+The value of an xvalue is eligible for moving.  An xvalue is one of
+the two:
 
 * a temporary expression, i.e., an expression that creates a temporary
-  data based on a prvalue (a description) -- a temporary is implicitly
-  elibile for moving,
+  data based on a prvalue (a description),
 
-* static_cast<T &&>(t), where t is an lvalue -- we explicitly move t
-  eligible for moving.
+* static_cast<T &&>(t), where t is an lvalue.
 
 An lvalue is:
 
