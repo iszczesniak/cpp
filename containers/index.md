@@ -479,11 +479,10 @@ operator).
 
 Emplacement creates an object based on the arguments we provide, as
 opposed to insertion that expects a ready object.  An emplacement
-function takes the arguments for the constructor of the object, and
-passes them (*forwards*, technically speaking) to the constructor.
-The container knows the **target place** (i.e., the place in memory)
-for the value being emplaced, because it manages the memory for its
-elements.
+function passes (*forwards*, technically speaking) its arguments to
+the constructor of the object to emplace.  The container knows the
+**target place** (i.e., the place in memory) for the value being
+emplaced, because it manages the memory for its elements.
 
 If the target place doesn't already store an object (e.g., the place
 for the first element of an empty vector), the container creates an
