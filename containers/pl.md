@@ -458,6 +458,13 @@ obiekt, którego wartość przenieśliśmy.  Oto przykład:
 {% include_relative extract.cc %}
 ```
 
+## Wstawianie
+
+Wstawiamy element przez przekazanie go do funkcji (np. `insert`,
+`push_front`) kontenera.  Jeżeli elementem jest obiekt, to może być
+przeniesiony jeżeli przekażemy go jako r-wartość, a w przeciwnym razie
+jest on kopiowany.
+
 ## Umieszczanie
 
 Element może być wstawiony (przez kopiowanie albo przenoszenie) do

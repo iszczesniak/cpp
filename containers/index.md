@@ -466,8 +466,8 @@ We insert an element by passing it to an function (e.g., `insert` or
 between categories of its argument, so that an lvalue passed is
 copied, and an rvalue is eligible for moving.
 
-The container inserts (by copying or moving the value of the passed
-element) either with the constructor or the assignment operator
+The container inserts (by copying or moving) the value of the passed
+element either with the constructor or the assignment operator
 depending on whether the target object already exists.  If it doesn't
 but the memory has already been allocated (e.g., as in a vector), then
 the target object is constructed in place (using the placement `new`
