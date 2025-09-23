@@ -471,9 +471,9 @@ element either with the constructor or the assignment operator
 depending on whether the target object already exists.  If it doesn't
 but the memory has already been allocated (e.g., as in a vector), then
 the target object is constructed in the *target place* (using the
-placement `new` operator).  The container knows the **target place**
-in memory for the target object, because it manages the memory for its
-elements.
+placement `new` operator).  The container knows the target place
+(i.e., the place in memory) for the target object, because it manages
+the memory for its elements.
 
 ## Emplacement
 
