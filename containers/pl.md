@@ -470,9 +470,9 @@ elementu z użyciem albo konstruktora, albo operatora przenoszącego w
 zależności od tego, czy obiekt docelowy już istnieje.  Jeżeli nie, ale
 pamięć została wcześniej zaalokowana (np. jak w wektorze), to obiekt
 docelowy jest tworzony w *miejscu docelowym* (z użyciem
-umiejscawiającego operatora `new`).  Kontener zna miejsce docelowe w
-pamięci dla obiektu docelowego, ponieważ sam zarządza pamięcią dla
-swoich elementów.
+umiejscawiającego operatora `new`).  Kontener zna miejsce docelowe
+(czyli miejsce w pamięci) dla obiektu docelowego, ponieważ sam
+zarządza pamięcią dla swoich elementów.
 
 ## Umieszczanie
 
