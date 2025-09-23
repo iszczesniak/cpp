@@ -476,40 +476,15 @@ swoich elementów.
 
 ## Umieszczanie
 
-Element może być wstawiony (przez kopiowanie albo przenoszenie) do
-kontenera albo w nim *umieszczony*.  Kopiowanie jest potrzebne, kiedy
-chcemy, żeby element źródłowy pozostał nietknięty.  Przenoszenie jest
-szybsze i w ten sposób lepsze od kopiowania, jeżeli element źródłowy
-nie będzie później potrzebny.  We wstawianiu przekazujemy obiekt,
-który sami stworzyliśmy.  **Umieszczanie samo tworzy obiekt** z
-użyciem argumentów, które przekazujemy.
+Umieszczamy wywołując funkcję umieszczającą kontenera.  Kontenery mają
+różne funkcje umieszczające z drobnymi różnicami semantycznymi,
+np. `std::vector` ma funkcję `emplace`, `std::list` ma
+`emplace_front`, a `std::forward_list` ma `emplace_after`.
 
-Umieszczanie jest najszybsze, bo kontener próbuje stworzyć element we
-wymaganym miejscu: element jest *tworzony w miejscu* (ang. in place)
-przez umieszczający operator `new`, czyli w miejscu pamięci wymaganym
-przez kontener.  Bez kopiowania czy przenoszenia, jeżeli wszystko
-pójdzie dobrze.
-
-Funkcja umieszczająca przyjmuje argumenty dla konstruktora elementu i
-przekazuje mu je wtedy, kiedy wiadomo, gdzie (czyli w którym miejscu
-pamięci) element powinien być stworzony.
-
-Umieszczamy wywołując funkcję `emplace` kontenera.  Kontenery mają
-także inne funkcje dla umieszczania z drobnymi różnicami
-semantycznymi, np. `std::list` ma funkcję `emplace_front`, a
-`std::forward_list` ma `emplace_after`.
-
-W niektórych kontenerach sekwencyjnych, podczas umieszczania, tak jak
-podczas wstawiania, elementy następujące są "przesuwane w prawo".
-Dlatego umieszczanie pociąga za sobą te same problemy z wydajnością
-jak wstawianie.
-
-Kontener *stara się* umieścić element, ale może zawieść, jeżeli
-docelowe miejsce już jest zajęte przez inny element, na przykład kiedy
-umieszczamy element na początku niepustego wektora.  W takim przypadku
-nowy element jest tworzony w jakimś innymi miejscu (na przykład w
-zmiennej lokalnej), a następnie jego wartość jest przenoszona do
-miejsca docelowego.
+W niektórych kontenerach sekwencyjnych, umieszczanie, tak jak
+wstawianie, przesuwa następujące elementy "w prawo".  Dlatego
+umieszczanie pociąga za sobą te same problemy z wydajnością jak
+wstawianie.
 
 ```cpp
 {% include_relative emplace.cc %}

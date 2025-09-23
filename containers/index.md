@@ -492,13 +492,13 @@ object could be destroyed, and a new one could be created in its
 place, but that ain't so, and I wish I knew why.
 
 We emplace by calling an emplacement function of a container.
-Containers have various functions for emplacing with slight semantic
-differences, e.g., `std::vector` has `emplace`, `std::list` has
-`emplace_front`, and `std::forward_list` has `emplace_after`.
+Containers have various emplacing functions with slight semantic
+differences, e.g., `std::vector` has function `emplace`, `std::list`
+has `emplace_front`, and `std::forward_list` has `emplace_after`.
 
-Emplacement works similar to insertion in that the elements that
-follow are "pushed to the right".  Therefore emplacement entails the
-same performance issues as the insertion does.
+In some sequence containers, emplacement, just like insertion, "pushes
+to the right" the elements that follow.  Therefore emplacement entails
+the same performance issues as the insertion does.
 
 ```cpp
 {% include_relative emplace.cc %}
