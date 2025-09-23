@@ -481,6 +481,19 @@ różne funkcje umieszczające z drobnymi różnicami semantycznymi,
 np. `std::vector` ma funkcję `emplace`, `std::list` ma
 `emplace_front`, a `std::forward_list` ma `emplace_after`.
 
+Podczas gdy wstawianie wymaga gotowego obiektu, to umieszczanie tworzy
+obiekt: argumenty, które przekazujemy funkcji, są następnie
+przekazywane przez tę funkcję do konstruktora umieszczanego obiektu.
+
+Jeżeli miejsce docelowe jeszcze nie przechowuje obiektu (np. miejsce
+dla pierwszego elementu pustego wektora), to kontener tworzy obiekt w
+tym miejscu.  Jeżeli miejsce docelowe już przechowuje obiekt, to
+kontener przypisuje mu obiekt tymczasowy stworzony z przekazanymi
+argumentami, żeby wartość tymczasowa podlegała przeniesieniu do
+obiektu docelowego.  Alternatywnie, wydawałoby się, obiekt docelowy
+mógłby być zniszczony i w jego miejscu stworzony nowy obiekt, ale tak
+nie jest i chciałbym wiedzieć dalczego nie.
+
 W niektórych kontenerach sekwencyjnych, umieszczanie, tak jak
 wstawianie, przesuwa następujące elementy "w prawo".  Dlatego
 umieszczanie pociąga za sobą te same problemy z wydajnością jak

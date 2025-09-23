@@ -477,10 +477,15 @@ elements.
 
 ## Emplacement
 
-Emplacement creates an object based on the arguments we provide, as
-opposed to insertion that expects a ready object.  An emplacement
-function passes (*forwards*, technically speaking) its arguments to
-the constructor of the object to emplace.
+We emplace by calling an emplacement function of a container.
+Containers have various emplacing functions with slight semantic
+differences, e.g., `std::vector` has function `emplace`, `std::list`
+has `emplace_front`, and `std::forward_list` has `emplace_after`.
+
+While insertion expects a ready object, emplacement creates the
+object: the arguments that we pass to a function are in turn passed by
+that function (*forwarded*, technically speaking) to the constructor
+of the object to emplace.
 
 If the target place doesn't already store an object (e.g., the place
 for the first element of an empty vector), the container creates an
@@ -490,11 +495,6 @@ forwarded arguments, so that the temporary value is eligible for
 moving into the target object.  Alternatively, I'd reckon, the target
 object could be destroyed, and a new one could be created in its
 place, but that ain't so, and I wish I knew why.
-
-We emplace by calling an emplacement function of a container.
-Containers have various emplacing functions with slight semantic
-differences, e.g., `std::vector` has function `emplace`, `std::list`
-has `emplace_front`, and `std::forward_list` has `emplace_after`.
 
 In some sequence containers, emplacement, just like insertion, "pushes
 to the right" the elements that follow.  Therefore emplacement entails
