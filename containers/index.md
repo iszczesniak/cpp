@@ -470,17 +470,17 @@ The container inserts (by copying or moving) the value of the passed
 element either with the constructor or the assignment operator
 depending on whether the target object already exists.  If it doesn't
 but the memory has already been allocated (e.g., as in a vector), then
-the target object is constructed in place (using the placement `new`
-operator).
+the target object is constructed in the *target place* (using the
+placement `new` operator).  The container knows the **target place**
+in memory for the target object, because it manages the memory for its
+elements.
 
 ## Emplacement
 
 Emplacement creates an object based on the arguments we provide, as
 opposed to insertion that expects a ready object.  An emplacement
 function passes (*forwards*, technically speaking) its arguments to
-the constructor of the object to emplace.  The container knows the
-**target place** (i.e., the place in memory) for the object, because
-it manages the memory for its elements.
+the constructor of the object to emplace.
 
 If the target place doesn't already store an object (e.g., the place
 for the first element of an empty vector), the container creates an

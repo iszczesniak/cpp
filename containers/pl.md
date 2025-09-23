@@ -461,9 +461,18 @@ obiekt, którego wartość przenieśliśmy.  Oto przykład:
 ## Wstawianie
 
 Wstawiamy element przez przekazanie go do funkcji (np. `insert`,
-`push_front`) kontenera.  Jeżeli elementem jest obiekt, to może być
-przeniesiony jeżeli przekażemy go jako r-wartość, a w przeciwnym razie
-jest on kopiowany.
+`push_front`) kontenera.  Funkcja wstawiająca rozróżnia kategorię
+swojego argumentu, więc przekazana l-wartość jest kopiowana, a
+r-wartość podlega przeniesieniu.
+
+Kontener wstawia (kopiując albo przenosząc) wartość przekazanego
+elementu z użyciem albo konstruktora, albo operatora przenoszącego w
+zależności od tego, czy obiekt docelowy już istnieje.  Jeżeli nie, ale
+pamięć została wcześniej zaalokowana (np. jak w wektorze), to obiekt
+docelowy jest tworzony w *miejscu docelowym* (z użyciem
+umiejscawiającego operatora `new`).  Kontener zna miejsce docelowe w
+pamięci dla obiektu docelowego, ponieważ sam zarządza pamięcią dla
+swoich elementów.
 
 ## Umieszczanie
 
