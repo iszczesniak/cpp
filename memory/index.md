@@ -168,7 +168,7 @@ of the operator does not allocate memory, so it has nothing to do with
 the dynamic data.
 
 ```cpp
-{% include_relative place.cc %}
+{% include_relative placement.cc %}
 ```
 
 ## Local vs dynamic data
