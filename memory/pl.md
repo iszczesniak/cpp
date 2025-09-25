@@ -169,6 +169,15 @@ dynamicznych.
 {% include_relative dynamic.cc %}
 ```
 
+Umiejscawiający operator `new` tworzy obiekt (albo wartość typu
+nieklasowego) "w miejscu", czyli w miejscu wskazanym przez wskaźnik,
+który przekazujemy w nawiasach tuż po `new`.  Ta wersja operatora nie
+alokuje pamięci, więc nie ma nic wspólnego z danymi dynamicznymi.
+
+```cpp
+{% include_relative placement.cc %}
+```
+
 ## Lokalne a dynamiczne dane
 
 Alokacja pamięci dla danych na stosie jest najszybsza: wystarczy

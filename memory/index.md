@@ -161,6 +161,16 @@ allocation.
 {% include_relative dynamic.cc %}
 ```
 
+The placement `new` operator creates an object (or a value of some
+non-class type) "in place", i.e., in the place pointed to with a
+pointer that we pass in parentheses right after `new`.  That version
+of the operator does not allocate memory, so it has nothing to do with
+the dynamic data.
+
+```cpp
+{% include_relative place.cc %}
+```
+
 ## Local vs dynamic data
 
 Allocation on the stack is the fastest: it's only necessary to

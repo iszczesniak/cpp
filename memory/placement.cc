@@ -1,3 +1,4 @@
+#include <cassert>
 #include <iostream>
 
 struct A
@@ -35,4 +36,10 @@ int main()
   A l("local1");
   l.~A();
   new(&l) A("local2");
+
+  int i = 0;
+  new(&i) int(1);
+  assert(i == 1);
+  new(&i) int();
+  assert(i == 0);
 }
