@@ -21,10 +21,10 @@ parametrów, a potem w rozwinięciu tej paczki.
 
 # Paczka parametrów
 
-Trójkropek jest częścią definicji **paczki parametrów** (ang. a
-parameter pack), po którym następuje nazwa paczki.  Paczka parametrów
+Paczkę parametrów (ang. a parameter pack) definiujemy z użyciem
+trójkropka, po którym następuje nazwa paczki.  Paczka parametrów
 szablonu może być szablonu albo funkcji.  Paczka parametrów jest
-używana w **rozwinięciu** albo **wyrażeniu złożenia**.
+używana w **rozwinięciu paczki** albo **wyrażeniu złożenia**.
 
 ## Paczka parametrów szablonu
 

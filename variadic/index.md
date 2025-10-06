@@ -16,14 +16,13 @@ parameter list:
 ```
 
 In the above example, the ellipsis was used in the definition of a
-paramer pack, and then in the pack expansion.
+parameter pack, and then in the pack expansion.
 
-# Paczka parametrów
+# Parameter pack
 
-Trójkropek jest częścią definicji **paczki parametrów** (ang. a
-parameter pack), po którym następuje nazwa paczki.  Paczka parametrów
-szablonu może być szablonu albo funkcji.  Paczka parametrów jest
-używana w **rozwinięciu** albo **wyrażeniu złożenia**.
+We define a parameter pack with the ellipsis that is followed by the
+pack name.  A parameter pack can be of a template or a function.
+A parameter pack is used in a pack expansion or a fold expression.
 
 ## Paczka parametrów szablonu
 
