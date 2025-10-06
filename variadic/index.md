@@ -1,23 +1,22 @@
 ---
-title: Szablon wariadyczny
+title: Variadic template
 ---
 
-# Wstęp
+# Introduction
 
-C++11 wprowadził **szablon wariadyczny** (ang. a variadic template),
-który potrafi przyjąć dowolną liczbę argumentów szablonu, także
-zerową.  Szablon wariadyczny jest mechanizmem czasu kompilacji, który
-jest konkretyzowany w miejscu użycia.
+C++11 introduced a **variadic template** that can accept any number of
+template arguments, including none.  A variadic template is a
+compile-time mechanism that is instantiated when used.
 
-Szablon wariadyczny poznamy po trójkropku `...` w liście parametrów
-szablonu:
+We recognize a variadic template by the ellipsis `...` in the
+parameter list:
 
 ```cpp
 {% include_relative intro.cc %}
 ```
 
-W powyższym przykładzie trójkropek został użyty w definicji paczki
-parametrów, a potem w rozwinięciu tej paczki.
+In the above example, the ellipsis was used in the definition of a
+paramer pack, and then in the pack expansion.
 
 # Paczka parametrów
 
