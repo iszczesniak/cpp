@@ -20,9 +20,10 @@ parameter pack, and then in the pack expansion.
 
 # Parameter pack
 
-We define a parameter pack with the ellipsis that is followed by the
-pack name.  A parameter pack can be of a template or a function.
-A parameter pack is used in a pack expansion or a fold expression.
+We define a **parameter pack** with the ellipsis that is followed by
+the pack name.  A parameter pack can be of a template or a function.
+A parameter pack is used in a **pack expansion** or a **fold
+expression**.
 
 ## Paczka parametrów szablonu
 

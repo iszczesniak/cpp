@@ -21,7 +21,7 @@ parametrów, a potem w rozwinięciu tej paczki.
 
 # Paczka parametrów
 
-Paczkę parametrów (ang. a parameter pack) definiujemy z użyciem
+**Paczkę parametrów** (ang. a parameter pack) definiujemy z użyciem
 trójkropka, po którym następuje nazwa paczki.  Paczka parametrów
 szablonu może być szablonu albo funkcji.  Paczka parametrów jest
 używana w **rozwinięciu paczki** albo **wyrażeniu złożenia**.
