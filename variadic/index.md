@@ -7,7 +7,7 @@ title: Szablon wariadyczny
 C++11 wprowadził **szablon wariadyczny** (ang. a variadic template),
 który potrafi przyjąć dowolną liczbę argumentów szablonu, także
 zerową.  Szablon wariadyczny jest mechanizmem czasu kompilacji, który
-jest konkretyzowany, kiedy jest użyty.
+jest konkretyzowany w miejscu użycia.
 
 Szablon wariadyczny poznamy po trójkropku `...` w liście parametrów
 szablonu:
