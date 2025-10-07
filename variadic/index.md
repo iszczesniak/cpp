@@ -69,18 +69,19 @@ In the example above, the function accepts arguments by value.  To
 make the function accept its arguments by a const reference, we define
 the pack as `const Args &... args`.
 
-### Rozwinięcie paczki
+### Pack expansion
 
-Rozwinięcie paczki parametrów funkcji zapisujemy jako nazwa paczki z
-następującym trójkropkiem.
+An expansion of a function parameter pack is written as the name of
+the pack followed by the ellipsis.
 
 ```cpp
 {% include_relative factory.cc %}
 ```
 
-Paczkę parametrów szablonu można rozwijać w zgraniu (ang. lockstep) z
-paczką parametrów funkcji, np. podczas inicjalizacji obiektów bazowych
-parametrami konstruktora klasy wyprowadzonej:
+A template parameter pack can be expanded in lockstep with (in tandem
+with) the expansion of the function parameter pack, e.g., when we
+initialize base objects using parameters of a constructor of the
+derived class:
 
 ```cpp
 {% include_relative lockstep.cc %}

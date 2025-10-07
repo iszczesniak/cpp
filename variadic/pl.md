@@ -79,7 +79,7 @@ następującym trójkropkiem.
 ```
 
 Paczkę parametrów szablonu można rozwijać w zgraniu (ang. lockstep) z
-paczką parametrów funkcji, np. podczas inicjalizacji obiektów bazowych
+paczką parametrów funkcji, np. kiedy inicjalizujemy obiekty bazowe
 parametrami konstruktora klasy wyprowadzonej:
 
 ```cpp
