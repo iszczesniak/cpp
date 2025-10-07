@@ -46,11 +46,11 @@ rozwijana do listy parametrów szablonu oddzielonych przecinkami:
 ```
 
 W przykładach wyżej argumenty szablonu musiały być jawnie podane, bo
-funkcje i konstruktor nie miały parametrów i argumentów wywołania, na
-podstawie których argumenty szablonu mogły być wywnioskowane.
-Argumenty dla parametrów szablonu w paczce są wnioskowane na podstawie
-definicji **paczki parametrów funkcji** i argumentów wywołania
-funkcji.
+funkcje i konstruktor nie miały zdefiniowanych parametrów i
+przekazanych argumentów wywołania, na podstawie których argumenty
+szablonu mogły być wywnioskowane.  Argumenty dla parametrów szablonu w
+paczce są wnioskowane na podstawie definicji **paczki parametrów
+funkcji** i argumentów wywołania funkcji.
 
 ## Paczka parametrów funkcji
 

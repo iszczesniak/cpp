@@ -45,12 +45,12 @@ list of template parameters.
 {% include_relative expansion.cc %}
 ```
 
-W przykładach wyżej argumenty szablonu musiały być jawnie podane, bo
-funkcje i konstruktor nie miały parametrów i argumentów wywołania, na
-podstawie których argumenty szablonu mogły być wywnioskowane.
-Argumenty dla parametrów szablonu w paczce są wnioskowane na podstawie
-definicji **paczki parametrów funkcji** i argumentów wywołania
-funkcji.
+In the examples above, the template arguments were explicitly given,
+because the functions and the constructor didn't have parameters
+defined and call arguments passed, based on which the template
+arguments could be deduced.  Arguments for template parameters of a
+pack are deduced based on the definition of a **function parameter
+pack** and the call arguments.
 
 ## Paczka parametrów funkcji
 
