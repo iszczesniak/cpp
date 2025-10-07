@@ -52,13 +52,14 @@ arguments could be deduced.  Arguments for template parameters of a
 pack are deduced based on the definition of a **function parameter
 pack** and the call arguments.
 
-## Paczka parametrów funkcji
+## Function parameter pack
 
-Paczka parametrów funkcji jest definiowana w liście parametrów funkcji
-także z użyciem trójkropka: pierwsze podajemy nazwę paczki parametrów
-szablonu, trójkropek, a następnie nazwę paczki parametrów funkcji.  Co
-ciekawe, definicja paczki parametrów funkcji jest jednocześnie
-rozwinięciem paczki parametrów szablonu.
+A function parameter pack is defined in the list of function
+parameters, also with the ellipsis: first we put the name of a
+template parameter pack, the ellipsis, and then the name of the
+function parameter pack.  Interestingly, the definition of the
+function parameter pack is also the expansion of the template
+parameter pack.
 
 ```cpp
 {% include_relative fun_par_pack.cc %}
