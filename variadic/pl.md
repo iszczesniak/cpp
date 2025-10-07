@@ -88,11 +88,12 @@ parametrami konstruktora klasy wyprowadzonej:
 
 # Przetwarzanie rekurencyjne
 
-Parametry paczki funkcji możemy przetwarzać rekurencyjnie.  Sztuczka
-polega na zdefiniowaniu dwóch parametrów funkcji: pierwszy do
-przetworzenia przez funkcję, a drugi jako paczka do przekazania jako
-argument wywołania rekurencyjnego.  W ten sposób zmniejszamy liczbę
-parametrów paczki funkcji o jeden za każdym wywołaniem rekurencyjnym.
+Argumenty funkcji możemy przetwarzać rekurencyjnie z użyciem paczek
+parametrów.  Sztuczka polega na zdefiniowaniu dwóch parametrów
+funkcji: pierwszy jest zwykły, do przetworzenia przez funkcję, a drugi
+jest paczką do rozwinięcia w listę argumentów do wywołania
+rekurencyjnego.  W ten sposób, w każdym wywołaniu rekurencyjnym,
+liczba parametrów w paczce jest dekrementowana.
 
 ```cpp
 {% include_relative recursive.cc %}

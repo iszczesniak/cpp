@@ -87,13 +87,13 @@ derived class:
 {% include_relative lockstep.cc %}
 ```
 
-# Przetwarzanie rekurencyjne
+# Recursive processing
 
-Parametry paczki funkcji możemy przetwarzać rekurencyjnie.  Sztuczka
-polega na zdefiniowaniu dwóch parametrów funkcji: pierwszy do
-przetworzenia przez funkcję, a drugi jako paczka do przekazania jako
-argument wywołania rekurencyjnego.  W ten sposób zmniejszamy liczbę
-parametrów paczki funkcji o jeden za każdym wywołaniem rekurencyjnym.
+We can process function arguments recursively.  The trick is to define
+two function parameters: the first is a regular one to be processed by
+the function, the other is a parameter pack to be expanded to an
+argument list of a recursive call.  This way, in every recursive call,
+the number of parameters of a pack is decremented.
 
 ```cpp
 {% include_relative recursive.cc %}
