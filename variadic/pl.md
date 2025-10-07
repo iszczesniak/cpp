@@ -28,8 +28,9 @@ używana w **rozwinięciu paczki** albo **wyrażeniu złożenia**.
 
 ## Paczka parametrów szablonu
 
-Parametry szablonu w paczce są tego samego rodzaju: w przykładzie
-wyżej są typowe, a w przykładzie niżej wartościowe.
+**Paczka parametrów szablonu** definiuje parametry szablonu tego
+samego rodzaju: w przykładzie wyżej są typowe, a w przykładzie niżej
+wartościowe.
 
 ```cpp
 {% include_relative value_pack.cc %}

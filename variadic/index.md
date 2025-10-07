@@ -27,9 +27,9 @@ expression**.
 
 ## Template parameter pack
 
-Parameters in a template pack are of the same kind: in the example
-above they are of the type kind, in the example below of the value
-kind.
+A **template parameter pack** defines template parameters of the same
+kind: in the example above they are of the type kind, in the example
+below of the value kind.
 
 ```cpp
 {% include_relative value_pack.cc %}
