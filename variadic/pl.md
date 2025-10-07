@@ -65,9 +65,9 @@ rozwinięciem paczki parametrów szablonu.
 {% include_relative fun_par_pack.cc %}
 ```
 
-W przykładzie wyżej funkcja przyjmuje argumenty przez wartość.  Może
-też przyjmować przez referencję stałą, jeżeli paczkę zdefiniujemy jako
-`const Args &... args`.
+W przykładzie wyżej funkcja przyjmuje argumenty przez wartość.  Żeby
+funkcja przyjmowała argumenty przez referencję stałą, to należy
+zdefiniować paczkę parametrów jako `const Args &... args`.
 
 ### Rozwinięcie paczki
 

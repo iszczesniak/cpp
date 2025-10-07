@@ -65,9 +65,9 @@ parameter pack.
 {% include_relative fun_par_pack.cc %}
 ```
 
-W przykładzie wyżej funkcja przyjmuje argumenty przez wartość.  Może
-też przyjmować przez referencję stałą, jeżeli paczkę zdefiniujemy jako
-`const Args &... args`.
+In the example above, the function accepts arguments by value.  To
+make the function accept its arguments by a const reference, we define
+the pack as `const Args &... args`.
 
 ### Rozwinięcie paczki
 
