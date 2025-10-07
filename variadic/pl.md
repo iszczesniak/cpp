@@ -39,7 +39,7 @@ wyżej są typowe, a w przykładzie niżej wartościowe.
 
 Nazwę paczki z następującym trójkropkiem nazywa się rozwinięciem
 paczki (ang. pack expansion).  Paczka parametrów szablonu jest
-rozwijana do listy argumentów szablonu oddzielonych przecinkami:
+rozwijana do listy parametrów szablonu oddzielonych przecinkami:
 
 ```cpp
 {% include_relative expansion.cc %}

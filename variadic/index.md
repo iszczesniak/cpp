@@ -35,11 +35,11 @@ kind.
 {% include_relative value_pack.cc %}
 ```
 
-### Rozwinięcie paczki
+### Pack expansion
 
-Nazwę paczki z następującym trójkropkiem nazywa się rozwinięciem
-paczki (ang. pack expansion).  Paczka parametrów szablonu jest
-rozwijana do listy argumentów szablonu oddzielonych przecinkami:
+The name of a pack with a trailing ellipsis is called a pack
+expansion.  A template parameter pack is expended to a comma-separated
+list of template parameters.
 
 ```cpp
 {% include_relative expansion.cc %}
