@@ -25,10 +25,11 @@ the pack name.  A parameter pack can be of a template or a function.
 A parameter pack is used in a **pack expansion** or a **fold
 expression**.
 
-## Paczka parametrów szablonu
+## Template parameter pack
 
-Parametry szablonu w paczce są tego samego rodzaju: w przykładzie
-wyżej są typowe, a w przykładzie niżej wartościowe.
+Parameters in a template pack are of the same kind: in the example
+above they are of the type kind, in the example below of the value
+kind.
 
 ```cpp
 {% include_relative value_pack.cc %}
