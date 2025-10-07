@@ -90,10 +90,12 @@ parametrami konstruktora klasy wyprowadzonej:
 
 Argumenty funkcji możemy przetwarzać rekurencyjnie z użyciem paczek
 parametrów.  Sztuczka polega na zdefiniowaniu dwóch parametrów
-funkcji: pierwszy jest zwykły, do przetworzenia przez funkcję, a drugi
-jest paczką do rozwinięcia w listę argumentów do wywołania
-rekurencyjnego.  W ten sposób, w każdym wywołaniu rekurencyjnym,
-liczba parametrów w paczce jest dekrementowana.
+funkcji: pierwszy jest zwykły, do przetworzenia przez bieżące
+wywołanie, a drugi jest paczką do przetworzenia przez wywołanie
+rekurencyjnego.  Paczka jest rozwijana w listę argumentów wywołania
+rekurencyjnego.  W ten sposób paczka parametrów wywołania
+rekrencyjnego nie ma już pierszego parametru z paczki bieżącego
+wywołania.
 
 ```cpp
 {% include_relative recursive.cc %}

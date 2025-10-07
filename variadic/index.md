@@ -91,9 +91,10 @@ derived class:
 
 We can process function arguments recursively.  The trick is to define
 two function parameters: the first is a regular one to be processed by
-the function, the other is a parameter pack to be expanded to an
-argument list of a recursive call.  This way, in every recursive call,
-the number of parameters of a pack is decremented.
+the current call, the other is a parameter pack to be processed by
+recursive call.  A pack is expended to an argument list for the
+recursive call.  This way, the recursive-call pack is missing the
+first parameter of the current-call pack.
 
 ```cpp
 {% include_relative recursive.cc %}
