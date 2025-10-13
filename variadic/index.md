@@ -100,17 +100,17 @@ first parameter of the current-call pack.
 {% include_relative recursive.cc %}
 ```
 
-# Wyrażenie złożenia
+# Fold expression
 
-Wyrażenie złożenia (ang. a fold expression, od C++17) jest przepisem
-na wygenerowanie wyrażenia z użyciem dowolnego **dwuargumentowego
-operatora `op`** i paczki parametrów.  Wyrażenie tak się nazywa, bo
-składa docelowe wyrażenie (to, które sami napisalibyśmy "ręcznie") do
-skompresowanego zapisu.  Wyrażenie złożenia jest konkretyzowane w
-czasie kompilacji dla danej paczki parametrów, co eliminuje potrzebę
-przetwarzania rekurencyjnego.  Wyrażenie złożenia poznajemy po `...` i
-nawiasach.  Są cztery wersje: dwie jednoargumentowe i dwie
-dwuargumentowe, ale ciągle z użyciem tego samego operatora `op`.
+A fold expression (since C++17) describes how to generate a *target
+(intended) expression* using any **binary operator `op`** and a
+parameter pack.  A fold expression is called that way, because it
+folds (like a tablecloth) the target expression (which we could write
+"by hand") to a compressed format.  A fold expression is instantiated
+(during compilation) for a given parameter pack, and that can void the
+need for recursive processing.  We recognize the fold expression by
+the ellipsis and parentheses.  There are four versions: two unary, and
+two binary, that use the same operator `op`.
 
 Paczka `p` składa się z parametrów p<sub>1</sub>, p<sub>2</sub>, ...,
 p<sub>(n-1)</sub>, p<sub>n</sub>.  Wyrażenie złożenia wymaga wyrażenia
