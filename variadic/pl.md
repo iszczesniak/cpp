@@ -22,9 +22,11 @@ parametrów, a potem w rozwinięciu tej paczki.
 # Paczka parametrów
 
 **Paczkę parametrów** (ang. a parameter pack) definiujemy z użyciem
-trójkropka, po którym następuje nazwa paczki.  Paczka parametrów
-szablonu może być szablonu albo funkcji.  Paczka parametrów jest
-używana w **rozwinięciu paczki** albo **wyrażeniu złożenia**.
+trójkropka, po którym następuje nazwa paczki, np. `p`.  Paczka `p`
+składa się z parametrów p<sub>1</sub>, p<sub>2</sub>, ...,
+p<sub>(n-1)</sub>, p<sub>n</sub>.  Paczka parametrów szablonu może być
+szablonu albo funkcji.  Paczka parametrów jest używana w **rozwinięciu
+paczki** albo **wyrażeniu złożenia**.
 
 ## Paczka parametrów szablonu
 
@@ -108,16 +110,16 @@ na wygenerowanie *docelowego (zamierzonego) wyrażenia* z użyciem
 dowolnego **dwuargumentowego operatora `op`** i paczki parametrów.
 Wyrażenie tak się nazywa, bo składa (jak obrus) docelowe wyrażenie
 (to, które sami napisalibyśmy "ręcznie") do skompresowanego zapisu.
-Wyrażenie złożenia jest konkretyzowane (podczas kompilacji) dla danej
-paczki parametrów, co eliminuje potrzebę przetwarzania rekurencyjnego.
+Wyrażenie złożenia jest rozwijane, konkretyzowane dla danej paczki
+parametrów, co eliminuje potrzebę przetwarzania rekurencyjnego.
 Wyrażenie złożenia poznajemy po trójkropku i nawiasach.  Są cztery
 wersje: dwie jednoargumentowe i dwie dwuargumentowe, które używają
 tego samego operatora `op`.
 
-Paczka `p` składa się z parametrów p<sub>1</sub>, p<sub>2</sub>, ...,
-p<sub>(n-1)</sub>, p<sub>n</sub>.  Wyrażenie złożenia wymaga wyrażenia
-`E`, które używa paczki `p`.  Wyrażenie `E` opracowane dla parametru
-p<sub>i</sub> zapisujemy jako E<sub>i</sub>.
+Częścią wyrażenia złożenia jest wyrażenie `E`, które używa paczki `p`.
+Wyrażenie złożenia jest rozwijane przez konkretyzowanie wyrażenia `E`
+dla kolejnych parametrów paczki `p`.  Wyrażenie `E` skonkretyzowane
+dla parametru p<sub>i</sub> zapisujemy jako E<sub>i</sub>.
 
 ## Wersja jednoargumentowa
 

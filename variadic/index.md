@@ -21,9 +21,10 @@ parameter pack, and then in the pack expansion.
 # Parameter pack
 
 We define a **parameter pack** with the ellipsis that is followed by
-the pack name.  A parameter pack can be of a template or a function.
-A parameter pack is used in a **pack expansion** or a **fold
-expression**.
+the pack name, e.g., `p`.  Pack `p` is made of parameters
+p<sub>1</sub>, p<sub>2</sub>, ..., p<sub>(n-1)</sub>, p<sub>n</sub>.
+A parameter pack can be of a template or a function.  A parameter pack
+is used in a **pack expansion** or a **fold expression**.
 
 ## Template parameter pack
 
@@ -106,16 +107,17 @@ A fold expression (since C++17) describes how to generate a *target
 (intended) expression* using any **binary operator `op`** and a
 parameter pack.  A fold expression is called that way, because it
 folds (like a tablecloth) the target expression (which we could write
-"by hand") to a compressed format.  A fold expression is instantiated
-(during compilation) for a given parameter pack, and that can void the
-need for recursive processing.  We recognize the fold expression by
-the ellipsis and parentheses.  There are four versions: two unary, and
-two binary, that use the same operator `op`.
+"by hand") to a compressed format.  A fold expression is expanded,
+instantiated for a given parameter pack, and that can void the need
+for recursive processing.  We recognize the fold expression by the
+ellipsis and parentheses.  There are four versions: two unary, and two
+binary, that use the same operator `op`.
 
-Paczka `p` składa się z parametrów p<sub>1</sub>, p<sub>2</sub>, ...,
-p<sub>(n-1)</sub>, p<sub>n</sub>.  Wyrażenie złożenia wymaga wyrażenia
-`E`, które używa paczki `p`.  Wyrażenie `E` opracowane dla parametru
-p<sub>i</sub> zapisujemy jako E<sub>i</sub>.
+Part of a fold expression is expression `E` that uses pack `p`.  A
+fold expression is expanded by instantating expression `E` for the
+subsequent parameters of pack `p`.  Expression `E` for parameter
+p<sub>i</sub> is denoted by E<sub>i</sub>.  We denote expression `E`
+instantiated for parameter p<sub>i</sub> by E<sub>i</sub>.
 
 ## Wersja jednoargumentowa
 
