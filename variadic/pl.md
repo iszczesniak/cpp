@@ -238,6 +238,9 @@ poprzedzone wypisaniem przecinka.
 
   - parametrów funkcji i argumentów funkcji.
 
+* Parametry paczki mogą być przetwarzane rekurencyjnie lub z użyciem
+  wyrażenia złożenia.
+
 # Quiz
 
 * Czy paczka parametrów szablonu może przyjąć argumenty różnego
