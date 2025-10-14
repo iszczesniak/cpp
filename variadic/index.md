@@ -108,8 +108,8 @@ A fold expression (since C++17) describes how to generate a *target
 parameter pack.  A fold expression is called that way, because it
 folds (like a tablecloth) the target expression (which we could write
 "by hand") to a compressed format.  A fold expression is expanded,
-instantiated for a given parameter pack, and that can void the need
-for recursive processing.  We recognize the fold expression by the
+instantiated for a given parameter pack, and that can replace
+recursive processing.  We recognize the fold expression by the
 ellipsis and parentheses.  There are four versions: two unary, and two
 binary, that use the same operator `op`.
 

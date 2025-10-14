@@ -111,10 +111,10 @@ dowolnego **dwuargumentowego operatora `op`** i paczki parametrów.
 Wyrażenie tak się nazywa, bo składa (jak obrus) docelowe wyrażenie
 (to, które sami napisalibyśmy "ręcznie") do skompresowanego zapisu.
 Wyrażenie złożenia jest rozwijane, konkretyzowane dla danej paczki
-parametrów, co eliminuje potrzebę przetwarzania rekurencyjnego.
-Wyrażenie złożenia poznajemy po trójkropku i nawiasach.  Są cztery
-wersje: dwie jednoargumentowe i dwie dwuargumentowe, które używają
-tego samego operatora `op`.
+parametrów, co może zastąpić przetwarzanie rekurencyjne.  Wyrażenie
+złożenia poznajemy po trójkropku i nawiasach.  Są cztery wersje: dwie
+jednoargumentowe i dwie dwuargumentowe, które używają tego samego
+operatora `op`.
 
 Częścią wyrażenia złożenia jest wyrażenie `E`, które używa paczki `p`.
 Wyrażenie złożenia jest rozwijane przez konkretyzowanie wyrażenia `E`
