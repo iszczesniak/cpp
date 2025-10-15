@@ -123,17 +123,35 @@ dla parametru p<sub>i</sub> zapisujemy jako E<sub>i</sub>.
 
 ## Wersja jednoargumentowa
 
-Wersje jednoargumentowe wyrażenia złożenia, gdzie argumentem jest `E`:
+Wersje jednoargumentowe wyrażenia złożenia przetwarzają parametry
+mniej więcej w ten sposób:
 
-* wersja lewa: `(... op E)` -> ((E<sub>1</sub> op E<sub>2</sub>) op ...)
+E<sub>1</sub> op E<sub>2</sub>) op ... op E<sub>(n-1)</sub> op
+E<sub>n</sub>
 
-* wersja prawa: `(E op ...)` -> (... op (E<sub>(n-1)</sub> op E<sub>n</sub>))
+Wynik powyższego wyrażenia zależy od wiązania operatora `op`.
+Wyrażenia binarne operatora `op` są opracowywane od lewej do prawej
+dla operatora `op` z wiązaniem lewym (ang. left-to-right
+associativity), a od prawej do lewej.
+
+a z wiązaniem prawym (ang. right-to-left
+associativity) 
+
+Nie ma wyrażenia złożenia, które jest rozwijane w powyższy sposób,
+żeby pozwolić kompilatorowi na jego opracowanie zgodnie z wiązaniem
+operatora `op`.  Wprowadzono natomiast
+
+* wersja lewa: `(... op E)` rozwijana do ((E<sub>1</sub> op
+  E<sub>2</sub>) op ...)
+
+* wersja prawa: `(E op ...)` rozwijana do (... op (E<sub>(n-1)</sub>
+  op E<sub>n</sub>))
 
 Wersja lewa przetwarza parametry paczki od lewej strony (do prawej,
 czyli od p<sub>1</sub> do p<sub>n</sub>), a prawa od prawej (do lewej,
 czyli od p<sub>n</sub> do p<sub>1</sub>).  Zatem wersja lewa
-przetwarza argumenty tak, jakby operator miał wiązanie lewe, a prawa
-tak, jakby miał wiązanie prawe.
+przetwarza argumenty tak, jakby operator `op` miał wiązanie lewe, a
+prawa tak, jakby miał wiązanie prawe.
 
 Dla działania łącznego (np. dodawania) nie ma znaczenia, czy
 przetwarzamy od lewej czy od prawej strony, więc oba wyrażenia

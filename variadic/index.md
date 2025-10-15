@@ -119,19 +119,24 @@ subsequent parameters of pack `p`.  Expression `E` for parameter
 p<sub>i</sub> is denoted by E<sub>i</sub>.  We denote expression `E`
 instantiated for parameter p<sub>i</sub> by E<sub>i</sub>.
 
-## Wersja jednoargumentowa
+## Unary versions
 
-Wersje jednoargumentowe wyrażenia złożenia, gdzie argumentem jest `E`:
+Unary versions expect only one (hence unary) expression `E`:
 
-* wersja lewa: `(... op E)` -> ((E<sub>1</sub> op E<sub>2</sub>) op ...)
+* the left version: `(... op E)` expended to ((E<sub>1</sub> op
+  E<sub>2</sub>) op ...)
 
-* wersja prawa: `(E op ...)` -> (... op (E<sub>(n-1)</sub> op E<sub>n</sub>))
+* the right version: `(E op ...)` expended to (... op
+  (E<sub>(n-1)</sub> op E<sub>n</sub>))
 
-Wersja lewa przetwarza parametry paczki od lewej strony (do prawej,
-czyli od p<sub>1</sub> do p<sub>n</sub>), a prawa od prawej (do lewej,
-czyli od p<sub>n</sub> do p<sub>1</sub>).  Zatem wersja lewa
-przetwarza argumenty tak, jakby operator miał wiązanie lewe, a prawa
-tak, jakby miał wiązanie prawe.
+The left version processes pack parameters from left (to right, i.e.,
+from p<sub>1</sub> to p<sub>n</sub>), and the right from right (to
+left, i.e., from p<sub>n</sub> to p<sub>1</sub>).
+
+The left version 
+
+Zatem wersja lewa przetwarza argumenty tak, jakby operator `op` miał
+wiązanie lewe, a prawa tak, jakby miał wiązanie prawe.
 
 Dla działania łącznego (np. dodawania) nie ma znaczenia, czy
 przetwarzamy od lewej czy od prawej strony, więc oba wyrażenia
