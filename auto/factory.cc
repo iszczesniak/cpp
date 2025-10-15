@@ -4,7 +4,7 @@
 
 template <typename T>
 auto
-factory(auto ...p)
+factory(auto... p)
 {
   return T{p...};
 }
