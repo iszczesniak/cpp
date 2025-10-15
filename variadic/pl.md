@@ -136,9 +136,9 @@ od prawej do lewej jeżeli ma wiązanie prawe (ang. right-to-left
 associativity).
 
 Nie ma wyrażenia złożenia, które jest rozwijane w powyższy sposób,
-żeby pozwolić kompilatorowi na jego opracowanie zgodnie z wiązaniem
-operatora `op`.  Wprowadzono natomiast dwie wersje, które narzucają
-kolejność opracowywania:
+żeby pozwolić kompilatorowi na kolejność jego opracowania zgodnie z
+wiązaniem operatora `op`.  Wprowadzono natomiast dwie wersje, które
+narzucają kolejność opracowywania:
 
 * wersja lewa: `(... op E)` rozwijana do ((E<sub>1</sub> op
   E<sub>2</sub>) op ...)
