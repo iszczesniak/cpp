@@ -126,20 +126,19 @@ dla parametru p<sub>i</sub> zapisujemy jako E<sub>i</sub>.
 Wersje jednoargumentowe wyrażenia złożenia przetwarzają parametry
 mniej więcej w ten sposób:
 
-E<sub>1</sub> op E<sub>2</sub>) op ... op E<sub>(n-1)</sub> op
+E<sub>1</sub> op E<sub>2</sub> op ... op E<sub>(n-1)</sub> op
 E<sub>n</sub>
 
 Wynik powyższego wyrażenia zależy od wiązania operatora `op`.
-Wyrażenia binarne operatora `op` są opracowywane od lewej do prawej
-dla operatora `op` z wiązaniem lewym (ang. left-to-right
-associativity), a od prawej do lewej.
-
-a z wiązaniem prawym (ang. right-to-left
-associativity) 
+Wyrażenia binarnego operatora `op` są opracowywane od lewej do prawej,
+jeżeli operator ma wiązanie lewe (ang. left-to-right associativity), a
+od prawej do lewej jeżeli ma wiązanie prawe (ang. right-to-left
+associativity).
 
 Nie ma wyrażenia złożenia, które jest rozwijane w powyższy sposób,
 żeby pozwolić kompilatorowi na jego opracowanie zgodnie z wiązaniem
-operatora `op`.  Wprowadzono natomiast
+operatora `op`.  Wprowadzono natomiast dwie wersje, które narzucają
+kolejność opracowywania:
 
 * wersja lewa: `(... op E)` rozwijana do ((E<sub>1</sub> op
   E<sub>2</sub>) op ...)
