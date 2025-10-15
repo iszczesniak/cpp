@@ -123,22 +123,23 @@ dla parametru p<sub>i</sub> zapisujemy jako E<sub>i</sub>.
 
 ## Wersja jednoargumentowa
 
-Wersje jednoargumentowe wyrażenia złożenia przetwarzają parametry
-mniej więcej w ten sposób:
+Wersje jednoargumentowe wyrażenia złożenia są rozwijane mniej więcej w
+ten sposób:
 
 E<sub>1</sub> op E<sub>2</sub> op ... op E<sub>(n-1)</sub> op
 E<sub>n</sub>
 
 Wynik powyższego wyrażenia zależy od wiązania operatora `op`.
-Wyrażenia binarnego operatora `op` są opracowywane albo od lewej do
-prawej, jeżeli operator ma wiązanie lewe (ang. left-to-right
-associativity), albo od prawej do lewej jeżeli ma wiązanie prawe
-(ang. right-to-left associativity).
+Podwyrażenia binarnego operatora `op` (np., E<sub>1</sub> op
+E<sub>2</sub>) są opracowywane albo od lewej do prawej, jeżeli
+operator ma wiązanie lewe (ang. left-to-right associativity), albo od
+prawej do lewej, jeżeli ma wiązanie prawe (ang. right-to-left
+associativity).
 
 Nie ma wyrażenia złożenia, które jest rozwijane w powyższy sposób,
-żeby pozwolić kompilatorowi wybrać kolejność opracowania wyrażenia
+żeby pozwolić kompilatorowi wybrać kolejność opracowania podwyrażeń
 zgodnie z wiązaniem operatora `op`.  Wprowadzono natomiast dwie
-wersje, które narzucają kolejność opracowywania:
+wersje, które narzucają tę kolejność:
 
 * wersja lewa: `(... op E)` rozwijana do ((E<sub>1</sub> op
   E<sub>2</sub>) op ...)
@@ -146,11 +147,13 @@ wersje, które narzucają kolejność opracowywania:
 * wersja prawa: `(E op ...)` rozwijana do (... op (E<sub>(n-1)</sub>
   op E<sub>n</sub>))
 
-Wersja lewa przetwarza parametry paczki od lewej strony (do prawej,
-czyli od p<sub>1</sub> do p<sub>n</sub>), a prawa od prawej (do lewej,
-czyli od p<sub>n</sub> do p<sub>1</sub>).  Zatem wersja lewa
-przetwarza argumenty tak, jakby operator `op` miał wiązanie lewe, a
-prawa tak, jakby miał wiązanie prawe.
+Zatem wersja:
+
+* lewa przetwarza podwyrażenia od lewej (do prawej), jakby operator
+  `op` miał wiązanie lewe,
+
+* prawa przetwarza podwyrażenia od prawej (do lewej), jakby operator
+  `op` miał wiązanie prawe.
 
 Dla działania łącznego (np. dodawania) nie ma znaczenia, czy
 przetwarzamy od lewej czy od prawej strony, więc oba wyrażenia
