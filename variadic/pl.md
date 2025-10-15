@@ -129,11 +129,11 @@ Wersje jednoargumentowe wymagają jednego wyrażenia `E` i operatora
 E<sub>1</sub> op E<sub>2</sub> op ... op E<sub>(n-1)</sub> op
 E<sub>n</sub>
 
-Wynik powyższego wyrażenia zależy od wiązania operatora `op`, bo
-kierunek opracowania podwyrażeń operatora `op` (np., E<sub>1</sub> op
+Wynik powyższego wyrażenia zależy od wiązania operatora `op`.
+Kierunek opracowania podwyrażeń operatora `op` (np., E<sub>1</sub> op
 E<sub>2</sub>) zależy od jego wiązania: albo od lewej do prawej strony
-dla wiązania lewego (ang. left-to-right associativity), albo od prawej
-do lewej strony dla wiązania prawego (ang. right-to-left
+jeżeli ma wiązanie lewe (ang. left-to-right associativity), albo od
+prawej do lewej strony jeżeli ma wiązanie prawe (ang. right-to-left
 associativity).
 
 Dla działania łącznego (np. dodawania) nie ma znaczenia, czy
