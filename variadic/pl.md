@@ -130,15 +130,15 @@ E<sub>1</sub> op E<sub>2</sub> op ... op E<sub>(n-1)</sub> op
 E<sub>n</sub>
 
 Wynik powyższego wyrażenia zależy od wiązania operatora `op`.
-Wyrażenia binarnego operatora `op` są opracowywane od lewej do prawej,
-jeżeli operator ma wiązanie lewe (ang. left-to-right associativity), a
-od prawej do lewej jeżeli ma wiązanie prawe (ang. right-to-left
-associativity).
+Wyrażenia binarnego operatora `op` są opracowywane albo od lewej do
+prawej, jeżeli operator ma wiązanie lewe (ang. left-to-right
+associativity), albo od prawej do lewej jeżeli ma wiązanie prawe
+(ang. right-to-left associativity).
 
 Nie ma wyrażenia złożenia, które jest rozwijane w powyższy sposób,
-żeby pozwolić kompilatorowi na kolejność jego opracowania zgodnie z
-wiązaniem operatora `op`.  Wprowadzono natomiast dwie wersje, które
-narzucają kolejność opracowywania:
+żeby pozwolić kompilatorowi wybrać kolejność opracowania wyrażenia
+zgodnie z wiązaniem operatora `op`.  Wprowadzono natomiast dwie
+wersje, które narzucają kolejność opracowywania:
 
 * wersja lewa: `(... op E)` rozwijana do ((E<sub>1</sub> op
   E<sub>2</sub>) op ...)
