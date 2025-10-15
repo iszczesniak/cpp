@@ -131,9 +131,9 @@ E<sub>n</sub>
 
 Wynik powyższego wyrażenia zależy od wiązania operatora `op`.
 Podwyrażenia binarnego operatora `op` (np., E<sub>1</sub> op
-E<sub>2</sub>) są opracowywane albo od lewej do prawej, jeżeli
+E<sub>2</sub>) są opracowywane albo od lewej do prawej strony, jeżeli
 operator ma wiązanie lewe (ang. left-to-right associativity), albo od
-prawej do lewej, jeżeli ma wiązanie prawe (ang. right-to-left
+prawej do lewej strony, jeżeli ma wiązanie prawe (ang. right-to-left
 associativity).
 
 Nie ma wyrażenia złożenia, które jest rozwijane w powyższy sposób,
@@ -149,18 +149,18 @@ wersje, które narzucają tę kolejność:
 
 Zatem wersja:
 
-* lewa przetwarza podwyrażenia od lewej (do prawej), jakby operator
-  `op` miał wiązanie lewe,
+* lewa przetwarza podwyrażenia od lewej (do prawej) strony, jakby
+  operator `op` miał wiązanie lewe,
 
-* prawa przetwarza podwyrażenia od prawej (do lewej), jakby operator
-  `op` miał wiązanie prawe.
+* prawa przetwarza podwyrażenia od prawej (do lewej) strony, jakby
+  operator `op` miał wiązanie prawe.
 
 Dla działania łącznego (np. dodawania) nie ma znaczenia, czy
-przetwarzamy od lewej czy od prawej strony, więc oba wyrażenia
-złożenia (lewe i prawe) zwrócą ten sam wynik.  Jeżeli jednak działanie
-nie jest łączne, to trzeba wybrać właściwą wersję wyrażenia.  W
-przykładzie niżej odejmowanie nie jest łączne i ma wiązanie lewe, więc
-powinniśmy użyć lewego wyrażenia złożenia.
+przetwarzamy podwyrażenia od lewej czy od prawej strony, więc oba
+wyrażenia złożenia (lewe i prawe) zwrócą ten sam wynik.  Jeżeli jednak
+działanie nie jest łączne, to trzeba wybrać właściwą wersję wyrażenia
+złożenia.  W przykładzie niżej odejmowanie nie jest łączne i ma
+wiązanie lewe, więc powinniśmy użyć lewego wyrażenia złożenia.
 
 ```cpp
 {% include_relative unary_left.cc %}
