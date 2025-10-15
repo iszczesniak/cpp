@@ -114,32 +114,39 @@ Wyrażenie złożenia jest rozwijane, konkretyzowane dla danej paczki
 parametrów, co może zastąpić przetwarzanie rekurencyjne.  Wyrażenie
 złożenia poznajemy po trójkropku i nawiasach.  Są cztery wersje: dwie
 jednoargumentowe i dwie dwuargumentowe, które używają tego samego
-operatora `op`.
+binarnego (wymagającego dwóch operandów) operatora `op`.
 
 Częścią wyrażenia złożenia jest wyrażenie `E`, które używa paczki `p`.
 Wyrażenie złożenia jest rozwijane przez konkretyzowanie wyrażenia `E`
 dla kolejnych parametrów paczki `p`.  Wyrażenie `E` skonkretyzowane
 dla parametru p<sub>i</sub> zapisujemy jako E<sub>i</sub>.
 
-## Wersja jednoargumentowa
+## Wersje jednoargumentowe
 
-Wersje jednoargumentowe wyrażenia złożenia są rozwijane mniej więcej w
-ten sposób:
+Wersje jednoargumentowe wymagają jednego wyrażenia `E` i operatora
+`op`.  Są one rozwijane mniej więcej w ten sposób:
 
 E<sub>1</sub> op E<sub>2</sub> op ... op E<sub>(n-1)</sub> op
 E<sub>n</sub>
 
-Wynik powyższego wyrażenia zależy od wiązania operatora `op`.
-Podwyrażenia binarnego operatora `op` (np., E<sub>1</sub> op
-E<sub>2</sub>) są opracowywane albo od lewej do prawej strony, jeżeli
-operator ma wiązanie lewe (ang. left-to-right associativity), albo od
-prawej do lewej strony, jeżeli ma wiązanie prawe (ang. right-to-left
+Wynik powyższego wyrażenia zależy od wiązania operatora `op`, bo
+kierunek opracowania podwyrażeń operatora `op` (np., E<sub>1</sub> op
+E<sub>2</sub>) zależy od jego wiązania: albo od lewej do prawej strony
+dla wiązania lewego (ang. left-to-right associativity), albo od prawej
+do lewej strony dla wiązania prawego (ang. right-to-left
 associativity).
 
+Dla działania łącznego (np. dodawania) nie ma znaczenia, czy
+opracowujemy podwyrażenia od lewej czy od prawej strony: wynik będzie
+ten sam.  Jeżeli jednak działanie nie jest łączne, to kolejność ma
+znaczenie.  Proszę sprawdzić: 3 - 2 - 1 opracowujemy od lewej do
+prawej strony: (3 - 2) - 1 = 0, a nie od prawej do lewej: 3 - (2 - 1)
+= 2.  Wniosek: operator `-` musi mieć wiązanie lewe.
+
 Nie ma wyrażenia złożenia, które jest rozwijane w powyższy sposób,
-żeby pozwolić kompilatorowi wybrać kolejność opracowania podwyrażeń
-zgodnie z wiązaniem operatora `op`.  Wprowadzono natomiast dwie
-wersje, które narzucają tę kolejność:
+żeby kompilator opracował podwyrażenia w kierunku zgodnym z wiązaniem
+operatora `op`.  Wprowadzono natomiast dwie wersje, które narzucają
+ten kierunek:
 
 * wersja lewa: `(... op E)` rozwijana do ((E<sub>1</sub> op
   E<sub>2</sub>) op ...)
@@ -155,11 +162,10 @@ Zatem wersja:
 * prawa przetwarza podwyrażenia od prawej (do lewej) strony, jakby
   operator `op` miał wiązanie prawe.
 
-Dla działania łącznego (np. dodawania) nie ma znaczenia, czy
-przetwarzamy podwyrażenia od lewej czy od prawej strony, więc oba
-wyrażenia złożenia (lewe i prawe) zwrócą ten sam wynik.  Jeżeli jednak
-działanie nie jest łączne, to trzeba wybrać właściwą wersję wyrażenia
-złożenia.  W przykładzie niżej odejmowanie nie jest łączne i ma
+W przypadku działania łącznego oba wyrażenia złożenia (lewe i prawe)
+zwrócą ten sam wynik.  Jeżeli jednak działanie nie jest łączne, to
+trzeba wybrać właściwą wersję wyrażenia złożenia, w zależności od
+operatora `op`.  W przykładzie niżej odejmowanie nie jest łączne i ma
 wiązanie lewe, więc powinniśmy użyć lewego wyrażenia złożenia.
 
 ```cpp

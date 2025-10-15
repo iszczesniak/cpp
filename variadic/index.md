@@ -111,7 +111,8 @@ folds (like a tablecloth) the target expression (which we could write
 instantiated for a given parameter pack, and that can replace
 recursive processing.  We recognize the fold expression by the
 ellipsis and parentheses.  There are four versions: two unary, and two
-binary, that use the same operator `op`.
+binary, that use the same binary (that requires two operands) operator
+`op`.
 
 Part of a fold expression is expression `E` that uses pack `p`.  A
 fold expression is expanded by instantating expression `E` for the
@@ -120,6 +121,23 @@ p<sub>i</sub> is denoted by E<sub>i</sub>.  We denote expression `E`
 instantiated for parameter p<sub>i</sub> by E<sub>i</sub>.
 
 ## Unary versions
+
+The unary versions require expression `E` and operator `op`.  They are
+expanded something like this:
+
+E<sub>1</sub> op E<sub>2</sub> op ... op E<sub>(n-1)</sub> op
+E<sub>n</sub>
+
+The result of the above expression depends on the associativity of
+operator `op`, because the direction in which subexpressions of
+operator `op` (e.g., E<sub>1</sub> op E<sub>2</sub>) are evaluated
+depends on the associativity of operator `op`: either from left to
+right for the left-to-right associativity, or from right to left for
+the right-to-left associativity.
+
+There is no fold expression that would be expanded as show above, so
+that a compiler can evaluate the subexpression depending on the
+associativity of operator `op`.
 
 Unary versions expect only one (hence unary) expression `E`:
 
