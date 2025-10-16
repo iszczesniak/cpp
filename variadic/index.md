@@ -122,24 +122,30 @@ instantiated for parameter p<sub>i</sub> by E<sub>i</sub>.
 
 ## Unary versions
 
-The unary versions require expression `E` and operator `op`.  They are
-expanded something like this:
+The unary versions require one expression `E` and operator `op`.  They
+are expanded something like this:
 
 E<sub>1</sub> op E<sub>2</sub> op ... op E<sub>(n-1)</sub> op
 E<sub>n</sub>
 
 The result of the above expression depends on the associativity of
-operator `op`, because the direction in which subexpressions of
-operator `op` (e.g., E<sub>1</sub> op E<sub>2</sub>) are evaluated
-depends on the associativity of operator `op`: either from left to
-right for the left-to-right associativity, or from right to left for
-the right-to-left associativity.
+operator `op`, because the direction in which subexpressions with
+operator `op` (e.g., E<sub>1</sub> op E<sub>2</sub>) are evaluated is
+given by the associativity of operator `op`: either from left to right
+for the left-to-right associativity, or from right to left for the
+right-to-left associativity.
+
+For an associative operation (e.g, addition), the direction doesn't
+matter as the result is the same.  If the operation is not
+associative, the direction matters.  Check this out: 3 - 2 - 1 is
+evaluated from left to right: (3 - 2) - 1 = 0, and not from right to
+left: 3 - (2 - 1) = 2.  Conclusion: operator `-` must have the
+left-to-right associativity (even though it's not associative).
 
 There is no fold expression that would be expanded as show above, so
-that a compiler can evaluate the subexpression depending on the
-associativity of operator `op`.
-
-Unary versions expect only one (hence unary) expression `E`:
+that a compiler evaluates the subexpressions in the direction given by
+the associativity of operator `op`.  There are, however, two versions
+(of a unary fold expression) that impose the direction:
 
 * the left version: `(... op E)` expended to ((E<sub>1</sub> op
   E<sub>2</sub>) op ...)
@@ -147,27 +153,26 @@ Unary versions expect only one (hence unary) expression `E`:
 * the right version: `(E op ...)` expended to (... op
   (E<sub>(n-1)</sub> op E<sub>n</sub>))
 
-The left version processes pack parameters from left (to right, i.e.,
-from p<sub>1</sub> to p<sub>n</sub>), and the right from right (to
-left, i.e., from p<sub>n</sub> to p<sub>1</sub>).
+Therefore:
 
-The left version 
+* the left version evaluates the subexpressions from left to right, as
+  though the operator `op` had the left-to-right associativity,
 
-Zatem wersja lewa przetwarza argumenty tak, jakby operator `op` miał
-wiązanie lewe, a prawa tak, jakby miał wiązanie prawe.
+* the right version evaluates the subexpressions from right to left,
+  as though the operator `op` has the right-to-left associativity.
 
-Dla działania łącznego (np. dodawania) nie ma znaczenia, czy
-przetwarzamy od lewej czy od prawej strony, więc oba wyrażenia
-złożenia (lewe i prawe) zwrócą ten sam wynik.  Jeżeli jednak działanie
-nie jest łączne, to trzeba wybrać właściwą wersję wyrażenia.  W
-przykładzie niżej odejmowanie nie jest łączne i ma wiązanie lewe, więc
-powinniśmy użyć lewego wyrażenia złożenia.
+For an associative operation, both versions yield the same result.
+However, if an operation is not associative, then we have to choose
+the proper version, depending on the associativity of operator `op`.
+In the following example, subtraction is not associative and has the
+left-to-right associativity, so we have to use the left version of the
+unary fold expression.
 
 ```cpp
 {% include_relative unary_left.cc %}
 ```
 
-Przykład poniżej pokazuje konieczność użycia prawego wyrażenia:
+In the example below we have to use the right version:
 
 ```cpp
 {% include_relative unary_right.cc %}

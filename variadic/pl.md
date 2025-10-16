@@ -129,24 +129,23 @@ Wersje jednoargumentowe wymagają jednego wyrażenia `E` i operatora
 E<sub>1</sub> op E<sub>2</sub> op ... op E<sub>(n-1)</sub> op
 E<sub>n</sub>
 
-Wynik powyższego wyrażenia zależy od wiązania operatora `op`.
-Kierunek opracowania podwyrażeń operatora `op` (np., E<sub>1</sub> op
-E<sub>2</sub>) zależy od jego wiązania: albo od lewej do prawej strony
-jeżeli ma wiązanie lewe (ang. left-to-right associativity), albo od
-prawej do lewej strony jeżeli ma wiązanie prawe (ang. right-to-left
-associativity).
+Wynik powyższego wyrażenia zależy od wiązania operatora `op`, bo
+kierunek opracowania podwyrażeń z operatorem `op` (np., E<sub>1</sub>
+op E<sub>2</sub>) zależy od wiązania operatora `op`: albo od lewej do
+prawej strony jeżeli ma wiązanie lewe (ang. left-to-right
+associativity), albo od prawej do lewej strony jeżeli ma wiązanie
+prawe (ang. right-to-left associativity).
 
-Dla działania łącznego (np. dodawania) nie ma znaczenia, czy
-opracowujemy podwyrażenia od lewej czy od prawej strony: wynik będzie
-ten sam.  Jeżeli jednak działanie nie jest łączne, to kolejność ma
-znaczenie.  Proszę sprawdzić: 3 - 2 - 1 opracowujemy od lewej do
-prawej strony: (3 - 2) - 1 = 0, a nie od prawej do lewej: 3 - (2 - 1)
-= 2.  Wniosek: operator `-` musi mieć wiązanie lewe.
+Dla działania łącznego (np. dodawania) kierunek nie ma znaczenia, bo
+wynik będzie ten sam.  Jeżeli jednak działanie nie jest łączne, to
+kolejność ma znaczenie.  Proszę sprawdzić: 3 - 2 - 1 opracowujemy od
+lewej do prawej strony: (3 - 2) - 1 = 0, a nie od prawej do lewej: 3 -
+(2 - 1) = 2.  Wniosek: operator `-` musi mieć wiązanie lewe.
 
 Nie ma wyrażenia złożenia, które jest rozwijane w powyższy sposób,
 żeby kompilator opracował podwyrażenia w kierunku zgodnym z wiązaniem
-operatora `op`.  Wprowadzono natomiast dwie wersje, które narzucają
-ten kierunek:
+operatora `op`.  Wprowadzono natomiast dwie wersje (jednoargumentowego
+wyrażenia złożenia), które narzucają ten kierunek:
 
 * wersja lewa: `(... op E)` rozwijana do ((E<sub>1</sub> op
   E<sub>2</sub>) op ...)
@@ -154,19 +153,19 @@ ten kierunek:
 * wersja prawa: `(E op ...)` rozwijana do (... op (E<sub>(n-1)</sub>
   op E<sub>n</sub>))
 
-Zatem wersja:
+Zatem:
 
-* lewa przetwarza podwyrażenia od lewej (do prawej) strony, jakby
-  operator `op` miał wiązanie lewe,
+* wersja lewa opracowuje podwyrażenia od lewej (do prawej) strony,
+  jakby operator `op` miał wiązanie lewe,
 
-* prawa przetwarza podwyrażenia od prawej (do lewej) strony, jakby
-  operator `op` miał wiązanie prawe.
+* wersja prawa opracowuje podwyrażenia od prawej (do lewej) strony,
+  jakby operator `op` miał wiązanie prawe.
 
-W przypadku działania łącznego oba wyrażenia złożenia (lewe i prawe)
-zwrócą ten sam wynik.  Jeżeli jednak działanie nie jest łączne, to
-trzeba wybrać właściwą wersję wyrażenia złożenia, w zależności od
-operatora `op`.  W przykładzie niżej odejmowanie nie jest łączne i ma
-wiązanie lewe, więc powinniśmy użyć lewego wyrażenia złożenia.
+W przypadku działania łącznego obie wersje zwrócą ten sam wynik.
+Jeżeli jednak działanie nie jest łączne, to musimy wybrać właściwą
+wersję, w zależności od wiązania operatora `op`.  W przykładzie niżej
+odejmowanie nie jest łączne i ma wiązanie lewe, więc powinniśmy użyć
+lewej wersji jednoargumentowego wyrażenia złożenia.
 
 ```cpp
 {% include_relative unary_left.cc %}
