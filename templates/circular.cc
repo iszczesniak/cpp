@@ -48,8 +48,9 @@ main()
   // vector<A<vector<A<vector<A<vector... a1;
   // vector<A<vector>> a2;
 
-  // Is the initialization ill-formed or undefined-behaved?  Note that
-  // we use uninitialized container "b" to initialize element B(b).
+  // Is the initialization ill-formed or undefined-behaved?  To
+  // initialize element B(b), we use object b that hasn't been
+  // constructed yet, and that will be constructed after B(b).
   vector<B<vector>> b = {B(b)};
   b.push_back(B(b));
   // Looks like a snake eating its own tail.
