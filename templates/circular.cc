@@ -1,3 +1,4 @@
+#include <array>
 #include <vector>
 
 using namespace std;
@@ -25,9 +26,9 @@ struct A
 
 // We can break the circular dependency with the template-kind
 // parameter of a template and injected class names.  This is not a
-// perfect solution, because we require the owning type T to be
-// templated with a single argument, so other types will not be
-// accepted.
+// perfect solution, because we require the container type T to be
+// templated with parameters of the type kind only, so other types
+// will not be accepted, i.e., std::array.
 template <template <typename...> typename T>
 struct B
 {
@@ -53,6 +54,11 @@ main()
   // constructed yet, and that will be constructed after B(b).
   vector<B<vector>> b = {B(b)};
   b.push_back(B(b));
-  // Looks like a snake eating its own tail.
+  // Looks like a snake eating its own tail, but we're not putting b
+  // at its back, we're putting B(b).
   b.emplace_back(b);
+
+  // Error: array is a template of interface <typename, std::size_t>,
+  // while we require <typename...>.
+  array<B<array>> a = {B(a)};
 }
