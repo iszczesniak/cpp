@@ -191,8 +191,8 @@ paczce parametrów.  Są dwie wersje:
 
 Strumienie wejścia-wyjścia są często wyrażeniem inicjalizującym
 dwuargumentowego wyrażenia złożenia z operatorem strumieniowym
-(wstawiania `<<`, wyciągania `>>`), dla których musimy użyć wyrażenia
-lewego, bo:
+(wyciągania `>>` albo wstawiania `<<`), dla których musimy użyć
+wyrażenia lewego, bo:
 
 * lewym operandem operatora strumieniowego (`>>` albo `<<`) jest
   strumień wejściowy albo wyjściowy,

@@ -181,8 +181,8 @@ In the example below we have to use the right version:
 ## Binary version
 
 The binary versions require an initializing expression `A` that is the
-second argument.  A compiler differentiates the two arguments by the
-parameter pack.  There are two versions:
+second argument.  A compiler differentiates arguments `A` and `E` by
+the parameter pack.  There are two versions:
 
 * the left version: `(A op ... op E)` expanded to ((A op
   E<sub>1</sub>) op ...)
