@@ -179,9 +179,9 @@ Przykład poniżej pokazuje konieczność użycia prawego wyrażenia:
 
 ## Wersja dwuargumentowa
 
-Wersje dwuargumentowe wymagają drugiego argumentu, którym jest
-wyrażenie inicjalizujące `A`.  Kompilator rozróżnia wyrażenia `A` i
-`E` po paczce parametrów.  Są dwie wersje:
+Wersje dwuargumentowe wymagają wyrażenia inicjalizującego `A`, które
+jest drugim argumentem.  Kompilator rozróżnia wyrażenia `A` i `E` po
+paczce parametrów.  Są dwie wersje:
 
 * wersja lewa: `(A op ... op E)` rozwijana do ((A op E<sub>1</sub>) op
   ...)
@@ -190,17 +190,18 @@ wyrażenie inicjalizujące `A`.  Kompilator rozróżnia wyrażenia `A` i
   op A))
 
 Strumienie wejścia-wyjścia są często wyrażeniem inicjalizującym
-dwuargumentowego wyrażenia złożenia z operatorem przekierowania, dla
-których musimy użyć wyrażenia lewego, bo:
+dwuargumentowego wyrażenia złożenia z operatorem strumieniowym
+(wstawiania `<<`, wyciągania `>>`), dla których musimy użyć wyrażenia
+lewego, bo:
 
-* lewym argumentem operatora przekierowania (`>>` czy `<<`) jest
-  strumień (wejściowy albo wyjściowy),
+* lewym operandem operatora strumieniowego (`>>` albo `<<`) jest
+  strumień wejściowy albo wyjściowy,
 
-* operator przekierowania zwraca strumień, który otrzymał jako lewy
-  argument,
+* operator strumieniowy zwraca strumień, który otrzymał jako lewy
+  operand,
 
-* strumień zwracany przez wyrażenie przekierowania staje się lewym
-  argumentem kolejnego wyrażenia przekierowania.
+* strumień zwracany przez operator strumieniowy staje się lewym
+  operandem kolejnego operatora strumieniowego.
 
 Oto przykład:
 
@@ -208,7 +209,7 @@ Oto przykład:
 {% include_relative binary_left.cc %}
 ```
 
-Oto przykład z prawym wyrażeniem:
+Oto przykład z wersją prawą:
 
 ```cpp
 {% include_relative binary_right.cc %}

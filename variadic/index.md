@@ -178,33 +178,38 @@ In the example below we have to use the right version:
 {% include_relative unary_right.cc %}
 ```
 
-## Wersja dwuargumentowa
+## Binary version
 
-Wersje dwuargumentowe wymagają drugiego argumentu, którym jest
-wyrażenie inicjalizujące `A`.
+The binary versions require an initializing expression `A` that is the
+second argument.  A compiler differentiates the two arguments by the
+parameter pack.  There are two versions:
 
-* wersja lewa `(A op ... op E)` -> ((A op E<sub>1</sub>) op ...)
+* the left version: `(A op ... op E)` expanded to ((A op
+  E<sub>1</sub>) op ...)
 
-* wersja prawa `(E op ... op A)` -> (... op (E<sub>n</sub> op A))
+* the right version: `(E op ... op A)` expanded to (... op
+  (E<sub>n</sub> op A))
 
-Strumienie wejścia-wyjścia są często wyrażeniem inicjalizującym
-dwuargumentowego wyrażenia złożenia, jak w przykładzie niżej.
-Wyrażenie musi być lewe, bo:
+Input-output streams are commonly the initializing expression of a
+binary fold expression with the stream insertion (`<<`) or extraction
+(`>>`) operators, for which we have to use the left version because:
 
-* pierwszym argumentem operatora przekierowania (`>>` czy `<<`) jest
-  strumień (wejściowy czy wyjściowy),
+* the left operand of a stream operator (`>>` or `<<`) is an input or
+  output stream,
 
-* operator przekierowania zwraca strumień, który otrzymał jako pierwszy
-  argument,
+* a stream operator returns the stream that it accepted as its left
+  operand,
 
-* strumień zwracany przez wyrażenie przekierowania staje się pierwszym
-  argumentem kolejnego wyrażenia przekierowania.
+* a stream returned by a stream operator becomes the left operand of
+  another stream operator.
+
+Here's an example:
 
 ```cpp
 {% include_relative binary_left.cc %}
 ```
 
-Oto przykład z prawym wyrażeniem:
+Here's an example with the right version:
 
 ```cpp
 {% include_relative binary_right.cc %}
