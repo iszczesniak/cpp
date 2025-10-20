@@ -180,24 +180,29 @@ Przykład poniżej pokazuje konieczność użycia prawego wyrażenia:
 ## Wersja dwuargumentowa
 
 Wersje dwuargumentowe wymagają drugiego argumentu, którym jest
-wyrażenie inicjalizujące `A`.
+wyrażenie inicjalizujące `A`.  Kompilator rozróżnia wyrażenia `A` i
+`E` po paczce parametrów.  Są dwie wersje:
 
-* wersja lewa `(A op ... op E)` -> ((A op E<sub>1</sub>) op ...)
-
-* wersja prawa `(E op ... op A)` -> (... op (E<sub>n</sub> op A))
+* wersja lewa: `(A op ... op E)` rozwijana do ((A op E<sub>1</sub>) op
+  ...)
+ 
+* wersja prawa: `(E op ... op A)` rozwijana do (... op (E<sub>n</sub>
+  op A))
 
 Strumienie wejścia-wyjścia są często wyrażeniem inicjalizującym
-dwuargumentowego wyrażenia złożenia, jak w przykładzie niżej.
-Wyrażenie musi być lewe, bo:
+dwuargumentowego wyrażenia złożenia z operatorem przekierowania, dla
+których musimy użyć wyrażenia lewego, bo:
 
-* pierwszym argumentem operatora przekierowania (`>>` czy `<<`) jest
-  strumień (wejściowy czy wyjściowy),
+* lewym argumentem operatora przekierowania (`>>` czy `<<`) jest
+  strumień (wejściowy albo wyjściowy),
 
-* operator przekierowania zwraca strumień, który otrzymał jako pierwszy
+* operator przekierowania zwraca strumień, który otrzymał jako lewy
   argument,
 
-* strumień zwracany przez wyrażenie przekierowania staje się pierwszym
+* strumień zwracany przez wyrażenie przekierowania staje się lewym
   argumentem kolejnego wyrażenia przekierowania.
+
+Oto przykład:
 
 ```cpp
 {% include_relative binary_left.cc %}
@@ -211,9 +216,12 @@ Oto przykład z prawym wyrażeniem:
 
 ## Z dwuargumentowego do jednoargumentowego
 
-Jeżeli dodalibyśmy wyrażenie `A` na początek paczki, to moglibyśmy
-skorzystać z jednoargumentowego wyrażenia złożenia, ale byłoby to
-niewygodne i mniej ekspresywne, jak pokazano niżej:
+Zamiast użyć wyrażenia dwuargumentowego, to wyrażenie `A` możemy dodać
+na koniec albo początek paczki i użyć wyrażenia jednoargumentowego.
+Jeżeli dodamy na *początek* paczki, to musimy użyć wersji *lewej*, a
+jeżeli na *koniec* paczki, to wersji *prawej*.  Jednak jest to
+niewygodne i mniej ekspresywne.  Przykład niżej używa operatorów
+przekierowania, więc musimy użyć wersji lewej.
 
 ```cpp
 {% include_relative force_unary.cc %}
