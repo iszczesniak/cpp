@@ -244,15 +244,14 @@ of operator `<<` are evaluated.
 {% include_relative comma.cc %}
 ```
 
-Przykład niżej używa wersji lewej, gdzie `E` to `(std::cout << ", " <<
-p)` a operatorem jest przecinek.  Jeżeli paczka `p` jest pusta, to
-wyrażenie złożenia jest puste.  Jeżeli `p` ma jeden parametr, to
-kompilator dokooptowuje dodatkowy pusty parametr, jeżeli taki istnieje
-(dla operatora `,` jest nim `void()`), bo `op` wymaga dwóch
-argumentów.  Żeby na początku nie wypisać samego przecinka, to
-pierwszy parametr wypisujemy poza paczką (tak, jak w przetwarzaniu
-rekurencyjnym), a wypisanie każdego parametru z paczki jest
-poprzedzone wypisaniem przecinka.
+The example below uses the left version, where `(std::cout << ", " <<
+p)` is `E`, and comma is `op`.  If pack `p` is empty, then the fold
+expression is empty.  If `p` has one parameter only, then a compiler
+adds an extra empty parameter, if such a one exists (for the comma
+operator, it's `void()`), because `op` is binary.  To cater for the
+correct printing of a comma, we process the first parameter
+separately, outside the pack (as in the recursive processing), and the
+pack parameters we process with a fold expression.
 
 ```cpp
 {% include_relative complex.cc %}

@@ -242,15 +242,14 @@ nie nawiasy) ustalają porządek opracowania podwyrażeń z operatorem
 {% include_relative comma.cc %}
 ```
 
-Przykład niżej używa wersji lewej, gdzie `E` to `(std::cout << ", " <<
-p)` a operatorem jest przecinek.  Jeżeli paczka `p` jest pusta, to
-wyrażenie złożenia jest puste.  Jeżeli `p` ma jeden parametr, to
+Przykład niżej używa wersji lewej, gdzie `(std::cout << ", " << p)` to
+`E`, a przecinek to `op`.  Jeżeli paczka `p` jest pusta, to wyrażenie
+złożenia jest puste.  Jeżeli `p` ma tylko jeden parametr, to
 kompilator dokooptowuje dodatkowy pusty parametr, jeżeli taki istnieje
-(dla operatora `,` jest nim `void()`), bo `op` wymaga dwóch
-argumentów.  Żeby na początku nie wypisać samego przecinka, to
-pierwszy parametr wypisujemy poza paczką (tak, jak w przetwarzaniu
-rekurencyjnym), a wypisanie każdego parametru z paczki jest
-poprzedzone wypisaniem przecinka.
+(dla operatora przecinka jest nim `void()`), bo `op` jest binary.
+Żeby zadbać o prawidłowe wypisywanie przecinka, to pierwszy parametr
+przetwarzamy osobno, poza paczką (tak, jak w przetwarzaniu
+rekurencyjnym), a parametry z paczki przetwarzamy wyrażeniem złożenia.
 
 ```cpp
 {% include_relative complex.cc %}
