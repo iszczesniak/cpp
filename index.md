@@ -25,3 +25,4 @@ interesting and important for efficient code.
 
 * [Introduction](generic)
 * [Templates](templates)
+* [Variadic templates](variadic)
