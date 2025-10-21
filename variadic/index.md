@@ -257,26 +257,24 @@ pack parameters we process with a fold expression.
 {% include_relative complex.cc %}
 ```
 
-# Podsumowanie
+# Conclusion
 
-* Szablon wariadyczny przyjmuje dowolną liczbę argumentów.
+* A variadic template accepts any number of arguments.
 
-* Paczka parametrów jest używana w rozwinięciach albo w wyrażeniach
-  złożenia.
+* A parameter pack is used in pack expansions or fold expressions.
 
-* Wariadyczne mogą być listy:
+* Variadic can be lists of:
 
-  - dziedziczenia i inicjalizacji,
+  - inheritance and initialization,
 
-  - parametrów szablonu i argumentów szablonu,
+  - template parameters and template arguments,
 
-  - parametrów funkcji i argumentów funkcji.
+  - function parameters and function arguments.
 
 # Quiz
 
-* Czy paczka parametrów szablonu może przyjąć argumenty różnego
-  rodzaju?
+* Can a template parameter pack accept arguments of different kind?
 
-* Czy paczka parametrów może być pusta?
+* Can a parameter pack be empty?
 
-* Co to jest wyrażenie złożenia?
+* What is a fold expression?
