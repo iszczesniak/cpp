@@ -217,12 +217,11 @@ Oto przykład z wersją prawą:
 
 ## Z dwuargumentowego do jednoargumentowego
 
-Zamiast użyć wyrażenia dwuargumentowego, to wyrażenie `A` możemy dodać
-na koniec albo początek paczki i użyć wyrażenia jednoargumentowego.
-Jeżeli dodamy na *początek* paczki, to musimy użyć wersji *lewej*, a
-jeżeli na *koniec* paczki, to wersji *prawej*.  Jednak jest to
-niewygodne i mniej ekspresywne.  Przykład niżej używa operatorów
-przekierowania, więc musimy użyć wersji lewej.
+Wyrażenie dwuargumentowe jest wygodne i ekspresywne, ale moglibyśmy
+się bez niego objeść: wyrażenie `A` możemy dodać do paczki i użyć
+wyrażenia jednoargumentowego.  Dodajemy albo na początek paczki, żeby
+użyć wersji lewej, albo na koniec, żeby użyć wersji prawej.  Przykład
+niżej używa operatorów strumieniowych, więc musimy użyć wersji lewej.
 
 ```cpp
 {% include_relative force_unary.cc %}

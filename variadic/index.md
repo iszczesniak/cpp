@@ -217,9 +217,12 @@ Here's an example with the right version:
 
 ## Z dwuargumentowego do jednoargumentowego
 
-Jeżeli dodalibyśmy wyrażenie `A` na początek paczki, to moglibyśmy
-skorzystać z jednoargumentowego wyrażenia złożenia, ale byłoby to
-niewygodne i mniej ekspresywne, jak pokazano niżej:
+A binary fold expression is handy and expressive, but we could do
+without it: we can add expression `A` to the parameter pack and use
+the unary fold expression.  We add either at the front of the pack to
+use the left version or at the back to use the right version.  The
+example below uses the stream operators, so we have to use the left
+version.
 
 ```cpp
 {% include_relative force_unary.cc %}
