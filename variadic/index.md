@@ -215,7 +215,7 @@ Here's an example with the right version:
 {% include_relative binary_right.cc %}
 ```
 
-## Z dwuargumentowego do jednoargumentowego
+## From binary to unary
 
 A binary fold expression is handy and expressive, but we could do
 without it: we can add expression `A` to the parameter pack and use
