@@ -16,48 +16,42 @@ title: Advanced object programming
 
 # Rules
 
-Zaliczenie z laboratorium można uzyskać w dwóch terminach:
+You can get a grade from the laboratory class within two deadlines:
 
-* Termin I: do końca zajęć laboratoryjnych na podstawie czterech
-  kolokwiów przeprowadzanych w czasie wykładu:
+* Deadline I: by the end of laboratory classes based on four tests
+  during lectures:
 
-  - 7 listopada, 2025 (cpp/memory, cpp/categories, cpp/references),
+  - November 7, 2025 (cpp/memory, cpp/categories, cpp/references),
 
-  - 19 grudnia, 2025 (cpp/move, cpp/callable1, cpp/containers),
+  - December 19, 2025 (cpp/move, cpp/callable1, cpp/containers),
 
-  - 23 stycznia, 2026 (cpp/unique_ptr, cpp/shared_ptr, cpp/weak_ptr),
+  - January 23, 2026 (cpp/unique_ptr, cpp/shared_ptr, cpp/weak_ptr),
 
-  - 30 stycznia, 2026 (całość materiału).
+  - January 30, 2026 (the whole material).
 
-  Oceną z pierwszego terminu jest średnia arytmetyczna trzech
-  najwyższych, **pozytywnych** ocen wybranych spośród czterech ocen z
-  kolokwiów.  Jeżeli nie udało się nam zdobyć co najmniej trzech
-  pozytywnych ocen z kolokwiów, to otrzymujemy ocenę niedostateczną w
-  pierwszym terminie.
+  The grade withing the first deadline is an average of three highest,
+  **passing** grades chosen from among the four test grades.  If you
+  don't manage to get three positive test grades, then you fail (get
+  the 2.0 grade) within the first deadline.
 
-  Nieobecność na kolokwium skutkuje oceną niedostateczną z tego
-  kolokwium.  Nie ma możliwości ponownego przystąpienia do kolokwium.
-  Szansą na poprawę (zdobycie dodatkowej oceny) jest ostatnie
-  kolokwium.
+  If you miss a test, you get a failing grade from that test.  A test
+  cannot be retaken.  The last test is chance to get an extra grade.
 
-* Termin II: na podstawie kolokwium podczas terminu dla pierwszego
-  egzaminu.
+* Deadline II: based on a test during the time for the first exam.
 
-Do egzaminu można przystąpić w dwóch terminach w czasie sesji
-egzaminacyjnej, bądź poprawkowej sesji egzaminacyjnej.  Warunkiem
-przystąpienia do egzaminu jest zaliczenie z laboratorium.  Egzamin
-jest pisemny, opisowy.
+You can take an exam twice during the exam session, provided you have
+a positive grade from the laboratory class.  The exam is written, like
+an essay.
 
-Terminy egzaminów:
+Exam deadlines:
 
-* Termin I: ustala dziekanat,
+* Deadline I: to be established,
 
-* Termin II: ustala dziekanat.
+* Deadline II: to be established.
 
-Ocenę końcową można zdobyć w dwóch terminach, którymi są terminy
-egzaminów.  Ocena końcowa jest średnią arytmetyczną **pozytywnych**
-ocen z laboratorium i egzaminu.  Pozytywnych ocen, czyli jeżeli nie
-zdobyliśmy zaliczenia lub nie zdaliśmy egzaminu, to ocena
-niedostateczna jest oceną końcową w danym terminie.
+You can get the final grade within two deadlines.  The final grade is
+an average of the **positive** grades from the laboratory and the
+exam.  If we haven't got a lab class grade or we haven't passed an
+exam, the final grade is the failing grade.
 
 {% include rid %}

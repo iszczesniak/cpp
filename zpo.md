@@ -40,8 +40,8 @@ Zaliczenie z laboratorium można uzyskać w dwóch terminach:
   Szansą na poprawę (zdobycie dodatkowej oceny) jest ostatnie
   kolokwium.
 
-* Termin II: na podstawie kolokwium podczas terminu dla pierwszego
-  egzaminu.
+* Termin II: na podstawie kolokwium podczas egzaminu w pierwszym
+  terminie.
 
 Do egzaminu można przystąpić w dwóch terminach w czasie sesji
 egzaminacyjnej, bądź poprawkowej sesji egzaminacyjnej.  Warunkiem
@@ -54,8 +54,7 @@ Terminy egzaminów:
 
 * Termin II: ustala dziekanat.
 
-Ocenę końcową można zdobyć w dwóch terminach, którymi są terminy
-egzaminów.  Ocena końcowa jest średnią arytmetyczną **pozytywnych**
-ocen z laboratorium i egzaminu.  Pozytywnych ocen, czyli jeżeli nie
-zdobyliśmy zaliczenia lub nie zdaliśmy egzaminu, to ocena
-niedostateczna jest oceną końcową w danym terminie.
+Ocenę końcową można zdobyć w dwóch terminach.  Ocena końcowa jest
+średnią arytmetyczną **pozytywnych** ocen z laboratorium i egzaminu.
+Jeżeli nie zdobyliśmy zaliczenia lub nie zdaliśmy egzaminu, to oceną
+końcową jest ocena niedostateczna.
