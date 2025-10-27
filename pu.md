@@ -1,8 +1,8 @@
 ---
-title: Materiały z C++
+title: Programowanie uogólnione
 ---
 
-## Programowanie uogólnione
+# Programowanie uogólnione
 
 * [Programowanie uogólnione](generic/pl)
 * [Szablony](templates/pl)
