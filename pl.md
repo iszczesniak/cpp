@@ -15,5 +15,5 @@ ważne dla wydajnego kodu.
 
 ## Materiały
 
-[Zaawansowane programowanie obiektowe](zpo)
-[Programowanie uogólnione](pu)
+* [Zaawansowane programowanie obiektowe](zpo)
+* [Programowanie uogólnione](pu)
