@@ -18,8 +18,8 @@ title: Zaawansowane programowanie obiektowe
 
 Zaliczenie z laboratorium można uzyskać w dwóch terminach:
 
-* Termin I: do końca zajęć laboratoryjnych na podstawie kolokwiów
-  przeprowadzanych w czasie wykładu.  Są cztery kolokwia:
+* Termin I: do końca zajęć laboratoryjnych na podstawie czterech
+  kolokwiów przeprowadzanych w czasie wykładu:
 
   - 7 listopada, 2025 (cpp/memory, cpp/categories, cpp/references),
 
@@ -40,8 +40,8 @@ Zaliczenie z laboratorium można uzyskać w dwóch terminach:
   Szansą na poprawę (zdobycie dodatkowej oceny) jest ostatnie
   kolokwium.
 
-* Termin II: podczas terminu dla pierwszego egzaminu na podstawie
-  kolokwium.
+* Termin II: na podstawie kolokwium podczas terminu dla pierwszego
+  egzaminu.
 
 Do egzaminu można przystąpić w dwóch terminach w czasie sesji
 egzaminacyjnej, bądź poprawkowej sesji egzaminacyjnej.  Warunkiem
@@ -51,5 +51,5 @@ jest pisemny, opisowy.
 Ocenę końcową można zdobyć w dwóch terminach, którymi są terminy
 egzaminów.  Ocena końcowa jest średnią arytmetyczną **pozytywnych**
 ocen z laboratorium i egzaminu.  Pozytywnych ocen, czyli jeżeli nie
-zdobyliśmy zaliczenia lub nie zdali sprawdzianu, to oceną końcową w
-danym terminie jest ocena niedostateczna.
+zdobyliśmy zaliczenia lub nie zdaliśmy egzaminu, to ocena
+niedostateczna jest oceną końcową w danym terminie.
