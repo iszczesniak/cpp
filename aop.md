@@ -59,3 +59,5 @@ egzaminów.  Ocena końcowa jest średnią arytmetyczną **pozytywnych**
 ocen z laboratorium i egzaminu.  Pozytywnych ocen, czyli jeżeli nie
 zdobyliśmy zaliczenia lub nie zdaliśmy egzaminu, to ocena
 niedostateczna jest oceną końcową w danym terminie.
+
+{% include rid %}
