@@ -47,6 +47,8 @@ Można przystąpić do egzaminu w dwóch terminach w czasie sesji
 egzaminacyjnej, bądź poprawkowej sesji egzaminacyjnej.  Warunkiem
 przystąpienia do egzaminu jest zaliczenie z laboratorium.
 
-Ocenę końcową można zdobyć w dwóch terminach, które pokrywają się z
-terminami egzaminów.  Ocena końcowa jest średnią arytmetyczną oceny z
-laboratorium i z egzaminu.
+Ocenę końcową można zdobyć w dwóch terminach, którymi są terminy
+egzaminów.  Ocena końcowa jest średnią arytmetyczną **pozytywnych**
+ocen z laboratorium i egzaminu.  Pozytywnych ocen, czyli jeżeli nie
+zdobyliśmy zaliczenia lub nie zdali sprawdzianu, to oceną końcową w
+danym terminie jest ocena niedostateczna.
