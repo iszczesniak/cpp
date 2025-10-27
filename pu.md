@@ -32,11 +32,11 @@ Zaliczenie z laboratorium można uzyskać w dwóch terminach:
 * Termin I: do końca zajęć laboratoryjnych na podstawie czterech
   kolokwiów przeprowadzanych w czasie wykładu:
 
-  - 7 listopada, 2025 (cpp/memory, cpp/categories, cpp/references),
+  - 7 listopada, 2025 (generic, template, variadic),
 
-  - 19 grudnia, 2025 (cpp/move, cpp/callable1, cpp/containers),
+  - 19 grudnia, 2025 (deduction, specialization, auto),
 
-  - 23 stycznia, 2026 (cpp/unique_ptr, cpp/shared_ptr, cpp/weak_ptr),
+  - 23 stycznia, 2026 (forwarding, callable2, constraints, concepts),
 
   - 30 stycznia, 2026 (całość materiału).
 

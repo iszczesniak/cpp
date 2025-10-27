@@ -31,11 +31,11 @@ You can get a grade from the laboratory class within two deadlines:
 * Deadline I: by the end of laboratory classes based on four tests
   during lectures:
 
-  - November 7, 2025 (cpp/memory, cpp/categories, cpp/references),
+  - November 7, 2025 ((memory), categories, references),
 
-  - December 19, 2025 (cpp/move, cpp/callable1, cpp/containers),
+  - December 19, 2025 (move, callable1, containers),
 
-  - January 23, 2026 (cpp/unique_ptr, cpp/shared_ptr, cpp/weak_ptr),
+  - January 23, 2026 (unique_ptr, shared_ptr, weak_ptr),
 
   - January 30, 2026 (the whole material).
 
