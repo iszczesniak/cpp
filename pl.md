@@ -13,27 +13,7 @@ ważne dla wydajnego kodu.
 >
 > Juliusz Słowacki
 
-## Zaawansowane programowanie obiektowe
+## Materiały
 
-* [Organizacja pamięci](memory/pl)
-* [Kategorie wyrażeń](categories/pl)
-* [Referencje](references/pl)
-* [Semantyka przeniesienia](move/pl)
-* [Wyrażenia wywołania](callable1/pl)
-* [Kontenery](containers/pl)
-* [`std::unique_ptr`](unique_ptr/pl)
-* [`std::shared_ptr`](shared_ptr/pl)
-* [`std::weak_ptr`](weak_ptr/pl)
-
-## Programowanie uogólnione
-
-* [Programowanie uogólnione](generic/pl)
-* [Szablony](templates/pl)
-* [Szablony wariadyczne](variadic/pl)
-* [Wnioskowanie](deduction/pl)
-* [Specjalizacja](specialization/pl)
-* [Specyfikator `auto`](auto/pl)
-* [Doskonałe przekazywanie argumentów](forwarding/pl)
-* [Uogólnione wyrażenia wywołania](callable2/pl)
-* [Ograniczenia](constraints/pl)
-* [Koncepty](concepts/pl)
+[Zaawansowane programowanie obiektowe](zpo)
+[Programowanie uogólnione](pu)
