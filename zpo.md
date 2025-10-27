@@ -16,6 +16,16 @@ title: Zaawansowane programowanie obiektowe
 
 # Zasady
 
+Otrzymujemy trzy oceny:
+
+* ocenę z laboratorium,
+
+* ocenę z egzaminu,
+
+* ocenę końcową.
+
+## Ocena z laboratorium
+
 Zaliczenie z laboratorium można uzyskać w dwóch terminach:
 
 * Termin I: do końca zajęć laboratoryjnych na podstawie czterech
@@ -43,6 +53,8 @@ Zaliczenie z laboratorium można uzyskać w dwóch terminach:
 * Termin II: na podstawie kolokwium podczas egzaminu w pierwszym
   terminie.
 
+## Ocena z egzaminu
+
 Do egzaminu można przystąpić w dwóch terminach w czasie sesji
 egzaminacyjnej, bądź poprawkowej sesji egzaminacyjnej.  Warunkiem
 przystąpienia do egzaminu jest zaliczenie z laboratorium.  Egzamin
@@ -53,6 +65,8 @@ Terminy egzaminów:
 * Termin I: ustala dziekanat,
 
 * Termin II: ustala dziekanat.
+
+## Ocena końcowa
 
 Ocenę końcową można zdobyć w dwóch terminach.  Ocena końcowa jest
 średnią arytmetyczną **pozytywnych** ocen z laboratorium i egzaminu.

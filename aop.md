@@ -16,6 +16,16 @@ title: Advanced object programming
 
 # Rules
 
+You get three grades:
+
+* a grade from the laboratory class,
+
+* a grade from the exam,
+
+* a final grade.
+
+## Laboratory grade
+
 You can get a grade from the laboratory class within two deadlines:
 
 * Deadline I: by the end of laboratory classes based on four tests
@@ -30,17 +40,19 @@ You can get a grade from the laboratory class within two deadlines:
   - January 30, 2026 (the whole material).
 
   The grade withing the first deadline is an average of three highest,
-  **passing** grades chosen from among the four test grades.  If you
-  don't manage to get three positive test grades, then you fail (get
-  the 2.0 grade) within the first deadline.
+  **passing** test grades chosen from among the four test grades.  If
+  you don't manage to get three **passing** test grades, then you a
+  failing grade (2.0) within the first deadline.
 
   If you miss a test, you get a failing grade from that test.  A test
-  cannot be retaken.  The last test is chance to get an extra grade.
+  cannot be retaken.  The last test is a chance to get an extra grade.
 
 * Deadline II: based on a test during the time for the first exam.
 
+## Exam grade
+
 You can take an exam twice during the exam session, provided you have
-a positive grade from the laboratory class.  The exam is written, like
+a passing grade from the laboratory class.  The exam is written, like
 an essay.
 
 Exam deadlines:
@@ -49,9 +61,11 @@ Exam deadlines:
 
 * Deadline II: to be established.
 
+## Final grade
+
 You can get the final grade within two deadlines.  The final grade is
-an average of the **positive** grades from the laboratory and the
-exam.  If we haven't got a lab class grade or we haven't passed an
+an average of the **positive** grades from the laboratory class and
+the exam.  If you haven't got a lab class grade or haven't passed an
 exam, the final grade is the failing grade.
 
 {% include rid %}
