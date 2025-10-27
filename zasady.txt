@@ -29,6 +29,12 @@ Można przystąpić do egzaminu w dwóch terminach w czasie sesji
 egzaminacyjnej, bądź poprawkowej sesji egzaminacyjnej.  Warunkiem
 przystąpienia do egzaminu jest zaliczenie z laboratorium.
 
+Terminy egzaminów:
+
+* Termin I: ustala dziekanat,
+
+* Termin II: ustala dziekanat.
+
 Ocenę końcową można zdobyć w dwóch terminach, które pokrywają się z
 terminami egzaminów.  Ocena końcowa jest średnią arytmetyczną oceny z
 laboratorium i z egzaminu.
