@@ -2,8 +2,6 @@
 title: Materiały z C++
 ---
 
-# Wprowadzenie
-
 Tu są moje materiały dotyczące C++, które uważam za interesujące i
 ważne dla wydajnego kodu.
 
@@ -13,7 +11,7 @@ ważne dla wydajnego kodu.
 >
 > Juliusz Słowacki
 
-## Materiały
+Materiały:
 
 * [Zaawansowane programowanie obiektowe](zpo)
 * [Programowanie uogólnione](pu)
