@@ -41,7 +41,7 @@ You can get a grade from the laboratory class within two deadlines:
 
   The grade withing the first deadline is an average of three highest,
   **passing** test grades chosen from among the four test grades.  If
-  you don't manage to get three passing test grades, then you a
+  you don't manage to get three passing test grades, then you get a
   failing grade (2.0) within the first deadline.
 
   If you miss a test, you get a failing grade from that test.  A test
