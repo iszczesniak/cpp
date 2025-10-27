@@ -46,7 +46,11 @@ Zaliczenie z laboratorium można uzyskać w dwóch terminach:
 Do egzaminu można przystąpić w dwóch terminach w czasie sesji
 egzaminacyjnej, bądź poprawkowej sesji egzaminacyjnej.  Warunkiem
 przystąpienia do egzaminu jest zaliczenie z laboratorium.  Egzamin
-jest pisemny, opisowy.
+jest pisemny, opisowy.  Terminy egzaminów:
+
+* Termin I: ustala dziekanat,
+
+* Termin II: ustala dziekanat.
 
 Ocenę końcową można zdobyć w dwóch terminach, którymi są terminy
 egzaminów.  Ocena końcowa jest średnią arytmetyczną **pozytywnych**
