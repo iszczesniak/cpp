@@ -31,7 +31,7 @@ You can get a grade from the laboratory class within two deadlines:
 * Deadline I: by the end of laboratory classes based on four tests
   during lectures:
 
-  - November 7, 2025 ((memory), categories, references),
+  - November 7, 2025 (memory, categories, references),
 
   - December 19, 2025 (move, callable1, containers),
 

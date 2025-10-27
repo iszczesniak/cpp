@@ -29,7 +29,7 @@ You can get a grade from the laboratory class within two deadlines:
 
   - December 19, 2025 (deduction, specialization, auto),
 
-  - January 23, 2026 (unique_ptr, shared_ptr, weak_ptr),
+  - January 23, 2026 (forwarding, callable2, constraints, concepts),
 
   - January 30, 2026 (the whole material).
 
