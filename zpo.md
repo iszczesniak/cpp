@@ -43,9 +43,10 @@ Zaliczenie z laboratorium można uzyskać w dwóch terminach:
 * Termin II: podczas terminu dla pierwszego egzaminu na podstawie
   kolokwium.
 
-Można przystąpić do egzaminu w dwóch terminach w czasie sesji
+Do egzaminu można przystąpić w dwóch terminach w czasie sesji
 egzaminacyjnej, bądź poprawkowej sesji egzaminacyjnej.  Warunkiem
-przystąpienia do egzaminu jest zaliczenie z laboratorium.
+przystąpienia do egzaminu jest zaliczenie z laboratorium.  Egzamin
+jest pisemny, opisowy.
 
 Ocenę końcową można zdobyć w dwóch terminach, którymi są terminy
 egzaminów.  Ocena końcowa jest średnią arytmetyczną **pozytywnych**
