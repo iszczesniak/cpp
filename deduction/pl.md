@@ -5,7 +5,7 @@ title: Wnioskowanie argumentów szablonu
 # Wprowadzenie
 
 Argumenty szablonu są wnioskowane dla naszej wygody, żeby nie trzeba
-było ich jawnie podawać i nie pomylić się przy okazji.  Kompilator
+było ich jawnie podawać (i nie pomylić się przy okazji).  Kompilator
 wnioskuje argumenty szablonu w następujących przypadkach:
 
 * wywołanie nieskładowej funkcji szablonowej (najczęstsze),

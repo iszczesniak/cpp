@@ -5,7 +5,7 @@ title: Template argument deduction
 # Introduction
 
 Template arguments are deduced for our convenience, so that we do not
-have to provide them explicitly and possibly make a mistake.  A
+have to provide them explicitly (and possibly make a mistake).  A
 compiler deduces template arguments in the following cases:
 
 * a call to a non-member template function (the most frequent),
