@@ -12,8 +12,8 @@ compiler deduces template arguments in the following cases:
 
 * a call to a member template function (including a constructor),
 
-* an initialization of a variable of type `auto` (including function
-  parameters and returned values).
+* an initialization of a variable of type `auto` (including a function
+  parameter and a return value).
 
 # Deduction basics
 

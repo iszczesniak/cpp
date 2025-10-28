@@ -12,8 +12,8 @@ wnioskuje argumenty szablonu w następujących przypadkach:
 
 * wywołanie składowej funkcji szablonowej (w tym konstruktora),
 
-* inicjalizacja zmiennej typu `auto` (w tym parametrów funkcji i
-  zwracanych wartości).
+* inicjalizacja zmiennej typu `auto` (w tym parametru funkcji i
+  zwracanej wartości).
 
 # Podstawy wnioskowania
 
