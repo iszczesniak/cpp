@@ -17,19 +17,20 @@ compiler deduces template arguments in the following cases:
 
 # Deduction basics
 
-Wnioskowanie omówimy na przykładzie nieskładowej funkcji szablonowej.
-Dla wywołania **funkcji szablonowej**, kompilator musi skonkretyzować
-**szablon funkcji**, czyli wygenerować kod funkcji szablonowej na
-podstawie szablonu funkcji i jego argumentów.
+We discuss the deduction using a non-member function template.  To
+call a **template function**, a compiler has to instantiate a
+**function template**, i.e., produce the code of a template function
+based on the function template and its arguments.
 
-Kompilator wnioskuje argumenty szablonu (funkcji) na podstawie:
+A compiler deduces template arguments (of a function) based on:
 
-* **typów** parametrów funkcji,
+* **types** of function parameters,
 
-* **typów i kategorii** argumentów wywołania funkcji.
+* **types** and **categories** of function arguments.
 
-Wpływ kategorii argumentu na wnioskowanie jest dosyć skomplikowany i
-opisany w oddzielnym temacie doskonałego przekazywania argumentów.
+How an argument category affects deduction is quite complex, and
+therefore is described in a separate topic on perfect argument
+forwarding.
 
 ## Najprostszy przypadek
 

@@ -17,8 +17,8 @@ wnioskuje argumenty szablonu w następujących przypadkach:
 
 # Podstawy wnioskowania
 
-Wnioskowanie omówimy na przykładzie nieskładowej funkcji szablonowej.
-Dla wywołania **funkcji szablonowej**, kompilator musi skonkretyzować
+Wnioskowanie omówimy na przykładzie szablonu funkcji nieskładowej.
+Żeby wywołać **funkcję szablonową**, kompilator musi skonkretyzować
 **szablon funkcji**, czyli wygenerować kod funkcji szablonowej na
 podstawie szablonu funkcji i jego argumentów.
 
@@ -26,10 +26,11 @@ Kompilator wnioskuje argumenty szablonu (funkcji) na podstawie:
 
 * **typów** parametrów funkcji,
 
-* **typów i kategorii** argumentów wywołania funkcji.
+* **typów i kategorii** argumentów funkcji.
 
 Wpływ kategorii argumentu na wnioskowanie jest dosyć skomplikowany i
-opisany w oddzielnym temacie doskonałego przekazywania argumentów.
+dlatego jest opisany w oddzielnym temacie doskonałego przekazywania
+argumentów.
 
 ## Najprostszy przypadek
 
