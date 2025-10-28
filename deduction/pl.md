@@ -51,10 +51,10 @@ main()
 }
 ```
 
-Kompilator ma wywnioskować argumenty dla parametrów (tych z `parameter
-list`) szablonu funkcji `foo` na podstawie wyrażenia `expr` i typu
-`ParameterType` parametru `t` funkcji `foo`.  Żeby można mówić o
-wnioskowaniu, typ `ParameterType` musi zależeć od (użyć w swojej
+Kompilator ma wywnioskować argumenty dla parametrów (zdefiniowanych w
+`parameter list`) szablonu funkcji `foo` na podstawie wyrażenia `expr`
+i typu `ParameterType` parametru `t` funkcji `foo`.  Żeby można mówić
+o wnioskowaniu, typ `ParameterType` musi zależeć od (użyć w swojej
 definicji) co najmniej jednego parametru szablonu.  Sposobów
 zdefiniowania typu `ParameterType` w zależności od parametrów szablonu
 jest wiele, a my omówimy najważniejsze.

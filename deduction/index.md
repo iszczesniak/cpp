@@ -32,9 +32,9 @@ How an argument category affects deduction is quite complex, and
 therefore is described in a separate topic on perfect argument
 forwarding.
 
-## Najprostszy przypadek
+## The simplest case
 
-W najprostszym przypadku wywołujemy funkcję z jednym parametrem:
+In the simplest case we call a function with a single parameter:
 
 ```cpp
 template <parameter list>
@@ -51,13 +51,13 @@ main()
 }
 ```
 
-Kompilator ma wywnioskować argumenty dla parametrów (tych z `parameter
-list`) szablonu funkcji `foo` na podstawie wyrażenia `expr` i typu
-`ParameterType` parametru `t` funkcji `foo`.  Żeby można mówić o
-wnioskowaniu, typ `ParameterType` musi zależeć od (użyć w swojej
-definicji) co najmniej jednego parametru szablonu.  Sposobów
-zdefiniowania typu `ParameterType` w zależności od parametrów szablonu
-jest wiele, a my omówimy najważniejsze.
+A compiler is supposed to deduce arguments for parameters (defined in
+`parameter list`) of function template `foo` based on expression
+`expr` and type `ParameterType` of parameter `t` of function `foo`.
+To talk about deduction, type `ParameterType` must depend on (use in
+its definition) at least one of template parameters.  There are many
+ways type `ParameterType` can depend on template parameters, and we
+discuss the most important.
 
 ## Podstawowa zasada z ograniczeniem
 
