@@ -59,7 +59,7 @@ definicji) co najmniej jednego parametru szablonu.  Sposobów
 zdefiniowania typu `ParameterType` w zależności od parametrów szablonu
 jest wiele, a my omówimy najważniejsze.
 
-## Podstawowa zasada z ograniczeniem
+## Podstawowa zasada, bez konwersji
 
 **Zasada: wywnioskowany argument szablonu ma pozwolić na inicjalizację
 parametru funkcji.**
@@ -67,12 +67,11 @@ parametru funkcji.**
 Inicjalizacja zawsze odbywa się na podstawie argumentu (jawnego bądź
 domyślnego) funkcji.
 
-**Ograniczenie: inicjalizacja ma się odbyć bez konwersji typu.**
+**Bez konwersji: inicjalizacja ma się odbyć bez konwersji typu.**
 
 Mowa tu o konwersji typu argumentu `expr` wywołania funkcji do typu
-`ParameterType` parametru funkcji.  Przy wywołaniu zwykłej
-(nieszablonowej) funkcji tego ograniczenia nie ma (tam konwersje są
-dozwolone).
+`ParameterType` parametru funkcji.  Zwróćmy uwagę, że konwersje są
+dozwolone przy wywołaniu zwykłej (nieszablonowej) funkcji.
 
 Inicjalizacja parametru `t` w powyższym najprostszym przypadku wygląda
 zatem tak:

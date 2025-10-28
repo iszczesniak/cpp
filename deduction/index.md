@@ -59,20 +59,19 @@ its definition) at least one template parameter.  There are many ways
 type `ParameterType` can depend on template parameters, and we discuss
 the most important.
 
-## Podstawowa zasada z ograniczeniem
+## The basic rule, no conversion
 
-**Zasada: wywnioskowany argument szablonu ma pozwolić na inicjalizację
-parametru funkcji.**
+**Rule: the deduced argument should allow for the initialization of
+the function parameter.**
 
-Inicjalizacja zawsze odbywa się na podstawie argumentu (jawnego bądź
-domyślnego) funkcji.
+A parameter is always initialized with an argument, either explicit or
+default.
 
-**Ograniczenie: inicjalizacja ma się odbyć bez konwersji typu.**
+**No conversion: initialization without type conversion.**
 
 Mowa tu o konwersji typu argumentu `expr` wywołania funkcji do typu
-`ParameterType` parametru funkcji.  Przy wywołaniu zwykłej
-(nieszablonowej) funkcji tego ograniczenia nie ma (tam konwersje są
-dozwolone).
+`ParameterType` parametru funkcji.  Zwróćmy uwagę, że konwersje są
+dozwolone przy wywołaniu zwykłej (nieszablonowej) funkcji.
 
 Inicjalizacja parametru `t` w powyższym najprostszym przypadku wygląda
 zatem tak:
