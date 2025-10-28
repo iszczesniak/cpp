@@ -55,9 +55,9 @@ A compiler is supposed to deduce arguments for parameters (defined in
 `parameter list`) of function template `foo` based on expression
 `expr` and type `ParameterType` of parameter `t` of function `foo`.
 To talk about deduction, type `ParameterType` must depend on (use in
-its definition) at least one of template parameters.  There are many
-ways type `ParameterType` can depend on template parameters, and we
-discuss the most important.
+its definition) at least one template parameter.  There are many ways
+type `ParameterType` can depend on template parameters, and we discuss
+the most important.
 
 ## Podstawowa zasada z ograniczeniem
 
