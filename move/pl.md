@@ -1,10 +1,10 @@
 ---
-title: Semantyka przeniesienia
+title: Semantyka przenoszenia
 ---
 
 # Wprowadzenie
 
-Semantyka przeniesienia dotyczy wyłącznie danych typów klasowych (do
+Semantyka przenoszenia dotyczy wyłącznie danych typów klasowych (do
 tego zaliczają się także struktury i unie), więc będziemy mówić o
 przenoszeniu obiektów, a nie danych.  Obiekt jest daną typu klasowego,
 czyli danymi interpretowanymi zgodnie z definicją klasy.  Najczęściej
@@ -53,25 +53,25 @@ obiekt źródłowy po kopiowaniu nie jest potrzebny.  Zbędne kopiowanie
 pogarsza wydajność: kod będzie działał poprawnie, ale mógłby być
 szybszy.
 
-# Semantyka przeniesienia
+# Semantyka przenoszenia
 
-Semantyka przeniesienia pozwala na przeniesienie wartości z obiektu
+Semantyka przenoszenia pozwala na przenoszenie wartości z obiektu
 źródłowego do docelowego kiedy kopiowanie nie jest potrzebne.  Została
 ona wprowadzona w C++11, ale jej potrzeba była zauważona w latach
 dziewięćdziesiątych.  Przenoszenie jest jak ratowanie ładunku
 (wartości) z tonącego statku (obiektu, który wkrótce nie będzie
 potrzebny).
 
-Semantyka przeniesienia jest stosowana:
+Semantyka przenoszenia jest stosowana:
 
 * podczas inicjalizacji i przypisania,
 
 * kiedy wyrażenie obiektu źródłowego jest r-wartością,
 
 * kiedy typ obiektu docelowego ma zaimplementowaną semantykę
-  przeniesienia.
+  przenoszenia.
 
-Semantyka przeniesienia jest implementowana przez:
+Semantyka przenoszenia jest implementowana przez:
 
 * **konstruktor przenoszący** (dla inicjalizacji),
 
@@ -286,7 +286,7 @@ Wszystkie składowe specjalne są niejawnie domyślnie zaimplementowane
   przeciążenia), jeżeli składowa kopiująca lub destruktor jest
   **jawnie zadeklarowany**: stary kod będzie nadal działał po staremu,
   bo nie będzie miał niejawnie dostarczonej domyślnej implementacji
-  semantyki przeniesienia (czyli składowych przenoszących),
+  semantyki przenoszenia (czyli składowych przenoszących),
 
 * *zasada nowego kodu*: składowe kopiujące będą **niejawnie usunięte**
   (więc będą brały udział w wyborze przeciążenia), jeżeli składowa
@@ -294,10 +294,10 @@ Wszystkie składowe specjalne są niejawnie domyślnie zaimplementowane
   zadeklarować składowe kopiujące, jeżeli są potrzebne.
 
 Te zasady mają na celu bezproblemową integrację semantyki
-przeniesienia zarówno w starym, jak i nowym kodzie.  Typ, który nie
+przenoszenia zarówno w starym, jak i nowym kodzie.  Typ, który nie
 zarządza swoimi zasobami w jakiś nietypowy sposób (chodzi o składowe
 specjalne), będzie miał zaimplementowane domyślnie semantyki
-kopiowania i przeniesienia.
+kopiowania i przenoszenia.
 
 ## Typ tylko do przenoszenia
 
@@ -308,7 +308,7 @@ mogą być kopiowane.  Oto przykład typu tylko do przenoszenia:
 {% include_relative move_only.cc %}
 ```
 
-# Konsekwencje semantyki przeniesienia
+# Konsekwencje semantyki przenoszenia
 
 ## Inicjalizacja parametrów funkcji
 
@@ -320,12 +320,12 @@ przeciążeń.
 Jeżeli będzie przekazywany obiekt tymczasowy do funkcji, to
 konstruktor przenoszący nie będzie wywołany, a pominięty.
 
-## Niejawne przeniesienie zwracanej wartości
+## Niejawne przenoszenie zwracanej wartości
 
 Jeżeli unikanie konstruktorów (albo optymalizacja wartości powrotu)
 nie może być zastosowana, a zwracany obiekt będzie niszczony po
 powrocie z funkcji, to wartość zwracanego obiektu może być niejawnie
-przeniesiona: instrukcja `return t;` będzie niejawnie zamieniana na
+przenoszona: instrukcja `return t;` będzie niejawnie zamieniana na
 `return std::move(t);`.  Tylko wyrażenia będące nazwą zmiennej są tak
 konwertowane (z l-wartości na r-wartość), inne wyrażenia nie.
 
@@ -342,7 +342,7 @@ przenoszona.
 
 Kiedy zwracamy parametr funkcji, nie można zastosować optymalizacji
 wartości powrotu (bo parametr nie może być stworzony w miejscu dla
-zwracanej wartości), ale będzie zastosowane niejawne przeniesienie
+zwracanej wartości), ale będzie zastosowane niejawne przenoszenie
 wartości, bo:
 
 * parametr będzie niszczony po wyjściu z funkcji,
@@ -360,7 +360,7 @@ Oto przykład:
 Kiedy zwracamy obiekt bazowy lokalnego obiektu, nie można zostosować
 optymalizacji wartości powrotu, bo miejsce dla wracanej wartości jest
 przewidziane dla typu bazowego.  Wartość obiektu bazowego może być
-jednak przeniesiona, bo:
+jednak przenoszona, bo:
 
 * obiekt lokalny będzie zniszczony po wyjściu z funkcji,
 
@@ -377,15 +377,15 @@ wycinamy wartość obiektu bazowego, żeby ją przenieść.
 ```
 
 Jeżeli obiekt lokalny byłby statyczny (czyli nie byłby niszczony po
-wyjściu z funkcji), to wartość nie mogłaby zostać niejawnie
-przeniesiona, a jedynie skopiowana.
+wyjściu z funkcji), to wartość nie mogłaby być niejawnie
+przenoszona, a jedynie skopiowana.
 
 ## Funkcja `std::swap`
 
-Zakończmy tym, od czego semantyka przeniesienia się zaczęła, funkcją
+Zakończmy tym, od czego semantyka przenoszenia się zaczęła: funkcją
 `std::swap`.  W latach dziewięćdziesiątych zauważono, że ta funkcja
 będzie działała szybciej bez kopiowania.  Ale jak, skoro wówczas było
-tylko kopiowanie?  Takie jest źródło semantyki przeniesienia.
+tylko kopiowanie?  Takie jest źródło semantyki przenoszenia.
 
 Funkcja `std::swap` przyjmuje przez referencję dwa argumenty i
 zamienia ich wartości.  Ta funkcja jest częścią biblioteki
@@ -398,7 +398,7 @@ wydajnej zamiany wartości:
 
 # Podsumowanie
 
-Semantyka przeniesienia:
+Semantyka przenoszenia:
 
 * została wprowadzona w C++11,
 
@@ -412,9 +412,9 @@ Semantyka przeniesienia:
 
 # Quiz
 
-* Dlaczego semantyka przeniesienia jest ważna?
+* Dlaczego semantyka przenoszenia jest ważna?
 
-* Jak działa semantyka przeniesienia?
+* Jak działa semantyka przenoszenia?
 
 * Czym jest typ tylko do przenoszenia?
 
