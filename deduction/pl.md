@@ -70,8 +70,8 @@ domyślnego) funkcji.
 **Bez konwersji: inicjalizacja ma się odbyć bez konwersji typu.**
 
 Mowa tu o konwersji typu argumentu `expr` wywołania funkcji do typu
-`ParameterType` parametru funkcji.  Zwróćmy uwagę, że konwersje są
-dozwolone przy wywołaniu zwykłej (nieszablonowej) funkcji.
+`ParameterType` parametru funkcji.  Zwróćmy uwagę, że takie konwersje
+typu są dozwolone przy wywołaniu zwykłej (nieszablonowej) funkcji.
 
 Inicjalizacja parametru `t` w powyższym najprostszym przypadku wygląda
 zatem tak:

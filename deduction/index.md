@@ -69,9 +69,9 @@ default.
 
 **No conversion: initialization without type conversion.**
 
-Mowa tu o konwersji typu argumentu `expr` wywołania funkcji do typu
-`ParameterType` parametru funkcji.  Zwróćmy uwagę, że konwersje są
-dozwolone przy wywołaniu zwykłej (nieszablonowej) funkcji.
+We mean the conversion from the type of function argument `expr` to
+type `ParameterType` of a function parameter.  Let's note that such
+type conversions are allowed for regular (non-template) functions.
 
 Inicjalizacja parametru `t` w powyższym najprostszym przypadku wygląda
 zatem tak:
