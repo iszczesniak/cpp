@@ -85,18 +85,21 @@ definition of type `ParameterType`, so that the initialization of a
 function parameter is possible without type conversion.  Deduction may
 turn out impossible, making instantiation impossible.
 
-For example, if `ParameterType` is a reference type to a const value
-of type `T`, where `T` is a template parameter, and the function
-argument is `1`, then the initialization looks like this:
+## Example
+
+If `ParameterType` is a reference type to a const value of type `T`,
+where `T` is a template parameter, and the function argument is `1`,
+then the initialization looks like this:
 
 ```cpp
 const T &t = 1;
 ```
 
-Wywnioskowanym argumentem będzie `T = int`, bo wtedy ta inicjalizacja
-jest możliwa bez konwersji typu.  Jeżeli jednak `ParameterType` jest
-typem referencyjnym na obiekt niestały typu `T`, to inicjalizacja
-wygląda tak:
+The deduced type is `T = int`, because the initialization is possible
+without type conversion.
+
+However, if `ParameterType` is a reference type to a non-const value
+of type `T`, then the initialization looks like this:
 
 ```cpp
 T &t = 1;
@@ -106,6 +109,8 @@ Wywnioskowanym argumentem będzie ciągle `T = int`, bo r-wartość typu
 wbudowanego (literał `1`) jest typu niestałego (tak powiada standard).
 Zatem konkretyzacja nie powiedzie się, bo l-referencja niestała `t`
 nie może być zainicjalizowana r-wartością.
+
+## Note: "no conversion"
 
 Coś jest nie tak z tym brakiem konwersji w przykładach wyżej:
 `ParameterType` jest **`const int &`**, a wyrażenie `1` jest typu

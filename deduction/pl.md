@@ -85,9 +85,11 @@ użytych w definicji typu `ParameterType`, żeby inicjalizacja parametru
 funkcji była możliwa bez konwersji typu.  Wnioskowanie może okazać się
 niemożliwe, co uniemożliwia konkretyzację szablonu.
 
-Na przykład, jeżeli `ParameterType` jest typem referencyjnym na
-wartość stałą typu `T`, gdzie `T` jest parametrem szablonu, a
-argumentem funkcji jest `1`, to inicjalizacja wygląda tak:
+## Przykład
+
+Jeżeli `ParameterType` jest typem referencyjnym na wartość stałą typu
+`T`, gdzie `T` jest parametrem szablonu, a argumentem funkcji jest
+`1`, to inicjalizacja wygląda tak:
 
 ```cpp
 const T &t = 1;
@@ -106,6 +108,8 @@ Wywnioskowanym argumentem będzie ciągle `T = int`, bo r-wartość typu
 wbudowanego (literał `1`) jest typu niestałego (tak powiada standard).
 Zatem konkretyzacja nie powiedzie się, bo l-referencja niestała `t`
 nie może być zainicjalizowana r-wartością.
+
+## Uwaga: "bez konwersji"
 
 Coś jest nie tak z tym brakiem konwersji w przykładach wyżej:
 `ParameterType` jest **`const int &`**, a wyrażenie `1` jest typu
