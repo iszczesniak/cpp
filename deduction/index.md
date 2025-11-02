@@ -105,10 +105,10 @@ of type `T`, then the initialization looks like this:
 T &t = 1;
 ```
 
-Wywnioskowanym argumentem będzie ciągle `T = int`, bo r-wartość typu
-wbudowanego (literał `1`) jest typu niestałego (tak powiada standard).
-Zatem konkretyzacja nie powiedzie się, bo l-referencja niestała `t`
-nie może być zainicjalizowana r-wartością.
+The deduced type is still `T = int`, because an rvalue of a
+fundamental type (literal `1`) is of a non-const type (so the standard
+says).  Therefere instantiation cannot succeed, because non-const
+lvalue reference `t` cannot be initialized with an rvalue.
 
 ## Note: "no conversion"
 

@@ -104,10 +104,10 @@ wygląda tak:
 T &t = 1;
 ```
 
-Wywnioskowanym argumentem będzie ciągle `T = int`, bo r-wartość typu
-wbudowanego (literał `1`) jest typu niestałego (tak powiada standard).
-Zatem konkretyzacja nie powiedzie się, bo l-referencja niestała `t`
-nie może być zainicjalizowana r-wartością.
+Wywnioskowanym argumentem będzie ciągle `T = int`, bo r-wartość
+podstawowego typu (literał `1`) jest typu niestałego (tak powiada
+standard).  Zatem konkretyzacja nie powiedzie się, bo l-referencja
+niestała `t` nie może być zainicjalizowana r-wartością.
 
 ## Uwaga: "bez konwersji"
 
