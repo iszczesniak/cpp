@@ -80,10 +80,10 @@ zatem tak:
 ParameterType t = expr;
 ```
 
-Kompilator musi tak wywnioskować argumenty szablonu, których parametry
-są użyte w definicji typu `ParameterType`, żeby inicjalizacja była
-możliwa bez konwersji typu.  Może się to okazać niemożliwe, co
-uniemożliwia konkretyzację szablonu.
+Kompilator musi tak wywnioskować argumenty dla parametrów szablonu
+użytych w definicji typu `ParameterType`, żeby inicjalizacja parametru
+funkcji była możliwa bez konwersji typu.  Wnioskowanie może okazać się
+niemożliwe, co uniemożliwia konkretyzację szablonu.
 
 Na przykład, jeżeli `ParameterType` jest typem referencyjnym na obiekt
 stały typu `T`, gdzie `T` jest parametrem szablonu, a argumentem

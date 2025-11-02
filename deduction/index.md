@@ -73,17 +73,17 @@ We mean the conversion from the type of function argument `expr` to
 type `ParameterType` of a function parameter.  Let's note that such
 type conversions are allowed for regular (non-template) functions.
 
-Inicjalizacja parametru `t` w powyższym najprostszym przypadku wygląda
-zatem tak:
+The initialization of parameter `t` in the above simplest case looks
+like this:
 
 ```cpp
 ParameterType t = expr;
 ```
 
-Kompilator musi tak wywnioskować argumenty szablonu, których parametry
-są użyte w definicji typu `ParameterType`, żeby inicjalizacja była
-możliwa bez konwersji typu.  Może się to okazać niemożliwe, co
-uniemożliwia konkretyzację szablonu.
+A compiler must deduce arguments for template parameters used in the
+definition of type `ParameterType`, so that the initialization of a
+function parameter is possible without type conversion.  Deduction may
+turn out impossible, making instantiation impossible.
 
 Na przykład, jeżeli `ParameterType` jest typem referencyjnym na obiekt
 stały typu `T`, gdzie `T` jest parametrem szablonu, a argumentem
