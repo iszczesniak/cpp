@@ -4,9 +4,15 @@ title: Generic programming
 
 # Generic programming
 
+## Part 1
+
 * [Introduction](generic)
 * [Templates](templates)
 * [Variadic templates](variadic)
+
+## Part 2
+
+* [Deduction](deduction)
 
 # Rules
 
@@ -20,18 +26,19 @@ You get three grades:
 
 ## Laboratory grade
 
-You can get a grade from the laboratory class within two deadlines:
+A laboratory class grade is from your programming skills.  You can get
+your grade within two deadlines:
 
 * Deadline I: by the end of laboratory classes based on four tests
-  during lectures:
+  during lectures.  The material tested and the dates:
 
-  - November 7, 2025 (generic, template, variadic),
+  - part 1: November 7, 2025,
 
-  - December 19, 2025 (deduction, specialization, auto),
+  - part 2: December 19, 2025,
 
-  - January 23, 2026 (forwarding, callable2, constraints, concepts),
-
-  - January 30, 2026 (the whole material).
+  - part 3: January 23, 2026,
+  
+  - all parts: January 30, 2026.
 
   The grade withing the first deadline is an average of three highest,
   **passing** test grades chosen from among the four test grades.  If
