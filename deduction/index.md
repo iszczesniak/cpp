@@ -112,7 +112,7 @@ lvalue reference `t` cannot be initialized with an rvalue.
 
 ## Note: "no conversion"
 
-There is something wrong with the "no type conversion" in the above
+There is something wrong with the "no conversion" in the above
 examples: `ParameterType` is **`const int &`** (or **`int &`**), while
 expression `1` is of type **`int`**!  Aren't they supposed to be the
 same?  No: function parameter type `ParameterType` and the type of

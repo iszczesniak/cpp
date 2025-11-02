@@ -111,7 +111,7 @@ niestała `t` nie może być zainicjalizowana r-wartością.
 
 ## Uwaga: "bez konwersji"
 
-Coś jest nie tak z tym brakiem konwersji w przykładach wyżej:
+Coś jest nie tak z tym "bez konwersji" w przykładach wyżej:
 `ParameterType` jest **`const int &`** (albo **`int &`**), a wyrażenie
 `1` jest typu **`int`**!  Czy te typy nie powinny być te same?  Nie:
 typ `ParameterType` parametru funkcji i typ argumentu `expr` mogą się
