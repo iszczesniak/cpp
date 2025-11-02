@@ -85,7 +85,7 @@ użytych w definicji typu `ParameterType`, żeby inicjalizacja parametru
 funkcji była możliwa bez konwersji typu.  Wnioskowanie może okazać się
 niemożliwe, co uniemożliwia konkretyzację szablonu.
 
-## Przykład
+## Przykłady
 
 Jeżeli `ParameterType` jest typem referencyjnym na wartość stałą typu
 `T`, gdzie `T` jest parametrem szablonu, a argumentem funkcji jest
@@ -112,13 +112,11 @@ niestała `t` nie może być zainicjalizowana r-wartością.
 ## Uwaga: "bez konwersji"
 
 Coś jest nie tak z tym brakiem konwersji w przykładach wyżej:
-`ParameterType` jest **`const int &`**, a wyrażenie `1` jest typu
-**`int`**!  Gdzie tu zgodność?  To teraz precyzyjniej: typ
-`ParameterType` parametru funkcji i typ argumentu `expr` mogą się
-różnić wyłącznie kwalifikatorami i deklaratorem `&` najwyższego rzędu,
-zgodnie z zasadami (opisanymi niżej) inicjalizowania zmiennych.
-Wywnioskowany argument szablonu jest typem argumentu funkcji z tymi
-ewentualnymi różnicami.
+`ParameterType` jest **`const int &`** (albo **`int &`**), a wyrażenie
+`1` jest typu **`int`**!  Czy te typy nie powinny być te same?  Nie:
+typ `ParameterType` parametru funkcji i typ argumentu `expr` mogą się
+różnić kwalifikatorami i deklaratorem `&` najwyższego rzędu, zgodnie z
+zasadami (opisanymi niżej) inicjalizowania zmiennych.
 
 # Najwyższego rzędu
 

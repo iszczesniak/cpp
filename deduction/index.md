@@ -85,7 +85,7 @@ definition of type `ParameterType`, so that the initialization of a
 function parameter is possible without type conversion.  Deduction may
 turn out impossible, making instantiation impossible.
 
-## Example
+## Examples
 
 If `ParameterType` is a reference type to a const value of type `T`,
 where `T` is a template parameter, and the function argument is `1`,
@@ -112,14 +112,13 @@ lvalue reference `t` cannot be initialized with an rvalue.
 
 ## Note: "no conversion"
 
-Coś jest nie tak z tym brakiem konwersji w przykładach wyżej:
-`ParameterType` jest **`const int &`**, a wyrażenie `1` jest typu
-**`int`**!  Gdzie tu zgodność?  To teraz precyzyjniej: typ
-`ParameterType` parametru funkcji i typ argumentu `expr` mogą się
-różnić wyłącznie kwalifikatorami i deklaratorem `&` najwyższego rzędu,
-zgodnie z zasadami (opisanymi niżej) inicjalizowania zmiennych.
-Wywnioskowany argument szablonu jest typem argumentu funkcji z tymi
-ewentualnymi różnicami.
+There is something wrong with the "no type conversion" in the above
+examples: `ParameterType` is **`const int &`** (or **`int &`**), while
+expression `1` is of type **`int`**!  Aren't they supposed to be the
+same?  No: function parameter type `ParameterType` and the type of
+argument `expr` can differ with the top-level qualifiers and
+declarator `&`, which follows from how variables can be initialized,
+as discussed below.
 
 # Najwyższego rzędu
 
