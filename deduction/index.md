@@ -85,9 +85,9 @@ definition of type `ParameterType`, so that the initialization of a
 function parameter is possible without type conversion.  Deduction may
 turn out impossible, making instantiation impossible.
 
-Na przykład, jeżeli `ParameterType` jest typem referencyjnym na obiekt
-stały typu `T`, gdzie `T` jest parametrem szablonu, a argumentem
-wywołania funkcji jest `1`, to inicjalizacja wygląda tak:
+For example, if `ParameterType` is a reference type to a const value
+of type `T`, where `T` is a template parameter, and the function
+argument is `1`, then the initialization looks like this:
 
 ```cpp
 const T &t = 1;

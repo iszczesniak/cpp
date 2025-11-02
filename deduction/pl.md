@@ -85,9 +85,9 @@ użytych w definicji typu `ParameterType`, żeby inicjalizacja parametru
 funkcji była możliwa bez konwersji typu.  Wnioskowanie może okazać się
 niemożliwe, co uniemożliwia konkretyzację szablonu.
 
-Na przykład, jeżeli `ParameterType` jest typem referencyjnym na obiekt
-stały typu `T`, gdzie `T` jest parametrem szablonu, a argumentem
-wywołania funkcji jest `1`, to inicjalizacja wygląda tak:
+Na przykład, jeżeli `ParameterType` jest typem referencyjnym na
+wartość stałą typu `T`, gdzie `T` jest parametrem szablonu, a
+argumentem funkcji jest `1`, to inicjalizacja wygląda tak:
 
 ```cpp
 const T &t = 1;
