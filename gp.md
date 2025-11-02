@@ -46,9 +46,11 @@ your grade within two deadlines:
   failing grade (2.0) within the first deadline.
 
   If you miss a test, you get a failing grade from that test.  A test
-  cannot be retaken.  The last test is a chance to get an extra grade.
+  cannot be retaken.  The last test (that covers all parts) is a
+  chance to get an extra grade.
 
-* Deadline II: based on a test during the time for the first exam.
+* Deadline II: based on a test (that covers all parts) during the time
+  for the first exam.
 
 ## Exam grade
 
