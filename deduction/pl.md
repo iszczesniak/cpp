@@ -148,7 +148,7 @@ podane kwalifikatory albo przed, albo po nazwie używanego typu.  Nie
 ma innych miejsc dla kwalifikatora, a miejsce nie robi różnicy.
 Kwalifikatory zwykłego typu nazywamy najwyższego rzędu, chociaż
 niższego rzędu i tak nie mogą być.  Na przykład, `const int` i `int
-const` to te same typy, a `const` nazywamy kwalifikatorem najwyższego
+const` to ten same typ, a `const` nazywamy kwalifikatorem najwyższego
 rzędu.
 
 Kwalifikatory te mają znaczenie wyłącznie na etapie kompilacji (nie
