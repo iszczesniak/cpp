@@ -137,10 +137,10 @@ used in various places in a defined type.  **A top-level qualifier**
 is the first one from the right.  For instance, for type `int * const
 &` the top-level qualifier is `&`.
 
-## Kwalifikatory
+## Qualifiers
 
-**Kwalifikatory typu (`const` i `volatile`) najwyższego rzędu** mogą
-występować w każdym typie za wyjątkiem typu referencyjnego.
+**Top-level** type qualifiers (`const` and `volatile`) can qualify any
+type except a reference type.
 
 ### Typ zwykły
 

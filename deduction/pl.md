@@ -138,8 +138,8 @@ w typie `int * const &` deklaratorem najwyższego rzędu jest `&`.
 
 ## Kwalifikatory
 
-**Kwalifikatory typu (`const` i `volatile`) najwyższego rzędu** mogą
-występować w każdym typie za wyjątkiem typu referencyjnego.
+Kwalifikatory typu (`const` i `volatile`) **najwyższego rzędu** mogą
+opisywać każdy typ za wyjątkiem typu referencyjnego.
 
 ### Typ zwykły
 
