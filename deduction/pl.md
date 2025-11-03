@@ -120,7 +120,7 @@ zasadami (opisanymi niżej) inicjalizowania zmiennych.
 
 # Najwyższego rzędu
 
-Miejsce użycia kwalifikatora i deklaratora w definiowanym typie ma
+Miejsce użycia kwalifikatora czy deklaratora w definiowanym typie ma
 wpływ na:
 
 * inicjalizację wartości tego typu,

@@ -120,16 +120,15 @@ argument `expr` can differ with the top-level qualifiers and
 declarator `&`, which follows from how variables can be initialized,
 as discussed below.
 
-# Najwyższego rzędu
+# Top-level
 
-Miejsce użycia kwalifikatora i deklaratora w definiowanym typie ma
-wpływ na:
+The place of a qualifier or a declarator in a defined type affects:
 
-* inicjalizację wartości tego typu,
+* initialization of a value of this type,
 
-* przeciążenie funkcji pod względem parametru tego typu.
+* function overloading depending on the parameter of this type.
 
-Kwalifikatory i deklaratory typu mogą być najwyższego rzędu.  
+Type qualifiers and declarators can be top-level.
 
 ## Deklaratory
 
