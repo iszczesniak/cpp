@@ -139,18 +139,21 @@ is the first one from the right.  For instance, for type `int * const
 
 ## Qualifiers
 
-**Top-level** type qualifiers (`const` and `volatile`) can qualify any
+Type qualifiers (`const` and `volatile`) can be **top-level** for any
 type except a reference type.
 
-### Typ zwykły
+### Regular type
 
-Definiowany typ zwykły (niewskaźnikowy i niereferencyjny) może mieć
-kwalifikatory typu najwyższego rzędu podane przed albo po nazwie
-używanego typu, np. `const int` albo `int const` (i są to te same
-typy).  Kwalifikatory te mają znaczenie wyłącznie na etapie kompilacji
-(nie uruchomienia): kompilator nie może pozwolić modyfikować danej
-typu `const`, a dostępu do danej typu `volatile` nie może
-optymalizować.
+The defined type (non-pointer, non-reference) can have a qualifier
+given either before or after the used type.  There are no other places
+for a qualifier, and the place makes no difference.  Qualifiers of a
+regular type are called top-level, even though they can't be
+lower-level.  For instance, `const int` and `int const` are the same
+type, and `const` we call a top-level qualifier.
+
+Kwalifikatory te mają znaczenie wyłącznie na etapie kompilacji (nie
+uruchomienia): kompilator nie może pozwolić modyfikować danej typu
+`const`, a dostępu do danej typu `volatile` nie może optymalizować.
 
 **Swoboda.** Zmienną możemy inicjalizować wyrażeniem inicjalizującym,
 nawet jeżeli ich typy (zwykłe) różnią się jedynie kwalifikatorami

@@ -143,13 +143,17 @@ opisywać każdy typ za wyjątkiem typu referencyjnego.
 
 ### Typ zwykły
 
-Definiowany typ zwykły (niewskaźnikowy i niereferencyjny) może mieć
-kwalifikatory typu najwyższego rzędu podane przed albo po nazwie
-używanego typu, np. `const int` albo `int const` (i są to te same
-typy).  Kwalifikatory te mają znaczenie wyłącznie na etapie kompilacji
-(nie uruchomienia): kompilator nie może pozwolić modyfikować danej
-typu `const`, a dostępu do danej typu `volatile` nie może
-optymalizować.
+Definiowany typ zwykły (niewskaźnikowy, niereferencyjny) może mieć
+podane kwalifikatory albo przed, albo po nazwie używanego typu.  Nie
+ma innych miejsc dla kwalifikatora, a miejsce nie robi różnicy.
+Kwalifikatory zwykłego typu nazywamy najwyższego rzędu, chociaż
+niższego rzędu i tak nie mogą być.  Na przykład, `const int` i `int
+const` to te same typy, a `const` nazywamy kwalifikatorem najwyższego
+rzędu.
+
+Kwalifikatory te mają znaczenie wyłącznie na etapie kompilacji (nie
+uruchomienia): kompilator nie może pozwolić modyfikować danej typu
+`const`, a dostępu do danej typu `volatile` nie może optymalizować.
 
 **Swoboda.** Zmienną możemy inicjalizować wyrażeniem inicjalizującym,
 nawet jeżeli ich typy (zwykłe) różnią się jedynie kwalifikatorami
