@@ -130,12 +130,12 @@ The place of a qualifier or a declarator in a defined type affects:
 
 Type qualifiers and declarators can be top-level.
 
-## Deklaratory
+## Declarators
 
-Deklaratory `*` typu wskaźnikowego i `&` typu referencyjnego mogą
-znaleźć się w różnych miejscach w definiowanym typie.  **Deklaratorem
-najwyższego rzędu** jest ten pierwszy od prawej strony.  Na przykład,
-w typie `int * const &` deklaratorem najwyższego rzędu jest `&`.
+Declarators `*` of a pointer type and `&` of a reference type can be
+used in various places in a defined type.  **A top-level qualifier**
+is the first one from the right.  For instance, for type `int * const
+&` the top-level qualifier is `&`.
 
 ## Kwalifikatory
 
