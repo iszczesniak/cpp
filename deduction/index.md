@@ -148,8 +148,8 @@ The defined type (non-pointer, non-reference) can have a qualifier
 given either before or after the used type.  There are no other places
 for a qualifier, and the place makes no difference.  Qualifiers of a
 regular type are called top-level, even though they can't be
-lower-level.  For instance, `const int` and `int const` are the same
-type, and `const` we call a top-level qualifier.
+lower-level.  For instance, `const int` and `int const` define the
+same type, and `const` we call a top-level qualifier.
 
 Kwalifikatory te mają znaczenie wyłącznie na etapie kompilacji (nie
 uruchomienia): kompilator nie może pozwolić modyfikować danej typu
