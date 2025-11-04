@@ -172,11 +172,11 @@ initialization of a parameter of a regular type (where the leeway puts
 no requirements on the qualifiers) is unable to affect overload
 resolution.
 
-Te kwalifikatory (które są szczegółem implementacji ciała funkcji) i
-tak nie mają znaczenia dla strony wywołującej funkcję i dlatego są
-usuwane przez kompilator z sygnatury funkcji (nie są one częścią
-interfejsu funkcji), żeby umożliwić konsolidację.  Proszę sprawdzić
-(komendą `nm`) sygnatury funkcji w tablicy symboli programu poniżej.
+These qualifiers (that are an implementation detail of a function
+body) do not matter for a caller and so they are removed by a compiler
+from a function signature (as they are not part of a function
+interface) to enable linking.  Please check (using `nm`) the function
+signatures in the symbol table of the following program.
 
 ```cpp
 {% include_relative cv_regular2.cc %}
