@@ -273,8 +273,9 @@ przeciążenia:
 * `void foo(const T &);` - przeciążenie #2,
 * `void foo(T &&);` - przeciążenie #3.
 
-Przy wywołaniu funkcji `foo(<expr>)` kompilator wybierze przeciążenie
-(ang. overload resolution):
+Mając dostępne powyższe trzy przeciążenia, przy wywołaniu funkcji
+`foo(<expr>)` kompilator wybierze przeciążenie (ang. overload
+resolution):
 
 * #1, jeżeli `<expr>` jest l-wartością niestałego typu,
 
