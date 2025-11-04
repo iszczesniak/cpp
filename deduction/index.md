@@ -151,6 +151,10 @@ regular type are called top-level, even though they can't be
 lower-level.  For instance, `const int` and `int const` define the
 same type, and `const` we call a top-level qualifier.
 
+Those qualifiers matter only during compilation (not at run time): a
+compiler cannot allow a data of a `const` type to be modified, and
+should not optimize the access to the data of a `volatile` type.
+
 Kwalifikatory te mają znaczenie wyłącznie na etapie kompilacji (nie
 uruchomienia): kompilator nie może pozwolić modyfikować danej typu
 `const`, a dostępu do danej typu `volatile` nie może optymalizować.
