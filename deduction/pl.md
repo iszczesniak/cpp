@@ -184,10 +184,10 @@ interfejsu funkcji), żeby umożliwić konsolidację.  Proszę sprawdzić
 
 ### Typ wskaźnikowy
 
-Kwalifikatory typu wskaźnikowego znajdują się na prawo od deklaratora
-`*` najwyższego rzędu, czyli na końcu definicji typu (albo na początku
-patrząc od prawej strony).  Odnoszą się one do zmiennej wskaźnikowej,
-a nie do wskazywanych danych.
+Kwalifikatory najwyższego rzędu typu wskaźnikowego znajdują się na
+prawo od deklaratora `*` najwyższego rzędu, czyli na końcu definicji
+typu (albo na początku, należycie czytając od prawej strony).  Odnoszą
+się one do zmiennej wskaźnikowej, a nie do wskazywanych danych.
 
 Tak jak w przypadku zmiennej zwykłego typu, zmienną wskaźnikową możemy
 inicjalizować na podstawie wartości wskaźnika, nawet jeżeli ich typy

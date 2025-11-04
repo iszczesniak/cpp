@@ -182,12 +182,12 @@ signatures in the symbol table of the following program.
 {% include_relative cv_regular2.cc %}
 ```
 
-### Typ wskaźnikowy
+### Pointer type
 
-Kwalifikatory typu wskaźnikowego znajdują się na prawo od deklaratora
-`*` najwyższego rzędu, czyli na końcu definicji typu (albo na początku
-patrząc od prawej strony).  Odnoszą się one do zmiennej wskaźnikowej,
-a nie do wskazywanych danych.
+The top-level qualifiers of a pointer type are located on the right of
+the top-level `*` declarator, i.e., at the end of the type definition
+(or at the beginning, reading from the right as we should).  They
+qualify a type of a pointer variable, not the data pointed to.
 
 Tak jak w przypadku zmiennej zwykłego typu, zmienną wskaźnikową możemy
 inicjalizować na podstawie wartości wskaźnika, nawet jeżeli ich typy
