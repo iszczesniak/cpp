@@ -157,7 +157,7 @@ uruchomienia): kompilator nie może pozwolić modyfikować danej typu
 
 **Swoboda.** Zmienną możemy inicjalizować wyrażeniem inicjalizującym,
 nawet jeżeli ich typy (zwykłe) różnią się jedynie kwalifikatorami
-najwyższego rzędu, bo chodzi tylko o kopiowanie wartości.  Przykład:
+(najwyższego rzędu), bo chodzi tylko o kopiowanie wartości.  Przykład:
 
 ```cpp
 {% include_relative cv_regular1.cc %}

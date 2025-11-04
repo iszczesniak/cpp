@@ -155,13 +155,9 @@ Those qualifiers matter only during compilation (not at run time): a
 compiler cannot allow a data of a `const` type to be modified, and
 should not optimize the access to the data of a `volatile` type.
 
-Kwalifikatory te mają znaczenie wyłącznie na etapie kompilacji (nie
-uruchomienia): kompilator nie może pozwolić modyfikować danej typu
-`const`, a dostępu do danej typu `volatile` nie może optymalizować.
-
-**Swoboda.** Zmienną możemy inicjalizować wyrażeniem inicjalizującym,
-nawet jeżeli ich typy (zwykłe) różnią się jedynie kwalifikatorami
-najwyższego rzędu, bo chodzi tylko o kopiowanie wartości.  Przykład:
+**Leeway.** We can initialize a variable with an initializing
+expression, even if their (regular) types differ with (top-level)
+qualifiers, because it's about copying a value.  For example:
 
 ```cpp
 {% include_relative cv_regular1.cc %}
