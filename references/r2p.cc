@@ -10,7 +10,7 @@ int main()
   int * const & r2cp = p;
   *r2p = 2;
   // We cannot modify the const pointer through the reference.
-  // r2p = &x;
+  // r2cp = &x;
   // But we can modify the pointer.
   p = &x;
   std::cout << x << '\n';
