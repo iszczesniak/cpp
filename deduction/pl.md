@@ -164,7 +164,7 @@ nawet jeżeli ich typy (zwykłe) różnią się jedynie kwalifikatorami
 ```
 
 Ta swoboda dotycz także inicjalizacji parametru funkcji z użyciem
-argumentu funkcji, z czego wynika ograniczenie.
+argumentu funkcji, z czego wynika poniższe ograniczenie.
 
 **Ograniczenie.** Nie można przeciążać funkcji pod względem
 kwalifikatorów typu zwykłego (parametru funkcji), ponieważ

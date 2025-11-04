@@ -163,14 +163,14 @@ qualifiers, because it's about copying a value.  For example:
 {% include_relative cv_regular1.cc %}
 ```
 
-Ta swoboda dotycz także inicjalizacji parametru funkcji z użyciem
-argumentu funkcji, z czego wynika ograniczenie.
+This leeway applies to the initialization of a function parameter with
+a function argument, which yields the following limitation.
 
-**Ograniczenie.** Nie można przeciążać funkcji pod względem
-kwalifikatorów typu zwykłego (parametru funkcji), ponieważ
-inicjalizacja parametru typu zwykłego (gdzie swoboda nie stawia
-warunków dotyczących kwalifikatorów) nie jest w stanie wpłynąć na
-wybór przeciążenia.
+**Limitation.** We cannot overload a function depending on the
+qualifiers of a regular type (of a function parameter), because the
+initialization of a parameter of a regular type (where the leeway puts
+no requirements on the qualifiers) is unable to affect overload
+resolution.
 
 Te kwalifikatory (które są szczegółem implementacji ciała funkcji) i
 tak nie mają znaczenia dla strony wywołującej funkcję i dlatego są
