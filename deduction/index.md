@@ -187,14 +187,15 @@ signatures in the symbol table of the following program.
 The top-level qualifiers of a pointer type are located on the right of
 the top-level `*` declarator, i.e., at the end of the type definition
 (or at the beginning, reading from the right as we should).  They
-qualify a type of a pointer variable, not the data pointed to.
+qualify a type of a pointer variable, not the type of the data pointed
+to.
 
-Tak jak w przypadku zmiennej zwykłego typu, zmienną wskaźnikową możemy
-inicjalizować na podstawie wartości wskaźnika, nawet jeżeli ich typy
-(wskaźnikowe) różnią się kwalifikatorami najwyższego rzędu, bo wartość
-wskaźnika jest jedynie kopiowana i dlatego też nie możemy przeciążać
-funkcji dla typów wskaźnikowych (parametrów funkcji) różniących się
-kwalifikatorami najwyższego rzędu.  Przykład:
+Just like a variable of a regular type, we can initialize a variable
+of a pointer type using a value whose (pointer) type differs with the
+top-level qualifiers, because the value is copied.  And therefore we
+cannot overload a function depending on the pointer types (of a
+function parameter) that differ with the top-level qualifiers.  Here's
+an example:
 
 ```cpp
 {% include_relative cv_ptr1.cc %}

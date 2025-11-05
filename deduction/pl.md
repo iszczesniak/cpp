@@ -189,12 +189,12 @@ prawo od deklaratora `*` najwyższego rzędu, czyli na końcu definicji
 typu (albo na początku, należycie czytając od prawej strony).  Odnoszą
 się one do zmiennej wskaźnikowej, a nie do wskazywanych danych.
 
-Tak jak w przypadku zmiennej zwykłego typu, zmienną wskaźnikową możemy
-inicjalizować na podstawie wartości wskaźnika, nawet jeżeli ich typy
-(wskaźnikowe) różnią się kwalifikatorami najwyższego rzędu, bo wartość
-wskaźnika jest jedynie kopiowana i dlatego też nie możemy przeciążać
-funkcji dla typów wskaźnikowych (parametrów funkcji) różniących się
-kwalifikatorami najwyższego rzędu.  Przykład:
+Tak jak zmienną zwykłego typu, tak i zmienną wskaźnikową możemy
+inicjalizować na podstawie wartości, której typ (wskaźnikowy) różni
+się kwalifikatorami najwyższego rzędu, bo wartość jest kopiowana.
+Dlatego też nie możemy przeciążać funkcji dla typów wskaźnikowych
+(parametru funkcji) różniących się kwalifikatorami najwyższego rzędu.
+Przykład:
 
 ```cpp
 {% include_relative cv_ptr1.cc %}
