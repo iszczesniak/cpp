@@ -1,0 +1,14 @@
+Proszę zaimplementować strukturę `A`, która ma:
+
+* pole składowe `m_txt` typu `string` oraz konstruktor, który
+  inicjalizuje te pole referencją stałą na obiekt typu `string`
+  przekazany jako argument konstruktora,
+
+* dwa przeciążenia prefiksowego operatora inkrementacji w postaci
+  funkcji składowej:
+
+  1. pierwsze przeciążenie jest wywoływane na rzecz obiektu l-wartości
+     i zwraca go przez l-referencję, a na koniec `m_txt` dodaje `"l"`,
+
+  2. drugie przeciążenie jest wywoływane na rzecz obiektu r-wartości i
+     zwraca go przez r-referencję, a na koniec `m_txt` dodaje `"r"`.

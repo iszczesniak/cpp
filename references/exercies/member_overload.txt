@@ -1,0 +1,16 @@
+Please implement struct `A` that has:
+
+* a member field `m_txt` of type `string` and a constructor that
+  initializes that field using a const reference to an object (of type
+  `string`) passed to the constructor,
+
+* the prefix increment operator implemented as two member function
+  overloads:
+
+  1. the first overload is called for an object of an lvalue, the
+     overload returns the object by lvalue reference, and appends
+     `"l"` to `m_txt`,
+
+  2. the second overload is called for an object of an rvalue, the
+     overload returns the object by rvalue reference, and appends
+     `"r"` to `m_txt`.
