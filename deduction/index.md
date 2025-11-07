@@ -423,7 +423,7 @@ wywnioskowanym argumentem szablonu będzie typ wskaźnikowy na funkcję.
 Przykład:
 
 ```cpp
-{% include_relative foo_val.cc %}
+{% include_relative foo_reg.cc %}
 ```
 
 ## Przekazywanie tablic języka C

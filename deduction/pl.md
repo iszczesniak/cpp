@@ -419,10 +419,11 @@ Funkcję możemy także przekazać przez *wskaźnik* używając zwykłego
 (niereferencyjnego i niewskaźnikowego) typu parametru funkcji, a
 dokładnie typu `F`, gdzie `F` jest typowym parametrem szablonu.  Wtedy
 wywnioskowanym argumentem szablonu będzie typ wskaźnikowy na funkcję.
-Przykład:
+Zwróćmy uwagę, że to nie jest przekazywanie funkcji przez wartość, bo
+czegoś takiego nie ma.  Przykład:
 
 ```cpp
-{% include_relative foo_val.cc %}
+{% include_relative foo_reg.cc %}
 ```
 
 ## Przekazywanie tablic języka C
