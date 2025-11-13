@@ -205,11 +205,11 @@ In a pointer type, on the left of the `*` top-level declarator, we can
 put the *top-level* qualifiers of the type pointed to.  We can call
 these qualifiers **lower-level**, if we talk about the pointer type.
 
-**Warunek dla typu wskaźnikowego.** Kwalifikatory *niższego rzędu*
-typu wskaźnikowego muszą zawierać kwalifikatory *najwyższego rzędu*
-typu wskazywanych danych.
+**A requirement for a pointer type.** *Lower-level* qualifiers of a
+pointer type must include the *top-level* qualifiers of the type
+pointed to.
 
-Oto przykład:
+Here's an example:
 
 ```cpp
 {% include_relative cv_ptr2.cc %}
