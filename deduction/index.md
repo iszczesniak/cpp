@@ -215,10 +215,10 @@ Here's an example:
 {% include_relative cv_ptr2.cc %}
 ```
 
-Ten warunek pozwala przeciążać funkcje dla typów wskaźnikowych
-(parametru funkcji), które różnią się kwalifikatorami dla typu
-wskazywanych danych.  Chodzi o możliwość przeciążenia pod względem
-typu danych, do których odnosi się wskaźnik.  Oto przykład:
+That requirement allows to overload functions depending on the pointer
+types (of a function parameter), that differ with qualifiers of the
+data pointed to.  It's about being able to overload for the data types
+that a pointer refers to.  Here's an example:
 
 ```cpp
 {% include_relative cv_ptr3.cc %}
