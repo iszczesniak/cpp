@@ -1,5 +1,7 @@
 Quickies
 
+* Is the iterator a generalization of a pointer?
+
 * std::bind to callable1 and callable2, vs closure
 
 * std::reference_wrapper, std::cref, std::ref
@@ -139,6 +141,12 @@ Tag dispatching - is it still needed?
 **********************************************************************
 
 constexpr, consteval, and literal types.
+
+**********************************************************************
+
+By value or by reference?
+
+The system type: the const
 
 **********************************************************************
 
