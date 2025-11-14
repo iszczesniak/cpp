@@ -229,8 +229,7 @@ that a pointer refers to.  Here's an example:
 A reference either names some data (e.g., a temporary, a table
 element) or is an alias to some other variable.  A reference type does
 not have qualifiers, because it's supposed to represent verbatim its
-data: a reference expression is replaced by an expression with the
-data of the reference.  What's more, a reference can only be
+initializing expression.  What's more, a reference can only be
 initialized, and later cannot be changed (so that it names some
 different data), so a `const` top-level qualifier would make no
 difference.  For instance, type `int & const` is wrong.

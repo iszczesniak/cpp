@@ -229,11 +229,10 @@ typu danych, do których odnosi się wskaźnik.  Oto przykład:
 Referencja albo nazywa pewną daną (np. daną tymczasową, element
 tablicy) albo jest aliasem innej zmiennej.  Typ referencyjny nie ma
 kwalifikatorów najwyższego rzędu, bo referencja ma wiernie odwzorować
-typ swojej danej: wyrażenie referencyjne jest zamieniane na wyrażenie
-z jej daną.  Co więcej, referencję można tylko zainicjalizować, a
-potem już nie można jej zmienić (żeby była aliasem innej danej), więc
-kwalifikator `const` najwyższego rzędu nie robiłby różnicy.  Na
-przykład, typ `int & const` jest błędny.
+swoje wyrażenie inicjalizujące.  Co więcej, referencję można tylko
+zainicjalizować, a potem już nie można jej zmienić (żeby była aliasem
+innej danej), więc kwalifikator `const` najwyższego rzędu nie robiłby
+różnicy.  Na przykład, typ `int & const` jest błędny.
 
 Dlatego nie da się przeciążać funkcji dla typów referencyjnych
 (parametru funkcji), które miałyby się różnić tylko kwalifikatorami
