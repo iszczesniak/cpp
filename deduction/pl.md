@@ -302,10 +302,9 @@ rodzaju wartościowego czy szablonowego), bo bierze pod uwagę:
 
 * kategorię argumentu funkcji (opisane w późniejszym temacie).
 
-W zależności od omawianych szczególnych (najważniejszych) typów
-parametru funkcji (zwykłych, wskaźnikowych, referencyjnych) stosowane
-są nieco różne zasady, które jednak wynikają z podstawowej zasady z
-ograniczeniem.  Dla tych szczególnych typów, wnioskowany typ może
+W zależności od typu parametru funkcji (zwykłego, wskaźnikowego,
+referencyjnego) stosowane są nieco różne zasady (które jednak wynikają
+z podstawowej zasady bez konwersji typu), gdzie wnioskowany typ może
 różnić się od typu argumentu wywołania funkcji wyłącznie
 kwalifikatorami lub deklaratorami najwyższego rzędu.  **Wnioskowanym
 typem nigdy nie będzie typ referencyjny, bo argument funkcji nigdy nie
@@ -313,8 +312,8 @@ jest typu referencyjnego.**
 
 ### Zwykły typ parametru funkcji
 
-**Wywnioskowany argument szablonu jest typem argumentu funkcji z
-pominięciem kwalifikatorów najwyższego rzędu.**
+**Zasada. Wywnioskowany argument szablonu jest typem argumentu funkcji
+z pominięciem kwalifikatorów najwyższego rzędu.**
 
 Chodzi o to, że inicjalizacja parametrów funkcji (przy przekazywaniu
 argumentów wywołania przez wartość) kopiuje wartość argumentu
@@ -338,8 +337,8 @@ wskaźnikowego:
 
 ### Wskaźnikowy typ parametru funkcji
 
-**Wywnioskowany argument szablonu jest typem argumentu funkcji z
-pominięciem deklaratora `*` i kwalifikatorów *najwyższego* rzędu.
+**Zasada. Wywnioskowany argument szablonu jest typem argumentu funkcji
+z pominięciem deklaratora `*` i kwalifikatorów *najwyższego* rzędu.
 Kwalifikatory najwyższego rzędu dla *typu wskazywanych danych* też są
 pomijane, jeżeli znajdują się w definicji typu parametru funkcji.**
 
@@ -366,8 +365,8 @@ Wyjaśnienie:
 
 ### Referencyjny typ parametru funkcji
 
-**Wywnioskowany argument szablonu jest typem argumentu funkcji z
-pominięciem tych kwalifikatorów najwyższego rzędu, które zostały
+**Zasada. Wywnioskowany argument szablonu jest typem argumentu funkcji
+z pominięciem tych kwalifikatorów najwyższego rzędu, które zostały
 podane w definicji typu danych, do których referencyjny parametr
 funkcji się odnosi.**
 

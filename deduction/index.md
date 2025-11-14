@@ -300,19 +300,17 @@ with the value and template kinds), because it considers:
 
 * the category of a function argument (discussed in a later topic).
 
-W zależności od omawianych szczególnych (najważniejszych) typów
-parametru funkcji (zwykłych, wskaźnikowych, referencyjnych) stosowane
-są nieco różne zasady, które jednak wynikają z podstawowej zasady z
-ograniczeniem.  Dla tych szczególnych typów, wnioskowany typ może
-różnić się od typu argumentu wywołania funkcji wyłącznie
-kwalifikatorami lub deklaratorami najwyższego rzędu.  **Wnioskowanym
-typem nigdy nie będzie typ referencyjny, bo argument funkcji nigdy nie
-jest typu referencyjnego.**
+Depending on the function parameter type (regular, pointer, reference)
+different rules are used (which follow from the basic rule without
+type conversion), where the deduced type can differ from the function
+argument type only with the top-level qualifiers and
+declarators. **The deduced type is never a reference type, because a
+function argument is never of a reference type.**
 
 ### Zwykły typ parametru funkcji
 
-**Wywnioskowany argument szablonu jest typem argumentu funkcji z
-pominięciem kwalifikatorów najwyższego rzędu.**
+**Zasada. Wywnioskowany argument szablonu jest typem argumentu funkcji
+z pominięciem kwalifikatorów najwyższego rzędu.**
 
 Chodzi o to, że inicjalizacja parametrów funkcji (przy przekazywaniu
 argumentów wywołania przez wartość) kopiuje wartość argumentu
@@ -336,10 +334,11 @@ wskaźnikowego:
 
 ### Wskaźnikowy typ parametru funkcji
 
-**Wywnioskowany argument szablonu jest typem argumentu funkcji z
-pominięciem deklaratora `*` i kwalifikatorów *najwyższego* rzędu.
-Kwalifikatory najwyższego rzędu dla *typu wskazywanych danych* też są
-pomijane, jeżeli znajdują się w definicji typu parametru funkcji.**
+**Zasada.  Wywnioskowany argument szablonu jest typem argumentu
+funkcji z pominięciem deklaratora `*` i kwalifikatorów *najwyższego*
+rzędu.  Kwalifikatory najwyższego rzędu dla *typu wskazywanych danych*
+też są pomijane, jeżeli znajdują się w definicji typu parametru
+funkcji.**
 
 Wyjaśnienie:
 
@@ -364,10 +363,10 @@ Wyjaśnienie:
 
 ### Referencyjny typ parametru funkcji
 
-**Wywnioskowany argument szablonu jest typem argumentu funkcji z
-pominięciem tych kwalifikatorów najwyższego rzędu, które zostały
-podane w definicji typu danych, do których referencyjny parametr
-funkcji się odnosi.**
+**Zasada.  Wywnioskowany argument szablonu jest typem argumentu
+funkcji z pominięciem tych kwalifikatorów najwyższego rzędu, które
+zostały podane w definicji typu danych, do których referencyjny
+parametr funkcji się odnosi.**
 
 Chodzi o to, żeby referencyjny parametr funkcji rzeczywiście mógł być
 zainicjalizowany: jeżeli typ argumentu wywołania jest stały (bądź
