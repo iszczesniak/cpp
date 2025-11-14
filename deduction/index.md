@@ -301,9 +301,9 @@ with the value and template kinds), because it considers:
 * the category of a function argument (discussed in a later topic).
 
 Depending on the function parameter type (regular, pointer, reference)
-different rules are used (which follow from the basic rule without
-type conversion), where the deduced type can differ from the function
-argument type only with the top-level qualifiers and
+different deduction rules are used (which follow from the basic rule
+without type conversion), where the deduced type can differ from the
+function argument type only with the top-level qualifiers and
 declarators. **The deduced type is never a reference type, because a
 function argument is never of a reference type.**
 

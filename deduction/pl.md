@@ -303,12 +303,12 @@ rodzaju wartościowego czy szablonowego), bo bierze pod uwagę:
 * kategorię argumentu funkcji (opisane w późniejszym temacie).
 
 W zależności od typu parametru funkcji (zwykłego, wskaźnikowego,
-referencyjnego) stosowane są nieco różne zasady (które jednak wynikają
-z podstawowej zasady bez konwersji typu), gdzie wnioskowany typ może
-różnić się od typu argumentu wywołania funkcji wyłącznie
-kwalifikatorami lub deklaratorami najwyższego rzędu.  **Wnioskowanym
-typem nigdy nie będzie typ referencyjny, bo argument funkcji nigdy nie
-jest typu referencyjnego.**
+referencyjnego) stosowane są nieco różne zasady wnioskowania (które
+jednak wynikają z podstawowej zasady bez konwersji typu), gdzie
+wnioskowany typ może różnić się od typu argumentu wywołania funkcji
+wyłącznie kwalifikatorami lub deklaratorami najwyższego rzędu.
+**Wnioskowanym typem nigdy nie będzie typ referencyjny, bo argument
+funkcji nigdy nie jest typu referencyjnego.**
 
 ### Zwykły typ parametru funkcji
 
