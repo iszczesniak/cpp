@@ -271,11 +271,11 @@ reference name.  The standard says ([expr.type]), that a compiler
 removes the top-level `&` declarator from the expression type before
 the expression is further evaluated.
 
-# Wnioskowanie typowego argumentu szablonu
+# Deduction: the type kind
 
-Dla każdego **rodzaju** parametru szablonu, kompilator może wnioskować
-argument.  Najczęściej chcemy, żeby kompilator wnioskował typowe (w
-tym szablonowe) argumenty.
+For every kind of a template parameter, a compiler can deduce
+arguments.  We usually want the compiler to deduce arguments of the
+type kind.
 
 Typowy argument szablonu jest wnioskowany dla typowego parametru
 szablonu.  To wnioskowanie jest najbardziej złożone (w porównaniu do

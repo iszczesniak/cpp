@@ -275,8 +275,8 @@ dalszym opracowaniem.
 # Wnioskowanie typowego argumentu szablonu
 
 Dla każdego **rodzaju** parametru szablonu, kompilator może wnioskować
-argument.  Najczęściej chcemy, żeby kompilator wnioskował typowe (w
-tym szablonowe) argumenty.
+argument.  Najczęściej chcemy, żeby kompilator wnioskował typowe
+argumenty.
 
 Typowy argument szablonu jest wnioskowany dla typowego parametru
 szablonu.  To wnioskowanie jest najbardziej złożone (w porównaniu do
