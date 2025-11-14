@@ -234,10 +234,10 @@ initialized, and later cannot be changed (so that it names some
 different data), so a `const` top-level qualifier would make no
 difference.  For instance, type `int & const` is wrong.
 
-Dlatego nie da się przeciążać funkcji dla typów referencyjnych
-(parametru funkcji), które miałyby się różnić tylko kwalifikatorami
-najwyższego rzędu.  Nawet deklaracja jednej funkcji jest niemożliwa,
-jeżeli typ referencyjny jej parametru miałby mieć kwalifikator.
+Therefore a function cannot be overloaded for reference types (of a
+function parameter), that would differ with the top-level qualifiers.
+It's just impossible: we cannot declare a function with a parameter of
+a cv-qualified reference type.
 
 Podobnie jak w typie wskaźnikowym, tak i w typie referencyjnym, tuż po
 lewej stronie deklaratora `&` najwyższego rzędu, możemy też podać
