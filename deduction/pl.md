@@ -272,11 +272,13 @@ nazwa referencji.  W standardzie napisano ([expr.type]), że kompilator
 usuwa deklarator `&` najwyższego rzędu z typu wyrażenia przed jego
 dalszym opracowaniem.**
 
-# Wnioskowanie typowego argumentu szablonu
+# Wnioskowanie
 
 Dla każdego **rodzaju** parametru szablonu, kompilator może wnioskować
 argument.  Najczęściej chcemy, żeby kompilator wnioskował typowe
 argumenty.
+
+## Typowy argument
 
 Typowy argument szablonu jest wnioskowany dla typowego parametru
 szablonu.  To wnioskowanie jest najbardziej złożone (w porównaniu do
@@ -309,7 +311,7 @@ kwalifikatorami lub deklaratorami najwyższego rzędu.  Wnioskowanym
 typem nigdy nie będzie typ referencyjny, bo argument funkcji nigdy nie
 jest typu referencyjnego.
 
-## Zwykły typ parametru funkcji
+### Zwykły typ parametru funkcji
 
 **Wywnioskowany argument szablonu jest typem argumentu funkcji z
 pominięciem kwalifikatorów najwyższego rzędu.**
@@ -334,7 +336,7 @@ wskaźnikowego:
 {% include_relative arg_type_val2.cc %}
 ```
 
-## Wskaźnikowy typ parametru funkcji
+### Wskaźnikowy typ parametru funkcji
 
 **Wywnioskowany argument szablonu jest typem argumentu funkcji z
 pominięciem deklaratora `*` i kwalifikatorów *najwyższego* rzędu.
@@ -362,7 +364,7 @@ Wyjaśnienie:
 {% include_relative arg_type_ptr.cc %}
 ```
 
-## Referencyjny typ parametru funkcji
+### Referencyjny typ parametru funkcji
 
 **Wywnioskowany argument szablonu jest typem argumentu funkcji z
 pominięciem tych kwalifikatorów najwyższego rzędu, które zostały
@@ -380,7 +382,7 @@ Przykład:
 {% include_relative arg_type_ref.cc %}
 ```
 
-## Przekazywanie funkcji
+### Przekazywanie funkcji
 
 Funkcję możemy przekazać przez:
 
@@ -425,7 +427,7 @@ Przykład:
 {% include_relative foo_dcy.cc %}
 ```
 
-## Przekazywanie tablic języka C
+### Przekazywanie tablic języka C
 
 Tablicę języka C możemy przekazać do funkcji szablonowej przez:
 
@@ -468,7 +470,7 @@ Oto przykład z rozpadem:
 {% include_relative car_dcy.cc %}
 ```
 
-# Wartościowy argument szablonu
+## Wartościowy argument szablonu
 
 Wartościowy argument szablonu jest wnioskowany tylko na podstawie typu
 argumentu wywołania funkcji, z którego można ten argument
@@ -483,7 +485,7 @@ możemy wywnioskować wartościowy argument szablonu, to:
 
 * dowolny typ szablonowy.
 
-## Typ tablicy języka C
+### Typ tablicy języka C
 
 Oto przykład:
 
@@ -491,7 +493,7 @@ Oto przykład:
 {% include_relative carray.cc %}
 ```
 
-## Dowolny typ szablonowy
+### Dowolny typ szablonowy
 
 Typy wartościowych parametrów obu szablonów muszą się zgadzać.  Te oba
 szablony to:

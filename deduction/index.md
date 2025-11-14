@@ -271,11 +271,13 @@ reference name.  The standard says ([expr.type]), that a compiler
 removes the top-level `&` declarator from the expression type before
 the expression is further evaluated.**
 
-# Deduction: the type kind
+# Deduction
 
 For every kind of a template parameter, a compiler can deduce
 arguments.  We usually want the compiler to deduce arguments of the
 type kind.
+
+## The type kind
 
 Typowy argument szablonu jest wnioskowany dla typowego parametru
 szablonu.  To wnioskowanie jest najbardziej złożone (w porównaniu do
@@ -308,7 +310,7 @@ kwalifikatorami lub deklaratorami najwyższego rzędu.  Wnioskowanym
 typem nigdy nie będzie typ referencyjny, bo argument funkcji nigdy nie
 jest typu referencyjnego.
 
-## Zwykły typ parametru funkcji
+### Zwykły typ parametru funkcji
 
 **Wywnioskowany argument szablonu jest typem argumentu funkcji z
 pominięciem kwalifikatorów najwyższego rzędu.**
@@ -333,7 +335,7 @@ wskaźnikowego:
 {% include_relative arg_type_val2.cc %}
 ```
 
-## Wskaźnikowy typ parametru funkcji
+### Wskaźnikowy typ parametru funkcji
 
 **Wywnioskowany argument szablonu jest typem argumentu funkcji z
 pominięciem deklaratora `*` i kwalifikatorów *najwyższego* rzędu.
@@ -361,7 +363,7 @@ Wyjaśnienie:
 {% include_relative arg_type_ptr.cc %}
 ```
 
-## Referencyjny typ parametru funkcji
+### Referencyjny typ parametru funkcji
 
 **Wywnioskowany argument szablonu jest typem argumentu funkcji z
 pominięciem tych kwalifikatorów najwyższego rzędu, które zostały
@@ -379,7 +381,7 @@ Przykład:
 {% include_relative arg_type_ref.cc %}
 ```
 
-## Przekazywanie funkcji
+### Przekazywanie funkcji
 
 Funkcję możemy przekazać przez:
 
@@ -424,7 +426,7 @@ Przykład:
 {% include_relative foo_dcy.cc %}
 ```
 
-## Przekazywanie tablic języka C
+### Przekazywanie tablic języka C
 
 Tablicę języka C możemy przekazać do funkcji szablonowej przez:
 
@@ -457,8 +459,7 @@ Jeżeli typem parametru funkcji szablonowej jest zwykły typ
 będzie nazwa tablicy, to do funkcji zostanie przekazany wskaźnik na
 pierwszy element tablicy (a nie wskaźnik na tablicę), bo:
 
-* tablica rozpadnie się (ang. decay) na wskaźnik na pierwszy element
-  tablicy,
+* tablica rozpadnie się na wskaźnik na pierwszy element tablicy,
 
 * wywnioskowanym argumentem będzie typ wskaźnikowy na element tablicy.
 
@@ -468,7 +469,7 @@ Oto przykład z rozpadem:
 {% include_relative car_dcy.cc %}
 ```
 
-# Wartościowy argument szablonu
+## Wartościowy argument szablonu
 
 Wartościowy argument szablonu jest wnioskowany tylko na podstawie typu
 argumentu wywołania funkcji, z którego można ten argument
@@ -483,7 +484,7 @@ możemy wywnioskować wartościowy argument szablonu, to:
 
 * dowolny typ szablonowy.
 
-## Typ tablicy języka C
+### Typ tablicy języka C
 
 Oto przykład:
 
@@ -491,7 +492,7 @@ Oto przykład:
 {% include_relative carray.cc %}
 ```
 
-## Dowolny typ szablonowy
+### Dowolny typ szablonowy
 
 Typy wartościowych parametrów obu szablonów muszą się zgadzać.  Te oba
 szablony to:
