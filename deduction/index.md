@@ -263,13 +263,13 @@ data types refered to.  Here's an example:
 {% include_relative cv_ref2.cc %}
 ```
 
-# Expression type
+# Expression type: never reference!
 
-Every expression in C++ is of non-reference type, and so the type of a
-function argument is non-reference, even if the expression is a
+**Every expression in C++ is of non-reference type, and so the type of
+a function argument is non-reference, even if the expression is a
 reference name.  The standard says ([expr.type]), that a compiler
 removes the top-level `&` declarator from the expression type before
-the expression is further evaluated.
+the expression is further evaluated.**
 
 # Deduction: the type kind
 

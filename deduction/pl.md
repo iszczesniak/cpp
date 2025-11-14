@@ -264,13 +264,13 @@ typu danych, do których odnosi się referencja.  Oto przykład:
 {% include_relative cv_ref2.cc %}
 ```
 
-# Typ wyrażenia
+# Typ wyrażenia: nigdy referencyjny!
 
-Każde wyrażenie w C++ jest typu niereferencyjnego, a więc i typ
+**Każde wyrażenie w C++ jest typu niereferencyjnego, a więc i typ
 argumentu funkcji jest niereferencyjny, nawet jeżeli wyrażeniem jest
 nazwa referencji.  W standardzie napisano ([expr.type]), że kompilator
 usuwa deklarator `&` najwyższego rzędu z typu wyrażenia przed jego
-dalszym opracowaniem.
+dalszym opracowaniem.**
 
 # Wnioskowanie typowego argumentu szablonu
 
