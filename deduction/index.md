@@ -224,17 +224,16 @@ that a pointer refers to.  Here's an example:
 {% include_relative cv_ptr3.cc %}
 ```
 
-### Typ referencyjny
+### Reference type
 
-Referencja albo nazywa pewną daną (np. element tablicy) albo jest
-aliasem innej zmiennej.  Typ referencyjny nie ma kwalifikatorów
-najwyższego rzędu, bo referencja ma wiernie odwzorować typ danej,
-której jest aliasem: wyrażenie referencyjne jest zamieniane na
-wyrażenie z tą daną, do której referencja się odnosi.  Co więcej,
-referencję można tylko zainicjalizować, a potem już nie można jej
-zmienić, żeby była aliasem innej danej, a kwalifikator `const`
-najwyższego rzędu nie robiłby różnicy.  Tak więc, na przykład, typ
-`int & const` jest niedopuszczalny.
+A reference either names some data (e.g., a temporary, a table
+element) or is an alias to some other variable.  A reference type does
+not have qualifiers, because it's supposed to represent verbatim its
+data: a reference expression is replaced by an expression with the
+data of the reference.  What's more, a reference can only be
+initialized, and later cannot be changed (so that it names some
+different data), so a `const` top-level qualifier would make no
+difference.  For instance, type `int & const` is wrong.
 
 Dlatego nie da się przeciążać funkcji dla typów referencyjnych
 (parametru funkcji), które miałyby się różnić tylko kwalifikatorami
