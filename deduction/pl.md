@@ -239,11 +239,11 @@ Dlatego nie da się przeciążać funkcji dla typów referencyjnych
 najwyższego rzędu.  Nawet deklaracja jednej funkcji jest niemożliwa,
 jeżeli typ referencyjny jej parametru miałby mieć kwalifikator.
 
-Podobnie jak w typie wskaźnikowym, tak i w typie referencyjnym, tuż po
-lewej stronie deklaratora `&` najwyższego rzędu, możemy też podać
-kwalifikatory **najwyższego rzędu** dla typu wskazywanych danych.
-Kwalifikatory te możemy nazwać **niższego rzędu**, jeżeli mówimy o
-typie referencyjnym.
+Podobnie jak w typie wskaźnikowym, tak i w typie referencyjnym, po
+lewej stronie deklaratora `&` najwyższego rzędu, możemy podać
+kwalifikatory *najwyższego rzędu* dla typu wskazywanych danych.
+Kwalifikatory te możemy nazwać *niższego rzędu*, jeżeli mówimy o typie
+referencyjnym.
 
 **Warunek dla typu referencyjnego.** Kwalifikatory *niższego rzędu*
 typu referencyjnego muszą zawierać kwalifikatory *najwyższego rzędu*

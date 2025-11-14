@@ -202,11 +202,11 @@ an example:
 ```
 
 In a pointer type, on the left of the `*` top-level declarator, we can
-put the *top-level* qualifiers of the type pointed to.  We can call
+put the *top-level* qualifiers for the type pointed to.  We can call
 these qualifiers **lower-level**, if we talk about the pointer type.
 
-**A requirement for a pointer type.** *Lower-level* qualifiers of a
-pointer type must include the *top-level* qualifiers of the type
+**A requirement for a pointer type.** The *lower-level* qualifiers of
+a pointer type must include the *top-level* qualifiers of the type
 pointed to.
 
 Here's an example:
@@ -239,15 +239,14 @@ function parameter), that would differ with the top-level qualifiers.
 It's just impossible: we cannot declare a function with a parameter of
 a cv-qualified reference type.
 
-Podobnie jak w typie wskaźnikowym, tak i w typie referencyjnym, tuż po
-lewej stronie deklaratora `&` najwyższego rzędu, możemy też podać
-kwalifikatory **najwyższego rzędu** dla typu wskazywanych danych.
-Kwalifikatory te możemy nazwać **niższego rzędu**, jeżeli mówimy o
-typie referencyjnym.
+Just as for a pointer type, for a reference type too, on the left of
+the top-level `&` declarator, we can put the *top-level* qualifiers
+for the type refered to.  We can call these qualifiers *lower-level*,
+if we talk about the reference type.
 
-**Warunek dla typu referencyjnego.** Kwalifikatory *niższego rzędu*
-typu referencyjnego muszą zawierać kwalifikatory *najwyższego rzędu*
-typu wskazywanych danych.
+**A requirement for the reference type.** The *lower-level* qualifiers
+of a reference type must include the *top-level* qualifiers of the
+type refered to.
 
 Oto przykład:
 
