@@ -460,8 +460,7 @@ Jeżeli typem parametru funkcji szablonowej jest zwykły typ
 będzie nazwa tablicy, to do funkcji zostanie przekazany wskaźnik na
 pierwszy element tablicy (a nie wskaźnik na tablicę), bo:
 
-* tablica rozpadnie się (ang. decay) na wskaźnik na pierwszy element
-  tablicy,
+* tablica rozpadnie się na wskaźnik na pierwszy element tablicy,
 
 * wywnioskowanym argumentem będzie typ wskaźnikowy na element tablicy.
 
