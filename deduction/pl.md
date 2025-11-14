@@ -59,7 +59,7 @@ definicji) co najmniej jednego parametru szablonu.  Sposobów
 zdefiniowania typu `ParameterType` w zależności od parametrów szablonu
 jest wiele, a my omówimy najważniejsze.
 
-## Podstawowa zasada, bez konwersji
+## Podstawowa zasada bez konwersji typu
 
 **Zasada: wywnioskowany argument szablonu ma pozwolić na inicjalizację
 parametru funkcji.**

@@ -59,7 +59,7 @@ its definition) at least one template parameter.  There are many ways
 type `ParameterType` can depend on template parameters, and we discuss
 the most important.
 
-## The basic rule, no conversion
+## The basic rule without type conversion
 
 **Rule: the deduced argument should allow for the initialization of
 the function parameter.**
