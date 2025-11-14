@@ -279,36 +279,35 @@ type kind.
 
 ## The type kind
 
-Typowy argument szablonu jest wnioskowany dla typowego parametru
-szablonu.  To wnioskowanie jest najbardziej złożone (w porównaniu do
-rodzaju wartościowego czy szablonowego), bo rozróżnia:
+A template argument of a type kind is deduced for a template parameter
+of a type kind.  This deduction is the most complex (in comparison
+with the value and template kinds), because it considers:
 
-* typ parametru funkcji, w szczególności:
+* the type of a function parameter, that can only be:
 
-  - **zwykły** (niewskaźnikowy i niereferencyjny) dla przekazywania
-    przez wartość,
+  - **regular** (non-pointer and non-reference) for passing by value,
 
-  - **wskaźnikowy** dla przekazywania przez wskaźnik (które jest
-    po prostu przekazywaniem przez wartość),
+  - **pointer** for passing by pointer (that is just passing by
+      value),
 
-  - **referencyjny** dla przekazywania przez referencję.
+  - **reference** for passing by reference;
 
-* typ argumentu wywołania funkcji, w szczególności:
+* the type of a function argument, especially when the argument is:
 
-  - **funkcyjny**,
+  - a **function**,
 
-  - **tablicowy**.
+  - a **C-style array**;
 
-* kategorię argumentu (opisane w innym temacie).
+* the category of a function argument (discussed in a later topic).
 
 W zależności od omawianych szczególnych (najważniejszych) typów
 parametru funkcji (zwykłych, wskaźnikowych, referencyjnych) stosowane
 są nieco różne zasady, które jednak wynikają z podstawowej zasady z
 ograniczeniem.  Dla tych szczególnych typów, wnioskowany typ może
 różnić się od typu argumentu wywołania funkcji wyłącznie
-kwalifikatorami lub deklaratorami najwyższego rzędu.  Wnioskowanym
+kwalifikatorami lub deklaratorami najwyższego rzędu.  **Wnioskowanym
 typem nigdy nie będzie typ referencyjny, bo argument funkcji nigdy nie
-jest typu referencyjnego.
+jest typu referencyjnego.**
 
 ### Zwykły typ parametru funkcji
 

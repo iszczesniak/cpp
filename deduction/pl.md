@@ -282,9 +282,9 @@ argumenty.
 
 Typowy argument szablonu jest wnioskowany dla typowego parametru
 szablonu.  To wnioskowanie jest najbardziej złożone (w porównaniu do
-rodzaju wartościowego czy szablonowego), bo rozróżnia:
+rodzaju wartościowego czy szablonowego), bo bierze pod uwagę:
 
-* typ parametru funkcji, w szczególności:
+* typ parametru funkcji, który może być tylko:
 
   - **zwykły** (niewskaźnikowy i niereferencyjny) dla przekazywania
     przez wartość,
@@ -292,24 +292,24 @@ rodzaju wartościowego czy szablonowego), bo rozróżnia:
   - **wskaźnikowy** dla przekazywania przez wskaźnik (które jest
     po prostu przekazywaniem przez wartość),
 
-  - **referencyjny** dla przekazywania przez referencję.
+  - **referencyjny** dla przekazywania przez referencję;
 
-* typ argumentu wywołania funkcji, w szczególności:
+* typ argumentu wywołania funkcji, szczególnie gdy argumentem jest:
 
-  - **funkcyjny**,
+  - **funkcja**,
 
-  - **tablicowy**.
+  - **tablica języka C**;
 
-* kategorię argumentu (opisane w innym temacie).
+* kategorię argumentu funkcji (opisane w późniejszym temacie).
 
 W zależności od omawianych szczególnych (najważniejszych) typów
 parametru funkcji (zwykłych, wskaźnikowych, referencyjnych) stosowane
 są nieco różne zasady, które jednak wynikają z podstawowej zasady z
 ograniczeniem.  Dla tych szczególnych typów, wnioskowany typ może
 różnić się od typu argumentu wywołania funkcji wyłącznie
-kwalifikatorami lub deklaratorami najwyższego rzędu.  Wnioskowanym
+kwalifikatorami lub deklaratorami najwyższego rzędu.  **Wnioskowanym
 typem nigdy nie będzie typ referencyjny, bo argument funkcji nigdy nie
-jest typu referencyjnego.
+jest typu referencyjnego.**
 
 ### Zwykły typ parametru funkcji
 
