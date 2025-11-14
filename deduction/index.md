@@ -263,13 +263,13 @@ data types refered to.  Here's an example:
 {% include_relative cv_ref2.cc %}
 ```
 
-# Typ wyrażenia
+# Expression type
 
-Każde wyrażenie w C++ jest typu niereferencyjnego, a więc i typ
-argumentu funkcji jest niereferencyjny, nawet jeżeli wyrażeniem jest
-nazwa referencji.  W standardzie napisano ([expr.type]), że kompilator
-usuwa deklarator `&` najwyższego rzędu z typu wyrażenia przed jego
-dalszym opracowaniem.
+Every expression in C++ is of non-reference type, and so the type of a
+function argument is non-reference, even if the expression is a
+reference name.  The standard says ([expr.type]), that a compiler
+removes the top-level `&` declarator from the expression type before
+the expression is further evaluated.
 
 # Wnioskowanie typowego argumentu szablonu
 
