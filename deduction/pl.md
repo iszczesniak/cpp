@@ -298,7 +298,7 @@ rodzaju wartościowego czy szablonowego), bo bierze pod uwagę:
 
   - **funkcja**,
 
-  - **tablica języka C**;
+  - **tablica**;
 
 * kategorię argumentu funkcji (opisane w późniejszym temacie).
 

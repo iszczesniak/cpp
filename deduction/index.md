@@ -296,7 +296,7 @@ with the value and template kinds), because it considers:
 
   - a **function**,
 
-  - a **C-style array**;
+  - an **array**;
 
 * the category of a function argument (discussed in a later topic).
 
