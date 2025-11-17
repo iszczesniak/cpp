@@ -307,26 +307,26 @@ function argument type only with the top-level qualifiers and
 declarators. **The deduced type is never a reference type, because a
 function argument is never of a reference type.**
 
-### Zwykły typ parametru funkcji
+### A regular function parameter type
 
-**Zasada. Wywnioskowany argument szablonu jest typem argumentu funkcji
-z pominięciem kwalifikatorów najwyższego rzędu.**
+**Rule.  The deduced template argument is the type of the function
+argument with the top-level qualifiers dropped.**
 
-Chodzi o to, że inicjalizacja parametrów funkcji (przy przekazywaniu
-argumentów wywołania przez wartość) kopiuje wartość argumentu
-wywołania do parametru funkcji.  Wnioskowanie nie musi zadbać o
-kwalifikatory typu, bo w ciele funkcji działamy na kopii.  W definicji
-parametru możemy podać kwalifikatory, żeby poprosić kompilator o
-pilnowanie się z tym parametrem.
+It's about the value of a function argument being copied to a function
+parameter (when passing by value).  Deduction doesn't have to care
+about the (top-level) type qualifiers, because in the function body we
+work with a copy.  In the parameter definition we can put (top-level)
+qualifiers to have a compiler watch over this parameter.
 
-Przykład:
+Example:
 
 ```cpp
 {% include_relative arg_type_val1.cc %}
 ```
 
-Ten typ paramatru szablonu może także przyjąc argument typu
-wskaźnikowego:
+Defining a function parameter this way (that looks regular), we can
+pass an argument of a pointer type, because the deduced type will be
+pointer:
 
 ```cpp
 {% include_relative arg_type_val2.cc %}

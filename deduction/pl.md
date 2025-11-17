@@ -312,14 +312,14 @@ funkcji nigdy nie jest typu referencyjnego.**
 
 ### Zwykły typ parametru funkcji
 
-**Zasada. Wywnioskowany argument szablonu jest typem argumentu funkcji
-z pominięciem kwalifikatorów najwyższego rzędu.**
+**Zasada.  Wywnioskowany argument szablonu jest typem argumentu
+funkcji z pominięciem kwalifikatorów najwyższego rzędu.**
 
-Chodzi o to, że inicjalizacja parametrów funkcji (przy przekazywaniu
-argumentów wywołania przez wartość) kopiuje wartość argumentu
-wywołania do parametru funkcji.  Wnioskowanie nie musi zadbać o
-kwalifikatory typu, bo w ciele funkcji działamy na kopii.  W definicji
-parametru możemy podać kwalifikatory, żeby poprosić kompilator o
+Chodzi o to, że wartość argumentu funkcji jest kopiowana do parametru
+funkcji (przy przekazywaniu przez wartość).  Wnioskowanie nie musi
+zadbać o kwalifikatory typu (najwyższego rzędu), bo w ciele funkcji
+działamy na kopii.  W definicji parametru funkcji możemy podać
+kwalifikatory (najwyższego rzędu), żeby poprosić kompilator o
 pilnowanie się z tym parametrem.
 
 Przykład:
@@ -328,8 +328,9 @@ Przykład:
 {% include_relative arg_type_val1.cc %}
 ```
 
-Ten typ paramatru szablonu może także przyjąc argument typu
-wskaźnikowego:
+Definiując w ten sposób typ parametru funkcji (który wygląda na
+normalny), możemy przekazać argument typu wskaźnikowego, bo
+wywnioskowany typ będzie wskaźnikowy:
 
 ```cpp
 {% include_relative arg_type_val2.cc %}
