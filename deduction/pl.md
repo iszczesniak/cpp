@@ -371,10 +371,10 @@ z pominięciem tych kwalifikatorów najwyższego rzędu, które zostały
 podane w definicji typu danych, do których referencyjny parametr
 funkcji się odnosi.**
 
-Chodzi o to, żeby referencyjny parametr funkcji rzeczywiście mógł być
-zainicjalizowany: jeżeli typ argumentu wywołania jest stały (bądź
-ulotny), to referencja musi odnosić się do danej typu stałego (bądź
-ulotnego).  Pamiętajmy, że typ argumentu nigdy nie jest referencyjny.
+Chodzi o to, żeby umożliwić inicjalizację referencyjnego parametru
+funkcji: jeżeli typ argumentu funkcji jest stały (bądź ulotny), to
+referencja musi odnosić się do danej typu stałego (bądź ulotnego).
+Przypomnijmy, że typ argumentu funkcji nigdy nie jest referencyjny.
 
 Przykład:
 

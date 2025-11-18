@@ -359,17 +359,17 @@ Explanation:
 {% include_relative arg_type_ptr.cc %}
 ```
 
-### Referencyjny typ parametru funkcji
+### A reference type of a function parameter
 
-**Zasada.  Wywnioskowany argument szablonu jest typem argumentu
-funkcji z pominięciem tych kwalifikatorów najwyższego rzędu, które
-zostały podane w definicji typu danych, do których referencyjny
-parametr funkcji się odnosi.**
+**Rule.  The deduced template argument is the type of the function
+argument with those top-level qualifiers dropped that have been put as
+top-level in the definition of the data type that a reference
+parameter refers to.**
 
-Chodzi o to, żeby referencyjny parametr funkcji rzeczywiście mógł być
-zainicjalizowany: jeżeli typ argumentu wywołania jest stały (bądź
-ulotny), to referencja musi odnosić się do danej typu stałego (bądź
-ulotnego).  Pamiętajmy, że typ argumentu nigdy nie jest referencyjny.
+It's about making the initialization of a reference parameter
+possible: if the type of a function argument is const (or volatile),
+then a reference must refer to the cost (or volatile) data.  Let's
+recall that a function argument is never of a reference type.
 
 Przykład:
 
