@@ -394,7 +394,7 @@ Funkcję możemy przekazać przez:
 
 Funkcję możemy przekazać przez *referencję* używając referencyjnego
 typu parametru funkcji, czyli typu `F &`, gdzie `F` jest typowym
-parametrem szablonu.  Wywnioskowanym argumentem szablonu będzie typ
+parametrem szablonu.  Wywnioskowanym argumentem szablonu jest typ
 przekazywanej funkcji.  Przykład:
 
 ```cpp
@@ -402,9 +402,9 @@ przekazywanej funkcji.  Przykład:
 ```
 
 Funkcję możemy przekazać przez *wskaźnik* używając wskaźnikowego typu
-parametru funkcji szablonowej, a dokładnie typu `F *`, gdzie `F` jest
-typowym parametrem szablonu.  Wywnioskowanym argumentem szablonu
-będzie typ przekazywanej funkcji.  Przykład:
+parametru funkcji, czyli typu `F *`, gdzie `F` jest typowym parametrem
+szablonu.  Wywnioskowanym argumentem szablonu jest typ przekazywanej
+funkcji.  Przykład:
 
 ```cpp
 {% include_relative foo_ptr.cc %}

@@ -396,10 +396,10 @@ function passed.  Example:
 {% include_relative foo_ref.cc %}
 ```
 
-Funkcję możemy przekazać przez *wskaźnik* używając wskaźnikowego typu
-parametru funkcji szablonowej, a dokładnie typu `F *`, gdzie `F` jest
-typowym parametrem szablonu.  Wywnioskowanym argumentem szablonu
-będzie typ przekazywanej funkcji.  Przykład:
+We can pass a function by *pointer* using a pointer type of a function
+parameter, i.e., type `F *`, where `F` is a template parameter of the
+type kind.  The deduced template argument is the type of the function
+passed.  Example:
 
 ```cpp
 {% include_relative foo_ptr.cc %}
