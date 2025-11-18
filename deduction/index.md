@@ -405,10 +405,10 @@ passed.  Example:
 {% include_relative foo_ptr.cc %}
 ```
 
-Zamianę nazwy funkcji na wskaźnik do niej nazywamy **rozpadem funkcji
-na wskaźnik** (ang. decay), który pochodzi z języka C.  Z rozpadu
-skorzystaliśmy wyżej podając nazwę funkcji jako argument wywołania
-funkcji szablonowej.
+A function name can *decay* to a pointer to the function, which comes
+from the C language.  A decay takes place in the example above, where
+a function name is an argument of a call.  A function name does not
+decay, if the function is passed by reference.
 
 Funkcję możemy także przekazać przez *wskaźnik* używając zwykłego
 (niereferencyjnego i niewskaźnikowego) typu parametru funkcji, a

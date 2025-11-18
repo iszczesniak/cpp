@@ -410,10 +410,10 @@ funkcji.  Przykład:
 {% include_relative foo_ptr.cc %}
 ```
 
-Zamianę nazwy funkcji na wskaźnik do niej nazywamy **rozpadem funkcji
-na wskaźnik** (ang. decay), który pochodzi z języka C.  Z rozpadu
-skorzystaliśmy wyżej podając nazwę funkcji jako argument wywołania
-funkcji szablonowej.
+Nazwa funkcji może **rozpaść się** na wskaźnik do funkcji, co pochodzi
+z języka C.  Do rozpadu dochodzi w przykładzie wyżej, gdzie nazwa
+funkcji jest argumentem wywołania.  Nazwa funkcji nie rozpada się,
+jeżeli funkcja jest przekazywana przez referencję.
 
 Funkcję możemy także przekazać przez *wskaźnik* używając zwykłego
 (niereferencyjnego i niewskaźnikowego) typu parametru funkcji, a
