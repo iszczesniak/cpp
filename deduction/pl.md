@@ -416,8 +416,8 @@ funkcji jest argumentem wywołania.  Nazwa funkcji nie rozpada się,
 jeżeli funkcja jest przekazywana przez referencję.
 
 Funkcję możemy także przekazać przez *wskaźnik* używając zwykłego
-(niereferencyjnego i niewskaźnikowego) typu parametru funkcji, a
-dokładnie typu `F`, gdzie `F` jest typowym parametrem szablonu.  Wtedy
+(niereferencyjnego i niewskaźnikowego) typu parametru funkcji, czyli
+typu `F`, gdzie `F` jest typowym parametrem szablonu.  Wtedy
 wywnioskowanym argumentem szablonu będzie typ wskaźnikowy na funkcję,
 bo nazwa funkcji rozpada się na wskaźnik.  Zwróćmy uwagę, że to nie
 jest przekazywanie funkcji przez wartość, bo czegoś takiego nie ma.

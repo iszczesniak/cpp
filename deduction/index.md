@@ -410,13 +410,12 @@ from the C language.  A decay takes place in the example above, where
 a function name is an argument of a call.  A function name does not
 decay, if the function is passed by reference.
 
-Funkcję możemy także przekazać przez *wskaźnik* używając zwykłego
-(niereferencyjnego i niewskaźnikowego) typu parametru funkcji, a
-dokładnie typu `F`, gdzie `F` jest typowym parametrem szablonu.  Wtedy
-wywnioskowanym argumentem szablonu będzie typ wskaźnikowy na funkcję,
-bo nazwa funkcji rozpada się na wskaźnik.  Zwróćmy uwagę, że to nie
-jest przekazywanie funkcji przez wartość, bo czegoś takiego nie ma.
-Przykład:
+We can pass a function by *pointer* using a regular (non-reference and
+non-pointer) type of a function parameter, i.e., `F`, where `F` is a
+template parameter of the type kind.  Then the deduced template
+argument is the pointer type to the function passed, because the
+function name decays to a pointer.  Let's note that it's not passing a
+function by value, because there is no such thing.  Example:
 
 ```cpp
 {% include_relative foo_dcy.cc %}
