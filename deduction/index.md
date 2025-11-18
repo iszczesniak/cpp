@@ -377,20 +377,20 @@ Przykład:
 {% include_relative arg_type_ref.cc %}
 ```
 
-### Przekazywanie funkcji
+### Passing a function
 
-Funkcję możemy przekazać przez:
+A function can be passed by:
 
-* referencję,
+* reference,
 
-* wskaźnik,
+* pointer,
 
-* ale nie wartość.
+* but not by value.
 
-Funkcję możemy przekazać przez *referencję* używając referencyjnego
-typu parametru funkcji, a dokładnie typu `F &`, gdzie `F` jest typowym
-parametrem szablonu.  Wywnioskowanym argumentem szablonu będzie typ
-referencji na przekazywaną funkcję.  Przykład:
+We can pass a function by *reference* using the reference type of a
+function parameter, i.e., `F &`, where `F` is a template parameter of
+the type kind.  The deduced template argument is the type of the
+function passed.  Example:
 
 ```cpp
 {% include_relative foo_ref.cc %}

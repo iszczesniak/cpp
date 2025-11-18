@@ -393,9 +393,9 @@ Funkcję możemy przekazać przez:
 * ale nie wartość.
 
 Funkcję możemy przekazać przez *referencję* używając referencyjnego
-typu parametru funkcji, a dokładnie typu `F &`, gdzie `F` jest typowym
+typu parametru funkcji, czyli typu `F &`, gdzie `F` jest typowym
 parametrem szablonu.  Wywnioskowanym argumentem szablonu będzie typ
-referencji na przekazywaną funkcję.  Przykład:
+przekazywanej funkcji.  Przykład:
 
 ```cpp
 {% include_relative foo_ref.cc %}
