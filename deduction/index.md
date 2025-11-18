@@ -379,7 +379,7 @@ Przykład:
 
 ### Passing a function
 
-A function can be passed by:
+We can pass a function by:
 
 * reference,
 
@@ -387,78 +387,80 @@ A function can be passed by:
 
 * but not by value.
 
-We can pass a function by *reference* using the reference type of a
-function parameter, i.e., `F &`, where `F` is a template parameter of
-the type kind.  The deduced template argument is the type of the
-function passed.  Example:
+We can pass a function by *reference* to a function template using the
+reference type of a function parameter, i.e., `F &`, where `F` is a
+template parameter of the type kind.  The deduced template argument is
+the type of the function passed.  Example:
 
 ```cpp
 {% include_relative foo_ref.cc %}
 ```
 
-We can pass a function by *pointer* using a pointer type of a function
-parameter, i.e., type `F *`, where `F` is a template parameter of the
-type kind.  The deduced template argument is the type of the function
-passed.  Example:
+We can pass a function by *pointer* to a function template using a
+pointer type of a function parameter, i.e., type `F *`, where `F` is a
+template parameter of the type kind.  The deduced template argument is
+the type of the function passed.  Example:
 
 ```cpp
 {% include_relative foo_ptr.cc %}
 ```
 
 A function name can *decay* to a pointer to the function, which comes
-from the C language.  A decay takes place in the example above, where
-a function name is an argument of a call.  A function name does not
-decay, if the function is passed by reference.
+from the C language.  The decay takes place in the example above,
+where a function name is an argument of a call.  A function name does
+not decay, if the function is passed by reference.
 
-We can pass a function by *pointer* using a regular (non-reference and
-non-pointer) type of a function parameter, i.e., `F`, where `F` is a
-template parameter of the type kind.  Then the deduced template
-argument is the pointer type to the function passed, because the
-function name decays to a pointer.  Let's note that it's not passing a
-function by value, because there is no such thing.  Example:
+We can pass a function by *pointer* to a function template using a
+regular (non-reference and non-pointer) type of a function parameter,
+i.e., `F`, where `F` is a template parameter of the type kind.  Then
+the deduced template argument is the pointer type to the function
+passed, because the function name decays to a pointer.  Let's note
+that it's not passing a function by value, because there is no such
+thing.  Example:
 
 ```cpp
 {% include_relative foo_dcy.cc %}
 ```
 
-### Przekazywanie tablic języka C
+### Passing an array
 
-Tablicę języka C możemy przekazać do funkcji szablonowej przez:
+We can pass an array by:
 
-* referencję,
+* reference,
 
-* wskaźnik,
+* pointer,
 
-* ale nie wartość.
+* but not by value.
 
-Tablicę możemy przekazać przez *referencję* używając referencyjnego
-typu parametru funkcji szablonowej, a dokładnie typu `A &`, gdzie `A`
-jest typowym parametrem szablonu.  Wywnioskowanym argumentem będzie
-typ tablicy.  Przykład:
+We can pass an array by *reference* to a function template using the
+reference type of a function parameter, i.e., `A &`, where `A` is a
+template parameter of the type kind.  The deduced template argument is
+the type of the array passed.  Example:
 
 ```cpp
 {% include_relative car_ref.cc %}
 ```
 
-Tablicę możemy przekazać przez *wskaźnik* używając wskaźnikowego typu
-parametru funkcji szablonowej, a dokładnie typu `A *`, gdzie `A` jest
-typowym parametrem szablonu.  Wywnioskowanym argumentem będzie typ
-tablicy.  Przykład:
+We can pass an array by *pointer* to a function template using the
+pointer type of a function parameter, i.e., `A *`, where `A` is a
+template parameter of the type kind.  The deduced template argument is
+the type of the array passed.  Example:
 
 ```cpp
 {% include_relative car_ptr.cc %}
 ```
 
-Jeżeli typem parametru funkcji szablonowej jest zwykły typ
-(niereferencyjny i niewskaźnikowy), a argumentem wywołania funkcji
-będzie nazwa tablicy, to do funkcji zostanie przekazany wskaźnik na
-pierwszy element tablicy (a nie wskaźnik na tablicę), bo:
+If the type of the function parameter in a function template is
+regular (non-reference and non-pointer), and the function argument is
+the array name, then a poiner to the first array element (and not a
+pointer to the array) is passed to the function, because:
 
-* tablica rozpadnie się na wskaźnik na pierwszy element tablicy,
+* the array decays to the pointer to the first array element,
 
-* wywnioskowanym argumentem będzie typ wskaźnikowy na element tablicy.
+* the deduced template argument is the pointer type to an array
+  element.
 
-Oto przykład z rozpadem:
+Here's an example with the decay:
 
 ```cpp
 {% include_relative car_dcy.cc %}

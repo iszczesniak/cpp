@@ -392,19 +392,19 @@ Funkcję możemy przekazać przez:
 
 * ale nie wartość.
 
-Funkcję możemy przekazać przez *referencję* używając referencyjnego
-typu parametru funkcji, czyli typu `F &`, gdzie `F` jest typowym
-parametrem szablonu.  Wywnioskowanym argumentem szablonu jest typ
-przekazywanej funkcji.  Przykład:
+Funkcję możemy przekazać przez *referencję* do szablonu funkcji
+używając referencyjnego typu parametru funkcji, czyli typu `F &`,
+gdzie `F` jest typowym parametrem szablonu.  Wywnioskowanym argumentem
+szablonu jest typ przekazanej funkcji.  Przykład:
 
 ```cpp
 {% include_relative foo_ref.cc %}
 ```
 
-Funkcję możemy przekazać przez *wskaźnik* używając wskaźnikowego typu
-parametru funkcji, czyli typu `F *`, gdzie `F` jest typowym parametrem
-szablonu.  Wywnioskowanym argumentem szablonu jest typ przekazywanej
-funkcji.  Przykład:
+Funkcję możemy przekazać przez *wskaźnik* do szablonu funkcji używając
+wskaźnikowego typu parametru funkcji, czyli typu `F *`, gdzie `F` jest
+typowym parametrem szablonu.  Wywnioskowanym argumentem szablonu jest
+typ przekazanej funkcji.  Przykład:
 
 ```cpp
 {% include_relative foo_ptr.cc %}
@@ -415,21 +415,21 @@ z języka C.  Do rozpadu dochodzi w przykładzie wyżej, gdzie nazwa
 funkcji jest argumentem wywołania.  Nazwa funkcji nie rozpada się,
 jeżeli funkcja jest przekazywana przez referencję.
 
-Funkcję możemy także przekazać przez *wskaźnik* używając zwykłego
-(niereferencyjnego i niewskaźnikowego) typu parametru funkcji, czyli
-typu `F`, gdzie `F` jest typowym parametrem szablonu.  Wtedy
-wywnioskowanym argumentem szablonu będzie typ wskaźnikowy na funkcję,
-bo nazwa funkcji rozpada się na wskaźnik.  Zwróćmy uwagę, że to nie
-jest przekazywanie funkcji przez wartość, bo czegoś takiego nie ma.
-Przykład:
+Funkcję możemy także przekazać przez *wskaźnik* do szablonu funkcji
+używając zwykłego (niereferencyjnego i niewskaźnikowego) typu
+parametru funkcji, czyli typu `F`, gdzie `F` jest typowym parametrem
+szablonu.  Wtedy wywnioskowanym argumentem szablonu będzie typ
+wskaźnikowy na funkcję, bo nazwa funkcji rozpada się na wskaźnik.
+Zwróćmy uwagę, że to nie jest przekazywanie funkcji przez wartość, bo
+czegoś takiego nie ma.  Przykład:
 
 ```cpp
 {% include_relative foo_dcy.cc %}
 ```
 
-### Przekazywanie tablic języka C
+### Przekazywanie tablicy
 
-Tablicę języka C możemy przekazać do funkcji szablonowej przez:
+Tablicę możemy przekazać przez:
 
 * referencję,
 
@@ -437,32 +437,33 @@ Tablicę języka C możemy przekazać do funkcji szablonowej przez:
 
 * ale nie wartość.
 
-Tablicę możemy przekazać przez *referencję* używając referencyjnego
-typu parametru funkcji szablonowej, a dokładnie typu `A &`, gdzie `A`
-jest typowym parametrem szablonu.  Wywnioskowanym argumentem będzie
-typ tablicy.  Przykład:
+Tablicę możemy przekazać przez *referencję* do szablonu funkcji
+używając referencyjnego typu parametru funkcji, czyli typu `A &`,
+gdzie `A` jest typowym parametrem szablonu.  Wywnioskowanym argumentem
+szablonu jest typ przekazanej tablicy.  Przykład:
 
 ```cpp
 {% include_relative car_ref.cc %}
 ```
 
-Tablicę możemy przekazać przez *wskaźnik* używając wskaźnikowego typu
-parametru funkcji szablonowej, a dokładnie typu `A *`, gdzie `A` jest
-typowym parametrem szablonu.  Wywnioskowanym argumentem będzie typ
-tablicy.  Przykład:
+Tablicę możemy przekazać przez *wskaźnik* do szablonu funkcji używając
+wskaźnikowego typu parametru funkcji, czyli typu `A *`, gdzie `A` jest
+typowym parametrem szablonu.  Wywnioskowanym argumentem szablonu jest
+typ przekazanej tablicy.  Przykład:
 
 ```cpp
 {% include_relative car_ptr.cc %}
 ```
 
-Jeżeli typem parametru funkcji szablonowej jest zwykły typ
-(niereferencyjny i niewskaźnikowy), a argumentem wywołania funkcji
-będzie nazwa tablicy, to do funkcji zostanie przekazany wskaźnik na
-pierwszy element tablicy (a nie wskaźnik na tablicę), bo:
+Jeżeli typem parametru funkcji w szablonie funkcji jest zwykły typ
+(niereferencyjny i niewskaźnikowy), a argumentem funkcji jest nazwa
+tablicy, to do funkcji jest przekazany wskaźnik na pierwszy element
+tablicy (a nie wskaźnik na tablicę), bo:
 
-* tablica rozpadnie się na wskaźnik na pierwszy element tablicy,
+* tablica rozpada się na wskaźnik na pierwszy element tablicy,
 
-* wywnioskowanym argumentem będzie typ wskaźnikowy na element tablicy.
+* wywnioskowanym argumentem szablonu jest typ wskaźnikowy na element
+  tablicy.
 
 Oto przykład z rozpadem:
 
