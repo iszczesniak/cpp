@@ -339,22 +339,21 @@ argument with the top-level declarator `*` and qualifiers dropped.
 Top-level qualifiers for *the type pointed to* are also dropped if
 they are present in the type definition of a function parameter.**
 
-Wyjaśnienie:
+Explanation:
 
-* Deklarator `*` najwyższego rzędu jest pomijany, bo on już jest w
-  definicji typu parametru funkcji.
+* Top-level declarator `*` is dropped, because it's already present in
+  the type definition of the function parameter.
 
-* Kwalifikatory najwyższego rzędu są pomijane, bo nie mają one
-  znaczenia dla funkcji, która działa na kopii wartości argumentu
-  przekazanego do niej (tak jak w przypadku zwykłego typu parametru
-  funkcji).
+* Top-level qualifiers are dropped, because they have no meaning for
+  the function that works on a copy of an argument value (just as for
+  a function parameter of a regular type).
 
-* Jeżeli w definicji typu parametru funkcji podamy kwalifikatory
-  najwyższego rzędu dla **typu wskazywanych danych**, to te
-  kwalifikatory będą pominięte we wywnioskowanym typie.  Jeżeli nie
-  zostały podane, to kwalifikatory (typu wskazywanych danych)
-  zdefiniowane przez typ argumentu funkcji będą propagowane do
-  wywnioskowanego typu, co pozwala na inicjalizację parametru funkcji.
+* If in the type definition of a function parameter we put top-level
+  qualifiers for the *type pointed to*, then these qualifiers will be
+  dropped in the deduced type.  If we didn't put them, then the
+  qualifiers (for the type pointed to) defined by the type of the
+  function argument will be propagated to the deduced type, so that a
+  parameter can be initialized.
 
 ```cpp
 {% include_relative arg_type_ptr.cc %}

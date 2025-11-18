@@ -354,7 +354,7 @@ Wyjaśnienie:
   funkcji).
 
 * Jeżeli w definicji typu parametru funkcji podamy kwalifikatory
-  najwyższego rzędu dla **typu wskazywanych danych**, to te
+  najwyższego rzędu dla *typu wskazywanych danych*, to te
   kwalifikatory będą pominięte we wywnioskowanym typie.  Jeżeli nie
   zostały podane, to kwalifikatory (typu wskazywanych danych)
   zdefiniowane przez typ argumentu funkcji będą propagowane do
