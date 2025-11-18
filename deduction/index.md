@@ -307,7 +307,7 @@ function argument type only with the top-level qualifiers and
 declarators. **The deduced type is never a reference type, because a
 function argument is never of a reference type.**
 
-### A regular function parameter type
+### A regular type of a function parameter
 
 **Rule.  The deduced template argument is the type of the function
 argument with the top-level qualifiers dropped.**
@@ -332,13 +332,12 @@ pointer:
 {% include_relative arg_type_val2.cc %}
 ```
 
-### Wskaźnikowy typ parametru funkcji
+### A pointer type of a function parameter
 
-**Zasada.  Wywnioskowany argument szablonu jest typem argumentu
-funkcji z pominięciem deklaratora `*` i kwalifikatorów *najwyższego*
-rzędu.  Kwalifikatory najwyższego rzędu dla *typu wskazywanych danych*
-też są pomijane, jeżeli znajdują się w definicji typu parametru
-funkcji.**
+**Rule.  The deduced template argument is the type of the function
+argument with the top-level declarator `*` and qualifiers dropped.
+Top-level qualifiers for *the type pointed to* are also dropped if
+they are present in the type definition of a function parameter.**
 
 Wyjaśnienie:
 

@@ -339,7 +339,7 @@ wywnioskowany typ będzie wskaźnikowy:
 ### Wskaźnikowy typ parametru funkcji
 
 **Zasada. Wywnioskowany argument szablonu jest typem argumentu funkcji
-z pominięciem deklaratora `*` i kwalifikatorów *najwyższego* rzędu.
+z pominięciem deklaratora `*` i kwalifikatorów najwyższego rzędu.
 Kwalifikatory najwyższego rzędu dla *typu wskazywanych danych* też są
 pomijane, jeżeli znajdują się w definicji typu parametru funkcji.**
 
