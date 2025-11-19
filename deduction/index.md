@@ -450,9 +450,9 @@ the type of the array passed.  Example:
 {% include_relative car_ptr.cc %}
 ```
 
-If the type of the function parameter in a function template is
-regular (non-reference and non-pointer), and the function argument is
-the array name, then a poiner to the first array element (and not a
+If the type of a function parameter in a function template is regular
+(non-reference and non-pointer), and the function argument is the
+array name, then a poiner to the first array element (and not a
 pointer to the array) is passed to the function, because:
 
 * the array decays to the pointer to the first array element,
