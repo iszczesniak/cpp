@@ -410,10 +410,10 @@ typ przekazanej funkcji.  Przykład:
 {% include_relative foo_ptr.cc %}
 ```
 
-Nazwa funkcji może **rozpaść się** na wskaźnik do funkcji, co pochodzi
-z języka C.  Do rozpadu dochodzi w przykładzie wyżej, gdzie nazwa
-funkcji jest argumentem wywołania.  Nazwa funkcji nie rozpada się,
-jeżeli funkcja jest przekazywana przez referencję.
+Z języka C: nazwa funkcji może **rozpaść się** na wskaźnik do funkcji.
+Do rozpadu dochodzi w przykładzie wyżej, gdzie nazwa funkcji jest
+argumentem wywołania.  Nazwa funkcji nie rozpada się, jeżeli funkcja
+jest przekazywana przez referencję.
 
 Funkcję możemy także przekazać przez *wskaźnik* do szablonu funkcji
 używając zwykłego (niereferencyjnego i niewskaźnikowego) typu

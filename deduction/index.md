@@ -405,10 +405,10 @@ the type of the function passed.  Example:
 {% include_relative foo_ptr.cc %}
 ```
 
-A function name can *decay* to a pointer to the function, which comes
-from the C language.  The decay takes place in the example above,
-where a function name is an argument of a call.  A function name does
-not decay, if the function is passed by reference.
+From the C language: a function name can **decay** to a pointer to the
+function.  The decay takes place in the example above, where a
+function name is an argument of a call.  A function name does not
+decay, if the function is passed by reference.
 
 We can pass a function by *pointer* to a function template using a
 regular (non-reference and non-pointer) type of a function parameter,
