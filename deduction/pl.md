@@ -473,11 +473,12 @@ Oto przykład z rozpadem:
 
 ## Wartościowy argument szablonu
 
-Wartościowy argument szablonu jest wnioskowany tylko na podstawie typu
-argumentu wywołania funkcji, z którego można ten argument
-wywnioskować.  Częścią typu argumentu wywołania funkcji musi być pewna
-wartość, którą potrzebujemy, i która staje się wywnioskowanym
-wartościowym argumentem.
+Wnioskowanie wartościowego argumentu szablonu jest znacznie prostsze
+niż typowego argumentu szablonu.  Trudno wręcz mówić o wnioskowaniu,
+bo argument szablonu jest po prostu wyciągany (brany) z typu argumentu
+przyjmowanego przez funkcję, który definiujemy jako typ parametru
+funkcji.  W definicji typu parametru funkcji używamy parametru
+szablonu, dla którego argument będzie wyciągnięty.
 
 Jedynymi typami argumentu wywołania funkcji, na podstawie których
 możemy wywnioskować wartościowy argument szablonu, to:
@@ -510,6 +511,12 @@ takiego typu jest wartościowy parametr typu szablonowego `std::array`:
 
 ```cpp
 {% include_relative array.cc %}
+```
+
+Ale są jednak granice:
+
+```cpp
+{% include_relative limit.cc %}
 ```
 
 # Wiele parametrów funkcji szablonowej
