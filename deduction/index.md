@@ -468,11 +468,12 @@ Here's an example with the decay:
 
 ## Wartościowy argument szablonu
 
-Wartościowy argument szablonu jest wnioskowany tylko na podstawie typu
-argumentu wywołania funkcji, z którego można ten argument
-wywnioskować.  Częścią typu argumentu wywołania funkcji musi być pewna
-wartość, którą potrzebujemy, i która staje się wywnioskowanym
-wartościowym argumentem.
+The deduction of a template argument of the value kind is far easier
+than of the type kind.  It's even hard to talk about deduction,
+because the template argument is extracted (taken) from the type
+accepted by a function that we define as the type of the function
+parameter.  In the definition of a function parameter type we use the
+template parameter for which an argument will be deduced.
 
 Jedynymi typami argumentu wywołania funkcji, na podstawie których
 możemy wywnioskować wartościowy argument szablonu, to:

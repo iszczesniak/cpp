@@ -478,7 +478,7 @@ niż typowego argumentu szablonu.  Trudno wręcz mówić o wnioskowaniu,
 bo argument szablonu jest po prostu wyciągany (brany) z typu argumentu
 przyjmowanego przez funkcję, który definiujemy jako typ parametru
 funkcji.  W definicji typu parametru funkcji używamy parametru
-szablonu, dla którego argument będzie wyciągnięty.
+szablonu, dla którego argument będzie wywnioskowany.
 
 Jedynymi typami argumentu wywołania funkcji, na podstawie których
 możemy wywnioskować wartościowy argument szablonu, to:
