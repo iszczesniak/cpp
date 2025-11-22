@@ -513,7 +513,9 @@ takiego typu jest wartościowy parametr typu szablonowego `std::array`:
 {% include_relative array.cc %}
 ```
 
-Ale są jednak granice:
+Ale nie wszystko jest jednak możliwe, mimo że chodzi o takie
+wywnioskowanie argumentu szablonu, żeby inicjalizacja parametru
+funkcji była możliwa:
 
 ```cpp
 {% include_relative limit.cc %}
