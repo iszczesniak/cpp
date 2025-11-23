@@ -482,27 +482,28 @@ value template argument, are:
 
 * a template type.
 
-### Typ tablicy języka C
+### An array type
 
-Oto przykład:
+Here's an example:
 
 ```cpp
 {% include_relative carray.cc %}
 ```
 
-### Dowolny typ szablonowy
+### A template type
 
-Typy wartościowych parametrów obu szablonów muszą się zgadzać.  Te oba
-szablony to:
+The types of the value parameters of both templates must agree.  These
+two templates are:
 
-* szablon funkcji: wartościowy parametr tego szablonu ma wywnioskowany
-  argument,
+* the function template: the value parameter of this template has an
+  argument deduced,
 
-* szablon typu: tego szablonowego typu jest argument wywołania
-  funkcji.
+* the type template: this template is used in the definition of the
+  function parameter.
 
-Na przykład, wartościowy parametr `I` musi mieć typ `std::size_t`, bo
-takiego typu jest wartościowy parametr typu szablonowego `std::array`:
+For instance, a value parameter `I` must be of type `std::size_t`,
+because the value parameter of type template `std::array` is of that
+type:
 
 ```cpp
 {% include_relative array.cc %}

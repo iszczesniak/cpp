@@ -503,11 +503,12 @@ szablony to:
 * szablon funkcji: wartościowy parametr tego szablonu ma wywnioskowany
   argument,
 
-* szablon typu: tego szablonowego typu jest argument wywołania
+* szablon typu: ten szablon jest użyty w definicji typu parametr
   funkcji.
 
-Na przykład, wartościowy parametr `I` musi mieć typ `std::size_t`, bo
-takiego typu jest wartościowy parametr typu szablonowego `std::array`:
+Na przykład, wartościowy parametr `I` szablonu funkcji musi być typu
+`std::size_t`, bo takiego typu jest wartościowy parametr szablonu typu
+`std::array`:
 
 ```cpp
 {% include_relative array.cc %}
