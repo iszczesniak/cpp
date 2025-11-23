@@ -480,12 +480,12 @@ przyjmowanego przez funkcję, który definiujemy jako typ parametru
 funkcji.  W definicji typu parametru funkcji używamy parametru
 szablonu, dla którego argument będzie wywnioskowany.
 
-Jedynymi typami argumentu wywołania funkcji, na podstawie których
-możemy wywnioskować wartościowy argument szablonu, to:
+Jedynymi typami argumentu funkcji, na podstawie których możemy
+wywnioskować wartościowy argument szablonu, to:
 
-* typ tablicy języka C,
+* typ tablicowy,
 
-* dowolny typ szablonowy.
+* typ szablonowy.
 
 ### Typ tablicy języka C
 

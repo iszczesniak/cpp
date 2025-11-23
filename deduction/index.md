@@ -470,17 +470,17 @@ Here's an example with the decay:
 
 The deduction of a template argument of the value kind is far easier
 than of the type kind.  It's even hard to talk about deduction,
-because the template argument is extracted (taken) from the type
-accepted by a function that we define as the type of the function
-parameter.  In the definition of a function parameter type we use the
-template parameter for which an argument will be deduced.
+because the template argument is extracted (taken) from the type of an
+argument accepted by a function that we define as the type of the
+function parameter.  In the definition of a function parameter type we
+use the template parameter for which an argument will be deduced.
 
-Jedynymi typami argumentu wywołania funkcji, na podstawie których
-możemy wywnioskować wartościowy argument szablonu, to:
+The only types of a function argument, which can be used to deduce a
+value template argument, are:
 
-* typ tablicy języka C,
+* an array type,
 
-* dowolny typ szablonowy.
+* a template type.
 
 ### Typ tablicy języka C
 
