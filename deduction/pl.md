@@ -552,7 +552,7 @@ wnioskowanie nie udaje się:
   domyślnie).
 
 * Wnioskowanie argumentów szablonu zależy od typu parametru funkcji i
-  typu argumentu wywołania funkcji.
+  typu argumentu funkcji.
 
 * Żeby zrozumieć wnioskowanie, należy znać szczegóły dotyczące
   inicjalizacji zmiennych, wskaźników i referencji.

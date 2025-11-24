@@ -539,8 +539,8 @@ example below:
 * A template argument can be either deduced or given (either
   explicitly or implicitly).
 
-* Wnioskowanie argumentów szablonu zależy od typu parametru funkcji i
-  typu argumentu wywołania funkcji.
+* Template argument deduction depends on the type of a function
+  parameter and the type of a function argument.
 
 * Żeby zrozumieć wnioskowanie, należy znać szczegóły dotyczące
   inicjalizacji zmiennych, wskaźników i referencji.
