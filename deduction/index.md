@@ -542,13 +542,13 @@ example below:
 * Template argument deduction depends on the type of a function
   parameter and the type of a function argument.
 
-* Żeby zrozumieć wnioskowanie, należy znać szczegóły dotyczące
-  inicjalizacji zmiennych, wskaźników i referencji.
+* To understand deduction, we have to know the details about the
+  initialization of variables, pointers and references.
 
 # Quiz
 
-* Na podstawie czego wnioskowane są argumenty szablonu?
+* What does the deduction depend on?
 
-* Czy wnioskowanie uwzględnia typ wartości zwracanej przez funkcję?
+* Does the deduction depend on the type of a return value?
 
-* Co to jest rozpad tablicy?
+* What is the decay of an array?
