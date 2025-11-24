@@ -534,10 +534,10 @@ example below:
 {% include_relative fail.cc %}
 ```
 
-# Podsumowanie
+# Conclusion
 
-* Argument szablonu może być wywnioskowany albo podany (jawnie albo
-  domyślnie).
+* A template argument can be either deduced or given (either
+  explicitly or implicitly).
 
 * Wnioskowanie argumentów szablonu zależy od typu parametru funkcji i
   typu argumentu wywołania funkcji.
