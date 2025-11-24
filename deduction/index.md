@@ -509,26 +509,26 @@ type:
 {% include_relative array.cc %}
 ```
 
-# Wiele parametrów funkcji szablonowej
+# Many function parameters
 
-W przykładach wyżej używaliśmy tylko jednego parametru funkcji
-szablonowej, więc parametry szablonu mogły być użyte w co najwyżej
-jednej definicji typu parametru funkcji szablonowej.  Parametrów
-funkcji szablonowej może być jednak dowolna liczba, a parametr
-szablonu może być użyty w dowolnej liczbie definicji typów parametrów
-funkcji szablonowej.  Jak wtedy wnioskowane są argumenty szablonu?
+In the above examples, we used just a single function parameter, and
+so a template parameter could have been used in at most one type
+definition of a function parameter.  However, there can be any number
+of function parameters, and a template parameter can be used in the
+type definition of every function parameter.  How are then the
+template arguments deduced?
 
-Wtedy wnioskowanie argumentów szablonu odbywa się niezależnie dla
-każdej pary parametru funkcji i argumentu wywołania.  Dla każdej pary
-wnioskowane są argumenty dla parametrów szablonu, które zostały użyte
-w definicji typu tego parametru funkcji.  Jeżeli jakiś argument został
-wywnioskowany więcej niż raz (czyli dla różnych par), to musi on być
-taki sam, w przeciwnym razie wnioskowanie nie udaje się.
+Then the template arguments are deduced independently for every pair
+of a parameter and an argument of a function.  For every pair, only
+those arguments are deduced, whose parameters are used in the type
+definition of a function parameter.  If some argument was deduced more
+than once (i.e., for different pairs), then it must be the same,
+otherwise deduction fails.
 
-Podczas wnioskowania nie jest dopuszczalna konwersja typów.  W
-przykładzie niżej wnioskowane są różne argumenty, bo nie jest
-dopuszczalna konwersja różnych typów argumentów wywołania funkcji.
-Zatem w poniższym przykładzie wnioskowanie nie udaje się:
+Deduction forbids type conversion.  In the example below, different
+arguments are deduced, because the types of function arguments are
+different and cannot be converted.  Therefore deduction fails in the
+example below:
 
 ```cpp
 {% include_relative fail.cc %}

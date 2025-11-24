@@ -522,26 +522,25 @@ funkcji była możliwa:
 {% include_relative limit.cc %}
 ```
 
-# Wiele parametrów funkcji szablonowej
+# Wiele parametrów funkcji
 
-W przykładach wyżej używaliśmy tylko jednego parametru funkcji
-szablonowej, więc parametry szablonu mogły być użyte w co najwyżej
-jednej definicji typu parametru funkcji szablonowej.  Parametrów
-funkcji szablonowej może być jednak dowolna liczba, a parametr
-szablonu może być użyty w dowolnej liczbie definicji typów parametrów
-funkcji szablonowej.  Jak wtedy wnioskowane są argumenty szablonu?
+W przykładach wyżej używaliśmy tylko jednego parametru funkcji, więc
+parametr szablonu mógł być użyty w co najwyżej jednej definicji typu
+parametru funkcji.  Parametrów funkcji może być jednak dowolnie dużo,
+a parametr szablonu może być użyty w definicji typu każdego parametru
+funkcji.  Jak wtedy wnioskowane są argumenty szablonu?
 
 Wtedy wnioskowanie argumentów szablonu odbywa się niezależnie dla
-każdej pary parametru funkcji i argumentu wywołania.  Dla każdej pary
-wnioskowane są argumenty dla parametrów szablonu, które zostały użyte
-w definicji typu tego parametru funkcji.  Jeżeli jakiś argument został
+każdej pary parametru i argumentu funkcji.  Dla każdej pary
+wnioskowane są tylko te argumenty szablonu, których parametry są użyte
+w definicji typu parametru funkcji.  Jeżeli jakiś argument został
 wywnioskowany więcej niż raz (czyli dla różnych par), to musi on być
 taki sam, w przeciwnym razie wnioskowanie nie udaje się.
 
-Podczas wnioskowania nie jest dopuszczalna konwersja typów.  W
-przykładzie niżej wnioskowane są różne argumenty, bo nie jest
-dopuszczalna konwersja różnych typów argumentów wywołania funkcji.
-Zatem w poniższym przykładzie wnioskowanie nie udaje się:
+Wnioskowanie zabrania konwersji typów.  W przykładzie niżej
+wnioskowane są różne argumenty szablonu, bo typy argumentów funkcji są
+różne i nie mogą być konwertowane.  Zatem w poniższym przykładzie
+wnioskowanie nie udaje się:
 
 ```cpp
 {% include_relative fail.cc %}
