@@ -4,12 +4,20 @@ title: Advanced object programming
 
 # Advanced object programming
 
+Part I:
+
 * [Memory organization](memory)
 * [Expression categories](categories)
 * [References](references)
+
+Part II:
+
 * [Move semantics](move)
 * [Callable](callable1)
 * [Containers](containers)
+
+Part III:
+
 * [`std::unique_ptr`](unique_ptr)
 * [`std::shared_ptr`](shared_ptr)
 * [`std::weak_ptr`](weak_ptr)
@@ -31,13 +39,13 @@ You can get a grade from the laboratory class within two deadlines:
 * Deadline I: by the end of laboratory classes based on four tests
   during lectures:
 
-  - November 7, 2025 (memory, categories, references),
+  - November 7, 2025, from part I,
+  
+  - December 19, 2025, from part II,
 
-  - December 19, 2025 (move, callable1, containers),
+  - January 23, 2026, from part III,
 
-  - January 23, 2026 (unique_ptr, shared_ptr, weak_ptr),
-
-  - January 30, 2026 (the whole material).
+  - January 30, 2026, from the whole material.
 
   The grade withing the first deadline is an average of three highest,
   **passing** test grades chosen from among the four test grades.  If
