@@ -4,12 +4,20 @@ title: Zaawansowane programowanie obiektowe
 
 # Zaawansowane programowanie obiektowe
 
+Część I:
+
 * [Organizacja pamięci](memory/pl)
 * [Kategorie wyrażeń](categories/pl)
 * [Referencje](references/pl)
+
+Część II:
+
 * [Semantyka przeniesienia](move/pl)
 * [Wyrażenia wywołania](callable1/pl)
 * [Kontenery](containers/pl)
+
+Część III:
+
 * [`std::unique_ptr`](unique_ptr/pl)
 * [`std::shared_ptr`](shared_ptr/pl)
 * [`std::weak_ptr`](weak_ptr/pl)
@@ -31,13 +39,13 @@ Zaliczenie z laboratorium można uzyskać w dwóch terminach:
 * Termin I: do końca zajęć laboratoryjnych na podstawie czterech
   kolokwiów przeprowadzanych w czasie wykładu:
 
-  - 7 listopada, 2025 (memory, categories, references),
+  - 7 listopada, 2025, z części I,
 
-  - 19 grudnia, 2025 (move, callable1, containers),
+  - 19 grudnia, 2025, z części II,
 
-  - 23 stycznia, 2026 (unique_ptr, shared_ptr, weak_ptr),
+  - 23 stycznia, 2026, z części III,
 
-  - 30 stycznia, 2026 (całość materiału).
+  - 30 stycznia, 2026, z całości materiału.
 
   Oceną z pierwszego terminu jest średnia arytmetyczna trzech
   najwyższych, **pozytywnych** ocen wybranych spośród czterech ocen z
