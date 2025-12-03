@@ -17,8 +17,8 @@ można użyć w definicji typu:
 
 * wartości zwracanej przez funkcję.
 
-Specyfikator typu `auto` pozwala na pisanie uogólnionego kodu, bo nie
-musimy podawać konkretnego typu, a prosimy kompilator o
+Specyfikator typu `auto` pozwala na pisanie uogólnionego kodu, bo już
+nie musimy podawać konkretnego typu, a możemy poprosić kompilator o
 wywniowskowanie go.
 
 # Motywacja
