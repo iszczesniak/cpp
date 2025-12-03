@@ -1,25 +1,25 @@
 ---
-title: Specyfikator typu `auto`
+title: The `auto` type specifier
 ---
 
-# Wprowadzenie
+# Introduction
 
-Specyfikator typu `auto` oznacza, że kompilator ma wywnioskować typ na
-podstawie typu wyrażenia inicjalizującego.  Kompilator wstawia
-wywniowskowany typ w miejsce specyfikatora `auto`.  Tego specyfikatora
-można użyć w definicji typu:
+The `auto` type specifier requests the compiler to deduce the type
+using the initializing expression.  The compiler puts the deduced type
+in the place of `auto`.  This type specifier can be used in the type
+definition of:
 
-* zmiennej,
+* a variable,
 
-* parametru funkcji,
+* a parameter of a function,
 
-* parametru wyrażenia lambda,
+* a parameter of a lambda expression,
 
-* wartości zwracanej przez funkcję.
+* a the function return type.
 
-Specyfikator typu `auto` pozwala na pisanie uogólnionego kodu, bo nie
-musimy podawać konkretnego typu, a prosimy kompilator o
-wywniowskowanie go na podstawie kodu.
+The `auto` type specifier allows us to write generic code, because we
+do not have to put a specific type, but we ask the compiler to deduce
+it using the code.
 
 # Motywacja
 
