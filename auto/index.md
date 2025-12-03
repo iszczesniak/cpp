@@ -23,11 +23,13 @@ deduce it.
 
 # Motywacja
 
-Pisanie typów w starym C++ było niewygodne, pracochłonne, a przy tym
-łatwo można było popełnić błędy, których kompilator czasami nie był w
-stanie wychwycić.  Typowym przykładem była konieczność podawania typów
-iteratorów do złożonych struktur danych.  Teraz łatwo używać
-iteratorów deklarując ich typ jako `auto`.  Oto przykład:
+Writing types in legacy C++ was cumbersome, arduous and inviting
+errors that a compiler sometimes was unable to catch.  A typical
+example was the need to write the iterator type for a container that
+stores containers.
+
+Teraz łatwo używać iteratorów deklarując ich typ jako `auto`.  Oto
+przykład:
 
 ```cpp
 {% include_relative motivation_iter.cc %}
