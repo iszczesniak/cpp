@@ -18,8 +18,8 @@ definition of:
 * what a function returns.
 
 The `auto` type specifier allows us to write generic code, because we
-do not have to put a specific type, but we ask the compiler to deduce
-it using the code.
+no longer have to put a specific type, but can ask the compiler to
+deduce it.
 
 # Motywacja
 

@@ -19,7 +19,7 @@ można użyć w definicji typu:
 
 Specyfikator typu `auto` pozwala na pisanie uogólnionego kodu, bo nie
 musimy podawać konkretnego typu, a prosimy kompilator o
-wywniowskowanie go na podstawie kodu.
+wywniowskowanie go.
 
 # Motywacja
 
