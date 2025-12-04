@@ -34,12 +34,8 @@ zadeklarować iterator definiując jego typ z użyciem specyfikatora
 {% include_relative motivation_iter.cc %}
 ```
 
-Możemy powiedzieć, że jeżeli nie wiemy (i nie chcemy wiedzieć albo nie
-chcemy użyć), jakiego typu funkcja zwraca wartość, to możemy użyć
-specyfikatora typu `auto`, tak jak zrobiliśmy wyżej używając funkcji
-`begin`.  Kolejnym częstym przypadkiem jest użycie funkcji `size`
-kontenerów, która zwraca wartość typu `T::size_type`, ale łatwiej jest
-nam użyć `auto`.  Na przykład:
+Podobnie dla kontenera typu `T` możemy użyć funkcji `size`, która
+zwraca wartość typu `T::size_type`, ale łatwiej jest nam użyć `auto`:
 
 ```cpp
 {% include_relative motivation_size.cc %}
