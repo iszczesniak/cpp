@@ -26,9 +26,9 @@ wywniowskowanie go.
 Pisanie typów w starym C++ było niewygodne, pracochłonne, a przy tym
 łatwo można było popełnić błędy, których kompilator czasami nie był w
 stanie wychwycić.  Typowy przykład: żeby iterować po kontenerze
-kontenerów, musieliśmy dokładnie wpisać typ iteratora.  Teraz łatwo
-używać iteratora definiując jego typ z użyciem specyfikatora `auto`.
-Oto przykład:
+kontenerów, musieliśmy wyliterować typ iteratora.  Teraz łatwo używać
+iteratora definiując jego typ z użyciem specyfikatora `auto`.  Oto
+przykład:
 
 ```cpp
 {% include_relative motivation_iter.cc %}
