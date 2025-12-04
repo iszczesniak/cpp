@@ -26,8 +26,8 @@ deduce it.
 Writing types in legacy C++ was cumbersome, arduous and inviting
 errors that a compiler sometimes was unable to catch.  Typically, to
 iterate over a container of containers, we had to spell out the
-iterator type.  Now it's easy to use an iterator by defining its type
-using the `auto` specifier.  Here's an example:
+iterator type.  Now it's easy to declare an iterator by defining its
+type using the `auto` specifier.  Here's an example:
 
 ```cpp
 {% include_relative motivation_iter.cc %}
