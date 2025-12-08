@@ -42,15 +42,16 @@ that returns a value of type `T::size_t`, but it's easier to use
 ```
 
 Sometimes we are unable to put a type, because we do not know it, as
-in the case of *closures*, i.e., functors of anonymous types, that are
-the result of lambda expressions.
+for a *closure*, i.e., a functor of an anonymous type, that is the
+result of a lambda expression.
 
 ```cpp
 {% include_relative motivation_closure.cc %}
 ```
 
-So far so good, because we used `auto` only in the type definition,
-but the definition can also include type qualifiers and declarators.
+So far so good, because in the type definition we used `auto` only,
+but the definition can also include the type qualifiers and
+declarators.
 
 # Deduction of a variable type
 

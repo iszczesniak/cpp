@@ -42,8 +42,8 @@ zwraca wartość typu `T::size_type`, ale łatwiej jest nam użyć `auto`:
 ```
 
 Czasami nie jesteśmy w stanie podać typu, bo go nie znamy, jak w
-przypadku *domknięć*, czyli funktorów typów anonimowych, które są
-wynikiem opracowania wyrażenia lambda.
+przypadku *domknięcia*, czyli funktora typu anonimowego, który jest
+wynikiem wyrażenia lambda.
 
 ```cpp
 {% include_relative motivation_closure.cc %}
