@@ -41,34 +41,33 @@ that returns a value of type `T::size_t`, but it's easier to use
 {% include_relative motivation_size.cc %}
 ```
 
-Czasami nie jesteśmy w stanie podać typu, bo go nie znamy, jak w
-przypadku *domknięć*, czyli funktorów typów anonimowych, które są
-wynikiem opracowania wyrażenia lambda.
+Sometimes we are unable to put a type, because we do not know it, as
+in the case of *closures*, i.e., functors of anonymous types, that are
+the result of lambda expressions.
 
 ```cpp
 {% include_relative motivation_closure.cc %}
 ```
 
-Na razie sprawa wydaje się prosta, bo deklarowanym typem jest tylko
-`auto`, ale typ może zawierać dodatkowo także specyfikatory i
-deklaratory.
+So far so good, because we used `auto` only in the type definition,
+but the definition can also include type qualifiers and declarators.
 
-# Wnioskowanie typu zmiennej
+# Deduction of a variable type
 
-Wnioskowanie typu `auto` odbywa się zgodnie z zasadami wnioskowania
-**typowych** argumentów szablonu.  Zasady dla wartościowych i
-szablonowych argumentów szablonu nie obowiązują.
+Deduction of the `auto` type is the same as the deduction of the a
+template argument of the type kind.
 
-Inicjalizacja zmiennej wygląda tak:
+The initialization of a variable looks like this:
 
 ```cpp
 type name = expression;
 ```
 
-Typ zmiennej może zawierać kwalifikatory `const` i `volatile`.
-Dodatkowo może zawierać deklarator `&` typu referencyjnego i
-deklarator `*` typu wskaźnikowego.  Interesuje nas sytuacja, kiedy typ
-zmiennej zawiera specyfikator `auto`.  Na przykład:
+Type `type` of variable `name` can include qualifiers (`const`,
+`volatile`).  Additionally, `type` can include the reference
+declarator `&` and the pointer declarator `*`.  We are interested in
+the case, where the variable type includes the `auto` specifier.  For
+instance:
 
 ```cpp
 const auto &t = 1;

@@ -49,15 +49,14 @@ wynikiem opracowania wyrażenia lambda.
 {% include_relative motivation_closure.cc %}
 ```
 
-Na razie sprawa wydaje się prosta, bo deklarowanym typem jest tylko
-`auto`, ale typ może zawierać dodatkowo także specyfikatory i
-deklaratory.
+Na razie sprawa wydaje się prosta, bo w definicji typu użyliśmy tylko
+`auto`, ale definicja typu może zawierać dodatkowo także kwalifikatory
+i deklaratory.
 
 # Wnioskowanie typu zmiennej
 
-Wnioskowanie typu `auto` odbywa się zgodnie z zasadami wnioskowania
-**typowych** argumentów szablonu.  Zasady dla wartościowych i
-szablonowych argumentów szablonu nie obowiązują.
+Wnioskowanie typu `auto` jest takie same, jak wnioskowanie
+**typowych** argumentów szablonu.
 
 Inicjalizacja zmiennej wygląda tak:
 
@@ -65,10 +64,11 @@ Inicjalizacja zmiennej wygląda tak:
 type name = expression;
 ```
 
-Typ zmiennej może zawierać kwalifikatory `const` i `volatile`.
-Dodatkowo może zawierać deklarator `&` typu referencyjnego i
-deklarator `*` typu wskaźnikowego.  Interesuje nas sytuacja, kiedy typ
-zmiennej zawiera specyfikator `auto`.  Na przykład:
+Typ `type` zmiennej `name` może zawierać kwalifikatory (`const`,
+`volatile`).  Dodatkowo `type` może zawierać deklarator `&` typu
+referencyjnego i deklarator `*` typu wskaźnikowego.  Interesuje nas
+sytuacja, kiedy typ zmiennej zawiera specyfikator `auto`.  Na
+przykład:
 
 ```cpp
 const auto &t = 1;
