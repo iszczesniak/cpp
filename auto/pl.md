@@ -75,12 +75,11 @@ const auto &t = 1;
 ```
 
 Kompilator traktuje taką inicjalizację zmiennej jak inicjalizację
-parametru funkcji szablonowej, gdzie:
+parametru funkcji w szablonie funkcj, gdzie:
 
 * `auto` jest traktowane jak nazwa typowego parametru szablonu,
 
-* wyrażenie inicjalizujące jest traktowane jak argument wywołania
-  funkcji.
+* wyrażenie inicjalizujące jest traktowane jak argument funkcji.
 
 Zadaniem kompilatora jest wywnioskowanie argumentu takiego urojonego
 szablonu (urojonego, bo nie jest zapisany w kodzie, a jedynie go sobie

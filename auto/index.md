@@ -73,17 +73,17 @@ instance:
 const auto &t = 1;
 ```
 
-Kompilator traktuje taką inicjalizację zmiennej jak inicjalizację
-parametru funkcji szablonowej, gdzie:
+A compiler treats such a variable initialization as the initialization
+of a function parameter in a function template, where:
 
-* `auto` jest traktowane jak nazwa typowego parametru szablonu,
+* `auto` is treated like the name of a template parameter of the type
+  kind,
 
-* wyrażenie inicjalizujące jest traktowane jak argument wywołania
-  funkcji.
+* the initializing expression is treated like the function argument.
 
-Zadaniem kompilatora jest wywnioskowanie argumentu takiego urojonego
-szablonu (urojonego, bo nie jest zapisany w kodzie, a jedynie go sobie
-wyobrażamy) i podstawienie go w miejsce `auto`.
+A compiler has to deduce the argument of such an imaginary template
+(imaginary, because it's not in the code, we just imagine it) and
+substitute `auto` with it.
 
 ## Przykłady
 
