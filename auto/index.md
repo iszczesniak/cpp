@@ -155,20 +155,22 @@ argument of the type kind.  Here're examples:
 {% include_relative decltype_auto.cc %}
 ```
 
-# Specyfikator `auto` w pętli `for`
+# The `auto` specifier in the range-based `for` loop
 
-Specyfikator `auto` możemy użyć w pętli `for` dla określenia typu
-elementu, którym będziemy się posługiwać w ciele pętli.  Chociaż jest
-to częsty i wygodny sposób, to nie musimy z niego korzystać i możemy
-podać typ jawnie.  Ale trzeba uważać, żeby nie popełnić błędu.
+We can use the `auto` specifier in the range-based `for` loop, i.e.,
+in the definition of the declared variable, the one available in the
+body of the loop.  Even though using `auto` is handy, we do not have
+to use it and we can put the type explicitly.  But we have to watch
+out, not to make a mistake.
 
-Przykład niżej pokazuje, jak można popełnić błąd, który jest trudny do
-wychwycenia.  To jest błąd, który sam popełniłem, a którego nie
-rozumiałem przez długi czas.  W przykładzie błędnie napisany jest typ
-zmiennej: `const pair<int, string> &`.  Wydaje się, że jest dobrze, bo
-chcemy iterować używając referencji stałej do elementów kontenera, a
-wiemy, że elementem kontenera jest para klucza i wartości.  Program
-jednak nie działa prawidłowo.  Gdzie jest błąd?
+The example below shows how easily we can make a mistake that is hard
+to catch.  That's a mistake that I made myself, and that I didn't
+understand for a long time.  In the example, the type of the declared
+variable is mistakenly stated: `const pair<int, string> &`.  It looks
+fine, because we want to iterate using a const reference to the
+elements of a container, and we know that the type of the element is a
+pair of the key and value types.  The program compiles, but does not
+work correctly.  Where's the mistake?
 
 Błąd jest w typie pierwszego elementu pary: klucze w kontenerze są
 typu stałego, a my zażądaliśmy typu niestałego.  Zatem typ zmiennej

@@ -156,20 +156,22 @@ Oto przykłady:
 {% include_relative decltype_auto.cc %}
 ```
 
-# Specyfikator `auto` w pętli `for`
+# Specyfikator `auto` w pętli `for` dla zakresu
 
-Specyfikator `auto` możemy użyć w pętli `for` dla określenia typu
-elementu, którym będziemy się posługiwać w ciele pętli.  Chociaż jest
-to częsty i wygodny sposób, to nie musimy z niego korzystać i możemy
-podać typ jawnie.  Ale trzeba uważać, żeby nie popełnić błędu.
+Specyfikator `auto` możemy użyć w pętli `for` dla zakresu, czyli w
+definicji typu deklarowanej zmiennej, tej dostępnej w ciele pętli.
+Chociaż użycie specyfikatora `auto` jest wygodne, to nie musimy z
+niego korzystać i możemy podać typ jawnie.  Ale trzeba uważać, żeby
+nie popełnić błędu.
 
-Przykład niżej pokazuje, jak można popełnić błąd, który jest trudny do
-wychwycenia.  To jest błąd, który sam popełniłem, a którego nie
-rozumiałem przez długi czas.  W przykładzie błędnie napisany jest typ
-zmiennej: `const pair<int, string> &`.  Wydaje się, że jest dobrze, bo
-chcemy iterować używając referencji stałej do elementów kontenera, a
-wiemy, że elementem kontenera jest para klucza i wartości.  Program
-jednak nie działa prawidłowo.  Gdzie jest błąd?
+Przykład niżej pokazuje, jak łatwo można popełnić błąd, który jest
+trudny do wychwycenia.  To jest błąd, który sam popełniłem, a którego
+nie rozumiałem przez długi czas.  W przykładzie błędnie napisany jest
+typ zmiennej: `const pair<int, string> &`.  Wydaje się, że jest
+dobrze, bo chcemy iterować używając referencji stałej do elementów
+kontenera, a wiemy, że elementem kontenera jest para typów klucza i
+wartości.  Program się kompiluje, ale nie działa prawidłowo.  Gdzie
+jest błąd?
 
 Błąd jest w typie pierwszego elementu pary: klucze w kontenerze są
 typu stałego, a my zażądaliśmy typu niestałego.  Zatem typ zmiennej
