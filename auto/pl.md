@@ -116,8 +116,9 @@ Podobnie dla wskaźników:
 ## Zwykły typ
 
 Używając typu zwykłego (niereferencyjnego i niewskaźnikowego), możemy
-inicjalizować zmienne bez podawania ich typu.  W ten sposób możemy
-upewnić się, że zmienna będzie zawsze zainicjalizowana.
+inicjalizować zmienną bez podawania jej typu.  W ten sposób możemy
+upewnić się, że zmienna jest zainicjalizowana.  Pamiętajmy, że to
+jedynie sztuczka, a nie jakaś mądrość programowania w C++.
 
 Jeżeli wyrażenie inicjalizujące jest typu wskaźnikowego, to
 wywnioskowany typ będzie wskaźnikowy.  Tak będzie w przypadku rozpadu

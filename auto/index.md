@@ -107,17 +107,18 @@ array.  Here's an example:
 {% include_relative refs.cc %}
 ```
 
-Podobnie dla wskaźników:
+Likewise for pointers:
 
 ```cpp
 {% include_relative pointers.cc %}
 ```
 
-## Zwykły typ
+## A regular type
 
-Używając typu zwykłego (niereferencyjnego i niewskaźnikowego), możemy
-inicjalizować zmienne bez podawania ich typu.  W ten sposób możemy
-upewnić się, że zmienna będzie zawsze zainicjalizowana.
+Using a regular (non-reference and non-pointer) type, we can
+initialize a variable without putting is type.  This way we can make
+sure the variable is initialized.  Let's remember that it's only a
+trick, and not some C++ programming wisdom.
 
 Jeżeli wyrażenie inicjalizujące jest typu wskaźnikowego, to
 wywnioskowany typ będzie wskaźnikowy.  Tak będzie w przypadku rozpadu
