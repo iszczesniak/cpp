@@ -13,6 +13,7 @@ title: Generic programming
 ## Part 2
 
 * [Deduction](deduction)
+* [The `auto` type specifier](auto)
 
 # Rules
 
