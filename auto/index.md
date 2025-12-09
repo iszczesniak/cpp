@@ -97,11 +97,11 @@ is going to report an error with the type deduced.
 {% include_relative show.cc %}
 ```
 
-## Typ referencyjny lub wskaźnikowy
+## A reference or pointer type
 
-Możemy zadeklarować typ referencyjny do danej typu, który kompilator
-ma sam wywnioskować.  Może to być zmienna, funkcja czy tablica języka
-C.  Oto przykład:
+We can declare a reference to the data of a type that a compiler has
+to deduce.  The data can be some other variable, a function or an
+array.  Here's an example:
 
 ```cpp
 {% include_relative refs.cc %}

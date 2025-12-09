@@ -99,9 +99,9 @@ typ.
 
 ## Typ referencyjny lub wskaźnikowy
 
-Możemy zadeklarować typ referencyjny do danej typu, który kompilator
-ma sam wywnioskować.  Może to być zmienna, funkcja czy tablica języka
-C.  Oto przykład:
+Możemy zadeklarować referencję do danej typu, który kompilator ma sam
+wywnioskować.  Daną może być inna zmienna, funkcja czy tablica.  Oto
+przykład:
 
 ```cpp
 {% include_relative refs.cc %}
