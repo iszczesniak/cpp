@@ -120,13 +120,13 @@ initialize a variable without putting is type.  This way we can make
 sure the variable is initialized.  Let's remember that it's only a
 trick, and not some C++ programming wisdom.
 
-Jeżeli wyrażenie inicjalizujące jest typu wskaźnikowego, to
-wywnioskowany typ będzie wskaźnikowy.  Tak będzie w przypadku rozpadu
-nazwy funkcji i nazwy tablicy języka C, czy literału łańcuchowego.
+If an initializing expression is of a pointer type, then the deduced
+type will be pointer.  In this case, initializing expressions such as
+a function name, an array name or a string literal would decay (into a
+pointer).
 
-Dla zwykłego typu inicjalizowanej zmiennej nigdy nie będzie
-wywnioskowany typ referencyjny, bo wyrażenie inicjalizujące nigdy nie
-jest typu referencyjnego.
+For a variable of a regular type, the deduced type is never reference,
+because the initializing expression is never of a reference type.
 
 ```cpp
 {% include_relative normal.cc %}

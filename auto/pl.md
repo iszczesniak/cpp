@@ -121,12 +121,13 @@ upewnić się, że zmienna jest zainicjalizowana.  Pamiętajmy, że to
 jedynie sztuczka, a nie jakaś mądrość programowania w C++.
 
 Jeżeli wyrażenie inicjalizujące jest typu wskaźnikowego, to
-wywnioskowany typ będzie wskaźnikowy.  Tak będzie w przypadku rozpadu
-nazwy funkcji i nazwy tablicy języka C, czy literału łańcuchowego.
+wywnioskowany typ będzie wskaźnikowy.  W tym przypadku, wyrażenia
+inicjalizujące takie jak nazwa funkcji, nazwa tablicy, czy literał
+łańcuchowy rozpadną się (na wskaźnik).
 
-Dla zwykłego typu inicjalizowanej zmiennej nigdy nie będzie
-wywnioskowany typ referencyjny, bo wyrażenie inicjalizujące nigdy nie
-jest typu referencyjnego.
+Dla zmiennej zwykłego typu nigdy nie będzie wywnioskowany typ
+referencyjny, bo wyrażenie inicjalizujące nigdy nie jest typu
+referencyjnego.
 
 ```cpp
 {% include_relative normal.cc %}
