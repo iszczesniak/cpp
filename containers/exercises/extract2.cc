@@ -9,5 +9,5 @@ int main()
   std::list<std::string> l;
 
   s.emplace("Hello World!");
-  s.insert(std::move(s.extract(s.begin()).value()));
+  l.push_front(std::move(s.extract(s.begin()).value()));
 }
