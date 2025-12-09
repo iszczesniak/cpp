@@ -5,9 +5,9 @@ title: Specyfikator typu `auto`
 # Wprowadzenie
 
 Specyfikator typu `auto` oznacza, że kompilator ma wywnioskować typ na
-podstawie typu wyrażenia inicjalizującego.  Kompilator wstawia
-wywniowskowany typ w miejsce specyfikatora `auto`.  Tego specyfikatora
-można użyć w definicji typu:
+podstawie typu wyrażenia inicjalizującego.  Kompilator podstawia
+wywniowskowany typ za specyfikator `auto`.  Tego specyfikatora można
+użyć w definicji typu:
 
 * zmiennej,
 
@@ -135,22 +135,22 @@ referencyjnego.
 
 ## `decltype`
 
-Specyfikator typu `decltype` dostarcza typ zmiennej czy wyrażenia,
-który możemy wykorzystać do deklaracji typu innej zmiennej.
-Dostarczony typ może być dowolny, także referencyjny.  Ale chwileczkę,
-czy przypadkiem nie było powiedziane, że wyrażenia nigdy nie są typu
-referencyjnego?  Także te, które przekazujemy do `decltype`?  Tak, ale
-w przypadku `decltype` deklarator `&` najwyższego rzędu nie jest
-usuwany.  Tak powiada standard.
+W miejsce specyfikator typu `decltype` jest podstawiany typ zmiennej
+albo wyrażenia, które są argumentem spefycikatora.  Podstawiony typ
+może być dowolny, także referencyjny.  Ale chwileczkę, czy przypadkiem
+nie było powiedziane, że wyrażenia nigdy nie są typu referencyjnego?
+Także te, które przekazujemy do `decltype`?  Tak, ale w przypadku
+`decltype` deklarator `&` najwyższego rzędu nie jest usuwany.  Tak
+powiada standard.
 
 ```cpp
 {% include_relative decltype.cc %}
 ```
 
-Jeżeli chcemy, żeby `decltype` dostarczył dla zmiennej typ jej
-wyrażenia inicjalizacyjnego, to używamy `decltype(auto)`.  To nie to
-samo, co `auto`, w którym stosowane są zasady wnioskowania typowego
-argumentu szablonu.  Oto przykłady:
+Jeżeli chcemy, żeby specyfikator `decltype` dostarczył typ wyrażenia
+inicjalizacyjnego, to używamy `decltype(auto)`.  To nie to samo, co
+`auto`, który stosuje zasady wnioskowania typowego argumentu szablonu.
+Oto przykłady:
 
 ```cpp
 {% include_relative decltype_auto.cc %}

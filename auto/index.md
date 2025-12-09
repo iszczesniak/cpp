@@ -134,22 +134,21 @@ because the initializing expression is never of a reference type.
 
 ## `decltype`
 
-Specyfikator typu `decltype` dostarcza typ zmiennej czy wyrażenia,
-który możemy wykorzystać do deklaracji typu innej zmiennej.
-Dostarczony typ może być dowolny, także referencyjny.  Ale chwileczkę,
-czy przypadkiem nie było powiedziane, że wyrażenia nigdy nie są typu
-referencyjnego?  Także te, które przekazujemy do `decltype`?  Tak, ale
-w przypadku `decltype` deklarator `&` najwyższego rzędu nie jest
-usuwany.  Tak powiada standard.
+The `decltype` type specifier is substitued with the type of a
+variable or an expression that is the argument of the specifier.  The
+type we substitute with can be any, even reference.  But hold on,
+wasn't it said that an expression is never of a reference type?  Also
+those passed to `decltype`?  Yes, but in the case of `decltype`, the
+top-level declarator `&` is not removed.  So the standard says.
 
 ```cpp
 {% include_relative decltype.cc %}
 ```
 
-Jeżeli chcemy, żeby `decltype` dostarczył dla zmiennej typ jej
-wyrażenia inicjalizacyjnego, to używamy `decltype(auto)`.  To nie to
-samo, co `auto`, w którym stosowane są zasady wnioskowania typowego
-argumentu szablonu.  Oto przykłady:
+If we want the `decltype` speficier to yield the type of an
+initializing expression, then we use `decltype(auto)`.  It's not the
+same as `auto` that employs the deduction rules for a template
+argument of the type kind.  Here're examples:
 
 ```cpp
 {% include_relative decltype_auto.cc %}
