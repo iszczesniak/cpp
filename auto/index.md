@@ -86,15 +86,12 @@ A compiler has to deduce the argument of such an imaginary template
 (imaginary, because it's not in the code, we just imagine it) and
 substitute `auto` with it.
 
-## Przykłady
+## Examples
 
-W podanych przykładach stosowane są znane zasady wnioskowania
-argumentów szablonów, ale warto przytoczyć kilka przykładów.
-
-Żeby przekonać się, że rzeczywiście typy są wnioskowane, jak się
-spodziewamy, możemy w przykładach wykorzystać poniższą sztuczkę.
-Kompilacja zakończy się błędem, w którym będzie podany wywnioskowany
-typ.
+The following examples should not be hard to understand, because we
+already know the deduction rules.  To make sure that in the examples
+we think (deduce) right, we can use the following trick.  A compiler
+is going to report an error with the type deduced.
 
 ```cpp
 {% include_relative show.cc %}

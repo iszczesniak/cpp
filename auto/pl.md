@@ -87,11 +87,9 @@ wyobrażamy) i podstawienie go w miejsce `auto`.
 
 ## Przykłady
 
-W podanych przykładach stosowane są znane zasady wnioskowania
-argumentów szablonów, ale warto przytoczyć kilka przykładów.
-
-Żeby przekonać się, że rzeczywiście typy są wnioskowane, jak się
-spodziewamy, możemy w przykładach wykorzystać poniższą sztuczkę.
+Poniższe przykłady nie powinny być trudne do zrozumienia, bo znamy już
+zasady wnioskowania.  Żeby sprawdzić, że poprawnie myślimy
+(wnioskujemy), możemy w przykładach wykorzystać poniższą sztuczkę.
 Kompilacja zakończy się błędem, w którym będzie podany wywnioskowany
 typ.
 
