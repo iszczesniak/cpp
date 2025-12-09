@@ -139,8 +139,8 @@ W miejsce specyfikator typu `decltype` jest podstawiany typ zmiennej
 albo wyrażenia, które są argumentem spefycikatora.  Podstawiony typ
 może być dowolny, także referencyjny.  Ale chwileczkę, czy przypadkiem
 nie było powiedziane, że wyrażenia nigdy nie są typu referencyjnego?
-Także te, które przekazujemy do `decltype`?  Tak, ale w przypadku
-`decltype` deklarator `&` najwyższego rzędu nie jest usuwany.  Tak
+Czy nie powinno być tak samo z `decltype`?  A więc, w przypadku
+`decltype` deklarator `&` najwyższego rzędu nie jest usuwany: tak
 powiada standard.
 
 ```cpp

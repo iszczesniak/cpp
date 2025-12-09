@@ -137,9 +137,10 @@ because the initializing expression is never of a reference type.
 The `decltype` type specifier is substitued with the type of a
 variable or an expression that is the argument of the specifier.  The
 type we substitute with can be any, even reference.  But hold on,
-wasn't it said that an expression is never of a reference type?  Also
-those passed to `decltype`?  Yes, but in the case of `decltype`, the
-top-level declarator `&` is not removed.  So the standard says.
+wasn't it said that an expression is never of a reference type?
+Shouldn't this be so for the `decltype` too?  Well, in the case of
+`decltype`, the top-level declarator `&` is not removed: so the
+standard says.
 
 ```cpp
 {% include_relative decltype.cc %}
