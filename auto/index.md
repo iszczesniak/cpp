@@ -166,19 +166,19 @@ out, not to make a mistake.
 The example below shows how easily we can make a mistake that is hard
 to catch.  That's a mistake that I made myself, and that I didn't
 understand for a long time.  In the example, the type of the declared
-variable is mistakenly stated: `const pair<int, string> &`.  It looks
-fine, because we want to iterate using a const reference to the
+variable is mistakenly stated: *`const pair<int, string> &`*.  It
+looks fine, because we want to iterate using a const reference to the
 elements of a container, and we know that the type of the element is a
 pair of the key and value types.  The program compiles, but does not
 work correctly.  Where's the mistake?
 
-Błąd jest w typie pierwszego elementu pary: klucze w kontenerze są
-typu stałego, a my zażądaliśmy typu niestałego.  Zatem typ zmiennej
-pętli powinien być `const pair<const int, string> &`.  Ten drobny błąd
-powoduje, że kompilator tworzy tymczasową parę elementów typu `int`
-oraz `string` i inicjalizuje ją przez kopiowanie wartości z pary w
-kontenerze.  W ten sposób mamy, co chcieliśmy, czyli referencję stałą
-do pary żądanego typu.
+The mistake is in the first type of the pair: the container keys are
+const, while we requested them to be non-const.  Therefore the type of
+the declared loop variable should be: *`const pair<const int, string>
+&`*.  This small mistake makes the compiler create a temporary pair of
+(elements of types) `int` and `string` by copying the values from the
+pair in the container.  This way we get what we wanted: a const
+reference to a pair of values of the requested types.
 
 Problem w tym, że ta para wkrótce wyparuje, bo jest alokowana na
 stosie jako zmienna lokalna ciała pętli.  Problem, bo w wektorze
