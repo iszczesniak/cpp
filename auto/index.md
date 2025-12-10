@@ -215,17 +215,17 @@ Here're a few examples:
 {% include_relative return.cc %}
 ```
 
-## Doskonałe zwracanie wyniku funkcji
+## Perfect returning
 
-Piszemy callable `f`, które wywołuje jakiś inny callable `g`.  Nie
-znamy typu wyniku zwracanego przez `g`, ale chcemy, żeby `f` zwracała
-tą samą daną, jaką otrzymała od funkcji `g`.  Jest to problem
-doskonałego zwracania wyniku funkcji, a którym chodzi o:
+We're implementing callable `f` that is calling some other callable
+`g`.  We do not know the return type of `g`, but we want `f` to return
+the same data that it received from `g`.  This is a problem of the
+perfect returning that is about:
 
-* zapobiegnięcie kopiowaniu albo przenoszeniu danej,
+* preventing the copying or moving of the data,
 
-* zachowanie kategorii wartości wyrażenia wywołania funkcji `g`, czyli
-  wyrażenie wywołania funkcji `f` ma mieć tę samą kategorię.
+* keeping the category of the call expression of `g`, i.e., the call
+  expression of `f` should have the same category.
 
 Problem sprowadza się do tego, żeby zadeklarowany typ wyniku `f` był
 taki sam jak dla `g`.  Konstruktor (kopiujący albo przenoszący) dla

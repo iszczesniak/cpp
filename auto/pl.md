@@ -216,17 +216,17 @@ Oto kilka przykładów:
 {% include_relative return.cc %}
 ```
 
-## Doskonałe zwracanie wyniku funkcji
+## Doskonałe zwracanie
 
 Piszemy callable `f`, które wywołuje jakiś inny callable `g`.  Nie
 znamy typu wyniku zwracanego przez `g`, ale chcemy, żeby `f` zwracała
-tą samą daną, jaką otrzymała od funkcji `g`.  Jest to problem
-doskonałego zwracania wyniku funkcji, a którym chodzi o:
+tą samą daną, jaką otrzymała od `g`.  Jest to problem doskonałego
+zwracania wyniku funkcji, a którym chodzi o:
 
 * zapobiegnięcie kopiowaniu albo przenoszeniu danej,
 
-* zachowanie kategorii wartości wyrażenia wywołania funkcji `g`, czyli
-  wyrażenie wywołania funkcji `f` ma mieć tę samą kategorię.
+* zachowanie kategorii wartości wyrażenia wywołania `g`, czyli
+  wyrażenie wywołania `f` ma mieć tę samą kategorię.
 
 Problem sprowadza się do tego, żeby zadeklarowany typ wyniku `f` był
 taki sam jak dla `g`.  Konstruktor (kopiujący albo przenoszący) dla
