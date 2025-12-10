@@ -206,8 +206,8 @@ specifier.  In that definition we can use the qualifiers (`const`,
 A compiler substitutes the `auto` specifier with the type deduced
 based on the expression of the return instruction that is the
 initializing expression of the function result.  This situation is
-analogous to the initialization of a function parameter, except that
-the function result does not have a name.
+analogous to the initialization of a function parameter in a function
+template, except that the function result does not have a name.
 
 Here're a few examples:
 

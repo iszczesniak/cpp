@@ -207,8 +207,8 @@ oraz deklaratorów (`&`, `*`).
 W miejsce specyfikatora `auto` kompilator podstawia typ wywnioskowany
 na podstawie wyrażenia instrukcji powrotu, które jest wyrażeniem
 inicjalizującym zwracanej wartości.  Sytuacja jest analogiczna do
-inicjalizacji parametru funkcji szablonowej, z tą różnicą, że zwracana
-wartość nie ma nazwy.
+inicjalizacji parametru funkcji w szablonie funkcji, z tą różnicą, że
+zwracana wartość nie ma nazwy.
 
 Oto kilka przykładów:
 
