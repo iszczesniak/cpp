@@ -197,20 +197,19 @@ reference (it's about the syntax and the semantics).
 {% include_relative for_auto.cc %}
 ```
 
-# Typ wyniku funkcji i `auto`
+# A function return type
 
-Funkcja (zwykła albo szablonowa) może mieć zadeklarowany typ zwracanej
-wartości z użyciem specyfikatora `auto`.  W definicji tego typu mogą
-być także użyte specyfikatory `const` i `volatile` oraz deklaratory
-`&` i `*`.
+We can define the return type of a function using the `auto`
+specifier.  In that definition we can use the qualifiers (`const`,
+`volatile`) and declarators (`&`, `*`).
 
-Typ `auto` jest wnioskowany zgodnie z zasadami wnioskowania
-**typowego** argumentu szablonu na podstawie wyrażenia instrukcji
-powrotu, które pełni rolę wyrażenia inicjalizującego dla zwracanej
-wartości.  Sytuacja jest analogiczna do inicjalizacji parametru
-funkcji szablonowej, z tą różnicą, że zwracana wartość nie ma nazwy.
+A compiler substitutes the `auto` specifier with the type deduced
+based on the expression of the return instruction that is the
+initializing expression of the function result.  This situation is
+analogous to the initialization of a function parameter, except that
+the function result does not have a name.
 
-Oto kilka przykładów:
+Here're a few examples:
 
 ```cpp
 {% include_relative return.cc %}

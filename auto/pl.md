@@ -135,13 +135,13 @@ referencyjnego.
 
 ## `decltype`
 
-W miejsce specyfikator typu `decltype` jest podstawiany typ zmiennej
-albo wyrażenia, które są argumentem spefycikatora.  Podstawiony typ
-może być dowolny, także referencyjny.  Ale chwileczkę, czy przypadkiem
-nie było powiedziane, że wyrażenia nigdy nie są typu referencyjnego?
-Czy nie powinno być tak samo z `decltype`?  A więc, w przypadku
-`decltype` deklarator `&` najwyższego rzędu nie jest usuwany: tak
-powiada standard.
+W miejsce specyfikator typu `decltype` kompilator podstawia typ
+zmiennej albo wyrażenia, które są argumentem spefycikatora.
+Podstawiony typ może być dowolny, także referencyjny.  Ale chwileczkę,
+czy przypadkiem nie było powiedziane, że wyrażenia nigdy nie są typu
+referencyjnego?  Czy nie powinno być tak samo z `decltype`?  A więc, w
+przypadku `decltype` deklarator `&` najwyższego rzędu nie jest
+usuwany: tak powiada standard.
 
 ```cpp
 {% include_relative decltype.cc %}
@@ -198,18 +198,17 @@ możemy używać podobnie jak referencję (chodzi o składnię i semantykę).
 {% include_relative for_auto.cc %}
 ```
 
-# Typ wyniku funkcji i `auto`
+# Typ wyniku funkcji
 
-Funkcja (zwykła albo szablonowa) może mieć zadeklarowany typ zwracanej
-wartości z użyciem specyfikatora `auto`.  W definicji tego typu mogą
-być także użyte specyfikatory `const` i `volatile` oraz deklaratory
-`&` i `*`.
+Możemy zdefiniować typ wyniku funkcji z użyciem specyfikatora `auto`.
+W definicji tego typu możemy użyć kwalifikatorów (`const`, `volatile`)
+oraz deklaratorów (`&`, `*`).
 
-Typ `auto` jest wnioskowany zgodnie z zasadami wnioskowania
-**typowego** argumentu szablonu na podstawie wyrażenia instrukcji
-powrotu, które pełni rolę wyrażenia inicjalizującego dla zwracanej
-wartości.  Sytuacja jest analogiczna do inicjalizacji parametru
-funkcji szablonowej, z tą różnicą, że zwracana wartość nie ma nazwy.
+W miejsce specyfikatora `auto` kompilator podstawia typ wywnioskowany
+na podstawie wyrażenia instrukcji powrotu, które jest wyrażeniem
+inicjalizującym zwracanej wartości.  Sytuacja jest analogiczna do
+inicjalizacji parametru funkcji szablonowej, z tą różnicą, że zwracana
+wartość nie ma nazwy.
 
 Oto kilka przykładów:
 
