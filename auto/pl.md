@@ -187,12 +187,12 @@ wektorze zapisujemy referencję do ciągu znaków w parze, a ta
 referencja po zakończeniu iteracji odnosi się do nieistniejącego
 obiektu.  Wypisując zawartość wektora widzimy ten sam ciąg znaków, bo
 tymczasowe pary były tworzone na stosie w tym samym miejscu, a my
-widzimy ostatni ciąg znaków.
+widzimy ostatnią wartość.
 
 Ponieważ w kontenerach nie możemy przechowywać referencji (`const
 string &`), to użyliśmy `std::reference_wrapper<const string>`.
-Moglibyśmy użyć po prostu wskaźników, ale `std::reference_wrapper`
-możemy używać jak referencji (chodzi o składnię i semantykę).
+Moglibyśmy użyć po prostu wskaźnika, ale `std::reference_wrapper`
+możemy używać podobnie jak referencję (chodzi o składnię i semantykę).
 
 ```cpp
 {% include_relative for_auto.cc %}

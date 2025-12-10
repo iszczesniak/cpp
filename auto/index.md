@@ -188,10 +188,10 @@ temporary is gone.  When we output the contents of the vector, we see
 the same string, because the temporary pairs were created in the same
 place on the stack, and we see the last value.
 
-Ponieważ w kontenerach nie możemy przechowywać referencji (`const
-string &`), to użyliśmy `std::reference_wrapper<const string>`.
-Moglibyśmy użyć po prostu wskaźników, ale `std::reference_wrapper`
-możemy używać jak referencji (chodzi o składnię i semantykę).
+Because in a container we cannot store a reference (`const string &`),
+then we used `std::reference_wrapper<const string>`.  We could have
+used a pointer, but we can use `std::reference_wrapper` similar to a
+reference (it's about the syntax and the semantics).
 
 ```cpp
 {% include_relative for_auto.cc %}
