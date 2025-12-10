@@ -180,12 +180,13 @@ of (elements of types) `int` and `string` by copying the values from
 the pair in the container.  This way we get what we wanted: a const
 reference to a pair of values of the requested types.
 
-Problem w tym, że ta para wkrótce wyparuje, bo jest alokowana na
-stosie jako zmienna lokalna ciała pętli.  Problem, bo w wektorze
-zapisujemy referencję do ciągu znaków w parze, a ta referencja już po
-zakończeniu iteracji odnosi się do nieistniejącego obiektu.  Wypisując
-zawartość wektora widzimy tą samą wartość, bo obiekty były tworzone na
-stosie w tym samym miejscu, a my widzimy ostatnią wartość.
+The problem is that this temporary pair soon disappears, because it's
+allocated on the stack as the local data of the loop body.  It's a
+problem, because in the vector we store a reference to the string of
+the pair, and that reference dangles after an iteration, because the
+temporary is gone.  When we output the contents of the vector, we see
+the same string, because the temporary pairs were created in the same
+place on the stack, and we see the last value.
 
 Ponieważ w kontenerach nie możemy przechowywać referencji (`const
 string &`), to użyliśmy `std::reference_wrapper<const string>`.

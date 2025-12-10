@@ -181,12 +181,13 @@ oraz `string` i inicjalizuje ją przez kopiowanie wartości z pary w
 kontenerze.  W ten sposób mamy, co chcieliśmy, czyli referencję stałą
 do pary żądanego typu.
 
-Problem w tym, że ta para wkrótce wyparuje, bo jest alokowana na
-stosie jako zmienna lokalna ciała pętli.  Problem, bo w wektorze
-zapisujemy referencję do ciągu znaków w parze, a ta referencja już po
-zakończeniu iteracji odnosi się do nieistniejącego obiektu.  Wypisując
-zawartość wektora widzimy tą samą wartość, bo obiekty były tworzone na
-stosie w tym samym miejscu, a my widzimy ostatnią wartość.
+Problem w tym, że ta tymczasowa para wkrótce wyparuje, bo jest
+alokowana na stosie jako dana lokalna ciała pętli.  Problem, bo w
+wektorze zapisujemy referencję do ciągu znaków w parze, a ta
+referencja po zakończeniu iteracji odnosi się do nieistniejącego
+obiektu.  Wypisując zawartość wektora widzimy ten sam ciąg znaków, bo
+tymczasowe pary były tworzone na stosie w tym samym miejscu, a my
+widzimy ostatni ciąg znaków.
 
 Ponieważ w kontenerach nie możemy przechowywać referencji (`const
 string &`), to użyliśmy `std::reference_wrapper<const string>`.
