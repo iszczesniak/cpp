@@ -285,29 +285,28 @@ wyniku.
 {% include_relative lambda_ret.cc %}
 ```
 
-# Skrócony zapis szablonu
+# Skrócona składnia szablonu
 
-Zapis szablonu możemy skrócić o nagłówek, jeżeli typ parametru funkcji
-zdefiniujemy z użyciem specyfikatora `auto`:
+Szablon funkcji możemy skrócić o nagłówek szablonu, jeżeli typ
+parametru funkcji zdefiniujemy z użyciem specyfikatora `auto`:
 
 ```cpp
 {% include_relative abs.cc %}
 ```
 
 Jeżeli chcemy, żeby dwa parametry były tego samego typu, to
-specyfikator `auto` o to nie zadba, bo jego wystąpienia tworzą różne
-parametry szablonu:
+specyfikator `auto` o to nie zadba, bo każde `auto` tworzy nowy
+parametr szablonu:
 
 ```cpp
 {% include_relative max.cc %}
 ```
 
-Definicję paczki parametrów funkcji możemy skrócić przez użycie
+Szablon funkcji z paczkami parametrów możemy skrócić przez użycie
 specyfikatora typu `auto`, jak w przykładzie niżej.  Jednak w tym
-przykładzie, parametr `T` musi być zdefiniowany, bo jego argumentu
-kompilator nie jest w stanie wywnioskować (nie ma parametru funkcji z
-użyciem tego parametru szablonu), a dodatkowo jego nazwą posługujemy
-się w ciele funkcji.
+przykładzie, parametr `T` musi być zdefiniowany, bo kompilator nie
+jest w stanie wywnioskować jego argumentu (nie ma parametru funkcji,
+który używa `T`), no i dodatkowo posługujemy się nim w ciele funkcji.
 
 ```cpp
 {% include_relative factory.cc %}

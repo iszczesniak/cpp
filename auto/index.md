@@ -283,29 +283,27 @@ for the perfect returning.
 {% include_relative lambda_ret.cc %}
 ```
 
-# Skrócony zapis szablonu
+# Short template syntax
 
-Zapis szablonu możemy skrócić o nagłówek, jeżeli typ parametru funkcji
-zdefiniujemy z użyciem specyfikatora `auto`:
+We can shorten a function template by its template header if we define
+the type of a function parameter using `auto`:
 
 ```cpp
 {% include_relative abs.cc %}
 ```
 
-Jeżeli chcemy, żeby dwa parametry były tego samego typu, to
-specyfikator `auto` o to nie zadba, bo jego wystąpienia tworzą różne
-parametry szablonu:
+If we want two parameters to be of the same type, then `auto` can't
+enforce it, because each `auto` creates a new template parameter:
 
 ```cpp
 {% include_relative max.cc %}
 ```
 
-Definicję paczki parametrów funkcji możemy skrócić przez użycie
-specyfikatora typu `auto`, jak w przykładzie niżej.  Jednak w tym
-przykładzie, parametr `T` musi być zdefiniowany, bo jego argumentu
-kompilator nie jest w stanie wywnioskować (nie ma parametru funkcji z
-użyciem tego parametru szablonu), a dodatkowo jego nazwą posługujemy
-się w ciele funkcji.
+A function template with parameter packs can also be shortened by
+using `auto`, as in the example below.  In that example, however, `T`
+must be defined, because a compiler is unable to deduce its argument
+(there is no function parameter that uses `T`), and also we use it in
+the body of the function.
 
 ```cpp
 {% include_relative factory.cc %}
