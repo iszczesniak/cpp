@@ -221,7 +221,7 @@ Oto kilka przykładów:
 Piszemy callable `f`, które wywołuje jakiś inny callable `g`.  Nie
 znamy typu wyniku zwracanego przez `g`, ale chcemy, żeby `f` zwracała
 tą samą daną, jaką otrzymała od `g`.  Jest to problem doskonałego
-zwracania wyniku funkcji, a którym chodzi o:
+zwracania wyniku funkcji, w którym chodzi o:
 
 * zapobiegnięcie kopiowaniu albo przenoszeniu danej,
 
