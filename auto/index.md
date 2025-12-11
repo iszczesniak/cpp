@@ -244,7 +244,7 @@ expression of the return instruction of callable `f`.  The
 `decltype(auto)` specifier guarantees the identical return type.  The
 `auto ` specyfikator would deduce the type, and that we want not.
 
-Oto przykład:
+Here's an example:
 
 ```cpp
 {% include_relative return_decltype.cc %}
