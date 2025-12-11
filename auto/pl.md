@@ -274,10 +274,10 @@ przykład:
 {% include_relative lambda_par.cc %}
 ```
 
-## Typ zwracanej wartości
+## Typ wyniku
 
-Domyślnym typem zwracanym przez operator wywołania funkcji domknięcia
-jest `auto`.  Z użyciem `->` możemy jednak zdefiniować typ zwracanego
+Domyślnym typem wyniku operator wywołania funkcji domknięcia jest
+`auto`.  Z użyciem `->` możemy jednak zdefiniować typ zwracanego
 wyniku jako `decltype(auto)`, żeby zadbać o doskonałe zwracanie
 wyniku.
 

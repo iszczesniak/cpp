@@ -273,12 +273,11 @@ member function template.  An example:
 {% include_relative lambda_par.cc %}
 ```
 
-## Typ zwracanej wartości
+## Return type
 
-Domyślnym typem zwracanym przez operator wywołania funkcji domknięcia
-jest `auto`.  Z użyciem `->` możemy jednak zdefiniować typ zwracanego
-wyniku jako `decltype(auto)`, żeby zadbać o doskonałe zwracanie
-wyniku.
+The default return type of the call operator in a lambda is `auto`.
+Using `->` we can define the return type as `decltype(auto)` to cater
+for the perfect returning.
 
 ```cpp
 {% include_relative lambda_ret.cc %}
