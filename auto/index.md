@@ -94,7 +94,13 @@ we think (deduce) right, we can use the following trick.  A compiler
 is going to report an error with the type deduced.
 
 ```cpp
-{% include_relative show.cc %}
+{% include_relative show1.cc %}
+```
+
+Here's the variadic version:
+
+```cpp
+{% include_relative show2.cc %}
 ```
 
 ## A reference or pointer type

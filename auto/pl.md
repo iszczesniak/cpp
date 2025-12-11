@@ -94,7 +94,13 @@ Kompilacja zakończy się błędem, w którym będzie podany wywnioskowany
 typ.
 
 ```cpp
-{% include_relative show.cc %}
+{% include_relative show1.cc %}
+```
+
+A tu wersja wariadyczna:
+
+```cpp
+{% include_relative show2.cc %}
 ```
 
 ## Typ referencyjny lub wskaźnikowy
