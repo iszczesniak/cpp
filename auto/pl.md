@@ -237,7 +237,7 @@ będzie wywołany, bo jeżeli `g` zwraca wynik przez:
   kopiowania czy przenoszenia nie dochodzi,
 
 * **wartość**, to `f` też zwraca przez wartość tego samego typu, a
-  wtedy konstruktor zostanie unikniony.
+  wtedy konstruktor zostanie pominięty.
 
 W poprawnej implementacji, funkcja `f` powinna mieć zadeklarowany typ
 wracanej wartości jako `decltype(auto)`, a wyrażenie wywołania funkcji
