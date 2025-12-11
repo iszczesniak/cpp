@@ -1,4 +1,4 @@
-#include <tuple>
+#include <iostream>
 
 int &g1()
 {
@@ -12,13 +12,16 @@ int g2()
 }
 
 template <typename G>
-decltype(auto) f(G &&g)
+decltype(auto) f(G g)
 {
-  return std::forward<G>(g)();
+  return g();
 }
 
 int main()
 {
-  auto &&r1 = f(g1);
-  auto &&r2 = f(g2);
+  f(g1) = 2;
+  std::cout << g1() << std::endl;
+
+  // Does not compile, because we can't assign to an rvalue.
+  // f(g2) = 2;
 }
