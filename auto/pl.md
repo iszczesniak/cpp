@@ -259,8 +259,8 @@ Oto przykład:
 
 # Wyrażenia lambda i `auto`
 
-Specyfikatora `auto` możemy użyć w definicji typu parametru i
-zwracanej wartości.
+W wyrażeniu lambda, specyfikatora `auto` możemy użyć w definicji typu
+parametru lub wyniku.
 
 ## Typ parametru
 

@@ -256,12 +256,12 @@ Here's an example:
 {% include_relative return_decltype.cc %}
 ```
 
-# Wyrażenia lambda i `auto`
+# Lambda expression and `auto`
 
-Specyfikatora `auto` możemy użyć w definicji typu parametru i
-zwracanej wartości.
+In a lambda expression, we can use the `auto` specifier in the
+definition of a parameter or return type.
 
-## Typ parametru
+## Parametr type
 
 In a lambda expression we can define the parameters of the call
 operator using `auto`.  Then the compiler defines a member function
