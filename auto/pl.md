@@ -257,7 +257,7 @@ Oto przykład:
 {% include_relative return_decltype.cc %}
 ```
 
-# Wyrażenia lambda i `auto`
+# Wyrażenie lambda i `auto`
 
 W wyrażeniu lambda, specyfikatora `auto` możemy użyć w definicji typu
 parametru lub wyniku.
