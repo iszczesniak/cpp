@@ -232,8 +232,8 @@ of `g`.  A (copy, move) constructor for the forwarded result will not
 be called because if `g` returns by:
 
 * **reference**, then `f` returns by reference of the same type
-  (lvalue reference, const reference, rvalue reference), and then no
-  constuctor is called,
+  (lvalue reference, const reference, rvalue reference), and such
+  reference initialization does not call a constructor,
 
 * **value**, then `f` returns by value of the same type, and then a
   constructor is elided.

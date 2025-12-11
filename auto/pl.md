@@ -233,8 +233,8 @@ Konstruktor (kopiujący, przenoszący) dla przekazywanego wyniku nie
 będzie wywołany, bo jeżeli `g` zwraca wynik przez:
 
 * **referencję**, to `f` też zwraca przez referencję tego samego typu
-  (l-referencję, referencję stałą czy r-referencję), a wtedy do
-  kopiowania czy przenoszenia nie dochodzi,
+  (l-referencję, referencję stałą czy r-referencję), a taka
+  inicjalizacja referencji nie wywoła konstruktora,
 
 * **wartość**, to `f` też zwraca przez wartość tego samego typu, a
   wtedy konstruktor zostanie pominięty.
