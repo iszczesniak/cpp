@@ -251,15 +251,6 @@ Oto przykład:
 {% include_relative return_decltype.cc %}
 ```
 
-Domyślnie w wyrażeniu lambda typ zwracanej wartości jest wnioskowany
-na podstawie wyrażenia instrukcji powrotu, ale możemy zażądać
-doskonałego zwracania wyniku (tego samego typu, który zwraca funkcja
-`g`):
-
-```cpp
-{% include_relative return_decltype2.cc %}
-```
-
 # Wyrażenia lambda i `auto`
 
 Specyfikatora `auto` możemy użyć w definicji typu parametru i

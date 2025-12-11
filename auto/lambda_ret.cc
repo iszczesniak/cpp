@@ -1,17 +1,17 @@
 #include <iostream>
 
-int &foo()
+int &
+g()
 {
-  static int i = 1;
-
-  return i;
+  static int a = 1;
+  std::cout << a << std::endl;
+  return a;
 }
 
 int main()
 {
-  auto c = []() -> decltype(auto) {return foo();};
-
-  c() = 100;
-
-  std::cout << c() << std::endl;
+  // auto f = []() {return g();};
+  auto f = []() -> decltype(auto) {return g();};
+  f() = 10;
+  g();
 }
