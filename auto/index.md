@@ -227,17 +227,16 @@ perfect returning that is about:
 * keeping the category of the call expression of `g`, i.e., the call
   expression of `f` should have the same category.
 
-Problem sprowadza się do tego, żeby zadeklarowany typ wyniku `f` był
-taki sam jak dla `g`.  Konstruktor (kopiujący albo przenoszący) dla
-zwracanej danej nie będzie wywołany, bo:
+Solution: the return type of `f` has to be the same as the return type
+of `g`.  A (copy, move) constructor for the forwarded result will not
+be called because if `g` returns by:
 
-* jeżeli `g` zwraca wynik przez referencję, to `f` ma zwracać też
-  przez referencję tego samego typu (l-referencję, referencję stałą
-  czy r-referencję), a wtedy do kopiowania czy przenoszenia nie
-  dochodzi,
+* **reference**, then `f` returns by reference of the same type
+  (lvalue reference, const reference, rvalue reference), and then no
+  constuctor is called,
 
-* jeżeli wynik zwracany jest przez wartość, to konstruktor zostanie
-  unikniony.
+* **value**, then `f` returns by value of the same type, and then a
+  constructor is elided.
 
 W poprawnej implementacji, funkcja `f` powinna mieć zadeklarowany typ
 wracanej wartości jako `decltype(auto)`, a wyrażenie wywołania funkcji

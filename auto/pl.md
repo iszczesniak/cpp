@@ -228,17 +228,16 @@ zwracania wyniku funkcji, a którym chodzi o:
 * zachowanie kategorii wartości wyrażenia wywołania `g`, czyli
   wyrażenie wywołania `f` ma mieć tę samą kategorię.
 
-Problem sprowadza się do tego, żeby zadeklarowany typ wyniku `f` był
-taki sam jak dla `g`.  Konstruktor (kopiujący albo przenoszący) dla
-zwracanej danej nie będzie wywołany, bo:
+Rozwiązanie: typ wyniku `f` ma być taki sam jak typ wyniku `g`.
+Konstruktor (kopiujący, przenoszący) dla przekazywanego wyniku nie
+będzie wywołany, bo jeżeli `g` zwraca wynik przez:
 
-* jeżeli `g` zwraca wynik przez referencję, to `f` ma zwracać też
-  przez referencję tego samego typu (l-referencję, referencję stałą
-  czy r-referencję), a wtedy do kopiowania czy przenoszenia nie
-  dochodzi,
+* **referencję**, to `f` też zwraca przez referencję tego samego typu
+  (l-referencję, referencję stałą czy r-referencję), a wtedy do
+  kopiowania czy przenoszenia nie dochodzi,
 
-* jeżeli wynik zwracany jest przez wartość, to konstruktor zostanie
-  unikniony.
+* **wartość**, to `f` też zwraca przez wartość tego samego typu, a
+  wtedy konstruktor zostanie unikniony.
 
 W poprawnej implementacji, funkcja `f` powinna mieć zadeklarowany typ
 wracanej wartości jako `decltype(auto)`, a wyrażenie wywołania funkcji
