@@ -239,9 +239,9 @@ będzie wywołany, bo jeżeli `g` zwraca wynik przez:
 * **wartość**, to `f` też zwraca przez wartość tego samego typu, a
   wtedy konstruktor zostanie pominięty.
 
-W poprawnej implementacji, funkcja `f` powinna mieć zadeklarowany typ
-wracanej wartości jako `decltype(auto)`, a wyrażenie wywołania funkcji
-`g` powinno być argumentem instrukcji powrotu funkcji `f`.
+W poprawnej implementacji, callable `f` powinno mieć zadeklarowany typ
+wracanej wartości jako `decltype(auto)`, a wyrażenie wywołania
+callable `g` powinno być wyrażeniem instrukcji powrotu callable `f`.
 Specyfikator `decltype(auto)` gwarantuje nam identyczny typ.
 Specyfikator `auto` wnioskowałby typ, a tego nie chcemy.
 

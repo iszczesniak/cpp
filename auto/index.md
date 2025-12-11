@@ -238,11 +238,11 @@ be called because if `g` returns by:
 * **value**, then `f` returns by value of the same type, and then a
   constructor is elided.
 
-W poprawnej implementacji, funkcja `f` powinna mieć zadeklarowany typ
-wracanej wartości jako `decltype(auto)`, a wyrażenie wywołania funkcji
-`g` powinno być argumentem instrukcji powrotu funkcji `f`.
-Specyfikator `decltype(auto)` gwarantuje nam identyczny typ.
-Specyfikator `auto` wnioskowałby typ, a tego nie chcemy.
+In a correct implementation, callable `f` should declare its return
+type as `decltype(auto)`, and the call expression of `g` should be the
+expression of the return instruction of callable `f`.  The
+`decltype(auto)` specifier guarantees the identical return type.  The
+`auto ` specyfikator would deduce the type, and that we want not.
 
 Oto przykład:
 
