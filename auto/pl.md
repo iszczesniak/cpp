@@ -318,7 +318,7 @@ który używa `T`), no i dodatkowo posługujemy się nim w ciele funkcji.
 
 * W pętli `for` warto używać specyfikatora `auto`.
 
-* W wyrażeniu lambda można użyć typu `auto` dla parametru.
+* W wyrażeniu lambda, `auto` jest poręczne.
 
 # Quiz
 

@@ -309,18 +309,19 @@ the body of the function.
 {% include_relative factory.cc %}
 ```
 
-# Podsumowanie
+# Conclusion
 
-* Specyfikator `auto` pozwala na wnioskowanie typu.
+* The `auto` specifier allows for type deduction.
 
-* W pętli `for` warto używać specyfikatora `auto`.
+* In a `for` loop it's best to use `auto`.
 
-* W wyrażeniu lambda można użyć typu `auto` dla parametru.
+* In a lambda expression, `auto` is handy.
 
 # Quiz
 
-* Gdzie możemy użyć specyfikatora `auto`?
+* Where can we use `auto`?
 
-* Jaka jest różnica między specyfikatorami `auto` i `decltype(auto)`?
+* What's the difference between specifiers `auto` and
+  `decltype(auto)`?
 
-* Na czym polega doskonałe zwracanie wartości?
+* What is the perfect returning about?
