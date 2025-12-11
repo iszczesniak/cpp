@@ -264,13 +264,11 @@ zwracanej wartości.
 
 ## Typ parametru
 
-W wyrażeniu lambda możemy podać parametry dla operatora wywołania.  I
-tam możemy użyć `auto`.  Wtedy składowa operatora wywołania jest
-szablonowa, gdzie `auto` służy jako typowy parametr szablonu funkcji.
-Wywołanie tej funkcji składowej z argumentami różnych typów powoduje
-konkretyzację szablonu i generowanie nowych przeciążeń dla tego samego
-domknięcia.  Oto przykład to ilustrujący, po którym weteran
-programowania w C++ może zwątpić:
+W wyrażeniu lambda możemy zdefiniować parametry operatora wywołania z
+użyciem `auto`.  Wtedy kompilator definiuje szablon składowej funkcji
+operatora wywołania, gdzie `auto` służy jako typowy parametr szablonu.
+Wywołanie domknięcia konkretyzuje szablon funkcji składowej.  Oto
+przykład:
 
 ```cpp
 {% include_relative lambda_par.cc %}
