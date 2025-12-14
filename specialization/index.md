@@ -15,10 +15,10 @@ parameters: their number of their kinds.  A specialization has to have
 the same name (of a function or type) and provide arguments for the
 primary template.
 
-Specjalizacja szablonu też jest szablonem, ale już dla częściowo albo
-całkowicie określonych argumentów.  Specjalizację możemy poznać po
-nieco innej składni szablonu, ale ciągle występuje słowo kluczowe
-`template`.
+Specialization is a template too, but for partially or completely
+given arguments of the primary template.  We can recognize a
+specialization by a slightly different syntax, but we still have to
+use the `template` keyword.
 
 Specjalizacja może być **częściowa** (ang. partial specialization)
 albo **całkowita** (ang. complete specialization).  Specjalizacja

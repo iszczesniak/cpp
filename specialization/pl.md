@@ -15,9 +15,9 @@ liczbę i rodzaje.  Specjalizacja musi mieć tą samą nazwę (funkcji,
 typu) i dostarczyć argumenty dla szablonu podstawowego.
 
 Specjalizacja szablonu też jest szablonem, ale już dla częściowo albo
-całkowicie określonych argumentów.  Specjalizację możemy poznać po
-nieco innej składni szablonu, ale ciągle występuje słowo kluczowe
-`template`.
+całkowicie określonych argumentów szablonu podstawowego.
+Specjalizację możemy poznać po nieco innej składni szablonu, ale
+ciągle występuje słowo kluczowe `template`.
 
 Specjalizacja może być **częściowa** (ang. partial specialization)
 albo **całkowita** (ang. complete specialization).  Specjalizacja
