@@ -10,10 +10,9 @@ template), żeby odróżnić go od specjalizacji, która też jest
 szablonem.  Specjalizacja nadpisuje definicję szablonu podstawowego.
 Nie można dalej specjalizować specjalizacji.
 
-Szablon podstawowy deklaruje albo definiuje funkcję albo klasę oraz
-parametry szablonu (liczbę i rodzaj parametrów).  Specjalizacja musi
-mieć tą samą nazwę (funkcji albo klasy) i dostarczyć argumenty dla
-specjalizowanego szablonu podstawowego.
+Szablon podstawowy (funkcji, typu) definiuje parametry szablonu: ich
+liczbę i rodzaje.  Specjalizacja musi mieć tą samą nazwę (funkcji,
+typu) i dostarczyć argumenty dla szablonu podstawowego.
 
 Specjalizacja szablonu też jest szablonem, ale już dla częściowo albo
 całkowicie określonych argumentów.  Specjalizację możemy poznać po

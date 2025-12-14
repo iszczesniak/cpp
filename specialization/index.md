@@ -10,10 +10,10 @@ from the specialization that is also a template.  A specialization
 overwrites the definition of a primary template.  We cannot specialize
 further a specialization.
 
-Szablon podstawowy deklaruje albo definiuje funkcję albo klasę oraz
-parametry szablonu (liczbę i rodzaj parametrów).  Specjalizacja musi
-mieć tą samą nazwę (funkcji albo klasy) i dostarczyć argumenty dla
-specjalizowanego szablonu podstawowego.
+A primary template (of a function or type) defines the template
+parameters: their number of their kinds.  A specialization has to have
+the same name (of a function or type) and provide arguments for the
+primary template.
 
 Specjalizacja szablonu też jest szablonem, ale już dla częściowo albo
 całkowicie określonych argumentów.  Specjalizację możemy poznać po
