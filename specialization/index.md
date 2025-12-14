@@ -20,10 +20,9 @@ given arguments of the primary template.  We can recognize a
 specialization by a slightly different syntax, but we still have to
 use the `template` keyword.
 
-Specjalizacja może być **częściowa** (ang. partial specialization)
-albo **całkowita** (ang. complete specialization).  Specjalizacja
-szablonu funkcji nie może być częściowa, może być tylko całkowita.
-Specjalizacja szablonu klasy może być częściowa albo całkowita.
+A specialization can be **partial** of **complete**.  A specialization
+of a function template cannot be partial, it can only be complete.
+A specialization of a type template can be either partial of complete.
 
 # Specjalizacja szablonu funkcji
 

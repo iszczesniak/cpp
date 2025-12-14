@@ -14,6 +14,7 @@ title: Generic programming
 
 * [Deduction](deduction)
 * [The `auto` type specifier](auto)
+* Specialization(specialization)
 
 # Rules
 
