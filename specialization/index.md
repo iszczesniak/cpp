@@ -1,14 +1,14 @@
 ---
-title: Specjalizacja szablonów
+title: Template specialization
 ---
 
-# Wprowadzenie
+# Introduction
 
-Możemy **specjalizować** szablon funkcji czy typu.  Szablon, który
-specjalizujemy nazywamy **szablonem podstawowy** (ang. primary
-template), żeby odróżnić go od specjalizacji, która też jest
-szablonem.  Specjalizacja nadpisuje definicję szablonu podstawowego.
-Nie można dalej specjalizować specjalizacji.
+We can **specialize** a function or type template.  The template that
+we specialize is called a **primary template** to differentiate it
+from the specialization that is also a template.  A specialization
+overwrites the definition of a primary template.  We cannot specialize
+further a specialization.
 
 Szablon podstawowy deklaruje albo definiuje funkcję albo klasę oraz
 parametry szablonu (liczbę i rodzaj parametrów).  Specjalizacja musi
