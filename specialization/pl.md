@@ -10,19 +10,20 @@ template), żeby odróżnić go od specjalizacji, która też jest
 szablonem.  Specjalizacja nadpisuje definicję szablonu podstawowego.
 Nie można dalej specjalizować specjalizacji.
 
-Szablon podstawowy (funkcji, typu) definiuje parametry szablonu: ich
-liczbę i rodzaje.  Specjalizacja musi mieć tą samą nazwę (funkcji,
-typu) i dostarczyć argumenty dla szablonu podstawowego.
-
-Specjalizacja szablonu też jest szablonem, ale już dla częściowo albo
-całkowicie określonych argumentów szablonu podstawowego.
-Specjalizację możemy poznać po nieco innej składni szablonu, ale
-ciągle występuje słowo kluczowe `template`.
+Szablon podstawowy (funkcji, typu) definiuje nazwę szablonu i jego
+parametry: ich liczbę i rodzaje.  Specjalizacja musi mieć tą samą
+nazwę (funkcji, typu) i dostarczyć wszystkie argumenty dla szablonu
+podstawowego.
 
 Specjalizacja może być **częściowa** (ang. partial specialization)
-albo **całkowita** (ang. complete specialization).  Specjalizacja
-szablonu funkcji nie może być częściowa, może być tylko całkowita.
-Specjalizacja szablonu klasy może być częściowa albo całkowita.
+albo **całkowita** (ang. explicit specialization).  Specjalizacja
+szablonu funkcji może być tylko całkowita (nie może być częściowa).
+Specjalizacja szablonu typu może być częściowa albo całkowita.
+
+Częściowa specjalizacja wprowadza parametry szablonu, żeby pozwolić
+użytkownikowi na podanie argumentów specjalizacji i dla nich
+skonkretyzować specjalizację.  Specjalizacja całkowita na to nie
+pozwala.
 
 # Specjalizacja szablonu funkcji
 

@@ -10,21 +10,20 @@ from the specialization that is also a template.  A specialization
 overwrites the definition of a primary template.  We cannot specialize
 further a specialization.
 
-A primary template (of a function or type) defines the template
-parameters: their number of their kinds.  A specialization has to have
-the same name (of a function or type) and provide arguments for the
-primary template.
+A primary template (of a function or type) defines the template name
+and its parameters: their number and their kinds.  A specialization
+has to have the same name (of a function or type) and provide all
+arguments for the primary template.
 
-Specialization is a template too, but for partially or completely
-given arguments of the primary template.  We can recognize a
-specialization by a slightly different syntax, but we still have to
-use the `template` keyword.
+A specialization can be **partial** or **explicit**.  A specialization
+of a function template can only be explicit (it cannot be partial).  A
+specialization of a type template can be either partial of explicit.
 
-A specialization can be **partial** of **complete**.  A specialization
-of a function template cannot be partial, it can only be complete.
-A specialization of a type template can be either partial of complete.
+A partial specialization introduces template parameters to allow the
+user to provide template arguments for instantiation.  An explicit
+specialization doesn't allow for this.
 
-# Specjalizacja szablonu funkcji
+# A function template specialization
 
 Szablon funkcji może być specjalizowany tylko całkowicie, czyli dla
 ustalonych wszystkich argumentów szablonu podstawowego: szablon
