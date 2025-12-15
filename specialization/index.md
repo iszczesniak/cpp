@@ -17,11 +17,11 @@ arguments for the primary template.
 
 A specialization can be **partial** or **explicit**.  A specialization
 of a function template can only be explicit (it cannot be partial).  A
-specialization of a type template can be either partial of explicit.
+specialization of a type template can be either partial or explicit.
 
-A partial specialization introduces template parameters to allow the
-user to provide template arguments for instantiation.  An explicit
-specialization doesn't allow for this.
+As opposed to the explicit specialization, the partial specialization
+allows to define template parameters that are used in the arguments of
+the primary template.
 
 # A function template specialization
 

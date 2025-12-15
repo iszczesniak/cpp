@@ -20,10 +20,9 @@ albo **całkowita** (ang. explicit specialization).  Specjalizacja
 szablonu funkcji może być tylko całkowita (nie może być częściowa).
 Specjalizacja szablonu typu może być częściowa albo całkowita.
 
-Częściowa specjalizacja wprowadza parametry szablonu, żeby pozwolić
-użytkownikowi na podanie argumentów specjalizacji i dla nich
-skonkretyzować specjalizację.  Specjalizacja całkowita na to nie
-pozwala.
+W przeciwieństwie do specjalizacji całkowitej, częściowa specjalizacja
+pozwala na zdefiniowanie parametrów szablonu, które są używane w
+argumentach szablonu podstawowego.
 
 # Specjalizacja szablonu funkcji
 
