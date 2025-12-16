@@ -89,15 +89,15 @@ figure out.
 {% include_relative print.cc %}
 ```
 
-## Przeciążanie funkcji a szablony
+## Function overloads vs templates
 
-Czy możemy się obyć bez szablonów?  W przykładzie niżej funkcja `foo`
-jest przeciążona, żeby w zależności od argumentu wywołania funkcji
-dostarczyć inną implementację.
+Can we do without templates?  Are (function) overloads not enough?  In
+the example below the `foo` function is overloaded in order to use
+different implementations depending on the function argument.
 
 Problem w tym, że nie mamy szablonu, który mógłby być zastosowany dla
-dowolnego typu i dlatego dla argumentu `.2` typu `double` jest
-wywołane przeciążenia dla typu `int`.
+dowolnego typu i dlatego dla argumentu `'1'` typu `char` jest wywołane
+przeciążenia dla typu `int`.
 
 ```cpp
 {% include_relative overloads.cc %}
