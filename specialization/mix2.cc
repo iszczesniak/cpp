@@ -23,7 +23,7 @@ void foo(const A &)
 // A function overload.
 // void foo(const A &)
 // {
-//   std::cout << __PRETTY_FUNCTION__ << ": ";
+//   std::cout << "Function overload: ";
 //   std::cout << "A" << std::endl;
 // }
 
@@ -31,6 +31,6 @@ int
 main()
 {
   foo(1);
-  foo(.2);
+  foo('1');
   foo(A());
 }
