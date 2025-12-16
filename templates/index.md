@@ -16,8 +16,8 @@ A template can be of a:
 
 * variable.
 
-A template declaration or definition begins with the `template`
-keyword, and it has this syntax:
+A template declaration or definition begins with the template header
+(in the standard it's called the template-head):
 
 ```cpp
 template <parameter list>

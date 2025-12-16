@@ -18,8 +18,8 @@ Szablon może być:
 
 * konceptu.
 
-Deklaracje i definicje szablonów rozpoczynają się słowem kluczowym
-`template` z taką składnią:
+Deklaracje i definicje szablonów rozpoczynają się nagłówkiem szablonu
+(nazywany w standardzie: template-head):
 
 ```cpp
 template <parameter list>
