@@ -7,8 +7,9 @@ title: Specjalizacja szablonów
 Możemy **specjalizować** szablon funkcji czy typu.  Szablon, który
 specjalizujemy nazywamy **szablonem podstawowy** (ang. primary
 template), żeby odróżnić go od specjalizacji, która też jest
-szablonem.  Specjalizacja nadpisuje definicję szablonu podstawowego.
-Nie można dalej specjalizować specjalizacji.
+szablonem.  Szablon specjalizacji nazywamy w skrócie specjalizacją.
+Specjalizacja nadpisuje definicję swojego szablonu podstawowego.  Nie
+można dalej specjalizować specjalizacji.
 
 Szablon podstawowy (funkcji, typu) definiuje nazwę szablonu i jego
 parametry: ich liczbę i rodzaje.  Specjalizacja musi mieć tą samą
@@ -16,22 +17,21 @@ nazwę (funkcji, typu) i dostarczyć wszystkie argumenty dla szablonu
 podstawowego.
 
 Specjalizacja może być **częściowa** (ang. partial specialization)
-albo **całkowita** (ang. explicit specialization).  Specjalizacja
-szablonu funkcji może być tylko całkowita (nie może być częściowa).
-Specjalizacja szablonu typu może być częściowa albo całkowita.
+albo **jawna** (ang. explicit specialization).  Specjalizacja szablonu
+funkcji może być tylko jawna (nie może być częściowa).  Specjalizacja
+szablonu typu może być częściowa albo jawna.
 
-W przeciwieństwie do specjalizacji całkowitej, częściowa specjalizacja
+W przeciwieństwie do specjalizacji jawnej, częściowa specjalizacja
 pozwala na zdefiniowanie parametrów szablonu, które są używane w
 argumentach szablonu podstawowego.
 
 # Specjalizacja szablonu funkcji
 
-Szablon funkcji może być specjalizowany tylko całkowicie, czyli dla
-ustalonych wszystkich argumentów szablonu podstawowego: szablon
-specjalizacji nie ma już parametrów, więc jego lista parametrów jest
-pusta.  Tak więc deklaracje i definicje specjalizacji szablonów
-funkcji rozpoczynają się słowem kluczowym `template` i pustą listą
-parametrów:
+Szablon funkcji może być specjalizowany tylko jawnie, czyli wszystkie
+argumenty szablonu podstawowego są jawnie podane: szablon jawnej
+specjalizacji nie ma już parametrów (jego lista parametrów jest
+pusta).  Tak więc deklaracja i definicja specjalizacji szablonu
+funkcji rozpoczynają się nagłówkiem szablonu z pustą listą parametrów:
 
 ```
 template <>

@@ -7,8 +7,9 @@ title: Template specialization
 We can **specialize** a function or type template.  The template that
 we specialize is called a **primary template** to differentiate it
 from the specialization that is also a template.  A specialization
-overwrites the definition of a primary template.  We cannot specialize
-further a specialization.
+template is called a specialization in short.  A specialization
+overwrites the definition of its primary template.  We cannot
+specialize further a specialization.
 
 A primary template (of a function or type) defines the template name
 and its parameters: their number and their kinds.  A specialization
@@ -25,12 +26,12 @@ the primary template.
 
 # A function template specialization
 
-Szablon funkcji może być specjalizowany tylko całkowicie, czyli dla
-ustalonych wszystkich argumentów szablonu podstawowego: szablon
-specjalizacji nie ma już parametrów, więc jego lista parametrów jest
-pusta.  Tak więc deklaracje i definicje specjalizacji szablonów
-funkcji rozpoczynają się słowem kluczowym `template` i pustą listą
-parametrów:
+A function template can be specialized only explicitly, i.e., all
+arguments for the primary template are explicitly given: a explicit
+specialization template has no parameters (its parameter list is
+empty).  Therefore a declaration and a definition of a function
+template specialization begin with the template header of an empty
+parameter list:
 
 ```
 template <>
