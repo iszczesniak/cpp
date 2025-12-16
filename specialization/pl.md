@@ -92,10 +92,9 @@ dla parametru `T`, bo kompilator może go sobie wytrzasnąć.
 Czy możemy się obyć bez szablonów?  Czy przeciążenia zwykłych funkcji
 nie wystarczą?  W przykładzie niżej funkcja `foo` jest przeciążona,
 żeby można użyć różnych implementacji w zależności od argumentu
-funkcji.
-
-Problem w tym, że nie mamy szablonu, który mógłby być zastosowany dla
-dowolnego typu i dlatego dla argumentu `'1'` typu `char` jest wywołane
+funkcji.  Problem w tym, że dla każdego wymaganego typu musimy
+implementować przeciążenie, albo korzystać z konwersji niejawnej, jak
+w przykładzie niżej: dla argumentu `'1'` typu `char` jest wywołane
 przeciążenia dla typu `int`.
 
 ```cpp

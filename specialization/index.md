@@ -89,15 +89,15 @@ figure out.
 {% include_relative print.cc %}
 ```
 
-## Function overloads vs templates
+## Regular function vs function template
 
-Can we do without templates?  Are (function) overloads not enough?  In
-the example below the `foo` function is overloaded in order to use
-different implementations depending on the function argument.
-
-Problem w tym, że nie mamy szablonu, który mógłby być zastosowany dla
-dowolnego typu i dlatego dla argumentu `'1'` typu `char` jest wywołane
-przeciążenia dla typu `int`.
+Can we do without templates?  Are overloads of regular functions not
+enough?  In the example below the `foo` function is overloaded in
+order to use different implementations depending on the function
+argument.  The problem is that for every required type we either have
+to implement an overload or use the implicit conversion, as in the
+example below: for the argument `'1'` of type `char` there is called
+the overload for type `int`.
 
 ```cpp
 {% include_relative overloads.cc %}
