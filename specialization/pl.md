@@ -79,9 +79,9 @@ dozwolone:
 
 Przykład niżej ilustruje rekurencyjny szablon funkcji, gdzie
 rekurencja jest przerwana przez specjalizację szablonu.  W
-specjalizacji szablonu musimy podać argument `0` parametru `N`, bo
-kompilator nie jest w stanie go wywnioskować.  Argument `int`
-parametru `T` może być wywnioskowany, więc nie jest podany.
+specjalizacji musimy podać argument `0` parametru `N`, bo kompilator
+nie jest w stanie go wytrzasnąć.  Nie podaliśmy argumentu `int` dla
+parametru `T`, bo kompilator sam może go wytrzasnąć.
 
 ```cpp
 {% include_relative print.cc %}

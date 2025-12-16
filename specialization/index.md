@@ -78,11 +78,12 @@ allowed:
 {% include_relative complete.cc %}
 ```
 
-Przykład niżej ilustruje rekurencyjny szablon funkcji, gdzie
-rekurencja jest przerwana przez specjalizację szablonu.  W
-specjalizacji szablonu musimy podać argument `0` parametru `N`, bo
-kompilator nie jest w stanie go wywnioskować.  Argument `int`
-parametru `T` może być wywnioskowany, więc nie jest podany.
+An example below shows a recursive function template, where the
+recursion is terminated by a template specialization.  In the
+specialization, we have to provide the argument `0` for parameter `N`,
+because a compiler is unable to figure it out.  We didn't put the
+argument `int` for the parameter `T`, because a compiler can figure it
+out.
 
 ```cpp
 {% include_relative print.cc %}
