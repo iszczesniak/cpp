@@ -101,13 +101,15 @@ przeciążenia dla typu `int`.
 {% include_relative overloads.cc %}
 ```
 
-Możemy dołożyć szablon podstawowy do przykładu, jak pokazano niżej.
-Mamy szablon dla dowolnego typu i przeciążenie dla typu `A`.  Czy dla
-wywołania funkcji `foo` z argumentem `A()` będzie użyty szablon czy
-przeciążenie?  A dokładnie mówiąc przeciążenie funkcji szablonowej
-(czyli funkcji, która otrzymaliśmy po konkretyzacji podstawowego
-szablonu funkcji dla `T = A`) czy przeciążenie zwykłej funkcji?
-**Przeciążenie zwykłej funkcji zawsze ma pierwszeństwo.**
+W powyższym przykładzie zamieńmy przeciążenie dla `const int &` na
+szablon podstawowy, żeby jedną implementacją załatwić wywołania
+`foo(1)` i foo('1').  Zatem mamy szablon dla dowolnego typu i
+przeciążenie dla typu `A`.  Czy dla wywołania funkcji `foo` z
+argumentem `A()` będzie użyty szablon czy przeciążenie?  A dokładnie
+mówiąc przeciążenie funkcji szablonowej (czyli funkcji, która
+otrzymaliśmy po konkretyzacji podstawowego szablonu funkcji dla `T =
+A`) czy przeciążenie zwykłej funkcji?  **Przeciążenie zwykłej funkcji
+zawsze ma pierwszeństwo.**
 
 ```cpp
 {% include_relative mix1.cc %}
