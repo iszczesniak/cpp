@@ -37,17 +37,18 @@ parameter list:
 template <>
 ```
 
-Potem następuje definicja szablonu funkcji, która wygląda jak
-definicja zwykłej funkcji, bo nie używamy w niej (czyli w liście
-parametrów funkcji i ciele funkcji) nazw parametrów szablonu
-podstawowego, a jedynie ich ustalonych wartości (np. `int`, `1` czy
-`std::list`).  Ale jest pewna różnica.
+Then there follows the definition of the function template that looks
+just like a definition of a regular (non-template) function, because
+we do not use in it (i.e., in the function parameter list and the
+function body) the parameter names of the primary template, but just
+its arguments (e.g., `int`, `1` or `std::list`).  But there is a
+difference.
 
-Różnica dotyczy nazwy funkcji.  W specjalizacji podajemy listę
-argumentów szablonu podstawowego po nazwie funkcji, czego w definicji
-zwykłej funkcji nie robimy.
+The difference is about the function name.  In the specialization we
+put the argument list of the primary template after the function name,
+which we don't do for a non-template function.
 
-Oto przykład:
+Here's an example:
 
 ```cpp
 {% include_relative foo1.cc %}

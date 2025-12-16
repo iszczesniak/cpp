@@ -38,9 +38,9 @@ template <>
 ```
 
 Potem następuje definicja szablonu funkcji, która wygląda jak
-definicja zwykłej funkcji, bo nie używamy w niej (czyli w liście
-parametrów funkcji i ciele funkcji) nazw parametrów szablonu
-podstawowego, a jedynie ich ustalonych wartości (np. `int`, `1` czy
+definicja zwykłej (nieszablonowej) funkcji, bo nie używamy w niej
+(czyli w liście parametrów funkcji i ciele funkcji) nazw parametrów
+szablonu podstawowego, a jedynie ich argumentów (np. `int`, `1` czy
 `std::list`).  Ale jest pewna różnica.
 
 Różnica dotyczy nazwy funkcji.  W specjalizacji podajemy listę
