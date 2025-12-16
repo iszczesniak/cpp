@@ -87,11 +87,12 @@ dla parametru `T`, bo kompilator może go sobie wytrzasnąć.
 {% include_relative print.cc %}
 ```
 
-## Przeciążanie funkcji a szablony
+## Zwykła funkcja a szablon funkcji
 
-Czy możemy się obyć bez szablonów?  Czy przeciążenia (funkcji) nie
-wystarczą?  W przykładzie niżej funkcja `foo` jest przeciążona, żeby
-można użyć różnych implementacji w zależności od argumentu funkcji.
+Czy możemy się obyć bez szablonów?  Czy przeciążenia zwykłych funkcji
+nie wystarczą?  W przykładzie niżej funkcja `foo` jest przeciążona,
+żeby można użyć różnych implementacji w zależności od argumentu
+funkcji.
 
 Problem w tym, że nie mamy szablonu, który mógłby być zastosowany dla
 dowolnego typu i dlatego dla argumentu `'1'` typu `char` jest wywołane
@@ -103,10 +104,11 @@ przeciążenia dla typu `int`.
 
 W powyższym przykładzie zamieńmy przeciążenie dla `const int &` na
 szablon podstawowy, żeby jedną implementacją załatwić wywołania
-`foo(1)` i foo('1').  Zatem mamy szablon dla dowolnego typu i
-przeciążenie dla typu `A`.  Czy dla wywołania funkcji `foo` z
-argumentem `A()` będzie użyty szablon podstawowy czy przeciążenie?
-**Przeciążenie zwykłej funkcji zawsze ma pierwszeństwo.**
+`foo(1)` i foo('1').  Zatem w przykładzie niżej mamy szablon dla
+dowolnego typu i zwykłą funkcję dla typu `A`.  Czy dla wywołania
+funkcji `foo` z argumentem `A()` będzie użyty podstawowy szablon
+funkcji czy zwykła funkcja?  **Zwykła funkcja zawsze ma
+pierwszeństwo.**
 
 ```cpp
 {% include_relative mix1.cc %}
