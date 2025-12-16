@@ -81,9 +81,9 @@ allowed:
 An example below shows a recursive function template, where the
 recursion is terminated by a template specialization.  In the
 specialization, we have to provide the argument `0` for parameter `N`,
-because a compiler is unable to figure it out.  We didn't put the
-argument `int` for the parameter `T`, because a compiler can figure it
-out.
+because a compiler is unable to figure it out.  However, we didn't put
+the argument `int` for the parameter `T`, because that a compiler can
+figure out.
 
 ```cpp
 {% include_relative print.cc %}

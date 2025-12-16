@@ -80,8 +80,8 @@ dozwolone:
 Przykład niżej ilustruje rekurencyjny szablon funkcji, gdzie
 rekurencja jest przerwana przez specjalizację szablonu.  W
 specjalizacji musimy podać argument `0` parametru `N`, bo kompilator
-nie jest w stanie go wytrzasnąć.  Nie podaliśmy argumentu `int` dla
-parametru `T`, bo kompilator sam może go wytrzasnąć.
+nie jest w stanie go wytrzasnąć.  Nie podaliśmy jednak argumentu `int`
+dla parametru `T`, bo kompilator może go sobie wytrzasnąć.
 
 ```cpp
 {% include_relative print.cc %}
