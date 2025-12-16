@@ -54,11 +54,11 @@ Here's an example:
 {% include_relative foo1.cc %}
 ```
 
-Szablon podstawowy i specjalizację możemy także deklarować.  Jeżeli
-zadeklarujemy szablon podstawowy, ale go nie zdefiniujemy, to nie
-będzie podstawowej implementacji tego szablonu funkcji.  Będziemy
-mogli specjalizować szablon i używać go wyłącznie dla tych
-specjalizacji.  Pokazuje to przykład niżej.
+We can also only declare a primary template or a specialization.  If
+we declare a primary template and not define it later, then there is
+no definition of this function primary template.  We can specialize
+this template and use it only for the specializations defined.  This
+is shown by the example below.
 
 Listę argumentów szablonu podstawowego możemy pominąć, jeżeli
 kompilator jest w stanie wywnioskować te argumenty na podstawie listy

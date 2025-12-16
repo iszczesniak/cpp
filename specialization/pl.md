@@ -53,11 +53,11 @@ Oto przykład:
 {% include_relative foo1.cc %}
 ```
 
-Szablon podstawowy i specjalizację możemy także deklarować.  Jeżeli
-zadeklarujemy szablon podstawowy, ale go nie zdefiniujemy, to nie
-będzie podstawowej implementacji tego szablonu funkcji.  Będziemy
-mogli specjalizować szablon i używać go wyłącznie dla tych
-specjalizacji.  Pokazuje to przykład niżej.
+Szablon podstawowy czy specjalizację możemy także tylko zadeklarować.
+Jeżeli zadeklarujemy szablon podstawowy i go później nie zdefiniujemy,
+to nie będzie implementacji tego szablonu podstawowego funkcji.
+Będziemy mogli specjalizować ten szablon i używać go wyłącznie dla
+zdefiniowanych specjalizacji.  Pokazuje to przykład niżej.
 
 Listę argumentów szablonu podstawowego możemy pominąć, jeżeli
 kompilator jest w stanie wywnioskować te argumenty na podstawie listy
