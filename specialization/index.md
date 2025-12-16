@@ -60,11 +60,11 @@ no definition of this function primary template.  We can specialize
 this template and use it only for the specializations defined.  This
 is shown by the example below.
 
-Listę argumentów szablonu podstawowego możemy pominąć, jeżeli
-kompilator jest w stanie wywnioskować te argumenty na podstawie listy
-parametrów funkcji.  W przykładzie niżej pominęliśmy listę argumentów
-(`<A>`) szablonu podstawowego po nazwie funkcji `foo` w deklaracji i
-definicji specjalizacji.
+We can skip the argument list for the primary template if the compiler
+is able to figure it out (deduce it?) based on the function parameter
+list.  In the example below we skipped the argument list (`<A>`) of
+the primary template after the function name `foo` in the declaration
+and definition of the specialization.
 
 ```cpp
 {% include_relative foo2.cc %}

@@ -60,10 +60,10 @@ Będziemy mogli specjalizować ten szablon i używać go wyłącznie dla
 zdefiniowanych specjalizacji.  Pokazuje to przykład niżej.
 
 Listę argumentów szablonu podstawowego możemy pominąć, jeżeli
-kompilator jest w stanie wywnioskować te argumenty na podstawie listy
-parametrów funkcji.  W przykładzie niżej pominęliśmy listę argumentów
-(`<A>`) szablonu podstawowego po nazwie funkcji `foo` w deklaracji i
-definicji specjalizacji.
+kompilator jest w stanie je wytrzasnąć (wywnioskować?) na podstawie
+listy parametrów funkcji.  W przykładzie niżej pominęliśmy listę
+argumentów (`<A>`) szablonu podstawowego po nazwie funkcji `foo` w
+deklaracji i definicji specjalizacji.
 
 ```cpp
 {% include_relative foo2.cc %}
