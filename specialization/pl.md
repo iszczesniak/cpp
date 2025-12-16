@@ -69,9 +69,9 @@ deklaracji i definicji specjalizacji.
 {% include_relative foo2.cc %}
 ```
 
-Nie możemy częściowo specjalizować szablonów funkcji.  Specjalizacja
-częściowa polegałaby na wprowadzeniu parametru dla specjalizacji, ale
-nie jest to dozwolone, jak pokazuje przykład niżej.
+Nie możemy częściowo specjalizować szablonu funkcji.  Częściowa
+specjalizacja definiowałaby parametr szablonu, ale to nie jest
+dozwolone:
 
 ```cpp
 {% include_relative complete.cc %}

@@ -70,9 +70,9 @@ and definition of the specialization.
 {% include_relative foo2.cc %}
 ```
 
-Nie możemy częściowo specjalizować szablonów funkcji.  Specjalizacja
-częściowa polegałaby na wprowadzeniu parametru dla specjalizacji, ale
-nie jest to dozwolone, jak pokazuje przykład niżej.
+We cannot partially specialize a function template.  A partial
+specialization would define a template parameter, but this is not
+allowed:
 
 ```cpp
 {% include_relative complete.cc %}
