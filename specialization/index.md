@@ -149,10 +149,11 @@ And that's how to use the library:
 {% include_relative need.cc %}
 ```
 
-Jeżeli przeciążenie funkcji zadeklarujemy po dołączeniu biblioteki, to
-funkcja `goo` nie będzie go znała i nie użyje go.  Funkcja wie
-natomiast, że może użyć szablonu funkcji `foo`, bo jej szablon
-podstawowy został zadeklarowany.
+C++ is a one-pass compiler, and so if we declare a regular function
+`foo` after the inclusion of our library, then the library function
+`goo` doesn't know it and cannot call it.  However, function `goo`
+knows and can use the primary function template `foo`, because it was
+previously declared.
 
 Możemy też przenieść definicję przeciążenia funkcji `foo` przed
 dyrektywę `#include`, żeby funkcja `goo` mogła skorzystać z
