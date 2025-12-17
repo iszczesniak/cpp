@@ -125,25 +125,25 @@ templates.
 {% include_relative mix2.cc %}
 ```
 
-## Kiedy potrzebujemy specjalizacji
+## When we need the specialization
 
-Wydaje się, że specjalizacja szablonu jest zbędna, bo tą samą
-funkcjonalność uzyskaliśmy przeciążając zwykłą funkcję.  Jest jednak
-funkcjonalność specjalizacji, której nie osiągniemy przez
-przeciążenia.
+It seems that a template specialization is redundant, because we
+achieved similar functionality with regular function overloads.  There
+is, however, a functionality of the specialization that we cannot
+achieve with regular function overloads.
 
-Specjalizacja szablonów pozwala na zdefiniowanie przez użytkownika
-funkcji dla kodu, który został już dołączony w pliku nagłówkowym,
-np. biblioteki szablonowej.  Biblioteka deklaruje szablon funkcji,
-którą potrzebuje, a definicję specjalizacji czy nawet szablonu
-podstawowego można pozostawić użytkownikowi.  Tak może wyglądać plik
-nagłówkowy `library.hpp`:
+A template specialization allows a user to provide some implementation
+to the code that was already included as a header file, e.g., a
+template library.  A library declares a primary function template that
+it requires, but the definition of a specialization or even of the
+primary template leaves to the user.  That's how a header file
+`library.hpp` can look like:
 
 ```cpp
 {% include_relative library.hpp %}
 ```
 
-Tak może wyglądać użycie biblioteki:
+And that's how to use the library:
 
 ```cpp
 {% include_relative need.cc %}

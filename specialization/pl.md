@@ -125,17 +125,17 @@ funkcji.
 
 ## Kiedy potrzebujemy specjalizacji
 
-Wydaje się, że specjalizacja szablonu jest zbędna, bo tą samą
-funkcjonalność uzyskaliśmy przeciążając zwykłą funkcję.  Jest jednak
-funkcjonalność specjalizacji, której nie osiągniemy przez
+Wydaje się, że specjalizacja szablonu jest zbędna, bo podobną
+funkcjonalność uzyskaliśmy przeciążeniami zwykłej funkcji.  Jest
+jednak funkcjonalność specjalizacji, której nie osiągniemy przez
 przeciążenia.
 
-Specjalizacja szablonów pozwala na zdefiniowanie przez użytkownika
-funkcji dla kodu, który został już dołączony w pliku nagłówkowym,
-np. biblioteki szablonowej.  Biblioteka deklaruje szablon funkcji,
-którą potrzebuje, a definicję specjalizacji czy nawet szablonu
-podstawowego można pozostawić użytkownikowi.  Tak może wyglądać plik
-nagłówkowy `library.hpp`:
+Specjalizacja szablonów pozwala użytkownikowi do dostarczenie
+implementacji dla kodu, który został już dołączony w pliku
+nagłówkowym, np. biblioteki szablonowej.  Biblioteka deklaruje
+podstawowy szablon funkcji, której wymaga, a definicję specjalizacji
+czy nawet szablonu podstawowego pozostawia użytkownikowi.  Tak może
+wyglądać plik nagłówkowy `library.hpp`:
 
 ```cpp
 {% include_relative library.hpp %}
