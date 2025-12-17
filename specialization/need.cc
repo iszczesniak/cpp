@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-// A regular function overload won't cut it.
+// A regular function won't cut it.
 void
 foo(const int &)
 {

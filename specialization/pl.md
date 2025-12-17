@@ -147,10 +147,11 @@ Tak może wyglądać użycie biblioteki:
 {% include_relative need.cc %}
 ```
 
-Jeżeli przeciążenie funkcji zadeklarujemy po dołączeniu biblioteki, to
-funkcja `goo` nie będzie go znała i nie użyje go.  Funkcja wie
-natomiast, że może użyć szablonu funkcji `foo`, bo jej szablon
-podstawowy został zadeklarowany.
+Ponieważ C++ jest kompilatorem jednego przebiegu (ang. one-pass
+compiler), to jeżeli zwykłą funkcję zadeklarujemy po dołączeniu
+biblioteki, to funkcja biblioteczna `goo` nie będzie go znała i nie
+użyje go.  Funkcja wie natomiast, że może użyć szablonu funkcji `foo`,
+bo jej szablon podstawowy został wcześniej zadeklarowany.
 
 Możemy też przenieść definicję przeciążenia funkcji `foo` przed
 dyrektywę `#include`, żeby funkcja `goo` mogła skorzystać z
