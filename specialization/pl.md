@@ -113,11 +113,11 @@ pierwszeństwo.**
 {% include_relative mix1.cc %}
 ```
 
-Możemy dodać także specjalizację dla `T = A`, ale i tak zostanie
-wybrane przeciążenie zwykłej funkcji.  Podczas wyboru przeciążenia,
-kompilator nie rozważa specjalizacji, a jedynie przeciążenia zwykłych
-funkcji i przeciążenia podstawowych szablonów funkcji.  Tak więc
-dodanie specjalizacji i tak nie namówi kompilator na jej użycie.
+Dla podstawowego szablonu funkcji możemy dodać specjalizację dla `T =
+A`, ale kompilator i tak używa zwykłej funkcja.  Podczas wyboru
+przeciążenia, kompilator nie rozważa specjalizacji, a jedynie
+przeciążenia zwykłych funkcji i przeciążenia podstawowych szablonów
+funkcji.
 
 ```cpp
 {% include_relative mix2.cc %}

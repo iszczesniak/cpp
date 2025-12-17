@@ -115,11 +115,11 @@ regular function be used when calling `foo` with an argument of type
 {% include_relative mix1.cc %}
 ```
 
-Możemy dodać także specjalizację dla `T = A`, ale i tak zostanie
-wybrane przeciążenie zwykłej funkcji.  Podczas wyboru przeciążenia,
-kompilator nie rozważa specjalizacji, a jedynie przeciążenia zwykłych
-funkcji i przeciążenia funkcji szablonowych.  Tak więc dodanie
-specjalizacji i tak nie namówi kompilator na jej użycie.
+For the primary function template, we can add a specialization for `T
+= A`, but a compler uses the regular function anyway.  During overload
+resolution, a compiler does not consider specializations, but only the
+overloads of regular functions and overloads of primary function
+templates.
 
 ```cpp
 {% include_relative mix2.cc %}
