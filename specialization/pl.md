@@ -101,12 +101,12 @@ przeciążenia dla typu `int`.
 {% include_relative overloads.cc %}
 ```
 
-W powyższym przykładzie zamieńmy przeciążenie dla `const int &` na
-szablon podstawowy, żeby jedną implementacją załatwić wywołania
-`foo(1)` i foo('1').  Zatem w przykładzie niżej mamy szablon dla
-dowolnego typu i zwykłą funkcję dla typu `A`.  Czy dla wywołania
-funkcji `foo` z argumentem `A()` będzie użyty podstawowy szablon
-funkcji czy zwykła funkcja?  **Zwykła funkcja zawsze ma
+W powyższym przykładzie zamieńmy przeciążenie zwykłej funkcji dla
+`const int &` na szablon podstawowy, żeby jedną implementacją załatwić
+wywołania `foo(1)` i foo('1').  Zatem w przykładzie niżej mamy szablon
+podstawowy dla dowolnego typu i zwykłą funkcję dla typu `A`.  Czy dla
+wywołania funkcji `foo` z argumentem `A()` będzie użyty podstawowy
+szablon funkcji czy zwykła funkcja?  **Zwykła funkcja zawsze ma
 pierwszeństwo.**
 
 ```cpp

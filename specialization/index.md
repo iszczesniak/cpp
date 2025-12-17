@@ -103,15 +103,13 @@ the overload for type `int`.
 {% include_relative overloads.cc %}
 ```
 
-W powyższym przykładzie zamieńmy przeciążenie dla `const int &` na
-szablon podstawowy, żeby jedną implementacją załatwić wywołania
-`foo(1)` i foo('1').  Zatem mamy szablon dla dowolnego typu i
-przeciążenie dla typu `A`.  Czy dla wywołania funkcji `foo` z
-argumentem `A()` będzie użyty szablon czy przeciążenie?  A dokładnie
-mówiąc przeciążenie funkcji szablonowej (czyli funkcji, która
-otrzymaliśmy po konkretyzacji podstawowego szablonu funkcji dla `T =
-A`) czy przeciążenie zwykłej funkcji?  **Przeciążenie zwykłej funkcji
-zawsze ma pierwszeństwo.**
+In the above example, let's replace the regular function overload for
+`const int &` with a primary template, so that with a single
+implementation we can deal with `foo(1)` and foo('1').  Therefore in
+the example below we have a primary template for any type, and a
+regular function for type `A`.  Will the primary template or the
+regular function be used when calling `foo` with an argument of type
+`A`?  **A regular function always comes first.**
 
 ```cpp
 {% include_relative mix1.cc %}
