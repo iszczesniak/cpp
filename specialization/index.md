@@ -155,9 +155,9 @@ C++ is a one-pass compiler, and so if we declare a regular function
 knows and can use the primary function template `foo`, because it was
 previously declared.
 
-Możemy też przenieść definicję przeciążenia funkcji `foo` przed
-dyrektywę `#include`, żeby funkcja `goo` mogła skorzystać z
-przeciążenia, ale lepiej nie wprowadzać takiego nieporządku.
+We could move the definition of the regular function `foo` before the
+`#include` directive, so that function `goo` can call it, but it's
+best not to make that mess.
 
 # Specjalizacja szablonów typów użytkownika
 

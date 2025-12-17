@@ -153,9 +153,9 @@ biblioteki, to funkcja biblioteczna `goo` nie zna jej i nie może jej
 wywołać.  Natomiast funkcja `goo` zna i może użyć podstawowego
 szablonu funkcji `foo`, bo został wcześniej zadeklarowany.
 
-Możemy też przenieść definicję przeciążenia funkcji `foo` przed
-dyrektywę `#include`, żeby funkcja `goo` mogła skorzystać z
-przeciążenia, ale lepiej nie wprowadzać takiego nieporządku.
+Moblibyśmy przenieść definicję zwykłej funkcji `foo` przed dyrektywę
+`#include`, żeby funkcja `goo` mogła ją wywołać, ale lepiej nie
+wprowadzać takiego nieporządku.
 
 # Specjalizacja szablonów typów użytkownika
 
