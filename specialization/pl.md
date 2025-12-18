@@ -174,7 +174,7 @@ specjalizacji.
 Przykładem specjalizacji typu w bibliotece standardowej jest
 `std::vector<bool>`, czyli specjalizacja `std::vector` dla typu
 `bool`.  Ta specjalizacja ma interfejs podobny do interfejsu szablonu
-podstawowego, ale ma zupełnie inną implementację.
+podstawowego, ale jej implementacja jest zupełnie inna.
 
 ## Przykład całkowitej specjalizacji
 

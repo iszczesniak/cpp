@@ -176,8 +176,8 @@ specialization parameters.
 An example of a type specialization in the standard library is
 `std::vector<bool>`, i.e., a specialization of `std::vector` for type
 `bool`.  This specialization has an interface similar to the interface
-of the primary template, but it has a completely different
-implementation.
+of the primary template, but its implementation is completely
+different.
 
 ## Przykład całkowitej specjalizacji
 
