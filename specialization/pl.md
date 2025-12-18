@@ -172,9 +172,9 @@ argumenty szablonu podstawowego, które muszą zależeć od (używać)
 parametrów specjalizacji.
 
 Przykładem specjalizacji typu w bibliotece standardowej jest
-`std::vector<bool>`, czyli kontenera `std::vector` dla typu `bool`.
-Ta specjalizacja ma podobny interfejs jak szablon podstawowy
-`std::vector`, ale zupełnie inną implementację.
+`std::vector<bool>`, czyli specjalizacja `std::vector` dla typu
+`bool`.  Ta specjalizacja ma podobny interfejs jak szablon podstawowy,
+ale zupełnie inną implementację.
 
 ## Przykład całkowitej specjalizacji
 

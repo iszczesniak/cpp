@@ -173,10 +173,10 @@ It's just important to explicitly provide (after the type name) the
 arguments for the primary template, which have to depend on (use) the
 specialization parameters.
 
-Przykładem specjalizacji typu w bibliotece standardowej jest
-`std::vector<bool>`, czyli kontenera `std::vector` dla typu `bool`.
-Ta specjalizacja ma podobny interfejs jak szablon podstawowy
-`std::vector`, ale zupełnie inną implementację.
+An example of a type specialization in the standard library is
+`std::vector<bool>`, i.e., a specialization of `std::vector` for type
+`bool`.  This specialization has a similar interface as the primary
+interface, but a completely different implementation.
 
 ## Przykład całkowitej specjalizacji
 
