@@ -230,7 +230,7 @@ specialization to use.
 * Can a function template be partially specialized?
 
 * What does the overload resolution prefer: a template function or a
-  regular function.
+  regular function?
 
 * Must a specialization of a type template inherit from a primary
   template?
