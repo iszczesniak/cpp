@@ -192,24 +192,25 @@ is to explicitly provide (after the type name) the arguments for the
 primary template, which have to depend on (to use) the specialization
 parameters.
 
-W przykładzie niżej deklarujemy szablon podstawowy typu `A` z typowym
-parametrem `T`, a następnie definiujemy dwie specjalizacje, obie z
-parametrem `T`.  Parametry `T` trzech szablonów nie mają ze sobą nic
-wspólnego, ponieważ mają lokalny zakres.
+In the example below we declare a primary template of type `A` with a
+parameter `T` of the type kind, and then we define two
+specializations, both with a parameter `T`.  Parameters `T` of these
+three templates have nothing to do with each other, because they are
+of local scope.
 
-Pierwsza specjalizacja definiuje implementację typu `A` dla
-przypadków, kiedy argumentem szablonu podstawowego jest `std::vector`.
-Pozwalamy na dowolny typ elementów wektora poprzez użycie parametru
-`T` specjalizacji.
+The first specialization defines the implementation of type `A` for
+the case, where the argument of the primary template is `std::vector`.
+We allow for any type of the vector element by using the parameter `T`
+of the specialization.
 
-Druga specjalizacja definiuje implementację typu `A` dla przypadków,
-kiedy argumentem szablonu podstawowego jest typ szablonowy, który może
-być skonkretyzowany z jednym argumentem `int`.
+The second specialization defines the implementation of type `A` for
+the case, where the argument of the primary template is a type
+template that can be instantiated with a single argument `int`.
 
-W funkcji `main` typ `A` został użyty z różnymi specjalizacjami.
-Najciekawszy jest ostatni przypadek, który jest zakomentowany, bo nie
-może się kompilować: kompilator nie jest w stanie zdecydować, której
-specjalizacji użyć.
+In the `main` function, type `A` is used with the two specializations.
+The last use case is the most interesting, which is commented out,
+because it cannot compile: a compiler is unable to decide which
+specialization to use.
 
 ```cpp
 {% include_relative struct_partial.cc %}

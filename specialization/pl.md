@@ -194,17 +194,17 @@ parametrem `T`, a następnie definiujemy dwie specjalizacje, obie z
 parametrem `T`.  Parametry `T` trzech szablonów nie mają ze sobą nic
 wspólnego, ponieważ mają lokalny zakres.
 
-Pierwsza specjalizacja definiuje implementację typu `A` dla
-przypadków, kiedy argumentem szablonu podstawowego jest `std::vector`.
-Pozwalamy na dowolny typ elementów wektora poprzez użycie parametru
-`T` specjalizacji.
+Pierwsza specjalizacja definiuje implementację typu `A` dla przypadku,
+gdzie argumentem szablonu podstawowego jest `std::vector`.  Pozwalamy
+na dowolny typ elementów wektora poprzez użycie parametru `T`
+specjalizacji.
 
-Druga specjalizacja definiuje implementację typu `A` dla przypadków,
-kiedy argumentem szablonu podstawowego jest typ szablonowy, który może
+Druga specjalizacja definiuje implementację typu `A` dla przypadku,
+gdzie argumentem szablonu podstawowego jest szablon typu, który może
 być skonkretyzowany z jednym argumentem `int`.
 
-W funkcji `main` typ `A` został użyty z różnymi specjalizacjami.
-Najciekawszy jest ostatni przypadek, który jest zakomentowany, bo nie
+W funkcji `main` typ `A` został użyty z dwoma specjalizacjami.
+Najciekawsze jest ostatnie użycie, które jest zakomentowane, bo nie
 może się kompilować: kompilator nie jest w stanie zdecydować, której
 specjalizacji użyć.
 
