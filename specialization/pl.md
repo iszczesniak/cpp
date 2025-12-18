@@ -160,9 +160,9 @@ wprowadzać takiego nieporządku.
 # Specjalizacja szablonów typów
 
 Możemy zadeklarować lub zdefiniować szablon typu, czyli struktury,
-klasy czy unii.  Ten szablon podstawowy możemy specjalizować
-całkowicie lub częściowo.  Szablon podstawowy i jej specjalizacje mają
-jedynie wspólną nazwę typu, a ich interfejsy (składowe publiczne),
+klasy czy unii.  Ten szablon podstawowy możemy specjalizować jawnie
+lub częściowo.  Szablon podstawowy i jej specjalizacje mają jedynie
+wspólną nazwę typu, a ich interfejsy (składowe publiczne),
 implementacje i wielkości w pamięci mogą się całkowicie różnić.
 
 Przykładem specjalizacji typu w bibliotece standardowej jest
@@ -170,10 +170,10 @@ Przykładem specjalizacji typu w bibliotece standardowej jest
 `bool`.  Ta specjalizacja ma interfejs podobny do interfejsu szablonu
 podstawowego, ale jej implementacja jest zupełnie inna.
 
-## Przykład całkowitej specjalizacji
+## Przykład jawnej specjalizacji
 
 Niżej definiujemy szablon podstawowy typu `A` z jedną funkcją składową
-`foo`.  Dla całkowitej specjalizacji dla argumentu `double`, typ `A`
+`foo`.  Dla jawnej specjalizacji dla argumentu `double`, typ `A`
 dziedziczy po `std::pair`, ma funkcję `goo`, ale nie ma już funkcji
 `foo`.
 
@@ -214,19 +214,19 @@ specjalizacji użyć.
 
 # Podsumowanie
 
-* Specjalizować można szablony funkcji i typy szablonowe.
+* Specjalizować można szablon funkcji i szablon typu.
 
-* Specjalizacja może być częściowa albo całkowita.
+* Specjalizacja może być częściowa albo jawna.
 
 * Specjalizacja pozwala na nadpisanie implementacji szablonu
-  podstawowego dla wybranych kombinacji jego argumentów.
+  podstawowego.
 
 # Quiz
 
 * Czy szablon funkcji może być częściowo specjalizowany?
 
 * Czy w wyborze przeciążenia pierwszeństwo ma funkcja szablonowa czy
-  przeciążenie funkcji?
+  zwykła funkcja?
 
 * Czy specjalizacja szablonu typu dziedziczy po podstawowym szablonie
   typu?

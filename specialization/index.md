@@ -216,23 +216,21 @@ specialization to use.
 {% include_relative struct_partial.cc %}
 ```
 
-# Podsumowanie
+# Conclusion
 
-* Specjalizować można szablony funkcji i typy szablonowe.
+* We can specialize a function template and a type template.
 
-* Specjalizacja może być częściowa albo całkowita.
+* A specialization can be either partial or explicit.
 
-* Specjalizacja pozwala na nadpisanie implementacji szablonu
-  podstawowego dla wybranych kombinacji jego argumentów.
+* A specialization allows to overwrite the implementation of a primary
+  template.
 
 # Quiz
 
-* Czy szablon funkcji może być częściowo specjalizowany?
+* Can a function template be partially specialized?
 
-* Czy w wyborze przeciążenia pierwszeństwo ma funkcja szablonowa czy
-  przeciążenie funkcji?
+* What does the overload resolution prefer: a template function or a
+  regular function.
 
-* Czy specjalizacja szablonu typu dziedziczy po podstawowym szablonie
-  typu?
-
-<!-- LocalWords: lvalue lvalues rvalue -->
+* Must a specialization of a type template inherit from a primary
+  template?
