@@ -165,12 +165,6 @@ całkowicie lub częściowo.  Szablon podstawowy i jej specjalizacje mają
 jedynie wspólną nazwę typu, a ich interfejsy (składowe publiczne),
 implementacje i wielkości w pamięci mogą się całkowicie różnić.
 
-Szablon specjalizacji definiuje od nowa swoje parametry, które nie
-muszą mieć nic wspólnego z parametrami szablonu podstawowego.  Ważne
-jedynie, żeby jawnie podać (po nazwie typu) argumenty szablonu
-podstawowego, które muszą zależeć od (używać) parametrów
-specjalizacji.
-
 Przykładem specjalizacji typu w bibliotece standardowej jest
 `std::vector<bool>`, czyli specjalizacja `std::vector` dla typu
 `bool`.  Ta specjalizacja ma interfejs podobny do interfejsu szablonu
@@ -179,8 +173,9 @@ podstawowego, ale jej implementacja jest zupełnie inna.
 ## Przykład całkowitej specjalizacji
 
 Niżej definiujemy szablon podstawowy typu `A` z jedną funkcją składową
-`foo`.  Całkowita specjalizacja dla argumentu `double` nie ma funkcji
-`foo`, a ma funkcję `goo` i dziedziczy po `std::pair`.
+`foo`.  Dla całkowitej specjalizacji dla argumentu `double`, typ `A`
+dziedziczy po `std::pair`, ma funkcję `goo`, ale nie ma już funkcji
+`foo`.
 
 ```cpp
 {% include_relative struct_complete.cc %}
@@ -188,10 +183,11 @@ Niżej definiujemy szablon podstawowy typu `A` z jedną funkcją składową
 
 ## Częściowa specjalizacja i przykład
 
-W częściowej specjalizacji szablonu typu wprowadzamy parametr, który
-używamy w definicji argumentu szablonu podstawowego.  Lista parametrów
-specjalizacji nie jest już pusta, jak w przypadku całkowitej
-specjalizacji.
+Szablon częściowej specjalizacji definiuje od nowa swoje parametry,
+które nie muszą mieć nic wspólnego z parametrami szablonu
+podstawowego.  Ważne jedynie, żeby jawnie podać (po nazwie typu)
+argumenty szablonu podstawowego, które muszą zależeć od (używać)
+parametrów specjalizacji.
 
 W przykładzie niżej deklarujemy szablon podstawowy typu `A` z typowym
 parametrem `T`, a następnie definiujemy dwie specjalizacje, obie z

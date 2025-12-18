@@ -167,36 +167,30 @@ explicitly or partially.  The primary template and its specialization
 only share the type name, while their interfaces (public members),
 implementations and their memory size can completely differ.
 
-A specialization template defines anew its parameters, which do not
-have anything to do with the primary template parameters.  The point
-is to explicitly provide (after the type name) the arguments for the
-primary template, which have to depend on (use) the specialization
-parameters.
-
 An example of a type specialization in the standard library is
 `std::vector<bool>`, i.e., a specialization of `std::vector` for type
 `bool`.  This specialization has an interface similar to the interface
 of the primary template, but its implementation is completely
 different.
 
-## Przykład całkowitej specjalizacji
+## Explicit specialization example
 
-Niżej definiujemy szablon podstawowy typu `A` z jedną funkcją składową
-`foo`.  Całkowita specjalizacja dla argumentu `double` nie ma funkcji
-`foo`, a ma funkcję `goo` i dziedziczy po `std::pair`.  Całkowita
-specjalizacja typu ma identyczną składnię, jak całkowita specjalizacja
-funkcji.
+Below we define a primary template of type `A` with one member
+function `foo`.  For an explicit specialization for the `double`
+argument, type `A` derives from `std::pair`, has the `goo` function,
+but doesn't have the `foo` function.
 
 ```cpp
 {% include_relative struct_complete.cc %}
 ```
 
-## Częściowa specjalizacja i przykład
+## Partial specialization and an example
 
-W częściowej specjalizacji szablonu typu wprowadzamy parametr, który
-używamy w definicji argumentu szablonu podstawowego.  Lista parametrów
-specjalizacji nie jest już pusta, jak w przypadku całkowitej
-specjalizacji.
+A specialization template defines anew its parameters, which do not
+have anything to do with the primary template parameters.  The point
+is to explicitly provide (after the type name) the arguments for the
+primary template, which have to depend on (to use) the specialization
+parameters.
 
 W przykładzie niżej deklarujemy szablon podstawowy typu `A` z typowym
 parametrem `T`, a następnie definiujemy dwie specjalizacje, obie z
