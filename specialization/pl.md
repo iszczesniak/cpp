@@ -180,9 +180,7 @@ podstawowego, ale jej implementacja jest zupełnie inna.
 
 Niżej definiujemy szablon podstawowy typu `A` z jedną funkcją składową
 `foo`.  Całkowita specjalizacja dla argumentu `double` nie ma funkcji
-`foo`, a ma funkcję `goo` i dziedziczy po `std::pair`.  Całkowita
-specjalizacja typu ma identyczną składnię, jak całkowita specjalizacja
-funkcji.
+`foo`, a ma funkcję `goo` i dziedziczy po `std::pair`.
 
 ```cpp
 {% include_relative struct_complete.cc %}
