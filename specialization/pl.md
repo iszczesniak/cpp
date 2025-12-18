@@ -159,12 +159,17 @@ wprowadzać takiego nieporządku.
 
 # Specjalizacja szablonów typów użytkownika
 
-Możemy zadeklarować lub zdefiniować szablon typu użytkownika, czyli
-struktury, klasy i unii.  Ten szablon podstawowy możemy specjalizować
+Możemy zadeklarować lub zdefiniować szablon typu, czyli struktury,
+klasy czy unii.  Ten szablon podstawowy możemy specjalizować
 całkowicie lub częściowo.  Szablon podstawowy i jej specjalizacje mają
-jedynie wspólną nazwę typu, a ich interfejsy (składowe dostępne
-użytkownikowi), implementacje i wielkości w pamięci mogą się
-całkowicie różnić.
+jedynie wspólną nazwę typu, a ich interfejsy (składowe publiczne),
+implementacje i wielkości w pamięci mogą się całkowicie różnić.
+
+Szablon specjalizacji definiuje zupełnie od nowa swoje parametry,
+które nie muszą mieć nic wspólnego z parametrami szablonu
+podstawowego.  Ważne jedynie, żeby jawnie podać (po nazwie typu)
+argumenty szablonu podstawowego, które muszą zależeć od (używać)
+parametrów specjalizacji.
 
 Przykładem specjalizacji typu w bibliotece standardowej jest
 `std::vector<bool>`, czyli kontenera `std::vector` dla typu `bool`.

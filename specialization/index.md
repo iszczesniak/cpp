@@ -161,12 +161,17 @@ best not to make that mess.
 
 # Specjalizacja szablonów typów użytkownika
 
-Możemy zadeklarować lub zdefiniować szablon typu użytkownika, czyli
-struktury, klasy i unii.  Ten szablon podstawowy możemy specjalizować
-całkowicie lub częściowo.  Szablon podstawowy i jej specjalizacje mają
-jedynie wspólną nazwę typu, a ich interfejsy (składowe dostępne
-użytkownikowi), implementacje i wielkości w pamięci mogą się
-całkowicie różnić.
+We can declare or define a type template, i.e., a template of a
+struct, class or union.  Such a primary template we can specialize
+explicitly or partially.  The primary template and its specialization
+only share the type name, while their interfaces (public members),
+implementations and their memory size can completely differ.
+
+A specialization template defines completely anew its parameters,
+which do not have anything to do with the primary template parameters.
+It's just important to explicitly provide (after the type name) the
+arguments for the primary template, which have to depend on (use) the
+specialization parameters.
 
 Przykładem specjalizacji typu w bibliotece standardowej jest
 `std::vector<bool>`, czyli kontenera `std::vector` dla typu `bool`.
