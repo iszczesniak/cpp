@@ -165,11 +165,11 @@ całkowicie lub częściowo.  Szablon podstawowy i jej specjalizacje mają
 jedynie wspólną nazwę typu, a ich interfejsy (składowe publiczne),
 implementacje i wielkości w pamięci mogą się całkowicie różnić.
 
-Szablon specjalizacji definiuje zupełnie od nowa swoje parametry,
-które nie muszą mieć nic wspólnego z parametrami szablonu
-podstawowego.  Ważne jedynie, żeby jawnie podać (po nazwie typu)
-argumenty szablonu podstawowego, które muszą zależeć od (używać)
-parametrów specjalizacji.
+Szablon specjalizacji definiuje od nowa swoje parametry, które nie
+muszą mieć nic wspólnego z parametrami szablonu podstawowego.  Ważne
+jedynie, żeby jawnie podać (po nazwie typu) argumenty szablonu
+podstawowego, które muszą zależeć od (używać) parametrów
+specjalizacji.
 
 Przykładem specjalizacji typu w bibliotece standardowej jest
 `std::vector<bool>`, czyli specjalizacja `std::vector` dla typu
