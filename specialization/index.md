@@ -24,7 +24,7 @@ As opposed to the explicit specialization, the partial specialization
 allows to define template parameters that are used in the arguments of
 the primary template.
 
-# A function template specialization
+# Function template specialization
 
 A function template can be specialized only explicitly, i.e., all
 arguments for the primary template are explicitly given: a explicit
@@ -159,7 +159,7 @@ We could move the definition of the regular function `foo` before the
 `#include` directive, so that function `goo` can call it, but it's
 best not to make that mess.
 
-# Specjalizacja szablonów typów użytkownika
+# Type template specialization
 
 We can declare or define a type template, i.e., a template of a
 struct, class or union.  Such a primary template we can specialize
