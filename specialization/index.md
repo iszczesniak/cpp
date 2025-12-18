@@ -168,10 +168,10 @@ only share the type name, while their interfaces (public members),
 implementations and their memory size can completely differ.
 
 A specialization template defines anew its parameters, which do not
-have anything to do with the primary template parameters.  It's just
-important to explicitly provide (after the type name) the arguments
-for the primary template, which have to depend on (use) the
-specialization parameters.
+have anything to do with the primary template parameters.  The point
+is to explicitly provide (after the type name) the arguments for the
+primary template, which have to depend on (use) the specialization
+parameters.
 
 An example of a type specialization in the standard library is
 `std::vector<bool>`, i.e., a specialization of `std::vector` for type
