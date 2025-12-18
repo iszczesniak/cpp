@@ -157,7 +157,7 @@ Moblibyśmy przenieść definicję zwykłej funkcji `foo` przed dyrektywę
 `#include`, żeby funkcja `goo` mogła ją wywołać, ale lepiej nie
 wprowadzać takiego nieporządku.
 
-# Specjalizacja szablonów typów użytkownika
+# Specjalizacja szablonów typów
 
 Możemy zadeklarować lub zdefiniować szablon typu, czyli struktury,
 klasy czy unii.  Ten szablon podstawowy możemy specjalizować
