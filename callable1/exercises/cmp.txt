@@ -1,12 +1,12 @@
-Dana jest struktura `student` z polami `m_year` typu `int` i `m_name`
-typu `string`.  Proszę napisać wyrażenie lambda, które będzie
-porównywało dwa obiekty struktury student: `a` i `b`.  Wyrażenie
-lambda przechwytuje wartość logiczną, od której zależy wynik
-porównania: jeżeli przechwyconą wartością jest:
+There is given a structure `student` with fields `m_year` of type
+`int` and `m_name` of type `string`.  Please write a lambda expression
+to compare two objects of type `student`: `a` and `b`.  The lambda
+captures a boolean value, on which the result of the comparison
+depends: if the captured value is:
 
-* `false`, to porównywane są pola `m_year`: `a.m_year < b.m_year`,
+* `false`, then compare fields `m_year`: `a.m_year < b.m_year`,
 
-* `true`, to porównywane są pola `m_name`: `a.m_name < b.m_name`.
+* `true`, then compare fields `m_name`: `a.m_name < b.m_name`.
 
-Następnie proszę zaimplementować tą samą funkcjonalność z użyciem
-struktury funkcyjnej i funktora.
+Next, please implement the same functionality using a functor
+structure.
