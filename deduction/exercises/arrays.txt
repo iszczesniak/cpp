@@ -1,0 +1,8 @@
+Please implement two primary function templates `foo`:
+
+* one takes by a const reference a C-style array,
+
+* the other takes by a const reference an object of type `std::array`.
+
+Both function templates return the number of elements of an array.
+
