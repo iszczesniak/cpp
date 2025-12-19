@@ -24,7 +24,7 @@ As opposed to the explicit specialization, the partial specialization
 allows to define template parameters that are used in the arguments of
 the primary template.
 
-# A function template specialization
+# Function template specialization
 
 A function template can be specialized only explicitly, i.e., all
 arguments for the primary template are explicitly given: a explicit
@@ -103,136 +103,134 @@ the overload for type `int`.
 {% include_relative overloads.cc %}
 ```
 
-W powyższym przykładzie zamieńmy przeciążenie dla `const int &` na
-szablon podstawowy, żeby jedną implementacją załatwić wywołania
-`foo(1)` i foo('1').  Zatem mamy szablon dla dowolnego typu i
-przeciążenie dla typu `A`.  Czy dla wywołania funkcji `foo` z
-argumentem `A()` będzie użyty szablon czy przeciążenie?  A dokładnie
-mówiąc przeciążenie funkcji szablonowej (czyli funkcji, która
-otrzymaliśmy po konkretyzacji podstawowego szablonu funkcji dla `T =
-A`) czy przeciążenie zwykłej funkcji?  **Przeciążenie zwykłej funkcji
-zawsze ma pierwszeństwo.**
+In the above example, let's replace the regular function overload for
+`const int &` with a primary template, so that with a single
+implementation we can deal with `foo(1)` and foo('1').  Therefore in
+the example below we have a primary template for any type, and a
+regular function for type `A`.  Will the primary template or the
+regular function be used when calling `foo` with an argument of type
+`A`?  **A regular function always comes first.**
 
 ```cpp
 {% include_relative mix1.cc %}
 ```
 
-Możemy dodać także specjalizację dla `T = A`, ale i tak zostanie
-wybrane przeciążenie zwykłej funkcji.  Podczas wyboru przeciążenia,
-kompilator nie rozważa specjalizacji, a jedynie przeciążenia zwykłych
-funkcji i przeciążenia funkcji szablonowych.  Tak więc dodanie
-specjalizacji i tak nie namówi kompilator na jej użycie.
+For the primary function template, we can add a specialization for `T
+= A`, but a compler uses the regular function anyway.  During overload
+resolution, a compiler does not consider specializations, but only the
+overloads of regular functions and overloads of primary function
+templates.
 
 ```cpp
 {% include_relative mix2.cc %}
 ```
 
-## Kiedy potrzebujemy specjalizacji
+## When we need the specialization
 
-Wydaje się, że specjalizacja szablonu jest zbędna, bo tą samą
-funkcjonalność uzyskaliśmy przeciążając zwykłą funkcję.  Jest jednak
-funkcjonalność specjalizacji, której nie osiągniemy przez
-przeciążenia.
+It seems that a template specialization is redundant, because we
+achieved similar functionality with regular function overloads.  There
+is, however, a functionality of the specialization that we cannot
+achieve with regular function overloads.
 
-Specjalizacja szablonów pozwala na zdefiniowanie przez użytkownika
-funkcji dla kodu, który został już dołączony w pliku nagłówkowym,
-np. biblioteki szablonowej.  Biblioteka deklaruje szablon funkcji,
-którą potrzebuje, a definicję specjalizacji czy nawet szablonu
-podstawowego można pozostawić użytkownikowi.  Tak może wyglądać plik
-nagłówkowy `library.hpp`:
+A template specialization allows a user to provide some implementation
+to the code that was already included as a header file, e.g., a
+template library.  A library declares a primary function template that
+it requires, but the definition of a specialization or even of the
+primary template leaves to the user.  That's how a header file
+`library.hpp` can look like:
 
 ```cpp
 {% include_relative library.hpp %}
 ```
 
-Tak może wyglądać użycie biblioteki:
+And that's how to use the library:
 
 ```cpp
 {% include_relative need.cc %}
 ```
 
-Jeżeli przeciążenie funkcji zadeklarujemy po dołączeniu biblioteki, to
-funkcja `goo` nie będzie go znała i nie użyje go.  Funkcja wie
-natomiast, że może użyć szablonu funkcji `foo`, bo jej szablon
-podstawowy został zadeklarowany.
+C++ is a one-pass compiler, and so if we declare a regular function
+`foo` after the inclusion of our library, then the library function
+`goo` doesn't know it and cannot call it.  However, function `goo`
+knows and can use the primary function template `foo`, because it was
+previously declared.
 
-Możemy też przenieść definicję przeciążenia funkcji `foo` przed
-dyrektywę `#include`, żeby funkcja `goo` mogła skorzystać z
-przeciążenia, ale lepiej nie wprowadzać takiego nieporządku.
+We could move the definition of the regular function `foo` before the
+`#include` directive, so that function `goo` can call it, but it's
+best not to make that mess.
 
-# Specjalizacja szablonów typów użytkownika
+# Type template specialization
 
-Możemy zadeklarować lub zdefiniować szablon typu użytkownika, czyli
-struktury, klasy i unii.  Ten szablon podstawowy możemy specjalizować
-całkowicie lub częściowo.  Szablon podstawowy i jej specjalizacje mają
-jedynie wspólną nazwę typu, a ich interfejsy (składowe dostępne
-użytkownikowi), implementacje i wielkości w pamięci mogą się
-całkowicie różnić.
+We can declare or define a type template, i.e., a template of a
+struct, class or union.  Such a primary template we can specialize
+explicitly or partially.  The primary template and its specialization
+only share the type name, while their interfaces (public members),
+implementations and their memory size can completely differ.
 
-Przykładem specjalizacji typu w bibliotece standardowej jest
-`std::vector<bool>`, czyli kontenera `std::vector` dla typu `bool`.
-Ta specjalizacja ma podobny interfejs jak szablon podstawowy
-`std::vector`, ale zupełnie inną implementację.
+An example of a type specialization in the standard library is
+`std::vector<bool>`, i.e., a specialization of `std::vector` for type
+`bool`.  This specialization has an interface similar to the interface
+of the primary template, but its implementation is completely
+different.
 
-## Przykład całkowitej specjalizacji
+## Explicit specialization example
 
-Niżej definiujemy szablon podstawowy typu `A` z jedną funkcją składową
-`foo`.  Całkowita specjalizacja dla argumentu `double` nie ma funkcji
-`foo`, a ma funkcję `goo` i dziedziczy po `std::pair`.  Całkowita
-specjalizacja typu ma identyczną składnię, jak całkowita specjalizacja
-funkcji.
+Below we define a primary template of type `A` with one member
+function `foo`.  For an explicit specialization for the `double`
+argument, type `A` derives from `std::pair`, has the `goo` function,
+but doesn't have the `foo` function.
 
 ```cpp
 {% include_relative struct_complete.cc %}
 ```
 
-## Częściowa specjalizacja i przykład
+## Partial specialization and an example
 
-W częściowej specjalizacji szablonu typu wprowadzamy parametr, który
-używamy w definicji argumentu szablonu podstawowego.  Lista parametrów
-specjalizacji nie jest już pusta, jak w przypadku całkowitej
-specjalizacji.
+A specialization template defines anew its parameters, which do not
+have anything to do with the primary template parameters.  The point
+is to explicitly provide (after the type name) the arguments for the
+primary template, which have to depend on (to use) the specialization
+parameters.
 
-W przykładzie niżej deklarujemy szablon podstawowy typu `A` z typowym
-parametrem `T`, a następnie definiujemy dwie specjalizacje, obie z
-parametrem `T`.  Parametry `T` trzech szablonów nie mają ze sobą nic
-wspólnego, ponieważ mają lokalny zakres.
+In the example below we declare a primary template of type `A` with a
+parameter `T` of the type kind, and then we define two
+specializations, both with a parameter `T`.  Parameters `T` of these
+three templates have nothing to do with each other, because they are
+of local scope.
 
-Pierwsza specjalizacja definiuje implementację typu `A` dla
-przypadków, kiedy argumentem szablonu podstawowego jest `std::vector`.
-Pozwalamy na dowolny typ elementów wektora poprzez użycie parametru
-`T` specjalizacji.
+The first specialization defines the implementation of type `A` for
+the case, where the argument of the primary template is `std::vector`.
+We allow for any type of the vector element by using the parameter `T`
+of the specialization.
 
-Druga specjalizacja definiuje implementację typu `A` dla przypadków,
-kiedy argumentem szablonu podstawowego jest typ szablonowy, który może
-być skonkretyzowany z jednym argumentem `int`.
+The second specialization defines the implementation of type `A` for
+the case, where the argument of the primary template is a type
+template that can be instantiated with a single argument `int`.
 
-W funkcji `main` typ `A` został użyty z różnymi specjalizacjami.
-Najciekawszy jest ostatni przypadek, który jest zakomentowany, bo nie
-może się kompilować: kompilator nie jest w stanie zdecydować, której
-specjalizacji użyć.
+In the `main` function, type `A` is used with the two specializations.
+The last use case is the most interesting, which is commented out,
+because it cannot compile: a compiler is unable to decide which
+specialization to use.
 
 ```cpp
 {% include_relative struct_partial.cc %}
 ```
 
-# Podsumowanie
+# Conclusion
 
-* Specjalizować można szablony funkcji i typy szablonowe.
+* We can specialize a function template and a type template.
 
-* Specjalizacja może być częściowa albo całkowita.
+* A specialization can be either partial or explicit.
 
-* Specjalizacja pozwala na nadpisanie implementacji szablonu
-  podstawowego dla wybranych kombinacji jego argumentów.
+* A specialization allows to overwrite the implementation of a primary
+  template.
 
 # Quiz
 
-* Czy szablon funkcji może być częściowo specjalizowany?
+* Can a function template be partially specialized?
 
-* Czy w wyborze przeciążenia pierwszeństwo ma funkcja szablonowa czy
-  przeciążenie funkcji?
+* What does the overload resolution prefer: a template function or a
+  regular function?
 
-* Czy specjalizacja szablonu typu dziedziczy po podstawowym szablonie
-  typu?
-
-<!-- LocalWords: lvalue lvalues rvalue -->
+* Must a specialization of a type template inherit from a primary
+  template?

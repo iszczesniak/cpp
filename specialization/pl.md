@@ -101,23 +101,23 @@ przeciążenia dla typu `int`.
 {% include_relative overloads.cc %}
 ```
 
-W powyższym przykładzie zamieńmy przeciążenie dla `const int &` na
-szablon podstawowy, żeby jedną implementacją załatwić wywołania
-`foo(1)` i foo('1').  Zatem w przykładzie niżej mamy szablon dla
-dowolnego typu i zwykłą funkcję dla typu `A`.  Czy dla wywołania
-funkcji `foo` z argumentem `A()` będzie użyty podstawowy szablon
-funkcji czy zwykła funkcja?  **Zwykła funkcja zawsze ma
+W powyższym przykładzie zamieńmy przeciążenie zwykłej funkcji dla
+`const int &` na szablon podstawowy, żeby jedną implementacją załatwić
+wywołania `foo(1)` i foo('1').  Zatem w przykładzie niżej mamy szablon
+podstawowy dla dowolnego typu i zwykłą funkcję dla typu `A`.  Czy dla
+wywołania funkcji `foo` z argumentem `A()` będzie użyty podstawowy
+szablon funkcji czy zwykła funkcja?  **Zwykła funkcja zawsze ma
 pierwszeństwo.**
 
 ```cpp
 {% include_relative mix1.cc %}
 ```
 
-Możemy dodać także specjalizację dla `T = A`, ale i tak zostanie
-wybrane przeciążenie zwykłej funkcji.  Podczas wyboru przeciążenia,
-kompilator nie rozważa specjalizacji, a jedynie przeciążenia zwykłych
-funkcji i przeciążenia podstawowych szablonów funkcji.  Tak więc
-dodanie specjalizacji i tak nie namówi kompilator na jej użycie.
+Dla podstawowego szablonu funkcji możemy dodać specjalizację dla `T =
+A`, ale kompilator i tak używa zwykłej funkcja.  Podczas wyboru
+przeciążenia, kompilator nie rozważa specjalizacji, a jedynie
+przeciążenia zwykłych funkcji i przeciążenia podstawowych szablonów
+funkcji.
 
 ```cpp
 {% include_relative mix2.cc %}
@@ -125,17 +125,17 @@ dodanie specjalizacji i tak nie namówi kompilator na jej użycie.
 
 ## Kiedy potrzebujemy specjalizacji
 
-Wydaje się, że specjalizacja szablonu jest zbędna, bo tą samą
-funkcjonalność uzyskaliśmy przeciążając zwykłą funkcję.  Jest jednak
-funkcjonalność specjalizacji, której nie osiągniemy przez
+Wydaje się, że specjalizacja szablonu jest zbędna, bo podobną
+funkcjonalność uzyskaliśmy przeciążeniami zwykłej funkcji.  Jest
+jednak funkcjonalność specjalizacji, której nie osiągniemy przez
 przeciążenia.
 
-Specjalizacja szablonów pozwala na zdefiniowanie przez użytkownika
-funkcji dla kodu, który został już dołączony w pliku nagłówkowym,
-np. biblioteki szablonowej.  Biblioteka deklaruje szablon funkcji,
-którą potrzebuje, a definicję specjalizacji czy nawet szablonu
-podstawowego można pozostawić użytkownikowi.  Tak może wyglądać plik
-nagłówkowy `library.hpp`:
+Specjalizacja szablonów pozwala użytkownikowi do dostarczenie
+implementacji dla kodu, który został już dołączony w pliku
+nagłówkowym, np. biblioteki szablonowej.  Biblioteka deklaruje
+podstawowy szablon funkcji, której wymaga, a definicję specjalizacji
+czy nawet szablonu podstawowego pozostawia użytkownikowi.  Tak może
+wyglądać plik nagłówkowy `library.hpp`:
 
 ```cpp
 {% include_relative library.hpp %}
@@ -147,36 +147,35 @@ Tak może wyglądać użycie biblioteki:
 {% include_relative need.cc %}
 ```
 
-Jeżeli przeciążenie funkcji zadeklarujemy po dołączeniu biblioteki, to
-funkcja `goo` nie będzie go znała i nie użyje go.  Funkcja wie
-natomiast, że może użyć szablonu funkcji `foo`, bo jej szablon
-podstawowy został zadeklarowany.
+C++ jest kompilatorem jednego przebiegu (ang. one-pass compiler), więc
+jeżeli zwykłą funkcję `foo` zadeklarujemy po dołączeniu naszej
+biblioteki, to funkcja biblioteczna `goo` nie zna jej i nie może jej
+wywołać.  Natomiast funkcja `goo` zna i może użyć podstawowego
+szablonu funkcji `foo`, bo został wcześniej zadeklarowany.
 
-Możemy też przenieść definicję przeciążenia funkcji `foo` przed
-dyrektywę `#include`, żeby funkcja `goo` mogła skorzystać z
-przeciążenia, ale lepiej nie wprowadzać takiego nieporządku.
+Moblibyśmy przenieść definicję zwykłej funkcji `foo` przed dyrektywę
+`#include`, żeby funkcja `goo` mogła ją wywołać, ale lepiej nie
+wprowadzać takiego nieporządku.
 
-# Specjalizacja szablonów typów użytkownika
+# Specjalizacja szablonów typów
 
-Możemy zadeklarować lub zdefiniować szablon typu użytkownika, czyli
-struktury, klasy i unii.  Ten szablon podstawowy możemy specjalizować
-całkowicie lub częściowo.  Szablon podstawowy i jej specjalizacje mają
-jedynie wspólną nazwę typu, a ich interfejsy (składowe dostępne
-użytkownikowi), implementacje i wielkości w pamięci mogą się
-całkowicie różnić.
+Możemy zadeklarować lub zdefiniować szablon typu, czyli struktury,
+klasy czy unii.  Ten szablon podstawowy możemy specjalizować jawnie
+lub częściowo.  Szablon podstawowy i jej specjalizacje mają jedynie
+wspólną nazwę typu, a ich interfejsy (składowe publiczne),
+implementacje i wielkości w pamięci mogą się całkowicie różnić.
 
 Przykładem specjalizacji typu w bibliotece standardowej jest
-`std::vector<bool>`, czyli kontenera `std::vector` dla typu `bool`.
-Ta specjalizacja ma podobny interfejs jak szablon podstawowy
-`std::vector`, ale zupełnie inną implementację.
+`std::vector<bool>`, czyli specjalizacja `std::vector` dla typu
+`bool`.  Ta specjalizacja ma interfejs podobny do interfejsu szablonu
+podstawowego, ale jej implementacja jest zupełnie inna.
 
-## Przykład całkowitej specjalizacji
+## Przykład jawnej specjalizacji
 
 Niżej definiujemy szablon podstawowy typu `A` z jedną funkcją składową
-`foo`.  Całkowita specjalizacja dla argumentu `double` nie ma funkcji
-`foo`, a ma funkcję `goo` i dziedziczy po `std::pair`.  Całkowita
-specjalizacja typu ma identyczną składnię, jak całkowita specjalizacja
-funkcji.
+`foo`.  Dla jawnej specjalizacji dla argumentu `double`, typ `A`
+dziedziczy po `std::pair`, ma funkcję `goo`, ale nie ma już funkcji
+`foo`.
 
 ```cpp
 {% include_relative struct_complete.cc %}
@@ -184,27 +183,28 @@ funkcji.
 
 ## Częściowa specjalizacja i przykład
 
-W częściowej specjalizacji szablonu typu wprowadzamy parametr, który
-używamy w definicji argumentu szablonu podstawowego.  Lista parametrów
-specjalizacji nie jest już pusta, jak w przypadku całkowitej
-specjalizacji.
+Szablon częściowej specjalizacji definiuje od nowa swoje parametry,
+które nie muszą mieć nic wspólnego z parametrami szablonu
+podstawowego.  Ważne jedynie, żeby jawnie podać (po nazwie typu)
+argumenty szablonu podstawowego, które muszą zależeć od (używać)
+parametrów specjalizacji.
 
 W przykładzie niżej deklarujemy szablon podstawowy typu `A` z typowym
 parametrem `T`, a następnie definiujemy dwie specjalizacje, obie z
 parametrem `T`.  Parametry `T` trzech szablonów nie mają ze sobą nic
 wspólnego, ponieważ mają lokalny zakres.
 
-Pierwsza specjalizacja definiuje implementację typu `A` dla
-przypadków, kiedy argumentem szablonu podstawowego jest `std::vector`.
-Pozwalamy na dowolny typ elementów wektora poprzez użycie parametru
-`T` specjalizacji.
+Pierwsza specjalizacja definiuje implementację typu `A` dla przypadku,
+gdzie argumentem szablonu podstawowego jest `std::vector`.  Pozwalamy
+na dowolny typ elementów wektora poprzez użycie parametru `T`
+specjalizacji.
 
-Druga specjalizacja definiuje implementację typu `A` dla przypadków,
-kiedy argumentem szablonu podstawowego jest typ szablonowy, który może
+Druga specjalizacja definiuje implementację typu `A` dla przypadku,
+gdzie argumentem szablonu podstawowego jest szablon typu, który może
 być skonkretyzowany z jednym argumentem `int`.
 
-W funkcji `main` typ `A` został użyty z różnymi specjalizacjami.
-Najciekawszy jest ostatni przypadek, który jest zakomentowany, bo nie
+W funkcji `main` typ `A` został użyty z dwoma specjalizacjami.
+Najciekawsze jest ostatnie użycie, które jest zakomentowane, bo nie
 może się kompilować: kompilator nie jest w stanie zdecydować, której
 specjalizacji użyć.
 
@@ -214,19 +214,19 @@ specjalizacji użyć.
 
 # Podsumowanie
 
-* Specjalizować można szablony funkcji i typy szablonowe.
+* Specjalizować można szablon funkcji i szablon typu.
 
-* Specjalizacja może być częściowa albo całkowita.
+* Specjalizacja może być częściowa albo jawna.
 
 * Specjalizacja pozwala na nadpisanie implementacji szablonu
-  podstawowego dla wybranych kombinacji jego argumentów.
+  podstawowego.
 
 # Quiz
 
 * Czy szablon funkcji może być częściowo specjalizowany?
 
 * Czy w wyborze przeciążenia pierwszeństwo ma funkcja szablonowa czy
-  przeciążenie funkcji?
+  zwykła funkcja?
 
 * Czy specjalizacja szablonu typu dziedziczy po podstawowym szablonie
   typu?
