@@ -70,9 +70,9 @@ jest pisemny, opisowy.
 
 Terminy egzaminów:
 
-* Termin I: ustala dziekanat,
+* Termin I: piątek, 6 luty, 8:00 - 10:00, sala A3,
 
-* Termin II: ustala dziekanat.
+* Termin II: piątek, 13 luty, 8:00 - 10:00, sala A3.
 
 ## Ocena końcowa
 

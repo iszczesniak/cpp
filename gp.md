@@ -62,9 +62,9 @@ an essay.
 
 Exam deadlines:
 
-* Deadline I: to be established,
+* Deadline I: Monday, February 2, 10:00 - 12:00, amphitheatre A13,
 
-* Deadline II: to be established.
+* Deadline II: Friday, February 6, 10:00 - 12:00, amphitheatre A13.
 
 ## Final grade
 
