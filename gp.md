@@ -18,6 +18,10 @@ title: Generic programming
 
 ## Part 3
 
+For now, please use your favourite automatic translator for these
+materials.  I hope I'll be able to translate these materials soon.
+Please note that the lectures and the lab classes are in English.
+
 * [Perfect argument forwarding](forwarding)
 * [Generalized call expressions](callable2)
 * [Constraints](constraints)
