@@ -16,6 +16,13 @@ title: Generic programming
 * [The `auto` type specifier](auto)
 * [Specialization](specialization)
 
+## Part 3
+
+* [Perfect argument forwarding](forwarding)
+* [Generalized call expressions](callable2)
+* [Constraints](constraints)
+* [Concepts](concepts)
+
 # Rules
 
 You get three grades:
