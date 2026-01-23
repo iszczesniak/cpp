@@ -1,0 +1,2 @@
+Please write a declaration of a function template `foo` that takes by
+a const reference an object of any type derived from struct `A`.
