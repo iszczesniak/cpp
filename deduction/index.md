@@ -466,7 +466,7 @@ Here's an example with the decay:
 {% include_relative car_dcy.cc %}
 ```
 
-## Wartościowy argument szablonu
+## The value kind
 
 The deduction of a template argument of the value kind is far easier
 than of the type kind.  It's even hard to talk about deduction,
