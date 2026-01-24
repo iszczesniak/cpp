@@ -1,0 +1,11 @@
+Proszę zaimplementować typ `simple`, który implementuje inteligentny
+wskaźnik o semantyce współdzielonej własności.  Zarządzane obiekty są
+typu `A`.  Wymagane są wyłącznie te funkcjonalności:
+
+* konstruktor, który przyjmuje surowy wskaźnik na daną typu `A`,
+
+* konstruktor kopiujący,
+
+* operator ->,
+
+* destruktor.
