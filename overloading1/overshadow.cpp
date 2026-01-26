@@ -1,8 +1,8 @@
-void f(int);
+void f(char);
 
 int main()
 {
-  // void f(float);
+  // void f(int);
   // void f(double);
-  f(1);
+  f('c');
 }
