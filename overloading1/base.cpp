@@ -5,12 +5,13 @@ struct A
 
 struct B: A
 {
+  using A::foo;
   void foo(int);
 };
 
 int main()
 {
   B b;
-  // b.foo();
-  b.A::foo();
+  b.foo();
+  // b.A::foo();
 }
