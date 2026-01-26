@@ -2,17 +2,19 @@
 
 struct A
 {
-  void operator = (const A &)
+  bool operator == (const A &) const
   {
     std::cout << __PRETTY_FUNCTION__ << std::endl;
+    return false;
   }
 };
 
 struct B: A
 {
-  void operator = (const B &)
+  bool operator == (const B &) const
   {
     std::cout << __PRETTY_FUNCTION__ << std::endl;
+    return false;
   }
 };
 
@@ -20,6 +22,6 @@ int main()
 {
   A a;
   B b;
-  a = b;
-  b = a;
+  b == a;
+  // b = a;
 }
