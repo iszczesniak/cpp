@@ -13,6 +13,11 @@ wybrać wybrać przeciążenie, które użyje.
 
 * liczba argumentów, w uwzględnieniem argumentów domyślnych,
 
+# Przeciążanie a kwalifikatory
+
+Sposób przeciążania zależy od kwalifikatorów i ich znaczenia
+wynikającego z inicjalizacji.
+
 # Stopień konwersji
 
 Konwersje między typem argumentu a typem parametru dzieli się na:
