@@ -5,10 +5,10 @@ void foo(int)
   std::cout << "";
 }
 
-void foo(int &)
-{
-  std::cout << "";
-}
+// void foo(int &)
+// {
+//   std::cout << "";
+// }
 
 int main()
 {
