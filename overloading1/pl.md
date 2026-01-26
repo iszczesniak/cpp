@@ -11,9 +11,9 @@ wybrać wybrać przeciążenie, które użyje.
 
 # Wybór przeciążenia:
 
-* liczba argumentów, także domyślnymi,
+* liczba argumentów, w uwzględnieniem argumentów domyślnych,
 
-# Stopień konwersja
+# Stopień konwersji
 
 Konwersje między typem argumentu a typem parametru dzieli się na:
 
@@ -29,10 +29,3 @@ Konwersje między typem argumentu a typem parametru dzieli się na:
 4. Konwersje definiowane przez użytkownika.
 
 # Funkcja składowa a nieskładowa, w tym operatorowa
-
-# Klas nie można przeciążać
-
-Możemy zdefiniować tylko jeden szablon klasy.  Jest to szablon
-podstawowy, który możemy częściowo albo całkowicie specjalizować.  Nie
-możemy definiować kolejnych szablonów podstawowych dla klasy o tej
-samej nazwie, bo byłoby to przeciążanie klasy, na co C++ nie pozwala.
