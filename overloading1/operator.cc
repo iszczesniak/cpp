@@ -23,5 +23,4 @@ int main()
   A a;
   B b;
   b == a;
-  // b = a;
 }
