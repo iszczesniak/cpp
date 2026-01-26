@@ -122,13 +122,17 @@ Smart pointers
 
 * cyclic dependency: deterministic vs nondeterministic destruction
 
+* weak_ptr to break the cycle dependency
+
+* smart pointers and multithreading
+
 * smart pointers can manage resources other than memory
 
 **********************************************************************
 
 callable vs invokable
 
-type traits
+type traits: template variables and their specialization
 
 Type aliases cannot be specialized.  Use type traits.
 
