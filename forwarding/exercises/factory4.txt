@@ -1,0 +1,4 @@
+Please implement a function `factory` that creates and returns by
+value an object of type `T`, where `T` is a template parameter.  The
+function takes any number of arguments and perfectly forwards them to
+the constructor of the object being created.
