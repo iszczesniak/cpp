@@ -1,0 +1,5 @@
+Proszę użyć kolejki priorytetowej tak, żeby:
+
+* przechowywała obiekty typu `unique_ptr<string>`,
+
+* porządkowała ciągi znaków w rosnącym porządku alfabetycznym.
