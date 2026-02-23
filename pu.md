@@ -67,7 +67,7 @@ Ocenę można uzyskać w dwóch terminach:
 * Termin II: na podstawie kolokwium (które ma trzy pytania) w czasie
   sesji egzaminacyjnej:
 
-  - (całość materiału).
+  - z całości materiału.
 
 ## Ocena końcowa
 
