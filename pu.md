@@ -48,8 +48,8 @@ Każdą z tych ocen możemy otrzymać w dwóch terminach:
 Ocenę z wykładu i laboratorium uzyskujemy na tych samych zasadach.
 Ocenę można uzyskać w dwóch terminach:
 
-* Termin I: do końca zajęć na podstawie czterech kolokwiów (które ma
-  jedno pytanie) przeprowadzanych w czasie wykładu:
+* Termin I: do końca zajęć na podstawie czterech kolokwiów (każde
+  kolokwium ma jedno pytanie) przeprowadzanych w czasie wykładu:
 
   - 7 listopada, 2026 (część I),
 
@@ -71,7 +71,9 @@ Ocenę można uzyskać w dwóch terminach:
   kolokwium.
 
 * Termin II: na podstawie kolokwium (które ma trzy pytania) w czasie
-  sesji egzaminacyjnej.
+  sesji egzaminacyjnej:
+
+  - 
 
 ## Ocena końcowa
 
