@@ -39,7 +39,7 @@ Otrzymujemy trzy oceny:
 
 ## Oceny z wykładu i laboratorium
 
-Ocenę z wykładu i laboratorium uzyskujemy na tych samych zasadach.
+Ocenę z wykładu lub laboratorium uzyskujemy na tych samych zasadach.
 Ocenę można uzyskać w dwóch terminach:
 
 * Termin I: do końca zajęć na podstawie czterech kolokwiów (każde
