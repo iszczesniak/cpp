@@ -32,7 +32,7 @@ You get three grades:
 
 * a final grade.
 
-## Lecutre and laboratory grades
+## Lecture and laboratory grades
 
 A grade from a lecture or a lab class you get the same way.  You can
 get the grade within two deadlines:
