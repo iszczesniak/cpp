@@ -26,18 +26,19 @@ Part III:
 
 You get three grades:
 
-* a grade from the laboratory class,
+* a grade from the lectures,
 
-* a grade from the exam,
+* a grade from the laboratory class,
 
 * a final grade.
 
-## Laboratory grade
+## Lecutre and laboratory grades
 
-You can get a grade from the laboratory class within two deadlines:
+A grade from a lecture or a lab class you get the same way.  You can
+get the grade within two deadlines:
 
-* Deadline I: by the end of laboratory classes based on four tests
-  during lectures:
+* Deadline I: by the end of the classes based on four tests (each test
+  has a single question) carried out during lectures:
 
   - November 7, 2025, from part I,
   
@@ -55,25 +56,16 @@ You can get a grade from the laboratory class within two deadlines:
   If you miss a test, you get a failing grade from that test.  A test
   cannot be retaken.  The last test is a chance to get an extra grade.
 
-* Deadline II: based on a test during the time for the first exam.
+* Deadline II: based on a test (that has three questions) during the
+  exam session:
 
-## Exam grade
-
-You can take an exam twice during the exam session, provided you have
-a passing grade from the laboratory class.  The exam is written, like
-an essay.
-
-Exam deadlines:
-
-* Deadline I: to be established,
-
-* Deadline II: to be established.
+  - ???, from the whole material.
 
 ## Final grade
 
 You can get the final grade within two deadlines.  The final grade is
-an average of the **positive** grades from the laboratory class and
-the exam.  If you haven't got a lab class grade or haven't passed an
-exam, the final grade is the failing grade.
+an average of the **positive** grades from the lectures and the
+laboratory classes.  If you haven't got a positive lecture grade or a
+positive lab class grade, the final grade is the failing grade.
 
 {% include rid %}

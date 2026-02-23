@@ -37,27 +37,21 @@ Otrzymujemy trzy oceny:
 
 * ocenę końcową.
 
-Każdą z tych ocen możemy otrzymać w dwóch terminach:
-
-* termin I: do końca zajęć,
-
-* termin II: w czasie sesji egzaminacyjnej.
-
-## Ocena z wykładu i laboratorium
+## Oceny z wykładu i laboratorium
 
 Ocenę z wykładu i laboratorium uzyskujemy na tych samych zasadach.
 Ocenę można uzyskać w dwóch terminach:
 
 * Termin I: do końca zajęć na podstawie czterech kolokwiów (każde
-  kolokwium ma jedno pytanie) przeprowadzanych w czasie wykładu:
+  kolokwium ma jedno pytanie) przeprowadzanych w czasie wykładów:
 
-  - 7 listopada, 2026 (część I),
+  - 7 listopada, 2026, z części I,
 
-  - 19 grudnia, 2026 (część II),
+  - 19 grudnia, 2026, z części II,
 
-  - 23 stycznia, 2026 (część III),
+  - 23 stycznia, 2026, z części III,
 
-  - 30 stycznia, 2026 (całość materiału).
+  - 30 stycznia, 2026, z całość materiału.
 
   Oceną z pierwszego terminu jest średnia arytmetyczna trzech
   najwyższych, **pozytywnych** ocen wybranych spośród czterech ocen z
@@ -73,7 +67,7 @@ Ocenę można uzyskać w dwóch terminach:
 * Termin II: na podstawie kolokwium (które ma trzy pytania) w czasie
   sesji egzaminacyjnej:
 
-  - 
+  - (całość materiału).
 
 ## Ocena końcowa
 
