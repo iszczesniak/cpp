@@ -1,37 +1,3 @@
-Quickies
-
-* Is the iterator a generalization of a pointer?
-
-* auto: structured bindings,
-
-* std::bind to callable1 and callable2, vs closure
-
-* std::reference_wrapper, std::cref, std::ref
-
-* unified initialization,
-
-* create an instance of a struct (that doesn't have any constructor)
-  by passing the values of fields either in {} or, since C++20, in ().
-
-* structured bindings, return {} to have a pair or a tuple, conversion
-  beteween pair and tuple, std::tie
-
-* variadic structured bindings (auto [... p])
-
-**********************************************************************
-
-value semantics
-
-<=>, and how others are synthesized from <=>
-
-ordering types, lower_bound, upper_bound in std::map
-
-std::map::Compare::is_transparent
-
-**********************************************************************
-
-prvalue, glvalue, xvalue
-
 **********************************************************************
 
 We can't store a reference in a container (e.g., a vector), but we can
@@ -47,11 +13,47 @@ map<int, string &>
 
 **********************************************************************
 
-When not to use references:
+Passing by value vs by reference:
 
 * iterators, proxies,
 
 * when it's better to pass by value.
+
+* the const.
+
+**********************************************************************
+
+Quickies
+--------
+
+* prvalue, glvalue, xvalue,
+
+* Is the iterator a generalization of a pointer?
+
+* std::bind to callable1 and callable2, vs closure
+
+* std::reference_wrapper, std::cref, std::ref
+
+* auto: structured bindings, including variadic: (auto [... p])
+
+* unified initialization,
+
+* create an instance of a struct (that doesn't have any constructor)
+  by passing the values of fields either in {} or, since C++20, in ().
+
+* structured bindings, return {} to have a pair or a tuple, conversion
+  beteween pair and tuple, std::tie
+
+**********************************************************************
+
+Value semantics
+---------------
+
+<=>, and how others are synthesized from <=>
+
+ordering types, lower_bound, upper_bound in std::map
+
+std::map::Compare::is_transparent
 
 **********************************************************************
 
@@ -116,6 +118,8 @@ Overloading
 
 * Deduction guides.
 
+* non-deduced contexts.
+
 **********************************************************************
 
 Smart pointers
@@ -126,7 +130,7 @@ Smart pointers
 
 * weak_ptr to break the cycle dependency
 
-* smart pointers and multithreading
+* atomicity, multithreading
 
 * smart pointers can manage resources other than memory
 
@@ -147,12 +151,6 @@ Tag dispatching - is it still needed?
 **********************************************************************
 
 constexpr, consteval, and literal types.
-
-**********************************************************************
-
-By value or by reference?
-
-The system type: the const
 
 **********************************************************************
 
