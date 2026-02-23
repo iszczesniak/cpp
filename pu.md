@@ -4,39 +4,58 @@ title: Programowanie uogólnione
 
 # Programowanie uogólnione
 
+Cześć I:
+
 * [Programowanie uogólnione](generic/pl)
 * [Szablony](templates/pl)
 * [Szablony wariadyczne](variadic/pl)
 * [Wnioskowanie](deduction/pl)
+
+Cześć II:
+
 * [Specjalizacja](specialization/pl)
 * [Specyfikator `auto`](auto/pl)
 * [Doskonałe przekazywanie argumentów](forwarding/pl)
+
+Cześć III:
+
 * [Uogólnione wyrażenia wywołania](callable2/pl)
 * [Ograniczenia](constraints/pl)
 * [Koncepty](concepts/pl)
+
+Materiał dodatkowy (nie na sprawdziany):
+
+* [Bardziej wyspecializowany](fitter/pl)
 
 # Zasady
 
 Otrzymujemy trzy oceny:
 
-* ocenę z laboratorium,
+* ocenę z wykładu,
 
-* ocenę z egzaminu,
+* ocenę z laboratorium,
 
 * ocenę końcową.
 
-## Ocena z laboratorium
+Każdą z tych ocen możemy otrzymać w dwóch terminach:
 
-Zaliczenie z laboratorium można uzyskać w dwóch terminach:
+* termin I: do końca zajęć,
 
-* Termin I: do końca zajęć laboratoryjnych na podstawie czterech
-  kolokwiów przeprowadzanych w czasie wykładu:
+* termin II: w czasie sesji egzaminacyjnej.
 
-  - 7 listopada, 2025 (generic, template, variadic),
+## Ocena z wykładu i laboratorium
 
-  - 19 grudnia, 2025 (deduction, specialization, auto),
+Ocenę z wykładu i laboratorium uzyskujemy na tych samych zasadach.
+Ocenę można uzyskać w dwóch terminach:
 
-  - 23 stycznia, 2026 (forwarding, callable2, constraints, concepts),
+* Termin I: do końca zajęć na podstawie czterech kolokwiów (które ma
+  jedno pytanie) przeprowadzanych w czasie wykładu:
+
+  - 7 listopada, 2026 (część I),
+
+  - 19 grudnia, 2026 (część II),
+
+  - 23 stycznia, 2026 (część III),
 
   - 30 stycznia, 2026 (całość materiału).
 
@@ -51,25 +70,12 @@ Zaliczenie z laboratorium można uzyskać w dwóch terminach:
   Szansą na poprawę (zdobycie dodatkowej oceny) jest ostatnie
   kolokwium.
 
-* Termin II: na podstawie kolokwium podczas egzaminu w pierwszym
-  terminie.
-
-## Ocena z egzaminu
-
-Do egzaminu można przystąpić w dwóch terminach w czasie sesji
-egzaminacyjnej, bądź poprawkowej sesji egzaminacyjnej.  Warunkiem
-przystąpienia do egzaminu jest zaliczenie z laboratorium.  Egzamin
-jest pisemny, opisowy.
-
-Terminy egzaminów:
-
-* Termin I: ustala dziekanat,
-
-* Termin II: ustala dziekanat.
+* Termin II: na podstawie kolokwium (które ma trzy pytania) w czasie
+  sesji egzaminacyjnej.
 
 ## Ocena końcowa
 
 Ocenę końcową można zdobyć w dwóch terminach.  Ocena końcowa jest
-średnią arytmetyczną **pozytywnych** ocen z laboratorium i egzaminu.
-Jeżeli nie zdobyliśmy zaliczenia lub nie zdaliśmy egzaminu, to oceną
+średnią arytmetyczną **pozytywnych** ocen z wykładu i laboratorium.
+Jeżeli nie zdobyliśmy zaliczenia z wykładu lub laboratorium, to oceną
 końcową jest ocena niedostateczna.
