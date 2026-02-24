@@ -28,6 +28,8 @@ Quickies
 
 * prvalue, glvalue, xvalue,
 
+* forwarding a callable,
+
 * Is the iterator a generalization of a pointer?
 
 * std::bind to callable1 and callable2, vs closure
