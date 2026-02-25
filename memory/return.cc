@@ -12,6 +12,11 @@ struct A
     cout << "ctor: " << m_name << endl;
   }
 
+  ~A()
+  {
+    cout << "dtor: " << m_name << endl;
+  }
+
   A(const A &a)
   {
     cout << "copy-ctor: " << a.m_name << endl;
