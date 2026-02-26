@@ -358,7 +358,7 @@ Constructor elision (for the copy and move constructors only) is
 possible, because the temporary and the local object is created in its
 destination.
 
-This example that demonstrates the constructor elision.  Compile the
+This example demonstrates the constructor elision.  Compile the
 example with, then without the flag `-fno-elide-constructors`.  Notice
 the differences at run-time.
 
