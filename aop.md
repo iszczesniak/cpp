@@ -40,9 +40,9 @@ get the grade within two deadlines:
 * Deadline I: by the end of the classes based on four tests (each test
   has a single question) carried out during lectures:
 
-  - March 30, 2025, from part I,
+  - March 30, 2026, from part I,
   
-  - May 4, 2025, from part II,
+  - May 4, 2026, from part II,
 
   - June 8, 2026, from part III,
 
@@ -59,7 +59,7 @@ get the grade within two deadlines:
 * Deadline II: based on a test (that has three questions) during the
   exam session:
 
-  - June 22, from the whole material.
+  - June 22, 2026, from the whole material.
 
 ## Final grade
 
