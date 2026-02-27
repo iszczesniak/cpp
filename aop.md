@@ -56,8 +56,8 @@ get the grade within two deadlines:
   If you miss a test, you get a failing grade from that test.  A test
   cannot be retaken.  The last test is a chance to get an extra grade.
 
-* Deadline II: based on a test with three question.  Each response is
-  graded separately, and the final test grade is the avergage of the
+* Deadline II: based on a test with three questions.  Each response is
+  graded separately, and the final test grade is the average of the
   three grades.  The date during the exam session:
 
   - Monday, June 22, 2026, from the whole material, A1, 8:00 - 10:00.

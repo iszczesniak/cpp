@@ -64,8 +64,8 @@ Ocenę można uzyskać w dwóch terminach:
   Szansą na poprawę (zdobycie dodatkowej oceny) jest ostatnie
   kolokwium.
 
-* Termin II: na podstawie kolokwium z trzema zadaniami, gdzie każde
-  zadanie oceniane jest osobno, a oceną z kolokwium jest średnia z
+* Termin II: na podstawie kolokwium z trzema zadaniami.  Każda
+  odpowiedź oceniana jest osobno, a oceną z kolokwium jest średnia z
   trzech ocen.  Termin w czasie sesji egzaminacyjnej:
 
   - poniedziałek, 22 czerwca, 2026, z całości materiału, A13, 12:00 -
