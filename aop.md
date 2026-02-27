@@ -82,5 +82,3 @@ positive lab class grade, the final grade is the failing grade.
 * satisfactory (3.0): [3.0, 3.25)
 
 * fail (2.0): [2.0, 3.0)
-
-{% include rid %}
