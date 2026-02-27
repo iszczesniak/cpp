@@ -45,13 +45,13 @@ Ocenę można uzyskać w dwóch terminach:
 * Termin I: do końca zajęć na podstawie czterech kolokwiów (każde
   kolokwium ma jedno pytanie) przeprowadzanych w czasie wykładów:
 
-  - 7 listopada, 2026, z części I,
+  - 30 marca, 2026, z części I,
 
-  - 19 grudnia, 2026, z części II,
+  - 4 maja, 2026, z części II,
 
-  - 23 stycznia, 2026, z części III,
+  - 8 czerwca, 2026, z części III,
 
-  - 30 stycznia, 2026, z całość materiału.
+  - 15 czerwca, 2026, z całość materiału.
 
   Oceną z pierwszego terminu jest średnia arytmetyczna trzech
   najwyższych, **pozytywnych** ocen wybranych spośród czterech ocen z
@@ -67,7 +67,7 @@ Ocenę można uzyskać w dwóch terminach:
 * Termin II: na podstawie kolokwium (które ma trzy pytania) w czasie
   sesji egzaminacyjnej:
 
-  - z całości materiału.
+  - 22 czerwca, 2026, z całości materiału.
 
 ## Ocena końcowa
 
