@@ -68,4 +68,18 @@ an average of the **positive** grades from the lectures and the
 laboratory classes.  If you haven't got a positive lecture grade or a
 positive lab class grade, the final grade is the failing grade.
 
+## Grade scale
+
+* very good (5.0): [4.75, 5.0]
+
+* plus good (4.5): [4.25, 4.75)
+
+* good (4.0): [3.75, 4.25)
+
+* plus satisfactory (3.5): [3.25, 3.75)
+
+* satisfactory (3.0): [3.0, 3.25)
+
+* fail (2.0): [2.0, 3.0)
+
 {% include rid %}

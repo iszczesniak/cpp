@@ -87,3 +87,5 @@ końcową jest ocena niedostateczna.
 * +dst (3.5): [3.25, 3.75)
 
 * dst (3.0): [3.0, 3.25)
+
+* ndst (2.0): [2.0, 3.0)
