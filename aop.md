@@ -40,13 +40,13 @@ get the grade within two deadlines:
 * Deadline I: by the end of the classes based on four tests (each test
   has a single question) carried out during lectures:
 
-  - March 30, 2026, from part I,
+  - Monday, March 30, 2026, from part I,
   
-  - May 4, 2026, from part II,
+  - Monday, May 4, 2026, from part II,
 
-  - June 8, 2026, from part III,
+  - Monday, June 8, 2026, from part III,
 
-  - June 15, 2026, from the whole material.
+  - Monday, June 15, 2026, from the whole material.
 
   The grade within the first deadline is an average of three highest,
   **passing** test grades chosen from among the four test grades.  If
@@ -56,10 +56,11 @@ get the grade within two deadlines:
   If you miss a test, you get a failing grade from that test.  A test
   cannot be retaken.  The last test is a chance to get an extra grade.
 
-* Deadline II: based on a test (that has three questions) during the
-  exam session:
+* Deadline II: based on a test with three question.  Each response is
+  graded separately, and the final test grade is the avergage of the
+  three grades.  The date during the exam session:
 
-  - June 22, 2026, from the whole material.
+  - Monday, June 22, 2026, from the whole material, A1, 8:00 - 10:00.
 
 ## Final grade
 
