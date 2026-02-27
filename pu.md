@@ -75,3 +75,15 @@ Ocenę końcową można zdobyć w dwóch terminach.  Ocena końcowa jest
 średnią arytmetyczną **pozytywnych** ocen z wykładu i laboratorium.
 Jeżeli nie zdobyliśmy zaliczenia z wykładu lub laboratorium, to oceną
 końcową jest ocena niedostateczna.
+
+## Skala ocen
+
+* bdb (5.0): [4.75, 5.0]
+
+* +db (4.5): [4.25, 4.75)
+
+* db (4.0): [3.75, 4.25)
+
+* +dst (3.5): [3.25, 3.75)
+
+* dst (3.0): [3.0, 3.25)
