@@ -48,7 +48,7 @@ get the grade within two deadlines:
 
   - June 15, 2026, from the whole material.
 
-  The grade withing the first deadline is an average of three highest,
+  The grade within the first deadline is an average of three highest,
   **passing** test grades chosen from among the four test grades.  If
   you don't manage to get three passing test grades, then you get a
   failing grade (2.0) within the first deadline.
