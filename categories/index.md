@@ -392,7 +392,7 @@ An expression that is a prvalue or an xvalue is still an rvalue, but
 we differentiate between them so that:
 
 * we are better C++ programmers: we can better understand C++
-  technical documentation that commonly use these categories, and so
+  technical documentation that commonly uses these categories, and so
   that we can implement more efficient code,
 
 * compilers have a fine-grained means of processing expressions: for a
