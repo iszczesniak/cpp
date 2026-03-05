@@ -373,6 +373,35 @@ can be only of complete types).
 {% include_relative incomplete.cc %}
 ```
 
+# C++11 categories
+
+Prior to C++11, we took little interest in categories, but from C++11
+we have to because of the move semantics.  C++11 extended the category
+terminology by:
+
+1. dividing the rvalue category into two new refined categories:
+
+   * **prvalue**,
+
+   * **xvalue**,
+
+2. introducing a new category of **glvalue** to collectively refer to
+   both the lvalue and the xvalue.
+
+An expression that is a prvalue or an xvalue is still an rvalue, but
+we differentiate between them so that:
+
+* we are better C++ programmers: we can better understand C++
+  technical documentation that commonly use these categories, and so
+  that we can implement more efficient code,
+
+* compilers have a fine-grained means of processing expressions: for a
+  C++11 compiler, processing an expression as an rvalue is no longer
+  enough; a compiler needs to know whether it's a prvalue or an
+  xvalue.
+
+A conversion from a prvalue to an xvalue creates a temporary object.
+
 # Conclusion
 
 An expression has a category.  A value of some type (e.g., of class
@@ -381,8 +410,6 @@ An expression has a category.  A value of some type (e.g., of class
 What we can do with an expression depends on its category.
 
 Every expression is either an lvalue or an rvalue.
-
-We covered only the basics, there is more: glvalue, prvalue, xvalue.
 
 # Quiz
 
