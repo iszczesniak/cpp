@@ -5,13 +5,13 @@ title: Expression categories
 # Introduction
 
 Expression categories are fundamental, yet difficult to understand.
-It's all about the details of the **lvalues** and **rvalues**, about
-which we don't think in our daily programming.
+It's all about some details that we don't think of in our daily
+programming.
 
-To understand the meaning of the lvalues and rvalues, it's best to go
-through this text, without searching for some deeper meaning at this
-time.  Similar advice got Alice from Humpty Dumpty in the novel
-"Through the Looking-Glass" by Lewis Carroll:
+To understand the meaning of categories, it's best to go through this
+text, without searching for some deeper meaning at this time.  Similar
+advice got Alice from Humpty Dumpty in the novel "Through the
+Looking-Glass" by Lewis Carroll:
 
 > “Must a name mean something?” Alice asks Humpty Dumpty, only to get
 > this answer: “When I use a word... it means just what I choose it to
