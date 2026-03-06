@@ -6,12 +6,10 @@ title: Expression categories
 
 Expression categories are fundamental, yet difficult to understand.
 It's all about some details that we don't think of in our daily
-programming.
-
-To understand the meaning of categories, it's best to go through this
-text, without searching for some deeper meaning at this time.  Similar
-advice got Alice from Humpty Dumpty in the novel "Through the
-Looking-Glass" by Lewis Carroll:
+programming.  To understand the meaning of categories, it's best to go
+through this text, without searching for some deeper meaning at this
+time.  Similar advice got Alice from Humpty Dumpty in the novel
+"Through the Looking-Glass" by Lewis Carroll:
 
 > “Must a name mean something?” Alice asks Humpty Dumpty, only to get
 > this answer: “When I use a word... it means just what I choose it to
