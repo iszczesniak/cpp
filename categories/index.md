@@ -375,15 +375,15 @@ can be only of complete types).
 
 # C++11 categories
 
-Prior to C++11, we took little interest in categories, but from C++11
-we have to because of the move semantics.  C++11 extended the category
+Prior to C++11, we took little interest in categories, but we have to
+from C++11 because of the move semantics.  C++11 extended the category
 terminology by:
 
-1. dividing the rvalue category into two new refined categories:
+1. splitting the rvalue category into two new refined categories:
 
    * **prvalue**,
 
-   * **xvalue**,
+   * **xvalue**.
 
 2. introducing a new category of **glvalue** to collectively refer to
    both the lvalue and the xvalue.
@@ -400,7 +400,57 @@ we differentiate between them so that:
   enough; a compiler needs to know whether it's a prvalue or an
   xvalue.
 
+The name of:
+
+* prvalue stands for *pure rvalue*,
+
+* glvalue stands for *generalized lvalue*,
+
+* xvalue stands for *any value*.
+
+An xvalue comes from:
+
+* an *implicitly* converted prvalue,
+
+* an *explicitly* convertex lvalue.
+
+Since C++11, categories are defined in terms of two properties of an
+expression:
+
+* whether the expression has **identity**,
+
+* whether the expression can be **moved**.
+
+Now the three basic categories are:
+
+* lvalue: has identity, cannot be moved,
+
+* xvalue: has identity, can be moved,
+
+* prvalue: doesn't have identity, can be moved.
+
+There is no category for an expression that doesn't have identity and
+cannot be moved, because no such expression exists.
+
+Let's notice that:
+
+* glvalue is an expression that has identity,
+
+* rvalue can be moved.
+
+** Identity and lifetime
+
+A prvalue
+
+It may seem that introducing prvalue is like splitting hair...
+
+Here is the crucial information: **initialization with a prvalue is
+elided.**
+
 A conversion from a prvalue to an xvalue creates a temporary object.
+
+While rvalue can be moved, it's really about moving the xvalue because
+prvalue
 
 # Conclusion
 
