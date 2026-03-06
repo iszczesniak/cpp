@@ -442,7 +442,7 @@ The two collective categories are:
 
 * rvalue that can be moved.
 
-** Identity and lifetime
+## Identity and lifetime
 
 A prvalue
 
