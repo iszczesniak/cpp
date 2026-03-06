@@ -410,7 +410,7 @@ An xvalue comes from:
 
 * an *implicitly* converted prvalue,
 
-* an *explicitly* convertex lvalue.
+* an *explicitly* converted lvalue.
 
 Since C++11, categories are defined in terms of two properties of an
 expression:
