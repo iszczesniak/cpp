@@ -421,20 +421,26 @@ expression:
 
 Now the three basic categories are:
 
-| has identity \ can be moved | no | yes
-| no | | prvalue |
-| yes| lvalue | xvalue |
+* lvalue: has identity and cannot be moved,
 
-* prvalue: doesn't have identity, can be moved.
+* xvalue: has identity and can be moved,
+
+* prvalue: doesn't have identity and can be moved.
 
 There is no category for an expression that doesn't have identity and
 cannot be moved, because no such expression exists.
 
-Let's notice that:
+We report the above information in a table:
 
-* glvalue is an expression that has identity,
+| has identity \ can be moved | no | yes
+| no | | prvalue |
+| yes| lvalue | xvalue |
 
-* rvalue can be moved.
+The two collective categories are:
+
+* glvalue that has identity,
+
+* rvalue that can be moved.
 
 ** Identity and lifetime
 
