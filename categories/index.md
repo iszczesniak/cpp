@@ -421,9 +421,9 @@ expression:
 
 Now the three basic categories are:
 
-* lvalue: has identity, cannot be moved,
-
-* xvalue: has identity, can be moved,
+| has identity \ can be moved | no | yes
+| no | | prvalue |
+| yes| lvalue | xvalue |
 
 * prvalue: doesn't have identity, can be moved.
 
