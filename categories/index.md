@@ -442,9 +442,7 @@ The two collective categories are:
 
 * rvalue that can be moved.
 
-## Identity and lifetime
-
-A prvalue
+## Afterthoughts
 
 It may seem that introducing prvalue is like splitting hair...
 
