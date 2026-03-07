@@ -245,8 +245,8 @@ referencję.  Nie ma innych sposobów przekazywania argumentów i
 zwracania wartości.
 
 Funkcja ma *parametry*, a funkcję wywołujemy z *argumentami*.
-Parametr funkcji jest dostępny wewnątrz funkcji.  Parametr ma typ i
-nazwę podawane przy deklaracji lub definicji funkcji.  Argument jest
+Parametr funkcji jest jej zmienną lokalną.  Parametr ma typ i nazwę
+podawane przy deklaracji lub definicji funkcji.  Argument jest
 wyrażeniem, które jest częścią wyrażenia wywołania.  Parametr jest
 inicjalizowany z użyciem argumentu.
 
@@ -254,8 +254,10 @@ inicjalizowany z użyciem argumentu.
 
 Jeżeli parametr funkcji jest typu niereferencyjnego, to mówimy, że
 funkcja przyjmuje argument przez wartość albo że przekazujemy argument
-do funkcji przez wartość.  W starszym C++ parametr niereferencyjny był
-inicjalizowany przez skopiowanie wartości argumentu do parametru.
+do funkcji przez wartość.  W starszym C++, parametr niereferencyjny
+był inicjalizowany zawsze przez kopiowanie wartości argumentu do
+parametru.  W nowoczesnym C++, to kopiowanie może być *pominięte* albo
+zastąpione *przeniesieniem*.
 
 Jeżeli parametr funkcji jest typu referencyjnego, to mówimy, że
 funkcja przyjmuje argument przez referencję albo że przekazujemy

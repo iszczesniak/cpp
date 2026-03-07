@@ -231,9 +231,9 @@ reference.  There are no other ways of passing an argument or
 returning a value.
 
 A function has *parameters*, and we call a function with *arguments*.
-A parameter is available inside the function.  A parameter has a type
-and a name given in the function declaration or definition.  An
-argument is an expression that is part of a call expression.  A
+A function parameter is a local variable of the function.  A parameter
+has a type and a name given in the function declaration or definition.
+An argument is an expression that is part of a call expression.  A
 parameter is initialized using an argument.
 
 ## Passing arguments
@@ -242,7 +242,7 @@ If a function parameter is of a non-reference type, we say that a
 function takes an argument by value, or that we pass an argument to a
 function by value.  In legacy C++, a nonreference parameter was
 initialized always by copying the argument value into the parameter.
-In modern C++ that copying can be *elided* or replaced with *moving*.
+In modern C++, that copying can be *elided* or replaced with *moving*.
 
 If a function parameter is of a reference type, we say that a function
 takes an argument by reference, or that we pass an argument to a
