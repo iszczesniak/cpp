@@ -437,6 +437,10 @@ data in registers?  Then, it's a problem of the compiler that has to
 work around our request for the address with less wiggle room for
 optimization.
 
+```cpp
+{% include_relative identity1.cc %}
+```
+
 A singular datum is a string literal: it is never created nor
 destroyed, and it always exists.
 
