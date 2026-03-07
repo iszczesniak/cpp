@@ -437,12 +437,35 @@ data in registers?  Then, it's a problem of the compiler that has to
 work around our request for the address with less wiggle room for
 optimization.
 
+Below there's an example with integer variables.  Their lifetimes
+begin with their declaration statements that can also initialize them.
+The initializing `1` has no identity: it's not created anywhere and
+then copy-constructed into the variable.  Instead, the value of `1`
+(which may be an operand of a processor instruction) is written into
+the location of the variable -- we could say that the copy constructor
+was elided.
+
 ```cpp
 {% include_relative identity1.cc %}
 ```
 
-A singular datum is a string literal: it is never created nor
-destroyed, and it always exists.
+Here's the example with string variables.  Since, they are objects,
+they always have to be initialized.  A compiler interprets `{}` as
+`string{}`, which has no identity.  The value of this expression is
+not copy-constructed into the variable.  Instead, the value of
+`string{}` is created directly in the location of the variable -- we
+say that the copy constructor was elided.
+
+```cpp
+{% include_relative identity2.cc %}
+```
+
+In the example above, even expression `string("Hello!")` has no
+identity!  This is surprising because `"Hello!"` surely has to be
+somewhere in memory, i.e., it must have an identity.  Well, a string
+literal is a singular datum: it is never created nor destroyed, and it
+always exists.  Yes, a string literal has an identity, but
+`string("Hello!")` still doesn't.
 
 # Conclusion
 

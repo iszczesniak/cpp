@@ -2,7 +2,14 @@
 
 int main()
 {
+  // Default-constucted.
+  std::string x;
+
+  // Equivalent to the above.
   std::string x = {};
-  // Expression 1 doesn't have identity.
-  // &1 ; // Error.
+
+  //
+  std::string x = string("Hello!");
+  // Expression string("Hello!") doesn't have identity.
+  // &string("Hello!"); // Error!
 }
