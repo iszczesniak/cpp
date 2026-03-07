@@ -442,17 +442,48 @@ The two collective categories are:
 
 * rvalue that can be moved.
 
-## Afterthoughts
+## More specifics
 
-It may seem that introducing prvalue is like splitting hair...
+A call expression of a function that returns:
+
+* by value is a prvalue,
+
+* by reference is a glvalue.
+
+## Back to constructor elision
 
 Here is the crucial information: **initialization with a prvalue is
-elided.**
+elided**, i.e., the value of a prvalue is constructed directly in the
+target.
 
-A conversion from a prvalue to an xvalue creates a temporary object.
+It may seem that introducing the prvalue is like splitting hair.  Yes,
+in `A a = A();`, expression `A()` has no identity, is a prvalue, and
+so the value of `A()` is directly initialized in `a`.  All that hassle
+just for this?
 
-While rvalue can be moved, it's really about moving the xvalue because
-prvalue
+The worthwhile use case is returning by value, the only one I know of.
+In the example below, functions `f` and `g` return by value.  Function
+`f` returns right away (without using a local variable) the result of
+function `g`.  The result of function `f` initializes the local
+variabe `s` of the main function.  Expression `g()` is a prvalue, so
+its value is initialized in the return value of `f()`, but `f()` is
+also prvalue, so its value in turn is initialized in `s`.  A
+constructor was elided twice, because the compiler knew it was dealing
+with prvalues.
+
+```cpp
+{% include_relative elide.cc %}
+```
+
+## Temporary materialization
+
+Temporary materialization is a fancy name for construcing a temporary
+object.
+
+A conversion from a prvalue to an xvalue creates a temporary object,
+which is also known as the materialization of a temporary.  While
+rvalue can be moved, it's really about moving the xvalue because
+prvalue doesn't have an identity.
 
 # Conclusion
 
