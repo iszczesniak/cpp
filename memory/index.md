@@ -422,7 +422,7 @@ copy the result from the global or static data:
 
 # Lifetime and identity
 
-Lifetime and identity are two notions that in C++ become technical
+Lifetime and identity are two notions that in C++ became technical
 terms because they are fundamental to how C++ processes data.  A
 **lifetime** of datum is the period of runtime the datum exists.  The
 lifetime of some datum (a variable, an object, a temporary) starts
