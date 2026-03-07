@@ -213,12 +213,13 @@ operator throws `std::bad_alloc`.  Here's an example:
 
 Data on the stack are packed together according to when the data was
 created, and so data that are related are close to each other.  This
-is called *data colocation*.  And colocation is good, because the data
-that a process (more specifically, some function of the process) needs
-at a given time is most likely already in the processor memory cache
-(which caches memory pages), speeding up the memory access manyfold.
+is called *data collocation*.  And collocation is good, because the
+data that a process (more specifically, some function of the process)
+needs at a given time is most likely already in the processor memory
+cache (which caches memory pages), speeding up the memory access
+manyfold.
 
-Data allocated on the heap are less colocated (in comparison with the
+Data allocated on the heap are less collocated (in comparison with the
 stack): they are more likely to be spread all over the heap memory,
 which slows down memory access, as quite likely the data is not in the
 processor memory cache.
@@ -422,10 +423,9 @@ copy the result from the global or static data:
 # Lifetime and identity
 
 Lifetime and identity are two notions that in C++ become technical
-terms because they are fundamental to how C++ processes data.
-
-A **lifetime** of datum is the period of runtime the datum exists.
-The lifetime of some datum (a variable, an object, a temporary) starts
+terms because they are fundamental to how C++ processes data.  A
+**lifetime** of datum is the period of runtime the datum exists.  The
+lifetime of some datum (a variable, an object, a temporary) starts
 when it is constructed, and ends when it is destroyed.  The datum
 during its lifetime has **identity**, i.e., it exists somewhere.  We
 can take the address of a datum in existance with the `&` operator.
