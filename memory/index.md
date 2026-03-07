@@ -423,17 +423,17 @@ copy the result from the global or static data:
 Lifetime and identity are two notions that in C++ become technical
 terms because they are fundamental to how C++ processes data.
 
-A **lifetime** of data is the period of runtime the data exists.  The
-lifetime of some datum (a variable, an object, a temporary) starts
+A **lifetime** of datum is the period of runtime the datum exists.
+The lifetime of some datum (a variable, an object, a temporary) starts
 when it is constructed, and ends when it is destroyed.  The datum
 during its lifetime has **identity**, i.e., it exists somewhere.  We
 can take the address of a datum in existance with the `&` operator.
 
 The location of a datum (the place where the datum is, lives, resides)
 is usually RAM, but a compiler can also make it a processor register
-to boost performance.  If so, how can we take the addresses of data in
-registers?  Then, it's a problem of the compiler that has to work
-around our request for the address with less wiggle room for
+to boost performance.  If so, what happens when we take addresses of
+data in registers?  Then, it's a problem of the compiler that has to
+work around our request for the address with less wiggle room for
 optimization.
 
 A singular datum is a string literal: it is never created nor
