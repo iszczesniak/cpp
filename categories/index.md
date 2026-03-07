@@ -433,7 +433,7 @@ cannot be moved, because no such expression exists.
 We report the above information in a table:
 
 | has identity \ can be moved | no | yes
-| no | | prvalue |
+| no | doesn't exist | prvalue |
 | yes| lvalue | xvalue |
 
 The two collective categories are:
