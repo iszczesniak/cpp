@@ -241,7 +241,8 @@ parameter is initialized using an argument.
 If a function parameter is of a non-reference type, we say that a
 function takes an argument by value, or that we pass an argument to a
 function by value.  In legacy C++, a nonreference parameter was
-initialized by copying the argument value into the parameter.
+initialized always by copying the argument value into the parameter.
+In modern C++ that copying can be *elided* or replaced with *moving*.
 
 If a function parameter is of a reference type, we say that a function
 takes an argument by reference, or that we pass an argument to a
