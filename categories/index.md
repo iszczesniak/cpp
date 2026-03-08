@@ -453,14 +453,12 @@ A call expression of a function that returns:
 
 Here is the crucial information: **initialization with a prvalue is
 elided**, i.e., the value of a prvalue is constructed directly in the
-target.
+target.  It may seem that introducing the prvalue is like splitting
+hair.  Yes, in `A a = A();`, expression `A()` has no identity, is a
+prvalue, and so the value of `A()` is directly initialized in `a`.
+All that hassle just for this?  The worthwhile use case is returning
+by value, the only one I know of.
 
-It may seem that introducing the prvalue is like splitting hair.  Yes,
-in `A a = A();`, expression `A()` has no identity, is a prvalue, and
-so the value of `A()` is directly initialized in `a`.  All that hassle
-just for this?
-
-The worthwhile use case is returning by value, the only one I know of.
 In the example below, functions `f` and `g` return by value.  Function
 `f` returns right away (without using a local variable) the result of
 function `g`.  The result of function `f` initializes the local
