@@ -474,10 +474,10 @@ with prvalues.
 
 The example below is a modified above example: we changed function
 `f`, so that it takes an argument by value, and returns by value its
-parameter.  The parameter of function `f` is constructed with the
-prvalue returned by function `g`, and so a constructor is elided.
-However, the construction of the return value of function `f` cannot
-be elided, because
+parameter.  The parameter `p` of function `f` is constructed with the
+prvalue returned by function `g`, and so a constructor is elided.  The
+variable `s` of the main function is constructed with the prvalue
+returned by function `f`, and so a constructor is elided.
 
 ```cpp
 {% include_relative elide2.cc %}
