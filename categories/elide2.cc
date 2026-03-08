@@ -5,13 +5,12 @@ std::string g()
   return "Hello World!";
 }
 
-std::string f()
+std::string f(string p)
 {
-  return g();
+  return p;
 }
 
 int main()
 {
-  std::string s = f();
+  std::string s = f(g());
 }
-

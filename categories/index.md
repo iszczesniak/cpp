@@ -469,7 +469,18 @@ constructor was elided twice, because the compiler knew it was dealing
 with prvalues.
 
 ```cpp
-{% include_relative elide.cc %}
+{% include_relative elide1.cc %}
+```
+
+The example below is a modified above example: we changed function
+`f`, so that it takes an argument by value, and returns by value its
+parameter.  The parameter of function `f` is constructed with the
+prvalue returned by function `g`, and so a constructor is elided.
+However, the construction of the return value of function `f` cannot
+be elided, because
+
+```cpp
+{% include_relative elide2.cc %}
 ```
 
 ## Temporary materialization
