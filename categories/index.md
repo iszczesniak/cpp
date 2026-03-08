@@ -428,9 +428,8 @@ Now the three basic categories are:
 * prvalue: doesn't have identity and can be moved.
 
 There is no category for an expression that doesn't have identity and
-cannot be moved, because no such expression exists.
-
-We report the above information in a table:
+cannot be moved, because no such expression exists.  We report the
+above information in a table:
 
 | has identity \ can be moved | no | yes
 | no | doesn't exist | prvalue |
