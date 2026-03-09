@@ -5,7 +5,7 @@ std::string g()
   return "Hello World!";
 }
 
-std::string f(string p)
+std::string f(std::string p)
 {
   return p;
 }
