@@ -352,12 +352,13 @@ required by the legacy call convention.
 {% include_relative mcc.cc %}
 ```
 
-A parameter of a function, and a local variable of a function look the
-same.  However:
+A parameter of a function and a local variable of a function look the
+same, but they differ in what code controls (creates, initializes and
+destroys) them:
 
-* a parameter is created and destroyed by the caller of the function,
+* a parameter is controlled by the caller of the function,
 
-* a local variable is created and destroyed by the function.
+* a local variable is controlled by the function.
 
 **Bottom line: a parameter is out of control of the function.**
 
