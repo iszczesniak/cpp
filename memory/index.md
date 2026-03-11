@@ -232,10 +232,10 @@ reference.  There are no other ways of passing an argument or
 returning a value.
 
 A function has *parameters*, and we call a function with *arguments*.
-A function parameter is a local variable of the function.  A parameter
-has a type and a name given in the function declaration or definition.
-An argument is an expression that is part of a call expression.  A
-parameter is initialized using an argument.
+A function parameter looks like a local variable of the function.  A
+parameter has a type and a name given in the function declaration or
+definition.  An argument is an expression that is part of a call
+expression.  A parameter is initialized using an argument.
 
 ## Passing arguments
 
@@ -351,6 +351,11 @@ required by the legacy call convention.
 ```cpp
 {% include_relative mcc.cc %}
 ```
+
+While a parameter looks like a local variable, it is not created by a
+function like a local variable.  A parameter is created by the caller
+of the function, and so it is out of control of the function called
+(the callee).
 
 # Constructor elision
 
