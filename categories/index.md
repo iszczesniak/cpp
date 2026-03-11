@@ -451,13 +451,11 @@ A call expression of a function that returns:
 
 ## Back to constructor elision
 
-**Initialization with a prvalue elides a (copy or move) constructor**,
-i.e., the value of a prvalue is constructed directly in the target.
+**Initialization with a prvalue elides a (copy or move) constructor.**
 It may seem that introducing the prvalue is like splitting hair.  Yes,
-in statement `A a = A();`, expression `A()` has no identity, is a
-prvalue, and so the value of `A()` is directly initialized in `a`.
-All that hassle just for this?  The worthwhile use case is returning
-by value, the only one I know of.
+in statement `A a = A();`, expression `A()` is a prvalue, and so its
+value is directly initialized in `a`.  All that hassle just for this?
+The worthwhile use case is returning by value, the only one I know of.
 
 In the example below, functions `f` and `g` return by value.  Function
 `f` returns right away (without using a local variable) the result of
