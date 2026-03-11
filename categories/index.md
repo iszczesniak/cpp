@@ -406,7 +406,7 @@ The name of:
 
 * xvalue stands for *any value*.
 
-An xvalue comes from:
+An xvalue comes from either of:
 
 * an *implicitly* converted prvalue,
 
