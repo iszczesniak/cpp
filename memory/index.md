@@ -452,9 +452,9 @@ was elided.
 Here's the example with string variables.  Since, they are objects,
 they always have to be initialized.  A compiler interprets `{}` as
 `string{}`, which has no identity.  The value of this expression is
-not copy-constructed into the variable.  Instead, the value of
-`string{}` is created directly in the location of the variable -- we
-say that the copy constructor was elided.
+not move-constructed or copy-constructed into the variable.  Instead,
+the value of `string{}` is created directly in the location of the
+variable -- we say that a (move or copy) constructor was elided.
 
 ```cpp
 {% include_relative identity2.cc %}
