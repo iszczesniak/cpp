@@ -232,7 +232,7 @@ reference.  There are no other ways of passing an argument or
 returning a value.
 
 A function has *parameters*, and we call a function with *arguments*.
-A function parameter looks like a local variable of the function.  A
+A function parameter is local to a function, like a local variable.  A
 parameter has a type and a name given in the function declaration or
 definition.  An argument is an expression that is part of a call
 expression.  A parameter is initialized using an argument.
@@ -352,10 +352,14 @@ required by the legacy call convention.
 {% include_relative mcc.cc %}
 ```
 
-While a parameter looks like a local variable, it is not created by a
-function like a local variable.  A parameter is created by the caller
-of the function, and so it is out of control of the function called
-(the callee).
+A parameter of a function, and a local variable of a function look the
+same.  However:
+
+* a parameter is created and destroyed by the caller of the function,
+
+* a local variable is created and destroyed by the function.
+
+**Bottom line: a parameter is out of control of the function.**
 
 # Constructor elision
 
