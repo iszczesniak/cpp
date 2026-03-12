@@ -237,6 +237,9 @@ has a type and a name given in the function declaration or definition.
 An argument is an expression that is part of a call expression.  A
 parameter is initialized using an argument.
 
+A function can have a result (a value or a reference) that is
+initialized with the expression of the return instruction.
+
 ## Passing arguments
 
 If a function parameter is of a non-reference type, we say that a
