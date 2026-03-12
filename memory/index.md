@@ -408,9 +408,9 @@ for C++14 (GCC option `-std=c++14`):
 {% include_relative rvo_or_not.cc %}
 ```
 
-This functionality cannot always take place, because of technical
-reasons.  First, because we return data, which has to be created prior
-to deciding which data exactly to return:
+Elision cannot always take place, because of technical reasons.
+First, because we return data, which has to be created prior to
+deciding which data exactly to return:
 
 ```cpp
 {% include_relative rvo_no1.cc %}
