@@ -226,16 +226,16 @@ processor memory cache.
 
 # Function calls
 
-When calling a function we pass an argument by either value or
-reference.  Also, a function can return its result by either value or
-reference.  There are no other ways of passing an argument or
-returning a value.
+A function can accept an argument by either value or reference.  Also,
+a function can return its result by either value or reference.  There
+are no other ways of accepting an argument or returning a value.
 
-A function has *parameters*, and we call a function with *arguments*.
-A function parameter is local to a function, like a local variable.  A
-parameter has a type and a name given in the function declaration or
-definition.  An argument is an expression that is part of a call
-expression.  A parameter is initialized using an argument.
+A function can have *parameters*, and then we call a function with
+*arguments*.  A function parameter is local to a function, like a
+local variable.  A parameter has a type and a name given in the
+function declaration or definition.  An argument is an expression that
+is part of a call expression.  A parameter is initialized using an
+argument.
 
 A function can have a result (a value or a reference) that is
 initialized with the expression of the return instruction.
