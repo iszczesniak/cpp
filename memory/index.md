@@ -369,7 +369,7 @@ destroys) them:
 C++ elides (avoids) the copy constructor, and the *move* constructor
 for temporary or local objects that will soon be destroyed.
 Constructor elision (for the copy and move constructors only) is
-possible, because the temporary and the local object is created in its
+possible, because the temporary or the local object is created in its
 destination.
 
 This example demonstrates the constructor elision.  Compile the
