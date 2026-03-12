@@ -367,10 +367,11 @@ destroys) them:
 # Constructor elision
 
 C++ elides (avoids) the copy constructor or the *move* constructor
-when the source is a temporary object, because that temporary is
-created in its destination.  This is called **constructor elision**,
-and applies to no other constructors.  The move constructor is part of
-the move semantics.
+when the source is a temporary expression (an expression that creates
+a temporary), because the value of the temporary is created in the
+destination.  This is called **constructor elision**, and applies to
+no other constructors.  The move constructor is part of the move
+semantics.
 
 This example demonstrates the copy elision in the initialization of:
 
