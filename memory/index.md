@@ -416,16 +416,16 @@ deciding which data exactly to return:
 {% include_relative rvo_no1.cc %}
 ```
 
-Second, because we try to return a function parameter, which was
-created by the caller, not the function, and so the function cannot
-create the parameter in the location for the return value:
+Second, because we return a function parameter, which was created by
+the caller, not the function, and so the function cannot create the
+parameter in the location for the return value:
 
 ```cpp
 {% include_relative rvo_no2.cc %}
 ```
 
-Finally, because we try to return global or static data, which has to
-be available after the function returns, and so the function can only
+Finally, because we return global or static data, which has to be
+available after the function returns, and so the function can only
 copy the result from the global or static data:
 
 ```cpp
