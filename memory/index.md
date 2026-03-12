@@ -366,15 +366,22 @@ destroys) them:
 
 # Constructor elision
 
-C++ elides (avoids) the copy constructor, and the *move* constructor
-for temporary or local objects that will soon be destroyed.
-Constructor elision (for the copy and move constructors only) is
-possible, because the temporary or the local object is created in its
-destination.
+C++ elides (avoids) the copy constructor or the *move* constructor
+when the source is a temporary object, because that temporary is
+created in its destination.  This is called **constructor elision**,
+and applies to no other constructors.  The move constructor is part of
+the move semantics.
 
-This example demonstrates the constructor elision.  Compile the
-example with, then without the flag `-fno-elide-constructors`.  Notice
-the differences at run-time.
+This example demonstrates the copy elision in the initialization of:
+
+* a local variable,
+
+* a parameter,
+
+* a result.
+
+Compile the example with, then without the flag
+`-fno-elide-constructors`.  Notice the differences at run-time.
 
 ```cpp
 {% include_relative elide.cc %}

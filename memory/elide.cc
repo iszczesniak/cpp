@@ -28,6 +28,16 @@ struct A
   }
 };
 
+void f(A)
+{
+}
+
+A g()
+{
+  return A();
+  // return A("Hello!");
+}
+
 int main()
 {
   // That's a function declaration, though in the legacy C++ it used
@@ -61,4 +71,11 @@ int main()
     A g = A(A("e"));
     A h = A{A{"f"}};
   }
+
+  // Copy elided for a parameter
+  f(A());
+  f(A("Hello!"));
+
+  // Copy elided for a result.
+  A a = g();
 }
