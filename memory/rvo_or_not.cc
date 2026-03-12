@@ -4,7 +4,7 @@ struct A
   A(A &&) = delete;
 };
 
-A foo(A)
+A foo()
 {
   return A();
 }
@@ -12,5 +12,5 @@ A foo(A)
 int
 main()
 {
-  A a = foo(A());
+  A a = foo();
 }
