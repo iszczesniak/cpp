@@ -471,15 +471,28 @@ The two collective categories are:
 
 ## More specifics
 
+### Call expression
+
 A call expression of a function that returns:
 
 * by value is a prvalue,
 
 * by reference is a glvalue.
 
+### The lvalue-to-rvalue conversion
+
 Now the lvalue-to-rvalue conversion is now called this way for the
 historic reason, but it should be called the glvalue-to-prvalue
 conversion.
+
+The newest C++ (March, 2026) standard draft defines the
+glvalue-to-prvalue conversion as:
+
+> If T has a class type, the conversion copy-initializes the result
+> object from the glvalue.
+
+The results object mentioned above is the object that is the result of
+the prvalue materialization.
 
 ## Back to constructor elision
 
