@@ -82,15 +82,24 @@ Example operations for expression `<expr>`:
 
 ## The definitions of lvalues and rvalues
 
-You can look in vain for a concise and correct definition of lvalues
-and rvalues in the C++ standard.  The C++ standard, which has about
-1500 pages, defines them partially is various places, as needed.
+Categories evolve.  Bjarne Stroustrup wrote in his "'New' Value
+Terminology" paper:
 
-Furthermore, in modern C++ new expression categories were introduced:
-prvalue, glvalue, and xvalue.  However, the most important categories
-are still lvalue, and rvalue.
+> The terms "lvalue" and "rvalue" are deep in C++'s genes.
 
-We need to learn the details of the lvalue and rvalue categories to
+What used to be true about categories in C++98 is still relevant
+today, but has been refined and enhanced.  C++ is backward compatible,
+so the legacy code still works, but now we have better categories.
+
+Prior to C++11, you could look in vain for a concise definition of
+lvalues and rvalues in the C++ standard.  The C++03 standard had about
+eight hundred pages, and defined them in bits is various places, as
+needed.  In C++11, new expression categories were introduced: prvalue,
+glvalue, and xvalue.  In C++17, categories were finally defined in
+terms of identity and the move semantics.
+
+However, the important categories are still lvalue, and rvalue.  We
+need to learn the details of the lvalue and rvalue categories to
 understand and efficiently use the modern C++.  For instance, the
 following is a statement from <http://cppreference.com>, which is hard
 to understand without knowing the lvalue and rvalue details:
