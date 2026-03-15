@@ -62,11 +62,6 @@ an lvalue as an **rvalue**.
 
 ## Category of an expression
 
-In C++, the two most important categories of an expression are: the
-lvalue category and the rvalue category.  In short, an lvalue is an
-expression of the lvalue category, and an rvalue is an expression of
-the rvalue category.
-
 The expression category determines what we can do with the expression.
 Some operations we can do only with an lvalue (e.g., `&x`, i.e.,
 taking the address of variable `x`), other operations only with an
@@ -87,16 +82,29 @@ Terminology" paper:
 
 > The terms "lvalue" and "rvalue" are deep in C++'s genes.
 
+Bjarne Stroustrup also wrote "The Design and Evolution of C++"
+something that I think also relates to categories:
+
+> Within C++, there is a much smaller and cleaner language struggling
+> to get out.
+
+What these two quotes illustrate is the evolution of the C++ language
+so that it meets the user needs better, which explains why the
+categories evolve too.
+
 What used to be true about categories in C++98 is still relevant
 today, but has been refined and enhanced.  C++ is backward compatible,
-so the legacy code still works, but now we have better categories.
+so the legacy code still works, but now there are more categories, and
+they are better defined.
 
 Prior to C++11, you could look in vain for a concise definition of
 lvalues and rvalues in the C++ standard.  The C++03 standard had about
 eight hundred pages, and defined them in bits is various places, as
 needed.  In C++11, new expression categories were introduced: prvalue,
 glvalue, and xvalue.  In C++17, categories were finally defined in
-terms of identity and the move semantics.
+terms of identity and the move semantics.  I think that during C++11
+and C++17, the standard committee struggled to get the categories
+right.
 
 However, the important categories are still lvalue, and rvalue.  We
 need to learn the details of the lvalue and rvalue categories to
@@ -106,6 +114,11 @@ to understand without knowing the lvalue and rvalue details:
 
 > Even if the variable's type is an *rvalue reference*, the expression
 > consisting of its name is an *lvalue expression*.
+
+Let's start with two expression categories: the lvalue category and
+the rvalue category.  In short, an lvalue is an expression of the
+lvalue category, and an rvalue is an expression of the rvalue
+category.
 
 ## The lvalue category
 
