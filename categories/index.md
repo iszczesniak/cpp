@@ -82,15 +82,15 @@ Terminology" paper:
 
 > The terms "lvalue" and "rvalue" are deep in C++'s genes.
 
-Bjarne Stroustrup also wrote "The Design and Evolution of C++"
-something that I think also relates to categories:
+Bjarne Stroustrup also wrote in "The Design and Evolution of C++"
+something that I think relates to categories:
 
 > Within C++, there is a much smaller and cleaner language struggling
 > to get out.
 
-What these two quotes illustrate is the evolution of the C++ language
-so that it meets the user needs better, which explains why the
-categories evolve too.
+What these two quotes illustrate is the C++ language evolution so that
+it meets the user needs better, which explains why the categories
+evolve too.
 
 What used to be true about categories in C++98 is still relevant
 today, but has been refined and enhanced.  C++ is backward compatible,
@@ -183,10 +183,16 @@ operator in class `A`:
 ## From lvalue to rvalue
 
 The C++ standard defines this *standard conversion*, which is applied
-without the programmer explicitly requesting it:
+without the programmer explicitly requesting it, i.e., the conversion
+is implicit:
 
-> An lvalue of a non-function, non-array type T can be converted to an
-> rvalue.
+> An lvalue of a (non-function, non-array) type T can be converted to
+> an rvalue.
+
+This conversion creates a temporary object that is copy-constructed
+from some existing data.  The expression that used the existing data
+is called lvalue, the expression that creates a temporary data is an
+rvalue.
 
 For instance, the `+` operator for an integer type (e.g., `int`)
 requires rvalues as its operands.  In the following example the `+`
@@ -470,6 +476,10 @@ A call expression of a function that returns:
 * by value is a prvalue,
 
 * by reference is a glvalue.
+
+Now the lvalue-to-rvalue conversion is now called this way for the
+historic reason, but it should be called the glvalue-to-prvalue
+conversion.
 
 ## Back to constructor elision
 
