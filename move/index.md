@@ -325,22 +325,14 @@ types](../references#reference-type-and-function-overload-resolution).
 
 ## Implicit move of returned values
 
-If constructor elision (or the return value optimization) cannot be
-used, then the value of the returned object will be *implicitly
-moved*, if the returned object is destroyed when returning from the
-function.  The return instruction `return t;` is implicitly converted
-to `return std::move(t);`.
+If constructor elision cannot be used, then the value of the returned
+object will be *implicitly moved*, if the returned object is destroyed
+when returning from the function.  The return instruction `return t;`
+is implicitly converted to `return std::move(t);`, i.e., an lvalue is
+implicitly converted to an xvalue.
 
-Only the return expression consisting of a variable name is implicitly
-moved (converted from an lvalue to an rvalue), and other expressions
-are not.
-
-We shouldn't explicitly use the `std::move` function (e.g., `return
-std::move(t);`) in the return statement whenever we can, because it
-disables the constructor elision (or the RVO).
-
-There are two cases described below in which the RVO cannot be used,
-but the returned value will be implicitly moved.
+There are two cases described below in which the constructor elision
+cannot be used, but the returned value will be implicitly moved.
 
 #### Case 1
 
@@ -355,7 +347,6 @@ place.
 ```cpp
 {% include_relative implicit1.cc %}
 ```
-
 
 #### Case 2
 
