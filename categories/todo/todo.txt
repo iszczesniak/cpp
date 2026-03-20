@@ -1,0 +1,3 @@
+A reference in a pair or a tuple.  How do they deal with the
+"reinitialization of a reference"?  vector<tuple<int &>> does not
+offer the functionality of the would-be vector<int &>.
