@@ -1,3 +1,11 @@
+For `A foo();`, compare:
+
+* A i = foo(); // ctor elision
+
+* i = foo(); // requires a temporary, eligible for moving
+
+**********************************************************************
+
 * storage duration
 
 * How memory management changed with ctor elision: an object is
