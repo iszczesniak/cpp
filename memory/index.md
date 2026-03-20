@@ -333,11 +333,12 @@ passed to a function on the stack last, while to a constructor in the
 RDI register.
 
 The following example demonstrates that a result can be returned
-anywhere (as the modern call convention allows), and not only on the
-stack (as the legacy convention stipulated).  In the example the
-function returns an object directly in the place of memory for global
-and static data, without copying the object using a temporary place
-required by the legacy call convention.
+anywhere (now that we have the modern call convention), and not only
+on the stack (as the legacy convention stipulated in the past): the
+function returns its value (an object) by creating it in the place for
+the global variable `a` (catered by the modern call convention),
+without copy-initializing `a` from a temporary object on the stack
+(required by the legacy call convention).
 
 ```cpp
 {% include_relative mcc.cc %}
