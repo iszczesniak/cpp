@@ -253,12 +253,7 @@ function by reference.  Initialization makes the parameter a name (an
 alias) for the argument data.
 
 The example below shows how we pass arguments by value and by
-reference.  Compile the example with the flags
-`-fno-elide-constructors -std=c++14` (a flag of the GCC compiler), so
-that the compiler does not elide constructors.  If you compile your
-code with C++17 (e.g., with `-std=c++17` in GCC) or higher, your
-request to disable constructor elision may be ignored by the compiler,
-because constructor elision in some cases is mandatory since C++17.
+reference.
 
 ```cpp
 {% include_relative args.cc %}
@@ -270,17 +265,16 @@ If the return type is of a non-reference type, we say that a function
 returns the result by value.  In modern C++ returing by value is fast,
 does not impose any unnecessary overhead, and therefore is
 recommended.  It's not what it used to be in the deep past, before C++
-was standardized.
-
-Back then returning by value always copied the result twice.  First,
-from a local variable of the function to a temporary place on the
-stack for the return value.  Second, from the temporary place to the
-final place, e.g., a variable to which the result was assigned.
+was standardized.  Back then returning by value always copied the
+result twice.  First, from a local variable of the function to a
+temporary place on the stack for the return value.  Second, from the
+temporary place to the final place, e.g., a variable that was
+initialized with the result.
 
 If the return type is of a reference type, we say that a function
-returns the result by reference.  The reference should be bound to
-data that will exist when the function returns (i.e., the data should
-outlive the function).  Containers (e.g., `std::vector`), for
+returns the result by reference.  The reference should be initialized
+with data that will exist when the function returns (i.e., the data
+should outlive the function).  Containers (e.g., `std::vector`), for
 instance, return a reference to dynamically-allocated data in, for
 instance, `operator[]` or `front` functions.
 
@@ -397,6 +391,20 @@ When a temporary is passed by value as an argument, that temporary is
 created directly (i.e., with the constructor elided) in the location
 of the function parameter.
 
+This functionality is a C++17 feature, but prior to C++17 it was known
+as the return value optimization (RVO), because it was an optional
+feature of a compiler optimizer.  Since C++17, the copy and move
+constructors can be unavailable if they are elided, and therefore the
+following code is valid for C++17 (GCC option `-std=c++17`), but not
+for C++14 (GCC option `-std=c++14`).
+
+Compile the example with the flags `-fno-elide-constructors
+-std=c++14` (a flag of the GCC compiler), so that the compiler does
+not elide constructors.  If you compile your code with C++17 (e.g.,
+with `-std=c++17` in GCC) or higher, your request to disable
+constructor elision may be ignored by the compiler, because
+constructor elision in some cases is mandatory since C++17.
+
 # Return by value
 
 A result can be returned by a function directly in its destination,
@@ -404,13 +412,6 @@ e.g., a variable to which the result is assigned.  The idea is to
 create the result in its destination, so that it doesn't have to be
 copied or moved there, i.e., to elide constructors.  **When returning
 by value, constructor elision requires the modern call convention.**
-
-This functionality is a C++17 feature, but prior to C++17 it was known
-as the return value optimization (RVO), because it was an optional
-feature of a compiler optimizer.  Since C++17, the copy and move
-constructors can be unavailable if they are elided, and therefore the
-following code is valid for C++17 (GCC option `-std=c++17`), but not
-for C++14 (GCC option `-std=c++14`):
 
 ```cpp
 {% include_relative rvo_or_not.cc %}
