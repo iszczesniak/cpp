@@ -244,9 +244,10 @@ with the expression of the return instruction.
 If a function parameter is of a non-reference type, we say that a
 function accepts (or takes) an argument by value, or that we pass an
 argument to a function by value.  In legacy C++, a nonreference
-parameter was initialized always by copying the argument value into
-the parameter.  In modern C++, that copying can be *elided* or
-replaced with *moving*.
+parameter was initialized always by copying (copy-constructing, i.e.,
+using the copy constructor) the argument value into the parameter.  In
+modern C++, that copying can be *elided* or replaced with *moving*
+(move-constructing).
 
 If a function parameter is of a reference type, we say that a function
 accepts an argument by reference, or that we pass an argument to a
@@ -263,8 +264,8 @@ by reference.
 ## Returning a result
 
 If the return type is a non-reference type, we say that a function
-returns the result by value.  In modern C++ returing by value is fast,
-does not impose any unnecessary overhead, and therefore is
+returns the result by value.  In modern C++, returing by value is
+fast, does not impose any unnecessary overhead, and therefore is
 recommended.  It's not what it used to be in the deep past, before C++
 was standardized.  Back then returning by value always copied the
 result twice.  First, from a local variable of the function to a
@@ -275,9 +276,9 @@ initialized with the result.
 If the return type is a reference type, we say that a function returns
 the result by reference.  The reference should be initialized with
 data that will exist when the function returns (i.e., the data should
-outlive the function).  For instance, functions (e.g., `operator[]` or
-`front`) of containers (e.g., `std::vector`) return references to
-dynamically-allocated data.
+outlive the function).  For instance, containers (e.g., `std::vector`)
+offer functions (e.g., `operator[]` or `front`) that return references
+to dynamically-allocated data.
 
 The example below shows how to return a result either by value or by
 reference.
