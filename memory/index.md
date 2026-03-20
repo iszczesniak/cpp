@@ -231,7 +231,7 @@ function returns its result by either value or reference.  There are
 no other ways of accepting an argument or returning a value.
 
 A function can have *parameters*, and then we call a function with
-*arguments*.  A function parameter is local to a function, like a
+*arguments*.  A function parameter is local to a function body, like a
 local variable.  A parameter has a type and a name given in the
 function declaration or definition.  An argument is an expression that
 is part of a call expression.
@@ -296,7 +296,7 @@ optimization.
 {% include_relative return.cc %}
 ```
 
-# Function call convention
+## Function call convention
 
 The *call convention* are the technical details on how exactly a
 function is called, which depend on the platform (the system
