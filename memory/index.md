@@ -252,7 +252,7 @@ takes an argument by reference, or that we pass an argument to a
 function by reference.  Initialization makes the parameter a name (an
 alias) for the argument data.
 
-The example below shows how we pass arguments by value and by
+The example below shows how to accept an argument by value or by
 reference.
 
 ```cpp
