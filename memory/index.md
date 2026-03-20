@@ -312,7 +312,7 @@ unable to store them (in registers).  The caller allocates memory for
 the return value because it may not fit in a processor, yet it should
 be available to the caller once the function returns.
 
-Small data may be passed or returned in processor registers.  For
+Small data may be accepted or returned in processor registers.  For
 instance, a function can take an argument or return as a result an
 integer in a register, e.g., EAX for x86, Linux, and GCC.
 
