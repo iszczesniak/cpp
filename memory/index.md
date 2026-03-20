@@ -336,7 +336,7 @@ The following example demonstrates that a result can be returned
 anywhere (now that we have the modern call convention), and not only
 on the stack (as the legacy convention stipulated in the past): the
 function returns its value (an object) by creating it in the place for
-the global variable `a` (catered by the modern call convention),
+the global variable `a` (allowed by the modern call convention),
 without copy-initializing `a` from a temporary object on the stack
 (required by the legacy call convention).
 
@@ -344,9 +344,9 @@ without copy-initializing `a` from a temporary object on the stack
 {% include_relative mcc.cc %}
 ```
 
-A parameter of a function and a local variable of a function look the
-same, but they differ in what code controls (creates, initializes and
-destroys) them:
+As a corollary of a call convention, let's notice that a parameter of
+a function and a local variable of a function look the same, but they
+differ in what code controls (creates, initializes and destroys) them:
 
 * a parameter is controlled by the caller of the function,
 
