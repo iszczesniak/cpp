@@ -252,8 +252,8 @@ takes an argument by reference, or that we pass an argument to a
 function by reference.  Initialization makes the parameter a name (an
 alias) for the argument data.
 
-The example below shows how to accept an argument by value or by
-reference.
+The example below shows how to accept an argument either by value or
+by reference.
 
 ```cpp
 {% include_relative args.cc %}
@@ -278,13 +278,8 @@ outlive the function).  For instance, functions (e.g., `operator[]` or
 `front`) of containers (e.g., `std::vector`) return references to
 dynamically-allocated data.
 
-The example below shows how to return a result by value and by
-reference.  On a modern system with a modern compiler, a result
-returned by value is not copied.  To see the legacy C++ behviour,
-compile the example with the flag `-fno-elide-constructors
--std=c++14`.  Where and why are objects copied?  That depends on the
-function call convention, constructor elision, and return value
-optimization.
+The example below shows how to return a result either by value or by
+reference.
 
 ```cpp
 {% include_relative return.cc %}
@@ -403,6 +398,12 @@ not elide constructors.  If you compile your code with C++17 (e.g.,
 with `-std=c++17` in GCC) or higher, your request to disable
 constructor elision may be ignored by the compiler, because
 constructor elision in some cases is mandatory since C++17.
+
+On a modern system with a modern compiler, a result returned by value
+is not copied.  To see the legacy C++ behviour, compile the example
+with the flag `-fno-elide-constructors -std=c++14`.  Where and why are
+objects copied?  That depends on the function call convention,
+constructor elision, and return value optimization.
 
 # Return by value
 
