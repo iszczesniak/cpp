@@ -312,9 +312,8 @@ unable to store them (in registers).  The caller allocates memory for
 the return value because it may not fit in a processor, yet it should
 be available to the caller once the function returns.
 
-Small data may be accepted or returned in processor registers.  For
-instance, a function can take an argument or return as a result an
-integer in a register, e.g., EAX for x86, Linux, and GCC.
+Small data may be accepted or returned in processor registers, e.g, an
+integer in EAX for x86, Linux, and GCC.
 
 In the legacy call convention, a function returned its result in a
 temporary place at the top of the stack, which was easy to locate with
