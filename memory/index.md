@@ -302,8 +302,7 @@ The *call convention* are the technical details on how exactly a
 function is called, which depend on the platform (the system
 architecture, the operating system, and the compiler).  C++ does not
 specify a call convention, but some C++ functionality (like the
-constructor elision and the return value optimization) follows from a
-typical call convention.
+constructor elision) follows from a typical call convention.
 
 A regular C++ programmer doesn't have to know such details, but
 mentioning them is worthwhile to understand that C++ is a part of
