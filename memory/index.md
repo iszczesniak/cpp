@@ -322,7 +322,7 @@ In the legacy call convention, a function returned its result in a
 temporary place at the top of the stack, which was easy to locate with
 the stack register -- that was an advantage.  A disadvantage it was to
 copy the result from the temporary place to its destination, e.g., a
-variable that was assigned the result.
+variable that was initialized with the result.
 
 The modern call convention allows the place for the return value be
 allocated anywhere in memory (not only on the stack, but also on the
@@ -411,10 +411,11 @@ constructor elision, and return value optimization.
 # Return by value
 
 A result can be returned by a function directly in its destination,
-e.g., a variable to which the result is assigned.  The idea is to
+e.g., a variable that is initialized with the result.  The idea is to
 create the result in its destination, so that it doesn't have to be
-copied or moved there, i.e., to elide constructors.  **When returning
-by value, constructor elision requires the modern call convention.**
+copied (copy-initialized) or moved (move-initialized) there, i.e., to
+elide constructors.  **When returning by value, constructor elision
+requires the modern call convention.**
 
 ```cpp
 {% include_relative rvo_or_not.cc %}
