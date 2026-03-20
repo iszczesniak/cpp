@@ -290,14 +290,16 @@ reference.
 The *call convention* are the technical details on how exactly a
 function is called, which depend on the platform (the system
 architecture, the operating system, and the compiler).  C++ does not
-specify a call convention, but some C++ functionality (like the
-constructor elision) follows from a typical call convention.
+specify a call convention (that's the operating system business), but
+some C++ functionality (like the constructor elision) depends on a
+call convention.
 
 A regular C++ programmer doesn't have to know such details, but
 mentioning them is worthwhile to understand that C++ is a part of
 computer systems that evolve.  In that evolotion, C++ must be binary
-compatible with C (so that C++ can call C functions), where new C++
-functionality can be implemented on supported platforms.
+compatible with C (so that C++ can call C functions, most notably of
+the operating system), yet capable to implement new C++ functionality
+(like the constructor elision).
 
 There are many call conventions that depend mostly on the processor
 capabilities.  Typically, a call convention requires that the caller
