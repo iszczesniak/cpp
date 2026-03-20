@@ -296,12 +296,12 @@ specify a call convention (that's the operating system business), but
 some C++ functionality (like the constructor elision) depends on a
 call convention.
 
-A regular C++ programmer doesn't have to know such details, but
-mentioning them is worthwhile to understand that C++ is a part of
-computer systems that evolve.  In that evolotion, C++ must be binary
-compatible with C (so that C++ can call C functions, most notably of
-the operating system), yet capable to implement new C++ functionality
-(like the constructor elision).
+A regular C++ programmer maybe doesn't have to know such details, but
+knowing them is worthwhile not only to use C++ better, but also to
+understand that C++ is a part of computer systems that evolve.  In
+that evolotion, C++ must be binary compatible with C (so that C++ can
+call C functions, most notably of the operating system), yet capable
+to implement new C++ functionality (like the constructor elision).
 
 There are many call conventions that depend mostly on the processor
 capabilities.  Typically, a call convention requires that the caller
@@ -319,20 +319,26 @@ be available to the caller once the function returns.
 Small data may be accepted or returned in processor registers, e.g, an
 integer in EAX for x86, Linux, and GCC.
 
-In the legacy call convention, a function returned its result in a
-temporary place at the top of the stack, which was easy to locate with
-the stack register -- that was an advantage.  A disadvantage it was to
-copy the result from the temporary place to its destination, e.g., a
-variable that was initialized with the result.
+We differentiate between two call conventions:
 
-The modern call convention allows the place for the return value be
-allocated anywhere in memory (not only on the stack, but also on the
-heap, or in the memory for the global and static data), and passing to
-a function the address of the place, so that the function can create
-the return value at the place pointed.  We don't need a temporary
-place anymore.  For instance, for x86, Linux, and GCC, the address is
-passed to a function on the stack last, while to a constructor in the
-RDI register.
+* legacy, that the legacy C++ depended on,
+
+* modern, that the modern C++ depends on.
+
+The **legacy call** convention required a function to return its
+result in a temporary place at the top of the stack, which was easy to
+locate with the stack register -- that was an advantage.  A
+disadvantage it was to copy the result from that temporary place to a
+destination, e.g., a variable that was initialized with the result.
+
+The **modern call** convention allows the place for the return value
+be allocated anywhere in memory (not only on the stack, but also on
+the heap, or in the memory for the global and static data), and
+passing to a function the address of the place, so that the function
+can create the return value at the destination pointed.  We don't need
+a temporary place anymore.  For instance, for x86, Linux, and GCC, the
+address is passed to a function on the stack last, while to a
+constructor in the RDI register.
 
 The following example demonstrates that a result can be returned
 anywhere (now that we have the modern call convention), and not only
@@ -346,9 +352,10 @@ without copy-initializing `a` from a temporary object on the stack
 {% include_relative mcc.cc %}
 ```
 
-As a corollary of a call convention, let's notice that a parameter of
-a function and a local variable of a function look the same, but they
-differ in what code controls (creates, initializes and destroys) them:
+As a corollary of these call conventions, let's notice that a
+parameter of a function and a local variable of a function look the
+same, but they differ in what code controls (creates, initializes and
+destroys) them:
 
 * a parameter is controlled by the caller of the function,
 
