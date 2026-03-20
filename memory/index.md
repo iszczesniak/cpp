@@ -271,12 +271,12 @@ temporary place on the stack for the return value.  Second, from the
 temporary place to the final place, e.g., a variable that was
 initialized with the result.
 
-If the return type is of a reference type, we say that a function
-returns the result by reference.  The reference should be initialized
-with data that will exist when the function returns (i.e., the data
-should outlive the function).  Containers (e.g., `std::vector`), for
-instance, return a reference to dynamically-allocated data in, for
-instance, `operator[]` or `front` functions.
+If the return type is a reference type, we say that a function returns
+the result by reference.  The reference should be initialized with
+data that will exist when the function returns (i.e., the data should
+outlive the function).  For instance, functions (e.g., `operator[]` or
+`front`) of containers (e.g., `std::vector`) return references to
+dynamically-allocated data.
 
 The example below shows how to return a result by value and by
 reference.  On a modern system with a modern compiler, a result
