@@ -27,8 +27,7 @@ These are the most important facts about references:
 
 * There is a reference to a pointer, but not a pointer to a reference.
 
-* A reference can be an element of `std::pair` and `std::tuple`, but not
-  of a container or an array.
+* A reference cannot be an element of an array or a container.
 
 * There is type `void *`, but not `void &` (thank goodness).
 
