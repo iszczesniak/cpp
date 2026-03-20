@@ -231,7 +231,7 @@ function returns its result by either value or reference.  There are
 no other ways of accepting an argument or returning a value.
 
 A function can have *parameters*, and then we call a function with
-*arguments*.  A function parameter is local to a function, like a
+*arguments*.  A function parameter is local to a function body, like a
 local variable.  A parameter has a type and a name given in the
 function declaration or definition.  An argument is an expression that
 is part of a call expression.
@@ -290,14 +290,13 @@ optimization.
 {% include_relative return.cc %}
 ```
 
-# Function call convention
+## Function call convention
 
 The *call convention* are the technical details on how exactly a
 function is called, which depend on the platform (the system
 architecture, the operating system, and the compiler).  C++ does not
 specify a call convention, but some C++ functionality (like the
-constructor elision and the return value optimization) follows from a
-typical call convention.
+constructor elision) follows from a typical call convention.
 
 A regular C++ programmer doesn't have to know such details, but
 mentioning them is worthwhile to understand that C++ is a part of
