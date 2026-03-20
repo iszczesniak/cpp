@@ -239,16 +239,17 @@ is part of a call expression.
 A parameter is initialized with an argument.  A result is initialized
 with the expression of the return instruction.
 
-## Passing arguments
+## Accepting arguments
 
 If a function parameter is of a non-reference type, we say that a
-function takes an argument by value, or that we pass an argument to a
-function by value.  In legacy C++, a nonreference parameter was
-initialized always by copying the argument value into the parameter.
-In modern C++, that copying can be *elided* or replaced with *moving*.
+function accepts (or takes) an argument by value, or that we pass an
+argument to a function by value.  In legacy C++, a nonreference
+parameter was initialized always by copying the argument value into
+the parameter.  In modern C++, that copying can be *elided* or
+replaced with *moving*.
 
 If a function parameter is of a reference type, we say that a function
-takes an argument by reference, or that we pass an argument to a
+accepts an argument by reference, or that we pass an argument to a
 function by reference.  Initialization makes the parameter a name (an
 alias) for the argument data.
 
