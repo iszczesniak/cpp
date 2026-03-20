@@ -269,7 +269,7 @@ recommended.  It's not what it used to be in the deep past, before C++
 was standardized.  Back then returning by value always copied the
 result twice.  First, from a local variable of the function to a
 temporary place on the stack for the return value.  Second, from the
-temporary place to the final place, e.g., a variable that was
+temporary place to the destination, e.g., a variable that was
 initialized with the result.
 
 If the return type is a reference type, we say that a function returns
