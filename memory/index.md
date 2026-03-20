@@ -262,7 +262,7 @@ by reference.
 
 ## Returning a result
 
-If the return type is of a non-reference type, we say that a function
+If the return type is a non-reference type, we say that a function
 returns the result by value.  In modern C++ returing by value is fast,
 does not impose any unnecessary overhead, and therefore is
 recommended.  It's not what it used to be in the deep past, before C++
