@@ -1,5 +1,5 @@
-* storage duraction
+* storage duration
 
-* how memory management changed: with ctor elision an object is
+* How memory management changed with ctor elision: an object is
   constructed and destroyed in different scopes, even though it's a
   local variable.
