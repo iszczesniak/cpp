@@ -377,11 +377,25 @@ destroys) them:
 The modern call convention opened the door to efficient passing of
 function parameters and return values (and also of exception-handler
 parameters that we do not discuss here) in C++11.  What used to be
-know as the return value optimization (RVO) before C++11, became the
-**constructor elision** in C++11.  Constructor elision is also known
-as the *copy elision*, but I prefer the former, because it can elide
-not only the copy constructor, but also the move constructor.  It
-applies to no other constructors, and to no assignment operators.
+know as the *return value optimization* (RVO) before C++11, became the
+**constructor elision** in C++11.  We need to know that an
+*optimization* is offered by a compiler, and is not mandated by the
+standard.
+
+Constructor elision is also known as the *copy elision* or *copy/move
+elision*.  It applies to no other constructor, and to no assignment
+operator.  I prefer the *constructor elision*, because it's about
+constructors, and it can elide not only the copy constructor, but also
+the move constructor.
+
+Between C++11 and C++17 what counted as the constructor elision or a
+return value optimization changed.  Since C++17, there is no return
+value optimization (I didn't find it in the C++17 standard draft), but
+there is something new: a *temporary materialization*.
+
+Constructor elision is still present in C++17 for three cases.  Two
+are about exceptions that we are uninterested in here, and one that
+used to be called the *named return value optimization*
 
 C++ elides (avoids) the copy constructor or the *move* constructor
 when the source is a temporary expression (an expression that creates
