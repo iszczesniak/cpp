@@ -6,9 +6,9 @@ int main()
   std::string x;
 
   // Equivalent to the above.
-  std::string x = {};
+  std::string y = {};
 
-  std::string x = string("Hello!");
+  std::string z = std::string("Hello!");
   // Expression string("Hello!") doesn't have identity.
   // &string("Hello!"); // Error!
 }
