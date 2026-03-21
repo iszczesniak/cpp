@@ -245,7 +245,7 @@ We need to mention here the *move semantics*, something that we'll
 look into later.  For now, it's enough to know that sometimes it
 replaces copying.  A value is copied when copy-construcing (or
 copy-assigning to) some other (target) object by using the copy
-constructor (or the move-assignment operator).  A value is moved when
+constructor (or the copy-assignment operator).  A value is moved when
 move-construcing (or move-assigning to) some other (target) object by
 using the move constructor (or the move-assignment operator).
 
@@ -374,21 +374,19 @@ destroys) them:
 
 # Constructor elision
 
-The modern call convention opened the door to more efficient passing
-of function parameters and return values (and also of
-exception-handler parameters that we do not discuss here) in C++11.
-What used to be know as the return value optimization (RVO) before
-C++11, became the **constructor elision** in C++11.  Constructor
-elision is also known as the *copy elision*.  I prefer the name of
-constructor elision, because it can elide not only the copy
-constructor, but also the move constructor.
+The modern call convention opened the door to efficient passing of
+function parameters and return values (and also of exception-handler
+parameters that we do not discuss here) in C++11.  What used to be
+know as the return value optimization (RVO) before C++11, became the
+**constructor elision** in C++11.  Constructor elision is also known
+as the *copy elision*, but I prefer the former, because it can elide
+not only the copy constructor, but also the move constructor.  It
+applies to no other constructors, and to no assignment operators.
 
 C++ elides (avoids) the copy constructor or the *move* constructor
 when the source is a temporary expression (an expression that creates
 a temporary), because the value of the temporary is created in the
-destination.  This is called **constructor elision** (also known as
-the *copy elision*), and applies to no other constructors.  The move
-constructor is part of the move semantics.
+destination.
 
 This example demonstrates the copy elision in the initialization of:
 
