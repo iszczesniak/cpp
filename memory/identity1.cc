@@ -9,7 +9,7 @@ int main()
   // &{}; // Error.
 
   // Initialized with 1.
-  int x = 1;
+  int z = 1;
   // Expression 1 doesn't have identity.
   // &1; // Error.
 }
