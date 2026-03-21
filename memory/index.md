@@ -374,11 +374,12 @@ destroys) them:
 
 # Constructor elision
 
-The modern call convention opened the door to efficient return by
+The modern call convention opened the door to efficiently return by
 value since C++11.  What used to be known as the *return value
-optimization* (RVO) before C++11, became the **constructor elision**
-in C++11.  We need to know that an *optimization* is offered by a
-compiler, and is not mandated by the standard.
+optimization* (RVO, never in the standard) before C++11, became the
+**constructor elision** in C++11.  We need to know that an
+*optimization* is offered by a compiler, and is not mandated by the
+standard.
 
 Constructor elision is also known as the *copy elision* or *copy/move
 elision*.  It applies to no other constructor, and to no assignment
@@ -388,6 +389,11 @@ elide not only the copy constructor, but also the move constructor.
 However, let's remember that the standard calls it *copy/move
 elision*.
 
+C++ elides (avoids) the copy constructor or the *move* constructor
+when the source is a temporary expression (an expression that creates
+a temporary), because the value of the temporary is created in the
+destination.
+
 Between C++11 and C++17 what counted as the constructor elision or a
 return value optimization changed.  Since C++17, there is no return
 value optimization (I didn't find it in the C++17 standard draft), but
@@ -396,11 +402,6 @@ there is something new: a *temporary materialization*.
 Constructor elision is still present in C++17 (and still in the C++26
 draft) for the case that used to be called the *named return value
 optimization*.
-
-C++ elides (avoids) the copy constructor or the *move* constructor
-when the source is a temporary expression (an expression that creates
-a temporary), because the value of the temporary is created in the
-destination.
 
 This example demonstrates the copy elision in the initialization of:
 
