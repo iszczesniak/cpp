@@ -239,15 +239,24 @@ is part of a call expression.
 A parameter is initialized with an argument.  A result is initialized
 with the expression of the return instruction.
 
+## Move semantics, mentioned in passing
+
+We need to mention here the *move semantics*, something that we'll
+look into later.  For now, it's enough to know that sometimes it
+replaces copying.  A value is copied when copy-construcing (or
+copy-assigning to) some other (target) object by using the copy
+constructor (or the move-assignment operator).  A value is moved when
+move-construcing (or move-assigning to) some other (target) object by
+using the move constructor (or the move-assignment operator).
+
 ## Accepting arguments
 
 If a function parameter is of a non-reference type, we say that a
 function accepts (or takes) an argument by value, or that we pass an
 argument to a function by value.  In legacy C++, a nonreference
-parameter was initialized always by copying (copy-constructing, i.e.,
-using the copy constructor) the argument value into the parameter.  In
-modern C++, that copying can be *elided* or replaced with *moving*
-(move-constructing).
+parameter was initialized always by copying the argument value into
+the parameter.  In modern C++, that copying can be *elided* or
+replaced with *moving*.
 
 If a function parameter is of a reference type, we say that a function
 accepts an argument by reference, or that we pass an argument to a
