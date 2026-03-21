@@ -53,9 +53,9 @@ at compile-time.
 
 In languages like Java or C#, references are pointers with the
 shared-ownership semantics (i.e., a reference can be copied, and the
-object exists as long as at least one reference exists), and with the
-object member selection syntax.  In these languages references must
-exist at run-time.
+object exists as long as at least one reference exists), and so they
+must exist at run-time.  They only *look* similar to the C++
+references, because they use the object member selection syntax.
 
 As an example that references are optimized out at compile-time, there
 are two programs below that produce the same output, but in the second
