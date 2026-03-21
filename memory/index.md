@@ -385,7 +385,8 @@ elision*.  It applies to no other constructor, and to no assignment
 operator.  I prefer the *constructor elision*, because it's about
 constructors only (and not the assignment operators too), and it can
 elide not only the copy constructor, but also the move constructor.
-Let's remember that the standard calls it *copy/move elision*.
+However, let's remember that the standard calls it *copy/move
+elision*.
 
 Between C++11 and C++17 what counted as the constructor elision or a
 return value optimization changed.  Since C++17, there is no return
