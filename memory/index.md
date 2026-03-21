@@ -374,6 +374,15 @@ destroys) them:
 
 # Constructor elision
 
+The modern call convention opened the door to more efficient passing
+of function parameters and return values (and also of
+exception-handler parameters that we do not discuss here) in C++11.
+What used to be know as the return value optimization (RVO) before
+C++11, became the **constructor elision** in C++11.  Constructor
+elision is also known as the *copy elision*.  I prefer the name of
+constructor elision, because it can elide not only the copy
+constructor, but also the move constructor.
+
 C++ elides (avoids) the copy constructor or the *move* constructor
 when the source is a temporary expression (an expression that creates
 a temporary), because the value of the temporary is created in the
