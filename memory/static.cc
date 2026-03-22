@@ -6,7 +6,12 @@ struct A
 {
   A()
   {
-    cout << "A" << endl;
+    cout << "ctor" << endl;
+  }
+
+  ~A()
+  {
+    cout << "dtor" << endl;
   }
 };
 
