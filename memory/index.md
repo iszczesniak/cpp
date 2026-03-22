@@ -250,7 +250,7 @@ move-construcing (or move-assigning to) some other (target) object by
 using the move constructor (or the move-assignment operator).
 
 ```cpp
-{% include /lib/A.hpp %}
+{% include_relative A.hpp %}
 ```
 
 ## Accepting arguments
