@@ -249,6 +249,10 @@ constructor (or the copy-assignment operator).  A value is moved when
 move-construcing (or move-assigning to) some other (target) object by
 using the move constructor (or the move-assignment operator).
 
+```cpp
+{% include_relative ../lib/A.hpp %}
+```
+
 ## Accepting arguments
 
 If a function parameter is of a non-reference type, we say that a
