@@ -3,4 +3,6 @@ PROGS = $(SRCS:R)
 
 CXXFLAGS = -std=c++17
 
-all: $(PROGS)
+LDFLAGS = A.o
+
+all: A.o $(PROGS)
