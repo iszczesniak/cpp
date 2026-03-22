@@ -1,10 +1,5 @@
 #include "A.hpp"
 
-#include <iostream>
-#include <string>
-
-using namespace std;
-
 A foo()
 {
   A a("foo");
