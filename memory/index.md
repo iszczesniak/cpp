@@ -252,7 +252,7 @@ using the move constructor (or the move-assignment operator).
 In the examples that follow we use structure `A` that lets us see when
 an object is constructed, copied, moved, accessed (by calling function
 `hello`) and destroyed.  Please note (take a look at the file
-`GNUMakefile`) that file `A.cpp` is separately compiled, and then
+`GNUmakefile`) that file `A.cpp` is separately compiled, and then
 linked with the examples.
 
 Here's the declaration (file `A.hpp`):
