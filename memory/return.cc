@@ -17,6 +17,9 @@ int main()
   foo().hello();
   goo().hello();
 
-  A a = foo();
-  a.hello();
+  A f = foo();
+  f.hello();
+
+  A g = goo();
+  g.hello();
 }
