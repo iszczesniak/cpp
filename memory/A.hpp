@@ -7,9 +7,12 @@ struct A
 {
   std::string m_name;
 
+  // A constructor.
   A(const std::string &name);
   ~A();
+
   A(const A &a);
+  A(A &&a);
   void hello() const;
 };
 

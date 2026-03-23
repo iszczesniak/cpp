@@ -249,6 +249,8 @@ constructor (or the copy-assignment operator).  A value is moved when
 move-construcing (or move-assigning to) some other (target) object by
 using the move constructor (or the move-assignment operator).
 
+In the examples that follow we use structure `A` defined in `A.hpp`:
+
 ```cpp
 {% include_relative A.hpp %}
 ```
