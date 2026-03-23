@@ -1,5 +1,20 @@
-#include "A.hpp"
 #include <cassert>
+#include <iostream>
+
+struct A
+{
+  const char *m_name;
+
+  A(const char *name): m_name(name)
+  {
+    std::cout << "ctor: " << m_name << '\n';
+  }
+
+  ~A()
+  {
+    std::cout << "dtor: " << m_name << '\n';
+  }
+};
 
 A g("global1");
 

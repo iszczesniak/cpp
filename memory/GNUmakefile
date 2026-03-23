@@ -4,4 +4,4 @@ CXXFLAGS = -std=c++17
 
 all: A.o $(PROGS)
 
-args mcc placement return: A.o
+return args mcc: A.o
