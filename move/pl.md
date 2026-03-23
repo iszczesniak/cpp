@@ -301,8 +301,8 @@ kopiowania i przenoszenia.
 
 ## Typ tylko do przenoszenia
 
-Obiekty typu tylko do przenoszenia mogą być tylko przenoszone i nie
-mogą być kopiowane.  Oto przykład typu tylko do przenoszenia:
+Wartość typu tylko do przenoszenia może być tylko przenoszona, nie
+może być kopiowana.  Oto przykład typu tylko do przenoszenia:
 
 ```cpp
 {% include_relative move_only.cc %}

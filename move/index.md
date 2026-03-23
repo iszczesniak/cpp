@@ -305,8 +305,8 @@ copy and move semantics implemented by default.
 
 ## Move-only types
 
-A move-only type can only be moved: it cannot be copied.  This is an
-example of a move-only type:
+A value of a move-only type can only be moved, it cannot be copied.
+This is an example of a move-only type:
 
 ```cpp
 {% include_relative move_only.cc %}
