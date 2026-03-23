@@ -242,8 +242,8 @@ with the expression of the return instruction.
 ## Move semantics, mentioned in passing
 
 We need to mention here the *move semantics*, something that we'll
-look into later.  For now, it's enough to know that sometimes it
-replaces copying.  A value is copied when copy-construcing (or
+look into later.  For now, it's enough to know that *moving* sometimes
+replaces *copying*.  A value is copied when copy-construcing (or
 copy-assigning to) some other (target) object by using the copy
 constructor (or the copy-assignment operator).  A value is moved when
 move-construcing (or move-assigning to) some other (target) object by
