@@ -7,15 +7,14 @@ struct A
 {
   std::string m_name;
 
-  // For direct-initiation with a string.
-  A(const std::string &name);
-  ~A();
-
+  // For a direct-initiation with a string.
+  A(const std::string &);
   // Copy and move constructors.
-  A(const A &a);
-  A(A &&a);
+  A(const A &);
+  A(A &&);
 
   void hello() const;
+  ~A();
 };
 
 #endif // A_HPP
