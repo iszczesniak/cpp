@@ -4,11 +4,11 @@ PROGS = $(FILES:R)
 MAN =
 
 # Extra files used by those programs.
+SRCS_anywhere = A.cpp
 SRCS_args = A.cpp
 SRCS_dynamic = A.cpp
 SRCS_global = A.cpp
 SRCS_local = A.cpp
-SRCS_mcc = A.cpp
 SRCS_placement = A.cpp
 SRCS_return = A.cpp
 SRCS_static = A.cpp

@@ -363,7 +363,7 @@ bez kopiowania obiektu z udziałem tymczasowego miejsca wymaganego
 przez starą konwencję.
 
 ```cpp
-{% include_relative mcc.cc %}
+{% include_relative anywhere.cc %}
 ```
 
 # Pomijanie konstruktorów

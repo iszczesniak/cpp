@@ -318,8 +318,8 @@ the return value.  Second, from the temporary place to the
 destination, e.g., a variable that was initialized with the result.
 
 To understand how returning by value became efficient, and to be aware
-of exceptions, we need to understand the call conventions, constructor
-elision, and temporary materialization.
+of exceptions, we need to understand the call conventions, the
+constructor elision, and the temporary materialization.
 
 ## Function call convention
 
@@ -383,7 +383,7 @@ without copy-initializing `a` from a temporary object on the stack
 (required by the legacy call convention).
 
 ```cpp
-{% include_relative mcc.cc %}
+{% include_relative anywhere.cc %}
 ```
 
 As a corollary of these call conventions, let's notice that a
