@@ -1,22 +1,5 @@
+#include "A.hpp"
 #include <iostream>
-#include <string>
-
-using namespace std;
-
-struct A
-{
-  string m_name;
-
-  A(const string &name): m_name(name)
-  {
-    cout << "ctor: " << m_name << endl;
-  }
-
-  ~A()
-  {
-    cout << "dtor: " << m_name << endl;
-  }
-};
 
 int main()
 {
@@ -29,5 +12,5 @@ int main()
     A b("b, block scope");
   }
   
-  cout << "Bye!" << endl;
+  std::cout << "Bye!" << std::endl;
 }
