@@ -11,13 +11,13 @@ A::A(const string &name): m_name(name)
 A::A(const A &a)
 {
   cout << "copy-ctor: " << a.m_name << endl;
-  m_name = a.m_name + " copy";
+  m_name = a.m_name + " copied";
 }
 
 A::A(A &&a)
 {
   cout << "move-ctor: " << a.m_name << endl;
-  m_name = a.m_name + " move";
+  m_name = a.m_name + " moved";
 }
 
 void A::hello() const

@@ -7,6 +7,7 @@ MAN =
 SRCS_anywhere = A.cpp
 SRCS_args = A.cpp
 SRCS_dynamic = A.cpp
+SRCS_elide = A.cpp
 SRCS_global = A.cpp
 SRCS_local = A.cpp
 SRCS_placement = A.cpp
@@ -19,5 +20,6 @@ SRCS_$p += $p.cc
 .endfor
 
 CXXFLAGS = -std=c++17
+# CXXFLAGS += -fno-elide-constructors
 
 .include <bsd.prog.mk>

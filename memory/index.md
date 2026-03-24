@@ -427,9 +427,9 @@ that is not a parameter.
 ```
 
 To see the legacy C++ behviour, compile the above example with the
-flag `-fno-elide-constructors`.  Notice the differences at run-time,
-that with constructor elision, objects are not copied (nor moved)
-unnecessarily.
+flag `-fno-elide-constructors` (modify CXXFLAGS in GNUmakefile).
+Notice the differences at run-time, that with constructor elision,
+objects are not copied (nor moved) unnecessarily.
 
 Since C++17, the copy and move constructors can be unavailable if they
 are elided, and therefore the following code is valid for C++17 (GCC
