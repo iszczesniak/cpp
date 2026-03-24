@@ -1,17 +1,17 @@
-struct A
+struct X
 {
-  A() = default;
-  // A(const A &) = delete;
-  // A(A &&) = delete;
+  X() = default;
+  // X(const X &) = delete;
+  // X(X &&) = delete;
 };
 
-A f()
+X f()
 {
-  A a;
-  return a;
+  X x;
+  return x;
 }
 
 int main()
 {
-  A a = f();
+  X x = f();
 }
