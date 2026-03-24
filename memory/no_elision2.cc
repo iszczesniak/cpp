@@ -1,25 +1,4 @@
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-struct A
-{
-  A()
-  {
-    cout << "default-ctor" << endl;
-  }
-
-  A(const A &a)
-  {
-    cout << "copy-ctor" << endl;
-  }
-
-  ~A()
-  {
-    cout << "dtor" << endl;
-  }
-};
+#include "A.hpp"
 
 A foo(A a)
 {
@@ -28,5 +7,5 @@ A foo(A a)
 
 int main()
 {
-  foo(A());
+  A a = foo(A("main"));
 }

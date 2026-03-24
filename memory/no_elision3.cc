@@ -1,33 +1,12 @@
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-struct A
-{
-  A()
-  {
-    cout << "default-ctor" << endl;
-  }
-
-  A(const A &a)
-  {
-    cout << "copy-ctor" << endl;
-  }
-
-  ~A()
-  {
-    cout << "dtor" << endl;
-  }
-};
+#include "A.hpp"
 
 // Global data.
-A a;
+A a("global");
 
 A foo()
 {
   // This one overshadows the global "a".
-  static A a;
+  static A a("static");
   return a;
 }
 
