@@ -431,25 +431,32 @@ compiler flag `-fno-elide-constructors` (modify CXXFLAGS in
 GNUmakefile).  Notice the differences at run-time, that with
 constructor elision, objects are not copied (nor moved) unnecessarily.
 
-Even if constructors are elided, they must be defined.  In the example
-below, remove the constructors by removing the comments to see the
-compilation fail.
+Even if constructors are elided, they must be defined because
+depending on the type of the returned value, a compiler can decide not
+to elide constructors.  In the example below, remove the constructors
+by removing the comments to see the compilation fail.
 
 ```cpp
 {% include_relative no_ctors_elide.cc %}
 ```
 
-## A temporary materialization
+## The temporary materialization
+
+It's the materialization of a temporary (a temporary object), and not
+a materialization that is temporary.  Materialization is just
+creation, i.e., calling a constructor.  As shown in the example below,
+returning a temporary is the most important use case of the temporary
+materialization.
+
+```cpp
+{% include_relative materialization1.cc %}
+```
 
 A result can be returned by a function directly in its destination,
 e.g., a variable that is initialized with the result.  The idea is to
 create the result in its destination, so that it doesn't have to be
 copied (copy-initialized) or moved (move-initialized) there, i.e., to
 elide constructors.
-
-```cpp
-{% include_relative materialization.cc %}
-```
 
 When a temporary is passed by value as an argument, that temporary is
 created directly (i.e., with the constructor elided) in the location
@@ -463,8 +470,6 @@ This example demonstrates the copy elision in the initialization of:
 
 * a result.
 
-It's the materialization of a temporary, and not a materialization
-that is temporary.
 
 C++ elides (avoids) the copy constructor or the *move* constructor
 when the source is a temporary expression (an expression that creates
