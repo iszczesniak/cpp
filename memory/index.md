@@ -275,8 +275,8 @@ If a function parameter is of a non-reference type, we say that a
 function accepts (or takes) an argument by value, or that we pass an
 argument to a function by value.  In legacy C++, a nonreference
 parameter was initialized always by copying the argument value into
-the parameter.  In modern C++, that copying can be *elided* or
-replaced with *moving*.
+the parameter.  In modern C++, that copying might be gone (because of
+the temporary materialization) or replaced with *moving*.
 
 If a function parameter is of a reference type, we say that a function
 accepts an argument by reference, or that we pass an argument to a
@@ -293,21 +293,12 @@ by reference.
 ## Returning a result
 
 If the return type is a non-reference type, we say that a function
-returns the result by value.  In modern C++, returing by value is
-fast, does not impose any unnecessary overhead, and therefore is
-recommended.  It's not what it used to be in the deep past, before C++
-was standardized.  Back then returning by value always copied the
-result twice.  First, from a local variable of the function to a
-temporary place on the stack for the return value.  Second, from the
-temporary place to the destination, e.g., a variable that was
-initialized with the result.
-
-If the return type is a reference type, we say that a function returns
-the result by reference.  The reference should be initialized with
-data that will exist when the function returns (i.e., the data should
-outlive the function).  For instance, containers (e.g., `std::vector`)
-offer functions (e.g., `operator[]` or `front`) that return references
-to dynamically-allocated data.
+returns the result by value.  If the return type is a reference type,
+we say that a function returns the result by reference.  The reference
+should be initialized with data that will exist when the function
+returns (i.e., the data should outlive the function).  For instance,
+containers (e.g., `std::vector`) offer functions (e.g., `operator[]`
+or `front`) that return references to dynamically-allocated data.
 
 The example below shows how to return a result either by value or by
 reference.
@@ -315,6 +306,20 @@ reference.
 ```cpp
 {% include_relative return.cc %}
 ```
+
+# Returning by value
+
+In modern C++, returing by value is fast, does not impose any
+unnecessary overhead, and therefore is recommended.  It's not what it
+used to be in the deep past, before C++ was standardized.  Back then
+returning by value always copied the result twice.  First, from a
+local variable of the function to a temporary place on the stack for
+the return value.  Second, from the temporary place to the
+destination, e.g., a variable that was initialized with the result.
+
+To understand how returning by value became efficient, and to be aware
+of exceptions, we need to understand the call conventions, constructor
+elision, and temporary materialization.
 
 ## Function call convention
 
@@ -392,7 +397,7 @@ destroys) them:
 
 **Bottom line: a parameter is out of control of the function.**
 
-# Constructor elision
+## Constructor elision
 
 The modern call convention opened the door to efficiently return by
 value since C++11, and so the functionality that used to be known as
@@ -412,10 +417,6 @@ elision*.
 There used to be two versions of the RVO: named and unnamed.  In C++11
 both became the constructor elision.  However, in C++17, what used to
 be the unnamed RVO became the *temporary materialization*.
-
-
-
-
 
 This example demonstrates the copy elision in the initialization of:
 
@@ -461,7 +462,7 @@ with the flag `-fno-elide-constructors -std=c++14`.  Where and why are
 objects copied?  That depends on the function call convention,
 constructor elision, and return value optimization.
 
-# A temporary materialization
+## A temporary materialization
 
 It's the materialization of a temporary, and not a materialization
 that is temporary.
@@ -471,7 +472,7 @@ when the source is a temporary expression (an expression that creates
 a temporary), because the value of the temporary is created in the
 destination.
 
-# Return by value
+## Exceptions
 
 A result can be returned by a function directly in its destination,
 e.g., a variable that is initialized with the result.  The idea is to
