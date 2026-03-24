@@ -431,13 +431,12 @@ compiler flag `-fno-elide-constructors` (modify CXXFLAGS in
 GNUmakefile).  Notice the differences at run-time, that with
 constructor elision, objects are not copied (nor moved) unnecessarily.
 
-Since C++17, the copy and move constructors can be unavailable if they
-are elided, and therefore the following code is valid for C++17
-(compiler option `-std=c++17`), but not for C++14 (compiler option
-`-std=c++14`).
+Even if constructors are elided, they must be defined.  In the example
+below, remove the constructors by removing the comments to see the
+compilation fail.
 
 ```cpp
-{% include_relative no_ctors.cc %}
+{% include_relative no_ctors_elide.cc %}
 ```
 
 ## A temporary materialization
