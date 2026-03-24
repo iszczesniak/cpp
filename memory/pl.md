@@ -418,7 +418,7 @@ pewne obiekty muszą być pierwsze stworzone, a dopiero potem jest
 podejmowana decyzja, który obiekt zwrócić:
 
 ```cpp
-{% include_relative rvo_no1.cc %}
+{% include_relative no_elision1.cc %}
 ```
 
 Także dlatego, że próbujemy zwrócić przez wartość parametr funkcji,
@@ -427,7 +427,7 @@ może jedynie skopiować wartość parametru do miejsca, gdzie ma być
 zwrócony wynik:
 
 ```cpp
-{% include_relative rvo_no2.cc %}
+{% include_relative no_elision2.cc %}
 ```
 
 I także dlatego, że próbujemy zwrócić przez wartość dane globalne albo
@@ -435,7 +435,7 @@ statyczne, które muszą istnieć po powrocie z funkcji.  Funkcja może
 wtedy jedynie skopiować wynik:
 
 ```cpp
-{% include_relative rvo_no3.cc %}
+{% include_relative no_elision3.cc %}
 ```
 
 # Podsumowanie
