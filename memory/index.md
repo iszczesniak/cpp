@@ -419,6 +419,10 @@ There used to be two versions of the RVO: named and unnamed.  In C++11
 both became the constructor elision.  However, in C++17, what used to
 be the unnamed RVO became the *temporary materialization*.
 
+The following example demonstrates the constructor elision for its
+only use case: when we return a local variable.  Prior to C++11, this
+use case and its optimization used to be called the named RVO.
+
 ```cpp
 {% include_relative elide.cc %}
 ```
@@ -431,12 +435,9 @@ returning results from functions but without disabling the constructor
 elision.  Notice that with constructor elision, objects are not copied
 (nor moved) unnecessarily.
 
-This functionality is a C++17 feature, but prior to C++17 it was known
-as the return value optimization (RVO), because it was an optional
-feature of a compiler optimizer.  Since C++17, the copy and move
-constructors can be unavailable if they are elided, and therefore the
-following code is valid for C++17 (GCC option `-std=c++17`), but not
-for C++14 (GCC option `-std=c++14`).
+Since C++17, the copy and move constructors can be unavailable if they
+are elided, and therefore the following code is valid for C++17 (GCC
+option `-std=c++17`), but not for C++14 (GCC option `-std=c++14`).
 
 Compile the example with the flags `-fno-elide-constructors
 -std=c++14` (a flag of the GCC compiler), so that the compiler does
