@@ -1,24 +1,9 @@
+#include "A.hpp"
 #include <iostream>
-#include <string>
-
-using namespace std;
-
-struct A
-{
-  A()
-  {
-    cout << "ctor\n";
-  }
-
-  ~A()
-  {
-    cout << "dtor\n";
-  }
-};
 
 A * factory()
 {
-  return new A();
+  return new A("factory");
 }
 
 int main()
@@ -26,5 +11,5 @@ int main()
   A *p = factory();
   delete p;
 
-  cout << "Bye!" << endl;
+  std::cout << "Bye!" << std::endl;
 }
