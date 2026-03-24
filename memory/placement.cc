@@ -1,4 +1,5 @@
 #include "A.hpp"
+#include <cassert>
 
 A g("global1");
 
