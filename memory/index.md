@@ -440,6 +440,32 @@ by removing the comments to see the compilation fail.
 {% include_relative no_ctors_elide.cc %}
 ```
 
+### Exceptions
+
+Elision cannot always take place, because of technical reasons.
+First, because we return data, which has to be created prior to
+deciding which data exactly to return:
+
+```cpp
+{% include_relative no_elision1.cc %}
+```
+
+Second, because we return a function parameter, which was created by
+the caller, not the function, and so the function cannot create the
+parameter in the location for the return value:
+
+```cpp
+{% include_relative no_elision2.cc %}
+```
+
+Finally, because we return global or static data, which has to be
+available after the function returns, and so the function can only
+copy the result from the global or static data:
+
+```cpp
+{% include_relative no_elision3.cc %}
+```
+
 ## The temporary materialization
 
 It's the materialization of a temporary (a temporary object), and not
@@ -482,32 +508,6 @@ elide constructors.  If you compile your code with C++17 or higher,
 your request to disable constructor elision may be ignored by the
 compiler, because constructor elision in some cases is mandatory since
 C++17.
-
-## Exceptions
-
-Elision cannot always take place, because of technical reasons.
-First, because we return data, which has to be created prior to
-deciding which data exactly to return:
-
-```cpp
-{% include_relative no_elision1.cc %}
-```
-
-Second, because we return a function parameter, which was created by
-the caller, not the function, and so the function cannot create the
-parameter in the location for the return value:
-
-```cpp
-{% include_relative no_elision2.cc %}
-```
-
-Finally, because we return global or static data, which has to be
-available after the function returns, and so the function can only
-copy the result from the global or static data:
-
-```cpp
-{% include_relative no_elision3.cc %}
-```
 
 # Lifetime and identity
 
