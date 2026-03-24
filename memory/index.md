@@ -399,20 +399,21 @@ destroys) them:
 
 ## Constructor elision
 
-The modern call convention opened the door to efficiently return by
-value since C++11, and so the functionality that used to be known as
-the *return value optimization* (RVO) was finally standardized in
-C++11 under the name of the **constructor elision**.  We need to know
-that an *optimization* is offered by a compiler, and is not mandated
-by the standard: RVO has never been standardized.
+The modern call convention opened the door to efficient returning by
+value, and so the functionality that used to be known as the *return
+value optimization* (RVO) was finally standardized in C++11 under the
+name of the **constructor elision**.  We need to know that an
+*optimization* is offered by a compiler, and is not mandated by the
+standard: RVO has never been standardized, there is even no mention of
+it in the standard.
 
-Constructor elision is also known as the *copy elision* or *copy/move
-elision*.  It applies to no other constructor, and to no assignment
-operator.  I prefer the *constructor elision*, because it's about
-constructors only (and not the assignment operators too), and it can
-elide not only the copy constructor, but also the move constructor.
-However, we need to note that the standard calls it the *copy/move
-elision*.
+Constructor elision is also known as the *copy elision*, *copy/move
+elision* or *copy/move constructor elision*.  It applies to no other
+constructor, and to no assignment operator.  I prefer the *constructor
+elision*, because it's about constructors only (and not the assignment
+operators too), and it can elide not only the copy constructor, but
+also the move constructor.  However, we need to note that the standard
+calls it the **copy/move elision**.
 
 There used to be two versions of the RVO: named and unnamed.  In C++11
 both became the constructor elision.  However, in C++17, what used to
