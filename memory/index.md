@@ -419,29 +419,17 @@ There used to be two versions of the RVO: named and unnamed.  In C++11
 both became the constructor elision.  However, in C++17, what used to
 be the unnamed RVO became the *temporary materialization*.
 
-This example demonstrates the copy elision in the initialization of:
-
-* a local variable,
-
-* a parameter,
-
-* a result.
-
-Compile the example with, then without the flag
-`-fno-elide-constructors`.  Notice the differences at run-time.
-
 ```cpp
 {% include_relative elide.cc %}
 ```
+
+Compile the example with, then without the flag
+`-fno-elide-constructors`.  Notice the differences at run-time.
 
 Compile the various previous examples of passing arguments to and
 returning results from functions but without disabling the constructor
 elision.  Notice that with constructor elision, objects are not copied
 (nor moved) unnecessarily.
-
-When a temporary is passed by value as an argument, that temporary is
-created directly (i.e., with the constructor elided) in the location
-of the function parameter.
 
 This functionality is a C++17 feature, but prior to C++17 it was known
 as the return value optimization (RVO), because it was an optional
@@ -464,6 +452,22 @@ objects copied?  That depends on the function call convention,
 constructor elision, and return value optimization.
 
 ## A temporary materialization
+
+```cpp
+{% include_relative materialization.cc %}
+```
+
+When a temporary is passed by value as an argument, that temporary is
+created directly (i.e., with the constructor elided) in the location
+of the function parameter.
+
+This example demonstrates the copy elision in the initialization of:
+
+* a local variable,
+
+* a parameter,
+
+* a result.
 
 It's the materialization of a temporary, and not a materialization
 that is temporary.
