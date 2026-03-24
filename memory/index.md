@@ -81,6 +81,34 @@ garbage collection since it offers advanced container and smart
 pointer support, which could be considered a form of garbage
 collection.
 
+## Move semantics, mentioned in passing
+
+We need to mention here the *move semantics*, something that we'll
+look into later.  For now, it's enough to know that *moving* sometimes
+replaces *copying*.  A value is copied when copy-construcing (or
+copy-assigning to) some other (target) object by using the copy
+constructor (or the copy-assignment operator).  A value is moved when
+move-construcing (or move-assigning to) some other (target) object by
+using the move constructor (or the move-assignment operator).
+
+In the examples that follow we use structure `A` that lets us see when
+an object is constructed, copied, moved, accessed (by calling function
+`hello`) and destroyed.  Please note (take a look at the file
+`GNUmakefile`) that file `A.cpp` is separately compiled, and then
+linked with the examples.
+
+Here's the declaration (file `A.hpp`):
+
+```cpp
+{% include_relative A.hpp %}
+```
+
+Here's the definition (file `A.cpp`):
+
+```cpp
+{% include_relative A.cpp %}
+```
+
 # Data and their location
 
 The read-write memory stores:
@@ -240,34 +268,6 @@ is part of a call expression.
 
 A parameter is initialized with an argument.  A result is initialized
 with the expression of the return instruction.
-
-## Move semantics, mentioned in passing
-
-We need to mention here the *move semantics*, something that we'll
-look into later.  For now, it's enough to know that *moving* sometimes
-replaces *copying*.  A value is copied when copy-construcing (or
-copy-assigning to) some other (target) object by using the copy
-constructor (or the copy-assignment operator).  A value is moved when
-move-construcing (or move-assigning to) some other (target) object by
-using the move constructor (or the move-assignment operator).
-
-In the examples that follow we use structure `A` that lets us see when
-an object is constructed, copied, moved, accessed (by calling function
-`hello`) and destroyed.  Please note (take a look at the file
-`GNUmakefile`) that file `A.cpp` is separately compiled, and then
-linked with the examples.
-
-Here's the declaration (file `A.hpp`):
-
-```cpp
-{% include_relative A.hpp %}
-```
-
-Here's the definition (file `A.cpp`):
-
-```cpp
-{% include_relative A.cpp %}
-```
 
 ## Accepting arguments
 
