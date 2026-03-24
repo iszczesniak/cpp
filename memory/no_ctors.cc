@@ -5,13 +5,13 @@ struct A
   A(A &&) = delete;
 };
 
-A foo()
+A f()
 {
-  return A();
+  A a;
+  return a;
 }
 
-int
-main()
+int main()
 {
-  A a = foo();
+  A a = f();
 }

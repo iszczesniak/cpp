@@ -426,10 +426,10 @@ that is not a parameter.
 {% include_relative elide.cc %}
 ```
 
-To see the legacy C++ behviour, compile the above example with the
-flag `-fno-elide-constructors` (modify CXXFLAGS in GNUmakefile).
-Notice the differences at run-time, that with constructor elision,
-objects are not copied (nor moved) unnecessarily.
+To see the legacy behviour, compile the above example with the
+compiler flag `-fno-elide-constructors` (modify CXXFLAGS in
+GNUmakefile).  Notice the differences at run-time, that with
+constructor elision, objects are not copied (nor moved) unnecessarily.
 
 Since C++17, the copy and move constructors can be unavailable if they
 are elided, and therefore the following code is valid for C++17
