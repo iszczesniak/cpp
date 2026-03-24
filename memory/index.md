@@ -21,8 +21,8 @@ an operating system, but the rest is up to C++.
 When we run a *program*, it becomes a *process* of an operating
 system, and a *task* a processor is executing.  A process manages its
 memory within the limits imposed by the operating system.  An
-operating system offers a process two types of memory: *read-only*,
-and *read-write*.
+operating system offers a process two types of memory: *read-only* and
+*read-write*.
 
 The read-only memory stores the code of the program (i.e., the
 processor instructions), and the const data known at compile time,
