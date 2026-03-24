@@ -161,6 +161,8 @@ allocation.
 {% include_relative dynamic.cc %}
 ```
 
+## Placement
+
 The placement `new` operator creates an object (or a value of some
 non-class type) "in place", i.e., in the place pointed to with a
 pointer that we pass in parentheses right after `new`.  That version
