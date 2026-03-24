@@ -409,7 +409,7 @@ C++17 (opcja `-std=c++17` GCC), ale nie C++14 (opcja `-std=c++14`
 GCC):
 
 ```cpp
-{% include_relative rvo_or_not.cc %}
+{% include_relative no_ctors.cc %}
 ```
 
 Pomijanie konstruktorów dla zwracanej wartości nie zawsze może być

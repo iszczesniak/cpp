@@ -189,13 +189,13 @@ allocation.
 {% include_relative dynamic.cc %}
 ```
 
-## Placement
+## Emplacement
 
 The placement `new` operator creates an object (or a value of some
 non-class type) "in place", i.e., in the place pointed to with a
 pointer that we pass in parentheses right after `new`.  That version
 of the operator does not allocate memory, so it has nothing to do with
-the dynamic data.
+the dynamic data.  This operation is called **emplacement**.
 
 ```cpp
 {% include_relative placement.cc %}
@@ -417,42 +417,35 @@ calls it the **copy/move elision**.
 
 There used to be two versions of the RVO: named and unnamed.  In C++11
 both became the constructor elision.  However, in C++17, what used to
-be the unnamed RVO became the *temporary materialization*.
-
-The following example demonstrates the constructor elision for its
-only use case: when we return a local variable.  Prior to C++11, this
-use case and its optimization used to be called the named RVO.
+be the unnamed RVO became the *temporary materialization*.  The
+following example demonstrates a use case for the C++17 elision
+(formerly for the named RVO): returning a non-static local variable
+that is not a parameter.
 
 ```cpp
 {% include_relative elide.cc %}
 ```
 
-Compile the example with, then without the flag
-`-fno-elide-constructors`.  Notice the differences at run-time.
-
-Compile the various previous examples of passing arguments to and
-returning results from functions but without disabling the constructor
-elision.  Notice that with constructor elision, objects are not copied
-(nor moved) unnecessarily.
+To see the legacy C++ behviour, compile the above example with the
+flag `-fno-elide-constructors`.  Notice the differences at run-time,
+that with constructor elision, objects are not copied (nor moved)
+unnecessarily.
 
 Since C++17, the copy and move constructors can be unavailable if they
 are elided, and therefore the following code is valid for C++17 (GCC
 option `-std=c++17`), but not for C++14 (GCC option `-std=c++14`).
 
-Compile the example with the flags `-fno-elide-constructors
--std=c++14` (a flag of the GCC compiler), so that the compiler does
-not elide constructors.  If you compile your code with C++17 (e.g.,
-with `-std=c++17` in GCC) or higher, your request to disable
-constructor elision may be ignored by the compiler, because
-constructor elision in some cases is mandatory since C++17.
-
-On a modern system with a modern compiler, a result returned by value
-is not copied.  To see the legacy C++ behviour, compile the example
-with the flag `-fno-elide-constructors -std=c++14`.  Where and why are
-objects copied?  That depends on the function call convention,
-constructor elision, and return value optimization.
+```cpp
+{% include_relative no_ctors.cc %}
+```
 
 ## A temporary materialization
+
+A result can be returned by a function directly in its destination,
+e.g., a variable that is initialized with the result.  The idea is to
+create the result in its destination, so that it doesn't have to be
+copied (copy-initialized) or moved (move-initialized) there, i.e., to
+elide constructors.
 
 ```cpp
 {% include_relative materialization.cc %}
@@ -478,18 +471,14 @@ when the source is a temporary expression (an expression that creates
 a temporary), because the value of the temporary is created in the
 destination.
 
+Compile the example with the flags `-fno-elide-constructors
+-std=c++14` (a flag of the GCC compiler), so that the compiler does
+not elide constructors.  If you compile your code with C++17 (e.g.,
+with `-std=c++17` in GCC) or higher, your request to disable
+constructor elision may be ignored by the compiler, because
+constructor elision in some cases is mandatory since C++17.
+
 ## Exceptions
-
-A result can be returned by a function directly in its destination,
-e.g., a variable that is initialized with the result.  The idea is to
-create the result in its destination, so that it doesn't have to be
-copied (copy-initialized) or moved (move-initialized) there, i.e., to
-elide constructors.  **When returning by value, constructor elision
-requires the modern call convention.**
-
-```cpp
-{% include_relative rvo_or_not.cc %}
-```
 
 Elision cannot always take place, because of technical reasons.
 First, because we return data, which has to be created prior to
