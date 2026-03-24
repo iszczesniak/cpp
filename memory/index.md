@@ -432,8 +432,9 @@ Notice the differences at run-time, that with constructor elision,
 objects are not copied (nor moved) unnecessarily.
 
 Since C++17, the copy and move constructors can be unavailable if they
-are elided, and therefore the following code is valid for C++17 (GCC
-option `-std=c++17`), but not for C++14 (GCC option `-std=c++14`).
+are elided, and therefore the following code is valid for C++17
+(compiler option `-std=c++17`), but not for C++14 (compiler option
+`-std=c++14`).
 
 ```cpp
 {% include_relative no_ctors.cc %}
@@ -472,11 +473,11 @@ a temporary), because the value of the temporary is created in the
 destination.
 
 Compile the example with the flags `-fno-elide-constructors
--std=c++14` (a flag of the GCC compiler), so that the compiler does
-not elide constructors.  If you compile your code with C++17 (e.g.,
-with `-std=c++17` in GCC) or higher, your request to disable
-constructor elision may be ignored by the compiler, because
-constructor elision in some cases is mandatory since C++17.
+-std=c++14` (a flag of a compiler), so that the compiler does not
+elide constructors.  If you compile your code with C++17 or higher,
+your request to disable constructor elision may be ignored by the
+compiler, because constructor elision in some cases is mandatory since
+C++17.
 
 ## Exceptions
 
