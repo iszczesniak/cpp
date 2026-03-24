@@ -1,30 +1,16 @@
+#include "A.hpp"
 #include <iostream>
-
-using namespace std;
-
-struct A
-{
-  A()
-  {
-    cout << "ctor" << endl;
-  }
-
-  ~A()
-  {
-    cout << "dtor" << endl;
-  }
-};
 
 void foo(bool flag)
 {
-  cout << "foo" << endl;
+  std::cout << "foo\n";
   if (flag)
     static A a;
 }
 
 int main()
 {
-  cout << "Main" << endl;
+  std::cout << "main\n";
   foo(false);
   foo(true);
   foo(true);

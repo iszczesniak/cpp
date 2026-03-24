@@ -5,9 +5,11 @@ MAN =
 
 # Extra files used by those programs.
 SRCS_args = A.cpp
+SRCS_global = A.cpp
 SRCS_mcc = A.cpp
 SRCS_placement = A.cpp
 SRCS_return = A.cpp
+SRCS_static = A.cpp
 
 # For every program, add its source file.
 .for p in ${PROGS}
