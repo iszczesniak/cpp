@@ -8,5 +8,5 @@ A f()
 
 int main()
 {
-  A a = g();
+  A a = f();
 }
