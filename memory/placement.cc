@@ -1,20 +1,4 @@
-#include <cassert>
-#include <iostream>
-
-struct A
-{
-  const char *m_name;
-
-  A(const char *name): m_name(name)
-  {
-    std::cout << "ctor: " << m_name << '\n';
-  }
-
-  ~A()
-  {
-    std::cout << "dtor: " << m_name << '\n';
-  }
-};
+#include "A.hpp"
 
 A g("global1");
 
