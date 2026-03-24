@@ -5,7 +5,7 @@ void foo(bool flag)
 {
   std::cout << "foo\n";
   if (flag)
-    static A a;
+    static A a("static");
 }
 
 int main()
