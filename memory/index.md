@@ -531,8 +531,8 @@ begin with their declaration statements that can also initialize them.
 The initializing `1` has no identity: it's not created anywhere and
 then copy-constructed into the variable.  Instead, the value of `1`
 (which may be an operand of a processor instruction) is written into
-the location of the variable -- we could say that the copy constructor
-was elided.
+the location of the variable -- we could say that the temporary (`1`)
+was materialized.
 
 ```cpp
 {% include_relative identity1.cc %}
@@ -543,7 +543,7 @@ they always have to be initialized.  A compiler interprets `{}` as
 `string{}`, which has no identity.  The value of this expression is
 not copy-constructed or move-constructed into the variable.  Instead,
 the value of `string{}` is created directly in the location of the
-variable -- we say that a copy or move constructor was elided.
+variable -- we say that a temporary was materialized.
 
 ```cpp
 {% include_relative identity2.cc %}

@@ -1,6 +1,5 @@
 #include "A.hpp"
 
-
 A foo(bool flag)
 {
   // These objects have to be created, and since we don't know which
