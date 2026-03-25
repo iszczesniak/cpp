@@ -492,25 +492,13 @@ below.
 {% include_relative no_ctors_mater.cc %}
 ```
 
-This example demonstrates the copy elision in the initialization of:
+Compile the above example with:
 
-* a local variable,
+* `-std=c++14` to see the compilation fail: in C++14 it was a use case
+  of the constructor elision,
 
-* a parameter,
-
-* a result.
-
-C++ elides (avoids) the copy constructor or the *move* constructor
-when the source is a temporary expression (an expression that creates
-a temporary), because the value of the temporary is created in the
-destination.
-
-Compile the example with the flags `-fno-elide-constructors
--std=c++14` (a flag of a compiler), so that the compiler does not
-elide constructors.  If you compile your code with C++17 or higher,
-your request to disable constructor elision may be ignored by the
-compiler, because constructor elision in some cases is mandatory since
-C++17.
+* `-std=c++14` to see that `-fno-elide-constructors` has no effect: in
+  C++17 it is not a use case of the constructor elision any longer.
 
 # Lifetime and identity
 
