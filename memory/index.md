@@ -527,8 +527,9 @@ Here's a sample of implementation of the constructor elision and the
 temporary materialization.  We are not returning anything, but pass a
 reference to an object where we want to have the return value created.
 We need to call a destructor after the variable was constructed (so
-that the memory is allocated and the destructor called), but a
-compiler doesn't do it in its implementation.
+that we have the memory allocated, and so that destructor is called
+right before the main function returns), but a compiler doesn't do it
+in its implementation.
 
 ```cpp
 {% include_relative implementation.cc %}
