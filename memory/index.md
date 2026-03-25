@@ -432,8 +432,11 @@ constructor elision, objects are not copied (nor moved) unnecessarily.
 
 Even if constructors are elided, they must be defined because
 depending on the type of the returned value, a compiler can decide not
-to elide constructors.  In the example below, remove the constructors
-by removing the comments to see the compilation fail.
+to elide constructors.  Also, in the exceptional use cases discussed
+below, elision does not apply.  In the example below, remove the
+constructors by removing the comments to see the compilation fail.
+
+**Bottom line: elision is not mandatory.**
 
 ```cpp
 {% include_relative no_ctors_elide.cc %}
@@ -483,10 +486,10 @@ the result in its destination, so that it doesn't have to be copied
 (copy-initialized) or moved (move-initialized) there.  So it's just
 like the constructor elision.
 
-However, the materialization is mandatory, while the elision is not.
-The returned value is never copied or moved, and so its type doesn't
-need to have the copy and move constructors, as shown in the example
-below.
+However, **the materialization is mandatory**, while the elision is
+not.  The returned value is never copied or moved, and so its type
+doesn't need to have the copy and move constructors, as shown in the
+example below.
 
 ```cpp
 {% include_relative no_ctors_mater.cc %}
@@ -497,7 +500,7 @@ Compile the above example with:
 * `-std=c++14` to see the compilation fail: in C++14 it was a use case
   of the constructor elision,
 
-* `-std=c++14` to see that `-fno-elide-constructors` has no effect: in
+* `-std=c++17` to see that `-fno-elide-constructors` has no effect: in
   C++17 it is not a use case of the constructor elision any longer.
 
 # Lifetime and identity
