@@ -1,18 +1,18 @@
 #include "A.hpp"
 
-void g(A &a)
+void g(A *p)
 {
-  new (&a) A("g");
+  new (p) A("g");
 }
 
-void f(A &a)
+void f(A *p)
 {
-  g(a);
+  g(p);
 }
 
 int main()
 {
   A a("main");
   a.~A();
-  f(a);
+  f(&a);
 }

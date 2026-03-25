@@ -525,11 +525,11 @@ directly (materialized) in the parameter.
 
 Here's a sample of implementation of the constructor elision and the
 temporary materialization.  We are not returning anything, but pass a
-reference to an object where we want to have the return value created.
-We need to call a destructor right after the variable initialization
-(so that we have the memory allocated, and so that destructor is
-called right before the main function returns), but a compiler doesn't
-do it in its implementation.
+pointer where we want to have the return value created.  We need to
+call a destructor right after the variable initialization (so that we
+have the memory allocated, and so that destructor is called right
+before the main function returns), but a compiler doesn't do it in its
+implementation.
 
 ```cpp
 {% include_relative implementation.cc %}
