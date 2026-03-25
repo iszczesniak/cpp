@@ -521,6 +521,16 @@ directly (materialized) in the parameter.
 {% include_relative materialization3.cc %}
 ```
 
+## Sample implementation
+
+Here's a sample of implementation of the constructor elision and the
+temporary materialization.  We are not returning anything, but pass a
+reference to an object where we want to have the return value created.
+
+```cpp
+{% include_relative materialization3.cc %}
+```
+
 # Lifetime and identity
 
 Lifetime and identity are two notions that in C++ became technical
