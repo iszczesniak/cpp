@@ -512,7 +512,7 @@ object**.  The example below shows the variable initialization:
 {% include_relative materialization2.cc %}
 ```
 
-And here an example for the initialization of a function parameter:
+And here's an example for the initialization of a function parameter:
 
 ```cpp
 {% include_relative materialization3.cc %}
