@@ -403,9 +403,8 @@ The modern call convention opened the door to efficient returning by
 value, and so the functionality that used to be known as the *return
 value optimization* (RVO) was finally standardized in C++11 under the
 name of the **constructor elision**.  We need to know that an
-*optimization* is offered by a compiler, and is not mandated by the
-standard: RVO has never been standardized, there is even no mention of
-it in the standard.
+*optimization* is offered by a compiler: RVO has never been
+standardized, there is even no mention of it in the standard.
 
 Constructor elision is also known as the *copy elision*, *copy/move
 elision* or *copy/move constructor elision*.  It applies to no other
@@ -478,15 +477,20 @@ materialization.
 {% include_relative materialization1.cc %}
 ```
 
-A result can be returned by a function directly in its destination,
-e.g., a variable that is initialized with the result.  The idea is to
-create the result in its destination, so that it doesn't have to be
-copied (copy-initialized) or moved (move-initialized) there, i.e., to
-elide constructors.
+A result is returned by a function directly in its destination, e.g.,
+a variable that is initialized with the result.  The idea is to create
+the result in its destination, so that it doesn't have to be copied
+(copy-initialized) or moved (move-initialized) there.  So it's just
+like the constructor elision.
 
-When a temporary is passed by value as an argument, that temporary is
-created directly (i.e., with the constructor elided) in the location
-of the function parameter.
+However, the materialization is mandatory, while the elision is not.
+The returned value is never copied or moved, and so its type doesn't
+need to have the copy and move constructors, as shown in the example
+below.
+
+```cpp
+{% include_relative no_ctors_mater.cc %}
+```
 
 This example demonstrates the copy elision in the initialization of:
 
@@ -495,7 +499,6 @@ This example demonstrates the copy elision in the initialization of:
 * a parameter,
 
 * a result.
-
 
 C++ elides (avoids) the copy constructor or the *move* constructor
 when the source is a temporary expression (an expression that creates
