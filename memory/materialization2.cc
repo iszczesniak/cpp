@@ -28,7 +28,7 @@ int main()
   // A e(A{});
   // A f{A()};
 
-  // // Acceptable and interesting, but we don't code like that.
+  // Acceptable and interesting, but we don't code like that.
   // A g = A(A());
   // A h = A{A{}};
 }
