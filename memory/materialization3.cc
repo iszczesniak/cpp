@@ -1,6 +1,6 @@
 #include "A.hpp"
 
-void foo(A)
+void f(A)
 {
 }
 
