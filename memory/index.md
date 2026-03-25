@@ -16,7 +16,7 @@ e.g., `int`, `long double`) or *user-defined* types (e.g., `struct A`,
 The C++ memory organization has to respect the basic requirements of
 an operating system, but the rest is up to C++.
 
-## The basic requirements of an operating system
+## Basic requirements of an operating system
 
 When we run a *program*, it becomes a *process* of an operating
 system, and a *task* a processor is executing.  A process manages its
@@ -120,7 +120,7 @@ The read-write memory stores:
 
 * dynamic data on the heap (a.k.a the free-store).
 
-## The global and static data
+## Global and static data
 
 Global data are initialized before entering the `main` function, and
 are available everywhere in the program:
@@ -149,7 +149,7 @@ using a static over a global variable:
 
 * keep the code tidy and less error-prone.
 
-## The local data
+## Local data
 
 Data local to a function or a block scope are created on the stack.
 The local data is automatically destroyed when it goes out of scope.
@@ -164,7 +164,7 @@ creation, because the stack is a FILO (first in, last out) structure.
 {% include_relative local.cc %}
 ```
 
-## The dynamic data
+## Dynamic data
 
 Dynamic data are created on the heap, and should be managed by *smart
 pointers*, which in turn use the low-level functionality of *raw
@@ -468,7 +468,7 @@ copy the result from the global or static data:
 {% include_relative no_elision3.cc %}
 ```
 
-## The temporary materialization
+## Temporary materialization
 
 It's the materialization of a temporary (a temporary object), and not
 a materialization that is temporary.  Materialization is just
