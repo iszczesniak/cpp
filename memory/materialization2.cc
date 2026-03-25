@@ -1,5 +1,7 @@
 #include "A.hpp"
 
+#pragma clang diagnostic ignored "-Wvexing-parse"
+
 int main()
 {
   // The equivalent ways of direct (with arguments) initialization.
