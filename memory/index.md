@@ -512,7 +512,9 @@ object**.  The example below shows the variable initialization:
 {% include_relative materialization2.cc %}
 ```
 
-And here's an example for the initialization of a function parameter:
+An example below shows the initialization of a function parameter.
+The parameter is initialized by the caller, and so the temporary (that
+the caller controls) is created directly in the parameter.
 
 ```cpp
 {% include_relative materialization3.cc %}
