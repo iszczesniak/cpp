@@ -503,6 +503,21 @@ Compile the above example with:
 * `-std=c++17` to see that `-fno-elide-constructors` has no effect: in
   C++17 it is not a use case of the constructor elision any longer.
 
+There is another use case of the temporary materialization:
+initialization with a temporary object.  Let's notice that **a
+constructor is a special function that returns by value the created
+object**.  The example below shows the variable initialization:
+
+```cpp
+{% include_relative materialization2.cc %}
+```
+
+And here an example for the initialization of a function parameter:
+
+```cpp
+{% include_relative materialization3.cc %}
+```
+
 # Lifetime and identity
 
 Lifetime and identity are two notions that in C++ became technical
