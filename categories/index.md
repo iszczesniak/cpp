@@ -500,9 +500,10 @@ The materialization of a temporary is also known as the prvalue to
 xvalue conversion.  The temporary materialization creates a temporary
 object.
 
-initialization with a prvalue is : the value of a prvalue is created
-directly (using direct initialization, based on the arguments of the
-prvalue) in the destination, without the copy or move initialization.
+Evaluation of a prvalue initializes an object: the value of a prvalue
+is created directly (using direct initialization, based on the
+arguments of the prvalue) in the destination (which can be a variable
+or a temporary), without the copy or move initialization.
 
 It may seem that introducing the prvalue is like splitting hair.  Yes,
 in statement `A a = A();`, expression `A()` is a prvalue, and so its
@@ -531,6 +532,10 @@ returned by function `f`, and so a constructor is elided.
 
 ```cpp
 {% include_relative elide2.cc %}
+```
+
+```cpp
+{% include_relative elide3.cc %}
 ```
 
 # Conclusion
