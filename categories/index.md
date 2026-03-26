@@ -272,13 +272,13 @@ when an expression is evaluated.  A temporary is automatically
 destroyed (i.e., you don't need to explicitly destroy it) when it is
 not needed anymore.
 
-A temporary is needed when:
+A temporary is created when:
 
-* evaluating an operation: `1 + 2`, `string("T") + "4"`
+* evaluating an operation: `string("T") + "4"`
 
-* when passing an argument to a function: `foo(A())`
+* passing an argument to a function: `foo(A())`
 
-* when returning an object from a function: `string x = foo();`
+* assigning with a result returned by value: `x = foo();`
 
 * throwing an exception: `throw A();`
 
@@ -494,9 +494,16 @@ glvalue-to-prvalue conversion as:
 The results object mentioned above is the object that is the result of
 the prvalue materialization.
 
-## Back to constructor elision
+## Temporary materialization and constructor elision
 
-**Initialization with a prvalue elides a (copy or move) constructor.**
+The materialization of a temporary is also known as the prvalue to
+xvalue conversion.  The temporary materialization creates a temporary
+object.
+
+initialization with a prvalue is : the value of a prvalue is created
+directly (using direct initialization, based on the arguments of the
+prvalue) in the destination, without the copy or move initialization.
+
 It may seem that introducing the prvalue is like splitting hair.  Yes,
 in statement `A a = A();`, expression `A()` is a prvalue, and so its
 value is directly initialized in `a`.  All that hassle just for this?
@@ -525,16 +532,6 @@ returned by function `f`, and so a constructor is elided.
 ```cpp
 {% include_relative elide2.cc %}
 ```
-
-## Temporary materialization
-
-Temporary materialization is a fancy name for construcing a temporary
-object.
-
-A conversion from a prvalue to an xvalue creates a temporary object,
-which is also known as the materialization of a temporary.  While
-rvalue can be moved, it's really about moving the xvalue because
-prvalue doesn't have an identity.
 
 # Conclusion
 
