@@ -523,7 +523,7 @@ directly (materialized) in the parameter.
 
 ## Sample implementation
 
-Here's a sample of implementation of the constructor elision and the
+Here's a sample implementation of the constructor elision and the
 temporary materialization.  We are not returning anything, but pass a
 pointer where we want to have the return value created.  We need to
 call a destructor right after the variable initialization (so that we
