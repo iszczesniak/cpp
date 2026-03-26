@@ -481,7 +481,7 @@ A call expression of a function that returns:
 
 ### The lvalue-to-rvalue conversion
 
-Now the lvalue-to-rvalue conversion is now called this way for the
+Now the lvalue-to-rvalue conversion is called this way for the
 historic reason, but it should be called the glvalue-to-prvalue
 conversion.
 
@@ -490,53 +490,6 @@ glvalue-to-prvalue conversion as:
 
 > If T has a class type, the conversion copy-initializes the result
 > object from the glvalue.
-
-The results object mentioned above is the object that is the result of
-the prvalue materialization.
-
-## Temporary materialization and constructor elision
-
-The materialization of a temporary is also known as the prvalue to
-xvalue conversion.  The temporary materialization creates a temporary
-object.
-
-Evaluation of a prvalue initializes an object: the value of a prvalue
-is created directly (using direct initialization, based on the
-arguments of the prvalue) in the destination (which can be a variable
-or a temporary), without the copy or move initialization.
-
-It may seem that introducing the prvalue is like splitting hair.  Yes,
-in statement `A a = A();`, expression `A()` is a prvalue, and so its
-value is directly initialized in `a`.  All that hassle just for this?
-The worthwhile use case is returning by value, the only one I know of.
-
-In the example below, functions `f` and `g` return by value.  Function
-`f` returns right away (without using a local variable) the result of
-function `g`.  The result of function `f` initializes the local
-variabe `s` of the main function.  Expression `g()` is a prvalue, so
-its value is initialized in the return value of `f()`, but `f()` is
-also prvalue, so its value in turn is initialized in `s`.  A
-constructor was elided twice, because the compiler knew it was dealing
-with prvalues.
-
-```cpp
-{% include_relative elide1.cc %}
-```
-
-The example below is a modified above example: we changed function
-`f`, so that it takes an argument by value, and returns by value its
-parameter.  The parameter `p` of function `f` is constructed with the
-prvalue returned by function `g`, and so a constructor is elided.  The
-variable `s` of the main function is constructed with the prvalue
-returned by function `f`, and so a constructor is elided.
-
-```cpp
-{% include_relative elide2.cc %}
-```
-
-```cpp
-{% include_relative elide3.cc %}
-```
 
 # Conclusion
 
