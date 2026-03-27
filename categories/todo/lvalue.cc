@@ -15,7 +15,8 @@ int main()
   // int &.
   *const_cast<int *>(&a) = 3;
 
-  // The type of the dereference expression is a reference.
+  // The type of the dereference expression is a reference type,
+  // because we're pointing to existing data that has identity.
   int *p;
-  ER<decltype(*p)> er;
+  // ER<decltype(*p)> er;
 }
