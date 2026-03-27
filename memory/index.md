@@ -97,17 +97,7 @@ an object is constructed, copied, moved, accessed (by calling function
 `GNUmakefile`) that file `A.cpp` is separately compiled, and then
 linked with the examples.
 
-Here's the declaration (file `A.hpp`):
-
-```cpp
-{% include_relative A.hpp %}
-```
-
-Here's the definition (file `A.cpp`):
-
-```cpp
-{% include_relative A.cpp %}
-```
+[Click here to see `A.hpp` and `A.cpp`](../lib)
 
 # Data and their location
 
