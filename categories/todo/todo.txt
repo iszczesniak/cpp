@@ -1,5 +1,10 @@
-Is lvalue-to-rvalue convertsion now the glvalue-to-prvalue conversion?
-Come up with an practical exaple for objects.
+glvalue to prvalue:
+
+* lvalue to prvalue,
+
+* xvalue to prvalue.
+
+***********************************************************************
 
 ## Temporary materialization and constructor elision
 
