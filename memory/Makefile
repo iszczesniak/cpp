@@ -29,4 +29,12 @@ SRCS_static = A.cpp
 SRCS_$p += $p.cc
 .endfor
 
+A.cpp: ../lib/A.cpp
+	cp ../lib/A.cpp .
+
+A.hpp: ../lib/A.hpp
+	cp ../lib/A.hpp .
+
+all: A.hpp
+
 .include <bsd.prog.mk>
