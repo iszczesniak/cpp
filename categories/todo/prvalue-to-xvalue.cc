@@ -2,6 +2,6 @@
 
 int main()
 {
-  A("Hello");
-  A && r = A("World");
+  A && r = A("Hello");
+  A("World");
 }
