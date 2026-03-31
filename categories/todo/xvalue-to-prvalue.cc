@@ -1,6 +1,8 @@
 #include "A.hpp"
 #include <utility>
 
+#pragma clang diagnostic ignored "-Wunused-value"
+
 A foo()
 {
   static A a("Hello!");

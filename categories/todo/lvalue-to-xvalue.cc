@@ -4,13 +4,12 @@
 
 A foo()
 {
-  return A("!");
+  static A a("Hello!");
+  return a;
 }
 
 int main()
 {
-  A && r = A("Hello");
-  A("World");
-  static_cast<A &&>(A("World"));
-  foo();
+  A a = foo();
+  static_cast<A>(a);
 }
