@@ -1,15 +1,17 @@
 #include "A.hpp"
+#include <utility>
 
 #pragma clang diagnostic ignored "-Wunused-value"
 
-A foo()
+A &&foo()
 {
   static A a("Hello!");
-  return a;
+  return std::move(a);
 }
 
 int main()
 {
   A a = foo();
-  static_cast<A>(a);
+  A b = static_cast<A &&>(a);
+  A c = std::move(b);
 }
