@@ -11,6 +11,7 @@ SRCS_lvalue-to-prvalue = A.cpp
 SRCS_lvalue-to-xvalue = A.cpp
 SRCS_prvalue-to-lvalue = A.cpp
 SRCS_prvalue-to-xvalue = A.cpp
+SRCS_xvalue-to-lvalue = A.cpp
 SRCS_xvalue-to-prvalue = A.cpp
 
 # For every program, add its source file.
