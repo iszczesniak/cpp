@@ -10,7 +10,7 @@ auto add(const P &... p)
   // The left version.
   return (... + p);
   // The right version.
-  // return (params + ...);
+  // return (p + ...);
 }
 
 int
