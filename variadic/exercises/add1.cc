@@ -15,5 +15,5 @@ main()
 {
   std::cout << add(1, 2) << std::endl;
   std::cout << add(1, 2.3) << std::endl;
-  std::cout << add(std::string("Hello "), "World!") << std::endl;
+  std::cout << add(std::string("Hello "), "World", '!') << std::endl;
 }
