@@ -140,7 +140,7 @@ Dla działania łącznego (np. dodawania) kierunek nie ma znaczenia, bo
 wynik będzie ten sam.  Jeżeli jednak działanie nie jest łączne, to
 kolejność ma znaczenie.  Proszę sprawdzić: 3 - 2 - 1 opracowujemy od
 lewej do prawej strony: (3 - 2) - 1 = 0, a nie od prawej do lewej: 3 -
-(2 - 1) = 2.  Wniosek: operator `-` musi mieć wiązanie lewe.
+(2 - 1) = 2.  Wniosek: operator `-` ma wiązanie lewe.
 
 Nie ma wyrażenia złożenia, które jest rozwijane w powyższy sposób,
 żeby kompilator opracował podwyrażenia w kierunku zgodnym z wiązaniem

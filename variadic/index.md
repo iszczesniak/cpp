@@ -139,8 +139,9 @@ For an associative operation (e.g, addition), the direction doesn't
 matter as the result is the same.  If the operation is not
 associative, the direction matters.  Check this out: 3 - 2 - 1 is
 evaluated from left to right: (3 - 2) - 1 = 0, and not from right to
-left: 3 - (2 - 1) = 2.  Conclusion: operator `-` must have the
-left-to-right associativity (even though it's not associative).
+left: 3 - (2 - 1) = 2.  Conclusion: operator `-` has the left-to-right
+associativity.  Note the term: *left-to-right associativity* even
+though subtraction is not associative.
 
 There is no fold expression that would be expanded as show above, so
 that a compiler evaluates the subexpressions in the direction given by
