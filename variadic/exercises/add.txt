@@ -1,2 +1,3 @@
-Please write a function `add` that takes any number of arguments by a
-const reference.  The function returns the sum of the arguments taken.
+Please write a function `add` that takes any number of arguments of
+any type by a const reference.  The function returns the sum (use `+`)
+of the arguments taken.
