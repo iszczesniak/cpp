@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
 
-template <typename Param, typename... Params>
-auto add(const Param &param, const Params &... params)
+template <typename T, typename... P>
+auto add(const T &t, const P &... p)
 {
-  if constexpr (sizeof...(params))
-    return param + add(params...);
+  if constexpr (sizeof...(p))
+    return t + add(p...);
   else
-    return param;
+    return t;
 }
 
 int

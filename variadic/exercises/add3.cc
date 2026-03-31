@@ -1,16 +1,16 @@
 #include <iostream>
 #include <string>
 
-template <typename... P>
-auto add(const P &... p)
+template <typename T, typename... P>
+auto add(const T &t, const P &... p)
 {
   // Addition is associative, so it doesn't matter whether we use the
   // left or the right version of the unary fold expression.
 
   // The left version.
-  return (... + p);
+  return (t + ... + p);
   // The right version.
-  // return (params + ...);
+  // return (p + ... + t);
 }
 
 int
