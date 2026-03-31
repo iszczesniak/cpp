@@ -6,8 +6,11 @@ auto add(const Params &... params)
 {
   // Addition is associative, so it doesn't matter whether we use the
   // left or the right version of the unary fold expression.
-  // return (params + ...);
+
+  // The left version.
   return (... + params);
+  // The right version.
+  // return (params + ...);
 }
 
 int
