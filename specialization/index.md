@@ -56,9 +56,9 @@ Here's an example:
 
 We can also only declare a primary template or a specialization.  If
 we declare a primary template and not define it later, then there is
-no definition of this function primary template.  We can specialize
-this template and use it only for the specializations defined.  This
-is shown by the example below.
+no definition of this primary template.  We can specialize this
+template and use it only for the specializations defined.  This is
+shown by the example below.
 
 We can skip the argument list for the primary template if the compiler
 is able to figure it out (deduce it?) based on the function parameter
@@ -116,10 +116,10 @@ regular function be used when calling `foo` with an argument of type
 ```
 
 For the primary function template, we can add a specialization for `T
-= A`, but a compler uses the regular function anyway.  During overload
-resolution, a compiler does not consider specializations, but only the
-overloads of regular functions and overloads of primary function
-templates.
+= A`, but a compiler uses the regular function anyway.  During
+overload resolution, a compiler does not consider specializations, but
+only the overloads of regular functions and overloads of primary
+function templates.
 
 ```cpp
 {% include_relative mix2.cc %}
@@ -127,10 +127,13 @@ templates.
 
 ## When we need the specialization
 
-It seems that a template specialization is redundant, because we
-achieved similar functionality with regular function overloads.  There
-is, however, a functionality of the specialization that we cannot
-achieve with regular function overloads.
+It seems that a specialization of a primary function template is
+redundant, because a regular function overload offers a similar (and
+even better, because it comes first) functionality: both a
+specialization and an overload are (defined, intended) for a specific
+type of a function argument.  There is, however, a functionality of
+the specialization that we cannot achieve with a regular function
+overload.
 
 A template specialization allows a user to provide some implementation
 to the code that was already included as a header file, e.g., a
