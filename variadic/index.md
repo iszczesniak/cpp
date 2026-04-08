@@ -232,14 +232,16 @@ version.
 ## A short but difficult example: a comma-separated list
 
 The binary comma operator is unusual because it joins two
-independently-evaluated subexpressions.  The comma has the
+**independently-evaluated** subexpressions.  The comma has the
 left-to-right associativity, so the left subexpression is evaluated
 first, unaffected by the parentheses in the right subexpression.
 Interestingly, this operator has the lowest priority, yet it
 establishes the order in which the subexpressions of higher-priority
-operators are evaluated.  In the example below, the comma operators
-(and not parentheses) establish the order in which the subexpressions
-of operator `<<` are evaluated.
+operators are evaluated: how come?  Let's remember that the
+subexpressions of the comma operator are independently evaluated, and
+even the parentheses don't help (which are not operators anyway).  In
+the example below, the comma operators (and not parentheses) establish
+the order in which the subexpressions of operator `<<` are evaluated.
 
 ```cpp
 {% include_relative comma.cc %}

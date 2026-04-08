@@ -230,13 +230,15 @@ niżej używa operatorów strumieniowych, więc musimy użyć wersji lewej.
 ## Krótki a trudny przykład: lista oddzielona przecinkami
 
 Binarny operator przecinka jest nietypowy, ponieważ łączy dwa
-podwyrażenia opracowywane niezależnie.  Przecinek ma wiązanie lewe,
-więc lewe podwyrażenie jest opracowane pierwsze, niezależnie od
+podwyrażenia **opracowywane niezależnie**.  Przecinek ma wiązanie
+lewe, więc lewe podwyrażenie jest opracowane pierwsze, niezależnie od
 nawiasów z prawego podwyrażenia.  Co ciekawe, operator ten ma
 najniższy priorytet, a jednak ustala porządek opracowania podwyrażeń
-operatorów o wyższym priorytecie.  W przykładzie niżej, przecinki (a
-nie nawiasy) ustalają porządek opracowania podwyrażeń z operatorem
-`<<`.
+operatorów o wyższym priorytecie: jak to możliwe?  Pamiętajmy, że
+podwyrażenia operatora przecinka są niezależnie opracowywany i nawet
+nawiasy nie pomogą (które i tak nie są operatorami).  W przykładzie
+niżej, przecinki (a nie nawiasy) ustalają porządek opracowania
+podwyrażeń z operatorem `<<`.
 
 ```cpp
 {% include_relative comma.cc %}
