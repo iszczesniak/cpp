@@ -114,7 +114,7 @@ pierwszeństwo.**
 ```
 
 Dla podstawowego szablonu funkcji możemy dodać specjalizację dla `T =
-A`, ale kompilator i tak używa zwykłej funkcja.  Podczas wyboru
+A`, ale kompilator i tak używa zwykłej funkcji.  Podczas wyboru
 przeciążenia, kompilator nie rozważa specjalizacji, a jedynie
 przeciążenia zwykłych funkcji i przeciążenia podstawowych szablonów
 funkcji.
@@ -130,7 +130,7 @@ funkcjonalność uzyskaliśmy przeciążeniami zwykłej funkcji.  Jest
 jednak funkcjonalność specjalizacji, której nie osiągniemy przez
 przeciążenia.
 
-Specjalizacja szablonów pozwala użytkownikowi do dostarczenie
+Specjalizacja szablonów pozwala użytkownikowi na dostarczenie
 implementacji dla kodu, który został już dołączony w pliku
 nagłówkowym, np. biblioteki szablonowej.  Biblioteka deklaruje
 podstawowy szablon funkcji, której wymaga, a definicję specjalizacji
