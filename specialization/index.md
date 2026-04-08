@@ -130,10 +130,10 @@ function templates.
 It seems that a specialization of a primary function template is
 redundant, because a regular function overload offers a similar (and
 even better, because it comes first) functionality: both a
-specialization and an overload are (defined, intended) for a specific
-type of a function argument.  There is, however, a functionality of
-the specialization that we cannot achieve with a regular function
-overload.
+specialization (that is only explicit) and an overload are (defined,
+intended) for a specific type of a function argument.  There is,
+however, a functionality of the specialization that we cannot achieve
+with a regular function overload.
 
 A template specialization allows a user to provide some implementation
 to the code that was already included as a header file, e.g., a
