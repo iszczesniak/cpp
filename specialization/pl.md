@@ -125,10 +125,13 @@ funkcji.
 
 ## Kiedy potrzebujemy specjalizacji
 
-Wydaje się, że specjalizacja szablonu jest zbędna, bo podobną
-funkcjonalność uzyskaliśmy przeciążeniami zwykłej funkcji.  Jest
-jednak funkcjonalność specjalizacji, której nie osiągniemy przez
-przeciążenia.
+Wydaje się, że specjalizacja szablonu jest zbędna, bo przeciążenie
+zwykłej funkcji oferuje podobną (a nawet lepszą, bo mającą
+pierszeństwo) funkcjonalność: zarówno specjalizacja podstawowego
+szablonu funkcji (która jest tylko jawna) jak i przeciążenie są
+przeznaczone dla konkretnego typu argumentu wywołania.  Jest jednak
+funkcjonalność specjalizacji, której nie osiągniemy przez
+przeciążenie.
 
 Specjalizacja szablonów pozwala użytkownikowi na dostarczenie
 implementacji dla kodu, który został już dołączony w pliku
