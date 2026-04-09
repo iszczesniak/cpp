@@ -50,7 +50,7 @@ błędem i nie kończy kompilacji.
 
 To niepowodzenie nazywa się dokładnie **niepowodzeniem podstawienia**
 (ang. substitution failure): kompilator próbuje wywnioskować
-argumenty, żeby podczas konkretyzacji je podstawić za parametry.
+argumenty, żeby podczas konkretyzacji podstawić je za parametry.
 Niepowodzenie eliminuje szablon z dalszego rozważania (wyboru
 przeciążenia) i nie zgłasza błędu, co ma swój angielski akronim SFINAE
 (ang. Substitution Failure Is Not An Error).
