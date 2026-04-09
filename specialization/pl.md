@@ -90,6 +90,11 @@ jeżeli pierwszy szablon będzie zawsze można użyć, gdy można użyć
 drugi, ale nie na odwrót (czyli drugi szablon nie zawsze będzie można
 użyć, gdy można użyć pierwszy).
 
+W przykładzie wyżej szablon B jest bardziej wyspecjalizowany niż
+szablon A, bo szablonu B nie można użyć w każdym przypadku, w którym
+można użyć szablonu A.  Na przykład, funkcja szablonu A może przyjąć
+liczbę całowitą, a szablon B już nie.
+
 # Specjalizacja szablonu funkcji
 
 Szablon funkcji może być specjalizowany tylko jawnie, czyli wszystkie
