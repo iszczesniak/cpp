@@ -11,7 +11,7 @@ struct A
   }
 };
 
-// A complete specialization.
+// An explicit specialization.
 template<>
 struct A<double>: std::pair<double, double>
 {

@@ -12,7 +12,7 @@ void foo(const T &t)
   std::cout << t << std::endl;
 }
 
-// A complete specialization of a function template.
+// An explicit specialization of a function template.
 template <>
 void foo<A>(const A &)
 {

@@ -13,7 +13,7 @@ void print(const T &t)
   print<N - 1>(t);
 }
 
-// Complete specialization of a function template.
+// An explicit specialization of a function template.
 template <>
 void print<0>(const int &)
 {
