@@ -25,6 +25,58 @@ W przeciwieństwie do specjalizacji jawnej, częściowa specjalizacja
 pozwala na zdefiniowanie parametrów szablonu, które są używane w
 argumentach szablonu podstawowego.
 
+## Przeciążenie szablonu podstawowego
+
+Specjalizacja (a może lepiej "wyspecjalizowanie") ma dodatkowe
+znaczenie w języku C++, który pozwala przeciążać szablony podstawowe
+funkcji o tej samej nazwie, podobnie jak zwykłe funkcje.  Jeżeli
+będzie można użyć więcej niż jednego szablonu podstawowego, to
+kompilator wybiera najbardziej **wyspecjalizowany** szablon.  Nie
+musimy specjalizować szablonu, żeby mówić o **najbardziej
+wyspecjalizowanym szablonie podstawowym**.  W przykładzie niżej
+definiujemy dwa szablony podstawowe funkcji `foo`, a następnie
+wywołujemy funkcję `foo`.
+
+```cpp
+{% include_relative special1.cc %}
+```
+
+Jak kompilator wybrał właściwy szablon dla dwóch wywołań funkcji w
+przykładzie wyżej?  Pierwsze wywołanie przekazuje argument typu
+całkowitego, więc wybór jest tylko jeden: szablon `A`.  Szablon `B`
+nie może być użyty, bo kompilator nie jest w stanie wywnioskować
+argumentu `B1` szablonu tak, żeby można byłoby zainicjalizować
+parametr `b1` funkcji.
+
+Drugie wywołanie jest ciekawsze.  Kompilator może użyć zarówno
+szablonu `A`, jak i `B`.  W tej sytuacji jest użyty **bardziej
+wyspecjalizowany szablon**.  W tym przykładzie szablon `B` jest
+bardziej wyspecjalizowany.
+
+Podczas opracowania drugiego wywołania, kompilator może skonkretyzować
+oba szablony używając wywnioskowanych argumentów:
+
+* szablon `A`: `void foo(A1)` z `A1 = int *`,
+
+* szablon `B`: `void foo(B1 *)` z `B1 = int`.
+
+Obie konkretyzacje tworzą funkcję szablonową `void foo(int *)`, którą
+można już użyć w drugim wywołaniu.  Teraz problemem pozostaje, który
+szablon wybrać do wygenerowania ciała tej funkcji szablonowej.
+
+Podkreślmy, że kompilator w dwóch osobnych krokach:
+
+1. tworzy zbiór kandydatów szablonów,
+
+2. wybiera najbardziej wyspecjalizowany szablon ze zbioru kandydatów.
+
+W pierwszym kroku, spośród dostępnych szablonów, kompilator wybiera
+te, dla których można wywnioskować argumenty (pozostałe szablony są
+ignorowane zgodnie z zasadą SFINAE).  Zwróćmy uwagę na ważny fakt: **w
+drugim kroku, wyrażenie wywołania nie jest już brane pod uwagę.**
+Wyrażenie wywołania jest brane pod uwagę tylko w pierwszym kroku, żeby
+wybrać kandydatów.
+
 # Specjalizacja szablonu funkcji
 
 Szablon funkcji może być specjalizowany tylko jawnie, czyli wszystkie
@@ -86,57 +138,6 @@ dla parametru `T`, bo kompilator może go sobie wytrzasnąć.
 ```cpp
 {% include_relative print.cc %}
 ```
-
-## Przeciążenie
-
-Specjalizacja (a może lepiej "wyspecjalizowanie") ma dodatkowe
-znaczenie w języku C++, który pozwala przeciążać szablony podstawowe
-funkcji o tej samej nazwie, podobnie jak zwykłe funkcje.  Jeżeli
-będzie można użyć więcej niż jednego szablonu, to kompilator wybiera
-najbardziej **wyspecjalizowany** szablon.  Nie musimy specjalizować
-szablonu, żeby mówić o **najbardziej wyspecjalizowanym szablonie
-podstawowym**.  W przykładzie niżej definiujemy dwa szablony
-podstawowe funkcji `foo`, a następnie wywołujemy funkcję `foo`.
-
-```cpp
-{% include_relative special1.cc %}
-```
-
-Jak kompilator wybrał właściwy szablon dla dwóch wywołań funkcji w
-przykładzie wyżej?  Pierwsze wywołanie przekazuje argument typu
-całkowitego, więc wybór jest tylko jeden: szablon `A`.  Szablon `B`
-nie może być użyty, bo kompilator nie jest w stanie wywnioskować
-argumentu `B1` szablonu tak, żeby można byłoby zainicjalizować
-parametr `b1` funkcji.
-
-Drugie wywołanie jest ciekawsze.  Kompilator może użyć zarówno
-szablonu `A`, jak i `B`.  W tej sytuacji jest użyty **bardziej
-wyspecjalizowany szablon**.  W tym przykładzie szablon `B` jest
-bardziej wyspecjalizowany.
-
-Podczas opracowania drugiego wywołania, kompilator może skonkretyzować
-oba szablony używając wywnioskowanych argumentów:
-
-* szablon `A`: `void foo(A1)` z `A1 = int *`,
-
-* szablon `B`: `void foo(B1 *)` z `B1 = int`.
-
-Obie konkretyzacje tworzą funkcję szablonową `void foo(int *)`, którą
-można już użyć w drugim wywołaniu.  Teraz problemem pozostaje, który
-szablon wybrać do wygenerowania ciała tej funkcji szablonowej.
-
-Podkreślmy, że kompilator w dwóch osobnych krokach:
-
-1. tworzy zbiór kandydatów szablonów,
-
-2. wybiera najbardziej wyspecjalizowany szablon ze zbioru kandydatów.
-
-W pierwszym kroku, spośród dostępnych szablonów, kompilator wybiera
-te, dla których można wywnioskować argumenty (pozostałe szablony są
-ignorowane zgodnie z zasadą SFINAE).  Zwróćmy uwagę na ważny fakt: **w
-drugim kroku, wyrażenie wywołania nie jest już brane pod uwagę.**
-Wyrażenie wywołania jest brane pod uwagę tylko w pierwszym kroku, żeby
-wybrać kandydatów.
 
 ## Zwykła funkcja a szablon funkcji
 
