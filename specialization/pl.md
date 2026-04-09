@@ -83,7 +83,7 @@ wielu, to kandydaci porównywani są parami.  Jeżeli nie można wskazać
 najlepszego kandydata (dochodzi do remisu), to zgłaszany jest błąd
 niejednoznaczności.
 
-Szczegóły wyboru są omówione (tutaj)[../fitter/pl].  Mówiąc krótko
+Szczegóły wyboru są omówione [tutaj](../fitter/pl).  Mówiąc krótko
 (choć enigmatycznie), pierwszy szablon jest mniej wyspecjalizowany niż
 drugi (albo że drugi jest bardziej wyspecjalizowany niż pierwszy),
 jeżeli pierwszy szablon będzie zawsze można użyć, gdy można użyć
