@@ -19,13 +19,12 @@ podstawowego.
 Specjalizacja może być **częściowa** (ang. partial specialization)
 albo **jawna** (ang. explicit specialization).  Specjalizacja szablonu
 funkcji może być tylko jawna (nie może być częściowa).  Specjalizacja
-szablonu typu może być częściowa albo jawna.
+szablonu typu może być częściowa albo jawna.  W przeciwieństwie do
+specjalizacji jawnej, częściowa specjalizacja pozwala na zdefiniowanie
+parametrów szablonu, które są używane w argumentach szablonu
+podstawowego.
 
-W przeciwieństwie do specjalizacji jawnej, częściowa specjalizacja
-pozwala na zdefiniowanie parametrów szablonu, które są używane w
-argumentach szablonu podstawowego.
-
-## Przeciążenie szablonu podstawowego
+# Przeciążenie szablonu podstawowego
 
 Specjalizacja (a może lepiej "wyspecjalizowanie") ma dodatkowe
 znaczenie w języku C++, który pozwala przeciążać szablony podstawowe
@@ -76,6 +75,20 @@ ignorowane zgodnie z zasadą SFINAE).  Zwróćmy uwagę na ważny fakt: **w
 drugim kroku, wyrażenie wywołania nie jest już brane pod uwagę.**
 Wyrażenie wywołania jest brane pod uwagę tylko w pierwszym kroku, żeby
 wybrać kandydatów.
+
+W drugim kroku, wybierany jest najbardziej wyspecjalizowany kandydat.
+Jeżeli kandydatów nie ma, jest zgłaszany błąd.  Jeżeli jest tylko
+jeden kandydat, to kandydata nie trzeba wybierać.  Jeżeli jest ich
+wielu, to kandydaci porównywani są parami.  Jeżeli nie można wskazać
+najlepszego kandydata (dochodzi do remisu), to zgłaszany jest błąd
+niejednoznaczności.
+
+Szczegóły wyboru są omówione (tutaj)[../fitter/pl].  Mówiąc krótko
+(choć enigmatycznie), pierwszy szablon jest mniej wyspecjalizowany niż
+drugi (albo że drugi jest bardziej wyspecjalizowany niż pierwszy),
+jeżeli pierwszy szablon będzie zawsze można użyć, gdy można użyć
+drugi, ale nie na odwrót (czyli drugi szablon nie zawsze będzie można
+użyć, gdy można użyć pierwszy).
 
 # Specjalizacja szablonu funkcji
 
