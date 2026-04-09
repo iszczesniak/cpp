@@ -45,7 +45,15 @@ przykładzie wyżej?  Pierwsze wywołanie przekazuje argument typu
 całkowitego, więc wybór jest tylko jeden: szablon `A`.  Szablon `B`
 nie może być użyty, bo kompilator nie jest w stanie wywnioskować
 argumentu `B1` szablonu tak, żeby można byłoby zainicjalizować
-parametr `b1` funkcji.
+parametr `b1` funkcji, co nazywa się **niepowodzeniem**, nie jest
+błędem i nie kończy kompilacji.
+
+To niepowodzenie nazywa się dokładnie **niepowodzeniem podstawienia**
+(ang. substitution failure): kompilator próbuje wywnioskować
+argumenty, żeby podczas konkretyzacji je podstawić za parametry.
+Niepowodzenie eliminuje szablon z dalszego rozważania (wyboru
+przeciążenia) i nie zgłasza błędu, co ma swój angielski akronim SFINAE
+(ang. Substitution Failure Is Not An Error).
 
 Drugie wywołanie jest ciekawsze.  Kompilator może użyć zarówno
 szablonu `A`, jak i `B`, bo może skonkretyzować oba szablony używając
