@@ -9,7 +9,8 @@ void foo(const T &t)
   std::cout << t << std::endl;
 }
 
-// An explicit specialization of a function template.
+// An explicit specialization of a function template.  The argument
+// for the primary template is explicitly given.
 template <>
 void foo<std::string>(const std::string &)
 {
