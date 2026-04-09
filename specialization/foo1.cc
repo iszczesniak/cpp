@@ -1,8 +1,5 @@
 #include <iostream>
-
-struct A
-{
-};
+#include <string>
 
 // The definition of the primary function template.
 template <typename T>
@@ -14,10 +11,10 @@ void foo(const T &t)
 
 // An explicit specialization of a function template.
 template <>
-void foo<A>(const A &)
+void foo<std::string>(const std::string &)
 {
   std::cout << __PRETTY_FUNCTION__ << ": ";
-  std::cout << "A" << std::endl;
+  std::cout << "std::string" << std::endl;
 }
 
 int
@@ -26,5 +23,5 @@ main()
   foo(1);
   foo(.2);
   foo("Hello!");
-  foo(A());
+  foo(std::string("Hello!"));
 }
