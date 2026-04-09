@@ -81,7 +81,7 @@ kandydatów, a **w drugim kroku, wyrażenie wywołania nie jest już brane
 pod uwagę.**
 
 W drugim kroku, wybierany jest najbardziej wyspecjalizowany kandydat.
-Jeżeli kandydatów nie ma, jest zgłaszany błąd.  Jeżeli jest tylko
+Jeżeli kandydatów nie ma, to jest zgłaszany błąd.  Jeżeli jest tylko
 jeden kandydat, to kandydata nie trzeba wybierać.  Jeżeli jest ich
 wielu, to kandydaci porównywani są parami, żeby znaleźć ten
 najbardziej wyspecjalizowany.  Jeżeli nie można wskazać najlepszego
@@ -98,7 +98,9 @@ można użyć wtedy, kiedy można użyć pierwszy).
 W przykładzie wyżej szablon `B` jest bardziej wyspecjalizowany niż
 szablon `A`, bo szablonu `B` nie można użyć w każdym przypadku, w
 którym można użyć szablonu `A`.  Na przykład, funkcja szablonu `A`
-może przyjąć liczbę całowitą, a szablon `B` już nie.
+może przyjąć liczbę całowitą, a szablon `B` już nie.  Zatem szablon
+`B` jest najbardziej wyspecjalizowanym kandydatem (szablonem
+podstawowym) dla drugiego wywołania funkcji.
 
 # Specjalizacja szablonu funkcji
 
