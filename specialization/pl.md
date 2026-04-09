@@ -48,12 +48,8 @@ argumentu `B1` szablonu tak, żeby można byłoby zainicjalizować
 parametr `b1` funkcji.
 
 Drugie wywołanie jest ciekawsze.  Kompilator może użyć zarówno
-szablonu `A`, jak i `B`.  W tej sytuacji jest użyty **bardziej
-wyspecjalizowany szablon**.  W tym przykładzie szablon `B` jest
-bardziej wyspecjalizowany.
-
-Podczas opracowania drugiego wywołania, kompilator może skonkretyzować
-oba szablony używając wywnioskowanych argumentów:
+szablonu `A`, jak i `B`, bo może skonkretyzować oba szablony używając
+wywnioskowanych argumentów:
 
 * szablon `A`: `void foo(A1)` z `A1 = int *`,
 
@@ -71,29 +67,31 @@ Podkreślmy, że kompilator w dwóch osobnych krokach:
 
 W pierwszym kroku, spośród dostępnych szablonów, kompilator wybiera
 te, dla których można wywnioskować argumenty (pozostałe szablony są
-ignorowane zgodnie z zasadą SFINAE).  Zwróćmy uwagę na ważny fakt: **w
-drugim kroku, wyrażenie wywołania nie jest już brane pod uwagę.**
-Wyrażenie wywołania jest brane pod uwagę tylko w pierwszym kroku, żeby
-wybrać kandydatów.
+ignorowane zgodnie z zasadą SFINAE).
+
+Zwróćmy uwagę, że wyrażenie wywołania jest brane pod uwagę tylko w
+pierwszym kroku, żeby wybrać kandydatów, a **w drugim kroku, wyrażenie
+wywołania nie jest już brane pod uwagę.**
 
 W drugim kroku, wybierany jest najbardziej wyspecjalizowany kandydat.
 Jeżeli kandydatów nie ma, jest zgłaszany błąd.  Jeżeli jest tylko
 jeden kandydat, to kandydata nie trzeba wybierać.  Jeżeli jest ich
-wielu, to kandydaci porównywani są parami.  Jeżeli nie można wskazać
-najlepszego kandydata (dochodzi do remisu), to zgłaszany jest błąd
+wielu, to kandydaci porównywani są parami, żeby znaleźć ten
+najbardziej wyspecjalizowany.  Jeżeli nie można wskazać najlepszego
+kandydata (dochodzi do remisu), to zgłaszany jest błąd
 niejednoznaczności.
 
 Szczegóły wyboru są omówione [tutaj](../fitter/pl).  Mówiąc krótko
 (choć enigmatycznie), pierwszy szablon jest mniej wyspecjalizowany niż
 drugi (albo że drugi jest bardziej wyspecjalizowany niż pierwszy),
-jeżeli pierwszy szablon będzie zawsze można użyć, gdy można użyć
-drugi, ale nie na odwrót (czyli drugi szablon nie zawsze będzie można
-użyć, gdy można użyć pierwszy).
+jeżeli pierwszy szablon będzie zawsze można użyć wtedy, kiedy można
+użyć drugi, ale nie na odwrót (czyli drugi szablon nie zawsze będzie
+można użyć wtedy, kiedy można użyć pierwszy).
 
-W przykładzie wyżej szablon B jest bardziej wyspecjalizowany niż
-szablon A, bo szablonu B nie można użyć w każdym przypadku, w którym
-można użyć szablonu A.  Na przykład, funkcja szablonu A może przyjąć
-liczbę całowitą, a szablon B już nie.
+W przykładzie wyżej szablon `B` jest bardziej wyspecjalizowany niż
+szablon `A`, bo szablonu `B` nie można użyć w każdym przypadku, w
+którym można użyć szablonu `A`.  Na przykład, funkcja szablonu `A`
+może przyjąć liczbę całowitą, a szablon `B` już nie.
 
 # Specjalizacja szablonu funkcji
 
