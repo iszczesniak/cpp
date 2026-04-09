@@ -75,7 +75,7 @@ specialization would define a template parameter, but this is not
 allowed:
 
 ```cpp
-{% include_relative complete.cc %}
+{% include_relative explicit.cc %}
 ```
 
 An example below shows a recursive function template, where the
@@ -184,7 +184,7 @@ argument, type `A` derives from `std::pair`, has the `goo` function,
 but doesn't have the `foo` function.
 
 ```cpp
-{% include_relative struct_complete.cc %}
+{% include_relative struct_explicit.cc %}
 ```
 
 ## Partial specialization and an example

@@ -74,7 +74,7 @@ specjalizacja definiowałaby parametr szablonu, ale to nie jest
 dozwolone:
 
 ```cpp
-{% include_relative complete.cc %}
+{% include_relative explicit.cc %}
 ```
 
 Przykład niżej ilustruje rekurencyjny szablon funkcji, gdzie
@@ -232,7 +232,7 @@ dziedziczy po `std::pair`, ma funkcję `goo`, ale nie ma już funkcji
 `foo`.
 
 ```cpp
-{% include_relative struct_complete.cc %}
+{% include_relative struct_explicit.cc %}
 ```
 
 ## Częściowa specjalizacja i przykład
