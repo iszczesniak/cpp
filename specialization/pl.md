@@ -67,11 +67,10 @@ Podkreślmy, że kompilator w dwóch osobnych krokach:
 
 W pierwszym kroku, spośród dostępnych szablonów, kompilator wybiera
 te, dla których można wywnioskować argumenty (pozostałe szablony są
-ignorowane zgodnie z zasadą SFINAE).
-
-Zwróćmy uwagę, że wyrażenie wywołania jest brane pod uwagę tylko w
-pierwszym kroku, żeby wybrać kandydatów, a **w drugim kroku, wyrażenie
-wywołania nie jest już brane pod uwagę.**
+ignorowane zgodnie z zasadą SFINAE).  Zwróćmy uwagę, że wyrażenie
+wywołania jest brane pod uwagę tylko w pierwszym kroku, żeby wybrać
+kandydatów, a **w drugim kroku, wyrażenie wywołania nie jest już brane
+pod uwagę.**
 
 W drugim kroku, wybierany jest najbardziej wyspecjalizowany kandydat.
 Jeżeli kandydatów nie ma, jest zgłaszany błąd.  Jeżeli jest tylko
