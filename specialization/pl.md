@@ -132,7 +132,7 @@ Szablon podstawowy czy specjalizację możemy także tylko zadeklarować.
 Jeżeli zadeklarujemy szablon podstawowy i go później nie zdefiniujemy,
 to nie będzie implementacji tego szablonu podstawowego funkcji.
 Będziemy mogli specjalizować ten szablon i używać go wyłącznie dla
-zdefiniowanych specjalizacji.  Pokazuje to przykład niżej.
+zdefiniowanych specjalizacji.
 
 ```cpp
 {% include_relative foo2.cc %}
@@ -142,22 +142,21 @@ zdefiniowanych specjalizacji.  Pokazuje to przykład niżej.
 
 Przykład wyżej (nie niżej) pokazuje także, że nie musimy podawać
 argumentów szablonu podstawowego, jeżeli kompilator jest w stanie je
-wywnioskować na podstawie listy parametrów funkcji: pominęliśmy listę
-argumentów `<std::string>` szablonu podstawowego po nazwie funkcji
-`foo` w definicji specjalizacji, bo kompilator jest w stanie
-wywnioskować ten argument na podstawie definicji parametru funkcji
-`const std::string &`.  Wywnioskować, ale jak?  Do wnioskowania
+wywnioskować na podstawie listy parametrów funkcji.  Na przykład,
+pominęliśmy listę argumentów `<int>` szablonu podstawowego po nazwie
+funkcji `foo` w deklaracji specjalizacji nr 1, bo kompilator jest w
+stanie wywnioskować ten argument na podstawie definicji parametru
+funkcji `const int &`.  Wywnioskować, ale jak?  Do wnioskowania
 potrzebny jest argument wywołania funkcji, a tu go brak.
 
-Standard mówi ([temp.deduct.decl]), że w tym przypadku wnioskowanie
-odbywa się, jak wnioskowanie typów parametrów funkcji, która jest
-przyjmowana jako argument wywołania innej funkcji.
-
-Błąd: `could not match 'const T &' against 'bool'`.
+Standard mówi ([temp.deduct.decl]), że wnioskowanie odbywa się tak,
+jak w przypadku funkcyjnego typu parametu funkcji.
 
 ```cpp
 {% include_relative deduction.cc %}
 ```
+
+Błąd: `could not match 'const T &' against 'bool'`.
 
 ## Szablon podstawowy funkcji a zwykła funkcja
 

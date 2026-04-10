@@ -2,28 +2,28 @@
 #include <string>
 
 template <typename T>
-// void foo(void (&)(const T &t))
-// void foo(void (*)(const T &t))
-void foo(void (const T &t))
+// void primary(void (&)(const T &t))
+// void primary(void (*)(const T &t))
+void primary(void (const T &t))
 {
   std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
-void goo1(const int &)
+void spec1(const int &)
 {
 }
 
-void goo2(const std::string &)
+void spec2(const std::string &)
 {
 }
 
-void goo3(bool)
+void spec3(bool)
 {
 }
 
 int main()
 {
-  foo(goo1);
-  foo(goo2);
-  // foo(goo3);
+  primary(spec1);
+  primary(spec2);
+  // primary(spec3);
 }
