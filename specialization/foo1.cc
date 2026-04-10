@@ -13,7 +13,7 @@ void foo(const T &t)
 template <>
 void foo<std::string>(const std::string &)
 {
-  std::cout << "A template specialization for std::string\n";
+  std::cout << "A template specialization for std::string.\n";
 }
 
 int
