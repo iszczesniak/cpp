@@ -11,8 +11,7 @@ void foo(const std::string &)
   std::cout << "Function overload for std::string.\n";
 }
 
-int
-main()
+int main()
 {
   foo(1);
   foo('1');

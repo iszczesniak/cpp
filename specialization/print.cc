@@ -19,8 +19,7 @@ void print<0>(const int &)
 {
 }
 
-int
-main()
+int main()
 {
   print("Hello!");
   print<10>(1);
