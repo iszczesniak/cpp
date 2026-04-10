@@ -22,8 +22,7 @@ struct A<double>: std::pair<double, double>
   }  
 };
 
-int
-main()
+int main()
 {
   A<int> i;
   i.foo();

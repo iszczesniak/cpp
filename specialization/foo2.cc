@@ -18,8 +18,7 @@ void foo(const std::string &)
   std::cout << "A template specialization for std::string.\n";
 }
 
-int
-main()
+int main()
 {
   // foo(1); // Fails at linking.
   // foo(.2); // Fails at linking.

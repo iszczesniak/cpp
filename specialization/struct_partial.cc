@@ -30,8 +30,7 @@ struct A<T<int>>
   }  
 };
 
-int
-main()
+int main()
 {
   A<std::vector<bool>>().foo();
   A<std::vector<double>>().foo();

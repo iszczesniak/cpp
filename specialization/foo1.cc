@@ -16,8 +16,7 @@ void foo<std::string>(const std::string &)
   std::cout << "A template specialization for std::string.\n";
 }
 
-int
-main()
+int main()
 {
   foo(1);
   foo(.2);

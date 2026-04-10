@@ -183,9 +183,9 @@ zawsze ma pierwszeństwo.**
 {% include_relative mix1.cc %}
 ```
 
-Dla podstawowego szablonu funkcji możemy dodać specjalizację dla `T =
-A`, ale kompilator i tak używa zwykłej funkcji.  Podczas wyboru
-przeciążenia, kompilator nie rozważa specjalizacji, a jedynie
+Dla podstawowego szablonu funkcji możemy dodać specjalizację dla
+`std::string`, ale kompilator i tak używa zwykłej funkcji.  Podczas
+wyboru przeciążenia, kompilator nie rozważa specjalizacji, a jedynie
 przeciążenia zwykłych funkcji i przeciążenia podstawowych szablonów
 funkcji.
 

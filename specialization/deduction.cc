@@ -14,8 +14,7 @@ void g2(int)
 {
 }
 
-int
-main()
+int main()
 {
   f(g1);
   // f(g2);

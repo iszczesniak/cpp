@@ -17,8 +17,7 @@ foo(const int &)
   std::cout << "specialization\n";
 }
 
-int
-main()
+int main()
 {
   goo(1);
 }
