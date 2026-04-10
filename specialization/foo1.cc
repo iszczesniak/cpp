@@ -5,8 +5,7 @@
 template <typename T>
 void foo(const T &t)
 {
-  std::cout << __PRETTY_FUNCTION__ << ": ";
-  std::cout << t << std::endl;
+  std::cout << __PRETTY_FUNCTION__ << ": " << t << std::endl;
 }
 
 // An explicit specialization of a function template.  The argument
@@ -14,8 +13,7 @@ void foo(const T &t)
 template <>
 void foo<std::string>(const std::string &)
 {
-  std::cout << __PRETTY_FUNCTION__ << ": ";
-  std::cout << "std::string" << std::endl;
+  std::cout << "A template specialization for std::string\n";
 }
 
 int

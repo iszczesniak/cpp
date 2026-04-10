@@ -1,22 +1,17 @@
 #include <iostream>
+#include <string>
 
-struct A
-{
-};
-
-// The definition of the primary function template.
+// A definition of a primary function template.
 template <typename T>
 void foo(const T &t)
 {
-  std::cout << __PRETTY_FUNCTION__ << ": ";
-  std::cout << t << std::endl;
+  std::cout << __PRETTY_FUNCTION__ << ": " << t << std::endl;
 }
 
 // A function overload.
-void foo(const A &)
+void foo(const std::string &)
 {
-  std::cout << "Function overload: ";
-  std::cout << "A" << std::endl;
+  std::cout << "Function overload: " << "std::string" << std::endl;
 }
 
 int
@@ -24,5 +19,5 @@ main()
 {
   foo(1);
   foo('1');
-  foo(A());
+  foo(std::string());
 }

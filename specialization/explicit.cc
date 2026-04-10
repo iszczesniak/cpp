@@ -14,9 +14,9 @@ void foo(const T &t);
 // }
 
 // This is another primary template, not a specialization.  A
-// specialization would have an explicit argument for the primary
-// template.  We could argue that we removed it, so that a compiler
-// can deduce it, but then this template becomes primary.
+// specialization could have an explicit argument for the primary
+// template.  We can argue that we removed it, so that a compiler can
+// deduce it, but then this template becomes primary.
 template <typename T, std::size_t I>
 void foo(const std::array<T, I> &)
 {
