@@ -37,7 +37,7 @@ definiujemy dwa szablony podstawowe funkcji `foo`, a następnie
 wywołujemy funkcję `foo`.
 
 ```cpp
-{% include_relative special1.cc %}
+{% include_relative overloads_template.cc %}
 ```
 
 Jak kompilator wybrał właściwy szablon dla dwóch wywołań funkcji w
@@ -159,7 +159,7 @@ w przykładzie niżej: dla argumentu `'1'` typu `char` jest wywołane
 przeciążenia dla typu `int`.
 
 ```cpp
-{% include_relative overloads.cc %}
+{% include_relative overloads_function.cc %}
 ```
 
 W powyższym przykładzie zamieńmy przeciążenie zwykłej funkcji dla
