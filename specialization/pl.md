@@ -153,6 +153,8 @@ Standard mówi ([temp.deduct.decl]), że w tym przypadku wnioskowanie
 odbywa się, jak wnioskowanie typów parametrów funkcji, która jest
 przyjmowana jako argument wywołania innej funkcji.
 
+Błąd: `could not match 'const T &' against 'bool'`.
+
 ```cpp
 {% include_relative deduction.cc %}
 ```

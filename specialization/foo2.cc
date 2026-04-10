@@ -5,18 +5,20 @@
 template <typename T>
 void foo(const T &t);
 
-// A declaration of an explicit specialization of a function template.
-// The compiler deduces the arguments of the primary template.
+// Specialization #1: the argument of the primary template deduced.
 template <>
 void foo(const int &);
 
-// A definition of an explicit specialization of a function template.
-// The compiler deduces the arguments of the primary template.
+// Specialization #2: the argument of the primary template deduced.
 template <>
 void foo(const std::string &)
 {
   std::cout << "A template specialization for std::string.\n";
 }
+
+// Specialization #3: argument deduction fails.
+// template <>
+// void foo(bool);
 
 int main()
 {
