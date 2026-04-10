@@ -227,9 +227,9 @@ Przykłady niżej ilustrują ciekawostki związane z szablonami funkcji.
 
 ### Częściowa specjalizacja szablonu funkcji?
 
-Nie możemy częściowo specjalizować szablonu funkcji.  Częściowa
-specjalizacja definiowałaby parametr szablonu, ale to nie jest
-dozwolone:
+Nie możemy częściowo specjalizować szablonu funkcji.  W przykładzie
+niżej, zakomentowana specjalizacja definiowałaby parametry szablonu i
+jawne argument szablonu podstawowego, ale to nie jest dozwolone.
 
 ```cpp
 {% include_relative explicit.cc %}

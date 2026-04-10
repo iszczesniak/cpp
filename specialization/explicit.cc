@@ -13,8 +13,10 @@ void foo(const T &t);
 //             << __PRETTY_FUNCTION__ << std::endl;
 // }
 
-// This is another primary template.  It's not a specialization.  How
-// does it differ from the specialization above?
+// This is another primary template, not a specialization.  A
+// specialization would have an explicit argument for the primary
+// template.  We could argue that we removed it, so that a compiler
+// can deduce it, but then this template becomes primary.
 template <typename T, std::size_t I>
 void foo(const std::array<T, I> &)
 {
@@ -22,8 +24,7 @@ void foo(const std::array<T, I> &)
             << __PRETTY_FUNCTION__ << std::endl;
 }
 
-int
-main()
+int main()
 {
   foo(std::array{1, 2, 3});
 }
