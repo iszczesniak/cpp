@@ -22,5 +22,5 @@ main()
   foo(1);
   foo(.2);
   foo("Hello!");
-  foo(std::string("Hello!"));
+  foo(std::string());
 }
