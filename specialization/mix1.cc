@@ -11,7 +11,7 @@ void foo(const T &t)
 // A function overload.
 void foo(const std::string &)
 {
-  std::cout << "Function overload: " << "std::string" << std::endl;
+  std::cout << "Function overload for std::string.\n";
 }
 
 int
