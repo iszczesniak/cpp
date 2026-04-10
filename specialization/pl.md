@@ -146,7 +146,16 @@ wywnioskować na podstawie listy parametrów funkcji: pominęliśmy listę
 argumentów `<std::string>` szablonu podstawowego po nazwie funkcji
 `foo` w definicji specjalizacji, bo kompilator jest w stanie
 wywnioskować ten argument na podstawie definicji parametru funkcji
-`const std::string &`.
+`const std::string &`.  Wywnioskować, ale jak?  Do wnioskowania
+potrzebny jest argument wywołania funkcji, a tu go brak.
+
+Standard mówi ([temp.deduct.decl]), że w tym przypadku wnioskowanie
+odbywa się, jak wnioskowanie typów parametrów funkcji, która jest
+przyjmowana jako argument wywołania innej funkcji.
+
+```cpp
+{% include_relative deduction.cc %}
+```
 
 ## Szablon podstawowy funkcji a zwykła funkcja
 
