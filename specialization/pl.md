@@ -118,11 +118,9 @@ Potem następuje definicja szablonu funkcji, która wygląda jak
 definicja zwykłej (nieszablonowej) funkcji, bo nie używamy w niej
 (czyli w liście parametrów funkcji i ciele funkcji) nazw parametrów
 szablonu podstawowego, a jedynie ich argumentów (np. `int`, `1` czy
-`std::list`).  Ale jest pewna różnica.
-
-Różnica dotyczy nazwy funkcji.  W specjalizacji podajemy listę
-argumentów szablonu podstawowego po nazwie funkcji, czego w definicji
-zwykłej funkcji nie robimy.
+`std::list`).  Ale jest pewna różnica dotycząca nazwy funkcji: w
+specjalizacji podajemy (jawnie) listę argumentów szablonu podstawowego
+po nazwie funkcji, czego w definicji zwykłej funkcji nie robimy.
 
 Oto przykład:
 
@@ -136,35 +134,21 @@ to nie będzie implementacji tego szablonu podstawowego funkcji.
 Będziemy mogli specjalizować ten szablon i używać go wyłącznie dla
 zdefiniowanych specjalizacji.  Pokazuje to przykład niżej.
 
-Listę argumentów szablonu podstawowego możemy pominąć, jeżeli
-kompilator jest w stanie je wytrzasnąć (wywnioskować?) na podstawie
-listy parametrów funkcji.  W przykładzie niżej pominęliśmy listę
-argumentów (`<A>`) szablonu podstawowego po nazwie funkcji `foo` w
-deklaracji i definicji specjalizacji.
-
 ```cpp
 {% include_relative foo2.cc %}
 ```
 
-Nie możemy częściowo specjalizować szablonu funkcji.  Częściowa
-specjalizacja definiowałaby parametr szablonu, ale to nie jest
-dozwolone:
+## Wnioskowanie argumentów jawnej specjalizacji
 
-```cpp
-{% include_relative explicit.cc %}
-```
+Przykład wyżej pokazuje także, że nie musimy podawać argumentów
+szablonu podstawowego, jeżeli kompilator jest w stanie je wywnioskować
+na podstawie listy parametrów funkcji: pominęliśmy listę argumentów
+(`<A>`) szablonu podstawowego po nazwie funkcji `foo` w deklaracji i
+definicji specjalizacji, bo kompilator jest w stanie wywnioskować ten
+argument na podstawie definicji parametru funkcji: `const std::string
+&`.
 
-Przykład niżej ilustruje rekurencyjny szablon funkcji, gdzie
-rekurencja jest przerwana przez specjalizację szablonu.  W
-specjalizacji musimy podać argument `0` parametru `N`, bo kompilator
-nie jest w stanie go wytrzasnąć.  Nie podaliśmy jednak argumentu `int`
-dla parametru `T`, bo kompilator może go sobie wytrzasnąć.
-
-```cpp
-{% include_relative print.cc %}
-```
-
-## Zwykła funkcja a szablon funkcji
+## Szablon podstawowy funkcji a zwykła funkcja
 
 Czy możemy się obyć bez szablonów?  Czy przeciążenia zwykłych funkcji
 nie wystarczą?  W przykładzie niżej funkcja `foo` jest przeciążona,
@@ -236,6 +220,35 @@ szablonu funkcji `foo`, bo został wcześniej zadeklarowany.
 Moblibyśmy przenieść definicję zwykłej funkcji `foo` przed dyrektywę
 `#include`, żeby funkcja `goo` mogła ją wywołać, ale lepiej nie
 wprowadzać takiego nieporządku.
+
+## Ciekawostki
+
+Przykłady niżej ilustrują ciekawostki związane z szablonami funkcji.
+
+### Częściowa specjalizacja szablonu funkcji?
+
+Nie możemy częściowo specjalizować szablonu funkcji.  Częściowa
+specjalizacja definiowałaby parametr szablonu, ale to nie jest
+dozwolone:
+
+```cpp
+{% include_relative explicit.cc %}
+```
+
+### Przerwanie rekurencji
+
+Przykład niżej ilustruje rekurencyjny szablon funkcji, gdzie
+rekurencja jest przerwana przez specjalizację szablonu.  W
+specjalizacji musimy podać argument `0` parametru `N`, bo kompilator
+nie jest w stanie go wywnioskować.  Nie podaliśmy jednak argumentu
+`int` dla parametru `T`, bo kompilator może go sobie wywnioskować.
+Zauważmy, że tak to się robiło kiedyś (ten przykład to jedynie
+kuriozum), bo od C++11 mamy do tego instrukcję warunkową czasu
+kompilacji.
+
+```cpp
+{% include_relative print.cc %}
+```
 
 # Specjalizacja szablonów typów
 
