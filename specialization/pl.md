@@ -140,13 +140,13 @@ zdefiniowanych specjalizacji.  Pokazuje to przykład niżej.
 
 ## Wnioskowanie argumentów jawnej specjalizacji
 
-Przykład wyżej pokazuje także, że nie musimy podawać argumentów
-szablonu podstawowego, jeżeli kompilator jest w stanie je wywnioskować
-na podstawie listy parametrów funkcji: pominęliśmy listę argumentów
-(`<A>`) szablonu podstawowego po nazwie funkcji `foo` w deklaracji i
-definicji specjalizacji, bo kompilator jest w stanie wywnioskować ten
-argument na podstawie definicji parametru funkcji: `const std::string
-&`.
+Przykład wyżej (nie niżej) pokazuje także, że nie musimy podawać
+argumentów szablonu podstawowego, jeżeli kompilator jest w stanie je
+wywnioskować na podstawie listy parametrów funkcji: pominęliśmy listę
+argumentów `<std::string>` szablonu podstawowego po nazwie funkcji
+`foo` w definicji specjalizacji, bo kompilator jest w stanie
+wywnioskować ten argument na podstawie definicji parametru funkcji
+`const std::string &`.
 
 ## Szablon podstawowy funkcji a zwykła funkcja
 
