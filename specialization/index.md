@@ -149,7 +149,7 @@ primary template leaves to the user.  That's how a header file
 And that's how to use the library:
 
 ```cpp
-{% include_relative need.cc %}
+{% include_relative library.cc %}
 ```
 
 C++ is a one-pass compiler, and so if we declare a regular function

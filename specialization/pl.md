@@ -195,11 +195,11 @@ funkcjonalność specjalizacji, której nie osiągniemy przez
 przeciążenie.
 
 Specjalizacja szablonów pozwala użytkownikowi na dostarczenie
-implementacji dla kodu, który został już dołączony w pliku
-nagłówkowym, np. biblioteki szablonowej.  Biblioteka deklaruje
-podstawowy szablon funkcji, której wymaga, a definicję specjalizacji
-czy nawet szablonu podstawowego pozostawia użytkownikowi.  Tak może
-wyglądać plik nagłówkowy `library.hpp`:
+implementacji dla kodu (na przykład funkcji sortującej), który został
+już dołączony w pliku nagłówkowym, np. biblioteki standardowej.
+Biblioteka deklaruje podstawowy szablon funkcji, której wymaga, a
+definicję specjalizacji czy nawet szablonu podstawowego pozostawia
+użytkownikowi.  Tak może wyglądać plik nagłówkowy `library.hpp`:
 
 ```cpp
 {% include_relative library.hpp %}
@@ -208,7 +208,7 @@ wyglądać plik nagłówkowy `library.hpp`:
 Tak może wyglądać użycie biblioteki:
 
 ```cpp
-{% include_relative need.cc %}
+{% include_relative library.cc %}
 ```
 
 C++ jest kompilatorem jednego przebiegu (ang. one-pass compiler), więc
