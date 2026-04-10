@@ -146,8 +146,10 @@ wywnioskować na podstawie listy parametrów funkcji.  Na przykład,
 pominęliśmy listę argumentów `<int>` szablonu podstawowego po nazwie
 funkcji `foo` w deklaracji specjalizacji nr 1, bo kompilator jest w
 stanie wywnioskować ten argument na podstawie definicji parametru
-funkcji `const int &`.  Wywnioskować, ale jak?  Do wnioskowania
-potrzebny jest argument wywołania funkcji, a tu go brak.
+funkcji `const int &`.  Może się też okazać, jak w zakomentowanej,
+błędnej specjalizacji nr 3, że argumentu nie da się wywnioskować.
+Wywnioskować, ale jak?  Do wnioskowania potrzebny jest argument
+wywołania funkcji, a tu go brak.
 
 Standard mówi ([temp.deduct.decl]), że wnioskowanie odbywa się tak,
 jak w przypadku funkcyjnego typu parametu funkcji.
