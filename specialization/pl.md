@@ -159,8 +159,8 @@ podstawowego szablonu funkcji `foo` z przykładu wyżej, a funkcje
 `foo`.
 
 Jeżeli w przykładzie wyżej odkomentujemy specjalizację nr 3 albo
-przykładzie niżej odkomentujemy trzecie wywołanie funkcj `primary`, to
-otrzymujemy ten sam błąd kompilacji:
+przykładzie niżej odkomentujemy trzecie wywołanie funkcji `primary`,
+to otrzymujemy ten sam błąd kompilacji:
 
 `could not match 'const T &' against 'bool'`
 
