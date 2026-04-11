@@ -158,7 +158,7 @@ podstawowego szablonu funkcji `foo` z przykładu wyżej, a funkcje
 `spec1`, `spec2` i `spec3` są typu specjalizacji nr 1, 2 i 3 funkcji
 `foo`.
 
-Jeżeli w przykładzie wyżej odkomentujemy specjalizację nr 3 albo
+Jeżeli w przykładzie wyżej odkomentujemy specjalizację nr 3 albo w
 przykładzie niżej odkomentujemy trzecie wywołanie funkcji `primary`,
 to otrzymujemy ten sam błąd kompilacji:
 
