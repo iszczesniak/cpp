@@ -2,8 +2,8 @@
 #include <string>
 
 template <typename T>
-// void primary(void (&)(const T &t))
 // void primary(void (*)(const T &t))
+// void primary(void (&)(const T &t))
 void primary(void (const T &t))
 {
   std::cout << __PRETTY_FUNCTION__ << std::endl;

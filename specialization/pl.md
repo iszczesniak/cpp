@@ -158,6 +158,12 @@ podstawowego szablonu funkcji `foo` z przykładu wyżej, a funkcje
 `spec1`, `spec2` i `spec3` są typu specjalizacji nr 1, 2 i 3 funkcji
 `foo`.
 
+Typ funkcji rozpada się na wskaźnik na funkcję, czyli typ `void (const
+T &t)` parametru funkcji `primary` rozpada się na `void (*)(const T
+&t)`, co można sprawdzić w tablicy symboli pliku wynikowego z użyciem
+komendy `nm`.  Funkcja `primary` może też przyjąć funkcję przez
+referencję: parametr jest wtedy typu `void (&)(const T &t)`.
+
 Jeżeli w przykładzie wyżej odkomentujemy specjalizację nr 3 albo w
 przykładzie niżej odkomentujemy trzecie wywołanie funkcji `primary`,
 to otrzymujemy ten sam błąd kompilacji:
