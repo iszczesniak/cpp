@@ -152,13 +152,22 @@ Wywnioskować, ale jak?  Do wnioskowania potrzebny jest argument
 wywołania funkcji, a tu go brak.
 
 Standard mówi ([temp.deduct.decl]), że wnioskowanie odbywa się tak,
-jak w przypadku funkcyjnego typu parametu funkcji.
+jak w przypadku funkcyjnego typu parametu funkcji.  W przykładzie
+niżej, funkcja `primary` ma parametr typu `void (const T &t)`
+podstawowego szablonu funkcji `foo` z przykładu wyżej, a funkcje
+`spec1`, `spec2` i `spec3` są typu specjalizacji nr 1, 2 i 3 funkcji
+`foo`.
+
+Jeżeli w przykładzie wyżej odkomentujemy specjalizację nr 3 albo
+przykładzie niżej odkomentujemy trzecie wywołanie funkcj `primary`, to
+otrzymujemy ten sam błąd kompilacji:
+
+`could not match 'const T &' against 'bool'`
 
 ```cpp
 {% include_relative deduction.cc %}
 ```
 
-Błąd: `could not match 'const T &' against 'bool'`.
 
 ## Szablon podstawowy funkcji a zwykła funkcja
 
