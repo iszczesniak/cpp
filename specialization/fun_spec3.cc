@@ -2,10 +2,10 @@
 #include <string>
 
 template <typename T>
-void foo(T &t);
+void foo(T t);
 
 template <typename T>
-void foo(const T &t);
+void foo(T *t);
 
 // Specialization #1: the argument of the primary template deduced.
 template <>
@@ -17,5 +17,6 @@ void foo(const int &)
 int main()
 {
   const int i = 1;
-  foo(i);
+  // foo(i);
+  foo<const int &>(i);
 }
