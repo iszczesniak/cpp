@@ -481,7 +481,7 @@ A call expression of a function that returns:
 
   - by lvalue reference is an lvalue,
 
-  - by rvalue reference is an rvalue.
+  - by rvalue reference is an xvalue.
 
 ### The lvalue-to-rvalue conversion
 
