@@ -7,16 +7,23 @@ void foo(T t);
 template <typename T>
 void foo(T *t);
 
-// Specialization #1: the argument of the primary template deduced.
+// Specialization #1: only the first primary template is candidate.
 template <>
-void foo(const int &)
+void foo(int)
 {
-  std::cout << "Specialization.\n";
+  std::cout << __PRETTY_FUNCTION__ << std::endl;
+}
+
+// Specialization #2: both primary templates are candidate.
+template <>
+void foo(int *)
+{
+  std::cout << __PRETTY_FUNCTION__ << std::endl;
 }
 
 int main()
 {
-  const int i = 1;
-  // foo(i);
-  foo<const int &>(i);
+  int x;
+  foo(x);
+  foo(&x);
 }

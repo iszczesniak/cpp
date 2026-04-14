@@ -184,6 +184,22 @@ to otrzymujemy ten sam błąd kompilacji:
 {% include_relative deduction1.cc %}
 ```
 
+### Wybór szablonu podstawowego
+
+Specjalizacja może pasować do różnych szablonów podstawowych, jak w
+przykładzie niżej.  Jeżeli wnioskowanie się udaje, to szablon
+podstawowy trafia do zbioru kandydatów, a następnie jest wybierany
+najbardziej wyspecjalizowany szablon podstawowy.
+
+```cpp
+{% include_relative fun_spec4.cc %}
+```
+
+A tu interpretacja powyższego wnioskowania:
+
+```cpp
+{% include_relative deduction2.cc %}
+```
 
 ## Szablon podstawowy funkcji a zwykła funkcja
 
