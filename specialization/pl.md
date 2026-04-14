@@ -128,6 +128,12 @@ Oto przykład:
 {% include_relative fun_spec1.cc %}
 ```
 
+Nie każdy szablon podstawowy możemy dowolnie specjalizować:
+
+```cpp
+{% include_relative fun_spec2.cpp %}
+```
+
 Szablon podstawowy czy specjalizację możemy także tylko zadeklarować.
 Jeżeli zadeklarujemy szablon podstawowy i go później nie zdefiniujemy,
 to nie będzie implementacji tego szablonu podstawowego funkcji.
