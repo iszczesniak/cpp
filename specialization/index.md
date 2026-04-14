@@ -67,7 +67,7 @@ the primary template after the function name `foo` in the declaration
 and definition of the specialization.
 
 ```cpp
-{% include_relative fun_spec2.cc %}
+{% include_relative fun_spec3.cc %}
 ```
 
 We cannot partially specialize a function template.  A partial

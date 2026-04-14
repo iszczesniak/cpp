@@ -135,7 +135,7 @@ Będziemy mogli specjalizować ten szablon i używać go wyłącznie dla
 zdefiniowanych specjalizacji.
 
 ```cpp
-{% include_relative fun_spec2.cc %}
+{% include_relative fun_spec3.cc %}
 ```
 
 ## Wnioskowanie argumentów jawnej specjalizacji
