@@ -138,6 +138,7 @@ A nawet jak się uda wyspecjalizować, to może być problem wywołać:
 
 ```cpp
 {% include_relative fun_spec2.cc %}
+```
 
 Szablon podstawowy czy specjalizację możemy także tylko zadeklarować.
 Jeżeli zadeklarujemy szablon podstawowy i go później nie zdefiniujemy,
