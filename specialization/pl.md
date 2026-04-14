@@ -181,7 +181,7 @@ to otrzymujemy ten sam błąd kompilacji:
 `could not match 'const T &' against 'bool'`
 
 ```cpp
-{% include_relative deduction.cc %}
+{% include_relative deduction1.cc %}
 ```
 
 
