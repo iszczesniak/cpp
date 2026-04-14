@@ -16,10 +16,6 @@ void foo(const std::string &)
   std::cout << "A template specialization for std::string.\n";
 }
 
-// Specialization #3: argument deduction fails.
-// template <>
-// void foo(bool);
-
 int main()
 {
   // foo(1); // Fails at linking.
