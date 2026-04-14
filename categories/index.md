@@ -477,7 +477,11 @@ A call expression of a function that returns:
 
 * by value is a prvalue,
 
-* by reference is a glvalue.
+* by reference is a glvalue, specifically:
+
+  - by lvalue reference is an lvalue,
+
+  - by rvalue reference is an rvalue.
 
 ### The lvalue-to-rvalue conversion
 
