@@ -352,7 +352,8 @@ być skonkretyzowany z jednym argumentem `int`.
 W funkcji `main` typ `A` został użyty z dwoma specjalizacjami.
 Najciekawsze jest ostatnie użycie, które jest zakomentowane, bo nie
 może się kompilować: kompilator nie jest w stanie zdecydować, której
-specjalizacji użyć.
+specjalizacji użyć, ponieważ żadna z nich nie jest bardziej
+wyspecjalizowana od drugiej.
 
 ```cpp
 {% include_relative struct_partial.cc %}

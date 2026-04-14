@@ -213,7 +213,8 @@ template that can be instantiated with a single argument `int`.
 In the `main` function, type `A` is used with the two specializations.
 The last use case is the most interesting, which is commented out,
 because it cannot compile: a compiler is unable to decide which
-specialization to use.
+specialization to use as neither of them is more specialized than the
+other.
 
 ```cpp
 {% include_relative struct_partial.cc %}
