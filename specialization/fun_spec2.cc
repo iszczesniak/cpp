@@ -16,5 +16,5 @@ int main()
 {
   const int x = 1;
   foo(x);
-  foo<const int &>(x);
+  // foo<const int &>(x);
 }
