@@ -21,11 +21,11 @@ struct A
 // Specialization of the member function of the primary template.
 // Everything in A stays the same except our specialization.
 
-template<>
-void A<char>::foo()
-{
-  cout << "specialization: " << __PRETTY_FUNCTION__ << endl;
-}
+// template<>
+// void A<char>::foo()
+// {
+//   cout << "specialization: " << __PRETTY_FUNCTION__ << endl;
+// }
 
 // The above specialization of a member function trigers the
 // instantiation of the primary template for T = char, so now we
@@ -37,14 +37,15 @@ void A<char>::foo()
 
 // But we can still specialize the other function:
 
-template<>
-void A<char>::goo()
-{
-  cout << "specialization: " << __PRETTY_FUNCTION__ << endl;
-}
+// template<>
+// void A<char>::goo()
+// {
+//   cout << "specialization: " << __PRETTY_FUNCTION__ << endl;
+// }
 
 // Specialization of the primary template for T = char along with the
-// definition of the member function.
+// definition of the member function.  First, comment out the
+// specializations above, so that the code right below compiles.
 
 // template <>
 // struct A<char>
@@ -55,8 +56,11 @@ void A<char>::goo()
 //   }
 // };
 
-// The implementation below is the same as the one right above.  Below
-// we moved the definition of the foo function outside the class.
+// The implementation below is of the same functionality as the one
+// right above.  Below we moved the definition (it's not a
+// specialization) of the foo function outside the class.  First,
+// comment out the specialization of the primary template above, so
+// that the code right below compiles.
 
 // template <>
 // struct A<char>
