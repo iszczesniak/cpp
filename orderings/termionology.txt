@@ -1,3 +1,5 @@
+A ralation that is not reflexive doesn't have to be irreflexive.
+
 uporządkowanie (ordering), porządek (order)
 
 strict weak order
