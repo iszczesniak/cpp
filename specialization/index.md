@@ -67,7 +67,7 @@ the primary template after the function name `foo` in the declaration
 and definition of the specialization.
 
 ```cpp
-{% include_relative fun_spec2.cc %}
+{% include_relative fun_spec3.cc %}
 ```
 
 We cannot partially specialize a function template.  A partial
@@ -213,7 +213,8 @@ template that can be instantiated with a single argument `int`.
 In the `main` function, type `A` is used with the two specializations.
 The last use case is the most interesting, which is commented out,
 because it cannot compile: a compiler is unable to decide which
-specialization to use.
+specialization to use as neither of them is more specialized than the
+other.
 
 ```cpp
 {% include_relative struct_partial.cc %}

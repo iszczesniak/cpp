@@ -128,6 +128,18 @@ Oto przykład:
 {% include_relative fun_spec1.cc %}
 ```
 
+Nie każdy szablon podstawowy możemy dowolnie specjalizować:
+
+```cpp
+{% include_relative fun_spec2.cpp %}
+```
+
+A nawet jak się uda wyspecjalizować, to może być problem wywołać:
+
+```cpp
+{% include_relative fun_spec2.cc %}
+```
+
 Szablon podstawowy czy specjalizację możemy także tylko zadeklarować.
 Jeżeli zadeklarujemy szablon podstawowy i go później nie zdefiniujemy,
 to nie będzie implementacji tego szablonu podstawowego funkcji.
@@ -135,7 +147,7 @@ Będziemy mogli specjalizować ten szablon i używać go wyłącznie dla
 zdefiniowanych specjalizacji.
 
 ```cpp
-{% include_relative fun_spec2.cc %}
+{% include_relative fun_spec3.cc %}
 ```
 
 ## Wnioskowanie argumentów jawnej specjalizacji
@@ -146,10 +158,8 @@ wywnioskować na podstawie listy parametrów funkcji.  Na przykład,
 pominęliśmy listę argumentów `<int>` szablonu podstawowego po nazwie
 funkcji `foo` w deklaracji specjalizacji nr 1, bo kompilator jest w
 stanie wywnioskować ten argument na podstawie definicji typu `const
-int &` parametru funkcji.  Może się też okazać, jak w zakomentowanej,
-błędnej specjalizacji nr 3, że argumentu nie da się wywnioskować.
-Wywnioskować, ale jak?  Do wnioskowania potrzebny jest argument
-wywołania funkcji, a tu go brak.
+int &` parametru funkcji.  Wywnioskować, ale jak?  Do wnioskowania
+potrzebny jest argument wywołania funkcji, a tu go brak.
 
 Standard mówi ([temp.deduct.decl]), że wnioskowanie odbywa się tak,
 jak w przypadku funkcyjnego typu parametu funkcji.  W przykładzie
@@ -171,9 +181,25 @@ to otrzymujemy ten sam błąd kompilacji:
 `could not match 'const T &' against 'bool'`
 
 ```cpp
-{% include_relative deduction.cc %}
+{% include_relative deduction1.cc %}
 ```
 
+### Wybór szablonu podstawowego
+
+Specjalizacja może pasować do różnych szablonów podstawowych, jak w
+przykładzie niżej.  Jeżeli wnioskowanie się udaje, to szablon
+podstawowy trafia do zbioru kandydatów, a następnie jest wybierany
+najbardziej wyspecjalizowany szablon podstawowy.
+
+```cpp
+{% include_relative fun_spec4.cc %}
+```
+
+A tu interpretacja powyższego wnioskowania:
+
+```cpp
+{% include_relative deduction2.cc %}
+```
 
 ## Szablon podstawowy funkcji a zwykła funkcja
 
@@ -326,7 +352,8 @@ być skonkretyzowany z jednym argumentem `int`.
 W funkcji `main` typ `A` został użyty z dwoma specjalizacjami.
 Najciekawsze jest ostatnie użycie, które jest zakomentowane, bo nie
 może się kompilować: kompilator nie jest w stanie zdecydować, której
-specjalizacji użyć.
+specjalizacji użyć, ponieważ żadna z nich nie jest bardziej
+wyspecjalizowana od drugiej.
 
 ```cpp
 {% include_relative struct_partial.cc %}

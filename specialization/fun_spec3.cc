@@ -1,22 +1,28 @@
 #include <iostream>
 #include <string>
 
+// A declaration of the primary function template.
 template <typename T>
-void foo(T t);
-
-template <typename T>
-void foo(T *t);
+void foo(const T &t);
 
 // Specialization #1: the argument of the primary template deduced.
 template <>
-void foo(const int &)
+void foo(const int &);
+
+// Specialization #2: the argument of the primary template deduced.
+template <>
+void foo(const std::string &)
 {
-  std::cout << "Specialization.\n";
+  std::cout << "A template specialization for std::string.\n";
 }
+
+// Specialization #3: the deduction fails.
+// template <>
+// void foo(bool);
 
 int main()
 {
-  const int i = 1;
-  // foo(i);
-  foo<const int &>(i);
+  // foo(1); // Linking fails.
+  // foo(.2); // Linking fails.
+  foo(std::string());
 }
