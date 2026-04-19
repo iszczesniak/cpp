@@ -266,7 +266,7 @@ function accepts (or takes) an argument by value, or that we pass an
 argument to a function by value.  In legacy C++, a nonreference
 parameter was initialized always by copying the argument value into
 the parameter.  In modern C++, that copying might be gone (because of
-the temporary materialization) or replaced with *moving*.
+the materialization) or replaced with *moving*.
 
 If a function parameter is of a reference type, we say that a function
 accepts an argument by reference, or that we pass an argument to a
@@ -309,7 +309,7 @@ destination, e.g., a variable that was initialized with the result.
 
 To understand how returning by value became efficient, and to be aware
 of exceptions, we need to understand the call conventions, the
-constructor elision, and the temporary materialization.
+constructor elision, and the materialization.
 
 ## Function call convention
 
@@ -389,10 +389,10 @@ destroys) them:
 
 ## Constructor elision
 
-The modern call convention opened the door to efficient returning by
-value, and so the functionality that used to be known as the *return
-value optimization* (RVO) was finally standardized in C++11 under the
-name of the **constructor elision**.  We need to know that an
+The modern call convention enabled efficient returning by value, and
+so the functionality that used to be known as the *return value
+optimization* (RVO) was finally standardized in C++11 under the name
+of the **constructor elision**.  We need to know that an
 *optimization* is offered by a compiler: RVO has never been
 standardized, there is even no mention of it in the standard.
 
@@ -406,10 +406,10 @@ calls it the **copy/move elision**.
 
 There used to be two versions of the RVO: named and unnamed.  In C++11
 both became the constructor elision.  However, in C++17, what used to
-be the unnamed RVO became the *temporary materialization*.  The
-following example demonstrates a use case for the C++17 elision
-(formerly for the named RVO): returning a non-static local variable
-that is not a parameter.
+be the unnamed RVO became the *materialization*.  The following
+example demonstrates a use case for the C++17 elision (formerly for
+the named RVO): returning a non-static local variable that is not a
+parameter.
 
 ```cpp
 {% include_relative elide.cc %}
@@ -422,9 +422,9 @@ constructor elision, objects are not copied (nor moved) unnecessarily.
 
 Even if constructors are elided, they must be defined because
 depending on the type of the returned value, a compiler can decide not
-to elide constructors.  Also, in the exceptional use cases discussed
-below, elision does not apply.  In the example below, remove the
-constructors by removing the comments to see the compilation fail.
+to elide constructors.  In the example below, remove the constructors
+by removing the comments to see the compilation fail.  Also, in the
+exceptional use cases discussed further below, elision does not apply.
 
 **Bottom line: elision is not mandatory.**
 
@@ -452,19 +452,19 @@ parameter in the location for the return value:
 
 Finally, because we return global or static data, which has to be
 available after the function returns, and so the function can only
-copy the result from the global or static data:
+copy the value from the global or static data:
 
 ```cpp
 {% include_relative no_elision3.cc %}
 ```
 
-## Temporary materialization
+## Materialization
 
-It's the materialization of a temporary (a temporary object), and not
-a materialization that is temporary.  Materialization is just
-creation, i.e., calling a constructor.  As shown in the example below,
-returning a temporary is the most important use case of the temporary
-materialization.
+Materialization is just creation, i.e., calling a constructor.  As
+shown in the example below, returning a temporary is the most
+important use case of the temporary materialization.  It's the
+materialization of a temporary (a temporary object), and not a
+materialization that is temporary.
 
 ```cpp
 {% include_relative materialization1.cc %}
@@ -514,11 +514,11 @@ directly (materialized) in the parameter.
 ## Sample implementation
 
 Here's a sample implementation of the constructor elision and the
-temporary materialization.  We are not returning anything, but pass a
-pointer where we want to have the return value created.  We need to
-call a destructor right after the variable initialization (so that we
-have the memory allocated, and so that destructor is called right
-before the main function returns), but a compiler doesn't do it in its
+materialization.  We are not returning anything, but pass a pointer
+where we want to have the return value created.  We need to call a
+destructor right after the variable initialization (so that we have
+the memory allocated, and so that destructor is called right before
+the main function returns), but a compiler doesn't do it in its
 implementation.
 
 ```cpp
@@ -530,10 +530,10 @@ implementation.
 Lifetime and identity are two notions that in C++ became technical
 terms because they are fundamental to how C++ processes data.  A
 **lifetime** of datum is the period of runtime the datum exists.  The
-lifetime of some datum (a variable, an object, a temporary) starts
-when it is constructed, and ends when it is destroyed.  The datum
-during its lifetime has **identity**, i.e., it exists somewhere.  We
-can take the address of a datum in existance with the `&` operator.
+lifetime of some datum (a variable, a temporary) starts when it is
+constructed, and ends when it is destroyed.  The datum during its
+lifetime has **identity**, i.e., it exists somewhere.  We can take the
+address of a datum in existance with the `&` operator.
 
 The location of a datum (the place where the datum is, lives, resides)
 is usually RAM, but a compiler can also make it a processor register
@@ -547,8 +547,8 @@ begin with their declaration statements that can also initialize them.
 The initializing `1` has no identity: it's not created anywhere and
 then copy-constructed into the variable.  Instead, the value of `1`
 (which may be an operand of a processor instruction) is written into
-the location of the variable -- we could say that the temporary (`1`)
-was materialized.
+the location of the variable -- we could say that the value (`1`) was
+materialized.
 
 ```cpp
 {% include_relative identity1.cc %}
@@ -559,7 +559,7 @@ they always have to be initialized.  A compiler interprets `{}` as
 `string{}`, which has no identity.  The value of this expression is
 not copy-constructed or move-constructed into the variable.  Instead,
 the value of `string{}` is created directly in the location of the
-variable -- we say that a temporary was materialized.
+variable -- we say that a value (`string{}`) was materialized.
 
 ```cpp
 {% include_relative identity2.cc %}
