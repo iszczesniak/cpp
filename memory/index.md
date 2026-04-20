@@ -478,18 +478,17 @@ Such a recepie are:
 * `std::string("Hello")`, type `std::string`, argument `"Hello"`.
 
 Prior to C++17, such a recepie always created a temporary (a temporary
-object).  A temporary was created always on the stack and then
-destroyed before the evaluation of the expression was complete.  Since
-C++17 these recipes are called **prvalue** expressions, or prvalues in
-short.  We'll look into the expression categories later, but we stick
-to the term **prvalue**.
+object), and always on the stack.  The temporary was destroyed before
+the evaluation of the expression was complete.  Since C++17 these
+recipes are called **prvalue** expressions, or prvalues in short.
+We'll look into the expression categories later, but we start using
+the term **prvalue** now.
 
 A prvalue creates a datum, and it differs from a variable
 initilization in that we don't give it a name.  As shown in the
 example below, returning by value is the most important use case of
 the materialization, when the expression of the return instruction is
-such a recepie (a prvalue).  A prvalue is the name of category of an
-expression,
+a prvalue.
 
 It's the materialization of a temporary (a temporary object), and not
 a materialization that is temporary.
