@@ -467,18 +467,18 @@ description) that defines:
 
 * the arguments for the creation.
 
-Such a recepie are:
+Example recipes are:
 
 * `std::string()`: type `std::string`, no arguments,
 
 * `int()` is really `int(0)`: type `int`, argument `0`,
 
-* `1` is really `int(1)`, type `int`, argument `1`,
+* `1` is `int(1)`: type `int`, argument `1`,
 
-* `std::string("Hello")`, type `std::string`, argument `"Hello"`.
+* `std::string("Hello")`: type `std::string`, argument `"Hello"`.
 
 Prior to C++17, such a recepie always created a temporary (a temporary
-object), and always on the stack.  The temporary was destroyed before
+object), and always on the stack.  A temporary was destroyed before
 the evaluation of the expression was complete.  Since C++17 these
 recipes are called **prvalue** expressions, or prvalues in short.
 We'll look into the expression categories later, but we start using
@@ -486,9 +486,9 @@ the term **prvalue** now.
 
 A prvalue creates a datum, and it differs from a variable
 initilization in that we don't give it a name.  As shown in the
-example below, returning by value is the most important use case of
-the materialization, when the expression of the return instruction is
-a prvalue.
+example below, returning by value is a use case of the
+materialization, when the expression of the return instruction is a
+prvalue.
 
 It's the materialization of a temporary (a temporary object), and not
 a materialization that is temporary.
