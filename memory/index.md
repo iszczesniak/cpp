@@ -460,11 +460,38 @@ copy the value from the global or static data:
 
 ## Materialization
 
-Materialization is just creation, i.e., calling a constructor.  As
-shown in the example below, returning a temporary is the most
-important use case of the temporary materialization.  It's the
-materialization of a temporary (a temporary object), and not a
-materialization that is temporary.
+Materialization is just creation of a datum according to a recepie (a
+description) that defines:
+
+* the type of data to create,
+
+* the arguments for the creation.
+
+Such a recepie are:
+
+* `std::string()`: type `std::string`, no arguments,
+
+* `int()` is really `int(0)`: type `int`, argument `0`,
+
+* `1` is really `int(1)`, type `int`, argument `1`,
+
+* `std::string("Hello")`, type `std::string`, argument `"Hello"`.
+
+Prior to C++17, such a recepie always created a temporary (a temporary
+object).  A temporary was created and then destroyed, all part of the
+evaluation of an expression.  Since C++17 these recepies are called
+**prvalue** expressions, or prvalues in short.  We'll look into the
+expression categories later, but we stick to the term **prvalue**.
+
+A prvalue creates a datum, and it differs from a variable
+initilization in that we don't give it a name.  As shown in the
+example below, returning by value is the most important use case of
+the materialization, when the expression of the return instruction is
+such a recepie (a prvalue).  A prvalue is the name of category of an
+expression,
+
+It's the materialization of a temporary (a temporary object), and not
+a materialization that is temporary.
 
 ```cpp
 {% include_relative materialization1.cc %}
