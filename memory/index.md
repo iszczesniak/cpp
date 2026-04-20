@@ -479,7 +479,7 @@ Example recipes are:
 
 Prior to C++17, such a recepie always created a temporary (a temporary
 object), and always on the stack.  A temporary was destroyed before
-the evaluation of the expression was complete.  Since C++17 these
+the evaluation of an expression was complete.  Since C++17 these
 recipes are called **prvalue** expressions, or prvalues in short.
 We'll look into the expression categories later, but we start using
 the term **prvalue** now.
