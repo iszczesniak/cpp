@@ -460,7 +460,7 @@ copy the value from the global or static data:
 
 ## Materialization
 
-Materialization is just creation of a datum according to a recepie (a
+Materialization is just creation of a datum according to a recipe (a
 description) that defines:
 
 * the type of data to create,
@@ -478,10 +478,11 @@ Such a recepie are:
 * `std::string("Hello")`, type `std::string`, argument `"Hello"`.
 
 Prior to C++17, such a recepie always created a temporary (a temporary
-object).  A temporary was created and then destroyed, all part of the
-evaluation of an expression.  Since C++17 these recepies are called
-**prvalue** expressions, or prvalues in short.  We'll look into the
-expression categories later, but we stick to the term **prvalue**.
+object).  A temporary was created always on the stack and then
+destroyed before the evaluation of the expression was complete.  Since
+C++17 these recipes are called **prvalue** expressions, or prvalues in
+short.  We'll look into the expression categories later, but we stick
+to the term **prvalue**.
 
 A prvalue creates a datum, and it differs from a variable
 initilization in that we don't give it a name.  As shown in the
