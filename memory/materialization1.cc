@@ -12,8 +12,8 @@ A f()
 
 int main()
 {
-  // A prvalue is materialize into variable a.
+  // A prvalue is materialized into variable a.
   A a = f();
-  // A prvalue is materialized into a temporary.
-  a = f();
+  // A prvalue is materialized into a temporary that is discarded.
+  f();
 }

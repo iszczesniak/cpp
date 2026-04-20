@@ -460,14 +460,14 @@ copy the value from the global or static data:
 
 ## Materialization
 
-Materialization is just creation of a datum according to a recipe (a
-description) that defines:
+Materialization is just creation of a datum according to an expression
+that defines:
 
 * the type of data to create,
 
 * the arguments for the creation.
 
-Example recipes are:
+Such example expressions are:
 
 * `std::string()`: type `std::string`, no arguments,
 
@@ -477,12 +477,12 @@ Example recipes are:
 
 * `std::string("Hello")`: type `std::string`, argument `"Hello"`.
 
-Prior to C++17, such a recepie always created a temporary (a temporary
-object), and always on the stack.  A temporary was destroyed before
-the evaluation of an expression was complete.  Since C++17 these
-recipes are called **prvalue** expressions, or prvalues in short.
-We'll look into the expression categories later, but we start using
-the term **prvalue** now.
+Prior to C++17, such an expression always created a temporary (a
+temporary object), and always on the stack.  A temporary was destroyed
+before the evaluation of an expression was complete.  Since C++17
+these recipes are called **prvalue** expressions, or prvalues in
+short.  We'll look into the expression categories later, but we start
+using the term **prvalue** now.
 
 A prvalue creates a datum, and it differs from a variable
 initilization in that we don't give it a name.  As shown in the
