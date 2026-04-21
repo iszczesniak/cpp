@@ -461,13 +461,14 @@ copy the value from the global or static data:
 ## Materialization
 
 Materialization is just creation of a datum according to an expression
-(a "recipe") that defines:
+that defines:
 
 * the type of data to create,
 
 * the arguments for the creation.
 
-Such example expressions are:
+Let's temporarily call such an expression a "recipe" for a value of
+some type.  Here are example recipes:
 
 * `std::string()`: type `std::string`, no arguments,
 
@@ -477,19 +478,33 @@ Such example expressions are:
 
 * `std::string("Hello")`: type `std::string`, argument `"Hello"`.
 
-Prior to C++17, such expressions always created a temporary (a
-temporary object), and always on the stack.  A temporary was destroyed
-before the evaluation of an expression was complete.
+If a recipe is a standalone expression, then its evaluation creates a
+temporary (a temporary value) that is next destroyed, and so it is a
+*discarded-value expression*.  A temporary object is created on the
+stack.  Here's an example:
+
+```cpp
+{% include_relative standalone.cc %}
+```
+
+If a recipe is not standalone, then it's an argument of a call
+expression of a function, a constructor or an operator.  Prior to
+C++17, a recipe also created a temporary that was used to initialize a
+parameter of a function (a constructor or an operator) called.  A
+temporary was destroyed when no longer needed.  That temporary,
+however, was not always present because of the return value
+optimization (prior to C++11) or the constructor elision (since
+C++11).
 
 Since C++17 these expressions are called expressions of the
 **prvalue** category, prvalue expressions or just prvalues in short.
 We'll look into the expression categories later, but we start refering
 to these expressions as prvalues.
 
-A prvalue creates a datum, and it differs from a variable
-initilization in that we don't give it a name.  As shown in the
-example below, returning a prvalue by value is a use case of the
-materialization.
+An evaluation of a prvalue creates its **result object** and it
+differs from a variable initilization in that we don't give it a name.
+As shown in the example below, returning a prvalue by value is a use
+case of the materialization.
 
 It's the materialization of a temporary (a temporary object), and not
 a materialization that is temporary.
@@ -532,8 +547,8 @@ object**.  The example below shows the variable initialization:
 
 An example below shows the initialization of a function parameter.
 The parameter is initialized (controlled) by the caller, and so the
-value of the temporary (also controlled by the caller) is created
-directly (materialized) in the parameter.
+result object of the prvalue (also controlled by the caller) is
+materialized in the parameter.
 
 ```cpp
 {% include_relative materialization3.cc %}
