@@ -477,12 +477,14 @@ Such example expressions are:
 
 * `std::string("Hello")`: type `std::string`, argument `"Hello"`.
 
-Prior to C++17, such an expression always created a temporary (a
+Prior to C++17, such expressions always created a temporary (a
 temporary object), and always on the stack.  A temporary was destroyed
-before the evaluation of an expression was complete.  Since C++17
-these expressions are called **prvalue** expressions, or prvalues in
-short.  We'll look into the expression categories later, but we start
-using the term **prvalue** now.
+before the evaluation of an expression was complete.
+
+Since C++17 these expressions are called expressions of the
+**prvalue** category, prvalue expressions or just prvalues in short.
+We'll look into the expression categories later, but we start refering
+to these expressions as prvalues.
 
 A prvalue creates a datum, and it differs from a variable
 initilization in that we don't give it a name.  As shown in the
