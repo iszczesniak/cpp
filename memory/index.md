@@ -461,7 +461,7 @@ copy the value from the global or static data:
 ## Materialization
 
 Materialization is just creation of a datum according to an expression
-that defines:
+(a "recipe") that defines:
 
 * the type of data to create,
 
@@ -480,7 +480,7 @@ Such example expressions are:
 Prior to C++17, such an expression always created a temporary (a
 temporary object), and always on the stack.  A temporary was destroyed
 before the evaluation of an expression was complete.  Since C++17
-these recipes are called **prvalue** expressions, or prvalues in
+these expressions are called **prvalue** expressions, or prvalues in
 short.  We'll look into the expression categories later, but we start
 using the term **prvalue** now.
 
@@ -550,6 +550,12 @@ implementation.
 ```cpp
 {% include_relative implementation.cc %}
 ```
+
+## Materialization deferred 
+
+The standard says that materialization is deferred, and so we can read
+elsewhere about "deferred materialization of a temporary".  I'm not
+exactly sure what they mean, but here's my take on that.
 
 # Lifetime and identity
 
