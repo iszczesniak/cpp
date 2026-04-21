@@ -22,6 +22,7 @@ SRCS_materialization2 = A.cpp
 SRCS_materialization3 = A.cpp
 SRCS_placement = A.cpp
 SRCS_return = A.cpp
+SRCS_standalone = A.cpp
 SRCS_static = A.cpp
 
 # For every program, add its source file.
