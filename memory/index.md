@@ -486,9 +486,8 @@ using the term **prvalue** now.
 
 A prvalue creates a datum, and it differs from a variable
 initilization in that we don't give it a name.  As shown in the
-example below, returning by value is a use case of the
-materialization, when the expression of the return instruction is a
-prvalue.
+example below, returning a prvalue by value is a use case of the
+materialization.
 
 It's the materialization of a temporary (a temporary object), and not
 a materialization that is temporary.
