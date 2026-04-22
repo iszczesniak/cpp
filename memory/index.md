@@ -467,8 +467,8 @@ that defines:
 
 * the arguments for the creation.
 
-Let's temporarily call such an expression a "recipe" for a value of
-some type.  It differs from a variable initilization in that we don't
+Let's temporarily call such an expression a "recipe" for a value of a
+given type.  It differs from a variable initilization in that we don't
 give it a name.  Here are some example recipes:
 
 * `std::string()`: type `std::string`, no arguments,
@@ -491,10 +491,12 @@ stack.  Here's an example:
 When a recipe is not standalone, then it's an argument of a call to a
 function, a constructor or an operator.  Prior to C++17, a recipe used
 as a call argument also created a temporary that was used to
-initialize a parameter of a call.  A temporary was destroyed before
-the evaluation of the complete (whole) expression was complete.  That
-temporary, however, was created as a parameter because of either the
-unnamed RVO or the constructor elision.
+initialize a parameter of the call, regardless of whether the
+parameter was of a reference type or not.  A temporary was destroyed
+before the evaluation of the complete (whole) expression was complete.
+When passing by value, however, that temporary didn't exist because
+its value was created directly in a parameter in accordance with
+either the unnamed RVO or the constructor elision.
 
 Since C++17 these expressions are called expressions of the
 **prvalue** category, prvalue expressions or just prvalues in short.
