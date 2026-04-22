@@ -405,14 +405,15 @@ of the **constructor elision**.  We need to know that an
 standardized, there is even no mention of it in the standard.
 
 There used to be two versions of the RVO: named and unnamed.  In C++11
-both became the constructor elision.  However, in C++17, what used to
-be the unnamed RVO became the *materialization*.
+both became the constructor elision that we refer to as the name and
+unnamed elision.  In C++17, the unnamed elision became the
+*materialization*.
 
-### Former named RVO
+### Named elision
 
-The following example demonstrates a use case for the C++17 elision
-(formerly for the named RVO): returning a non-static local variable
-that is not a parameter.
+The following example demonstrates a use case for the named elision:
+returning a non-static local variable that is not a parameter.  It is
+still elision according to the newest standard (C++23).
 
 ```cpp
 {% include_relative named.cc %}
@@ -461,24 +462,33 @@ copy the value from the global or static data:
 {% include_relative no_elision3.cc %}
 ```
 
-### Former unnamed RVO
+### Unnamed elision
 
-There is another use case of the temporary materialization:
-initialization with a temporary object.  Let's notice that **a
-constructor is a special function that returns by value the created
-object**.  The example below shows the variable initialization:
+The following example demonstrates a use case for the unnamed elision:
+returning a temporary object.
 
 ```cpp
-{% include_relative materialization2.cc %}
+{% include_relative unnamed.cc %}
 ```
+
+There is another use case of the unnamed elision: initialization with
+a temporary object, because **a constructor is a special function that
+returns by value the created object**.  The example below shows the
+variable initialization:
+
+```cpp
+{% include_relative initialization.cc %}
+```
+
+#### Parameter initialization
 
 An example below shows the initialization of a function parameter.
 The parameter is initialized (controlled) by the caller, and so the
-result object of the prvalue (also controlled by the caller) is
-materialized in the parameter.
+temporary object can be created in the parameter in accordance with
+the unnamed elision.
 
 ```cpp
-{% include_relative materialization3.cc %}
+{% include_relative parameter.cc %}
 ```
 
 ## Materialization
@@ -534,7 +544,7 @@ It's the materialization of a temporary (a temporary object), and not
 a materialization that is temporary.
 
 ```cpp
-{% include_relative materialization1.cc %}
+{% include_relative materialization.cc %}
 ```
 
 A result is returned by a function directly in its destination, e.g.,
