@@ -478,8 +478,8 @@ some type.  Here are some example recipes:
 
 * `std::string("Hello")`: type `std::string`, argument `"Hello"`.
 
-If a recipe is a standalone expression, then its evaluation creates a
-temporary (a temporary value) that is next destroyed, and so it is a
+When a recipe is a standalone expression, then its evaluation creates
+a temporary (a temporary value) that is next destroyed, and so it is a
 *discarded-value expression*.  A temporary object is created on the
 stack.  Here's an example:
 
@@ -487,7 +487,7 @@ stack.  Here's an example:
 {% include_relative standalone.cc %}
 ```
 
-If a recipe is not standalone, then it's an argument of a call to a
+When a recipe is not standalone, then it's an argument of a call to a
 function, a constructor or an operator.  Prior to C++17, a recipe used
 as a call argument also created a temporary that was used to
 initialize a parameter of a call.  A temporary was destroyed before
