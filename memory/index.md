@@ -389,13 +389,6 @@ destroys) them:
 
 ## Constructor elision
 
-The modern call convention enabled efficient returning by value, and
-so the functionality that used to be known as the *return value
-optimization* (RVO) was finally standardized in C++11 under the name
-of the **constructor elision**.  We need to know that an
-*optimization* is offered by a compiler: RVO has never been
-standardized, there is even no mention of it in the standard.
-
 Constructor elision is also known as the *copy elision*, *copy/move
 elision* or *copy/move constructor elision*.  It applies to no other
 constructor, and to no assignment operator.  I prefer the *constructor
@@ -404,12 +397,22 @@ operators too), and it can elide both the copy and move constructors,
 though doesn't apply to other constructors.  However, we need to note
 that the standard calls it the **copy/move elision**.
 
+The modern call convention enabled efficient returning by value, and
+so the functionality that used to be known as the *return value
+optimization* (RVO) was finally standardized in C++11 under the name
+of the **constructor elision**.  We need to know that an
+*optimization* is offered by a compiler: RVO has never been
+standardized, there is even no mention of it in the standard.
+
 There used to be two versions of the RVO: named and unnamed.  In C++11
 both became the constructor elision.  However, in C++17, what used to
-be the unnamed RVO became the *materialization*.  The following
-example demonstrates a use case for the C++17 elision (formerly for
-the named RVO): returning a non-static local variable that is not a
-parameter.
+be the unnamed RVO became the *materialization*.
+
+### Former named RVO
+
+The following example demonstrates a use case for the C++17 elision
+(formerly for the named RVO): returning a non-static local variable
+that is not a parameter.
 
 ```cpp
 {% include_relative elide.cc %}
@@ -432,7 +435,7 @@ exceptional use cases discussed further below, elision does not apply.
 {% include_relative no_ctors_elide.cc %}
 ```
 
-### Exceptions
+#### Exceptions
 
 Elision cannot always take place, because of technical reasons.
 First, because we return data, which has to be created prior to
@@ -456,6 +459,26 @@ copy the value from the global or static data:
 
 ```cpp
 {% include_relative no_elision3.cc %}
+```
+
+### Former unnamed RVO
+
+There is another use case of the temporary materialization:
+initialization with a temporary object.  Let's notice that **a
+constructor is a special function that returns by value the created
+object**.  The example below shows the variable initialization:
+
+```cpp
+{% include_relative materialization2.cc %}
+```
+
+An example below shows the initialization of a function parameter.
+The parameter is initialized (controlled) by the caller, and so the
+result object of the prvalue (also controlled by the caller) is
+materialized in the parameter.
+
+```cpp
+{% include_relative materialization3.cc %}
 ```
 
 ## Materialization
@@ -536,24 +559,6 @@ Compile the above example with:
 
 * `-std=c++17` to see that `-fno-elide-constructors` has no effect: in
   C++17 it is not a use case of the constructor elision any longer.
-
-There is another use case of the temporary materialization:
-initialization with a temporary object.  Let's notice that **a
-constructor is a special function that returns by value the created
-object**.  The example below shows the variable initialization:
-
-```cpp
-{% include_relative materialization2.cc %}
-```
-
-An example below shows the initialization of a function parameter.
-The parameter is initialized (controlled) by the caller, and so the
-result object of the prvalue (also controlled by the caller) is
-materialized in the parameter.
-
-```cpp
-{% include_relative materialization3.cc %}
-```
 
 ## Sample implementation
 
