@@ -1,13 +1,8 @@
 #include "A.hpp"
 
-A g()
-{
-  return A("g");
-}
-
 A f()
 {
-  return g();
+  return A("f");
 }
 
 int main()
