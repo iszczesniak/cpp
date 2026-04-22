@@ -263,7 +263,7 @@ with the expression of the return instruction.
 
 If a function parameter is of a non-reference type, we say that a
 function accepts (or takes) an argument by value, or that we pass an
-argument to a function by value.  In legacy C++, a nonreference
+argument to a function by value.  In legacy C++, a non-reference
 parameter was initialized always by copying the argument value into
 the parameter.  In modern C++, that copying might be gone (because of
 the materialization) or replaced with *moving*.
@@ -468,7 +468,7 @@ that defines:
 * the arguments for the creation.
 
 Let's temporarily call such an expression a "recipe" for a value of
-some type.  Here are example recipes:
+some type.  Here are some example recipes:
 
 * `std::string()`: type `std::string`, no arguments,
 
@@ -487,14 +487,13 @@ stack.  Here's an example:
 {% include_relative standalone.cc %}
 ```
 
-If a recipe is not standalone, then it's an argument of a call
-expression of a function, a constructor or an operator.  Prior to
-C++17, a recipe also created a temporary that was used to initialize a
-parameter of a function (a constructor or an operator) called.  A
-temporary was destroyed when no longer needed.  That temporary,
-however, was not always present because of the return value
-optimization (prior to C++11) or the constructor elision (since
-C++11).
+If a recipe is not standalone, then it's an argument of a call to a
+function, a constructor or an operator.  Prior to C++17, a recipe used
+as a call argument also created a temporary that was used to
+initialize a parameter of a call.  A temporary was destroyed before
+the evaluation of the complete (whole) expression was complete.  That
+temporary, however, was usually created directly in a parameter,
+either because of the unnamed RVO or the constructor elision.
 
 Since C++17 these expressions are called expressions of the
 **prvalue** category, prvalue expressions or just prvalues in short.
