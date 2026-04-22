@@ -415,7 +415,7 @@ The following example demonstrates a use case for the C++17 elision
 that is not a parameter.
 
 ```cpp
-{% include_relative elide.cc %}
+{% include_relative named.cc %}
 ```
 
 To see the legacy behviour, compile the above example with the

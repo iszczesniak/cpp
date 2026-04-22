@@ -379,7 +379,7 @@ skompilować z flagami `-fno-elide-constructors -std=c++14`, a potem
 bez nich i zwrócić uwagę na różnice.
 
 ```cpp
-{% include_relative elide.cc %}
+{% include_relative named.cc %}
 ```
 
 Proszę skompilować różne poprzednie przykłady przekazywania argumentów
