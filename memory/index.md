@@ -400,9 +400,9 @@ Constructor elision is also known as the *copy elision*, *copy/move
 elision* or *copy/move constructor elision*.  It applies to no other
 constructor, and to no assignment operator.  I prefer the *constructor
 elision*, because it's about constructors only (and not the assignment
-operators too), and it can elide not only the copy constructor, but
-also the move constructor.  However, we need to note that the standard
-calls it the **copy/move elision**.
+operators too), and it can elide both the copy and move constructors,
+though doesn't apply to other constructors.  However, we need to note
+that the standard calls it the **copy/move elision**.
 
 There used to be two versions of the RVO: named and unnamed.  In C++11
 both became the constructor elision.  However, in C++17, what used to
