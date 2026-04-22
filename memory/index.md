@@ -468,7 +468,8 @@ that defines:
 * the arguments for the creation.
 
 Let's temporarily call such an expression a "recipe" for a value of
-some type.  Here are some example recipes:
+some type.  It differs from a variable initilization in that we don't
+give it a name.  Here are some example recipes:
 
 * `std::string()`: type `std::string`, no arguments,
 
@@ -492,18 +493,17 @@ function, a constructor or an operator.  Prior to C++17, a recipe used
 as a call argument also created a temporary that was used to
 initialize a parameter of a call.  A temporary was destroyed before
 the evaluation of the complete (whole) expression was complete.  That
-temporary, however, was usually created directly in a parameter,
-either because of the unnamed RVO or the constructor elision.
+temporary, however, was created as a parameter because of either the
+unnamed RVO or the constructor elision.
 
 Since C++17 these expressions are called expressions of the
 **prvalue** category, prvalue expressions or just prvalues in short.
 We'll look into the expression categories later, but we start refering
 to these expressions as prvalues.
 
-An evaluation of a prvalue creates its **result object** and it
-differs from a variable initilization in that we don't give it a name.
-As shown in the example below, returning a prvalue by value is a use
-case of the materialization.
+An evaluation of a prvalue creates its **result object**.  As shown in
+the example below, returning a prvalue by value is a use case of the
+materialization.
 
 It's the materialization of a temporary (a temporary object), and not
 a materialization that is temporary.
