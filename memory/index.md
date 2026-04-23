@@ -422,18 +422,19 @@ standard (C++23).
 To see the legacy behviour, compile the above example with the
 compiler flag `-fno-elide-constructors` (modify CXXFLAGS in
 GNUmakefile).  Notice the differences at run-time, that with
-constructor elision, objects are not copied (nor moved) unnecessarily.
+constructor elision, objects are not copied unnecessarily.
 
 Even if constructors are elided, they must be defined because
-depending on the type of the returned value, a compiler can decide not
-to elide constructors.  In the example below, remove the constructors
-by removing the comments to see the compilation fail.  Also, in the
-exceptional use cases discussed further below, elision does not apply.
+depending on the type of the returned value, the standard allows a
+compiler not to elide constructors.  In the example below, remove the
+constructors by removing the comments to see the compilation fail.
+Also, in the exceptional use cases discussed further below, elision
+does not apply.
 
-**Bottom line: elision is not mandatory.**
+**Bottom line: elision is optional.**
 
 ```cpp
-{% include_relative no_ctors_elide.cc %}
+{% include_relative optional.cc %}
 ```
 
 #### Exceptions
@@ -532,10 +533,10 @@ When passing by value, however, that temporary didn't exist because
 its value was created directly in a parameter in accordance with the
 unnamed elision.
 
-Since C++17 these expressions are called expressions of the
-**prvalue** category, prvalue expressions or just prvalues in short.
-We'll look into the expression categories later, but we start refering
-to these expressions as prvalues.
+Since C++17 these recipes are called expressions of the **prvalue**
+category, prvalue expressions or just prvalues in short.  We'll look
+into the expression categories later, but we start refering to these
+expressions as prvalues.
 
 An evaluation of a prvalue creates its **result object**.  As shown in
 the example below, returning a prvalue by value is a use case of the
@@ -555,12 +556,12 @@ the result in its destination, so that it doesn't have to be copied
 constructor elision!
 
 However, **the materialization is mandatory**, while the elision is
-not.  The returned value is never (no exceptions) copied or moved, and
-so its type doesn't need to have the copy and move constructors, as
-shown in the example below.
+not.  The returned value is never (no exceptions) moved (or copied),
+and so its type doesn't need to have the move (or copy) constructors,
+as shown in the example below.
 
 ```cpp
-{% include_relative no_ctors_mater.cc %}
+{% include_relative mandatory.cc %}
 ```
 
 Compile the above example with:
