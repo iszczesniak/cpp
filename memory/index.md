@@ -387,33 +387,33 @@ destroys) them:
 
 **Bottom line: a parameter is out of control of the function.**
 
-## Constructor elision
+## Copy/move elision
 
-Constructor elision is also known as the *copy elision*, *copy/move
-elision* or *copy/move constructor elision*.  It applies to no other
-constructor, and to no assignment operator.  I prefer the *constructor
-elision*, because it's about constructors only (and not the assignment
-operators too), and it can elide both the copy and move constructors,
-though doesn't apply to other constructors.  However, we need to note
-that the standard calls it the **copy/move elision**.
+The **copy/move elision** ([class.copy.elision]) elides the copy and
+move constructors only, and no other constructors or assignment
+operators.  It's also known as the *copy elision* or the *constructor
+elision*.
 
-The modern call convention enabled efficient returning by value, and
-so the functionality that used to be known as the *return value
-optimization* (RVO) was finally standardized in C++11 under the name
-of the **constructor elision**.  We need to know that an
-*optimization* is offered by a compiler: RVO has never been
-standardized, there is even no mention of it in the standard.
+For a historical review, the functionality that is now called elision
+was mentioned for copying in C++98, termed elision in C++03, and
+extended for moving in C++11.  This functionality was commonly known
+as the return value optimization (RVO), but it wasn't called like this
+in the standard.  Around the time of C++11, the modern call convention
+started to spread that enabled (with the official support of an
+operating system, and not a compiler optimization) efficient returning
+by value, and so this functionality gained in importance, but under
+the standardized term of elision.
 
-There used to be two versions of the RVO: named and unnamed.  In C++11
-both became the constructor elision that we refer to as the name and
-unnamed elision.  In C++17, the unnamed elision became the
-*materialization*.
+We distinguish between two versions of elision: named and unnamed.  In
+C++17, the unnamed elision became the *materialization*.
 
 ### Named elision
 
-The following example demonstrates a use case for the named elision:
-returning a non-static local variable that is not a parameter.  It is
-still elision according to the newest standard (C++23).
+The following example demonstrates a use case for the named elision
+(that also used to be known as the *named RVO*): returning a
+non-static local variable that is not a parameter, where the copy
+constructor was elided.  It is still elision according to the newest
+standard (C++23).
 
 ```cpp
 {% include_relative named.cc %}
@@ -464,8 +464,9 @@ copy the value from the global or static data:
 
 ### Unnamed elision
 
-The following example demonstrates a use case for the unnamed elision:
-returning a temporary object.
+The following example demonstrates a use case for the unnamed elision
+(that also used to be known as the *unnamed RVO*): returning a
+temporary object, where the move constructor is elided.
 
 ```cpp
 {% include_relative unnamed.cc %}
@@ -528,8 +529,8 @@ initialize a parameter of the call, regardless of whether the
 parameter was of a reference type or not.  A temporary was destroyed
 before the evaluation of the complete (whole) expression was complete.
 When passing by value, however, that temporary didn't exist because
-its value was created directly in a parameter in accordance with
-either the unnamed RVO or the constructor elision.
+its value was created directly in a parameter in accordance with the
+unnamed elision.
 
 Since C++17 these expressions are called expressions of the
 **prvalue** category, prvalue expressions or just prvalues in short.
