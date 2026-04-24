@@ -554,16 +554,10 @@ example:
 {% include_relative materialization.cc %}
 ```
 
-A result is returned by a function directly in its destination, e.g.,
-a variable that is initialized with the result.  The idea is to create
-the result in its destination, so that it doesn't have to be copied
-(copy-initialized) or moved (move-initialized) there.  Just like the
-constructor elision!
-
-However, **the materialization is mandatory**, while the elision is
-not.  The returned value is never (no exceptions) moved (or copied),
-and so its type doesn't need to have the move (or copy) constructors,
-as shown in the example below.
+**Materialization is mandatory**, while elision is not.  The returned
+value is never (no exceptions) moved (or copied), and so its type
+doesn't need to have the move (or copy) constructors, as shown in the
+example below.
 
 ```cpp
 {% include_relative mandatory.cc %}
