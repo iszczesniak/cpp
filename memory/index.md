@@ -585,12 +585,6 @@ implementation.
 {% include_relative implementation.cc %}
 ```
 
-## Materialization deferred 
-
-The standard says that materialization is deferred, and so we can read
-elsewhere about "deferred materialization of a temporary".  I'm not
-exactly sure what they mean, but here's my take on that.
-
 # Lifetime and identity
 
 Lifetime and identity are two notions that in C++ became technical
