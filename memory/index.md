@@ -533,17 +533,21 @@ When passing by value, however, that temporary didn't exist because
 its value was created directly in a parameter in accordance with the
 unnamed elision.
 
+*Bottom line: prior to C++17, a recipe always created a temporary
+object, that could have been elided.*
+
 Since C++17 these recipes are called expressions of the **prvalue**
-category, prvalue expressions or just prvalues in short.  We'll look
-into the expression categories later, but we start refering to these
-expressions as prvalues.
+category, prvalue expressions or just prvalues.  We'll look into the
+expression categories later, but we start refering to these
+expressions as prvalues.  Along with the prvalues, there came a new
+semantics.
 
-An evaluation of a prvalue creates its **result object**.  As shown in
-the example below, returning a prvalue by value is a use case of the
-materialization.
-
-It's the materialization of a temporary (a temporary object), and not
-a materialization that is temporary.
+An evaluation of a prvalue creates a **result object** that doesn't
+have to be a temporary.  The result object can be materialized into a
+temporary object or a variable.  **A temporary materialization** is
+the creation of the results object of a prvalue as a temporary object.
+It's the materialization of a temporary, and not a materialization
+that is temporary.  Here's an example:
 
 ```cpp
 {% include_relative materialization.cc %}
