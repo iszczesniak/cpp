@@ -542,12 +542,13 @@ expression categories later, but we start refering to these
 expressions as prvalues.  Along with the prvalues, there came a new
 semantics.
 
-An evaluation of a prvalue creates a **result object** that doesn't
-have to be a temporary.  The result object can be materialized into a
-temporary object or a variable.  **A temporary materialization** is
-the creation of the results object of a prvalue as a temporary object.
-It's the materialization of a temporary, and not a materialization
-that is temporary.  Here's an example:
+An evaluation of a prvalue materializes the **result object** directly
+in a destination, voiding the need for the elision.  That destination
+doesn't have to be a temporary, it can also be a variable.  A
+**temporary materialization** is the creation of the result object of
+a prvalue as a temporary object: it's the materialization of a
+temporary, and not a materialization that is temporary.  Here's an
+example:
 
 ```cpp
 {% include_relative materialization.cc %}
