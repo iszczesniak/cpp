@@ -402,8 +402,8 @@ the standardized term of elision.
 The **copy/move elision** ([class.copy.elision]) elides the copy and
 move constructors only, and no other constructors or assignment
 operators.  It's also known as the *copy elision* or the *constructor
-elision*.  We distinguish between two versions of elision: named and
-unnamed.
+elision*.  We distinguish between two versions of the elision: named
+and unnamed.
 
 ### Named elision
 
