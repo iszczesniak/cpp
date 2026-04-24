@@ -424,7 +424,7 @@ constructor elision, objects are not copied unnecessarily.
 
 Even if constructors are elided, they must be defined because
 depending on the type of the returned value, the standard allows a
-compiler not to elide constructors.  In the example below, remove the
+compiler not to elide constructors.  In the example below, delete the
 copy constructor by removing the comment to see the compilation fail.
 Also, in the exceptional use cases discussed further below, elision
 does not apply.
