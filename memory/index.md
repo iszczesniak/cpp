@@ -533,8 +533,8 @@ When passing by value, however, that temporary didn't exist because
 its value was created directly in a parameter in accordance with the
 unnamed elision.
 
-*Bottom line: prior to C++17, a recipe always created a temporary
-object, that could have been elided.*
+**Bottom line: prior to C++17, a recipe always created a temporary
+object, that could have been elided.**
 
 Since C++17 these recipes are called expressions of the **prvalue**
 category, prvalue expressions or just prvalues.  We'll look into the
