@@ -389,11 +389,6 @@ destroys) them:
 
 ## Copy/move elision
 
-The **copy/move elision** ([class.copy.elision]) elides the copy and
-move constructors only, and no other constructors or assignment
-operators.  It's also known as the *copy elision* or the *constructor
-elision*.
-
 For a historical review, the functionality that is now called elision
 was mentioned for copying in C++98, termed elision in C++03, and
 extended for moving in C++11.  This functionality was commonly known
@@ -404,8 +399,11 @@ operating system, and not a compiler optimization) efficient returning
 by value, and so this functionality gained in importance, but under
 the standardized term of elision.
 
-We distinguish between two versions of elision: named and unnamed.  In
-C++17, the unnamed elision became the *materialization*.
+The **copy/move elision** ([class.copy.elision]) elides the copy and
+move constructors only, and no other constructors or assignment
+operators.  It's also known as the *copy elision* or the *constructor
+elision*.  We distinguish between two versions of elision: named and
+unnamed.
 
 ### Named elision
 
@@ -427,7 +425,7 @@ constructor elision, objects are not copied unnecessarily.
 Even if constructors are elided, they must be defined because
 depending on the type of the returned value, the standard allows a
 compiler not to elide constructors.  In the example below, remove the
-constructors by removing the comments to see the compilation fail.
+copy constructor by removing the comment to see the compilation fail.
 Also, in the exceptional use cases discussed further below, elision
 does not apply.
 
@@ -467,7 +465,7 @@ copy the value from the global or static data:
 
 The following example demonstrates a use case for the unnamed elision
 (that also used to be known as the *unnamed RVO*): returning a
-temporary object, where the move constructor is elided.
+temporary object, where the move (or copy) constructor is elided.
 
 ```cpp
 {% include_relative unnamed.cc %}
@@ -492,6 +490,8 @@ the unnamed elision.
 ```cpp
 {% include_relative parameter.cc %}
 ```
+
+**In C++17, the unnamed elision became the *materialization*.**
 
 ## Materialization
 
