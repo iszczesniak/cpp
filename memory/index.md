@@ -543,11 +543,11 @@ expressions as prvalues.  Along with the prvalues, there came a new
 semantics.
 
 An evaluation of a prvalue materializes the result (the **result
-object**, the result value) directly in a destination, voiding the
+object**, the result value) directly into a destination, voiding the
 need for the elision.  That destination doesn't have to be a
 temporary, it can also be a variable.  A **temporary materialization**
-is the materialization in a temporary, and not a materialization that
-is temporary.  Here's an example:
+is the materialization into a temporary, and not a materialization
+that is temporary.  Here's an example:
 
 ```cpp
 {% include_relative materialization.cc %}
