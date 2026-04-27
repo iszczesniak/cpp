@@ -1,4 +1,5 @@
-A ralation that is not reflexive doesn't have to be irreflexive.
+A ralation that is not reflexive (or is non-reflexive) doesn't have to
+be irreflexive.
 
 uporządkowanie (ordering), porządek (order)
 
