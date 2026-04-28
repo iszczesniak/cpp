@@ -5,7 +5,7 @@ uporządkowanie = ordering
 
 porządek = order
 
-przeciwzwrotna = irreflexive
+irreflexive = przeciwzwrotna (nie bezzwrotna)
 
 strict weak order
 
