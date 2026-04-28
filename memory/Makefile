@@ -18,6 +18,7 @@ SRCS_no_elision3 = A.cpp
 SRCS_global = A.cpp
 SRCS_local = A.cpp
 SRCS_materialization = A.cpp
+SRCS_member = A.cpp
 SRCS_named = A.cpp
 SRCS_parameter = A.cpp
 SRCS_placement = A.cpp

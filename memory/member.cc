@@ -1,3 +1,5 @@
+#include "A.hpp"
+
 struct X
 {
   A m_a;
@@ -9,5 +11,5 @@ struct X
 
 int main()
 {
-  X(A());
+  X(A("main"));
 }
