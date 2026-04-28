@@ -1,7 +1,11 @@
 A ralation that is not reflexive (or is non-reflexive) doesn't have to
 be irreflexive.
 
-uporządkowanie (ordering), porządek (order)
+uporządkowanie = ordering
+
+porządek = order
+
+przeciwzwrotna = irreflexive
 
 strict weak order
 
