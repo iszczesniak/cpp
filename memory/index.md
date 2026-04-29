@@ -633,7 +633,35 @@ always exists.  Yes, a string literal has an identity, but
 
 # More elaborate examples
 
+As a drill, we study the examples below and analyze them to understand
+whether the copy or move constructors are called or not, or whether
+they are elided.  These example are simple and minimalistic, and they
+cover almost all use cases of daily programming.  To see the
+difference, we compile the examples with C++03, C++11 and C++17, and
+ask the compiler not to elide constructors.
+
+In the examples, the struct `A` of the same functionality is part of
+the example, so that it can be copied to an online compiler.
+
 ## Example 1
+
+Returning a prvalue by value is a special use case in C++17, that of
+materialization: the prvalue is materialized directly in the
+destination, no copy or move constructor is needed.  The result is
+returned by value twice, no copy or move constructor is called.  The
+lifetime of the object starts in function `g`, and ends in the main
+function. **What?** A temporary object is not destroyed in the same
+scope it was created in?  Since C++17, it's not a temporary, but a
+prvalue.
+
+In C++11, a temporary is created in function `g` as an argument of the
+return instruction.  That first temporary is used to move-initialize
+the result of function `g`, i.e., a second temporary object that is
+the argument of the return instruction of function `f`.  That second
+temporary is used to move-initialize the result of function `f`, i.e.,
+a third temporary object that is the argument of the
+move-initialization of variable `a`.  Ask the compiler not to elide
+constructors.
 
 ```cpp
 {% include_relative example1.cc %}
@@ -651,7 +679,7 @@ always exists.  Yes, a string literal has an identity, but
 {% include_relative example3.cc %}
 ```
 
-# Example 4
+## Example 4
 
 ```cpp
 {% include_relative member.cc %}
