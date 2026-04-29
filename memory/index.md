@@ -640,8 +640,12 @@ cover almost all use cases of daily programming.  To see the
 difference, we compile the examples with C++03, C++11 and C++17, and
 ask the compiler not to elide constructors.
 
-In the examples, the struct `A` of the same functionality is part of
-the example, so that it can be copied to an online compiler.
+I used an online compiler (Compiler Explorer) to quickly compile the
+below examples with various compiler versions and compilation flags.
+For this reason, I created a separate file `hack.hpp`, so that in an
+online compiler you can replace `#include "hack.hpp"` with the
+contents of this file.  It's a hack, a handy one.  This file defines
+the same struct `A` as files `A.hpp` and `A.cpp`.
 
 ## Example 1
 
