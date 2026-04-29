@@ -637,16 +637,26 @@ As a drill, we study the examples below and analyze them to understand
 whether the copy or move constructors are called or not, or whether
 they are elided.  These example are simple and minimalistic, and they
 cover almost all use cases of daily programming.  To see the
-difference, we compile the examples with C++03, C++11 and C++17, and
-ask the compiler not to elide constructors.  You can find it in
-[../lib](../lib).
+differences, we compile the examples with C++11 and C++17, and ask the
+compiler not to elide constructors.
+
+I tried to compile with C++03 to see the copying instead of moving.
+However, the move semantics (of C++11) was still used.  Also, I
+couldn't get the behaviour of the legacy call convention, which is not
+surprising, because I'm using a modern system that offers the modern
+call convention only.  I tried the same with an online compiler with
+the same effect.  It's legacy, so we shouldn't be bothered.  In a few
+years, we can expect to have problems replicating the C++11 bahaviour.
+If we really wanted to see the C++03 behaviour, we should use some
+really old system.
 
 I used an online compiler (Compiler Explorer) to quickly compile the
 below examples with various compiler versions and compilation flags.
 For this reason, I created a separate file `hack.hpp`, so that in an
 online compiler you can replace `#include "hack.hpp"` with the
 contents of this file.  It's a hack, a handy one.  This file defines
-the same struct `A` as files `A.hpp` and `A.cpp`.
+the same struct `A` as files `A.hpp` and `A.cpp`.  You can find it in
+[../lib](../lib).
 
 ## Example 1
 
