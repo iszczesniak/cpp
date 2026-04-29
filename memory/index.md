@@ -631,6 +631,32 @@ literal is a singular datum: it is never created nor destroyed, and it
 always exists.  Yes, a string literal has an identity, but
 `string("Hello!")` still doesn't.
 
+# More elaborate examples
+
+## Example 1
+
+```cpp
+{% include_relative example1.cc %}
+```
+
+## Example 2
+
+```cpp
+{% include_relative example2.cc %}
+```
+
+## Example 3
+
+```cpp
+{% include_relative example3.cc %}
+```
+
+# Example 4
+
+```cpp
+{% include_relative member.cc %}
+```
+
 # Conclusion
 
 * Data can be allocated globally, statically, locally or dynamically.
