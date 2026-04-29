@@ -12,6 +12,12 @@
 {% include_relative A.cpp %}
 ```
 
+## hack.hpp
+
+```cpp
+{% include_relative hack.hpp %}
+```
+
 ## timer.hpp
 
 ```cpp
