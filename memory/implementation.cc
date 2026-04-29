@@ -1,13 +1,8 @@
 #include "A.hpp"
 
-void g(A *p)
-{
-  new (p) A("g");
-}
-
 void f(A *p)
 {
-  g(p);
+  new (p) A("g");
 }
 
 int main()
