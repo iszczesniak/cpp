@@ -20,6 +20,11 @@ struct A
     std::cout << "move-ctor: " << m_name << std::endl;
   }
 
+  void hello() const
+  {
+    std::cout << "Hello from " << m_name << std::endl;
+  }
+
   ~A()
   {
     std::cout << "dtor: " << m_name << std::endl;

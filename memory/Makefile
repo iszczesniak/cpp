@@ -1,4 +1,4 @@
-CXXFLAGS = -std=c++17
+CXXFLAGS = -std=c++17 -I../lib
 # CXXFLAGS += -fno-elide-constructors
 
 FILES != ls *.cc
@@ -33,10 +33,5 @@ SRCS_$p += $p.cc
 
 A.cpp: ../lib/A.cpp
 	cp ../lib/A.cpp .
-
-A.hpp: ../lib/A.hpp
-	cp ../lib/A.hpp .
-
-all: A.hpp
 
 .include <bsd.prog.mk>
