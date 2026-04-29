@@ -638,7 +638,8 @@ whether the copy or move constructors are called or not, or whether
 they are elided.  These example are simple and minimalistic, and they
 cover almost all use cases of daily programming.  To see the
 difference, we compile the examples with C++03, C++11 and C++17, and
-ask the compiler not to elide constructors.
+ask the compiler not to elide constructors.  You can find it in
+[../lib](../lib).
 
 I used an online compiler (Compiler Explorer) to quickly compile the
 below examples with various compiler versions and compilation flags.
