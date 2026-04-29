@@ -667,16 +667,16 @@ returned by value twice, no copy or move constructor is called.  The
 lifetime of the object starts in function `g`, and ends in the main
 function. **What?** A temporary object is not destroyed in the same
 scope it was created in?  Since C++17, it's not a temporary, but a
-prvalue.
+prvalue.  Asking a compiler to elide constructors makes no difference.
 
 In C++11, a temporary is created in function `g` as an argument of the
 return instruction.  That first temporary is used to move-initialize
-the result of function `g`, i.e., a second temporary object that is
-the argument of the return instruction of function `f`.  That second
-temporary is used to move-initialize the result of function `f`, i.e.,
-a third temporary object that is the argument of the
-move-initialization of variable `a`.  Ask the compiler not to elide
-constructors.
+the result of function `g`, i.e., the second temporary object that
+becomes the argument of the return instruction of function `f`.  That
+second temporary is used to move-initialize the result of function
+`f`, i.e., the third temporary object that becomes the argument of the
+move-initialization of variable `a`.  These move constructors are
+elided, but you can ask the compiler not to do it.
 
 ```cpp
 {% include_relative example1.cc %}
