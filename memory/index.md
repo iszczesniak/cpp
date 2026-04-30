@@ -684,6 +684,13 @@ elided, but you can ask the compiler not to do it.
 
 ## Example 2
 
+In this example, function `f` doesn't return the result of `g` right
+away as in the example above, but initializes local variable `a` with
+it, and then returns `a`.
+
+For C++11, both the named and unnamed elistion is used.  When we ask a
+compiler not to elide constructors.
+
 ```cpp
 {% include_relative example2.cc %}
 ```
