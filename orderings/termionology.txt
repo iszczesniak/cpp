@@ -1,11 +1,16 @@
-A ralation that is not reflexive (or is non-reflexive) doesn't have to
-be irreflexive.
+porządek = order
 
 uporządkowanie = ordering
 
-porządek = order
-
 irreflexive = przeciwzwrotna (nie bezzwrotna)
+
+A ralation that is not reflexive (or is non-reflexive) doesn't have to
+be irreflexive.
+
+Asymmetry implies irreflexivity.  Irreflexivity is a necessary
+condition for asymmetry.  If a relation is not irreflexive, then it's
+not asymmetric: if there existis x such that x R x, which violates
+asymmetry: x R x -> not x R x, which is false.
 
 strict weak order
 
