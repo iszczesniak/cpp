@@ -684,9 +684,17 @@ elided, but you can ask the compiler not to do it.
 
 ## Example 2
 
-In this example, function `f` doesn't return the result of `g` right
-away as in the example above, but initializes local variable `a` with
-it, and then returns `a`.
+In this example, function `f` doesn't return right away the result of
+`g` as in the example above, but initializes local variable `a` with
+it, and then returns `a`.  The output of this example is the same as
+of the above, because no copy or move constructor is called.
+
+First, the prvalue returned by `g` is materialized into the local
+variable of function `f`.  Function `f` returns a value that is
+move-initialized from its local variable.  Using move-initialization
+is more efficient than copy-initialize, because the local variable
+will be soon destroyed -- it's called the *implicit move*; we'll get
+to it.
 
 For C++11, both the named and unnamed elistion is used.  When we ask a
 compiler not to elide constructors.
