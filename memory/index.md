@@ -689,12 +689,16 @@ In this example, function `f` doesn't return right away the result of
 it, and then returns `a`.  The output of this example is the same as
 of the above, because no copy or move constructor is called.
 
-First, the prvalue returned by `g` is materialized into the local
-variable of function `f`.  Function `f` returns a value that is
-move-initialized from its local variable.  Using move-initialization
-is more efficient than copy-initialize, because the local variable
-will be soon destroyed -- it's called the *implicit move*; we'll get
-to it.
+The prvalue returned by `g` is materialized into the local variable of
+function `f`.  Function `f` returns a value that is move-initialized
+from its local variable.  Move-initialization is more efficient than
+copy-initialization because the local variable will soon be destroyed
+-- it's called the *implicit move* (we'll get to it).  Since function
+`f` returns by value, the result (that is a prvalue) is materialized
+in the local variable of function `main`.  Function `f` elides the
+move initialization (i.e., the move constructor) by passing the
+address for the return value to function `g`, because it controls its
+local variable.
 
 For C++11, both the named and unnamed elistion is used.  When we ask a
 compiler not to elide constructors.
