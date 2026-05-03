@@ -694,7 +694,7 @@ function `f`.  Function `f` returns a prvalue that is move-initialized
 (materialized) from the local variable.  Move-initialization is more
 efficient than copy-initialization because the local variable will
 soon be destroyed -- it's called the *implicit move* (we'll get to
-it).  The returned prvalue is materialized in the local variable of
+it).  The returned prvalue is materialized into the local variable of
 function `main`.  Function `f` is in full control of its local
 variable, and so it can elide the move initialization (i.e., calling
 the move constructor, where the source object is the local variable of
