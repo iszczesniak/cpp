@@ -743,6 +743,13 @@ four times, as in the example above, with the same explanation.
 
 ## Example 4
 
+In the example below, the prvalue argument of the constructor is
+materialized into the parameter of the constructor, and then its value
+is copied into the member field.  In C++17, asking a compiler not to
+elide constructors has no efect, because elision is not used.  In
+C++11 without elision, a temporary move-initializes the constructor
+parameter.
+
 ```cpp
 {% include_relative member.cc %}
 ```
