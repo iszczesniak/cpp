@@ -42,7 +42,7 @@ get the grade within two deadlines:
 
   - Monday, March 30, 2026, from part I,
   
-  - Monday, May 4, 2026, from part II,
+  - Monday, May 11, 2026, from part II,
 
   - Monday, June 8, 2026, from part III,
 

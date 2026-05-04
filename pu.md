@@ -47,7 +47,7 @@ Ocenę można uzyskać w dwóch terminach:
 
   - poniedziałek, 30 marca, 2026, z części I,
 
-  - poniedziałek, 4 maja, 2026, z części II,
+  - poniedziałek, 11 maja, 2026, z części II,
 
   - poniedziałek, 8 czerwca, 2026, z części III,
 
