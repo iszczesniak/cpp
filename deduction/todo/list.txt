@@ -1,0 +1,5 @@
+Deduction of function types.
+
+Elaborate on: P compatible with A, reference-compatible
+
+Function pointer conversion: only noexcept can be added.
