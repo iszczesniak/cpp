@@ -717,6 +717,18 @@ temporary of the call expression, and next to a local variable.
 
 ## Example 3
 
+In this example, function `f` returns the value of its parameter.  The
+main function passes the result of `g` to `f`.  The output shows a
+move constructor was called.  No way, no how could this constructor be
+elided.
+
+The main function allocates memory for the parameter of function `f`
+and passes its address to function `g` as the address for the return
+value, so that function `g` can materialize its prvalue there.  Next,
+the main function passes the address of its local variable to function
+`f`, so that function `f` can materialize its prvalue there by the
+move initialization from its parameter.  It's also the implicit move.
+
 ```cpp
 {% include_relative example3.cc %}
 ```
