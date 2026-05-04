@@ -727,7 +727,15 @@ and passes its address to function `g` as the address for the return
 value, so that function `g` can materialize its prvalue there.  Next,
 the main function passes the address of its local variable to function
 `f`, so that function `f` can materialize its prvalue there by the
-move initialization from its parameter.  It's also the implicit move.
+move initialization (it's also the implicit move) from its parameter.
+Ask your compiler to use C++17 and not to elide constructors to see no
+difference in output, because no elision was used.
+
+In C++11, the output is the same because of the elision.  Function `g`
+creates a temporary, but the move constructor is elided, so the result
+is created in the parameter of function `f`.  Ask your compiler to use
+C++11 and not to elide constructors to see the move constructor called
+four times, as in the example above, with the same explanation.
 
 ```cpp
 {% include_relative example3.cc %}
