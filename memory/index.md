@@ -693,17 +693,23 @@ The prvalue returned by `g` is materialized into the local variable of
 function `f`.  Function `f` returns a prvalue that is move-initialized
 (materialized) from the local variable and into the local variable of
 function `main`.  Move-initialization is more efficient than
-copy-initialization because the local variable will soon be destroyed
--- it's called the *implicit move* (we'll get to it).  Function `f` is
-in full control of its local variable, and so it can elide the move
-initialization (i.e., calling the move constructor, where the source
-object is the local variable of function `f`, and the target object is
-the local variable of the main function) by passing the address for
-the return value to function `g`.  Ask your compiler to use C++17 and
-not to elide constructors to see a move constructor called once.
+copy-initialization because the local variable (that is the argument
+of the return instruction) will soon be destroyed -- it's called the
+*implicit move* (we'll get to it).  Function `f` is in full control of
+its local variable, and so it can elide the move initialization (i.e.,
+calling the move constructor, where the source object is the local
+variable of function `f`, and the target object is the local variable
+of the main function) by passing the address for the return value
+(passed by the main function) to function `g`.  Ask your compiler to
+use C++17 and not to elide constructors to see a move constructor
+called once.
 
-For C++11, both the named and unnamed elistion is used.  When we ask a
-compiler not to elide constructors.
+For C++11, the output is the same because of the elision.  There is no
+materialization yet, but there is unnamed elision.  Ask your compiler
+to use C++11 and not to elide constructors to see the move constructor
+called four times.  Each function call results in the move constructor
+called twice: first the value of a return expression is moved into a
+temporary of the call expression, and next to a local variable.
 
 ```cpp
 {% include_relative example2.cc %}
