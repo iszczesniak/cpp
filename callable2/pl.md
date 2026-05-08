@@ -220,7 +220,7 @@ Jeżeli wywołujemy funkcję składową, to pierwszym elementem krotki
 powinien być obiekt, na rzecz którego funkcja będzie wywołana.
 
 Poniższa implementacja funkcji `f` przyjmuje trzeci argument dla
-siebie, bez przekazywanie go do callable:
+siebie, bez przekazywania go do callable:
 
 ```cpp
 {% include_relative apply.cc %}
