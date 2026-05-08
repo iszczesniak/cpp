@@ -40,10 +40,15 @@ main()
   (a.*p2)();
   (b.*p2)();
 
-  // We can also store a pointer to a member function with an object
-  // to call.
+  // In std::function, store the result of function std::bind.
   std::function<void ()> f = std::bind(p1, a);
   f();
   f = std::bind(p2, b);
+  f();
+
+  // In std::function, store a closure.
+  f = [&]{(a.*p1)();};
+  f();
+  f = [&]{(b.*p2)();};
   f();
 }
