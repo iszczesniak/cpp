@@ -111,8 +111,8 @@ funkcja jest konkretyzowana dla tego konkretnego callable, co
 przekłada się na maksymalną wydajnośc, bo kod wynikowy generowany jest
 "na miarę".
 
-Użycie szablonu nie wyklucza użycia `std::function`, która może być po
-prostu argumentem szablonu.
+Użycie szablonu nie wyklucza użycia typu `std::function`, który może
+być po prostu argumentem szablonu.
 
 ```cpp
 {% include_relative passing4.cc %}

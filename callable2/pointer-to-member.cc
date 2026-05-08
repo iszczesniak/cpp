@@ -46,7 +46,7 @@ main()
   f = std::bind(p2, b);
   f();
 
-  // In std::function, store a closure.
+  // In std::function, store a closure that captures by reference.
   f = [&]{(a.*p1)();};
   f();
   f = [&]{(b.*p2)();};
