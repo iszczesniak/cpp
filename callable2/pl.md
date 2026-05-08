@@ -22,7 +22,9 @@ obiektu) w czasie **uruchomienia**, albo **kompilacji**.
 
 Jeżeli callable jest ustalane w czasie uruchomienia, to kod callable
 będzie wywołany i nie będzie wkompilowany (ang. inlined) w miejsce
-wywołania, no bo nie wiadomo co wkompilować.  Proszę sprawdzić kod
+wywołania, no bo nie wiadomo, co wkompilować.  Chociaż nie jest to
+pewne, bo jest zależne od wielkości funkcji, systemu, kompilatora
+(jego optymalizatora) i opcji kompilacji.  Proszę sprawdzić kod
 wynikowy przykładu niżej (z Code Explorer lub z użyciem narzędzia
 `objdump`).
 
@@ -77,9 +79,9 @@ funktora.
 
 ## `std::function` jako callable
 
-Klasa szablonowa `std::function` dale możliwość przekazywania
-dowolnego callable: wskaźnika, funktora czy domknięcia, pod warunkiem,
-że callable ma wymagane typy parametrów i wyniku, które podajemy jako
+Typ szablonowy `std::function` dale możliwość przekazywania dowolnego
+callable: wskaźnika, funktora czy domknięcia, pod warunkiem, że
+callable ma wymagane typy parametrów i wyniku, które podajemy jako
 argument szablonu.
 
 Dwie ważne funkcjonalności `std::function`:
@@ -227,15 +229,6 @@ Funkcje `std::invoke`, `std::apply` i `std::forward_as_tuple` są
 mechanizmami czasu kompilacji i nie wprowadzają żadnego narzutu
 czasowego i pamięciowego.
 
-# Przeciążenia
-
-Niestety nie udało mi się użyć funkcji `std::invoke` i `std::apply` z
-przeciążeniami:
-
-```cpp
-{% include_relative overloads.cc %}
-```
-
 # Doskonałe przekazywanie
 
 Callable powinniśmy doskonałe przekazywać (może lepiej: doskonale
@@ -248,6 +241,15 @@ domknięcie, bo wtedy argument może być l-wartością albo r-wartością.
 
 ```cpp
 {% include_relative forwarding.cc %}
+```
+
+# Przeciążenia
+
+Niestety nie udało mi się użyć funkcji `std::invoke` i `std::apply` z
+przeciążeniami:
+
+```cpp
+{% include_relative overloads.cc %}
 ```
 
 # Podsumowanie
