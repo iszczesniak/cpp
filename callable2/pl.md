@@ -154,7 +154,8 @@ wywołuje callable przekazany jako pierwszy argument funkcji
 `std::bind`, a następne argumenty `std::bind` są przekazywane do
 callable.  W szczególnym przypadku, kiedy callable jest wskaźnikiem na
 funkcję, to pierwszy argument callable jest obiektem, na rzecz którego
-callable jest wywoływany.
+callable jest wywoływany.  W dobie wyrażenia lambda, moc funkcji
+`std::bind` zelżała, czyli lambda raczej lepsza od `std::bind`.
 
 ```cpp
 {% include_relative pointer-to-member.cc %}
