@@ -45,6 +45,7 @@ main()
 {
   A a;
 
+  // The last arguments are not passed to the callables.
   f(foo, make_tuple(), "Hello");
   f(goo<int>, make_tuple(1), 3.14159);
   f(&A::foo, forward_as_tuple(a), .1);
