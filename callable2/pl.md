@@ -140,9 +140,21 @@ argumentów)`, gdzie `o` jest obiektem, a `p` wskaźnikiem na funkcję
 składową.  Ważne są nawiasy wokół `o.*p` i miejsce operatora
 wyłuskania.
 
-Przykład niżej pokazuje także użycie `std::function` razem ze
-wskaźnikiem na funkcję składową.  Musimy użyć funkcji `std::bind`,
-żeby przekazać obiekt, na rzecz którego funkcja będzie wywoływana.
+Przykład niżej pokazuje także użycie `std::function` ze wskaźnikiem na
+funkcję składową, gdzie musimy użyć jednego z dwóch mechanizmów:
+
+* funkcji `std::bind`, żeby przekazać obiekt, na rzecz którego funkcja
+  będzie wywoływana,
+
+* wyrażenia domknięcia, którego funkcja wywoła przechwyconą funkcję
+  składową na rzecz przechwyconego obiektu.
+
+Funkcja `std::bind` zwraca funktor, którego operator wywołania funkcji
+wywołuje callable przekazany jako pierwszy argument funkcji
+`std::bind`, a następne argumenty `std::bind` są przekazywane do
+callable.  W szczególnym przypadku, kiedy callable jest wskaźnikiem na
+funkcję, to pierwszy argument callable jest obiektem, na rzecz którego
+callable jest wywoływany.
 
 ```cpp
 {% include_relative pointer-to-member.cc %}
