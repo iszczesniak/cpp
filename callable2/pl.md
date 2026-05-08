@@ -160,7 +160,7 @@ funkcjonalnością, którą oczywiście stosuje się wyłącznie w
 programowaniu obiektowym, ale którą także uwzględniono w programowaniu
 uogólnionym, w funkcji `std::invoke`.
 
-# `std::invoke`
+## `std::invoke`
 
 Funkcja `std::invoke` wywołuje callable z użyciem podanych argumentów.
 Wszystkie argumenty `std::invoke` są doskonale przekazywane.  Na
@@ -200,26 +200,27 @@ jedynie korzystając z funkcji `std::invoke.`
 
 W przykładzie wyżej użyliśmy szablonu wariadycznego, żeby funkcja `f`
 mogła przyjąć dowolną (także zerową) liczbę argumentów dla
-wywoływanego callable.  Są dwa problemy powyższego przykładu związane
-z użyciem `std::invoke`:
+wywoływanego callable.  Są dwa problemy tej implementacji funkcji `f`
+związane z użyciem `std::invoke`:
 
-* konieczność użycia szablonu wariadycznego,
+* konieczność użycia szablonu wariadycznego, co nam nie jest już takie
+  straszne,
 
-* po argumentach dla callable nie można przekazać innych argumentów,
-  bo wszysto do końca jest traktowane jako argumenty dla callable.
+* po argumentach dla callable nie można przekazać innych argumentów do
+  funkcji 'f', bo będą one przakazane do callable, chociaż moglibyśmy
+  też przekazać te argumenty przed callable.
 
-# `std::apply`
+## `std::apply`
 
-Funkcja `std::apply` pozwala na wywołanie dowolnego callable:
+Funkcja `std::apply` wywołuje dowolne callable, tak jak `std::invoke`.
+Różnica a tym, że `std::apply` przyjmuje zawsze dwa argumenty:
+callable i krotkę doskonale przekazywanch argumentów dla callable.
+Krotkę referencji tworzymy z użyciem funkcji `std::forward_as_tuple`.
+Jeżeli wywołujemy funkcję składową, to pierwszym elementem krotki
+powinien być obiekt, na rzecz którego funkcja będzie wywołana.
 
-* bez użycia szablonu wariadycznego,
-
-* gdzie argumenty są przekazywane w jednej krotce.
-
-Krotkę tworzymy z użyciem funkcji `std::forward_as_tuple`, żeby
-zachować kategorię wartości wyrażeń elementów krotki.  Jeżeli
-wywołujemy funkcję składową, to pierwszym elementem krotki powinien
-być obiekt, na rzecz którego callable będzie wywołana.
+Poniższa implementacja funkcji `f` przyjmuje trzeci argument dla
+siebie, bez przekazywanie go do callable:
 
 ```cpp
 {% include_relative apply.cc %}
