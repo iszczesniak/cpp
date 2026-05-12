@@ -18,6 +18,11 @@ struct B: A
   B(P &&... p): A(std::forward<P>(p)...)
   {
   }
+
+  // An equivalent implementation
+  // B(auto &&... p): A(std::forward<decltype(p)>(p)...)
+  // {
+  // }
 };
 
 int main()
