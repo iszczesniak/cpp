@@ -40,5 +40,5 @@ main()
   std::invoke<void(int &&)>(foo, 1);
 
   std::invoke(static_cast<void(*)(int &)>(foo), x);
-  std::invoke(static_cast<void(*)(int &&)>(foo), 1);
+  std::invoke(static_cast<void(&)(int &&)>(foo), 1);
 }
