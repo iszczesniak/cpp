@@ -1,3 +1,7 @@
+AOP: strict weak ordering, equality vs equivalence
+
+GP: sufficiency vs necessity, a concept "models"
+
 **********************************************************************
 
 We can't store a reference in a container (e.g., a vector), but we can
