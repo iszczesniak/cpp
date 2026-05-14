@@ -1,16 +1,15 @@
 #include <functional>
 #include <iostream>
 
-// A template function -----------------------------------------------
 template <typename T>
 void goo(T)
 {
+  std::cout << __PRETTY_FUNCTION__ << '\n';
 }
 
 int
 main()
 {
-  // Template function call ------------------------------------------
   goo(1);
 
   std::invoke<void(int)>(goo, 1);

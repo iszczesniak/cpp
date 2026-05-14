@@ -1,15 +1,14 @@
 #include <functional>
 #include <iostream>
 
-// Regular functions -------------------------------------------------
 void foo(int &x)
 {
-  std::cout << "Lvalue overload\n";
+  std::cout << __PRETTY_FUNCTION__ << '\n';
 }
 
 void foo(int &&x)
 {
-  std::cout << "Rvalue overload\n";
+  std::cout << __PRETTY_FUNCTION__ << '\n';
 }
 
 int
@@ -30,7 +29,6 @@ main()
   void(*pr)(int &&) = foo;
   pr(1);
 
-  // We don't want to use static_cast, it's not generic.
   std::invoke(static_cast<void(*)(int &)>(foo), x);
   std::invoke(static_cast<void(*)(int &&)>(foo), 1);
 }

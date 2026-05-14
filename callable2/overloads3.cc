@@ -5,10 +5,12 @@ struct A
 {
   void foo() &
   {
+    std::cout << __PRETTY_FUNCTION__ << '\n';
   }
 
   void foo() &&
   {
+    std::cout << __PRETTY_FUNCTION__ << '\n';
   }
 };
 
