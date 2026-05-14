@@ -21,7 +21,4 @@ main()
 
   // std::invoke(&A::foo, a);
   // std::invoke(&A::foo, A());
-
-  // std::apply(&A::foo, std::forward_as_tuple(a));
-  // std::apply(&A::foo, std::forward_as_tuple(A()));
 }

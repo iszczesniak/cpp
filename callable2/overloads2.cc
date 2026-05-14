@@ -1,4 +1,5 @@
 #include <functional>
+#include <iostream>
 
 // A template function -----------------------------------------------
 template <typename T>
@@ -12,9 +13,15 @@ main()
   // Template function call ------------------------------------------
   goo(1);
 
-  // std::invoke(goo);
-  // std::invoke(goo, 1);
+  std::invoke<void(int)>(goo, 1);
+  std::invoke<void(*)(int)>(goo, 1);
+  std::invoke<void(&)(int)>(goo, 1);
 
-  // std::apply(goo, std::make_tuple());
-  // std::apply(goo, std::forward_as_tuple(1));
+  void(*p)(int) = goo;
+  p(1);
+  void(&r)(int) = goo;
+  r(1);
+
+  std::invoke(static_cast<void(*)(int)>(goo), 1);
+  std::invoke(static_cast<void(&)(int)>(goo), 1);
 }

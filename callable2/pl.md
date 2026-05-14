@@ -257,7 +257,7 @@ domknięcie, bo wtedy argument może być l-wartością albo r-wartością.
 {% include_relative forwarding.cc %}
 ```
 
-# Przeciążenia
+# Kuriozum: Przeciążenia
 
 Niestety nie udało mi się użyć funkcji `std::invoke` i `std::apply` z
 przeciążeniami:
@@ -265,6 +265,16 @@ przeciążeniami:
 ```cpp
 {% include_relative overloads1.cc %}
 ```
+
+```cpp
+{% include_relative overloads2.cc %}
+```
+
+```cpp
+{% include_relative overloads3.cc %}
+```
+
+Powyższe przykłady można przerobić na `std::apply`.
 
 # Podsumowanie
 
