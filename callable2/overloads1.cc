@@ -16,16 +16,23 @@ int
 main()
 {
   int x;
-
-  // Regular function call -------------------------------------------
   foo(x);
   foo(1);
+
+  // std::invoke(foo, x);
+  // std::invoke(foo, 1);
+
+  std::invoke<void(int &)>(foo, x);
+  std::invoke<void(int &&)>(foo, 1);
+
+  void(*pl)(int &) = foo;
+  pl(x);
+  void(*pr)(int &&) = foo;
+  pr(1);
 
   // We don't want to use static_cast, it's not generic.
   std::invoke(static_cast<void(*)(int &)>(foo), x);
   std::invoke(static_cast<void(*)(int &&)>(foo), 1);
-  // std::invoke(foo, x);
-  // std::invoke(foo, 1);
 
   // std::apply(foo, std::forward_as_tuple(x));
   // std::apply(foo, std::forward_as_tuple(1));
