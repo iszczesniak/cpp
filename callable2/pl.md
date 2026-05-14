@@ -294,15 +294,16 @@ funkcji `std::invoke` nazwę funkcji przeciążonej, to doprowadzamy do
 **sytuacji niewnioskowalnej** (ang. non-deduced context,
 [temp.deduct.type]).
 
-Tutaj sytuacja niewnioskowalną z przeciążoną funkcją składową:
+Tutaj doprowadzamy do sytuacji niewnioskowalnej z przeciążoną funkcją
+składową:
 
 ```cpp
 {% include_relative overloads2.cc %}
 ```
 
 Kolejną sytuacją niewnioskowalną jest przekazanie nazwy szablonu
-funkcji.  Ciekawostką jest, że pobranie adresu skonkretyzowanej
-funkcji powoduje jej niejawną konkretyzację.
+funkcji.  Ciekawostka: pobranie adresu funkcji szablonowej niejawnie
+ją konkretyzuje.
 
 ```cpp
 {% include_relative template.cc %}
