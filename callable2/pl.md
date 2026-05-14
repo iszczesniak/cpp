@@ -277,7 +277,7 @@ się kompilowało, możemy:
   ustalonym typie,
 
 * statycznie rzutować nazwę funkcji na typ wskaźnika albo referencji
-  żądanego przeciążenia.
+  do typu żądanego przeciążenia.
 
 ```cpp
 {% include_relative overloads1.cc %}
