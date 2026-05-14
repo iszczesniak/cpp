@@ -263,7 +263,7 @@ Niestety nie udało mi się użyć funkcji `std::invoke` i `std::apply` z
 przeciążeniami:
 
 ```cpp
-{% include_relative overloads.cc %}
+{% include_relative overloads1.cc %}
 ```
 
 # Podsumowanie
