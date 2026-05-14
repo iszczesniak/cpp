@@ -257,24 +257,32 @@ domknięcie, bo wtedy argument może być l-wartością albo r-wartością.
 {% include_relative forwarding.cc %}
 ```
 
-# Kuriozum: przeciążenia, szablony
+# Przeciążenie, szablon
 
 Wydaje się, że `std::invoke` i `std::apply` mają ograniczenie: nie
-można im przekazać nazwy funkcji, jeżeli jest ona przeciążona albo
-zdefiniowana szablonem.  Nie jest to jednak problem z funkcją, tylko z
-naszym myśleniem.
+można im przekazać nazwy funkcji, jeżeli jest przeciążona albo jest
+szablonem.  W przykładzie niżej przekazujemy nazwę funkcji `foo`,
+która ma dwa przeciążenia.  Funkcję można normalnie wywołać, ale już
+nie z użyciem `std::invoke`, co wynika z ograniczenia wnioskowania.
 
-W przykładzie niżej przekazujemy nazwę funkcji `foo`, która ma dwa
-przeciążenia.  Funkcję można normalnie wywołać, ale już nie z użyciem
-`std::invoke`.
+Uprośćmy przykład, żeby lepiej zrozumieć problem: dodajmy szablon
+funkcji `call`, który przyjmuje callable, tak jak `std::invoke`.
+Wyrażenie `call(foo)` nie kompiluje się, bo nie wiadomo, o które
+przeciążenie chodzi.  Przeciążenia funkcji mają różne typy, więc
+wywnioskowany argument szablonu nie może być ten sam.  Żeby wywołanie
+się kompilowało, możemy:
 
-Problem w tym, że kompilator nie jest w stanie wybrać przeciążenia
-tylko na podstawie nazwy funkcji.  Przeciążenia funkcji mają różne
-typy, więc wywnioskowany (pierwszy) argument szablonu
+* jawnie podać argument szablonu, bo wtedy kompilator wybiera właściwe
+  przeciążenie, żeby zainicjalizować parametr funkcji `call` o już
+  ustalonym typie,
+
+* statycznie rzutować nazwę funkcji na typ wskaźnika albo referencji
+  żądanego przeciążenia.
 
 ```cpp
 {% include_relative overloads1.cc %}
 ```
+
 
 ```cpp
 {% include_relative template.cc %}
