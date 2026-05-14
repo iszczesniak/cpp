@@ -268,9 +268,10 @@ nie z użyciem `std::invoke`, co wynika z ograniczenia wnioskowania.
 Uprośćmy przykład, żeby lepiej zrozumieć problem: dodajmy szablon
 funkcji `call`, który przyjmuje callable, tak jak `std::invoke`.
 Wyrażenie `call(foo)` nie kompiluje się, bo nie wiadomo, o które
-przeciążenie chodzi.  Przeciążenia funkcji mają różne typy, więc
-wywnioskowany argument szablonu nie może być ten sam.  Żeby wywołanie
-się kompilowało, możemy:
+przeciążenie chodzi, a zależnie od przeciążenia wnioskowany jest różny
+argument szablonu, bo przeciążenia są różnego typu.
+
+Żeby wywołanie kompilowało się, możemy:
 
 * jawnie podać argument szablonu, bo wtedy kompilator wybiera właściwe
   przeciążenie, żeby zainicjalizować parametr funkcji `call` o już
@@ -283,6 +284,17 @@ się kompilowało, możemy:
 {% include_relative overloads1.cc %}
 ```
 
+Wygląda to trochę jak błąd niejednoznaczności podczas wyboru
+przeciążenia, ale nim nie jest: kompilator nawet nie dochodzi do
+wyboru przeciążenia (próby wywołania przekazywanego callable), bo
+wcześniej kończy błędem podczas wnioskowania.  Ta sytuacja (przypadek,
+kontekst) jest niewnioskowalna (ang. non-deduced); kiedy przekazujemy
+funkcji `std::invoke` nazwę funkcji przeciążonej, to doprowadzamy do
+**sytuacji niewnioskowalnej** (ang. non-deduced context,
+[temp.deduct.type]).
+
+Kolejną sytuacją niewnioskowalną jest przekazanie nazwy szablonu
+funkcji:
 
 ```cpp
 {% include_relative template.cc %}
