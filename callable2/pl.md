@@ -271,7 +271,8 @@ Wyrażenie `call(foo)` nie kompiluje się, bo nie wiadomo, o które
 przeciążenie chodzi, a zależnie od przeciążenia wnioskowany jest różny
 argument szablonu, bo przeciążenia są różnego typu.
 
-Żeby wywołanie kompilowało się, możemy:
+Żeby "rozwiązać" problem, czyli żeby wywołanie skompilowało, to możemy
+"na siłę":
 
 * jawnie podać argument szablonu, bo wtedy kompilator wybiera właściwe
   przeciążenie, żeby zainicjalizować parametr funkcji `call` o już
@@ -293,18 +294,25 @@ funkcji `std::invoke` nazwę funkcji przeciążonej, to doprowadzamy do
 **sytuacji niewnioskowalnej** (ang. non-deduced context,
 [temp.deduct.type]).
 
-Kolejną sytuacją niewnioskowalną jest przekazanie nazwy szablonu
-funkcji:
-
-```cpp
-{% include_relative template.cc %}
-```
+Tutaj sytuacja niewnioskowalną z przeciążoną funkcją składową:
 
 ```cpp
 {% include_relative overloads2.cc %}
 ```
 
-Powyższe przykłady można przerobić na `std::apply`.
+Kolejną sytuacją niewnioskowalną jest przekazanie nazwy szablonu
+funkcji.  Ciekawostką jest, że pobranie adresu skonkretyzowanej
+funkcji powoduje jej niejawną konkretyzację.
+
+```cpp
+{% include_relative template.cc %}
+```
+
+**Wniosek: powyżej nie powinniśmy byli użyć `std::invoke`**.  W tych
+sytuacjach stosujemy normalne wywołanie funkcji, żeby kompilator sam
+wybrał przeciążenie.  Nic na siłę.
+
+Jako ćwiczenie powyższe przykłady można przerobić na `std::apply`.
 
 # Podsumowanie
 

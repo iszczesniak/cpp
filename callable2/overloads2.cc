@@ -14,6 +14,12 @@ struct A
   }
 };
 
+template <typename T>
+void call(T)
+{
+  std::cout << __PRETTY_FUNCTION__ << '\n';
+}
+
 int
 main()
 {
@@ -23,4 +29,19 @@ main()
 
   // std::invoke(&A::foo, a);
   // std::invoke(&A::foo, A());
+
+  // call(&A::foo);
+  call<void(A::*)() &>(&A::foo);
+  call<void(A::*)() &&>(&A::foo);
+
+  void(A::*pl)() & = &A::foo;
+  (a.*pl)();
+  void(A::*pr)() && = &A::foo;
+  (A().*pr)();
+
+  std::invoke<void(A::*)() &>(&A::foo, a);
+  std::invoke<void(A::*)() &&>(&A::foo, A());
+
+  std::invoke(static_cast<void(A::*)() &>(&A::foo), a);
+  std::invoke(static_cast<void(A::*)() &&>(&A::foo), A());
 }
