@@ -1,9 +1,19 @@
+#include <iostream>
 #include <functional>
+
+using namespace std;
 
 struct Y
 {
-  int f() const&;
-  int g(this Y const&);
+  void f() const&
+  {
+    cout << __PRETTY_FUNCTION__ << endl;
+  }
+
+  void g(this Y const&)
+  {
+    cout << __PRETTY_FUNCTION__ << endl;
+  }
 };
 
 int main()
@@ -13,11 +23,11 @@ int main()
   auto pf = &Y::f;
   // pf(y);
   (y.*pf)();
-  std::invoke(pf, y);
+  invoke(pf, y);
 
   auto pg = &Y::g;
   pg(y);
   (&Y::g)(y);
   // (y.*pg)();
-  std::invoke(pg, y);
+  invoke(pg, y);
 }

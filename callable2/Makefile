@@ -1,6 +1,6 @@
 SRCS != ls *.cc
 PROGS = $(SRCS:R)
 
-CXXFLAGS = -std=c++20 -I ../lib
+CXXFLAGS = -std=c++23 -I ../lib
 
 all: $(PROGS)
