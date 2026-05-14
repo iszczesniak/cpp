@@ -1,26 +1,26 @@
 #include <functional>
 #include <iostream>
 
-template <typename T>
-void goo(T)
+struct A
 {
-  std::cout << __PRETTY_FUNCTION__ << '\n';
-}
+  void foo() &
+  {
+    std::cout << __PRETTY_FUNCTION__ << '\n';
+  }
+
+  void foo() &&
+  {
+    std::cout << __PRETTY_FUNCTION__ << '\n';
+  }
+};
 
 int
 main()
 {
-  goo(1);
+  A a;
+  a.foo();
+  A().foo();
 
-  std::invoke<void(int)>(goo, 1);
-  std::invoke<void(*)(int)>(goo, 1);
-  std::invoke<void(&)(int)>(goo, 1);
-
-  void(*p)(int) = goo;
-  p(1);
-  void(&r)(int) = goo;
-  r(1);
-
-  std::invoke(static_cast<void(*)(int)>(goo), 1);
-  std::invoke(static_cast<void(&)(int)>(goo), 1);
+  // std::invoke(&A::foo, a);
+  // std::invoke(&A::foo, A());
 }

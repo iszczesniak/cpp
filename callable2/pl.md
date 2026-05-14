@@ -257,21 +257,31 @@ domknięcie, bo wtedy argument może być l-wartością albo r-wartością.
 {% include_relative forwarding.cc %}
 ```
 
-# Kuriozum: Przeciążenia
+# Kuriozum: przeciążenia, szablony
 
-Niestety nie udało mi się użyć funkcji `std::invoke` i `std::apply` z
-przeciążeniami:
+Wydaje się, że `std::invoke` i `std::apply` mają ograniczenie: nie
+można im przekazać nazwy funkcji, jeżeli jest ona przeciążona albo
+zdefiniowana szablonem.  Nie jest to jednak problem z funkcją, tylko z
+naszym myśleniem.
+
+W przykładzie niżej przekazujemy nazwę funkcji `foo`, która ma dwa
+przeciążenia.  Funkcję można normalnie wywołać, ale już nie z użyciem
+`std::invoke`.
+
+Problem w tym, że kompilator nie jest w stanie wybrać przeciążenia
+tylko na podstawie nazwy funkcji.  Przeciążenia funkcji mają różne
+typy, więc wywnioskowany (pierwszy) argument szablonu
 
 ```cpp
 {% include_relative overloads1.cc %}
 ```
 
 ```cpp
-{% include_relative overloads2.cc %}
+{% include_relative template.cc %}
 ```
 
 ```cpp
-{% include_relative overloads3.cc %}
+{% include_relative overloads2.cc %}
 ```
 
 Powyższe przykłady można przerobić na `std::apply`.
