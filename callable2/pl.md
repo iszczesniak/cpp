@@ -271,7 +271,7 @@ Wyrażenie `call(foo)` nie kompiluje się, bo nie wiadomo, o które
 przeciążenie chodzi, a zależnie od przeciążenia wnioskowany jest różny
 argument szablonu, bo przeciążenia są różnego typu.
 
-Żeby "rozwiązać" problem, czyli żeby wywołanie skompilowało, to możemy
+Żeby "rozwiązać" problem, czyli żeby skompilować wyrażenie, to możemy
 "na siłę":
 
 * jawnie podać argument szablonu, bo wtedy kompilator wybiera właściwe
@@ -308,11 +308,9 @@ funkcji powoduje jej niejawną konkretyzację.
 {% include_relative template.cc %}
 ```
 
-**Wniosek: powyżej nie powinniśmy byli użyć `std::invoke`**.  W tych
-sytuacjach stosujemy normalne wywołanie funkcji, żeby kompilator sam
-wybrał przeciążenie.  Nic na siłę.
-
-Jako ćwiczenie powyższe przykłady można przerobić na `std::apply`.
+**Wniosek: w powyższych sytuacjach nie powinniśmy byli użyć
+`std::invoke`.** W takich sytuacjach stosujemy normalne wywołanie
+funkcji, żeby kompilator sam wybrał przeciążenie.  Nic na siłę.
 
 # Podsumowanie
 
