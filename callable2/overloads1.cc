@@ -30,15 +30,32 @@ main()
   // call(foo);
   call<void(int &)>(foo);
   call<void(int &&)>(foo);
+  call<void(*)(int &)>(foo);
+  call<void(*)(int &&)>(foo);
+  call<void(&)(int &)>(foo);
+  call<void(&)(int &&)>(foo);
 
   void(*pl)(int &) = foo;
   pl(x);
   void(*pr)(int &&) = foo;
   pr(1);
 
+  void(&rl)(int &) = foo;
+  rl(x);
+  void(&rr)(int &&) = foo;
+  rr(1);
+
   std::invoke<void(int &)>(foo, x);
   std::invoke<void(int &&)>(foo, 1);
+  std::invoke<void(*)(int &)>(foo, x);
+  std::invoke<void(*)(int &&)>(foo, 1);
+  std::invoke<void(&)(int &)>(foo, x);
+  std::invoke<void(&)(int &&)>(foo, 1);
 
+  // std::invoke(static_cast<void(int &)>(foo), x);
+  // std::invoke(static_cast<void(int &&)>(foo), 1);
   std::invoke(static_cast<void(*)(int &)>(foo), x);
+  std::invoke(static_cast<void(*)(int &&)>(foo), 1);
+  std::invoke(static_cast<void(&)(int &)>(foo), x);
   std::invoke(static_cast<void(&)(int &&)>(foo), 1);
 }
