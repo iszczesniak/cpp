@@ -22,6 +22,7 @@ main()
 
   // call(goo);
   call<void(int)>(goo);
+  // In this example, we could do without the goo function.
   call<void(int)>(call);
 
   void(*p)(int) = goo;
@@ -33,6 +34,7 @@ main()
   std::invoke<void(*)(int)>(goo, 1);
   std::invoke<void(&)(int)>(goo, 1);
 
+  // std::invoke(static_cast<void(int)>(goo), 1);
   std::invoke(static_cast<void(*)(int)>(goo), 1);
   std::invoke(static_cast<void(&)(int)>(goo), 1);
 }
