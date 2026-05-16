@@ -1,0 +1,5 @@
+Given structure `airplane` with fields `int m_priority` and
+`std::string m_registration`, implement a priority queue that will
+sort the `airplane` objects in the ascending order first by
+`m_priority` and then by `m_registration` (compare strings with < or
+>), which is the lexicographic order.
