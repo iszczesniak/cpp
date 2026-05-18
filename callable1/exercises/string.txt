@@ -1,0 +1,7 @@
+Implement both a functor and a closure that compare two objects of
+type `std::string` depending on the value of the `flag` variable of
+the boolean type passed during construction:
+
+   * if false, compare the strings using `<`,
+
+   * if true, compare the strings using `>`.
