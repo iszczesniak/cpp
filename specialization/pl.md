@@ -173,17 +173,31 @@ referencję: parametr jest wtedy typu `void (&)(const T &t)`.
 
 ### Ciekawostki
 
-Nie każdy szablon podstawowy możemy dowolnie specjalizować:
+Nie każdy szablon podstawowy możemy dowolnie specjalizować.  W
+przykładzie niżej szablon podstawowy przyjmuje argument przez
+referencje stałą.  Pierwsza specjalizacja nie pasuje do szablonu
+podstawowego, bo przyjmuje argument przez wartość: `T` nie może być
+tak wywnioskowane, żeby `skasować` deklarator referencji.  Druga
+specjalizacja nie pasuje do szablonu podstawowego, bo przyjmuje przez
+referencję niestałą: `T` nie może być tak wywnioskowane, żeby
+`skasować` kwalifikator `const`.
 
 ```cpp
 {% include_relative deduction2.cpp %}
 ```
 
-Jeżeli w przykładzie wyżej odkomentujemy specjalizację nr 3 albo w
-przykładzie niżej odkomentujemy trzecie wywołanie funkcji `primary`,
-to otrzymujemy ten sam błąd kompilacji:
+Kod niżej jest interpretacją wnioskowania argumentów dla przykładu
+wyżej.  Jeżeli w przykładzie wyżej odkomentujemy specjalizację nr 1 i
+w kodzie niżej odkomentujemy wywołanie funkcji `primary(spec1)`, to
+otrzymujemy ten sam błąd kompilacji:
 
 `could not match 'const T &' against 'bool'`
+
+Jeżeli w przykładzie wyżej odkomentujemy specjalizację nr 2 i w kodzie
+niżej odkomentujemy wywołanie funkcji `primary(spec2)`, to otrzymujemy
+ten sam błąd kompilacji:
+
+`cannot deduce a type for 'T' that would make 'const T' equal 'int'`
 
 A nawet jak się uda wyspecjalizować, to może być problem wywołać:
 
