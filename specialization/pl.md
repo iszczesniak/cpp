@@ -128,18 +128,6 @@ Oto przykład:
 {% include_relative fun_spec1.cc %}
 ```
 
-Nie każdy szablon podstawowy możemy dowolnie specjalizować:
-
-```cpp
-{% include_relative fun_spec2.cpp %}
-```
-
-A nawet jak się uda wyspecjalizować, to może być problem wywołać:
-
-```cpp
-{% include_relative fun_spec2.cc %}
-```
-
 Szablon podstawowy czy specjalizację możemy także tylko zadeklarować.
 Jeżeli zadeklarujemy szablon podstawowy i go później nie zdefiniujemy,
 to nie będzie implementacji tego szablonu podstawowego funkcji.
@@ -174,15 +162,27 @@ T &t)` parametru funkcji `primary` rozpada się na `void (*)(const T
 komendy `nm`.  Funkcja `primary` może też przyjąć funkcję przez
 referencję: parametr jest wtedy typu `void (&)(const T &t)`.
 
+```cpp
+{% include_relative deduction1.cc %}
+```
+
+Nie każdy szablon podstawowy możemy dowolnie specjalizować:
+
+```cpp
+{% include_relative fun_spec2.cpp %}
+```
+
+A nawet jak się uda wyspecjalizować, to może być problem wywołać:
+
+```cpp
+{% include_relative fun_spec2.cc %}
+```
+
 Jeżeli w przykładzie wyżej odkomentujemy specjalizację nr 3 albo w
 przykładzie niżej odkomentujemy trzecie wywołanie funkcji `primary`,
 to otrzymujemy ten sam błąd kompilacji:
 
 `could not match 'const T &' against 'bool'`
-
-```cpp
-{% include_relative deduction1.cc %}
-```
 
 ### Wybór szablonu podstawowego
 
