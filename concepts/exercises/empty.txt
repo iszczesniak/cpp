@@ -1,0 +1,12 @@
+Proszę zaimplementować:
+
+* Koncept `has_empty_member`, który przyjmuje jeden typowy argument.
+  Koncept jest prawdziwy, jeżeli przekazany typ ma bezparametrową
+  stałą funkcję składową `empty`, która zwraca typ `bool`.
+
+* Funkcję szablonową `empty` z użyciem najkrótszej składni, która
+  przyjmuje przez referencję stałą obiekt typu spełniającego koncept
+  `has_empty_member`, wywołuje na rzecz tego obiektu funkcję `empty`,
+  a potem zwraca otrzymaną wartość.
+
+* Przykładowy kod, który używa funkcji szablonowej `empty`.
