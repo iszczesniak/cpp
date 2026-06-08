@@ -1,29 +1,24 @@
 #include <iostream>
 #include <string>
 
+// A declaration of the primary function template.
 template <typename T>
-// void primary(void (*)(const T &))
-// void primary(void (&)(const T &))
-void primary(void (const T &))
-{
-  std::cout << __PRETTY_FUNCTION__ << std::endl;
-}
+void foo(const T &t);
 
-void spec1(const int &)
-{
-}
+// Specialization #1: the argument of the primary template deduced.
+template <>
+void foo(const int &);
 
-void spec2(const std::string &)
+// Specialization #2: the argument of the primary template deduced.
+template <>
+void foo(const std::string &)
 {
-}
-
-void spec3(bool)
-{
+  std::cout << "A template specialization for std::string.\n";
 }
 
 int main()
 {
-  primary(spec1);
-  primary(spec2);
-  // primary(spec3);
+  // foo(1); // Linking fails.
+  // foo(.2); // Linking fails.
+  foo(std::string());
 }

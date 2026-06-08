@@ -140,14 +140,18 @@ zdefiniowanych specjalizacji.
 
 ## Wnioskowanie argumentów jawnej specjalizacji
 
-Przykład wyżej (nie niżej) pokazuje także, że nie musimy podawać
-argumentów szablonu podstawowego, jeżeli kompilator jest w stanie je
-wywnioskować na podstawie listy parametrów funkcji.  Na przykład,
-pominęliśmy listę argumentów `<int>` szablonu podstawowego po nazwie
-funkcji `foo` w deklaracji specjalizacji nr 1, bo kompilator jest w
-stanie wywnioskować ten argument na podstawie definicji typu `const
-int &` parametru funkcji.  Wywnioskować, ale jak?  Do wnioskowania
-potrzebny jest argument wywołania funkcji, a tu go brak.
+Przykład niżej pokazuje, że nie musimy podawać argumentów szablonu
+podstawowego, jeżeli kompilator jest w stanie je wywnioskować na
+podstawie listy parametrów funkcji.  Na przykład, pominęliśmy listę
+argumentów `<int>` szablonu podstawowego po nazwie funkcji `foo` w
+deklaraclji specjalizacji nr 1, bo kompilator jest w stanie
+wywnioskować ten argument na podstawie definicji typu `const int &`
+parametru funkcji.  Wywnioskować, ale jak?  Do wnioskowania potrzebny
+jest argument wywołania funkcji, a tu go brak.
+
+```cpp
+{% include_relative deduction1.cc %}
+```
 
 Standard mówi ([temp.deduct.decl]), że wnioskowanie odbywa się tak,
 jak w przypadku funkcyjnego typu parametu funkcji.  W przykładzie
@@ -163,7 +167,7 @@ komendy `nm`.  Funkcja `primary` może też przyjąć funkcję przez
 referencję: parametr jest wtedy typu `void (&)(const T &t)`.
 
 ```cpp
-{% include_relative deduction1.cc %}
+{% include_relative deduction1_inter.cc %}
 ```
 
 Nie każdy szablon podstawowy możemy dowolnie specjalizować:
