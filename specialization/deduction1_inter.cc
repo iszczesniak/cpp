@@ -17,13 +17,8 @@ void spec2(const std::string &)
 {
 }
 
-void spec3(bool)
-{
-}
-
 int main()
 {
   primary(spec1);
   primary(spec2);
-  // primary(spec3);
 }
