@@ -199,6 +199,10 @@ ten sam błąd kompilacji:
 
 `cannot deduce a type for 'T' that would make 'const T' equal 'int'`
 
+```cpp
+{% include_relative deduction2_inter.cc %}
+```
+
 A nawet jak się uda wyspecjalizować, to może być problem wywołać:
 
 ```cpp

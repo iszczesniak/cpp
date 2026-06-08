@@ -7,6 +7,6 @@ void spec2(int &);
 
 int main()
 {
-  primary(spec1);
-  primary(spec2);
+  // primary(spec1);
+  // primary(spec2);
 }
