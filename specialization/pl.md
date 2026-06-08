@@ -140,25 +140,26 @@ zdefiniowanych specjalizacji.
 
 ## Wnioskowanie argumentów jawnej specjalizacji
 
-Przykład niżej pokazuje, że nie musimy podawać argumentów szablonu
-podstawowego, jeżeli kompilator jest w stanie je wywnioskować na
-podstawie listy parametrów funkcji.  Na przykład, pominęliśmy listę
-argumentów `<int>` szablonu podstawowego po nazwie funkcji `foo` w
-deklaraclji specjalizacji nr 1, bo kompilator jest w stanie
-wywnioskować ten argument na podstawie definicji typu `const int &`
-parametru funkcji.  Wywnioskować, ale jak?  Do wnioskowania potrzebny
-jest argument wywołania funkcji, a tu go brak.
+Przykład niżej (jest to przerobiony poprzedni przykład) pokazuje, że
+nie musimy podawać argumentów szablonu podstawowego, jeżeli kompilator
+jest w stanie je wywnioskować na podstawie listy parametrów funkcji.
+Na przykład, pominęliśmy listę argumentów `<int>` szablonu
+podstawowego po nazwie funkcji `foo` w deklaraclji specjalizacji nr 1,
+bo kompilator jest w stanie wywnioskować ten argument na podstawie
+definicji typu `const int &` parametru funkcji.  Wywnioskować, ale
+jak?  Do wnioskowania potrzebny jest argument wywołania funkcji, a tu
+go brak.
 
 ```cpp
 {% include_relative deduction1.cc %}
 ```
 
 Standard mówi ([temp.deduct.decl]), że wnioskowanie odbywa się tak,
-jak w przypadku funkcyjnego typu parametu funkcji.  W przykładzie
-niżej, funkcja `primary` ma parametr typu `void (const T &t)`
-podstawowego szablonu funkcji `foo` z przykładu wyżej, a funkcje
-`spec1`, `spec2` i `spec3` są typu specjalizacji nr 1, 2 i 3 funkcji
-`foo`.
+jak w przypadku funkcyjnego typu parametu funkcji.  W programie niżej,
+który jest interpretacją wnioskowania z przykładu wyżej, funkcja
+`primary` ma parametr typu `void (const T &t)` podstawowego szablonu
+funkcji `foo`, a funkcje `spec1` i `spec2` są typu specjalizacji
+funkcji `foo`, kolejno pierwszej i drugiej.
 
 Typ funkcji rozpada się na wskaźnik na funkcję, czyli typ `void (const
 T &t)` parametru funkcji `primary` rozpada się na `void (*)(const T
