@@ -174,7 +174,7 @@ referencję: parametr jest wtedy typu `void (&)(const T &t)`.
 Nie każdy szablon podstawowy możemy dowolnie specjalizować:
 
 ```cpp
-{% include_relative fun_spec2.cpp %}
+{% include_relative deduction2.cpp %}
 ```
 
 A nawet jak się uda wyspecjalizować, to może być problem wywołać:
