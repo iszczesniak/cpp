@@ -177,10 +177,10 @@ Nie każdy szablon podstawowy możemy dowolnie specjalizować.  W
 przykładzie niżej szablon podstawowy przyjmuje argument przez
 referencje stałą.  Pierwsza specjalizacja nie pasuje do szablonu
 podstawowego, bo przyjmuje argument przez wartość: `T` nie może być
-tak wywnioskowane, żeby `skasować` deklarator referencji.  Druga
+tak wywnioskowane, żeby "skasować" deklarator referencji.  Druga
 specjalizacja nie pasuje do szablonu podstawowego, bo przyjmuje przez
 referencję niestałą: `T` nie może być tak wywnioskowane, żeby
-`skasować` kwalifikator `const`.
+"skasować" kwalifikator `const`.
 
 ```cpp
 {% include_relative deduction2.cpp %}
