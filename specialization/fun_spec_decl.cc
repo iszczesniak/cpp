@@ -5,11 +5,11 @@
 template <typename T>
 void foo(const T &t);
 
-// Specialization #1: the argument of the primary template deduced.
+// A declaration of a specialization.
 template <>
 void foo<int>(const int &);
 
-// Specialization #2: the argument of the primary template deduced.
+// A definition of a specialization.
 template <>
 void foo<std::string>(const std::string &)
 {

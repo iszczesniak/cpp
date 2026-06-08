@@ -171,16 +171,12 @@ referencję: parametr jest wtedy typu `void (&)(const T &t)`.
 {% include_relative deduction1_inter.cc %}
 ```
 
+### Ciekawostki
+
 Nie każdy szablon podstawowy możemy dowolnie specjalizować:
 
 ```cpp
 {% include_relative deduction2.cpp %}
-```
-
-A nawet jak się uda wyspecjalizować, to może być problem wywołać:
-
-```cpp
-{% include_relative fun_spec2.cc %}
 ```
 
 Jeżeli w przykładzie wyżej odkomentujemy specjalizację nr 3 albo w
@@ -188,6 +184,12 @@ przykładzie niżej odkomentujemy trzecie wywołanie funkcji `primary`,
 to otrzymujemy ten sam błąd kompilacji:
 
 `could not match 'const T &' against 'bool'`
+
+A nawet jak się uda wyspecjalizować, to może być problem wywołać:
+
+```cpp
+{% include_relative surprise.cc %}
+```
 
 ### Wybór szablonu podstawowego
 
@@ -197,13 +199,13 @@ podstawowy trafia do zbioru kandydatów, a następnie jest wybierany
 najbardziej wyspecjalizowany szablon podstawowy.
 
 ```cpp
-{% include_relative fun_spec4.cc %}
+{% include_relative fitter_spec.cc %}
 ```
 
 A tu interpretacja powyższego wnioskowania:
 
 ```cpp
-{% include_relative deduction2.cc %}
+{% include_relative fitter_spec_inter.cc %}
 ```
 
 ## Szablon podstawowy funkcji a zwykła funkcja
