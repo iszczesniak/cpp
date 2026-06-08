@@ -15,10 +15,3 @@ void foo(const std::string &)
 {
   std::cout << "A template specialization for std::string.\n";
 }
-
-int main()
-{
-  // foo(1); // Linking fails.
-  // foo(.2); // Linking fails.
-  foo(std::string());
-}

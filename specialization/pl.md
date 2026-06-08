@@ -151,7 +151,7 @@ jak?  Do wnioskowania potrzebny jest argument wywołania funkcji, a tu
 go brak.
 
 ```cpp
-{% include_relative deduction1.cc %}
+{% include_relative deduction1.cpp %}
 ```
 
 Standard mówi ([temp.deduct.decl]), że wnioskowanie odbywa się tak,
