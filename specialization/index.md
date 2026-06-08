@@ -51,7 +51,7 @@ which we don't do for a non-template function.
 Here's an example:
 
 ```cpp
-{% include_relative fun_spec1.cc %}
+{% include_relative fun_spec.cc %}
 ```
 
 We can also only declare a primary template or a specialization.  If

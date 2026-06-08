@@ -125,7 +125,7 @@ po nazwie funkcji, czego w definicji zwykłej funkcji nie robimy.
 Oto przykład:
 
 ```cpp
-{% include_relative fun_spec1.cc %}
+{% include_relative fun_spec.cc %}
 ```
 
 Szablon podstawowy czy specjalizację możemy także tylko zadeklarować.

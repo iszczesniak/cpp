@@ -7,11 +7,11 @@ void foo(const T &t);
 
 // Specialization #1: the argument of the primary template deduced.
 template <>
-void foo(const int &);
+void foo<int>(const int &);
 
 // Specialization #2: the argument of the primary template deduced.
 template <>
-void foo(const std::string &)
+void foo<std::string>(const std::string &)
 {
   std::cout << "A template specialization for std::string.\n";
 }
