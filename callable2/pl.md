@@ -220,7 +220,7 @@ związane z użyciem `std::invoke`:
   straszne,
 
 * po argumentach dla callable nie można przekazać innych argumentów do
-  funkcji 'f', bo będą one przakazane do callable, chociaż moglibyśmy
+  funkcji `f`, bo będą one przakazane do callable, chociaż moglibyśmy
   też przekazać te argumenty przed callable.
 
 ## `std::apply`
