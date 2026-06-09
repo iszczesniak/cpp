@@ -243,21 +243,7 @@ Funkcje `std::invoke`, `std::apply` i `std::forward_as_tuple` są
 mechanizmami czasu kompilacji i nie wprowadzają żadnego narzutu
 czasowego i pamięciowego.
 
-# Doskonałe przekazywanie
-
-Callable powinniśmy doskonałe przekazywać (może lepiej: doskonale
-wywoływać).  Funkcji (`f` w przykładzie niżej) przekazujemy callable
-jako argument, a funkcja powinna zachować kategorię wartości argumentu
-przy wywoływaniu otrzymanego callable.  Zachowanie kategorii nie ma
-znaczenia, kiedy przekazywana jest funkcja (bo funkcja zawsze jest
-l-wartością), ale ma znaczenie, kiedy przekazujemy funktor albo
-domknięcie, bo wtedy argument może być l-wartością albo r-wartością.
-
-```cpp
-{% include_relative forwarding.cc %}
-```
-
-# Przeciążenie, szablon
+## Przeciążenie, szablon
 
 Wydaje się, że `std::invoke` i `std::apply` mają ograniczenie: nie
 można im przekazać nazwy funkcji, jeżeli jest przeciążona albo jest
@@ -312,6 +298,20 @@ ją konkretyzuje.
 **Wniosek: w powyższych sytuacjach nie powinniśmy byli użyć
 `std::invoke`.** W takich sytuacjach stosujemy normalne wywołanie
 funkcji, żeby kompilator sam wybrał przeciążenie.  Nic na siłę.
+
+# Doskonałe przekazywanie
+
+Callable powinniśmy doskonałe przekazywać (może lepiej: doskonale
+wywoływać).  Funkcji (`f` w przykładzie niżej) przekazujemy callable
+jako argument, a funkcja powinna zachować kategorię wartości argumentu
+przy wywoływaniu otrzymanego callable.  Zachowanie kategorii nie ma
+znaczenia, kiedy przekazywana jest funkcja (bo funkcja zawsze jest
+l-wartością), ale ma znaczenie, kiedy przekazujemy funktor albo
+domknięcie, bo wtedy argument może być l-wartością albo r-wartością.
+
+```cpp
+{% include_relative forwarding.cc %}
+```
 
 # Podsumowanie
 
