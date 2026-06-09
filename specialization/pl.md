@@ -24,84 +24,6 @@ specjalizacji jawnej, częściowa specjalizacja pozwala na zdefiniowanie
 parametrów szablonu, które są używane w argumentach szablonu
 podstawowego.
 
-# Przeciążenie szablonu podstawowego
-
-Specjalizacja (a może lepiej "wyspecjalizowanie") ma dodatkowe
-znaczenie w języku C++, który pozwala przeciążać szablony podstawowe
-funkcji o tej samej nazwie, podobnie jak zwykłe funkcje.  Jeżeli
-będzie można użyć więcej niż jednego szablonu podstawowego, to
-kompilator wybiera najbardziej **wyspecjalizowany** szablon.  Nie
-musimy specjalizować szablonu, żeby mówić o **najbardziej
-wyspecjalizowanym szablonie podstawowym**.  W przykładzie niżej
-definiujemy dwa szablony podstawowe funkcji `foo`, a następnie
-wywołujemy funkcję `foo`.
-
-```cpp
-{% include_relative overloads_template.cc %}
-```
-
-Jak kompilator wybrał właściwy szablon dla dwóch wywołań funkcji w
-przykładzie wyżej?  Pierwsze wywołanie przekazuje argument typu
-całkowitego, więc wybór jest tylko jeden: szablon `A`.  Szablon `B`
-nie może być użyty, bo kompilator nie jest w stanie wywnioskować
-argumentu `B1` szablonu tak, żeby można byłoby zainicjalizować
-parametr `b1` funkcji, co nazywa się **niepowodzeniem**, nie jest
-błędem i nie kończy kompilacji.
-
-To niepowodzenie nazywa się dokładnie **niepowodzeniem podstawienia**
-(ang. substitution failure): kompilator próbuje wywnioskować
-argumenty, żeby podczas konkretyzacji podstawić je za parametry.
-Niepowodzenie eliminuje szablon z dalszego rozważania (wyboru
-przeciążenia) i nie zgłasza błędu, co ma swój angielski akronim SFINAE
-(ang. Substitution Failure Is Not An Error).
-
-Drugie wywołanie jest ciekawsze.  Kompilator może użyć zarówno
-szablonu `A`, jak i `B`, bo może skonkretyzować oba szablony używając
-wywnioskowanych argumentów:
-
-* szablon `A`: `void foo(A1)` z `A1 = int *`,
-
-* szablon `B`: `void foo(B1 *)` z `B1 = int`.
-
-Obie konkretyzacje tworzą funkcję szablonową `void foo(int *)`, którą
-można już użyć w drugim wywołaniu.  Teraz problemem pozostaje, który
-szablon wybrać do wygenerowania ciała tej funkcji szablonowej.
-
-Podkreślmy, że kompilator w dwóch osobnych krokach:
-
-1. tworzy zbiór kandydatów szablonów,
-
-2. wybiera najbardziej wyspecjalizowany szablon ze zbioru kandydatów.
-
-W pierwszym kroku, spośród dostępnych szablonów, kompilator wybiera
-te, dla których można wywnioskować argumenty (pozostałe szablony są
-ignorowane zgodnie z zasadą SFINAE).  Zwróćmy uwagę, że wyrażenie
-wywołania jest brane pod uwagę tylko w pierwszym kroku, żeby wybrać
-kandydatów, a **w drugim kroku, wyrażenie wywołania nie jest już brane
-pod uwagę.**
-
-W drugim kroku, wybierany jest najbardziej wyspecjalizowany kandydat.
-Jeżeli kandydatów nie ma, to jest zgłaszany błąd.  Jeżeli jest tylko
-jeden kandydat, to kandydata nie trzeba wybierać.  Jeżeli jest ich
-wielu, to kandydaci porównywani są parami, żeby znaleźć ten
-najbardziej wyspecjalizowany.  Jeżeli nie można wskazać najlepszego
-kandydata (dochodzi do remisu), to zgłaszany jest błąd
-niejednoznaczności.
-
-Szczegóły wyboru są omówione [tutaj](../fitter/pl).  Mówiąc krótko
-(choć enigmatycznie), pierwszy szablon jest mniej wyspecjalizowany niż
-drugi (albo że drugi jest bardziej wyspecjalizowany niż pierwszy),
-jeżeli pierwszy szablon będzie zawsze można użyć wtedy, kiedy można
-użyć drugi, ale nie na odwrót (czyli drugi szablon nie zawsze będzie
-można użyć wtedy, kiedy można użyć pierwszy).
-
-W przykładzie wyżej szablon `B` jest bardziej wyspecjalizowany niż
-szablon `A`, bo szablonu `B` nie można użyć w każdym przypadku, w
-którym można użyć szablonu `A`.  Na przykład, funkcja szablonu `A`
-może przyjąć liczbę całowitą, a szablon `B` już nie.  Zatem szablon
-`B` jest najbardziej wyspecjalizowanym kandydatem (szablonem
-podstawowym) dla drugiego wywołania funkcji.
-
 # Specjalizacja szablonu funkcji
 
 Szablon funkcji może być specjalizowany tylko jawnie, czyli wszystkie
@@ -208,23 +130,6 @@ A nawet jak się uda wyspecjalizować, to może być problem wywołać:
 {% include_relative surprise.cc %}
 ```
 
-### Wybór szablonu podstawowego
-
-Specjalizacja może pasować do różnych szablonów podstawowych, jak w
-przykładzie niżej.  Jeżeli wnioskowanie się udaje, to szablon
-podstawowy trafia do zbioru kandydatów, a następnie jest wybierany
-najbardziej wyspecjalizowany szablon podstawowy.
-
-```cpp
-{% include_relative fitter_spec.cc %}
-```
-
-A tu interpretacja powyższego wnioskowania:
-
-```cpp
-{% include_relative fitter_spec_inter.cc %}
-```
-
 ## Szablon podstawowy funkcji a zwykła funkcja
 
 Czy możemy się obyć bez szablonów?  Czy przeciążenia zwykłych funkcji
@@ -325,6 +230,101 @@ kompilacji.
 
 ```cpp
 {% include_relative print.cc %}
+```
+
+# Przeciążenie szablonu podstawowego
+
+Specjalizacja (a może lepiej "wyspecjalizowanie") ma dodatkowe
+znaczenie w języku C++, który pozwala przeciążać szablony podstawowe
+funkcji o tej samej nazwie, podobnie jak zwykłe funkcje.  Jeżeli
+będzie można użyć więcej niż jednego szablonu podstawowego, to
+kompilator wybiera najbardziej **wyspecjalizowany** szablon.  Nie
+musimy specjalizować szablonu, żeby mówić o **najbardziej
+wyspecjalizowanym szablonie podstawowym**.  W przykładzie niżej
+definiujemy dwa szablony podstawowe funkcji `foo`, a następnie
+wywołujemy funkcję `foo`.
+
+```cpp
+{% include_relative overloads_template.cc %}
+```
+
+Jak kompilator wybrał właściwy szablon dla dwóch wywołań funkcji w
+przykładzie wyżej?  Pierwsze wywołanie przekazuje argument typu
+całkowitego, więc wybór jest tylko jeden: szablon `A`.  Szablon `B`
+nie może być użyty, bo kompilator nie jest w stanie wywnioskować
+argumentu `B1` szablonu tak, żeby można byłoby zainicjalizować
+parametr `b1` funkcji, co nazywa się **niepowodzeniem**, nie jest
+błędem i nie kończy kompilacji.
+
+To niepowodzenie nazywa się dokładnie **niepowodzeniem podstawienia**
+(ang. substitution failure): kompilator próbuje wywnioskować
+argumenty, żeby podczas konkretyzacji podstawić je za parametry.
+Niepowodzenie eliminuje szablon z dalszego rozważania (wyboru
+przeciążenia) i nie zgłasza błędu, co ma swój angielski akronim SFINAE
+(ang. Substitution Failure Is Not An Error).
+
+Drugie wywołanie jest ciekawsze.  Kompilator może użyć zarówno
+szablonu `A`, jak i `B`, bo może skonkretyzować oba szablony używając
+wywnioskowanych argumentów:
+
+* szablon `A`: `void foo(A1)` z `A1 = int *`,
+
+* szablon `B`: `void foo(B1 *)` z `B1 = int`.
+
+Obie konkretyzacje tworzą funkcję szablonową `void foo(int *)`, którą
+można już użyć w drugim wywołaniu.  Teraz problemem pozostaje, który
+szablon wybrać do wygenerowania ciała tej funkcji szablonowej.
+
+Podkreślmy, że kompilator w dwóch osobnych krokach:
+
+1. tworzy zbiór kandydatów szablonów,
+
+2. wybiera najbardziej wyspecjalizowany szablon ze zbioru kandydatów.
+
+W pierwszym kroku, spośród dostępnych szablonów, kompilator wybiera
+te, dla których można wywnioskować argumenty (pozostałe szablony są
+ignorowane zgodnie z zasadą SFINAE).  Zwróćmy uwagę, że wyrażenie
+wywołania jest brane pod uwagę tylko w pierwszym kroku, żeby wybrać
+kandydatów, a **w drugim kroku, wyrażenie wywołania nie jest już brane
+pod uwagę.**
+
+W drugim kroku, wybierany jest najbardziej wyspecjalizowany kandydat.
+Jeżeli kandydatów nie ma, to jest zgłaszany błąd.  Jeżeli jest tylko
+jeden kandydat, to kandydata nie trzeba wybierać.  Jeżeli jest ich
+wielu, to kandydaci porównywani są parami, żeby znaleźć ten
+najbardziej wyspecjalizowany.  Jeżeli nie można wskazać najlepszego
+kandydata (dochodzi do remisu), to zgłaszany jest błąd
+niejednoznaczności.
+
+Szczegóły wyboru są omówione [tutaj](../fitter/pl).  Mówiąc krótko
+(choć enigmatycznie), pierwszy szablon jest mniej wyspecjalizowany niż
+drugi (albo że drugi jest bardziej wyspecjalizowany niż pierwszy),
+jeżeli pierwszy szablon będzie zawsze można użyć wtedy, kiedy można
+użyć drugi, ale nie na odwrót (czyli drugi szablon nie zawsze będzie
+można użyć wtedy, kiedy można użyć pierwszy).
+
+W przykładzie wyżej szablon `B` jest bardziej wyspecjalizowany niż
+szablon `A`, bo szablonu `B` nie można użyć w każdym przypadku, w
+którym można użyć szablonu `A`.  Na przykład, funkcja szablonu `A`
+może przyjąć liczbę całowitą, a szablon `B` już nie.  Zatem szablon
+`B` jest najbardziej wyspecjalizowanym kandydatem (szablonem
+podstawowym) dla drugiego wywołania funkcji.
+
+## Specjalizacja a wybór szablonu podstawowego
+
+Specjalizacja może pasować do różnych szablonów podstawowych, jak w
+przykładzie niżej.  Jeżeli wnioskowanie się udaje, to szablon
+podstawowy trafia do zbioru kandydatów, a następnie jest wybierany
+najbardziej wyspecjalizowany szablon podstawowy.
+
+```cpp
+{% include_relative fitter_spec.cc %}
+```
+
+A tu interpretacja powyższego wnioskowania:
+
+```cpp
+{% include_relative fitter_spec_inter.cc %}
 ```
 
 # Specjalizacja szablonów typów
