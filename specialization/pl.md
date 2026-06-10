@@ -232,7 +232,7 @@ kompilacji.
 {% include_relative print.cc %}
 ```
 
-# Przeciążenie szablonu podstawowego
+# Bardziej wyspecjalizowany szablon podstawowy
 
 Specjalizacja (a może lepiej "wyspecjalizowanie") ma dodatkowe
 znaczenie w języku C++, który pozwala przeciążać szablony podstawowe
@@ -310,15 +310,17 @@ może przyjąć liczbę całowitą, a szablon `B` już nie.  Zatem szablon
 `B` jest najbardziej wyspecjalizowanym kandydatem (szablonem
 podstawowym) dla drugiego wywołania funkcji.
 
-## Specjalizacja a wybór szablonu podstawowego
+## Wybór szablonu podstawowego dla specjalizacji
 
-Specjalizacja może pasować do różnych szablonów podstawowych, jak w
-przykładzie niżej.  Jeżeli wnioskowanie się udaje, to szablon
-podstawowy trafia do zbioru kandydatów, a następnie jest wybierany
-najbardziej wyspecjalizowany szablon podstawowy.
+Bardziej wyspecjalizowany szablon podstawowy jest wybierany także dla
+specjalizacji, kiedy pasuje ona do różnych szablonów podstawowych, jak
+w przykładzie niżej.  Jeżeli argumenty specjalizacji (jawnie podane
+albo wnioskowane) pasują do sprawdzanego szablonu podstawowego, to
+trafia on do zbioru kandydatów, spośród których wybierany jest ten
+najbardziej wyspecjalizowany.
 
 ```cpp
-{% include_relative fitter_spec.cc %}
+{% include_relative fitter_spec.cpp %}
 ```
 
 A tu interpretacja powyższego wnioskowania:
@@ -326,6 +328,10 @@ A tu interpretacja powyższego wnioskowania:
 ```cpp
 {% include_relative fitter_spec_inter.cc %}
 ```
+
+Podsumowując, wybór najbardziej wyspecjalizowanego szablonu
+podstawowego przebiega identycznie w dwóch powyższych przypadkach,
+które różnią się jedynie wyborem kandydatów.
 
 # Specjalizacja szablonów typów
 
