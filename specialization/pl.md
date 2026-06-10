@@ -330,8 +330,10 @@ A tu interpretacja powyższego wnioskowania:
 ```
 
 Podsumowując, wybór najbardziej wyspecjalizowanego szablonu
-podstawowego przebiega identycznie w dwóch powyższych przypadkach,
-które różnią się jedynie wyborem kandydatów.
+podstawowego przebiega identycznie w dwóch powyższych przypadkach
+(wywołanie funkcji przeciążonych szablonów podstawowych, deklaracja
+albo definicja specjalizacji), które różnią się jedynie wyborem
+kandydatów.
 
 # Specjalizacja szablonów typów
 
