@@ -7,12 +7,11 @@ title: Wybór najbardziej wyspecjalizowanego szablonu
 Kompilator wybiera najbardziej wyspecjalizowany szablon z grupy
 kandydatów w następujących przypadkach:
 
-* wybór najbardziej wyspecjalizowanego szablonu podstawowego, kiedy
-  wywołujemy funkcję, która jest zdefiniowana w przeciążonych
-  szablonach podstawowych,
+* wybór najbardziej wyspecjalizowanego szablonu podstawowego, kiedy:
 
-* wybór najbardziej wyspecjalizowanego szablonu podstawowego dla
-  specjalizacji,
+  - wywołujemy funkcję przeciążonych szablonów,
+
+  - deklarujemy lub definiujemy specjalizację,
 
 * wybór najbardziej wyspecjalizowanej specjalizacji.
 
