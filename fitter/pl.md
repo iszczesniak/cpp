@@ -41,10 +41,15 @@ Relacja `⊂` jest silnym porządkiem częściowym, ponieważ jest:
   że `I` będzie uznany za bardziej wyspecjalizowany niż `K`, czyli `I
   ⊂ K`.
 
-Dla przykładu wyżej możemy powiedzieć, że dla drugiego wywołania
-szablon `B` jest bardziej wyspecjalizowany niż `A` (relacja zachodzi:
-`B ⊂ A`).  Ponieważ zbiór kandydatów ma tylko dwa szablony, więc
-szablon `B` uznajemy za najbardziej wyspecializowany.
+Dla przykładu niżej (z tematu ["Specjalizacja"](../specialization/pl))
+możemy powiedzieć, że dla drugiego wywołania szablon `B` jest bardziej
+wyspecjalizowany niż `A` (relacja zachodzi: `B ⊂ A`).  Ponieważ zbiór
+kandydatów ma tylko dwa szablony, więc szablon `B` uznajemy za
+najbardziej wyspecializowany.
+
+```cpp
+{% include_relative fun_spec_decl.cc %}
+```
 
 ### Relacja "bardziej wyspecjalizowany"
 
