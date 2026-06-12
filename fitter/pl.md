@@ -48,7 +48,7 @@ kandydatów ma tylko dwa szablony, więc szablon `B` uznajemy za
 najbardziej wyspecializowany.
 
 ```cpp
-{% include_relative fun_spec_decl.cc %}
+{% include_relative overloads_template.cc %}
 ```
 
 ### Relacja "bardziej wyspecjalizowany"
