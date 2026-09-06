@@ -1,0 +1,3 @@
+Proszę napisać funkcję, która przyjmuje callable jako argument,
+wywołuje to callable i następnie doskonale zwraca wartość zwróconą
+przez callable.
