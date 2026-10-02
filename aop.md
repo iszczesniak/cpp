@@ -32,7 +32,7 @@ You get three grades:
 
 * a grade from the laboratory class,
 
-* a grade from the exam,
+* an exam grade from the lectures,
 
 * a final grade.
 
