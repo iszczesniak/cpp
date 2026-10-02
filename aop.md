@@ -38,8 +38,8 @@ You get three grades:
 
 ## Laboratory grade
 
-A laboratory class grade is from your programming skills.  You can get
-your grade within two deadlines:
+A lab grade is from your programming skills.  You can get your grade
+within two deadlines:
 
 * Deadline I: by the end of laboratory classes based on four tests
   during lectures.  On each test you solve one coding problem on a
@@ -68,9 +68,9 @@ your grade within two deadlines:
 
 ## Exam grade
 
-You can take an exam twice during the exam session, provided you have
-a passing grade from the laboratory class.  The exam is written, like
-an essay.
+An exam grade is from your programming knowledge.  You can take an
+exam twice during the exam session, provided you have a passing grade
+from the laboratory class.  The exam is written, like an essay.
 
 Exam deadlines:
 
