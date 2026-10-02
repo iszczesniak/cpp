@@ -32,27 +32,27 @@ in English.
 
 You get three grades:
 
-* a grade from the laboratory class,
+* a grade from the lectures,
 
-* a grade from the exam,
+* a grade from the laboratory class,
 
 * a final grade.
 
-## Laboratory grade
+## Lecture and laboratory grades
 
-A laboratory class grade is from your programming skills.  You can get
-your grade within two deadlines:
+A grade from a lecture or a lab class you get the same way.  You can
+get the grade within two deadlines:
 
-* Deadline I: by the end of laboratory classes based on four tests
-  during lectures.  The material tested and the dates:
+* Deadline I: by the end of the classes based on four tests (each test
+  has a single question) carried out during lectures:
 
-  - part 1: November 7, 2025,
-
-  - part 2: December 19, 2025,
-
-  - part 3: January 23, 2026,
+  - Monday, March 30, 2026, from part I,
   
-  - all parts: January 30, 2026.
+  - Monday, May 18, 2026, from part II,
+
+  - Monday, June 8, 2026, from part III,
+
+  - Monday, June 15, 2026, from the whole material.
 
   The grade within the first deadline is an average of three highest,
   **passing** test grades chosen from among the four test grades.  If
@@ -60,27 +60,31 @@ your grade within two deadlines:
   failing grade (2.0) within the first deadline.
 
   If you miss a test, you get a failing grade from that test.  A test
-  cannot be retaken.  The last test (that covers all parts) is a
-  chance to get an extra grade.
+  cannot be retaken.  The last test is a chance to get an extra grade.
 
-* Deadline II: based on a test (that covers all parts) during the time
-  for the first exam.
+* Deadline II: based on a test with three questions.  Each response is
+  graded separately, and the final test grade is the average of the
+  three grades.  The date during the exam session:
 
-## Exam grade
-
-You can take an exam twice during the exam session, provided you have
-a passing grade from the laboratory class.  The exam is written, like
-an essay.
-
-Exam deadlines:
-
-* Deadline I: Monday, February 2, 10:00 - 12:00, amphitheatre A13,
-
-* Deadline II: Friday, February 6, 10:00 - 12:00, amphitheatre A13.
+  - Monday, June 22, 2026, from the whole material, A1, 8:00 - 10:00.
 
 ## Final grade
 
 You can get the final grade within two deadlines.  The final grade is
-an average of the **positive** grades from the laboratory class and
-the exam.  If you haven't got a lab class grade or haven't passed an
-exam, the final grade is the failing grade.
+an average of the **positive** grades from the lectures and the
+laboratory classes.  If you haven't got a positive lecture grade or a
+positive lab class grade, the final grade is the failing grade.
+
+## Grade scale
+
+* very good (5.0): [4.75, 5.0]
+
+* plus good (4.5): [4.25, 4.75)
+
+* good (4.0): [3.75, 4.25)
+
+* plus satisfactory (3.5): [3.25, 3.75)
+
+* satisfactory (3.0): [3.0, 3.25)
+
+* fail (2.0): [2.0, 3.0)
