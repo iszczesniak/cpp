@@ -24,6 +24,10 @@ Part III:
 
 # Rules
 
+Lectures are not mandatory, but the lab classes are.  I don't set a
+hard limit on the number of lab classes you can miss, but make sure
+you study, please.
+
 You get three grades:
 
 * a grade from the laboratory class,
@@ -38,15 +42,16 @@ A laboratory class grade is from your programming skills.  You can get
 your grade within two deadlines:
 
 * Deadline I: by the end of laboratory classes based on four tests
-  during lectures.  The material tested and the dates:
+  during lectures.  On each test you solve one coding problem on a
+  sheet of paper.  The material tested and the dates:
 
-  - part 1: November 7, 2025,
+  - part 1: November 9, 2026,
 
-  - part 2: December 19, 2025,
+  - part 2: December 14, 2026,
 
-  - part 3: January 23, 2026,
+  - part 3: January 18, 2027,
   
-  - all parts: January 30, 2026.
+  - all parts: January 25, 2027.
 
   The grade within the first deadline is an average of three highest,
   **passing** test grades chosen from among the four test grades.  If
@@ -58,7 +63,8 @@ your grade within two deadlines:
   chance to get an extra grade.
 
 * Deadline II: based on a test (that covers all parts) during the time
-  for the first exam.
+  for the first exam.  On this test you solve three coding problems on
+  a sheet of paper.
 
 ## Exam grade
 
@@ -68,9 +74,9 @@ an essay.
 
 Exam deadlines:
 
-* Deadline I: Monday, February 2, 10:00 - 12:00, amphitheatre A13,
+* Deadline I: Monday, February 1, 2027, 8:15 - 9:45, amphitheatre A13,
 
-* Deadline II: Friday, February 6, 10:00 - 12:00, amphitheatre A13.
+* Deadline II: Friday, February 5, 2027, 8:15 - 9:45, amphitheatre A13.
 
 ## Final grade
 
@@ -78,3 +84,17 @@ You can get the final grade within two deadlines.  The final grade is
 an average of the **positive** grades from the laboratory class and
 the exam.  If you haven't got a lab class grade or haven't passed an
 exam, the final grade is the failing grade.
+
+## Grade scale
+
+* very good (5.0): [4.75, 5.0]
+
+* plus good (4.5): [4.25, 4.75)
+
+* good (4.0): [3.75, 4.25)
+
+* plus satisfactory (3.5): [3.25, 3.75)
+
+* satisfactory (3.0): [3.0, 3.25)
+
+* fail (2.0): [2.0, 3.0)
