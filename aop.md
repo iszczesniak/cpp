@@ -22,6 +22,10 @@ Part III:
 * [`std::shared_ptr`](shared_ptr)
 * [`std::weak_ptr`](weak_ptr)
 
+# Exercises
+
+The repository: <http://github.com/iszczesniak/cpp>.
+
 # Rules
 
 Lectures are not mandatory, but the lab classes are.  I don't set a
