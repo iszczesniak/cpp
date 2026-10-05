@@ -98,3 +98,10 @@ exam, the final grade is the failing grade.
 * satisfactory (3.0): [3.0, 3.25)
 
 * fail (2.0): [2.0, 3.0)
+
+# Office hours
+
+I'm available for you on *Thursday, 9:00 - 12:00, room 72,
+Dąbrowskiego Street 72*, you don't need to contact me in advance, I'm
+always there.  However, let's keep in mind that the best contact hours
+are the lectures and the lab classes.
