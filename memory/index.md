@@ -32,7 +32,7 @@ run in a large number (e.g., a web server).
 
 An *unprivileged* task (a *privileged* task is a kernel task, i.e., a
 task of an operating system) cannot do anything that could disturb the
-operating system and other processes.  For instance, an unprivileged
+operating system or other processes.  For instance, an unprivileged
 task cannot write to its read-only memory.  Every process is an
 unprivileged task.
 
@@ -172,7 +172,7 @@ functionality, modern code uses the smart pointers, and the legacy
 code the raw pointers.
 
 The following example uses the low-level `new` and `delete` operators,
-which is not recommended, but suitable to demonstrate the dynamic
+which is not recommended, but suitable now to demonstrate the dynamic
 allocation.
 
 ```cpp
@@ -248,7 +248,8 @@ processor memory cache.
 
 A function accepts an argument by either value or reference.  Also, a
 function returns its result by either value or reference.  There are
-no other ways of accepting an argument or returning a value.
+no other ways of accepting an argument or returning a value.  A
+pointer can be accepted or returned either by value or by reference.
 
 A function can have *parameters*, and then we call a function with
 *arguments*.  A function parameter is local to a function body, like a
@@ -261,12 +262,13 @@ with the expression of the return instruction.
 
 ## Accepting arguments
 
-If a function parameter is of a non-reference type, we say that a
-function accepts (or takes) an argument by value, or that we pass an
-argument to a function by value.  In legacy C++, a non-reference
-parameter was initialized always by copying the argument value into
-the parameter.  In modern C++, that copying might be gone (because of
-the materialization) or replaced with *moving*.
+If a function parameter is of a non-reference type (any type except a
+reference type), we say that a function accepts (or takes) an argument
+by value, or that we pass an argument to a function by value.  In
+legacy C++, a non-reference parameter was initialized always by
+copying the argument value into the parameter.  In modern C++, that
+copying might be gone (because of the materialization) or replaced
+with *moving*.
 
 If a function parameter is of a reference type, we say that a function
 accepts an argument by reference, or that we pass an argument to a
@@ -369,8 +371,8 @@ anywhere (now that we have the modern call convention), and not only
 on the stack (as the legacy convention stipulated in the past): the
 function returns its value (an object) by creating it in the place for
 the global variable `a` (allowed by the modern call convention),
-without copy-initializing `a` from a temporary object on the stack
-(required by the legacy call convention).
+without copy-initializing the variable from a temporary object on the
+stack (required by the legacy call convention).
 
 ```cpp
 {% include_relative anywhere.cc %}
