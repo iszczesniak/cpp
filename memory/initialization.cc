@@ -1,6 +1,6 @@
 #include "A.hpp"
 
-#pragma clang diagnostic ignored "-Wvexing-parse"
+#pragma GCC diagnostic ignored "-Wvexing-parse"
 
 int main()
 {
