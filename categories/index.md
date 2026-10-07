@@ -214,7 +214,7 @@ lvalue will be converted to an rvalue.
 
 There is no standard or implicit conversion from an rvalue to an
 lvalue.  For example, the reference operator (i.e., the unary `&`
-operator, a.k.a. the take-the-address-of operator) expects an lvalue.
+operator, aka the take-the-address-of operator) expects an lvalue.
 The rvalue that you try to pass will not be converted to an lvalue.
 
 ```cpp

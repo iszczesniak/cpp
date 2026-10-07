@@ -108,7 +108,7 @@ The read-write memory stores:
 * local data on a stack (more specifically, a stack per thread of the
   process),
 
-* dynamic data on the heap (a.k.a the free-store).
+* dynamic data on the heap (aka the free-store).
 
 ## Global and static data
 
@@ -195,7 +195,7 @@ the dynamic data.  This operation is called **emplacement**.
 
 Allocation on the stack is the fastest: it's only necessary to
 increase (or decrease, depending on the processor architecture) the
-stack pointer (a.k.a. the stack register) by the size of the memory
+stack pointer (aka the stack register) by the size of the memory
 needed.
 
 A stack can be of fixed size or it can grow automatically: more memory
