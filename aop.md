@@ -57,13 +57,13 @@ within two deadlines:
   during lectures.  On each test you solve one coding problem on a
   sheet of paper.  The material tested and the dates:
 
-  - part 1: November 9, 2026,
+  - part 1: Monday, November 9, 2026, 8:15 - 8:45, amphitheatre A13,
 
-  - part 2: December 14, 2026,
+  - part 2: Monday, December 14, 2026, 8:15 - 8:45, amphitheatre A13,
 
-  - part 3: January 18, 2027,
+  - part 3: Monday, January 18, 2027, 8:15 - 8:45, amphitheatre A13,
   
-  - all parts: January 25, 2027.
+  - all parts: Monday, January 25, 2027, 8:15 - 8:45, amphitheatre A13.
 
   The grade within the first deadline is an average of three highest,
   **passing** test grades chosen from among the four test grades.  If
