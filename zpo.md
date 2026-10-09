@@ -34,45 +34,49 @@ Otrzymujemy trzy oceny:
 
 ## Ocena z laboratorium
 
-Zaliczenie z laboratorium można uzyskać w dwóch terminach:
+Ocena z laboratorium to ocena umiejętności programowania.  Zaliczenie
+z laboratorium można uzyskać w dwóch terminach:
 
 * Termin I: do końca zajęć laboratoryjnych na podstawie czterech
-  kolokwiów przeprowadzanych w czasie wykładu:
+  sprawdzianów przeprowadzanych w czasie wykładu.  Na każdym
+  sprawdzianie jest do napisania na kartce jeden program.
 
-  - 7 listopada, 2025, z części I,
+  - z części I: niedziela, 29 listopada, 2026, 10:30 - 11:00, lab. 140,
 
-  - 19 grudnia, 2025, z części II,
+  - z części II: niedziela, 13 grudnia, 2026, 10:30 - 11:00, lab. 140,
 
-  - 23 stycznia, 2026, z części III,
+  - z części III: niedziela, 20 grudnia, 2026, 10:30 - 11:00, lab. 140,
 
-  - 30 stycznia, 2026, z całości materiału.
+  - z całości materiału: 10 stycznia, 2027, 10:30 - 11:00, lab. 140.
 
   Oceną z pierwszego terminu jest średnia arytmetyczna trzech
-  najwyższych, **pozytywnych** ocen wybranych spośród czterech ocen z
-  kolokwiów.  Jeżeli nie udało się nam zdobyć co najmniej trzech
-  pozytywnych ocen z kolokwiów, to otrzymujemy ocenę niedostateczną w
-  pierwszym terminie.
+  najwyższych, **pozytywnych** ocen wybranych spośród czterech ocen ze
+  sprawdzianów.  Jeżeli nie udało się nam zdobyć co najmniej trzech
+  pozytywnych ocen ze sprawdzianów, to otrzymujemy ocenę
+  niedostateczną w pierwszym terminie.
 
-  Nieobecność na kolokwium skutkuje oceną niedostateczną z tego
-  kolokwium.  Nie ma możliwości ponownego przystąpienia do kolokwium.
-  Szansą na poprawę (zdobycie dodatkowej oceny) jest ostatnie
-  kolokwium.
+  Nieobecność na sprawdzianie skutkuje oceną niedostateczną z tego
+  sprawdzianu.  Nie ma możliwości ponownego przystąpienia do
+  sprawdzianu.  Szansą na poprawę (zdobycie dodatkowej oceny) jest
+  ostatni sprawdzian.
 
-* Termin II: na podstawie kolokwium podczas egzaminu w pierwszym
-  terminie.
+* Termin II: na podstawie sprawdzianu podczas egzaminu w pierwszym
+  terminie.  Na tym sprawdzianie są do napisania na kartce trzy
+  programy.
 
 ## Ocena z egzaminu
 
-Do egzaminu można przystąpić w dwóch terminach w czasie sesji
-egzaminacyjnej, bądź poprawkowej sesji egzaminacyjnej.  Warunkiem
-przystąpienia do egzaminu jest zaliczenie z laboratorium.  Egzamin
-jest pisemny, opisowy.
+Ocena z egzaminu to ocena wiedzy z programowania.  Do egzaminu można
+przystąpić w dwóch terminach w czasie sesji egzaminacyjnej i
+poprawkowej sesji egzaminacyjnej.  Warunkiem przystąpienia do egzaminu
+jest uzyskanie zaliczenia z laboratorium.  Egzamin jest pisemny,
+opisowy.
 
 Terminy egzaminów:
 
-* Termin I: piątek, 6 luty, 8:00 - 10:00, sala A3,
+* Termin I: ??? luty, 2027, godz. ???, lab. 140,
 
-* Termin II: piątek, 13 luty, 8:00 - 10:00, sala A3.
+* Termin II: ??? luty, 2027, godz. ???, lab. 140.
 
 ## Ocena końcowa
 
