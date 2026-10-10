@@ -1,4 +1,6 @@
 CXXFLAGS = -std=c++17
+# Include the path to hack.hpp.
+CXXFLAGS += -I../
 # CXXFLAGS += -fno-elide-constructors
 
 FILES != ls *.cc
@@ -10,8 +12,5 @@ MAN =
 .for p in ${PROGS}
 SRCS_$p += $p.cc
 .endfor
-
-hack.hpp: ../hack.hpp
-	cp ../hack.hpp .
 
 .include <bsd.prog.mk>
