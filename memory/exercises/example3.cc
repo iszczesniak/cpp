@@ -1,16 +1,17 @@
 #include "hack.hpp"
 
-A g()
+void g(A *p)
 {
-  return A("g");
+  new (p) A("g");
 }
 
 A f(A a)
 {
+  g(&a);
   return a;
 }
 
 int main()
 {
-  A a = f(g());
+  A a = f(A());
 }
