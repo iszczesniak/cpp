@@ -1,14 +1,8 @@
-CXXFLAGS = -std=c++17 -I../../lib
+CXXFLAGS = -std=c++17 -I../
+# Include the path to hack.hpp.
+CXXFLAGS += -I../
 #CXXFLAGS += -fno-elide-constructors
 
 PROGS = $(patsubst %.cc, %, $(wildcard *.cc))
 
-LDFLAGS = A.o
-
-all: A.hpp A.o $(PROGS)
-
-A.hpp: ../../lib/A.hpp
-	cp ../../lib/A.hpp .
-
-A.cpp: ../../lib/A.cpp
-	cp ../../lib/A.cpp .
+all: $(PROGS)

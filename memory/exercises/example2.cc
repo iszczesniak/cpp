@@ -9,15 +9,13 @@ void g(A *p)
 
 void f(A *p)
 {
-  A a("f");
-  a.~A();
+  A a;
   g(&a);
   new (p) A(std::move(a));
 }
 
 int main()
 {
-  A a("main");
-  a.~A();
+  A a;
   f(&a);
 }
