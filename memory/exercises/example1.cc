@@ -5,7 +5,7 @@ void g(A *a)
   new (a) A("g");
 }
 
-void f(A * a)
+void f(A *a)
 {
   return g(a);
 }
