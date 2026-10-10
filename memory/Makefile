@@ -1,5 +1,5 @@
 CXXFLAGS = -std=c++17 -I../lib
-CXXFLAGS += -fno-elide-constructors
+# CXXFLAGS += -fno-elide-constructors
 
 FILES != ls *.cc
 PROGS = $(FILES:R)
