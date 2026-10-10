@@ -1,6 +1,4 @@
 CXXFLAGS = -std=c++17
-# Include the path to hack.hpp.
-CXXFLAGS += -I../
 # CXXFLAGS += -fno-elide-constructors
 
 FILES != ls *.cc
@@ -12,5 +10,12 @@ MAN =
 .for p in ${PROGS}
 SRCS_$p += $p.cc
 .endfor
+
+# I need to copy this file hack.hpp.  I tried to add -I../, but this
+# was crushing clang, when the parent directory was already built.
+hack.hpp: ../hack.hpp
+	cp ../hack.hpp .
+
+all: hack.hpp $(PROGS)
 
 .include <bsd.prog.mk>
