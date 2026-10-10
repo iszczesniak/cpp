@@ -657,8 +657,7 @@ below examples with various compiler versions and compilation flags.
 For this reason, I created a separate file `hack.hpp`, so that in an
 online compiler you can replace `#include "hack.hpp"` with the
 contents of this file.  It's a hack, a handy one.  This file defines
-the same struct `A` as files `A.hpp` and `A.cpp`.  You can find it in
-[../lib](../lib).
+the same struct `A` as files `A.hpp` and `A.cpp`.
 
 ## Example 1
 
