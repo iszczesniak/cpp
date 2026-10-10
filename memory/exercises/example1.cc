@@ -1,16 +1,18 @@
 #include "A.hpp"
 
-A g()
+void g(A *a)
 {
-  return A("Hello World!");
+  new (a) A("g");
 }
 
-A f()
+void f(A * a)
 {
-  return g();
+  return g(a);
 }
 
 int main()
 {
-  A a = f();
+  A a("main");
+  a.~A();
+  f(&a);
 }
