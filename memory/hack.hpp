@@ -5,6 +5,8 @@ struct A
 {
   std::string m_name;
 
+  A() = default;
+
   A(const std::string &name): m_name(name)
   {
     std::cout << "ctor: " << m_name << std::endl;

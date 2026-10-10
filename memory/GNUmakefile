@@ -5,10 +5,7 @@ PROGS = $(patsubst %.cc, %, $(wildcard *.cc))
 
 LDFLAGS = A.o
 
-all: A.hpp A.o $(PROGS)
-
-A.hpp: ../lib/A.hpp
-	cp ../lib/A.hpp .
+all: A.o $(PROGS)
 
 A.cpp: ../lib/A.cpp
 	cp ../lib/A.cpp .

@@ -2,7 +2,7 @@
 
 A g()
 {
-  return A("Hello World!");
+  return A("g");
 }
 
 A f()

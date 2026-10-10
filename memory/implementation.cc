@@ -1,4 +1,4 @@
-#include "A.hpp"
+#include "hack.hpp"
 
 void f(A *p)
 {
@@ -7,7 +7,6 @@ void f(A *p)
 
 int main()
 {
-  A a("main");
-  a.~A();
+  A a;
   f(&a);
 }
