@@ -74,9 +74,9 @@ opisowy.
 
 Terminy egzaminów:
 
-* Termin I: ??? luty, 2027, godz. ???, lab. 140,
+* Termin I: 7 luty, 2027, godz. 10:00, lab. 140,
 
-* Termin II: ??? luty, 2027, godz. ???, lab. 140.
+* Termin II: 14 luty, 2027, godz. 10:00, lab. 140.
 
 ## Ocena końcowa
 
@@ -84,3 +84,17 @@ Ocenę końcową można zdobyć w dwóch terminach.  Ocena końcowa jest
 średnią arytmetyczną **pozytywnych** ocen z laboratorium i egzaminu.
 Jeżeli nie zdobyliśmy zaliczenia lub nie zdaliśmy egzaminu, to oceną
 końcową jest ocena niedostateczna.
+
+## Skala ocen
+
+* 5.0 (bdb): [4.75, 5.0]
+
+* 4.5 (+db): [4.25, 4.75)
+
+* 4.0 (db): [3.75, 4.25)
+
+* 3.5 (+dst): [3.25, 3.75)
+
+* 3.0 (dst): [3.0, 3.25)
+
+* 2.0 (ndst): [2.0, 3.0)
