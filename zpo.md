@@ -45,9 +45,9 @@ z laboratorium można uzyskać w dwóch terminach:
 
   - z części II: niedziela, 13 grudnia, 2026, 10:30 - 11:00, lab. 140,
 
-  - z części III: niedziela, 20 grudnia, 2026, godzina proponowana, do ustalenia: 10:30 - 11:00, lab. 140,
+  - z części III: niedziela, 20 grudnia, 2026, godzina do ustalenia, lab. 140,
 
-  - z całości materiału: 10 stycznia, 2027, godzina proponowana, do ustalenia: 10:30 - 11:00, lab. 140.
+  - z całości materiału: 10 stycznia, 2027, godzina do ustalenia, lab. 140.
 
   Oceną z pierwszego terminu jest średnia arytmetyczna trzech
   najwyższych, **pozytywnych** ocen wybranych spośród czterech ocen ze
