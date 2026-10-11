@@ -74,9 +74,9 @@ opisowy.
 
 Terminy egzaminów:
 
-* Termin I: 7 luty, 2027, godz. 10:00, lab. 140,
+* Termin I: niedziela, 7 luty, 2027, godz. 10:00, lab. 140,
 
-* Termin II: 14 luty, 2027, godz. 10:00, lab. 140.
+* Termin II: niedziela, 14 luty, 2027, godz. 10:00, lab. 140.
 
 ## Ocena końcowa
 
