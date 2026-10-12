@@ -28,11 +28,10 @@ The repository:
 
 <http://github.com/iszczesniak/cpp>
 
-There you can
-find the same lecture notes from above.  For example, directory
-`memory` is about the memory organization.  In each of these
-directories, you can find the `exercises` directory with exercises to
-solve.
+There you can find the same lecture notes as above, along with their
+exercises.  For example, directory `memory` is about the memory
+organization.  In each of these directories, you can find the
+`exercises` directory with the exercises to solve.
 
 # Rules
 

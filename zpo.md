@@ -22,6 +22,16 @@ Część III:
 * [`std::shared_ptr`](shared_ptr/pl)
 * [`std::weak_ptr`](weak_ptr/pl)
 
+# Ćwiczenia
+
+Repozytorium:
+
+<http://github.com/iszczesniak/cpp>
+
+W repozytorium znajdują się materiały z wykładów wyżej i ćwiczenia.
+Na przykład, katalog `memory` dotyczy `Organizacji pamięci`.  W każdym
+z katalogów znajduje się podkatalog `exercises` z ćwiczeniami.
+
 # Zasady
 
 Otrzymujemy trzy oceny:
