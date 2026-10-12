@@ -98,3 +98,24 @@ końcową jest ocena niedostateczna.
 * 3.0 (dst): [3.0, 3.25)
 
 * 2.0 (ndst): [2.0, 3.0)
+
+## Organizacja
+
+* 11 października: memory, categires
+* 25 października: references, memory
+* 29 listopada: sprawdzian, callable, containers
+* 13 grudnia: sprawdzian, containers, unique_ptr
+* 20 grudnia: shared_ptr_, weak_ptr, sprawdzian
+* 10 stycznia: pytania i odpowiedzi, sprawdzian
+
+## Godziny
+
+* 10:30 - 12:45:
+  * 10:30 - 11:15
+  * 11:15 - 12:00
+  * 12:00 - 12:45
+
+* 13:10 - 15:25:
+  * 13:10 - 13:55
+  * 13:55 - 14:40
+  * 14:40 - 15:25
