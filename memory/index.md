@@ -413,7 +413,7 @@ The following example demonstrates a use case for the named elision
 (that also used to be known as the *named RVO*): returning a
 non-static local variable that is not a parameter, where the copy
 constructor was elided.  It is still elision according to the newest
-standard (C++23).
+standard (C++26).
 
 ```cpp
 {% include_relative named.cc %}
