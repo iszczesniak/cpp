@@ -371,7 +371,7 @@ anywhere (now that we have the modern call convention), and not only
 on the stack (as the legacy convention stipulated in the past): the
 function returns its value (an object) by creating it in the place for
 the global variable `a` (allowed by the modern call convention),
-without copy-initializing the variable from a temporary object on the
+without copy-initializing variable `a` from a temporary object on the
 stack (required by the legacy call convention).
 
 ```cpp
