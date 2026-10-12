@@ -29,8 +29,8 @@ Repozytorium:
 <http://github.com/iszczesniak/cpp>
 
 W repozytorium znajdują się materiały z wykładów wyżej i ćwiczenia.
-Na przykład, katalog `memory` dotyczy `Organizacji pamięci`.  W każdym
-z katalogów znajduje się podkatalog `exercises` z ćwiczeniami.
+Na przykład, katalog `memory` dotyczy organizacji pamięci.  W każdym z
+katalogów znajduje się podkatalog `exercises` z ćwiczeniami.
 
 # Zasady
 
