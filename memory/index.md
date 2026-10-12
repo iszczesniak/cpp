@@ -467,7 +467,7 @@ copy the value from the global or static data:
 
 The following example demonstrates a use case for the unnamed elision
 (that also used to be known as the *unnamed RVO*): returning a
-temporary object, where the move (or copy) constructor is elided.
+temporary object, where a constructor is elided.
 
 ```cpp
 {% include_relative unnamed.cc %}
@@ -484,21 +484,29 @@ variable initialization:
 
 #### Parameter initialization
 
-An example below shows the initialization of a function parameter.
-The parameter is initialized (controlled) by the caller, and so the
-temporary object can be created in the parameter in accordance with
-the unnamed elision.
+An example below shows the initialization of a function parameter with
+a temporary object, just like above.  The parameter is initialized
+(controlled) by the caller, and so the temporary object can be created
+in the parameter in accordance with the unnamed elision.
 
 ```cpp
 {% include_relative parameter.cc %}
 ```
 
-**In C++17, the unnamed elision became the *materialization*.**
+**In C++17, the use cases of the unnamed elision became the use cases
+  *of the materialization*.**
 
 ## Materialization
 
-Materialization is just creation of a datum according to an expression
-that defines:
+Materialization generalizes creation: a materialization is just a
+creation of an object, provided unnamed elision took place.  When
+there is no need for elision, that degraded materialization is just a
+creation.  Materialization, introduced in C++17, makes the unnamed
+elision mandatory, while before it was optional.
+
+### Case 1
+
+Materialization takes place according to an expression that defines:
 
 * the type of data to create,
 
