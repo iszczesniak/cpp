@@ -129,3 +129,9 @@ końcową jest ocena niedostateczna.
   * 13:10 - 13:55
   * 13:55 - 14:40
   * 14:40 - 15:25
+
+# Konsultacje
+
+Jestem dostępny w *czwartek, 9:00 - 12:00, pokój 72, ul. Dąbrowskiego
+73*, nie trzeba się umawiać, zawsze jestem.  Pamiętajmy jednak, że
+najlepszymi konsultacjami są wykłady i laboratoria.
