@@ -125,7 +125,7 @@ are available everywhere in the program:
 {% include_relative global.cc %}
 ```
 
-Static data are initialized before its first use, and are local to a
+Static data are initialized before their first use, and are local to a
 function (i.e., unavailable elsewhere):
 
 ```cpp
@@ -225,7 +225,7 @@ automatically allocates more memory for the stack.
 Allocation on the heap is slow, because it's a complex data structure
 which not only allocates and deallocates memory of an arbitrary size,
 but also deals with defragmentation, and so several memory reads and
-writes are necessary for an allocation.
+writes are necessary for a single allocation.
 
 An operating system allocates more memory for the heap, when the
 process (i.e., the library which allocates memory) requests it.  A
@@ -425,7 +425,7 @@ standard (C++26).
 {% include_relative named.cc %}
 ```
 
-To see the legacy behaviour, compile the above example with the
+To see the legacy behavior, compile the above example with the
 compiler flag `-fno-elide-constructors` (modify CXXFLAGS in
 GNUmakefile).  Notice the differences at run-time, that with
 constructor elision, objects are not copied unnecessarily.
@@ -667,12 +667,12 @@ compiler not to elide constructors.
 
 I tried to compile with C++03 to see the copying instead of moving.
 However, the move semantics (of C++11) was still used.  Also, I
-couldn't get the behaviour of the legacy call convention, which is not
+couldn't get the behavior of the legacy call convention, which is not
 surprising, because I'm using a modern system that offers the modern
 call convention only.  I tried the same with an online compiler with
 the same effect.  It's legacy, so we shouldn't be bothered.  In a few
-years, we can expect to have problems replicating the C++11 behaviour.
-If we really wanted to see the C++03 behaviour, we should use some
+years, we can expect to have problems replicating the C++11 behavior.
+If we really wanted to see the C++03 behavior, we should use some
 really old system.
 
 I used an online compiler (Compiler Explorer) to quickly compile the
@@ -785,7 +785,7 @@ parameter.
 * Allocating memory on the stack is ultra fast, while on the heap is
   much slower.
 
-* Don't use the dynamically-allocated data, if local data is good
+* Don't use the dynamically-allocated data, if local data are good
   enough.
 
 * Nowadays passing parameters or returning results by value is
