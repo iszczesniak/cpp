@@ -93,11 +93,17 @@ using the move constructor (or the move-assignment operator).
 
 In the examples that follow we use structure `A` that lets us see when
 an object is constructed, copied, moved, accessed (by calling function
-`hello`) and destroyed.  Please note (take a look at the file
-`GNUmakefile`) that file `A.cpp` is separately compiled, and then
-linked with the examples.
+`hello`) and destroyed.  Please note (take a look at a make file) that
+file `A.cpp` is separately compiled, and then linked with the
+examples.
 
-[Click here to see `A.hpp` and `A.cpp`](../lib)
+```cpp
+{% include_relative A.cc %}
+```
+
+```cpp
+{% include_relative A.cpp %}
+```
 
 # Data and their location
 

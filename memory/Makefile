@@ -31,7 +31,4 @@ SRCS_unnamed = A.cpp
 SRCS_$p += $p.cc
 .endfor
 
-A.cpp: ../lib/A.cpp
-	cp ../lib/A.cpp .
-
 .include <bsd.prog.mk>
