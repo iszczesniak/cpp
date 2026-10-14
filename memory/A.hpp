@@ -7,7 +7,7 @@ struct A
 {
   std::string m_name;
 
-  // For a direct-initiation with a string.
+  // For a direct-initialization with a string.
   A(const std::string &);
   // Copy and move constructors.
   A(const A &);

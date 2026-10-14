@@ -72,8 +72,8 @@ performance, and constrained management of data.  For instance, such
 languages allow allocation of data on the heap only, which
 deteriorates performance and flexibility, but enables easy
 implementation of garbage collection.  Some garbage collectors are
-even further inefficient, because they are *nondeterministic*, i.e.,
-it is undefined when data are destroyed.
+even more inefficient, because they are *nondeterministic*, i.e., it
+is undefined when data are destroyed.
 
 The C++ Standard Committee considered the garbage collection support,
 but dropped it for performance reasons.  Nowadays, C++ requires no
@@ -148,7 +148,7 @@ using a static over a global variable:
 ## Local data
 
 Data local to a function or a block scope are created on the stack.
-The local data is automatically destroyed when it goes out of scope.
+The local data are automatically destroyed when they go out of scope.
 It's not only a great property you can rely on to have your data
 destroyed, but also a necessity since the stack has to grow smaller
 when a scope ends.
@@ -331,9 +331,9 @@ call convention.
 A regular C++ programmer maybe doesn't have to know such details, but
 knowing them is worthwhile not only to use C++ better, but also to
 understand that C++ is a part of computer systems that evolve.  In
-that evolotion, C++ must be binary compatible with C (so that C++ can
-call C functions, most notably of the operating system), yet capable
-to implement new C++ functionality (like the constructor elision).
+that evolution, C++ must be binary compatible with C (so that C++ can
+call C functions, most notably of the operating system), yet able to
+implement new C++ functionality (like the constructor elision).
 
 There are many call conventions that depend mostly on the processor
 capabilities.  Typically, a call convention requires that the caller
@@ -425,7 +425,7 @@ standard (C++26).
 {% include_relative named.cc %}
 ```
 
-To see the legacy behviour, compile the above example with the
+To see the legacy behaviour, compile the above example with the
 compiler flag `-fno-elide-constructors` (modify CXXFLAGS in
 GNUmakefile).  Notice the differences at run-time, that with
 constructor elision, objects are not copied unnecessarily.
@@ -660,7 +660,7 @@ always exists.  Yes, a string literal has an identity, but
 
 As a drill, we study the examples below and analyze them to understand
 whether the copy or move constructors are called or not, or whether
-they are elided.  These example are simple and minimalistic, and they
+they are elided.  These examples are simple and minimalistic, and they
 cover almost all use cases of daily programming.  To see the
 differences, we compile the examples with C++11 and C++17, and ask the
 compiler not to elide constructors.
@@ -671,7 +671,7 @@ couldn't get the behaviour of the legacy call convention, which is not
 surprising, because I'm using a modern system that offers the modern
 call convention only.  I tried the same with an online compiler with
 the same effect.  It's legacy, so we shouldn't be bothered.  In a few
-years, we can expect to have problems replicating the C++11 bahaviour.
+years, we can expect to have problems replicating the C++11 behaviour.
 If we really wanted to see the C++03 behaviour, we should use some
 really old system.
 
@@ -770,7 +770,7 @@ four times, as in the example above, with the same explanation.
 In the example below, the prvalue argument of the constructor is
 materialized into the parameter of the constructor, and then its value
 is copied into the member field.  In C++17, asking a compiler not to
-elide constructors has no efect, because elision is not used.  In
+elide constructors has no effect, because elision is not used.  In
 C++11 without elision, a temporary move-initializes the constructor
 parameter.
 
