@@ -41,9 +41,9 @@ you study, please.
 
 You get three grades:
 
-* a grade from the laboratory class,
+* a lab grade,
 
-* an exam grade from the lectures,
+* an exam grade,
 
 * a final grade.
 
