@@ -98,7 +98,7 @@ file `A.cpp` is separately compiled, and then linked with the
 examples.
 
 ```cpp
-{% include_relative A.cc %}
+{% include_relative A.hpp %}
 ```
 
 ```cpp
