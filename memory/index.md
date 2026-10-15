@@ -485,8 +485,8 @@ copy its value:
 ### Unnamed elision
 
 The following example demonstrates a use case for the unnamed elision
-(that also used to be known as the *unnamed RVO*): returning a
-temporary object, where a constructor is elided.
+(that also used to be known as the *unnamed RVO*): the expression of
+the return instruction is a temporary object.
 
 ```cpp
 {% include_relative unnamed.cc %}
