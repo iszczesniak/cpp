@@ -88,7 +88,7 @@ an object is constructed, copied, accessed (by calling function
 `hello`) and destroyed.  Note that there is no default constructor,
 and so nowhere in the following examples do we default-construct
 objects of type A: an object is either directly initialized or
-copy-constructed.  Please note (take a look at a make file) that file
+copy constructed.  Please note (take a look at a make file) that file
 `A.cpp` is separately compiled, and then linked with the examples.
 
 File A.hpp:
@@ -618,10 +618,10 @@ first.
 
 ### Beware of hack.hpp!
 
-In the implementation above we use the `hack.hpp` file.  It's a hack,
-a handy one.  This file defines the same struct `A` as files `A.hpp`
-and `A.cpp`, except for the default constructor that `hack.hpp`
-requests to be default implemented.
+In the implementation above we include the `hack.hpp` file.  It's a
+hack, a handy one.  This file defines the same struct `A` as files
+`A.hpp` and `A.cpp`, except for the default constructor that
+`hack.hpp` requests to be default implemented.
 
 What we do in the implementation above is we ask for the default
 constructor to be called (for variable `a` of function `main`), and
@@ -652,7 +652,7 @@ optimization.
 Below there's an example with integer variables.  Their lifetimes
 begin with their declaration statements that can also initialize them.
 The initializing `1` has no identity: it's not created anywhere and
-then copy-constructed into the variable.  Instead, the value of `1`
+then copy constructed into the variable.  Instead, the value of `1`
 (which may be an operand of a processor instruction) is written into
 the location of the variable -- we could say that the value (`1`) was
 materialized.
@@ -664,7 +664,7 @@ materialized.
 Here's the example with string variables.  Since, they are objects,
 they always have to be initialized.  A compiler interprets `{}` as
 `string{}`, which has no identity.  The value of this expression is
-not copy-constructed or move-constructed into the variable.  Instead,
+not copy constructed or move constructed into the variable.  Instead,
 the value of `string{}` is created directly in the location of the
 variable -- we say that a value (`string{}`) was materialized.
 
