@@ -599,33 +599,37 @@ Compile the above example with:
 * `-std=c++17` to see that `-fno-elide-constructors` has no effect: in
   C++17 it is not a use case of the constructor elision any longer.
 
-## Sample implementation
+## Test implementation
 
-Here's a sample implementation of the constructor elision and the
+Here's a test implementation of the constructor elision and the
 materialization.  We are not returning anything, but pass a pointer to
 a location where we want to have the return value created.
 
-Let's keep in mind that the example below is supposed to help us
-understand how the elision works, but we don't program like this: we
-don't call a constructor again (as we do in the example below with the
-placement new) after an object has been created.  We could, if we
-called a destructor first, but we don't call the destructor, because
-that would obfuscate the output of the program.
-
-### Beware of hack.hpp!
-
-It's a hack, a handy one.  This file defines the same struct `A` as
-files `A.hpp` and `A.cpp`.
-
-What we do in the example below is we ask for the default constructor
-to be called (for variable `a` of function `main`), and pretend it has
-never happened by not writing anything to the `cout`.  We're calling
-the default constructor to have the memory allocated, and to make sure
-that the destructor of variable `a` is called.
+Let's keep in mind that this implementation is supposed to help us
+understand how the elision and materialization work, but we don't
+program like this: we don't call a constructor again (as we do with
+the placement new) after an object has been created.  We legitimately
+could call the constructor again, if the destructor was called first.
 
 ```cpp
 {% include_relative implementation.cc %}
 ```
+
+### Beware of hack.hpp!
+
+In the implementation above we use the `hack.hpp` file.  It's a hack,
+a handy one.  This file defines the same struct `A` as files `A.hpp`
+and `A.cpp`, except for the default constructor that `hack.hpp`
+requests to be default implemented.
+
+What we do in the implementation above is we ask for the default
+constructor to be called (for variable `a` of function `main`), and
+pretend it has never happened because it writes nothing to `cout`.
+We're calling the default constructor to have the memory allocated,
+and to make sure that the destructor of variable `a` is called.  We
+don't call the destructor, even though we should, because that would
+obfuscate the output of the program.  We play this underhanded
+trickery just to get the output right.
 
 # Lifetime and identity
 
