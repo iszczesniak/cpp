@@ -443,9 +443,9 @@ CXXFLAGS in GNUmakefile).  Notice the differences at run-time, that
 with constructor elision, objects are not copied unnecessarily.
 
 Even if constructors are elided, they must be defined because
-depending on some technical details, the standard allows a compiler
-not to elide constructors.  In the example below, delete the copy
-constructor by removing the comment to see the compilation fail.
+depending on some minor technical details, the standard allows a
+compiler not to elide constructors.  In the example below, delete the
+copy constructor by removing the comment to see the compilation fail.
 Also, in the exceptional use cases discussed further below, elision
 does not apply, and so constructors must be defined, because they are
 used.
