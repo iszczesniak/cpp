@@ -17,11 +17,6 @@ struct A
     std::cout << "copy-ctor: " << m_name << std::endl;
   }
 
-  A(A &&a): m_name(a.m_name + " moved")
-  {
-    std::cout << "move-ctor: " << m_name << std::endl;
-  }
-
   void hello() const
   {
     std::cout << "Hello from " << m_name << std::endl;

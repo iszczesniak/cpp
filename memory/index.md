@@ -612,6 +612,11 @@ placement new) after an object has been created.  We could, if we
 called a destructor first, but we don't call the destructor, because
 that would obfuscate the output of the program.
 
+### Beware of hack.hpp!
+
+It's a hack, a handy one.  This file defines the same struct `A` as
+files `A.hpp` and `A.cpp`.
+
 What we do in the example below is we ask for the default constructor
 to be called (for variable `a` of function `main`), and pretend it has
 never happened by not writing anything to the `cout`.  We're calling
@@ -688,12 +693,11 @@ years, we can expect to have problems replicating the C++11 behavior.
 If we really wanted to see the C++03 behavior, we should use some
 really old system.
 
-I used an online compiler (Compiler Explorer) to quickly compile the
-below examples with various compiler versions and compilation flags.
-For this reason, I created a separate file `hack.hpp`, so that in an
-online compiler you can replace `#include "hack.hpp"` with the
-contents of this file.  It's a hack, a handy one.  This file defines
-the same struct `A` as files `A.hpp` and `A.cpp`.
+I include the `hack.hpp` file in the examples below, so that you can
+use an online compiler (e.g., Compiler Explorer) to quickly compile
+the examples with various compiler versions and compilation flags:
+there you replace `#include "hack.hpp"` with the contents of this
+file, without having to use another compilation unit (A.cpp).
 
 ## Example 1
 
