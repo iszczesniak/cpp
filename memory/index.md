@@ -623,14 +623,13 @@ hack, a handy one.  This file defines the same struct `A` as files
 `A.hpp` and `A.cpp`, except for the default constructor that
 `hack.hpp` requests to be default implemented.
 
-What we do in the implementation above is we ask for the default
-constructor to be called (for variable `a` of function `main`), and
-pretend it has never happened because it writes nothing to `cout`.
-We're calling the default constructor to have the memory allocated,
-and to make sure that the destructor of variable `a` is called.  We
-don't call the destructor, even though we should, because that would
-obfuscate the output of the program.  We play this underhanded
-trickery just to get the output right.
+In the implementation above, we default initialize the local variable,
+and pretend it has never happened because it writes nothing to `cout`.
+Yet, we rely on that initialization to have the memory allocated and
+the destructor called.  We don't call the destructor before the
+placement new, even though we should, because that would obfuscate the
+output of the program.  We play this underhanded trickery just to get
+the output right.
 
 # Lifetime and identity
 
