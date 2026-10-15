@@ -87,7 +87,7 @@ In the examples that follow we use structure `A` that lets us see when
 an object is constructed, copied, accessed (by calling function
 `hello`) and destroyed.  Note that there is no default constructor,
 and so nowhere in the following examples do we default-construct
-objects of type A: object are either directly initialized or
+objects of type A: an object is either directly initialized or
 copy-constructed.  Please note (take a look at a make file) that file
 `A.cpp` is separately compiled, and then linked with the examples.
 
@@ -115,8 +115,8 @@ move-assignment operator).
 
 Below we do not discuss the details related to moving, because what
 follows is already a full mouth to swallow.  We'll look into moving in
-detail later, in another lecture.  For this reason we disable move
-semantics by declaring a copy constructor for struct `A` above.
+detail later, in another lecture.  For this reason we disable moving
+for type `A` by declaring its copy constructor.
 
 # Data and their location
 
