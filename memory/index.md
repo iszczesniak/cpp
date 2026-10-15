@@ -408,7 +408,7 @@ destroys) them:
 
 **Bottom line: a parameter is out of control of the function.**
 
-## Copy/move elision
+## Copy elision
 
 For a historical review, the functionality that is now called elision
 was mentioned for copying in C++98, termed elision in C++03, and
@@ -416,39 +416,39 @@ extended for moving in C++11.  This functionality was commonly known
 as the return value optimization (RVO), but it wasn't called like this
 in the standard.  Around the time of C++11, the modern call convention
 started to spread that enabled (with the official support of an
-operating system, and not a compiler optimization) efficient returning
-by value, and so this functionality gained in importance, but under
-the standardized term of elision.
+operating system, specifically the system compiler) efficient
+returning by value, and so this functionality gained in importance,
+but under the standardized term of elision.
 
-The **copy/move elision** ([class.copy.elision]) elides the copy and
-move constructors only, and no other constructors or assignment
-operators.  It's also known as the *copy elision* or the *constructor
-elision*.  We distinguish between two versions of the elision: named
-and unnamed.
+The **copy elision** ([class.copy.elision]) elides the copy
+constructor, and not the direct-initialization constructors or
+assignment operators.  It's also known as the *constructor elision*.
+We distinguish between two versions of the elision: named and unnamed.
 
 ### Named elision
 
 The following example demonstrates a use case for the named elision
-(that also used to be known as the *named RVO*): returning a
-non-static local variable that is not a parameter, where the copy
-constructor was elided.  It is still elision according to the newest
-standard (C++26).
+(that also used to be known as the *named RVO*): the expression of the
+return instruction is a non-static local variable that is not a
+parameter.  It is still elision according to the newest standard
+(C++26).
 
 ```cpp
 {% include_relative named.cc %}
 ```
 
-To see the legacy behavior, compile the above example with the
-compiler flag `-fno-elide-constructors` (modify CXXFLAGS in
-GNUmakefile).  Notice the differences at run-time, that with
-constructor elision, objects are not copied unnecessarily.
+To see the legacy behavior (i.e., without the elision), compile the
+above example with the compiler flag `-fno-elide-constructors` (modify
+CXXFLAGS in GNUmakefile).  Notice the differences at run-time, that
+with constructor elision, objects are not copied unnecessarily.
 
 Even if constructors are elided, they must be defined because
 depending on the type of the returned value, the standard allows a
 compiler not to elide constructors.  In the example below, delete the
 copy constructor by removing the comment to see the compilation fail.
 Also, in the exceptional use cases discussed further below, elision
-does not apply.
+does not apply, and so constructors must be defined, because they are
+used.
 
 **Bottom line: elision is optional.**
 
@@ -459,8 +459,8 @@ does not apply.
 #### Exceptions
 
 Elision cannot always take place, because of technical reasons.
-First, because we return data, which has to be created prior to
-deciding which data exactly to return:
+First, because we return a variable which has to be created prior to
+deciding which variable exactly to return:
 
 ```cpp
 {% include_relative no_elision1.cc %}
@@ -474,9 +474,9 @@ parameter in the location for the return value:
 {% include_relative no_elision2.cc %}
 ```
 
-Finally, because we return global or static data, which has to be
-available after the function returns, and so the function can only
-copy the value from the global or static data:
+Finally, because we return a global or static variable, which has to
+be available after the function returns, and so the function can only
+copy its value:
 
 ```cpp
 {% include_relative no_elision3.cc %}
@@ -635,8 +635,8 @@ right.
 
 Lifetime and identity are two notions that in C++ became technical
 terms because they are fundamental to how C++ processes data.  A
-**lifetime** of datum is the period of runtime the datum exists.  The
-lifetime of some datum (a variable, a temporary) starts when it is
+**lifetime** of a datum is the period of runtime the datum exists.
+The lifetime of some datum (a variable, a temporary) starts when it is
 constructed, and ends when it is destroyed.  The datum during its
 lifetime has **identity**, i.e., it exists somewhere.  We can take the
 address of a datum in existance with the `&` operator.
