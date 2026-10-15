@@ -9,9 +9,8 @@ struct A
 
   // For a direct-initialization with a string.
   A(const std::string &);
-  // Copy and move constructors.
+  // The copy constructor.
   A(const A &);
-  A(A &&);
 
   void hello() const;
   ~A();
