@@ -608,8 +608,9 @@ a location where we want to have the return value created.
 Let's keep in mind that this implementation is supposed to help us
 understand how the elision and materialization work, but we don't
 program like this: we don't call a constructor again (as we do with
-the placement new) after an object has been created.  We legitimately
-could call the constructor again, if the destructor was called first.
+the placement new) after an object has been created.  We could
+legitimately call the constructor again, if the destructor was called
+first.
 
 ```cpp
 {% include_relative implementation.cc %}
