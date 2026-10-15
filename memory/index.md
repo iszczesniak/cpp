@@ -624,12 +624,12 @@ hack, a handy one.  This file defines the same struct `A` as files
 `hack.hpp` requests to be default implemented.
 
 In the implementation above, we default initialize the local variable,
-and pretend it has never happened because it writes nothing to `cout`.
-Yet, we rely on that initialization to have the memory allocated and
-the destructor called.  We don't call the destructor before the
-placement new, even though we should, because that would obfuscate the
-output of the program.  We play this underhanded trickery just to get
-the output right.
+and pretend it has never happened because it writes nothing to `cout`,
+but we need that initialization to have the memory allocated and the
+destructor called.  We don't call the destructor before the placement
+new, even though we should, because that would obfuscate the output of
+the program.  We play this underhanded trickery just to get the output
+right.
 
 # Lifetime and identity
 
