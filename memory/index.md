@@ -81,29 +81,42 @@ garbage collection since it offers advanced container and smart
 pointer support, which could be considered a form of garbage
 collection.
 
-## Move semantics, mentioned in passing
-
-We need to mention here the *move semantics*, something that we'll
-look into later.  For now, it's enough to know that *moving* sometimes
-replaces *copying*.  A value is copied when copy-construcing (or
-copy-assigning to) some other (target) object by using the copy
-constructor (or the copy-assignment operator).  A value is moved when
-move-construcing (or move-assigning to) some other (target) object by
-using the move constructor (or the move-assignment operator).
+## Struct A
 
 In the examples that follow we use structure `A` that lets us see when
-an object is constructed, copied, moved, accessed (by calling function
-`hello`) and destroyed.  Please note (take a look at a make file) that
-file `A.cpp` is separately compiled, and then linked with the
-examples.
+an object is constructed, copied, accessed (by calling function
+`hello`) and destroyed.  Note that there is no default constructor,
+and so nowhere in the following examples do we default-construct
+objects of type A: object are either directly initialized or
+copy-constructed.  Please note (take a look at a make file) that file
+`A.cpp` is separately compiled, and then linked with the examples.
+
+File A.hpp:
 
 ```cpp
 {% include_relative A.hpp %}
 ```
 
+File A.cpp:
+
 ```cpp
 {% include_relative A.cpp %}
 ```
+
+### Move semantics, mentioned in passing
+
+We need to mention here the *move semantics*.  For now, it's enough to
+say that *moving* sometimes replaces *copying*.  A value is copied
+when copy-construcing (or copy-assigning to) some other (target)
+object by using the copy constructor (or the copy-assignment
+operator).  A value is moved when move-construcing (or move-assigning
+to) some other (target) object by using the move constructor (or the
+move-assignment operator).
+
+Below we do not discuss the details related to moving, because what
+follows is already a full mouth to swallow.  We'll look into moving in
+detail later, in another lecture.  For this reason we disable move
+semantics by declaring a copy constructor for struct `A` above.
 
 # Data and their location
 
