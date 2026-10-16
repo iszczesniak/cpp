@@ -285,8 +285,9 @@ If a function parameter is of a non-reference type (any type except a
 reference type), we say that a function accepts (or takes) an argument
 by value, or that we pass an argument to a function by value.  In
 legacy C++, a non-reference parameter was initialized always by
-copying the argument value into the parameter.  In modern C++, that
-copying might be gone, because of the materialization.
+copying the argument value into the parameter.  In modern C++,
+depending on the category of the argument, that copying might be gone,
+because of the materialization.
 
 If a function parameter is of a reference type, we say that a function
 accepts an argument by reference, or that we pass an argument to a
