@@ -286,8 +286,7 @@ reference type), we say that a function accepts (or takes) an argument
 by value, or that we pass an argument to a function by value.  In
 legacy C++, a non-reference parameter was initialized always by
 copying the argument value into the parameter.  In modern C++, that
-copying might be gone (because of the materialization) or replaced
-with *moving*.
+copying might be gone, because of the materialization.
 
 If a function parameter is of a reference type, we say that a function
 accepts an argument by reference, or that we pass an argument to a
@@ -517,7 +516,7 @@ in the parameter in accordance with the unnamed elision.
 ```
 
 **In C++17, the use cases of the unnamed elision became the use cases
-  *of the materialization*.**
+  of the *materialization*.**
 
 ## Materialization
 
@@ -536,7 +535,11 @@ of an object when it's returned by value.  A constructor creates an
 object and returns it by value too, so creation is materialization
 too, but limited to a single return.
 
-### Case 1
+During materialization, an object is created, and that requires a
+constructor.  A compiler chooses the right constructor depending on
+the expression of the return statement.
+
+### Case 1: a prvalue
 
 Materialization takes place according to an expression that defines:
 
