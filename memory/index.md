@@ -541,7 +541,7 @@ the expression of the return statement.
 
 ### Case 1: a prvalue
 
-Materialization takes place according to an expression that defines:
+In this case the return expression defines:
 
 * the type of data to create,
 
