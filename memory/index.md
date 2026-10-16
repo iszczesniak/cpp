@@ -709,7 +709,7 @@ call convention only.  I tried the same with an online compiler with
 the same effect.  It's legacy, so we shouldn't be bothered.  In a few
 years, we can expect to have problems replicating the C++11 behavior.
 If we really wanted to see the C++03 behavior, we should use some
-really old system.
+really old system, e.g., Debian 4.
 
 I include the `hack.hpp` file in the examples below, so that you can
 use an online compiler (e.g., Compiler Explorer) to quickly compile
