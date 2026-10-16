@@ -113,10 +113,10 @@ operator).  A value is moved when move-construcing (or move-assigning
 to) some other (target) object by using the move constructor (or the
 move-assignment operator).
 
-Below we do not discuss the details related to moving, because what
-follows is already a full mouth to swallow.  We'll look into moving in
-detail later, in another lecture.  For this reason we disable moving
-for type `A` by declaring its copy constructor.
+Below we deliberately don't discuss moving, because what follows is
+already a full mouth to swallow.  We'll look into moving in detail
+later, in another lecture.  For this reason we disable moving for type
+`A` by declaring its copy constructor.
 
 # Data and their location
 
@@ -424,6 +424,10 @@ The **copy elision** ([class.copy.elision]) elides the copy
 constructor, and not the direct-initialization constructors or
 assignment operators.  It's also known as the *constructor elision*.
 We distinguish between two versions of the elision: named and unnamed.
+The terms of the named and unnamed elision are not standard: the
+standard treats them just as elision, but we differentiate between
+them for better understanding, and to emphasise the transition from
+the unnamed elision to materialization.
 
 ### Named elision
 
@@ -517,11 +521,20 @@ in the parameter in accordance with the unnamed elision.
 
 ## Materialization
 
-Materialization generalizes creation: a materialization is just a
-creation of an object, provided unnamed elision took place.  When
-there is no need for elision, that degraded materialization is just a
-creation.  Materialization, introduced in C++17, makes the unnamed
-elision mandatory, while before it was optional.
+Materialization, introduced in C++17, makes the unnamed elision
+mandatory, while before it was optional -- that nifty wording,
+however, describes a new concept (of materialization) with the defunct
+terminology (of the unnamed elision) that is not even standard.  Since
+C++17, elision includes only the use cases that we termed 'named'.
+
+The C++17 introduced a **new take** on the problem of returning by
+value: the copy constructor is not elided, it's unneeded by design.
+Why should the return value be copied when it's materialized?
+
+Materialization generalizes creation: materialization is just creation
+of an object when it's returned by value.  A constructor creates an
+object and returns it by value too, so creation is materialization
+too, but limited to a single return.
 
 ### Case 1
 
@@ -583,9 +596,8 @@ that is temporary.  Here's an example:
 ```
 
 **Materialization is mandatory**, while elision is not.  The returned
-value is never (no exceptions) moved (or copied), and so its type
-doesn't need to have the move (or copy) constructors, as shown in the
-example below.
+value is never (no exceptions) copied, and so its type doesn't need to
+have the copy constructor, as shown in the example below.
 
 ```cpp
 {% include_relative mandatory.cc %}
@@ -660,12 +672,13 @@ materialized.
 {% include_relative identity1.cc %}
 ```
 
-Here's the example with string variables.  Since, they are objects,
-they always have to be initialized.  A compiler interprets `{}` as
-`string{}`, which has no identity.  The value of this expression is
-not copy constructed or move constructed into the variable.  Instead,
-the value of `string{}` is created directly in the location of the
-variable -- we say that a value (`string{}`) was materialized.
+Here's the example with `std::string` variables.  Since, they are
+objects, they always have to be initialized.  A compiler interprets
+`{}` as `string{}`, which has no identity.  The value of this
+expression is not copy constructed or move constructed into the
+variable.  Instead, the value of `string{}` is created directly in the
+location of the variable -- we say that a value (`string{}`) was
+materialized.
 
 ```cpp
 {% include_relative identity2.cc %}
@@ -684,8 +697,9 @@ As a drill, we study the examples below and analyze them to understand
 whether the copy or move constructors are called or not, or whether
 they are elided.  These examples are simple and minimalistic, and they
 cover almost all use cases of daily programming.  To see the
-differences, we compile the examples with C++11 and C++17, and ask the
-compiler not to elide constructors.
+differences, we compile the examples the usual way (with at least
+C++17), and then with C++11, asking the compiler to elide constructors
+or not.
 
 I tried to compile with C++03 to see the copying instead of moving.
 However, the move semantics (of C++11) was still used.  Also, I
