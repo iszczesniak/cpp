@@ -507,9 +507,10 @@ the variable initialization:
 #### Parameter initialization
 
 An example below shows the initialization of a function parameter with
-a temporary object, just like above.  The parameter is initialized
-(controlled) by the caller, and so the temporary object can be created
-in the parameter in accordance with the unnamed elision.
+a temporary object, just like above a variable was initialized with a
+temporary object.  The parameter is initialized (controlled) by the
+caller, and so the temporary object can be created in the parameter in
+accordance with the unnamed elision.
 
 ```cpp
 {% include_relative parameter.cc %}
