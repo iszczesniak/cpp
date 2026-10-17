@@ -496,9 +496,9 @@ the return instruction is a temporary object.
 ```
 
 There is another use case of the unnamed elision: initialization with
-a temporary object, because **a constructor is a special function that
-returns by value the created object**.  The example below shows the
-variable initialization:
+a temporary object, because **a constructor is a *special function*
+that returns by value the created object**.  The example below shows
+the variable initialization:
 
 ```cpp
 {% include_relative initialization.cc %}
