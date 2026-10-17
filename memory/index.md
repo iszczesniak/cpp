@@ -536,7 +536,7 @@ of an object when it's returned by value.  A constructor creates an
 object and returns it by value too, so creation is materialization
 too, but limited to a single return.
 
-During materialization, an object is created, and that requires a
+During materialization an object is created which requires a
 constructor.  A compiler chooses the right constructor depending on
 the expression of the return statement.
 
