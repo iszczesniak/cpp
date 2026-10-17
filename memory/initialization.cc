@@ -32,5 +32,7 @@ int main()
 
   // Acceptable and interesting, but we don't code like that.
   // A g = A(A());
-  // A h = A{A{}};
+  // A h = A(A{});
+  // A i = A{A()};
+  // A j = A{A{}};
 }
