@@ -317,21 +317,6 @@ reference.
 ```cpp
 {% include_relative return.cc %}
 ```
-
-# Returning by value
-
-In modern C++, returing by value is fast, does not impose any
-unnecessary overhead, and therefore is recommended.  It's not what it
-used to be in the deep past, before C++ was standardized.  Back then
-returning by value always copied the result twice.  First, from a
-local variable of the function to a temporary place on the stack for
-the return value.  Second, from the temporary place to the
-destination, e.g., a variable that was initialized with the result.
-
-To understand how returning by value became efficient, and to be aware
-of exceptions, we need to understand the call conventions, the
-constructor elision, and the materialization.
-
 ## Function call convention
 
 The *call convention* are the technical details on how exactly a
@@ -407,6 +392,20 @@ destroys) them:
 * a local variable is controlled by the function.
 
 **Bottom line: a parameter is out of control of the function.**
+
+# Returning by value
+
+In modern C++, returing by value is fast, does not impose any
+unnecessary overhead, and therefore is recommended.  It's not what it
+used to be in the deep past, before C++ was standardized.  Back then
+returning by value always copied the result twice.  First, from a
+local variable of the function to a temporary place on the stack for
+the return value.  Second, from the temporary place to the
+destination, e.g., a variable that was initialized with the result.
+
+To understand how returning by value became efficient, and to be aware
+of exceptions, we need to understand the constructor elision and
+materialization.
 
 ## Copy elision
 
