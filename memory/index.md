@@ -583,8 +583,6 @@ that we don't give it a name.  Here are some example recipes:
 
 * `std::string("Hello")`: type `std::string`, argument `"Hello"`.
 
-#### Prior to C++17: a temporary
-
 When a recipe is a standalone expression, then its evaluation creates
 a temporary (a temporary value) that is next destroyed, and so it is a
 *discarded-value expression*.  A temporary object is created on the
@@ -594,19 +592,22 @@ stack.  Here's an example:
 {% include_relative standalone.cc %}
 ```
 
-When a recipe is not standalone, then it's an **argument** of a return
-instruction or a call (of a function, a constructor or an operator).
-Prior to C++17, a recipe used as an argument also created a temporary
-that was used to initialize a return value or a parameter (of a
-function, a constructor or an operator), regardless of whether the
-parameter was of a reference type or not.  A temporary was destroyed
-before the evaluation of the complete (whole) expression was complete.
-When passing by value, however, that temporary didn't exist because
-its value was created directly in a parameter in accordance with the
-unnamed elision.
+#### Prior to C++17: a temporary
 
-**Bottom line: prior to C++17, a recipe always created a temporary
-object, that could have been elided.**
+When a recipe is not standalone, then it's an **argument** of a return
+instruction or a call (to a function, a constructor or an operator).
+Prior to C++17, a recipe used as an argument also created a temporary
+object (or just a temporary) that was used to initialize a return
+value or a parameter (of a function, a constructor or an operator),
+regardless of whether the parameter was of a reference type or not.  A
+temporary was destroyed before the evaluation of the complete (whole)
+expression was complete.  When passing by value, however, that
+temporary usually didn't exist because its value was created directly
+in a destination (a return value or a parameter) in accordance with
+the unnamed elision.
+
+*Bottom line: prior to C++17, a recipe always created a temporary
+object that usually was elided.*
 
 #### Since C++17: a prvalue
 
