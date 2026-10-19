@@ -627,7 +627,7 @@ that is temporary.  Here's an example:
 {% include_relative materialization.cc %}
 ```
 
-## Case 2: a copied value
+### Case 2: a copied value
 
 ## Test implementation
 
