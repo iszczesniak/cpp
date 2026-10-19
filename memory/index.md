@@ -287,7 +287,7 @@ by value, or that we pass an argument to a function by value.  In
 legacy C++, a non-reference parameter was initialized always by
 copying the argument value into the parameter.  In modern C++,
 depending on the category of the argument, that copying might be gone,
-because of the materialization.
+because of materialization.
 
 If a function parameter is of a reference type, we say that a function
 accepts an argument by reference, or that we pass an argument to a
@@ -403,9 +403,9 @@ local variable of the function to a temporary place on the stack for
 the return value.  Second, from the temporary place to the
 destination, e.g., a variable that was initialized with the result.
 
-To understand how returning by value became efficient, and to be aware
-of exceptions, we need to understand the constructor elision and
-materialization.
+To understand how returning an object by value became efficient, and
+to be aware of exceptions, we need to understand the constructor
+elision and materialization.
 
 ## Copy elision
 
@@ -517,7 +517,7 @@ accordance with the unnamed elision.
 ```
 
 **In C++17, the use cases of the unnamed elision became the use cases
-  of the *materialization*.**
+  of *materialization*.**
 
 ## Materialization
 
@@ -536,21 +536,35 @@ of an object when it's returned by value.  A constructor creates an
 object and returns it by value too, so creation is materialization
 too, but limited to a single return.
 
-Materialization creates an object which requires a constructor.  A
-compiler chooses the right constructor depending on the expression of
-the return statement.
+In materialization, functions return by value the results returned by
+value by functions called -- in this call chain, we are interested in
+the return instruction at the end of the chain, because it creates the
+object that then crosses the function boundaries without being copied.
+The function called last is a constructor, but constructors have no
+return instruction, and so we are interested in the return statement
+that calls the constructor.  A compiler chooses the right constructor
+depending on the expression of that return statement, specifically
+whether the return expression:
+
+* case 1: creates a new object with direct initialization, i.e.,
+  doesn't call the copy constructor,
+
+* case 2: uses an already existing object, i.e., calls the copy
+  constructor.
 
 ### Case 1: a prvalue
 
-In this case the return expression defines:
+In this case the return expression creates a new value by defining:
 
 * the type of data to create,
 
 * the arguments for the creation.
 
 Let's temporarily call such an expression a "recipe" for a value of a
-given type.  It differs from a variable initilization in that we don't
-give it a name.  Here are some example recipes:
+given type.  This expression calls a direct-initialization
+constructor, a fancy name to differentiate it from the copy
+constructor.  The expression differs from a variable initilization in
+that we don't give it a name.  Here are some example recipes:
 
 * `std::string()`: type `std::string`, no arguments,
 
