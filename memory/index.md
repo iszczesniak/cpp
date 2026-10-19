@@ -530,11 +530,10 @@ C++17, elision includes only the use cases that we termed 'named'.
 
 The C++17 introduced a **new take** on the problem of returning by
 value: the copy constructor is not elided, it's unneeded by design.
-Why should the return value be copied when it's materialized?
-
-**Materialization is mandatory**, while elision is not.  The returned
-value is never (no exceptions) copied, and so its type doesn't need to
-have the copy constructor, as shown in the example below.
+Why should the return value be copied when it's materialized?  The
+returned value is never (no exceptions) copied, and so its type
+doesn't need to have the copy constructor, as shown in the example
+below.
 
 ```cpp
 {% include_relative mandatory.cc %}
