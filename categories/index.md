@@ -252,7 +252,8 @@ Therefore `++++x` compiles, and `x++++` doesn't.
 
 As a side note:
 
-* the prefix version has lower precedence than the suffix version,
+* the prefix version has higher precedence (is less important) than
+  the suffix version,
 
 * the prefix version has the right-to-left associativity,
 
