@@ -87,9 +87,10 @@ In the examples that follow we use structure `A` that lets us see when
 an object is constructed, copied, accessed (by calling function
 `hello`) and destroyed.  Note that there is no default constructor,
 and so nowhere in the following examples do we default-construct
-objects of type A: an object is either directly initialized or
-copy constructed.  Please note (take a look at a make file) that file
-`A.cpp` is separately compiled, and then linked with the examples.
+objects of type A: an object is either directly initialized (with a
+string) or copy constructed.  Please note (take a look at a make file)
+that file `A.cpp` is separately compiled, and then linked with the
+examples.
 
 File A.hpp:
 
@@ -531,6 +532,22 @@ The C++17 introduced a **new take** on the problem of returning by
 value: the copy constructor is not elided, it's unneeded by design.
 Why should the return value be copied when it's materialized?
 
+**Materialization is mandatory**, while elision is not.  The returned
+value is never (no exceptions) copied, and so its type doesn't need to
+have the copy constructor, as shown in the example below.
+
+```cpp
+{% include_relative mandatory.cc %}
+```
+
+Compile the above example with:
+
+* `-std=c++14` to see the compilation fail: in C++14 it was a use case
+  of the constructor elision,
+
+* `-std=c++17` to see that `-fno-elide-constructors` has no effect: in
+  C++17 it is not a use case of the constructor elision any longer.
+
 Materialization generalizes creation: materialization is just creation
 of an object when it's returned by value.  A constructor creates an
 object and returns it by value too, so creation is materialization
@@ -544,15 +561,10 @@ The function called last is a constructor, but constructors have no
 return instruction, and so we are interested in the return statement
 that calls the constructor.  A compiler chooses the right constructor
 depending on the expression of that return statement, specifically
-whether the return expression:
+whether the return expression creates an object with a new or copied
+value.
 
-* case 1: creates a new object with direct initialization, i.e.,
-  doesn't call the copy constructor,
-
-* case 2: uses an already existing object, i.e., calls the copy
-  constructor.
-
-### Case 1: a prvalue
+### Case 1: a new value
 
 In this case the return expression creates a new value by defining:
 
@@ -561,9 +573,7 @@ In this case the return expression creates a new value by defining:
 * the arguments for the creation.
 
 Let's temporarily call such an expression a "recipe" for a value of a
-given type.  This expression calls a direct-initialization
-constructor, a fancy name to differentiate it from the copy
-constructor.  The expression differs from a variable initilization in
+given type.  The expression differs from a variable initilization in
 that we don't give it a name.  Here are some example recipes:
 
 * `std::string()`: type `std::string`, no arguments,
@@ -574,6 +584,8 @@ that we don't give it a name.  Here are some example recipes:
 
 * `std::string("Hello")`: type `std::string`, argument `"Hello"`.
 
+#### Prior to C++17: a temporary
+
 When a recipe is a standalone expression, then its evaluation creates
 a temporary (a temporary value) that is next destroyed, and so it is a
 *discarded-value expression*.  A temporary object is created on the
@@ -583,10 +595,11 @@ stack.  Here's an example:
 {% include_relative standalone.cc %}
 ```
 
-When a recipe is not standalone, then it's an argument of a call to a
-function, a constructor or an operator.  Prior to C++17, a recipe used
-as a call argument also created a temporary that was used to
-initialize a parameter of the call, regardless of whether the
+When a recipe is not standalone, then it's an **argument** of a return
+instruction or a call (of a function, a constructor or an operator).
+Prior to C++17, a recipe used as an argument also created a temporary
+that was used to initialize a return value or a parameter (of a
+function, a constructor or an operator), regardless of whether the
 parameter was of a reference type or not.  A temporary was destroyed
 before the evaluation of the complete (whole) expression was complete.
 When passing by value, however, that temporary didn't exist because
@@ -595,6 +608,8 @@ unnamed elision.
 
 **Bottom line: prior to C++17, a recipe always created a temporary
 object, that could have been elided.**
+
+#### Since C++17: a prvalue
 
 Since C++17 these recipes are called expressions of the **prvalue**
 category, prvalue expressions or just prvalues.  We'll look into the
@@ -613,21 +628,7 @@ that is temporary.  Here's an example:
 {% include_relative materialization.cc %}
 ```
 
-**Materialization is mandatory**, while elision is not.  The returned
-value is never (no exceptions) copied, and so its type doesn't need to
-have the copy constructor, as shown in the example below.
-
-```cpp
-{% include_relative mandatory.cc %}
-```
-
-Compile the above example with:
-
-* `-std=c++14` to see the compilation fail: in C++14 it was a use case
-  of the constructor elision,
-
-* `-std=c++17` to see that `-fno-elide-constructors` has no effect: in
-  C++17 it is not a use case of the constructor elision any longer.
+## Case 2: a copied value
 
 ## Test implementation
 
