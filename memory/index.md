@@ -557,15 +557,12 @@ value by functions called -- in this call chain, we are interested in
 the return instruction at the end of the chain, because it creates the
 object that then crosses the function boundaries without being copied.
 The function called last is a constructor, but constructors have no
-return instruction, and so we are interested in the return statement
-that calls the constructor.  A compiler chooses the right constructor
-depending on the expression of that return statement, specifically
-whether the return expression creates an object with a new or copied
-value.
+return instruction, and so we are interested in the return expression
+that calls the constructor.  In materialization, that return statement
+creates an object with a new value, as opposed to the named elision
+that elides copying the value of an existing object.
 
-### Case 1: a new value
-
-In this case the return expression creates a new value by defining:
+The return expression creates an object of a new value by defining:
 
 * the type of data to create,
 
@@ -625,8 +622,6 @@ materialization that is temporary.  Here's an example:
 ```cpp
 {% include_relative materialization.cc %}
 ```
-
-### Case 2: a copied value
 
 ## Test implementation
 
