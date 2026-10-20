@@ -252,12 +252,11 @@ Therefore `++++x` compiles, and `x++++` doesn't.
 
 As a side note:
 
-* the prefix version has higher precedence (is less important) than
-  the suffix version,
+* the suffix version takes precedence over the prefix version,
 
-* the prefix version has the right-to-left associativity,
+* the suffix version has the left-to-right associativity,
 
-* the suffix version has the left-to-right associativity.
+* the prefix version has the right-to-left associativity.
 
 In the example below, `std::string` has the suffix increment operator
 defined.  The loop with the prefix operator would be more complicated.
