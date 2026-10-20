@@ -384,9 +384,8 @@ stack (required by the legacy call convention).
 ```
 
 As a corollary of these call conventions, let's notice that a
-parameter of a function and a local variable of a function look the
-same, but they differ in what code controls (creates, initializes and
-destroys) them:
+parameter and a local variable of a function seem similar, but they
+differ in what code controls (creates, initializes and destroys) them:
 
 * a parameter is controlled by the caller of the function,
 
