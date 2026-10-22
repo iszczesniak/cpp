@@ -11,6 +11,7 @@ SRCS_anywhere = A.cpp
 SRCS_args = A.cpp
 SRCS_dynamic = A.cpp
 SRCS_initialization = A.cpp
+SRCS_no_elision_base = A.cpp
 SRCS_no_elision_gs = A.cpp
 SRCS_no_elision_param = A.cpp
 SRCS_no_elision_undecided = A.cpp
