@@ -430,9 +430,8 @@ the unnamed elision to materialization.
 
 Elision applies to returning by value.  Whether the elision is named
 or unnamed depends on the expression of the return instruction.  If
-there are multiple functions called in a chain, then returning
-multiple times may have the elision "combined to eliminate multiple
-copies", as the standard puts it.
+there are multiple functions called in a chain, then elision "may be
+combined to eliminate multiple copies", as the standard puts it.
 
 ### Named elision
 
@@ -510,9 +509,6 @@ accordance with the unnamed elision.
 ```cpp
 {% include_relative parameter.cc %}
 ```
-
-**In C++17, the use cases of the unnamed elision became the use cases
-  of *materialization*.**
 
 ### Elision is optional
 
