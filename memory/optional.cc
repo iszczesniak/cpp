@@ -7,10 +7,11 @@ struct X
 X f()
 {
   X x;
-  return x;
+  return x; // for named elision
+  // return X(); // for unnamed elision
 }
 
 int main()
 {
-  X x = f();
+  f();
 }

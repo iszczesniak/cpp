@@ -451,20 +451,6 @@ above example with the compiler flag `-fno-elide-constructors` (modify
 CXXFLAGS in GNUmakefile).  Notice the differences at run-time, that
 with constructor elision, objects are not copied unnecessarily.
 
-Even if constructors are elided, they must be defined because
-depending on some minor technical details, the standard allows a
-compiler not to elide constructors.  In the example below, delete the
-copy constructor by removing the comment to see the compilation fail.
-Also, in the exceptional use cases discussed further below, elision
-does not apply, and so constructors must be defined, because they are
-used.
-
-**Bottom line: elision is optional.**
-
-```cpp
-{% include_relative optional.cc %}
-```
-
 #### Exceptions
 
 Elision cannot always take place, because of technical reasons.
@@ -528,13 +514,27 @@ accordance with the unnamed elision.
 **In C++17, the use cases of the unnamed elision became the use cases
   of *materialization*.**
 
+### Elision is optional
+
+Even if constructors are elided, they must be defined because
+depending on some minor technical details, the standard allows a
+compiler not to elide constructors.  In the example below, delete the
+copy constructor by removing the comment to see the compilation fail.
+Also, in the exceptional use cases discussed before, elision does not
+apply, and so constructors must be defined, because they are used.
+
+```cpp
+{% include_relative optional.cc %}
+```
+
 ## Materialization
 
-Materialization, introduced in C++17, makes the unnamed elision
-mandatory, while before it was optional -- that nifty wording,
-however, describes a new concept (of materialization) with the defunct
-terminology (of the unnamed elision) that is not even standard.  Since
-C++17, elision includes only the use cases that we termed 'named'.
+In C++17, the use cases of the unnamed elision became the use cases of
+materialization.  Materialization makes the unnamed elision mandatory,
+while before it was optional -- that nifty wording, however, describes
+a new concept (of materialization) with the defunct terminology (of
+the unnamed elision) that is not even standard.  Since C++17, elision
+includes only the use cases that we termed 'named'.
 
 The C++17 introduced a **new take** on the problem of returning by
 value: the copy constructor is not elided, it's unneeded by design.
