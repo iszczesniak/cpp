@@ -472,6 +472,13 @@ copy its value:
 {% include_relative no_elision_gs.cc %}
 ```
 
+Third, we return a value which has to be created (for a local
+variable) prior to deciding which value to return:
+
+```cpp
+{% include_relative no_elision_undecided.cc %}
+```
+
 ### Unnamed elision
 
 The following example demonstrates a use case for the unnamed elision
@@ -503,14 +510,11 @@ accordance with the unnamed elision.
 {% include_relative parameter.cc %}
 ```
 
-### Exceptions to both named and unnamed elision
+### Returning a base object
 
-We return a variable which has to be created prior to deciding which
-variable exactly to return:
 
-```cpp
-{% include_relative no_elision_undecided.cc %}
-```
+Second, we return a base object of a local non-static variable or a
+parameter.
 
 ### Elision is optional
 

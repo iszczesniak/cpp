@@ -2,15 +2,15 @@
 
 A foo(bool flag)
 {
-  // These objects have to be created, and since we don't know which
-  // is going to be returned, both of them have to be created locally.
-  A a("a"), b("b");
+  // This object is created here.  We refer to it by name later.
+  A a("true");
 
-  // The returned value must be copied.
-  return flag ? a : b;
+  // Named elision cannot be uses when returning the value of a.
+  return flag ? a : A("false");
 }
 
 int main()
 {
   foo(true);
+  foo(false);
 }
