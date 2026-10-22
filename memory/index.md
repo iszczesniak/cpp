@@ -428,6 +428,12 @@ standard treats them just as elision, but we differentiate between
 them for better understanding, and to emphasise the transition from
 the unnamed elision to materialization.
 
+Elision applies to returning by value.  Whether the elision is named
+or unnamed depends on the expression of the return instruction.  If
+there are multiple functions called in a chain, then returning
+multiple times may have the elision "combined to eliminate multiple
+copies", as the standard puts it.
+
 ### Named elision
 
 The following example demonstrates a use case for the named elision
@@ -503,6 +509,9 @@ the variable initialization:
 ```cpp
 {% include_relative initialization.cc %}
 ```
+
+Compile the above example with C++14 and ask the compiler not to elide
+constructors: you'll see copies made.
 
 #### Parameter initialization
 
