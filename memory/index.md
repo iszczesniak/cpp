@@ -440,10 +440,9 @@ unnamed or both.
 ### Named elision
 
 The following example demonstrates a use case for the named elision
-(that also used to be known as the *named RVO*): the expression of the
-return instruction is a non-static local variable that is not a
-parameter.  It is still elision according to the newest standard
-(C++26).
+(that also used to be known as the *named RVO*): the return argument
+is a non-static local variable that is not a parameter.  It is still
+elision according to the newest standard (C++26).
 
 ```cpp
 {% include_relative named.cc %}
@@ -483,8 +482,8 @@ copy its value:
 ### Unnamed elision
 
 The following example demonstrates a use case for the unnamed elision
-(that also used to be known as the *unnamed RVO*): the expression of
-the return instruction is a temporary object.
+(that also used to be known as the *unnamed RVO*): the return argument
+is a temporary object.
 
 ```cpp
 {% include_relative unnamed.cc %}
