@@ -432,9 +432,10 @@ the unnamed elision to materialization.
 Elision applies to returning by value.  Whether the elision is named
 or unnamed depends on the return argument, i.e., the expression of the
 return instruction.  **A single elision applies to a single return**,
-but if there are multiple functions called in a chain, then elisions
-"may be combined to eliminate multiple copies" (as the standard puts
-it), regardless of whether they are named, unnamed or both.
+but if there are multiple functions called in a chain, then the
+corresponding elisions "may be combined to eliminate multiple copies"
+(as the standard puts it), regardless of whether they are named,
+unnamed or both.
 
 ### Named elision
 
