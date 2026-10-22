@@ -418,7 +418,7 @@ pewne obiekty muszą być pierwsze stworzone, a dopiero potem jest
 podejmowana decyzja, który obiekt zwrócić:
 
 ```cpp
-{% include_relative no_elision1.cc %}
+{% include_relative no_elision_undecided.cc %}
 ```
 
 Także dlatego, że próbujemy zwrócić przez wartość parametr funkcji,
