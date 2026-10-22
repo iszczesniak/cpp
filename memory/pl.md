@@ -435,7 +435,7 @@ statyczne, które muszą istnieć po powrocie z funkcji.  Funkcja może
 wtedy jedynie skopiować wynik:
 
 ```cpp
-{% include_relative no_elision3.cc %}
+{% include_relative no_elision_gs.cc %}
 ```
 
 # Podsumowanie

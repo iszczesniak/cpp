@@ -473,7 +473,7 @@ be available after the function returns, and so the function can only
 copy its value:
 
 ```cpp
-{% include_relative no_elision3.cc %}
+{% include_relative no_elision_gs.cc %}
 ```
 
 ### Unnamed elision
