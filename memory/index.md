@@ -318,6 +318,7 @@ reference.
 ```cpp
 {% include_relative return.cc %}
 ```
+
 ## Function call convention
 
 The *call convention* are the technical details on how exactly a
@@ -343,9 +344,9 @@ of the function (i.e., the code that calls the function):
 * allocates memory for the return value.
 
 Parameters are created on the stack because a processor might be
-unable to store them (in registers).  The caller allocates memory for
-the return value because it may not fit in a processor, yet it should
-be available to the caller once the function returns.
+unable to store them (e.g., in registers).  The caller allocates
+memory for the return value because it may not fit in a processor, yet
+it should be available to the caller once the function returns.
 
 Small data may be accepted or returned in processor registers, e.g, an
 integer in EAX for x86, Linux, and GCC.
@@ -429,9 +430,11 @@ them for better understanding, and to emphasise the transition from
 the unnamed elision to materialization.
 
 Elision applies to returning by value.  Whether the elision is named
-or unnamed depends on the expression of the return instruction.  If
-there are multiple functions called in a chain, then elision "may be
-combined to eliminate multiple copies", as the standard puts it.
+or unnamed depends on the return argument, i.e., the expression of the
+return instruction.  **A single elision applies to a single return**,
+but if there are multiple functions called in a chain, then elisions
+"may be combined to eliminate multiple copies" (as the standard puts
+it), regardless of whether they are named, unnamed or both.
 
 ### Named elision
 
