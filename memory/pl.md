@@ -427,7 +427,7 @@ może jedynie skopiować wartość parametru do miejsca, gdzie ma być
 zwrócony wynik:
 
 ```cpp
-{% include_relative no_elision2.cc %}
+{% include_relative no_elision_param.cc %}
 ```
 
 I także dlatego, że próbujemy zwrócić przez wartość dane globalne albo

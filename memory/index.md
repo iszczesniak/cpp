@@ -465,7 +465,7 @@ the caller, not the function, and so the function cannot create the
 parameter in the location for the return value:
 
 ```cpp
-{% include_relative no_elision2.cc %}
+{% include_relative no_elision_param.cc %}
 ```
 
 Finally, because we return a global or static variable, which has to
