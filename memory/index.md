@@ -455,24 +455,17 @@ with constructor elision, objects are not copied unnecessarily.
 
 #### Exceptions
 
-Elision cannot always take place, because of technical reasons.
-First, because we return a variable which has to be created prior to
-deciding which variable exactly to return:
-
-```cpp
-{% include_relative no_elision_undecided.cc %}
-```
-
-Second, because we return a function parameter, which was created by
-the caller, not the function, and so the function cannot create the
-parameter in the location for the return value:
+There are two exceptions specific to the named elision.  First, we
+return a function parameter, which was created by the caller, not the
+function, and so the function cannot create the parameter in the
+location for the return value:
 
 ```cpp
 {% include_relative no_elision_param.cc %}
 ```
 
-Finally, because we return a global or static variable, which has to
-be available after the function returns, and so the function can only
+Second, we return a global or static variable, which has to be
+available after the function returns, and so the function can only
 copy its value:
 
 ```cpp
@@ -498,9 +491,6 @@ the variable initialization:
 {% include_relative initialization.cc %}
 ```
 
-Compile the above example with C++14 and ask the compiler not to elide
-constructors: you'll see copies made.
-
 #### Parameter initialization
 
 An example below shows the initialization of a function parameter with
@@ -511,6 +501,15 @@ accordance with the unnamed elision.
 
 ```cpp
 {% include_relative parameter.cc %}
+```
+
+### Exceptions to both named and unnamed elision
+
+We return a variable which has to be created prior to deciding which
+variable exactly to return:
+
+```cpp
+{% include_relative no_elision_undecided.cc %}
 ```
 
 ### Elision is optional
