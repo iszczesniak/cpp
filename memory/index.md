@@ -512,9 +512,15 @@ accordance with the unnamed elision.
 
 ### Returning a base object
 
+In the example below, those uses cases would be of the named and
+unnamed elision if not for their return types: the functions return by
+value the base objects (of type `A`) of the return argument (of type
+`B`).  Elision is unable to squeeze a value of type `B` into the space
+for a value of type `A`.  The compiler has to resort to copying.
 
-Second, we return a base object of a local non-static variable or a
-parameter.
+```cpp
+{% include_relative no_elision_base.cc %}
+```
 
 ### Elision is optional
 
