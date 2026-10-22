@@ -515,8 +515,9 @@ accordance with the unnamed elision.
 In the example below, those uses cases would be of the named and
 unnamed elision if not for their return types: the functions return by
 value the base objects (of type `A`) of the return argument (of type
-`B`).  Elision is unable to squeeze a value of type `B` into the space
-for a value of type `A`.  The compiler has to resort to copying.
+`B`).  Elision is unable to squeeze a value of derived type `B` into
+the space for a value of base type `A`.  The compiler has to resort to
+copying.
 
 ```cpp
 {% include_relative no_elision_base.cc %}
