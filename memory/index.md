@@ -559,27 +559,27 @@ below.
 Compile the above example with:
 
 * `-std=c++14` to see the compilation fail: in C++14 it was a use case
-  of the constructor elision,
+  of the unnamed elision,
 
 * `-std=c++17` to see that `-fno-elide-constructors` has no effect: in
-  C++17 it is not a use case of the constructor elision any longer.
+  C++17 it is not an elision use case any longer.
 
 Materialization generalizes creation: materialization is just creation
 of an object when it's returned by value.  A constructor creates an
 object and returns it by value too, so creation is materialization
 too, but limited to a single return.
 
-In materialization, functions return by value the results returned by
+So we have functions that return by value the results returned by
 value by functions called -- in this call chain, we are interested in
 the return instruction at the end of the chain, because it creates the
 object that then crosses the function boundaries without being copied.
 The function called last is a constructor, but constructors have no
 return instruction, and so we are interested in the return expression
-that calls the constructor.  In materialization, that return statement
-creates an object with a new value, as opposed to the named elision
-that elides copying the value of an existing object.
+that calls the constructor.  That return statement creates an object
+with a new value, as opposed to the named elision that elides copying
+the value of an existing object.
 
-The return expression creates an object of a new value by defining:
+The return expression creates an object with a new value by defining:
 
 * the type of data to create,
 
@@ -593,9 +593,9 @@ that we don't give it a name.  Here are some example recipes:
 
 * `int()` is really `int(0)`: type `int`, argument `0`,
 
-* `1` is `int(1)`: type `int`, argument `1`,
+* `std::string("Hello")`: type `std::string`, argument `"Hello"`,
 
-* `std::string("Hello")`: type `std::string`, argument `"Hello"`.
+* `1` is `int(1)`: type `int`, argument `1`.
 
 When a recipe is a standalone expression, then its evaluation creates
 a temporary (a temporary value) that is next destroyed, and so it is a
@@ -608,7 +608,7 @@ stack.  Here's an example:
 
 #### Prior to C++17: a temporary
 
-When a recipe is not standalone, then it's an **argument** of a return
+When a recipe is not standalone, then it's an argument of a return
 instruction or a call (to a function, a constructor or an operator).
 Prior to C++17, a recipe used as an argument also created a temporary
 object (or just a temporary) that was used to initialize a return
