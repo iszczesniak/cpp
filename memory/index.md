@@ -772,8 +772,8 @@ the result of function `g`, i.e., the second temporary object that
 becomes the return argument of function `f`.  That second temporary is
 used to copy-initialize the result of function `f`, i.e., the third
 temporary object that becomes the argument of the copy-initialization
-of variable `a`.  These move constructors are elided, but you can ask
-the compiler not to do it.
+of variable `a`.  These constructors are elided, but you can ask the
+compiler not to do it.
 
 ```cpp
 {% include_relative example1.cc %}
