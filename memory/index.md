@@ -720,19 +720,28 @@ literal is a singular datum: it is never created nor destroyed, and it
 always exists.  Yes, a string literal has an identity, but
 `string("Hello!")` still doesn't.
 
+## Lifetime of a temporary and a prvalue
+
+In deep C++ past, a temporary was destroyed in the scope it was
+created in.  With RVO, elision and materialization that changed: a
+temporary (and even a local variable) can be created in a function,
+and then destroyed in the calling code.  Prior to C++17, we can ask
+the compiler not to elide constructors to see that temporary objects
+are destroyed in the scope they are created in.
+
 # More elaborate examples
 
 As a drill, we study the examples below and analyze them to understand
-whether the copy or move constructors are called or not, or whether
-they are elided.  These examples are simple and minimalistic, and they
-cover almost all use cases of daily programming.  To see the
-differences, we compile the examples the usual way (with at least
-C++17), and then with C++11, asking the compiler to elide constructors
-or not.
+whether the copy constructors are called or not, or whether they are
+elided.  These examples are simple and minimalistic, and they cover
+almost all use cases of daily programming.  To see the differences, we
+compile the examples the usual way (with at least C++17), and then
+with C++11, asking the compiler to elide constructors or not.
 
 I tried to compile with C++03 to see the copying instead of moving.
 However, the move semantics (of C++11) was still used.  Also, I
-couldn't get the behavior of the legacy call convention, which is not
+couldn't get the behavior of the legacy call convention (where a
+temporary for a return value is always created), which is not
 surprising, because I'm using a modern system that offers the modern
 call convention only.  I tried the same with an online compiler with
 the same effect.  It's legacy, so we shouldn't be bothered.  In a few
@@ -740,31 +749,31 @@ years, we can expect to have problems replicating the C++11 behavior.
 If we really wanted to see the C++03 behavior, we should use some
 really old system, e.g., Debian 4.
 
-I include the `hack.hpp` file in the examples below, so that you can
+I include the `hack.hpp` file in the examples below, so that we can
 use an online compiler (e.g., Compiler Explorer) to quickly compile
 the examples with various compiler versions and compilation flags:
-there you replace `#include "hack.hpp"` with the contents of this
-file, without having to use another compilation unit (A.cpp).
+there we replace `#include "hack.hpp"` with the contents of this file,
+without having to use another compilation unit (A.cpp).  Let's recall
+that this file defines type `A` with the move semantics disabled, and
+so no moving takes place, only copying.
 
 ## Example 1
 
-Returning a prvalue by value is a special use case in C++17, that of
-materialization: the prvalue is materialized directly in the
-destination, no copy or move constructor is needed.  The result is
-returned by value twice, no copy or move constructor is called.  The
-lifetime of the object starts in function `g`, and ends in the main
-function. **What?** A temporary object is not destroyed in the same
-scope it was created in?  Since C++17, it's not a temporary, but a
-prvalue.  Asking a compiler to elide constructors makes no difference.
+The result is returned by value twice, no copy constructor is called.
+The lifetime of the object starts in function `g`, and ends in the
+main function. **What?** A temporary object is not destroyed in the
+same scope it was created in?  Since C++17, it's not a temporary, but
+a prvalue.  Asking a compiler to elide constructors makes no
+difference.
 
 In C++11, a temporary is created in function `g` as an argument of the
-return instruction.  That first temporary is used to move-initialize
+return instruction.  That first temporary is used to copy-initialize
 the result of function `g`, i.e., the second temporary object that
-becomes the argument of the return instruction of function `f`.  That
-second temporary is used to move-initialize the result of function
-`f`, i.e., the third temporary object that becomes the argument of the
-move-initialization of variable `a`.  These move constructors are
-elided, but you can ask the compiler not to do it.
+becomes the return argument of function `f`.  That second temporary is
+used to copy-initialize the result of function `f`, i.e., the third
+temporary object that becomes the argument of the copy-initialization
+of variable `a`.  These move constructors are elided, but you can ask
+the compiler not to do it.
 
 ```cpp
 {% include_relative example1.cc %}
