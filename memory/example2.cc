@@ -1,17 +1,21 @@
+#include "frame.hpp"
 #include "hack.hpp"
 
 A g()
 {
-  return A("g");
+  frame x(__PRETTY_FUNCTION__);
+  A a("g");
+  return a;
 }
 
 A f()
 {
-  A a = g();
-  return a;
+  frame x(__PRETTY_FUNCTION__);
+  return g();
 }
 
 int main()
 {
+  frame x(__PRETTY_FUNCTION__);
   A a = f();
 }

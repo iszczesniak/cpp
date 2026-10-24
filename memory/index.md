@@ -781,6 +781,12 @@ compiler not to do it.
 
 ## Example 2
 
+```cpp
+{% include_relative example2.cc %}
+```
+
+## Example 3
+
 In this example, function `f` doesn't return right away the result of
 `g` as in the example above, but initializes local variable `a` with
 it, and then returns `a`.  The output of this example is the same as
@@ -809,10 +815,10 @@ called twice: first the value of a return expression is moved into a
 temporary of the call expression, and next to a local variable.
 
 ```cpp
-{% include_relative example2.cc %}
+{% include_relative example3.cc %}
 ```
 
-## Example 3
+## Example 4
 
 In this example, function `f` returns the value of its parameter.  The
 main function passes the result of `g` to `f`.  The output shows a
@@ -835,10 +841,10 @@ C++11 and not to elide constructors to see the move constructor called
 four times, as in the example above, with the same explanation.
 
 ```cpp
-{% include_relative example3.cc %}
+{% include_relative example4.cc %}
 ```
 
-## Example 4
+## Example 5
 
 In the example below, the prvalue argument of the constructor is
 materialized into the parameter of the constructor, and then its value
@@ -848,7 +854,7 @@ C++11 without elision, a temporary move-initializes the constructor
 parameter.
 
 ```cpp
-{% include_relative member.cc %}
+{% include_relative example5.cc %}
 ```
 
 # Conclusion

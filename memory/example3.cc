@@ -5,12 +5,13 @@ A g()
   return A("g");
 }
 
-A f(A a)
+A f()
 {
+  A a = g();
   return a;
 }
 
 int main()
 {
-  A a = f(g());
+  A a = f();
 }
