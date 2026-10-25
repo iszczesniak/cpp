@@ -340,10 +340,22 @@ has a single statement.  Wierd.
 
 ## Overloading member functions
 
-A member function can be called for both an lvalue or an rvalue.
-However, a member function can be declared with a reference qualifier
-`&` or `&&` (and therefore be ref-qualified), so that it can be called
-for either an lvalue or an rvalue.  Example:
+We can overload a member function depending on whether the member
+object (the object for which a function is called) is of a const type
+or not.  We introduce a const member function by qualifying the
+function only for a const member object: we use the `const` qualifier
+after the function declaration.
+
+```cpp
+{% include_relative over_const.cc %}
+```
+
+Likewise, we can overload a member function depending on the category
+of the expression that provides the member object: a member function
+can be declared with a reference qualifier `&` or `&&` (and therefore
+be ref-qualified), so that it can be called for either an lvalue or an
+rvalue.  Without qualification, a member function can be called for
+both an lvalue or an rvalue.  Example:
 
 ```cpp
 {% include_relative over_cat.cc %}
