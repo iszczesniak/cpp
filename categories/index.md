@@ -342,9 +342,9 @@ has a single statement.  Wierd.
 
 We can overload a member function depending on whether the member
 object (the object for which a function is called) is of a const type
-or not.  We introduce a const member function by qualifying the
-function only for a const member object: we use the `const` qualifier
-after the function declaration.
+or not.  We introduce a const (i.e., const-qualified) member function
+by qualifying the function only for a const member object: we use the
+`const` qualifier after the function declaration.
 
 ```cpp
 {% include_relative over_const.cc %}
