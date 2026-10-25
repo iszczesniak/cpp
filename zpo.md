@@ -112,7 +112,7 @@ końcową jest ocena niedostateczna.
 ## Organizacja
 
 * 11 października: memory, categires
-* 25 października: references, memory
+* 25 października: references, move
 * 29 listopada: sprawdzian, callable, containers
 * 13 grudnia: sprawdzian, containers, unique_ptr
 * 20 grudnia: shared_ptr_, weak_ptr, sprawdzian
