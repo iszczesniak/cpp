@@ -4,11 +4,14 @@ title: Semantyka przenoszenia
 
 # Wprowadzenie
 
-Semantyka przenoszenia dotyczy wyłącznie danych typów klasowych (do
+Semantyka przenoszenia dotyczy wyłącznie wartości typów klasowych (do
 tego zaliczają się także struktury i unie), więc będziemy mówić o
-przenoszeniu obiektów, a nie danych.  Obiekt jest daną typu klasowego,
-czyli danymi interpretowanymi zgodnie z definicją klasy.  Najczęściej
-stan obiektu jest jego **wartością**.
+przenoszeniu wartości obiektów, a nie ogólnie danych.  Semantyka
+przenoszenia wartości nie dotyczy danych typów podstawowych
+(ang. fundamental types), np. całkowitych czy wskaźnikowych, które
+mają wyłącznie semantykę kopiowania wartości.  Obiekt jest daną typu
+klasowego, czyli danymi interpretowanymi zgodnie z definicją klasy.
+Najczęściej stan obiektu jest jego **wartością**.
 
 Definicja wartości obiektu zależy od implementacji klasy.  Zwykle
 wartością obiektu jest stan obiektów bazowych i składowych.  Jednak na
