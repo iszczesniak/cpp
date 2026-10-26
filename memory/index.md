@@ -310,7 +310,8 @@ we say that a function returns the result by reference.  The reference
 should be initialized with data that will exist when the function
 returns (i.e., the data should outlive the function).  For instance,
 containers (e.g., `std::vector`) offer functions (e.g., `operator[]`
-or `front`) that return references to dynamically-allocated data.
+or `front`) that return references to dynamically-allocated data.  As
+a side note, returning is passing from a function.
 
 The example below shows how to return a result either by value or by
 reference.
@@ -610,15 +611,14 @@ stack.  Here's an example:
 
 When a recipe is not standalone, then it's an argument of a return
 instruction or a call (to a function, a constructor or an operator).
-Prior to C++17, a recipe used as an argument also created a temporary
+Prior to C++17, a recipe used as an argument created a temporary
 object (or just a temporary) that was used to initialize a return
-value or a parameter (of a function, a constructor or an operator),
-regardless of whether the parameter was of a reference type or not.  A
+value or a parameter (of a function, a constructor or an operator).  A
 temporary was destroyed before the evaluation of the complete (whole)
-expression was complete.  When passing by value, however, that
-temporary usually didn't exist because its value was created directly
-in a destination (a return value or a parameter) in accordance with
-the unnamed elision.
+expression was complete.  When returning by value or passing by value,
+however, that temporary usually didn't exist because its value was
+created directly in a destination (a return value or a parameter) in
+accordance with the unnamed elision.
 
 *Bottom line: prior to C++17, a recipe always created a temporary
 object that usually was elided.*
@@ -817,28 +817,27 @@ returns.
 In this example, function `f` doesn't return right away the result of
 `g` as in the example above, but initializes local variable `a` with
 it, and then returns `a`.  The output of this example is the same as
-of the above, because no copy or move constructor is called.
+of the above, because no copy constructor is called.
 
 The prvalue returned by `g` is materialized into the local variable of
-function `f`.  Function `f` returns a prvalue that is move-initialized
-(materialized) from the local variable and into the local variable of
-function `main`.  Move-initialization is more efficient than
-copy-initialization because the local variable (that is the argument
-of the return instruction) will soon be destroyed -- it's called the
-*implicit move* (we'll get to it).  Function `f` is in full control of
-its local variable, and so it can elide the move initialization (i.e.,
-calling the move constructor, where the source object is the local
-variable of function `f`, and the target object is the local variable
-of the main function) by passing the address for the return value
-(passed by the main function) to function `g`.  Ask your compiler to
-use C++17 and not to elide constructors to see a move constructor
-called once.
+function `f`.  Function `f` returns a prvalue that is materialized
+from the local variable of function `f` and into the local variable of
+function `main` by calling the copy constructor, where the source
+object is the local variable of function `f` and the target object is
+the local variable of the main function.
 
-For C++11, the output is the same because of the elision.  There is no
-materialization yet, but there is unnamed elision.  Ask your compiler
-to use C++11 and not to elide constructors to see the move constructor
-called four times.  Each function call results in the move constructor
-called twice: first the value of a return expression is moved into a
+Function `f` is in full control of its local variable, and so it can
+elide the copy initialization by passing the address for its return
+value (passed by the main function) to function `g`.  Ask your
+compiler to use C++17 and not to elide constructors to see the copy
+constructor called once.
+
+For C++11, the output is the same because of the elision, i.e., no
+copy constructor called.  There is no materialization yet, but there
+is unnamed elision.  Ask your compiler to use C++11 and not to elide
+constructors to see the copy constructor called four times.  Each
+function call (and there are two) results in the copy constructor
+called twice: first the value of a return expression is copied into a
 temporary of the call expression, and next to a local variable.
 
 ```cpp
