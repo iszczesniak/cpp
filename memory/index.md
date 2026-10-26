@@ -802,10 +802,11 @@ materialization that provides the address of the destination to
 function `g`, and goes two levels: from `f` to `main`, and from the
 return value of `f` to the local variable of `main`.
 
-When the named elision takes place, function 'g' creates the variable
-`a` in the destination pointed to by the caller.  Variable `a`, even
-though local, is not created on the stack, and is not destroyed before
-the function returns.
+When the copy constructor is elided (i.e., the named elision takes
+place), function 'g' creates the variable `a` in the destination
+pointed to by the caller.  Variable `a`, even though local, is not
+created on the stack, and is not destroyed before the function
+returns.
 
 ```cpp
 {% include_relative example2.cc %}
