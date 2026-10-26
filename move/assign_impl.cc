@@ -15,6 +15,10 @@ struct B: A
   // objects of the source object.
   B & operator=(const B &source)
   {
+    // Even though member function A::operator= expects two arguments,
+    // we pass only one, because the member object (i.e., *this) is
+    // implicitly passed as the first argument, just like for any
+    // member function called from a member function.
     A::operator=(source);
     // We can assign (as above) to the base object this way too:
     // static_cast<A &>(*this) = source;
