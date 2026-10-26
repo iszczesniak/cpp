@@ -791,15 +791,21 @@ compiler not to do it.
 
 With this example we can see the difference between elision and
 materialization.  Compile the example with C++17, and ask the compiler
-not to elide constructor.  We see that the named elision goes only one
-level deep: the value of the local variable of function `g` is copied
-to the return value of function `g`.  We can see the copy constructor
-is called right before function `g` returns.  The return value of `g`
-is a prvalue that is materialized in the destination, i.e. the local
-variable of funtion `main`.  Materialization provideds the address of
-the destination to function `g`, and goes two levels: from `f` to
-`main`, and from the return value of `f` to the local variable of
-`main`.
+not to elide constructors.  We see that the named elision goes only
+one level deep: the value of the local variable of function `g` is
+copied to the return value of function `g`, i.e., the copy constructor
+is called right before function `g` returns.
+
+Next, the return value of `g` is a prvalue that is materialized in the
+destination, i.e. the local variable of funtion `main`.  It's the
+materialization that provides the address of the destination to
+function `g`, and goes two levels: from `f` to `main`, and from the
+return value of `f` to the local variable of `main`.
+
+When the named elision takes place, function 'g' creates the variable
+`a` in the destination pointed to by the caller.  Variable `a`, even
+though local, is not created on the stack, and is not destroyed before
+the function returns.
 
 ```cpp
 {% include_relative example2.cc %}
