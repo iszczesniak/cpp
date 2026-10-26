@@ -359,27 +359,27 @@ We differentiate between two call conventions:
 * modern, that the modern C++ depends on.
 
 The **legacy call** convention required a function to return its
-result in a temporary place at the top of the stack, which was easy to
-locate with the stack register -- that was an advantage.  A
-disadvantage it was to copy the result from that temporary place to a
-destination, e.g., a variable that was initialized with the result.
+result in an intermediate place at the stack, which was easy to locate
+with the stack register -- that was an advantage.  A disadvantage it
+was to copy the result from that intermediate place to a destination
+of a temporary that was available to the caller as the returned value.
 
 The **modern call** convention allows the place for the return value
 be allocated anywhere in memory (not only on the stack, but also on
 the heap, or in the memory for the global and static data), and
 passing to a function the address of the place, so that the function
 can create the return value at the destination pointed.  We don't need
-a temporary place anymore.  For instance, for x86, Linux, and GCC, the
-address is passed to a function on the stack last, while to a
+an intermediate place anymore.  For instance, for x86, Linux, and GCC,
+the address is passed to a function on the stack last, while to a
 constructor in the RDI register.
 
 The following example demonstrates that a result can be returned
-anywhere (now that we have the modern call convention), and not only
-on the stack (as the legacy convention stipulated in the past): the
-function returns its value (an object) by creating it in the place for
-the global variable `a` (allowed by the modern call convention),
-without copy-initializing variable `a` from a temporary object on the
-stack (required by the legacy call convention).
+anywhere (now that we have the modern call convention), and not into
+the intermediate place (as the legacy convention stipulated in the
+past): the function returns its value (an object) by creating it in
+the place for the global variable `a` (allowed by the modern call
+convention), without copy-initializing variable `a` from an
+intermediate place (required by the legacy call convention).
 
 ```cpp
 {% include_relative anywhere.cc %}
@@ -401,9 +401,11 @@ In modern C++, returing by value is fast, does not impose any
 unnecessary overhead, and therefore is recommended.  It's not what it
 used to be in the deep past, before C++ was standardized.  Back then
 returning by value always copied the result twice.  First, from a
-local variable of the function to a temporary place on the stack for
-the return value.  Second, from the temporary place to the
-destination, e.g., a variable that was initialized with the result.
+local variable of the function to an intermediate place for the return
+value.  Second, from that intermediate place to the place on the stack
+for a temporary object.  That temporary object was used next to
+continue with the evaluation of the expression that called the
+function.
 
 To understand how returning an object by value became efficient, and
 to be aware of exceptions, we need to understand the constructor
