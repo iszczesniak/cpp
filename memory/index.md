@@ -132,8 +132,8 @@ The read-write memory stores:
 
 ## Global and static data
 
-Global data are initialized before entering the `main` function, and
-are available everywhere in the program:
+Global data are initialized before entering the main function, and are
+available everywhere in the program:
 
 ```cpp
 {% include_relative global.cc %}
@@ -799,7 +799,7 @@ copied to the return value of function `g`, i.e., the copy constructor
 is called right before function `g` returns.
 
 Next, the return value of `g` is a prvalue that is materialized in the
-destination, i.e. the local variable of funtion `main`.  It's the
+destination, i.e. the local variable of the main function.  It's the
 materialization that provides the address of the destination to
 function `g`, and goes two levels: from `f` to `main`, and from the
 return value of `f` to the local variable of `main`.
@@ -826,7 +826,7 @@ function `f`.  Function `f` returns a prvalue that is materialized
 from the local variable of function `f` and into the local variable of
 function `main` by calling the copy constructor, where the source
 object is the local variable of function `f` and the target object is
-the local variable of the main function.
+the local variable of function `main`.
 
 Function `f` is in full control of its local variable, and so it can
 elide the copy initialization by passing the address for its return
