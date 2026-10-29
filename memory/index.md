@@ -370,7 +370,7 @@ the heap, or in the memory for the global and static data), and
 passing to a function the address of the place, so that the function
 can create the return value at the destination pointed.  We don't need
 an intermediate place anymore.  For instance, for x86, Linux, and GCC,
-the address is passed to a function on the stack last, while to a
+the address is passed to a function on the stack, while to a
 constructor in the RDI register.
 
 The following example demonstrates that a result can be returned
@@ -848,25 +848,51 @@ temporary of the call expression, and next to a local variable.
 
 ## Example 4
 
-In this example, function `f` returns the value of its parameter.  The
-main function passes the result of `g` to `f`.  The output shows a
-move constructor was called.  No way, no how could this constructor be
-elided.
+In this example, like in the examples above, function `g` is called
+first, then function `f` returns its result to function `main`.  Here,
+however, function `f` returns the value of its parameter (which is
+missing in examples above).  The output shows a copy constructor
+called.  No way, no how could this constructor be elided, because it's
+an exception we already know.
 
-The main function allocates memory for the parameter of function `f`
-and passes its address to function `g` as the address for the return
-value, so that function `g` can materialize its prvalue there.  Next,
-the main function passes the address of its local variable to function
-`f`, so that function `f` can materialize its prvalue there by the
-move initialization (it's also the implicit move) from its parameter.
+The main function:
+
+1. allocates the memory for the parameter of function `f` and passes
+   its address to function `g` as the address for the return value, so
+   that function `g` can materialize its prvalue (i.e., the result)
+   there, thus initializing the parameter of function `f`,
+
+2. passes the address of its local variable to function `f`, so that
+   function `f` can materialize its result (which is returned by
+   value, and so it's a prvalue) by copy-constructing from its
+   parameter.
+
 Ask your compiler to use C++17 and not to elide constructors to see no
-difference in output, because no elision was used.
+difference in output.
 
-In C++11, the output is the same because of the elision.  Function `g`
-creates a temporary, but the move constructor is elided, so the result
-is created in the parameter of function `f`.  Ask your compiler to use
-C++11 and not to elide constructors to see the move constructor called
-four times, as in the example above, with the same explanation.
+In C++11, the output is the same for the unnamed elision is used three
+times:
+
+* twice when function `g` returns a temporary whose value is created
+  in the parameter of function `f`, because these copy-initializations
+  are elided:
+
+  - first, from a temporary object of function `g` to a temporary
+    place (a temporary object of the call expression to `g`),
+
+  - second, from that temporary place to the parameter of function
+    `f`,
+
+* once when function `f` returns a parameter whose value:
+
+  - first, must be copied to a temporary place (a temporary object of
+    the call expression to `f`),
+
+  - next, however, the copy-initialization is elided from that
+    temporary to the local variable of the main function.
+
+Ask your compiler to use C++11 and not to elide constructors to see
+the copy constructor called four times.
 
 ```cpp
 {% include_relative example4.cc %}
