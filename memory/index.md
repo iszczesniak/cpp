@@ -882,13 +882,13 @@ unnamed elision is used three times:
 
   - second, from that result object to the parameter of function `f`,
 
-* once when function `f` returns a parameter, because the copy
-  initialization from:
+* once when function `f` returns its parameter, because the copy
+  initialization:
 
-  - the parameter to the result object cannot be elided,
+  - from the parameter to the result object cannot be elided,
 
-  - the result object to the local variable of the main function is
-    elided.
+  - from the result object to the local variable of the main function
+    is elided.
 
 Ask your compiler to use C++11 and not to elide constructors to see
 the copy constructor called four times.
