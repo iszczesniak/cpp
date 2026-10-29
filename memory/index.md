@@ -870,26 +870,25 @@ The main function:
 Ask your compiler to use C++17 and not to elide constructors to see no
 difference in output.
 
-In C++11, the output is the same for the unnamed elision is used three
-times:
+In C++11, the output is the same (one copy-constructor called), as the
+unnamed elision is used three times:
 
 * twice when function `g` returns a temporary whose value is created
-  in the parameter of function `f`, because these copy-initializations
-  are elided:
+  in the parameter of function `f`, because the following
+  copy-initializations are elided:
 
-  - first, from a temporary object of function `g` to a temporary
-    place (a temporary object of the call expression to `g`),
+  - first, from a temporary object of function `g` to the result
+    object (a temporary object of the call expression to `g`),
 
-  - second, from that temporary place to the parameter of function
-    `f`,
+  - second, from that result object to the parameter of function `f`,
 
-* once when function `f` returns a parameter whose value:
+* once when function `f` returns a parameter, because the copy
+  initialization from:
 
-  - first, must be copied to a temporary place (a temporary object of
-    the call expression to `f`),
+  - the parameter to the result object cannot be elided,
 
-  - next, however, the copy-initialization is elided from that
-    temporary to the local variable of the main function.
+  - the result object to the local variable of the main function is
+    elided.
 
 Ask your compiler to use C++11 and not to elide constructors to see
 the copy constructor called four times.
