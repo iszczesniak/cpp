@@ -1,21 +1,17 @@
 #include "hack.hpp"
 
-#include <utility>
-
 void g(A *p)
 {
   new (p) A("g");
 }
 
-void f(A *p)
+A f(A a = {})
 {
-  A a;
   g(&a);
-  new (p) A(std::move(a));
+  return a;
 }
 
 int main()
 {
-  A a;
-  f(&a);
+  A a = f();
 }

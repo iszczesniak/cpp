@@ -903,7 +903,7 @@ In the example below, the prvalue argument of the constructor is
 materialized into the parameter of the constructor, and then its value
 is copied into the member field.  In C++17, asking a compiler not to
 elide constructors has no effect, because elision is not used.  In
-C++11 without elision, a temporary move-initializes the constructor
+C++11 without elision, a temporary copy-initializes the constructor
 parameter.
 
 ```cpp
