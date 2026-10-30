@@ -11,7 +11,7 @@ void f(A *p)
 {
   A a;
   g(&a);
-  new (p) A(std::move(a));
+  new (p) A(a);
 }
 
 int main()
