@@ -16,6 +16,9 @@ SRCS_$p += $p.cc
 hack.hpp: ../hack.hpp
 	cp ../hack.hpp .
 
-all: hack.hpp $(PROGS)
+frame.hpp: ../frame.hpp
+	cp ../frame.hpp .
+
+all: frame.hpp hack.hpp $(PROGS)
 
 .include <bsd.prog.mk>
