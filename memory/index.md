@@ -644,7 +644,7 @@ materialization that is temporary.  Here's an example:
 
 ## Test implementation
 
-Here's a test implementation of the constructor elision and the
+Here's a test implementation of the unnamed elision and the
 materialization.  We are not returning anything, but pass a pointer to
 a location where we want to have the return value created.
 
