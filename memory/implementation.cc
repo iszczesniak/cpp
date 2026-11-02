@@ -2,7 +2,7 @@
 
 void f(A *p)
 {
-  new (p) A("g");
+  new (p) A("f");
 }
 
 int main()
