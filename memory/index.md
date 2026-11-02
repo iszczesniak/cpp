@@ -659,7 +659,7 @@ elision, because a copy constructor is called anyway.
 {% include_relative impl_named_fail.cc %}
 ```
 
-In the following is an implementation of the named elision: we create
+The following is a test implementation of the named elision: we create
 the return object, and then refer to it with a reference, like to a
 local variable.
 
@@ -676,7 +676,7 @@ first.
 
 ### Beware of hack.hpp!
 
-In the implementation above we include the `hack.hpp` file.  It's a
+In the implementations above we include the `hack.hpp` file.  It's a
 hack, a handy one.  This file defines the same struct `A` as files
 `A.hpp` and `A.cpp`, except for the default constructor that
 `hack.hpp` requests to be default implemented.
