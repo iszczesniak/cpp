@@ -648,16 +648,31 @@ Here's a test implementation of the unnamed elision and the
 materialization.  We are not returning anything, but pass a pointer to
 a location where we want to have the return value created.
 
-Let's keep in mind that this implementation is supposed to help us
-understand how the elision and materialization work, but we don't
+```cpp
+{% include_relative impl_mater.cc %}
+```
+
+The following code falls short of a test implementation of the named
+elision, because a copy constructor is called anyway.
+
+```cpp
+{% include_relative impl_named_fail.cc %}
+```
+
+In the following is an implementation of the named elision: we create
+the return object, and then refer to it with a reference, like to a
+local variable.
+
+```cpp
+{% include_relative impl_named.cc %}
+```
+
+Let's keep in mind that the above implementations are supposed to help
+us understand how the elision and materialization work, but we don't
 program like this: we don't call a constructor again (as we do with
 the placement new) after an object has been created.  We could
 legitimately call the constructor again, if the destructor was called
 first.
-
-```cpp
-{% include_relative implementation.cc %}
-```
 
 ### Beware of hack.hpp!
 
