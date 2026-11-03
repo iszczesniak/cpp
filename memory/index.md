@@ -278,7 +278,7 @@ function declaration or definition.  An argument is an expression that
 is part of a call expression.
 
 A parameter is initialized with an argument.  A result is initialized
-with the expression of the return instruction.
+with the expression of the return statement.
 
 ## Accepting arguments
 
@@ -434,7 +434,7 @@ the unnamed elision to materialization.
 
 Elision applies to returning by value.  Whether the elision is named
 or unnamed depends on the return argument, i.e., the expression of the
-return instruction.  **A single elision applies to a single return**,
+return statement.  **A single elision applies to a single return**,
 but if there are multiple functions called in a chain, then the
 corresponding elisions "may be combined to eliminate multiple copies"
 (as the standard puts it), regardless of whether they are named,
@@ -574,10 +574,10 @@ too, but limited to a single return.
 
 So we have functions that return by value the results returned by
 value by functions called -- in this call chain, we are interested in
-the return instruction at the end of the chain, because it creates the
+the return statement at the end of the chain, because it creates the
 object that then crosses the function boundaries without being copied.
 The function called last is a constructor, but constructors have no
-return instruction, and so we are interested in the return expression
+return statement, and so we are interested in the return expression
 that calls the constructor.  That return statement creates an object
 with a new value, as opposed to the named elision that elides copying
 the value of an existing object.
@@ -612,7 +612,7 @@ stack.  Here's an example:
 #### Prior to C++17: a temporary
 
 When a recipe is not standalone, then it's an argument of a return
-instruction or a call (to a function, a constructor or an operator).
+statement or a call (to a function, a constructor or an operator).
 Prior to C++17, a recipe used as an argument created a temporary
 object (or just a temporary) that was used to initialize a return
 value or a parameter (of a function, a constructor or an operator).  A
@@ -777,7 +777,7 @@ so no moving takes place, only copying.
 We also include the `frame.hpp` file to use the `frame` struct.  We
 create local variable `x` of this type at the beginning of a function
 for two reasons.  First, to see when a function starts execution.
-Second, to see whether the return instruction calls the copy
+Second, to see whether the return statement calls the copy
 constructor: if it does, we should see its output right before the
 output of the destructor of local variable `x`.  Local variable `x` is
 destroyed only after the return expression has been evaluated.
@@ -792,12 +792,12 @@ a prvalue.  Asking a compiler to elide constructors makes no
 difference.
 
 In C++11, a temporary is created in function `g` as an argument of the
-return instruction.  That first temporary is used to copy-initialize
-the result of function `g`, i.e., the second temporary object that
-becomes the return argument of function `f`.  That second temporary is
-used to copy-initialize the result of function `f`, i.e., the third
-temporary object that becomes the argument of the copy-initialization
-of variable `a`.  These constructors are elided, but you can ask the
+return statement.  That first temporary is used to copy-initialize the
+result of function `g`, i.e., the second temporary object that becomes
+the return argument of function `f`.  That second temporary is used to
+copy-initialize the result of function `f`, i.e., the third temporary
+object that becomes the argument of the copy-initialization of
+variable `a`.  These constructors are elided, but you can ask the
 compiler not to do it.
 
 ```cpp
