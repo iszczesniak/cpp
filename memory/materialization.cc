@@ -11,4 +11,6 @@ int main()
   f().hello();
   // A prvalue is materialized into variable a.
   A a = f();
+  // A prvalue is materialized into a temporary.
+  a = f();
 }

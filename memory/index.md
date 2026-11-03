@@ -615,12 +615,21 @@ When a recipe is not standalone, then it's an argument of a return
 statement or a call (to a function, a constructor or an operator).
 Prior to C++17, a recipe used as an argument created a temporary
 object (or just a temporary) that was used to initialize a return
-value or a parameter (of a function, a constructor or an operator).  A
-temporary was destroyed before the evaluation of the complete (whole)
-expression was complete.  When returning by value or passing by value,
-however, that temporary usually didn't exist because its value was
-created directly in a destination (a return value or a parameter) in
-accordance with the unnamed elision.
+value or a parameter (of a function, a constructor or an operator).
+That temporary:
+
+* was destroyed before the evaluation of the complete (whole)
+  expression was complete,
+
+* usually didn't exist because its value was created directly in a
+  destination (a return value or a parameter) in accordance with the
+  unnamed elision.
+
+Furthermore, a result returned by value had to be available to a
+caller, and so it was a temporary of that call expression.  However,
+if that temporary wasn't standalone, then it was usually elided (as
+described above). i.e., its value was created directly into the
+destination.
 
 *Bottom line: prior to C++17, a recipe always created a temporary
 object that usually was elided.*
@@ -633,14 +642,23 @@ expression categories later, but we start refering to these
 expressions as prvalues.  Along with the prvalues, there came a new
 semantics: evaluation of a prvalue materializes the result (the
 **result object**, the result value) directly into a destination,
-voiding the need for the elision.  That destination doesn't have to be
-a temporary, it can also be a variable.  A **temporary
-materialization** is the materialization into a temporary, and not a
-materialization that is temporary.  Here's an example:
+voiding the need for elision.
+
+That destination doesn't have to be a temporary, it can also be a
+variable.  A **temporary materialization** is the materialization into
+a temporary, and not a materialization that is temporary.  Here's an
+example:
 
 ```cpp
 {% include_relative materialization.cc %}
 ```
+
+In the above example, the last call to `f` creates a temporary that
+becomes the argument (the source object) of the assignment expression.
+This temporary can't be elided (specifically, the copy-initialization
+from the temporary to variable `a` can't be elided), because `a`
+already exists.  We need to differentiate between initialization and
+assignment.
 
 ## Test implementation
 
