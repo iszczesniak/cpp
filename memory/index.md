@@ -36,9 +36,11 @@ operating system or other processes.  For instance, an unprivileged
 task cannot write to its read-only memory.  Every process is an
 unprivileged task.
 
-In the following example we try to write to the read-only memory --
-please uncomment some lines.  The code compiles, but is killed by the
-operating system with the SIGSEGV (segment violation) signal.
+In the following example we try to write to const data that may be
+allocated in the read-only memory -- please uncomment some lines.  The
+code compiles, but is killed (on x86 under Linux and OpenBSD) by the
+operating system with the SIGSEGV (segment violation) signal.  Let's
+stress that we don't code like this, it's for experimentation only.
 
 ```cpp
 {% include_relative sigsegv.cc %}
@@ -185,10 +187,10 @@ same data twice, otherwise we get undefined behavior (e.g., a
 segmentation fault, bugs).
 
 A programmer should use the smart pointers, which is error-safe but
-hard.  In contrast, using raw pointers is error-prone (often resulting
-in vexing heisenbugs) but easy.  Since smart pointers are the C++11
-functionality, modern code should rely on the smart pointers, while
-the legacy code used the raw pointers.
+hard to learn.  In contrast, using raw pointers is error-prone (often
+resulting in vexing heisenbugs) but easy to learn.  Since smart
+pointers are the C++11 functionality, modern code should rely on the
+smart pointers, while the legacy code used the raw pointers.
 
 The following example uses the low-level `new` and `delete` operators,
 which is not recommended, but suitable now to demonstrate the dynamic
