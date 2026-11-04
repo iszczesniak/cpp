@@ -327,7 +327,12 @@ function is called, which depend on the platform (the system
 architecture, the operating system, and the compiler).  C++ does not
 specify a call convention (that's the operating system business), but
 some C++ functionality (like the constructor elision) depends on a
-call convention.
+call convention.  Also, C++ tries not to make guarantees that could
+get in the way of some specific call convention, because a compiler
+would have to work around the call convention to keep such guarantees:
+e.g., C++ does not guarantee the order in which arguments of a
+function call are evaluated, or the order in which temporary objects
+of a complex expression are destroyed.
 
 A regular C++ programmer maybe doesn't have to know such details, but
 knowing them is worthwhile not only to use C++ better, but also to
@@ -347,10 +352,9 @@ capabilities.  Typically, a call convention requires that the
 Parameters are created on the stack because a processor might be
 unable to store them (e.g., in registers).  The caller allocates
 memory for the return value because it may not fit in a processor, yet
-it should be available to the caller once the function returns.
-
-Small data may be passed in processor registers, e.g, an integer in
-EAX for x86, Linux, and GCC.
+it should be available to the caller once the function returns.  Small
+data may be passed (to and from a function) in processor registers,
+e.g, an integer in EAX for x86, Linux, and GCC.
 
 A *modern call* convention allows the place for the return value be
 allocated anywhere in memory (not only on the stack, but also on the
