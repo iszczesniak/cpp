@@ -68,12 +68,11 @@ longer needed).
 
 C++ is in stark contrast with other languages, such as Java or C#,
 where data management is simplified at the cost of degraded
-performance, and constrained management of data.  For instance, such
-languages allow allocation of data on the heap only, which
-deteriorates performance and flexibility, but enables easy
-implementation of garbage collection.  Some garbage collectors are
-even more inefficient, because they are *nondeterministic*, i.e., it
-is undefined when data are destroyed.
+performance, and constrained management of data.  In such languages, a
+prime example is the garbage collection which deteriorates
+performance.  Some garbage collectors are even more inefficient,
+because they are *nondeterministic*, i.e., it is undefined when data
+are destroyed.
 
 The C++ Standard Committee considered the garbage collection support,
 but dropped it for performance reasons.  Nowadays, C++ requires no
@@ -845,11 +844,11 @@ it, and then returns `a`.  The output of this example is the same as
 of the above, because no copy constructor is called.
 
 The prvalue returned by `g` is materialized into the local variable of
-function `f`.  Function `f` returns a prvalue that is materialized
-from the local variable of function `f` and into the local variable of
-function `main` by calling the copy constructor, where the source
-object is the local variable of function `f` and the target object is
-the local variable of function `main`.
+function `f`.  The result of function `f` is a prvalue that is
+materialized from the local variable of function `f` and into the
+local variable of function `main` by calling the copy constructor,
+where the source object is the local variable of function `f` and the
+target object is the local variable of function `main`.
 
 Function `f` is in full control of its local variable, and so it can
 elide the copy initialization by passing the address for its return
