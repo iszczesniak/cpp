@@ -188,8 +188,8 @@ segmentation fault, bugs).
 A programmer should use the smart pointers, which is error-safe but
 hard.  In contrast, using raw pointers is error-prone (often resulting
 in vexing heisenbugs) but easy.  Since smart pointers are the C++11
-functionality, modern code uses the smart pointers, and the legacy
-code the raw pointers.
+functionality, modern code should rely on the smart pointers, while
+the legacy code used the raw pointers.
 
 The following example uses the low-level `new` and `delete` operators,
 which is not recommended, but suitable now to demonstrate the dynamic
@@ -334,11 +334,11 @@ knowing them is worthwhile not only to use C++ better, but also to
 understand that C++ is a part of computer systems that evolve.  In
 that evolution, C++ must be binary compatible with C (so that C++ can
 call C functions, most notably of the operating system), yet able to
-implement new C++ functionality (like the constructor elision).
+implement new C++ functionality (like materialization).
 
 There are many call conventions that depend mostly on the processor
-capabilities.  Typically, a call convention requires that the caller
-of the function (i.e., the code that calls the function):
+capabilities.  Typically, a call convention requires that the
+**caller** of the function (i.e., the code that calls the function):
 
 * creates the function parameters on the stack,
 
@@ -349,37 +349,22 @@ unable to store them (e.g., in registers).  The caller allocates
 memory for the return value because it may not fit in a processor, yet
 it should be available to the caller once the function returns.
 
-Small data may be accepted or returned in processor registers, e.g, an
-integer in EAX for x86, Linux, and GCC.
+Small data may be passed in processor registers, e.g, an integer in
+EAX for x86, Linux, and GCC.
 
-We differentiate between two call conventions:
-
-* legacy, that the legacy C++ depended on,
-
-* modern, that the modern C++ depends on.
-
-The **legacy call** convention required a function to return its
-result in an intermediate place at the stack, which was easy to locate
-with the stack register -- that was an advantage.  A disadvantage it
-was to copy the result from that intermediate place to a destination
-of a temporary that was available to the caller as the returned value.
-
-The **modern call** convention allows the place for the return value
-be allocated anywhere in memory (not only on the stack, but also on
-the heap, or in the memory for the global and static data), and
-passing to a function the address of the place, so that the function
-can create the return value at the destination pointed.  We don't need
-an intermediate place anymore.  For instance, for x86, Linux, and GCC,
-the address is passed to a function on the stack, while to a
-constructor in the RDI register.
+A *modern call* convention allows the place for the return value be
+allocated anywhere in memory (not only on the stack, but also on the
+heap, or in the memory for the global and static data), and passing to
+a function the address of the place, so that the function can create
+the return value at the destination pointed.  For instance, for x86,
+Linux, and GCC, the address is passed to a function on the stack,
+while to a constructor in the RDI register.
 
 The following example demonstrates that a result can be returned
-anywhere (now that we have the modern call convention), and not into
-the intermediate place (as the legacy convention stipulated in the
-past): the function returns its value (an object) by creating it in
-the place for the global variable `a` (allowed by the modern call
-convention), without copy-initializing variable `a` from an
-intermediate place (required by the legacy call convention).
+anywhere: the function returns its value (an object) by creating it in
+the place for the global variable `a`.  We can see the returned value
+is definitely not returned on the stack, because then variable `a`
+would be copy-initialized from the value on the stack.
 
 ```cpp
 {% include_relative anywhere.cc %}
@@ -400,12 +385,13 @@ differ in what code controls (creates, initializes and destroys) them:
 In modern C++, returing by value is fast, does not impose any
 unnecessary overhead, and therefore is recommended.  It's not what it
 used to be in the deep past, before C++ was standardized.  Back then
-returning by value always copied the result twice.  First, from a
-local variable of the function to an intermediate place for the return
-value.  Second, from that intermediate place to the place on the stack
-for a temporary object.  That temporary object was used next to
-continue with the evaluation of the expression that called the
-function.
+returning by value usually copied the result twice, which was required
+by a legacy call convention.  First, from a local variable of the
+function to an intermediate place (usually on the stack) for the
+return value.  Second, from that intermediate place to the place on
+the stack for a temporary object.  That temporary object was used next
+as the returned value to continue with the evaluation of the
+expression that called the function.
 
 To understand how returning an object by value became efficient, and
 to be aware of exceptions, we need to understand the constructor
