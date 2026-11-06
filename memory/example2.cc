@@ -5,6 +5,7 @@ A g()
 {
   frame x(__PRETTY_FUNCTION__);
   A a("g");
+  a.hello();
   return a;
 }
 
