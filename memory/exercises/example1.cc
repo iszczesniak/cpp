@@ -1,16 +1,16 @@
 #include "frame.hpp"
 #include "hack.hpp"
 
-void g(A *a)
+void g(A *p)
 {
   frame x(__PRETTY_FUNCTION__);
-  new (a) A("g");
+  new (p) A("g");
 }
 
-void f(A *a)
+void f(A *p)
 {
   frame x(__PRETTY_FUNCTION__);
-  return g(a);
+  return g(p);
 }
 
 int main()
