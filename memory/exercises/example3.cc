@@ -1,22 +1,23 @@
 #include "frame.hpp"
 #include "hack.hpp"
 
-A g()
+void g(A *p)
 {
   frame x(__PRETTY_FUNCTION__);
-  return A("g");
+  new (p) A("g");
 }
 
-A f()
+void f(A *p)
 {
   frame x(__PRETTY_FUNCTION__);
-  A a = g();
+  g(p);
+  A &a = *p;
   a.hello();
-  return a;
 }
 
 int main()
 {
   frame x(__PRETTY_FUNCTION__);
-  A a = f();
+  A a;
+  f(&a);
 }
