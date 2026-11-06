@@ -12,7 +12,7 @@ void g(A *p)
 void f(A *p)
 {
   frame x(__PRETTY_FUNCTION__);
-  g(a);
+  g(p);
 }
 
 int main()
