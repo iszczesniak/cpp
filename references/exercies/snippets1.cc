@@ -53,19 +53,23 @@ int main()
   // An lvalue reference can bind to an lvalue only.  There is no
   // (implicit or explicit) category conversion that would convert the
   // rvalue of &i to the expected lvalue.
-  // int * & r2 = &i;
+  // int * & r2 = &i; // Error.
+  // We can't assign to an rvalue.
+  &i = nullptr;
 
   // The * operator expects an rvalue.
   *static_cast<int *>(0);
   // Expression `p` is implicitly converted from an lvalue to an
   // rvalue.
   *p;
+  // We can assign to an lvalue of a non-const type.
+  *p = 1;
   // We can explicitly convert `p` to an rvalue, but it's not needed.
   *std::move(p);
   // The * expression is an lvalue.
   int &r3 = *p;
-  // Error: the lvalue of *p will not be implicitly converted to an rvalue.
-  // int &&r4 = *p;
+  // The lvalue of *p will not be implicitly converted to an
+  // int &&r4 = *p; // Error.
 
   // A call expression to loo is an lvalue.
   &loo();
