@@ -1,0 +1,4 @@
+Write some code that demonstrates the expression categories using the
+take-the-address-of operator (`&`) and the dereference operator (`*`).
+Whenever possible, take into account category conversion, reference
+initialization and function overloading.
