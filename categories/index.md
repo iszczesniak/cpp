@@ -24,16 +24,20 @@ An expression can be:
 * an operator with operands: `x + y`,
 * a function call: `foo(x)`.
 
-**The value of an expression** is the result of evaluating an
-  expression.
-
-An expression has:
+The result of evaluating an expression is **the value of an
+expression**, which has:
 
 * a type (e.g., `int`, `bool`, `class A`) known at compile time,
 
 * a value of the type (e.g., `5`, `false`, `A()`) known at run time,
 
 * a category (e.g., lvalue, rvalue) known at compile time.
+
+And so we end up with the confusing term "the value category of an
+expression"; confusing because we don't know what value they exactly
+mean: the result of evaluating an expression or a specific value,
+e.g., 5.  Therefore, I stick to the term "a category of an
+expression".
 
 ## History: CPL, C, C++98
 
@@ -75,7 +79,7 @@ Example operations for expression `<expr>`:
 * dereference: `*<expr>`
 * increment: `++<expr>`, `<expr>++`
 
-## The definitions of lvalues and rvalues
+## The definitions of categories
 
 Categories evolve.  Bjarne Stroustrup wrote in his "'New' Value
 Terminology" paper:
@@ -88,14 +92,15 @@ something that I think relates to categories:
 > Within C++, there is a much smaller and cleaner language struggling
 > to get out.
 
-What these two quotes illustrate is the C++ language evolution so that
-it meets the user needs better, which explains why the categories
+These two quotes illustrate the evolution of the C++ language that
+should meet the user needs better, which explains why the categories
 evolve too.
 
 What used to be true about categories in C++98 is still relevant
 today, but has been refined and enhanced.  C++ is backward compatible,
-so the legacy code still works, but now there are more categories, and
-they are better defined.
+so the legacy code still works (with subtle differences, like
+materialization), but now there are more categories, and they are
+better defined.
 
 Prior to C++11, you could look in vain for a concise definition of
 lvalues and rvalues in the C++ standard.  The C++03 standard had about
@@ -107,31 +112,32 @@ and C++17, the standard committee struggled to get the categories
 right.
 
 However, the important categories are still lvalue, and rvalue.  We
-need to learn the details of the lvalue and rvalue categories to
-understand and efficiently use the modern C++.  For instance, the
+need to learn the details of at least the lvalue and rvalue categories
+to understand and efficiently use the modern C++.  For instance, the
 following is a statement from <http://cppreference.com>, which is hard
 to understand without knowing the lvalue and rvalue details:
 
 > Even if the variable's type is an *rvalue reference*, the expression
 > consisting of its name is an *lvalue expression*.
 
-Let's start with two expression categories: the lvalue category and
-the rvalue category.  In short, an lvalue is an expression of the
-lvalue category, and an rvalue is an expression of the rvalue
-category.
+We start with two expression categories: the lvalue category and the
+rvalue category.  In short, an lvalue is an expression of the lvalue
+category, and an rvalue is an expression of the rvalue category.
 
 ## The lvalue category
 
-It's hard to find a succinct definition in the C++ standard of the
-lvalue category, because the meaning of the lvalue category is spread
-all over the standard.  But the following is a good description of the
-lvalue category.
+It's hard to find in the legacy C++ standard a succinct definition of
+the lvalue category, because its meaning was spread all over the
+standard, i.e, it wasn't codified (as in codified law), but
+exemplified (as in precedence law).  Back then the following used to
+be a good description of the lvalue category:
 
-If `&<expr>` compiles, then `<expr>` is an lvalue.  That is, if we can
-take the address of an expression, then this expression is an lvalue.
+> If `&<expr>` compiles, then `<expr>` is an lvalue.  That is, if we
+> can take the address of an expression, then this expression is an
+> lvalue.
 
-**An expression with a variable name (e.g., `x`) is always an
-  lvalue.**
+**An expression with a variable name (e.g., `x`) is always an lvalue,
+becasue we can take its address (e.g., `&x`).**
 
 The examples of lvalues are:
 
