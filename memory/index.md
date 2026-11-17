@@ -630,11 +630,11 @@ object that usually was elided.*
 Since C++17 these recipes are called expressions of the **prvalue**
 category, prvalue expressions or just prvalues.  We'll look into the
 expression categories later, but we start refering to these
-expressions as prvalues.  Along with the prvalues, there came a new
-semantics: evaluation of a prvalue materializes the result (the
-**result object**, the result value) directly into a destination,
-voiding the need for elision.
+expressions as prvalues.
 
+Along with the prvalues, there came a new semantics: evaluation of a
+prvalue materializes the result (the **result object**, the result
+value) directly into a destination, voiding the need for elision.
 That destination doesn't have to be a temporary, it can also be a
 variable.  A **temporary materialization** is the materialization into
 a temporary, and not a materialization that is temporary.  Here's an
