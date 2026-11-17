@@ -1,3 +1,14 @@
+***********************************************************************
+
+Initialization for built-in types.  Assignment for built in types.
+
+***********************************************************************
+
+lvalue-to-rvalue conversion: referencing an lvalue to get the rvalue,
+i.e., a concrete value of the given type.
+
+***********************************************************************
+
 glvalue to prvalue:
 
 * lvalue to prvalue,
