@@ -1,0 +1,11 @@
+Try to implement ../example4.cc, similar to ../impl_mater.cc.
+
+Come up with whatever way to implement:
+
+* the materialization of the prvalue (that is the argument of the
+  constructor) into the parameter of the constructor,
+
+* copy-initialization of the member object.
+
+Take a look at my implementation.  Let me know if you have found out a
+better way.

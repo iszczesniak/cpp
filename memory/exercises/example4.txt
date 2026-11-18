@@ -1,0 +1,4 @@
+Try to implement ../example4.cc, similar to ../impl_mater.cc.  Come up
+with whatever way to implement the materialization of the prvalue
+returned by function g into the parameter of function f.  Take a look
+at my implementation.  Let me know if you have found out a better way.
