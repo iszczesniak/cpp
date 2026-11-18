@@ -1,0 +1,1 @@
+Try to implement the ../example1.cc, similar to ../impl_mater.cc.
