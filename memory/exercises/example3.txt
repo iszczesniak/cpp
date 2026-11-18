@@ -1,2 +1,2 @@
-Try to implement the ../example3.cc, similar to ../impl_mater.cc and
+Try to implement ../example3.cc, similar to ../impl_mater.cc and
 ../impl_named.cc.
