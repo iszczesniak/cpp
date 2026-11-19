@@ -7,6 +7,10 @@ Initialization for built-in types.  Assignment for built in types.
 lvalue-to-rvalue conversion: referencing an lvalue to get the rvalue,
 i.e., a concrete value of the given type.
 
+There is no such thing as the rvalue-to-lvalue conversion: once we
+have a value, there is no way knowing where it came from, i.e.,
+getting back its locator (address).
+
 ***********************************************************************
 
 glvalue to prvalue:
