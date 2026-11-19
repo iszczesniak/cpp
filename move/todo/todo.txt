@@ -1,6 +1,12 @@
 As the move assignment can be overloaded for rvalues and lvalues, so
-can be the copy assignment.  Discuss this together with the move
+can be the copy assignment -- this is new functionality of the copy
+semantics offered by C++11.  Discuss this together with the move
 assignment: first the copy, then the move.
+
+********************************************************************
+
+Discuss the rules for special member functions, and how to formulate
+logicaly equivalent statements that are contrapositive.
 
 ********************************************************************
 
